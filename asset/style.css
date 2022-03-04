@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	font-family: 'Montserrat', sans-serif;
+	/*padding-bottom: 900px;*/
+}
+section {
+	padding-top: 6rem;
+}
+/*  NAVBAR */
+header {
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	padding: 5px;
+	box-sizing: border-box;
+	background-color: #202020;
+	position: fixed;
+	top: 0;
+	z-index: 9999;
+}
+.logo {
+	float: left;
+	padding: 10px 20px;
+	text-align: center;
+	box-sizing: border-box;
+	text-decoration: none;
+	font-size: 25px;
+	color: #ffff;
+	font-weight: bold;
+	transition: 0.3s;
+}
+.logo::before {
+	content: '';
+	position: absolute;
+	margin-top: 32px;
+	width: 110px;
+	height: 2px;
+	background-color: #FFFF33;
+	animation: anima 3s linear infinite;
+}
+@keyframes anima {
+	0%,100% {
+		transform: translateX(0);
+	}
+	50% {
+		transform: translateX(90px);
+	}
+
+}
+.hamburger {
+	display: none;
+}
+nav {
+	float: right;
+}
+nav ul {
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+nav ul li {
+	list-style: none;
+}
+nav ul li a {
+	display: block;
+	margin: 10px 5px;
+	padding: 10px 10px;
+	color: #ffff;
+	border-radius: 2px;
+	text-decoration: none;
+	transition:background-color ease-in 0.4s;
+}
+nav ul li a:hover,
+nav ul li a.active {
+	background-color: #FFFF00;
+	color: #202020;
+}
+.clear {
+	clear: both;
+}
+/* JUMBOTRON  */
+#jumbotron {
+	width: 100%;
+	background-image: url(../img/saya-2.jpg);
+	background-size: cover;
+	color: #ffff;
+	padding-top: 15rem;
+	position: relative;
+}
+#jumbotron h1 {
+	text-align: center;
+	position: relative;
+	padding-top: 2rem;
+	font-size: 60px;
+	font-weight: bold;
+	font-family: 'Staatliches', cursive;
+}
+#jumbotron h2 {
+	text-align: center;
+	position: relative;
+	font-size: 80px;
+	padding-bottom: 3rem;
+	letter-spacing: 3;
+	font-weight: bold;
+	font-family: 'Staatliches', cursive;
+
+}
+#jumbotron span {
+	color: #FFFF00;
+}
+#jumbotron button {
+	position: relative;
+	padding: 15px 25px;
+	border:none;
+	background-color: #FFFF00;
+	font-family: 'Staatliches', cursive;
+	color: #000;
+	display: block;
+	margin: 0 auto;
+	border-radius: 2px;
+	transition: 0.3s ease;
+	
+}
+#jumbotron button:hover {
+	transform: scale(1.3);
+	color: #ffff;
+}
+#jumbotron svg {
+	position: relative;
+}
+#jumbotron::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0,0.8);
+}
+
+/* ABOUT */
+#about {
+	width: 100%;
+	height: 500px;
+	margin-top: 9rem;
+}
+.a-img {
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	background-image: linear-gradient(to right, #FFFF00 50%, #E0E0E0 50%);
+	border-radius: 50%;
+	overflow: hidden;
+	z-index: 9;
+	position: relative;
+}
+.a-img::after {
+	content: '';
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	left: 0;
+	border: 5px solid #ffff;
+	background-color: transparent;
+	border-radius: 50%;
+	border-right-color: #FFFF00;
+	animation: puterin 2s linear infinite;
+}
+@keyframes puterin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+.a-1 h2 {
+	font-weight: 500;
+}
+.a-1 h2::before {
+	content: '';
+	position: absolute;
+	margin: 38px 30px;
+	width: 100px;
+	height: 5px;
+	background-image: linear-gradient(to left, #FFFF00 50%, #E0E0E0 50%);
+	border-radius: 2px;
+}
+.a-abt p {
+	padding-top: 10px;
+}
+/* PROJECT */
+#project h2 {
+	font-weight: 500;
+}
+#project .card {
+	transition: .5s ease;
+}
+#project .card:hover {
+	box-shadow: 0 5px 10px grey;
+}
+#project h2::before {
+	content: '';
+	position: absolute;
+	margin: 40px 38px;
+	width: 100px;
+	height: 5px;
+	background-image: linear-gradient(to left, #FFFF00 50%, #E0E0E0 50%);
+	border-radius: 2px;
+}
+/* SERTIVIKAT */
+/*.card-sertivikat {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 10px;
+	padding: 10px;
+}
+#sertivikat h2 {
+	font-weight: 500;
+}
+#sertivikat h2::before {
+	content: '';
+	position: absolute;
+	margin: 39px 24px;
+	width: 100px;
+	height: 5px;
+	background-image: linear-gradient(to left, #FFFF00 50%, #E0E0E0 50%);
+	border-radius: 2px;
+}
+.item-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  background-color: #FFFF00;
+}
+.card-sertivikat div {
+	background-color: rgba(255, 255, 255, 0.8);
+  	text-align: center;
+  	padding: 5px 0;
+  	font-size: 30px;
+}
+*//* SKILL */
+#skill h2 {
+	font-weight: 500;
+}
+#skill h2::before {
+	content: '';
+	position: absolute;
+	margin: 39px 12px;
+	width: 100px;
+	height: 5px;
+	background-image: linear-gradient(to left, #FFFF00 50%, #E0E0E0 50%);
+	border-radius: 2px;
+}
+#skill .card {
+	border: none;
+}
+/* KONTAK */
+#kontak {
+	background-color: #202020;
+	margin-top: -100px;
+}
+#kontak h2 {
+	color: #ffff;
+	font-weight: 500;
+}
+#kontak h2::before {
+	content: '';
+	position: absolute;
+	margin: 40px 38px;
+	width: 100px;
+	height: 5px;
+	background-image: linear-gradient(to left, #FFFF00 50%, #E0E0E0 50%);
+	border-radius: 2px;
+}
+#kontak input {
+	text-align: center;
+	display: block;
+	margin: 10px auto;
+	padding: 10px;
+	background-color: transparent;
+	border: 2px solid #FFFF00;
+	color: #ffff;
+	border-radius: 10px 2px 3px;
+}
+#kontak textarea {
+	margin: 0 auto;
+	margin-bottom: 10px;
+	background-color: transparent;
+	border: 2px solid #FFFF00;
+	color: #ffff;
+	border-radius: 10px 2px 3px;
+	display: block;
+}
+#kontak button {
+ padding: 8px 10px;
+ border: none;
+ background-color: #FFFF00;
+ margin: 0 auto;
+}
+#kontak .card {
+	margin-bottom: 20px;
+}
+.sosmed {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.sosmed h3 {
+	color: #000;
+	margin: 3px 20px;
+	margin-bottom: 9px;
+	cursor: pointer;
+}
+/* FOOTER */
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #282828;
+	color: #ffff;
+}
+footer p {
+	margin: 10px 0;
+}
+footer span {
+	color: #FFFF00;
+}
+/* RESPONSIVE */
+@media screen and (max-width: 1024px) {
+	.a-img {
+		width: 250px;
+		height: 250px;
+	}
+	.a-img::after {
+		width: 250px;
+		height: 250px;
+	}
+}
+@media screen and (max-width: 768px) {
+	/* NAVBAR */
+	nav {
+		display: none;
+	}
+	.hamburger {
+		display: block;
+		width: 40px;
+		height: 40px;
+		margin: 5px 5px;
+		float: right;
+		cursor: pointer;
+	}
+	.hamburger h3 {
+		float: right;
+		font-size: 40px;
+		color: #ffff;
+	}
+	nav.slide {
+		display: block;
+		width: 100%;
+	}
+	nav ul {
+		display: block;
+		margin-top: 20px;
+	}
+	nav ul li a {
+		text-align: left;
+	}
+	/* ABOUT */
+	.a-1 {
+		margin-top: 30px;
+	}
+	/* RPOJECT */
+	#project {
+		margin-top: 5rem;
+	}
+	/* SERTIVIKAT */
+/*	.card-sertivikat {
+		grid-template-columns: auto;
+			margin-bottom: 130px;
+	}
+	.item-1 img {
+		height: 300px;
+	}
+	.item-2 {
+	  grid-column-start: 1;
+	  grid-column-end: 3;
+	}
+	.item-2 img {
+		width: 750px;
+		height: 300px;
+	}
+	.item-3 {
+	  grid-column-start: 1;
+	  grid-column-end: 3;
+	}
+	.item-3 img {
+		width: 750px;
+		height: 300px;
+	}
+	.item-4 {
+	  grid-column-start: 1;
+	  grid-column-end: 3;
+	}
+	.item-4 img {
+		width: 750px;
+		height: 300px;
+	}
+	.item-5 {
+	  grid-column-start: 1;
+	  grid-column-end: 3;
+	}
+	.item-5 img {
+		width: 750px;
+		height: 300px;
+	}*/
+	#kontak button {
+		margin-top: 0px;
+	}
+@media screen and (max-width: 576px) {
+	/* NAVBAR */
+	.logo {
+		font-size: 20px;
+	}
+	.logo::before {
+		margin-top: 25px;
+	}
+	.logo.zoom {
+		font-size: 22px;
+	}
+	/* JUMBOTRON */
+	#jumbotron h1 {
+		font-size: 50px;
+	}
+	#jumbotron h2 {
+		font-size: 70px;
+	}
+	/* ABOUT */
+	#about {
+		margin-top: 150px;
+	}
+	.a-1 {
+		margin-top: 35px;
+	}
+	#about h2::before {
+		margin: 30px 11px;
+	}
+	/* RPOJECT */
+	#project {
+		margin-top: 15rem;
+	}
+	#project h2::before {
+		margin: 30px 18px;
+	}
+	/* SERTIVIKAT */
+/*	#sertivikat h2::before {
+		margin: 30px 6px;
+	}*/
+	/* SKILL */
+	#skill h2::before {
+		margin: 30px -1px;
+	}
+	#skill .card img {
+		margin: 0 auto;
+		width: 200px;
+		height: 200px;
+	}
+	/* KONTAK */
+	#kontak h2::before {
+		margin: 30px 25px;
+	}
+}
