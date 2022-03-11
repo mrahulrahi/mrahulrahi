@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: auto;
+    color: #121212;
+}
+
+.space {
+    height: 80px;
+}
+
+.nav-wrapper {
+    background-color: #ffff;
+    padding: 0 200px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-wrapper img {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px 0 0;
+}
+
+.nav-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-title li a:hover {
+    color: white;
+}
+
+.nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-list span {
+    display: flex;
+}
+
+.nav-list li a {
+    font-weight: bold;
+    display: block;
+    color: #121212;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-list li a:hover {
+    color: #FCAF3B;
+    background-color: #121212;
+}
+
+.container {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    display: block  ;
+    text-align: center;
+    position: relative;
+
+}
+
+.container img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.home-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container h1 {
+    font-size: 70px;
+    margin: 0 0 30px;
+
+}
+
+.container p {
+    font-size: 17px;
+    margin: 0 0 30px;
+}
+
+.btn-1 {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 16px 35px;
+    color: #121212;
+    background-color: #FCAF3B;
+    text-decoration: none;
+}
+
+.btn-2 {
+    font-size: 16px ;
+    font-weight: bold;
+    padding: 16px 35px;
+    color: #121212;
+    border: 2px solid #121212;
+    text-decoration: none;
+}
+
+#block {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    text-align: center;
+}
+
+.container-1 img {
+    margin: 0 0 30px;
+}
+
+.container-1 h3 {
+    font-size: 24px;
+    margin: 0 0 30px;
+
+}
+
+.container-1 p {
+    font-size: 17px;
+    margin: 0 60px 30px;
+
+}
+
+.contact-info, .about-info, .services-info, .team-info {
+    padding: 80px;
+    background-color: #121212;
+    color: white    ;
+}
+
+.about-us {
+    display: flex;
+}
+
+.web-design, .graphic-design {
+    display: flex ;
+}
+
+.app-design, .photography {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.user {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    text-align: center;
+    justify-content: center;    
+}
+
+.user-1, .user-2, .user-3 {
+    margin: 30px;
+}
+
+.user ul {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    padding: 30px;
+    background-color: #121212;
+    color: white    ;
+    text-align: center;
+    text-decoration: none;
+}
+
+/*--responsive for mobile phone--*/
+@media (min-width: 375px) {
+	.body {
+		width: 325px;
+		margin: 0 auto 1rem;
+	}
