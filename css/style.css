@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Readex+Pro:wght@300;400&display=swap');
+font-family: 'Barlow',
+sans-serif;
+font-family: 'Readex Pro',
+sans-serif;
+
+* {
+    margin: none;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-decoration: none;
+}
+
+/***** Navigation Section *****/
+
+.nav-wrapper {
+    padding: 4px;
+    background-color: white;
+    color: #18157C;
+    font-family: 'Barlow', sans-serif;
+    position: sticky;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.site-title {
+    margin: 0 2px 0 2px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.nav-list span {
+    display: flex;
+    font-size: 16px;
+}
+
+.nav-list li {
+    padding: 0 10px 0 10px;
+    cursor: pointer;
+    margin: 0 2px 0 2px;
+}
+
+.nav-list li:hover {
+    color: #999997;
+}
+
+.nav-list li a {
+    text-decoration: none;
+}
+
+
+
+/***** End Section *****/
+
+
+
+/***** Footer Section *****/
+
+footer span {
+    display: flex;
+    flex-direction: ;
+    font-family: 'Readex Pro', sans-serif;
+    justify-content: space-between;
+    margin: 0 500px 0 500px;
+    color: #18157C;
+}
+
+.social-link span {
+    display: flex;
+    flex-direction: column;
+}
+
+.social-link ul {
+    list-style-type: none;
+}
+
+.form span {
+    display: flex;
+    flex-direction: column;
+}
+
+.form ul {
+    list-style-type: none;
+}
+
+#email {
+    border: 1px solid #18157C;
+    padding: 10px 30px 10px 30px;
+    margin-right: 10px;
+}
+
+#submit {
+    background: #18157C;
+    color: white;
+    text-decoration: none;
+    padding: 10px 30px 10px 30px;
+}
+
+#email:hover {
+    border: 3px solid #18157C;
+}
+
+#submit:hover {
+    background-color: black;
+}
+
+/***** End Section *****/

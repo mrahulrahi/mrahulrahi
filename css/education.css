@@ -1,0 +1,24 @@
+.container {
+    font-family: 'Readex Pro', sans-serif;
+    background-color: #18157c;
+    opacity: 80%;
+    padding: 50px 300px 50px 300px;
+}
+
+.container h3 {
+    color: #EADE71;
+    font-size: 30px;
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+.container p {
+    color: white;
+    font-size: 20px;
+    text-align: justify;
+    margin-bottom: 60px;
+}
+#donate-btn {
+    background-color: #EADE71;
+    padding: 15px 30px;
+}

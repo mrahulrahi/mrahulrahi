@@ -1,0 +1,81 @@
+.container {
+    font-family: 'Readex Pro', sans-serif;
+    background-color: #18157c;
+    opacity: 80%;
+    padding: 50px 300px 50px 300px;
+}
+
+.container h3 {
+    color: #EADE71;
+    font-size: 30px;
+    text-align: justify;
+    margin-bottom: 30px;
+}
+
+.container p {
+    color: white;
+    font-size: 20px;
+    text-align: justify;
+    margin-bottom: 60px;
+}
+
+.bar {
+    
+    display: flex;
+    margin-bottom: 30px;
+    font-family: 'Readex Pro', sans-serif;
+    color: white;
+}
+
+.bar ul {
+    list-style-type: none;
+    margin: 40px;
+}
+
+.bar li {
+    margin-bottom: 25px;
+}
+
+.bar-head {
+    font-size: 25px;
+}
+
+.bar-text {
+    font-size: 16px;
+}
+
+.bar-img {
+    width: 30px;
+}
+
+.bar-img:hover {
+    width: 25px;
+}
+
+#about {
+    padding-top: 60px;
+    width: 650px;
+    height: 300px;
+    background-color: hsl(242, 71%, 28%, 0.5);
+}
+
+#update {
+    padding-top: 60px;
+    width: 650px;
+    height: 300px;
+    background-color: hsl(0, 0%, 0%, 0.5);
+}
+
+#team {
+    padding-top: 60px;
+    width: 650px;
+    height: 300px;
+    background-color: rgba(31, 150, 20, 0.5);
+}
+
+#work {
+    padding-top: 60px;
+    width: 650px;
+    height: 300px;
+    background-color: rgba(141, 23, 156, 0.5);
+}

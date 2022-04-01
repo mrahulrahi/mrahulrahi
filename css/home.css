@@ -1,0 +1,91 @@
+/***** Content Section *****/
+
+.container {
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1 {
+    font-size: 100px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 900;
+    text-align: center;
+    color: #18157C;
+}
+
+h4 {
+    font-size: 60px;
+    font-family: 'Readex Pro', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    color: #18157C;
+}
+
+.bar {
+    display: flex;
+    margin-bottom: 30px;
+    font-family: 'Readex Pro', sans-serif;
+    color: white;
+}
+
+.bar ul {
+    list-style-type: none;
+    margin: 40px;
+}
+
+.bar li {
+    margin-bottom: 25px;
+}
+
+.bar-head {
+    font-size: 25px;
+}
+
+.bar-text {
+    font-size: 16px;
+}
+
+.bar-img {
+    width: 30px;
+}
+
+.bar-img:hover {
+    width: 25px;
+}
+
+#about {
+    width: 475px;
+    height: 281px;
+    background-color: hsl(242, 71%, 28%, 0.5);
+}
+
+#update {
+    width: 475px;
+    height: 281px;
+    background-color: hsl(0, 0%, 0%, 0.5);
+}
+
+#team {
+    width: 475px;
+    height: 281px;
+    background-color: rgba(31, 150, 20, 0.5);
+}
+
+#work {
+    width: 475px;
+    height: 281px;
+    background-color: rgba(141, 23, 156, 0.5);
+}
+
+
+/***** End Section *****/
