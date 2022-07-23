@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @fireliquidator
+- 👋 Hi, I’m Rahul Maurya
 - 👀 I’m interested in Web Development
 - 🌱 I’m currently learning Full stack web development
 - 💞️ I’m looking to collaborate on ...
