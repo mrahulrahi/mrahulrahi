@@ -8,7 +8,7 @@
 
 - 🌱 I’m currently learning **Java**
 
-- 👨‍💻 All of my projects are available at [https://varnikatyagii927.github.io/](https://varnikatyagii927.github.io/)
+- 👨‍💻 All of my projects are available at [https://github.com/mrahulrahi/](https://github.com/mrahulrahi)/)
 
 - 📫 How to reach me **varnikatyagi927@gmail.com**
 
