@@ -60,4 +60,4 @@
   </p>
 </p>
  
-<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&locale=en&theme=nightowl" alt="mrahulrahi"  height="150" width="900" /></p>
+<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&theme=nightowl" alt="mrahulrahi"  height="150" width="900" /></p>
