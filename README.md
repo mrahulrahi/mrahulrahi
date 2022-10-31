@@ -55,5 +55,6 @@
 </p>
 
 <p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi"  height="200" width="1000" /></p>
-<img src="https://github-readme-stats.vercel.app/api/pin/?username=mrahulrahi&repo=github-readme-stats" />
+[![willianrod's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=mrahulrahi)](https://github.com/anuraghazra/github-readme-stats)
+
 
