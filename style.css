@@ -156,11 +156,17 @@ body {
 
 .web-design, .graphic-design {
     display: flex ;
+    flex-direction: column;
 }
 
 .app-design, .photography {
     display: flex;
     flex-direction: row-reverse;
+}
+
+article {
+    display: flex;
+    flex-direction: row;
 }
 
 .user {
