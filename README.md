@@ -4,7 +4,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=mrahulrahi&label=Profile%20views&color=0e75b6&style=flat" alt="mrahurahi" /> </p>
 
-<p align="left"> <a href="https://www.linkedin.com/in/mrahulrahi/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="mrahulrahi" /></a> </p>
+<p align="left"> <a href="https://www.linkedin.com/in/mrahulrahi/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="mrahulrahi" height="30" width="40"  /></a> </p>
 
 - 🌱 I’m currently learning **Full Stack Development**
 
