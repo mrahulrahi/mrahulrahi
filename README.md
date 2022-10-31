@@ -61,5 +61,5 @@
 </p>
  
 
-<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi"  height="400" width="1000" /></p>
+<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi"  height="300" width="1000" /></p>
 
