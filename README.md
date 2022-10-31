@@ -50,10 +50,10 @@
 
 <p>
   <p align="left">
-  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi"  height="200" width="500" /></P>
+  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi"  height="200" width="450" /></P>
   <p align="right">
-  &nbsp;<img align="right" src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi" height="200" width="500" />
-  <img align="right" src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=tokyonight" alt="mrahulrahi"  height="200" width="500" />
+  &nbsp;<img align="right" src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi" height="200" width="450" />
+  <img align="right" src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=tokyonight" alt="mrahulrahi"  height="200" width="450" />
     </p>
 </p>
  
