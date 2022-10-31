@@ -145,8 +145,10 @@ body {
 }
 
 .contact-info, .about-info, .services-info, .team-info {
-    padding: 80px;
+    padding: 7.5em;
     background-color: #121212;
+    display: flex;
+    flex-direction: row;
     color: white    ;
 }
 
@@ -155,18 +157,35 @@ body {
 }
 
 .web-design, .graphic-design {
+    padding: 7.5em;
     display: flex ;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #ededed;
 }
 
 .app-design, .photography {
+    padding: 7.5em;
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
 }
 
-article {
+.text-container {
+    padding: 10em;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.text-container h3{
+    font-size: 3em;
+}
+
+.text-container p {
+    padding: 2em 0em;
 }
 
 .user {
