@@ -51,7 +51,7 @@
 <p>
   <p align="left">
   <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi"
-       height="400" width="300" />
+       height="400" width="350" />
   </p>
   <p align="right">
   &nbsp;<img src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi" height="200" width="450"
