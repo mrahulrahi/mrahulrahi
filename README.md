@@ -55,6 +55,6 @@
 </p>
 
 <p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi"  height="200" width="1000" /></p>
-[![willianrod's wakatime stats](https://github-readme-stats.vercel.app/api/wakatime?username=mrahulrahi)](https://github.com/anuraghazra/github-readme-stats)
-<img align="right" src="https://github-readme-stats.vercel.app/api/wakatime?username=mrahulrahi" alt="mrahulrahi"  height="200" width="500" />
+
+<img align="right" src="https://github-readme-stats.vercel.app/api/wakatime?username=willianrod" alt="mrahulrahi"  height="200" width="500" />
 
