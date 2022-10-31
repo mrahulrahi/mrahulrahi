@@ -48,13 +48,15 @@
 
 [![Rahul's GitHub activity graph](https://activity-graph.herokuapp.com/graph?username=mrahulrahi&&theme=xcode)](https://github.com/mrahulrahi)
 
-<p align="left">
-  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi"  height="400" width="500" />
-</p>
- <p align="right">
+<p>
+  <p align="left">
+  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi"  height="400" width="500" /></P>
+  <p align="right">
   &nbsp;<img align="right" src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi" height="200" width="500" />
   <img align="right" src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=tokyonight" alt="mrahulrahi"  height="200" width="500" />
     </p>
+</p>
+ 
 
 <p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi"  height="200" width="1000" /></p>
 
