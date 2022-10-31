@@ -59,4 +59,4 @@
   </p>
 </p>
  
-<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&theme=vue-dark" alt="tokyonight"  height="150" width="900" /></p>
+<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&theme=onedark" alt="tokyonight"  height="150" width="900" /></p>
