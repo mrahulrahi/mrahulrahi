@@ -1,7 +1,7 @@
-[![MasterHead](https://1.bp.blogspot.com/-7A4WynwLsMw/XbBpCXG8fHI/AAAAAAAAMt4/uOa1bpLskYgrwGbllhSu2SDj_Mig8SXJQCLcBGAsYHQ/s1600/2000_600px.gif)](https://rishavchanda.io)
+[![MasterHead](https://camo.githubusercontent.com/c1dcb74cc1c1835b1d716f5051499a2814c683c806b15f04b0eba492863703e9/68747470733a2f2f63646e2e6472696262626c652e636f6d2f75736572732f3733303730332f73637265656e73686f74732f363538313234332f6176656e746f2e676966)](https://rishavchanda.io)
 <h1 align="center">Hi 👋, I'm Rahul Maurya</h1>
 <h3 align="center">A passionate Frontend developer from India</h3>
-<img align="right" src="https://camo.githubusercontent.com/c1dcb74cc1c1835b1d716f5051499a2814c683c806b15f04b0eba492863703e9/68747470733a2f2f63646e2e6472696262626c652e636f6d2f75736572732f3733303730332f73637265656e73686f74732f363538313234332f6176656e746f2e676966" height="300" width="400" />
+<img align="right" src="" height="300" width="400" />
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=mrahulrahi&label=Profile%20views&color=0e75b6&style=flat" alt="mrahurahi" /> </p>
 
 - 🌱 I’m currently learning **Full Stack Development**
