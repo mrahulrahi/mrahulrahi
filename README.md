@@ -1,16 +1,16 @@
 -<h1 align="center">Hi 👋, I'm Rahul Maueya</h1>
-<h3 align="center">A passionate frontend developer from India</h3>
+<h3 align="center">A passionate Frontend developer from India</h3>
 <img align="right" alt="Coding" width="400" src="https://cdn.dribbble.com/users/4055494/screenshots/15215756/media/d2b66c4ca0192aa26d103448b3d1518b.gif" alt="">
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=varnikatyagii927&label=Profile%20views&color=0e75b6&style=flat" alt="varnikatyagii927" /> </p>
 
-<p align="left"> <a href="https://twitter.com/varnika94995200" target="blank"><img src="https://img.shields.io/twitter/follow/varnika94995200?logo=twitter&style=for-the-badge" alt="varnika94995200" /></a> </p>
+<p align="left"> <a href="https://www.linkedin.com/in/mrahulrahi/" target="blank"><img src="https://img.shields.io/twitter/follow/varnika94995200?logo=twitter&style=for-the-badge" alt="mrahulrahi" /></a> </p>
 
-- 🌱 I’m currently learning **Java**
+- 🌱 I’m currently learning **Full Stack Development**
 
 - 👨‍💻 All of my projects are available at [https://github.com/mrahulrahi/](https://github.com/mrahulrahi)/)
 
-- 📫 How to reach me **varnikatyagi927@gmail.com**
+- 📫 How to reach me **mrahulrahi@gmail.com**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
