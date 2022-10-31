@@ -48,7 +48,7 @@
 
 [![Rahul's GitHub activity graph](https://activity-graph.herokuapp.com/graph?username=mrahulrahi&&theme=xcode)](https://github.com/mrahulrahi)
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi"  height="200" width="500" /></p>
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi"  height="0" width="500" /></p>
 
 <p>&nbsp;<img align="right" src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi" height="200" width="500" /></p>
 
