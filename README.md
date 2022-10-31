@@ -52,8 +52,8 @@
   <p align="left">
   <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi"  height="400" width="400" /></P>
   <p align="right">
-  &nbsp;<img align="right" src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi" height="225" width="400" />
-  <img align="right" src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=tokyonight" alt="mrahulrahi"  height="225" width="400" />
+  &nbsp;<img src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi" height="225" width="400" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=tokyonight" alt="mrahulrahi"  height="225" width="400" />
     </p>
 </p>
  
