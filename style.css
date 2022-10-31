@@ -144,11 +144,28 @@ body {
 
 }
 
-.contact-info, .about-info, .services-info, .team-info {
+.contact-info, .about-info, .services-info {
     padding: 7.5em;
     background-color: #121212;
     display: flex;
+    flex-direction: column;
+    color: white    ;
+}
+
+#contact {
+    display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #121212;
+    color: white;
+}
+
+.team-info {
+    padding: 7.5em;
+    display: flex;
+    flex-direction: row;
+    background-color: #121212;
     color: white    ;
 }
 
@@ -213,12 +230,35 @@ body {
     justify-content: center;
 }
 
+.user ul li a {
+    text-decoration: none;
+}
+
+.contact-form {
+    padding: 7.5em;
+}
+
+.form-control {
+    width: 35em;
+    height: 4em;
+}
+
+.mb-3 p {
+    padding-top: 1em;
+    padding-bottom: 0.1em;
+}
+
 footer {
     padding: 30px;
     background-color: #121212;
     color: white    ;
     text-align: center;
     text-decoration: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: #FCAF3B;
 }
 
 /*--responsive for mobile phone--*/
