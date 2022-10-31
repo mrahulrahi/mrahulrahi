@@ -54,7 +54,7 @@
        height="400" width="380" />
   </p>
   <p align="right">
-  &nbsp;<img src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&theme=onedark" alt="mrahulrahi" height="200" width="420" />
+  &nbsp;<img src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&theme=omni" alt="mrahulrahi" height="200" width="420" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&theme=omni" alt="mrahulrahi"  height="200" width="420" />
   </p>
 </p>
