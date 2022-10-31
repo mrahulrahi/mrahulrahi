@@ -60,6 +60,4 @@
   </p>
 </p>
  
-
-<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi"  height="150" width="900" /></p>
-
+<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi"  height="150" width="900" /></p>
