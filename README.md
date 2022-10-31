@@ -52,7 +52,7 @@
 
 <p>&nbsp;<img align="left" src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi" height="300" width="1000" /></p>
 
-<p><img align="left" src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=tokyonight" alt="mrahulrahi"  height="300" width="900" /></p>
+<p><img align="left" src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=tokyonight" alt="mrahulrahi"  height="300" width="1000" /></p>
 
 <p><img align="left" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi"  height="300" width="1000" /></p>
 
