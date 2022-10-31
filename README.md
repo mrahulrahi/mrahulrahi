@@ -47,21 +47,17 @@
 </p>
 
 [![Rahul's GitHub activity graph](https://activity-graph.herokuapp.com/graph?username=mrahulrahi&&theme=xcode)](https://github.com/mrahulrahi)
- <p align="left">
-  <img align="left" src="https://activity-graph.herokuapp.com/graph?username=mrahulrahi&theme=codeSTACKr" alt="mrahulrahi"
-       height="400" width="380" />
-  </p>
 
 <p>
   <p align="left">
-  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&theme=codeSTACKr" alt="mrahulrahi"
+  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&theme=xcode" alt="mrahulrahi"
        height="400" width="380" />
   </p>
   <p align="right">
-  &nbsp;<img src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=codeSTACKr" alt="mrahulrahi" height="200" width="420"
+  &nbsp;<img src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=xcode" alt="mrahulrahi" height="200" width="420"
              />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=codeSTACKr" alt="mrahulrahi"  height="200" width="420" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=xcode" alt="mrahulrahi"  height="200" width="420" />
   </p>
 </p>
  
-<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&theme=codeSTACKr" alt="mrahulrahi"  height="150" width="900" /></p>
+<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&theme=xcode" alt="mrahulrahi"  height="150" width="900" /></p>
