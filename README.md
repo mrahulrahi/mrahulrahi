@@ -47,6 +47,10 @@
 </p>
 
 [![Rahul's GitHub activity graph](https://activity-graph.herokuapp.com/graph?username=mrahulrahi&&theme=xcode)](https://github.com/mrahulrahi)
+ <p align="left">
+  <img align="left" src="https://activity-graph.herokuapp.com/graph?username=mrahulrahi&theme=codeSTACKr" alt="mrahulrahi"
+       height="400" width="380" />
+  </p>
 
 <p>
   <p align="left">
