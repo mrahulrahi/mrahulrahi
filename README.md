@@ -50,14 +50,14 @@
 
 <p>
   <p align="left">
-  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&theme=aura " alt="mrahulrahi"
+  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&theme=omni  " alt="mrahulrahi"
        height="400" width="380" />
   </p>
   <p align="right">
-  &nbsp;<img src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=aura " alt="mrahulrahi" height="200" width="420"
+  &nbsp;<img src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=omni  " alt="mrahulrahi" height="200" width="420"
              />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&theme=aura " alt="mrahulrahi"  height="200" width="420" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&theme=omni  " alt="mrahulrahi"  height="200" width="420" />
   </p>
 </p>
  
-<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&theme=aura " alt="mrahulrahi"  height="150" width="900" /></p>
+<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&theme=omni  " alt="mrahulrahi"  height="150" width="900" /></p>
