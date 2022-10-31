@@ -54,9 +54,9 @@
        height="400" width="400" />
   </p>
   <p align="right">
-  &nbsp;<img src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi" height="220" width="400"
+  &nbsp;<img src="https://github-readme-stats.vercel.app/api?username=mrahulrahi&show_icons=true&locale=en&theme=tokyonight" alt="mrahulrahi" height="210" width="400"
              />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=tokyonight" alt="mrahulrahi"  height="220" width="400" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&&theme=tokyonight" alt="mrahulrahi"  height="210" width="400" />
   </p>
 </p>
  
