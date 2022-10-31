@@ -35,7 +35,7 @@
 
 [![Rahul's GitHub activity graph](https://activity-graph.herokuapp.com/graph?username=mrahulrahi&&theme=xcode)](https://github.com/mrahulrahi)
 
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi" /></p>
+<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi"  height="350" width="550" /></p>
 
 <p align="right"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&show_icons=true&locale=en&layout=compact&theme=tokyonight" alt="mrahulrahi" /></a> </p>
 
