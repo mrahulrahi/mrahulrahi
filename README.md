@@ -6,7 +6,7 @@
 
 - 🌱 I’m currently learning **Full Stack Development**
 
-- 👨‍💻 All of my projects are available at [https://github.com/mrahulrahi/](https://github.com/mrahulrahi)/)
+- 👨‍💻 All of my projects are available at [https://github.com/mrahulrahi/](https://github.com/mrahulrahi))
 
 - 📫 How to reach me **mrahulrahi@gmail.com**
 
