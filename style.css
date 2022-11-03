@@ -30,6 +30,7 @@ body {
 #nav-title {
     font-size: 1.75em;
     font-weight: bold;
+    line-height: 2.5em;
     background-color: #121212;
     padding: 3em 1em 2em 1em;
     color: #FCAF3B;
@@ -60,6 +61,7 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    margin-top: .5em;
 }
 
 .menu-items:hover {
