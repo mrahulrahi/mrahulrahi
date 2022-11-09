@@ -60,7 +60,7 @@
     /********* Footer style **********/
 	footer{
 		font-size: 12px;
-		justify-content: center;
+		text-align: center;
 		color: hsl(178, 100%, 50%);
 	}
   /********** Large devices only **********/
