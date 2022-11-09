@@ -60,9 +60,8 @@
     /********* Footer style **********/
 	footer{
 		font-size: 12px;
-		text-align: center;
+		justify-content: center;
 		color: hsl(178, 100%, 50%);
-		align-item :center;
 	}
   /********** Large devices only **********/
   @media (min-width: 992px) {  
