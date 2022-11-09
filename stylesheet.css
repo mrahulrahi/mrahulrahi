@@ -59,9 +59,10 @@
      }
     /********* Footer style **********/
 	footer{
-		font-size: 12px;
+		font-size: 20px;
 		text-align: center;
-		color: hsl(178, 100%, 50%);
+		color: darkgreen;
+		text-decoration: none;
 	}
   /********** Large devices only **********/
   @media (min-width: 992px) {  
