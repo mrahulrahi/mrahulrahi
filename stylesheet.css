@@ -60,13 +60,14 @@
     /********* Footer style **********/
 	footer {
 		font-size: 20px;
-		text-align: center;
 		position: fixed;
-		bottom: 0;
+		bottom: 5%;
+		left: 50%;
+		transform: translate(-50%, 0);
 	}
 	a {
 		color: darkgreen;
-			text-decoration: none;
+		text-decoration: none;
 	}
   /********** Large devices only **********/
   @media (min-width: 992px) {  
