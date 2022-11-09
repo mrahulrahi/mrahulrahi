@@ -257,8 +257,6 @@ input{
 footer {
     background-color: #4caf50;;
     font-size: 20px;
-	position: fixed;
-	bottom: 0;
 	padding: 0 auto;
 }
 
