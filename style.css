@@ -6,7 +6,7 @@
 }
 
 body {
-    font-size: 100%;
+    font-size: 16px;
     margin: auto;
     color: #121212;
 }
@@ -79,18 +79,18 @@ body {
 }
 
 .container h1 {
-    font-size: 5em;
+    font-size: 6vw;
     margin: 0 0 30px;
 
 }
 
 .container p {
-    font-size: 17px;
+    font-size: 1rem;
     margin: 0 0 30px;
 }
 
 .btn-1 {
-    font-size: 16px;
+    font-size: 1rem;
     font-weight: bold;
     padding: 16px 35px;
     color: #121212;
