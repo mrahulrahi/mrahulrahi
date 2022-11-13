@@ -24,11 +24,19 @@
     color: #18157C;
 }
 
+.contact-form span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .contact-info {
     display: flex;
     flex-direction: row;
-    list-style: none;
 }
+ li {
+    list-style: none;
+ }
 
 #form-name, #form-email {
     background-color: #18157c;
@@ -60,6 +68,11 @@
     width: 407px;
     height: 46px;
 }
+
+#form-message ::placeholder  {
+    color: white;
+} /* Chrome, Firefox, Opera, Safari 10.1+ */
+   
 
 #form-name:hover, #form-email:hover, #form-subject:hover, #form-message:hover {
     border-bottom: 3px solid white;
