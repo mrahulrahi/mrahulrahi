@@ -76,6 +76,10 @@ footer span {
     color: #18157C;
 }
 
+.social-link {
+    min-width: 50vw;
+}
+
 .social-link span {
     display: flex;
     flex-direction: column;
@@ -83,6 +87,13 @@ footer span {
 
 .social-link ul {
     list-style-type: none;
+}
+
+.form {
+    min-width: 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .form span {
