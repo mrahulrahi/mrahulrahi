@@ -2,7 +2,11 @@
     font-family: 'Readex Pro', sans-serif;
     background-color: #18157c;
     opacity: 80%;
-    padding: 50px 300px 50px 300px;
+    padding: 50px ;
+}
+
+.about {
+    padding: 50px 300px;
 }
 
 .about h3 {
@@ -19,12 +23,13 @@
     margin-bottom: 60px;
 }
 
-.bar {
-    
+.bar {  
     display: flex;
+    flex-direction: row;
     margin-bottom: 30px;
     font-family: 'Readex Pro', sans-serif;
     color: white;
+    width: 100%;
 }
 
 .bar ul {
@@ -52,28 +57,28 @@
     width: 25px;
 }
 
-#about {
+#education {
     padding-top: 60px;
-    width: 50vw;
+    width: 50%;
     height: 300px;
-    background-color: hsl(242, 71%, 28%, 0.5);
+    background-color: hsl(248, 71%, 28%, 0.5);
 }
 
-#update {
+#food {
     padding-top: 60px;
-    width: 50vw;
+    width: 50%;
     height: 300px;
     background-color: hsl(0, 0%, 0%, 0.5);
 }
 
-#team {
+#health {
     padding-top: 60px;
     width: 50vw;
     height: 300px;
     background-color: rgba(31, 150, 20, 0.5);
 }
 
-#work {
+#tree {
     padding-top: 60px;
     width: 50vw;
     height: 300px;
