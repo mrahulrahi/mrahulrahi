@@ -2,31 +2,32 @@
     font-family: 'Readex Pro', sans-serif;
     background-color: #18157c;
     opacity: 80%;
-    padding: 50px 400px 50px 400px;
+    display: flex;
+    flex-direction: column;
 }
 
 .contact h3 {
     color: #EADE71;
-    font-size: 25px;
+    font-size: 1.75vw;
 }
 
 .contact h1 {
     color: white;
-    font-size: 110px;
+    font-size: 7vw;
 }
 
 .contact span {
     display: flex;
-    flex-direction: ;
+    flex-direction: row;
     font-family: 'Readex Pro', sans-serif;
-    justify-content: space-between;
-    margin: 0 500px 0 500px;
+    justify-content: space-around;
     color: #18157C;
 }
 
 .contact-info {
     display: flex;
     flex-direction: row;
+    list-style: none;
 }
 
 #form-name, #form-email {
