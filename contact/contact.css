@@ -97,6 +97,10 @@ input:focus {
     text-decoration: none;
 }
 
+#donate-btn:hover {
+    opacity: 80%;
+}
+
 #form-submit:hover {
     background-color: black;
     color: white;
