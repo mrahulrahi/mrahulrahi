@@ -65,11 +65,13 @@ li {
 }
 
 #form-submit {
-    background-color: darkblue;
-    color: white;
+    background-color: #EADE71;
+    color: #18157C;
     width: 407px;
     height: 46px;
     font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 input::placeholder {
@@ -97,6 +99,7 @@ input:focus {
 
 #form-submit:hover {
     background-color: black;
+    color: white;
 }
 
 .social-links {
