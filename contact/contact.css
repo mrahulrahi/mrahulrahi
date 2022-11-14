@@ -49,7 +49,7 @@ li {
     color: white;
     border-bottom: 1px solid white;
     width: 190px;
-    height: 42px;   
+    height: 42px;  
 }
 
 #form-subject {
@@ -58,6 +58,10 @@ li {
     border-bottom: 1px solid white;
     width: 407px;
     height: 42px;
+}
+
+input:focus {
+    outline: none;
 }
 
 #form-message {
@@ -78,7 +82,7 @@ li {
 input::placeholder {
     color: white;
     font-weight: 100;
-    padding-left: 5px;
+    text-align: center;
 }   
 
 #form-name:hover, #form-email:hover, #form-subject:hover, #form-message:hover {
