@@ -3,3 +3,17 @@
     height: 100vh;
     background-color: #18157c;
 }
+
+.update-title {
+    padding: 20px 200px;
+}
+.update-title h3 {
+    color: #EADE71;
+    font-size: 1.75vw;
+}
+
+.update-title h1 {
+    color: white;
+    font-size: 6vw;
+    line-height: 10px;
+}
