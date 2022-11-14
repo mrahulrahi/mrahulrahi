@@ -6,14 +6,22 @@
     flex-direction: column;
 }
 
-.contact h3 {
+.contact-title {
+    padding: 20px 200px;
+    line-space: 10px;
+}
+
+
+
+.contact-title h3 {
     color: #EADE71;
     font-size: 1.75vw;
 }
 
-.contact h1 {
+.contact-title h1 {
     color: white;
-    font-size: 7vw;
+    font-size: 6vw;
+    line-height: 10px;
 }
 
 .contact span {
