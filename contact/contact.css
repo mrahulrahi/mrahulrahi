@@ -92,6 +92,8 @@ input:focus {
 
 #donate-btn {
     background-color: #EADE71;
+    padding: 10px 15px;
+    text-decoration: none;
 }
 
 #form-submit:hover {
@@ -100,4 +102,8 @@ input:focus {
 
 .social-links {
     color: white;
+}
+
+.social-links ul {
+    padding-bottom: 20px;
 }
