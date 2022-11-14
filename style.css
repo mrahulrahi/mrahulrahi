@@ -78,6 +78,7 @@ footer span {
 
 .social-link {
     min-width: 50vw;
+    cursor: pointer;
 }
 
 .social-link span {
