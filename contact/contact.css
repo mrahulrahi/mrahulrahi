@@ -60,10 +60,6 @@ li {
     height: 42px;
 }
 
-input:focus {
-    outline: none;
-}
-
 #form-message {
     background-color: #18157c;
     color: white;
@@ -83,7 +79,12 @@ input::placeholder {
     color: white;
     font-weight: 100;
     text-align: center;
-}   
+} 
+
+input:focus {
+    outline: none;
+    border-style: none;
+}
 
 #form-name:hover, #form-email:hover, #form-subject:hover, #form-message:hover {
     border-bottom: 3px solid white;
