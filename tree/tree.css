@@ -11,7 +11,7 @@
     margin-bottom: 30px;
 }
 
-.container p {
+.container p,.container ul,.container q {
     color: white;
     font-size: 20px;
     text-align: justify;
