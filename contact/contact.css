@@ -8,11 +8,7 @@
 
 .contact-title {
     padding: 20px 200px;
-    line-space: 10px;
 }
-
-
-
 .contact-title h3 {
     color: #EADE71;
     font-size: 1.75vw;
@@ -41,8 +37,10 @@
 .contact-info {
     display: flex;
     flex-direction: row;
+    padding: 50px 0;
 }
- li {
+
+li {
     list-style: none;
  }
 
@@ -77,7 +75,13 @@
     height: 46px;
 }
 
-#form-message ::placeholder  {
+input:placeholder-shown {
+    border-color: teal;
+    color: white;
+    font-style: bold;
+  }
+
+#form-message ::placeholder-shown  {
     color: white;
 } /* Chrome, Firefox, Opera, Safari 10.1+ */
    
