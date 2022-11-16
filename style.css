@@ -224,8 +224,13 @@ body {
     list-style-type: none;
 }
 
+.contact-info span{
+    font-size: 1em;
+
+}
+
 .contact-form {
-    padding: 7em;
+    padding: 7.5em;
 }
 
 .contact-form span {
