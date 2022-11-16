@@ -145,6 +145,10 @@ body {
     font-size: 2em;
 }
 
+.contact-info span {
+    font-size: 1em;
+}
+
 #contact {
     display: flex;
     flex-direction: row;
@@ -222,11 +226,6 @@ body {
     display: flex;
     justify-content: center;
     list-style-type: none;
-}
-
-.contact-info span{
-    font-size: 1em;
-
 }
 
 .contact-form {
