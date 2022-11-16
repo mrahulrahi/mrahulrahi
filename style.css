@@ -142,11 +142,11 @@ body {
     flex-direction: column;
     color: white    ;
     gap: 1em;
-    font-size: 2em;
+    font-size: 1em;
 }
 
-.contact-info span {
-    font-size: 1em;
+.contact-info h2 {
+    font-size: 2em;
 }
 
 #contact {
