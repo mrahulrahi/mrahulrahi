@@ -135,7 +135,7 @@ body {
 
 }
 
-.contact-info, .about-info, .services-info {
+.contact-info, .about-info, .services-info, .team-info {
     padding: 7.5em;
     background-color: #121212;
     display: flex;
@@ -158,12 +158,8 @@ body {
     color: white;
 }
 
-.about-us, .team-info {
-    padding: 7.5em;
+.about-us {
     display: flex;
-    flex-direction: row;
-    background-color: #121212;
-    color: white    ;
 }
 
 .web-design, .graphic-design {
