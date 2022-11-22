@@ -141,12 +141,16 @@ body {
     display: flex;
     flex-direction: column;
     color: white    ;
-    gap: 1em;
-    font-size: 2em;
-    text-align: center;
+    gap: 1em;   
+} 
+
+.about-info h3, .services-info h3, .team-info h3 {
+    background-color: #FCAF3B;
+    color: #121212;
+    padding: 1em;
+    font-size: 3em;
+    text-align: center;   
 }
-
-
 
 .contact-info h2 {
     font-size: 2em;
