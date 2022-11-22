@@ -136,13 +136,14 @@ body {
 }
 
 .contact-info, .about-info, .services-info, .team-info {
-    padding: 7.5em;
+    padding: 3em 7.5em;
     background-color: #121212;
     display: flex;
     flex-direction: column;
     color: white    ;
     gap: 1em;
-    font-size: 1em;
+    font-size: 2em;
+    text-align: center;
 }
 
 .contact-info h2 {
