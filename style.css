@@ -152,6 +152,11 @@ body {
     text-align: center;   
 }
 
+#contact h1 {
+    font-size: 3em;
+    text-align: center;
+}
+
 .contact-info h2 {
     font-size: 2em;
 }
