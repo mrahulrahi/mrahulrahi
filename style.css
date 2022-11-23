@@ -179,6 +179,7 @@ body {
     padding: 7.5em;
     display: flex ;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background-color: #ededed;
@@ -188,6 +189,7 @@ body {
     padding: 7.5em;
     display: flex;
     flex-direction: row-reverse;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
@@ -214,6 +216,7 @@ body {
     right: 0;
     z-index: 1;
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
     justify-content: center;    
 }
