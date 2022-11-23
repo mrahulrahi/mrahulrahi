@@ -179,19 +179,19 @@ body {
     padding: 7.5em;
     display: flex ;
     flex-direction: row;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     background-color: #ededed;
+    width: 100%;
 }
 
 .app-design, .photography {
     padding: 7.5em;
     display: flex;
     flex-direction: row-reverse;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    flex-basis: 100%;
 }
 
 .text-container {
