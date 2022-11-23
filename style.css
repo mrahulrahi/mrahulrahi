@@ -182,7 +182,7 @@ body {
     align-items: center;
     justify-content: center;
     background-color: #ededed;
-    width: 100%;
+    flex-basis: 100%;
 }
 
 .app-design, .photography {
