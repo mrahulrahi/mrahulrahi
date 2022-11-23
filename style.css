@@ -32,6 +32,7 @@ body {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -80,13 +81,13 @@ body {
 
 .container h1 {
     font-size: 6vw;
-    margin: 0 0 30px;
+    margin: 0 0 2em;
 
 }
 
 .container p {
     font-size: 1rem;
-    margin: 0 0 30px;
+    margin: 0 0 2em;
 }
 
 .btn-1 {
@@ -115,6 +116,7 @@ body {
     right: 0;
     z-index: 1;
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
     padding: 7.53em;
 }
@@ -174,7 +176,8 @@ body {
 
 .about-us {
     display: flex;
-    margin: 2em;
+    flex-wrap: wrap;
+    margin: 3em;
 }
 
 .web-design, .graphic-design {
