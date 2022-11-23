@@ -144,7 +144,7 @@ body {
     gap: 1em;   
 } 
 
-.about-info h3, .services-info h3, .team-info h3 {
+.about-info h3, .services-info h3, .team-info h3, .contact-info h3 {
     background-color: #FCAF3B;
     color: #121212;
     padding: 1em;
@@ -152,12 +152,7 @@ body {
     text-align: center;   
 }
 
-#contact h1 {
-    font-size: 3em;
-    text-align: center;
-}
-
-.contact-info h2 {
+.contact-details h4 {
     font-size: 2em;
 }
 
