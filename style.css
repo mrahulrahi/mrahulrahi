@@ -144,6 +144,11 @@ body {
     gap: 1em;   
 } 
 
+.contact-info {
+    width: 100%;
+    max-width: 100%;
+}
+
 .about-info h3, .services-info h3, .team-info h3, .contact-info h3 {
     background-color: #FCAF3B;
     color: #121212;
