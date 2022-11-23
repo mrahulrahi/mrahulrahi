@@ -118,22 +118,27 @@ body {
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    padding: 7.53em;
+    justify-content: space-around;
+    padding: 5em 0;
+}
+
+.container-1 {
+    width: 300px;
 }
 
 .container-1 img {
-    margin: 0 0 30px;
+    margin: 0 0 2em;
 }
 
 .container-1 h3 {
-    font-size: 24px;
-    margin: 0 0 30px;
+    font-size: 1.5em;
+    margin: 0 0 2em;
 
 }
 
 .container-1 p {
-    font-size: 17px;
-    margin: 0 60px 30px;
+    font-size: 1em;
+    margin: 0 4em 2em;
 
 }
 
