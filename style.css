@@ -194,10 +194,8 @@ body {
     justify-content: center;
 }
 
-.img-container {
-    width: 40%;
-    max-width: 40%;
-    height: auto;
+.img-container img {
+    border-radius: 5%;
 }
 
 .text-container {
