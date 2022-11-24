@@ -24,6 +24,31 @@ const questions = [
     correctAnswer: "Peregrine Falcon",
     answers: ["Golden Eagle", "Frigate Bird", "Gryfalcon", "Peregrine Falcon"],
   },
+  {
+    prompt: "What is the only country lemurs are native to?",
+    correctAnswer: "Madagascar",
+    answers: ["Madagascar", "Japan", "Brazil", "Romania"],
+  },
+  {
+    prompt: "What is the worlds largest mammal?",
+    correctAnswer: "Blue Whale",
+    answers: ["Polar Bear", "Blue Whale", "Sperm Whale", "Humpback Whale"],
+  },
+  {
+    prompt: "What is the largest fish species?",
+    correctAnswer: "Whale Shark",
+    answers: ["Great White Shark", "Sturgeon", "Whale Shark", "Basking Shark"],
+  },
+  {
+    prompt: "What type of tree is the largest in the world?",
+    correctAnswer: "Redwood",
+    answers: ["Redwood", "Oak", "Sequoias", "Eucalyptus"],
+  },
+  {
+    prompt: "what is the worlds fastest bird?",
+    correctAnswer: "Peregrine Falcon",
+    answers: ["Golden Eagle", "Frigate Bird", "Gryfalcon", "Peregrine Falcon"],
+  },
 ];
 
 let questionNumber = 0;
@@ -43,7 +68,7 @@ function getQuestionAndAnswers() {
   } else {
     results();
     restart();
-    $(".question-count").html(5);
+    $(".question-count").html(10);
   }
 }
 
