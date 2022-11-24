@@ -1,0 +1,99 @@
+body {
+    box-sizing: border-box;
+    background-image: url(lou-levit-1777-unsplash.jpg);
+    background-size: cover;
+    background-position: fixed;
+    background-repeat: no-repeat;
+}
+header {
+    color: rgb(10,37,53);
+    font-family: 'Slabo 13px', serif;
+    text-align: center;
+}
+#game-board {
+    border-top: 5px solid rgb(10,37,53);
+    text-align: center;
+    margin: 0 30px;
+    display: flex;
+    justify-content: center;  
+    flex-direction: column;
+    margin-bottom: 600px;
+}
+.keeping-track {
+    padding: 0;
+    margin: 0;
+    margin-top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+h2 {
+    color: rgb(10,37,53);
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    margin: 50px;
+}
+.start-button {
+    font-size: 20px;
+    align-self: center;
+    margin: 30px;
+    width: 70px;
+    height: 5em;
+}
+.hidden {
+    display: none;
+}
+.question-form {
+    font-family: 'Open Sans', sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+}
+.answer-choice {
+    color: rgb(227,231,234);
+    background-color: rgb(63,102,104);
+    display: flex;
+    padding: 10px 0px;
+    margin-top: 30px;
+    font-size: 20px;
+    border: 2px solid rgb(135,109,92);
+}
+input[type=radio] {
+    margin-left: 10px;
+}
+span {
+    margin-left: 5px;
+    font-weight: lighter;
+}
+input[type=submit] {
+    color: rgb(63,102,104);
+    background-color: rgb(227,231,234);
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10%;
+    margin-top: 30px;
+    width: 70px;
+    height: 50px;
+}
+.restartButton {
+    color: rgb(63,102,104);
+    background-color: rgb(227,231,234);
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10%;
+    margin-top: 30px;
+    width: 70px;
+    height: 50px;
+}
+p {
+    font-family: 'Open Sans', sans-serif;
+    color: rgb(10,37,53);
+}
+h3 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: lighter;
+    font-size: 20px;
+    color: rgb(10,37,53);
+}
+
