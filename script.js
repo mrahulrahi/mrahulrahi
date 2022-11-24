@@ -1,8 +1,8 @@
 const questions = [
   {
-    prompt: "What is the only country lemurs are native to?",
-    correctAnswer: "Madagascar",
-    answers: ["Madagascar", "Japan", "Brazil", "Romania"],
+    prompt: "How many sizes of headers are available in HTML by default?",
+    correctAnswer: "6",
+    answers: ["5", "1", "3", "6"],
   },
   {
     prompt: "What is the worlds largest mammal?",
