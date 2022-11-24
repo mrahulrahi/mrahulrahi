@@ -65,12 +65,12 @@ h2 {
     display: flex;
     padding: 5%;
     margin: 30px 40px 0px 40px;
-    font-size: 2em;
+    font-size: 1.5em;
     border: 2px solid rgb(135,109,92);
     border-radius: 5px;
 }
 input[type=radio] {
-    margin-left: 10px;
+    margin-left: 15px;
     width: 1.5em;
     height: auto;
 }
