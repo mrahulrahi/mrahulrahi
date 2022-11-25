@@ -101,11 +101,7 @@ input[type=submit] {
     height: 2em;
 }
 
-.correct-feedback {
-    background-color: antiquewhite;
-}
-
-.wrong-feedback {
+.feedback {
     background-color: antiquewhite;
 }
 
@@ -116,7 +112,7 @@ input[type=submit] {
     font-size: 1em;
     font-weight: bold;
     border-radius: 5%;
-    margin-top: 30px;
+    padding: 2em;
     width: 5em;
     height: 2em;
 }
