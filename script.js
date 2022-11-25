@@ -11,9 +11,9 @@ const questions = [
     answers: ["id", "class", "type", "None of the above"],
   },
   {
-    prompt: "What is the largest fish species?",
-    correctAnswer: "Whale Shark",
-    answers: ["Great White Shark", "Sturgeon", "Whale Shark", "Basking Shark"],
+    prompt: "Which property allows an image link to show a text label?",
+    correctAnswer: "alt",
+    answers: ["alt", "str", "alternative", "None of the above"],
   },
   {
     prompt: "What type of tree is the largest in the world?",
