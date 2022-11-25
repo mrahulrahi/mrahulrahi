@@ -18,7 +18,7 @@ const questions = [
   {
     prompt:
       "The CSS property used to specify the transparency of an element is?",
-    correctAnswer: "Redwood",
+    correctAnswer: "opacity",
     answers: ["opacity", "visibility", "filter", "None of the above"],
   },
   {
