@@ -59,9 +59,9 @@ const questions = [
     answers: ["Polymer", "Meteor", "jQuery", "Cassandra"],
   },
   {
-    prompt: "what is the worlds fastest bird?",
-    correctAnswer: "Peregrine Falcon",
-    answers: ["Golden Eagle", "Frigate Bird", "Gryfalcon", "Peregrine Falcon"],
+    prompt: "What was the original name of JavaScript when it discovered?",
+    correctAnswer: "Mocha",
+    answers: ["LiveScript", "EScript", "JScript", "Mocha"],
   },
 ];
 
