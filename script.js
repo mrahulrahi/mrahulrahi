@@ -16,9 +16,10 @@ const questions = [
     answers: ["alt", "str", "alternative", "None of the above"],
   },
   {
-    prompt: "What type of tree is the largest in the world?",
+    prompt:
+      "The CSS property used to specify the transparency of an element is?",
     correctAnswer: "Redwood",
-    answers: ["Redwood", "Oak", "Sequoias", "Eucalyptus"],
+    answers: ["opacity", "visibility", "filter", "None of the above"],
   },
   {
     prompt: "what is the worlds fastest bird?",
