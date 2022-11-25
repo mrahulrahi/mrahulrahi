@@ -22,9 +22,15 @@ const questions = [
     answers: ["opacity", "visibility", "filter", "None of the above"],
   },
   {
-    prompt: "what is the worlds fastest bird?",
-    correctAnswer: "Peregrine Falcon",
-    answers: ["Golden Eagle", "Frigate Bird", "Gryfalcon", "Peregrine Falcon"],
+    prompt:
+      "Which of the following CSS property is used to specify the space between every letter inside an element?",
+    correctAnswer: "letter-spacing",
+    answers: [
+      "alpha-spacing",
+      "character-spacing",
+      "letter-spacing",
+      "alphabet-spacing",
+    ],
   },
   {
     prompt: "What is the only country lemurs are native to?",
