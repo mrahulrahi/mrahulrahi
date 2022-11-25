@@ -54,9 +54,9 @@ const questions = [
     answers: ["Boolean", "Undefined", "Number", "Float"],
   },
   {
-    prompt: "What type of tree is the largest in the world?",
-    correctAnswer: "Redwood",
-    answers: ["Redwood", "Oak", "Sequoias", "Eucalyptus"],
+    prompt: "Which of the following is not a JavaScript framework or library?",
+    correctAnswer: "Cassandra",
+    answers: ["Polymer", "Meteor", "jQuery", "Cassandra"],
   },
   {
     prompt: "what is the worlds fastest bird?",
