@@ -39,14 +39,19 @@ const questions = [
     answers: ["writing-mode", "text-indent", "word-break", "None of the above"],
   },
   {
-    prompt: "What is the worlds largest mammal?",
-    correctAnswer: "Blue Whale",
-    answers: ["Polar Bear", "Blue Whale", "Sperm Whale", "Humpback Whale"],
+    prompt: "In JavaScript, what kind of scoping is used?",
+    correctAnswer: "Lexical scoping",
+    answers: [
+      "Literal scoping",
+      "Sequential scoping",
+      "Segmental scoping",
+      "Lexical scoping",
+    ],
   },
   {
-    prompt: "What is the largest fish species?",
-    correctAnswer: "Whale Shark",
-    answers: ["Great White Shark", "Sturgeon", "Whale Shark", "Basking Shark"],
+    prompt: "Which of the following is not a JavaScript Data Types?",
+    correctAnswer: "Float",
+    answers: ["Boolean", "Undefined", "Number", "Float"],
   },
   {
     prompt: "What type of tree is the largest in the world?",
