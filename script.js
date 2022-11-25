@@ -33,9 +33,10 @@ const questions = [
     ],
   },
   {
-    prompt: "What is the only country lemurs are native to?",
-    correctAnswer: "Madagascar",
-    answers: ["Madagascar", "Japan", "Brazil", "Romania"],
+    prompt:
+      "The CSS property used to specify whether the text is written in the horizontal or vertical direction?",
+    correctAnswer: "writing-mode",
+    answers: ["writing-mode", "text-indent", "word-break", "None of the above"],
   },
   {
     prompt: "What is the worlds largest mammal?",
