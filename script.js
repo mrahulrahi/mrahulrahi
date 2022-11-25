@@ -5,9 +5,10 @@ const questions = [
     answers: ["5", "1", "3", "6"],
   },
   {
-    prompt: "What is the worlds largest mammal?",
-    correctAnswer: "Blue Whale",
-    answers: ["Polar Bear", "Blue Whale", "Sperm Whale", "Humpback Whale"],
+    prompt:
+      "Which attribute is used to provide a unique name to an HTML element?",
+    correctAnswer: "id",
+    answers: ["id", "class", "type", "None of the above"],
   },
   {
     prompt: "What is the largest fish species?",
