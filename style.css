@@ -34,12 +34,20 @@ h2 {
     font-weight: lighter;
     margin: 50px;
 }
+
+.start-page {
+    background-color: antiquewhite;
+}
+
 .start-button {
     font-size: 20px;
     align-self: center;
-    margin: 30px;
-    width: 70px;
-    height: 5em;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5%;
+    margin-top: 30px;
+    width: 5em;
+    height: 2em;
 }
 .hidden {
     display: none;
@@ -50,6 +58,8 @@ h2 {
     margin-left: auto;
     margin-right: auto;
     width: 75%;
+    background-color: aliceblue;
+    border-radius: 5%;
 }
 
 .answers {
@@ -57,7 +67,6 @@ h2 {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
 }
 
 .answer-choice {
@@ -86,20 +95,30 @@ input[type=submit] {
     background-color: rgb(227,231,234);
     font-size: 1em;
     font-weight: bold;
-    border-radius: 10%;
+    border-radius: 5%;
     margin-top: 30px;
     width: 5em;
     height: 2em;
 }
+
+.correct-feedback {
+    background-color: antiquewhite;
+}
+
+.wrong-feedback {
+    background-color: antiquewhite;
+}
+
 .restartButton {
     color: rgb(63,102,104);
     background-color: rgb(227,231,234);
     font-size: 15px;
+    font-size: 1em;
     font-weight: bold;
-    border-radius: 10%;
+    border-radius: 5%;
     margin-top: 30px;
-    width: 70px;
-    height: 50px;
+    width: 5em;
+    height: 2em;
 }
 p {
     font-family: 'Open Sans', sans-serif;
