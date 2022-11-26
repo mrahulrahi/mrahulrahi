@@ -42,19 +42,10 @@ h2 {
     width: 90%;
 }
 
-.start-button {
-    font-size: 3em;
-    align-self: center;
-    font-weight: bold;
-    border-radius: 5%;
-    margin: 30px;
-    width: 5em;
-    height: 3em;
-}
-
 .hidden {
     display: none;
 }
+
 .question-form {
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5em;
@@ -109,6 +100,16 @@ input[type=submit] {
     background-color: antiquewhite;
     border-radius: 2.5%;
     width: 100%;
+}
+
+.start-button {
+    font-size: 1em;
+    align-self: center;
+    font-weight: bold;
+    border-radius: 5%;
+    margin: 30px;
+    width: 5em;
+    height: 3em;
 }
 
 .nextButton {
