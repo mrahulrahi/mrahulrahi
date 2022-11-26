@@ -43,15 +43,15 @@ h2 {
 }
 
 .start-button {
-    font-size: 2em;
+    font-size: 3em;
     align-self: center;
-    font-size: 1em;
     font-weight: bold;
     border-radius: 5%;
     margin: 30px;
     width: 5em;
-    height: 2em;
+    height: 3em;
 }
+
 .hidden {
     display: none;
 }
@@ -131,7 +131,6 @@ input[type=submit] {
     font-weight: bold;
     border-radius: 5%;
     margin: 30px;
-
     width: 5em;
     height: 3em;
 }
