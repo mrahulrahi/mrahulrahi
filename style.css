@@ -87,7 +87,7 @@ span {
 input[type=submit] {
     color: rgb(63,102,104);
     background-color: rgb(227,231,234);
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: bold;
     border-radius: 5%;
     margin-top: 30px;
@@ -103,7 +103,6 @@ input[type=submit] {
 }
 
 .start-button {
-    font-size: 1em;
     align-self: center;
     font-weight: bold;
     border-radius: 5%;
@@ -115,11 +114,8 @@ input[type=submit] {
 .nextButton {
     color: rgb(63,102,104);
     background-color: rgb(227,231,234);
-    font-size: 15px;
-    font-size: 1em;
     font-weight: bold;
     border-radius: 5%;
-    padding: 2em;
     width: 5em;
     height: 2em;
 }
@@ -127,7 +123,6 @@ input[type=submit] {
 .restartButton {
     color: rgb(63,102,104);
     background-color: rgb(227,231,234);
-    font-size: 15px;
     font-size: 1em;
     font-weight: bold;
     border-radius: 5%;
