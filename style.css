@@ -107,9 +107,11 @@ input[type=submit] {
 
 .feedback {
     background-color: antiquewhite;
+    border-radius: 2.5%;
+    width: 100%;
 }
 
-.restartButton {
+.nextButton {
     color: rgb(63,102,104);
     background-color: rgb(227,231,234);
     font-size: 15px;
@@ -120,10 +122,25 @@ input[type=submit] {
     width: 5em;
     height: 2em;
 }
+
+.restartButton {
+    color: rgb(63,102,104);
+    background-color: rgb(227,231,234);
+    font-size: 15px;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 5%;
+    margin: 30px;
+
+    width: 5em;
+    height: 3em;
+}
+
 p {
     font-family: 'Open Sans', sans-serif;
     color: rgb(10,37,53);
 }
+
 h3 {
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
