@@ -244,9 +244,11 @@ button:hover{
 .skill-card p {
 	background-color: #000;
 	color: #dd562f;
-	font-size: 3em;
+	font-size: 2em;
 	width: 100%;
 	padding: 1em;
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
 }
 
 .card i{
