@@ -213,6 +213,16 @@ button:hover{
 	margin-top: 10px;;
 }
 
+.skill-box {
+	overflow-x: scroll;
+	overflow-y: hidden;
+	white-space: nowrap;
+}
+
+.skill-card {
+	display: inline-block;
+}
+
 .skill-card{
 	height: 200px;
 	width: 200px;
