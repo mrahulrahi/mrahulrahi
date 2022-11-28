@@ -218,7 +218,7 @@ button:hover{
 }
 
 .skill-card {
-	animation: carousel 4s linear infinite;
+	animation: carousel 10s	 linear infinite;
 }
 
 @keyframes carousel {
@@ -227,8 +227,7 @@ button:hover{
 	}
 }
 .skill-card{
-	width: calc(100% / 3);
-	padding: 20px;
+	width: calc(100%/3);
 	background: var(--primary);
 	border-radius: 20px;
 	margin: 50px;
@@ -237,9 +236,17 @@ button:hover{
 
 .skill-card img {
 	width: 250px;
-	height: 500px;
+	height: 300px;
+	margin: 1.5em;
 	background-color: var(--primary);
 	border-radius: 10px;
+}
+.skill-card p {
+	background-color: #000;
+	color: #dd562f;
+	font-size: 3em;
+	width: 100%;
+	padding: 1em;
 }
 
 .card i{
