@@ -199,18 +199,25 @@ button:hover{
 	padding: 20px 20px;
 	background: #191919;
 	border-radius: 20px;
-	margin: 15px;
+	margin: 1em;
 	position: relative;
 	overflow: hidden;
 	text-align: center;
 }
+
+h5{
+	color: white;
+	font-size: 23px;
+	margin-bottom: 1em;
+}
+
 .project-img {
 	width: 100%;
 	aspect-ratio:  16 / 9;
 	border-radius: 5px;
 }
 .pra {
-	margin-top: 10px;;
+	margin: 1em;
 }
 
 .skill-box {
@@ -218,6 +225,11 @@ button:hover{
 }
 
 .skill-card {
+	width: calc(100%/3);
+	background: var(--primary);
+	border-radius: 20px;
+	margin: 50px;
+	text-align: center;
 	animation: carousel 10s	 linear infinite;
 }
 
@@ -226,17 +238,10 @@ button:hover{
 		transform: translateX(-2560px);
 	}
 }
-.skill-card{
-	width: calc(100%/3);
-	background: var(--primary);
-	border-radius: 20px;
-	margin: 50px;
-	text-align: center;
-}
 
 .skill-card img {
 	width: 250px;
-	height: 300px;
+	height: 250px;
 	margin: 1.5em;
 	background-color: var(--primary);
 	border-radius: 10px;
@@ -245,30 +250,17 @@ button:hover{
 	background-color: #000;
 	color: #dd562f;
 	font-size: 2em;
+	font-weight: bold;
 	width: 100%;
 	padding: 1em;
 	border-bottom-left-radius: 20px;
 	border-bottom-right-radius: 20px;
 }
 
-.card i{
-	font-size: 50px;
-	display: block;
-	text-align: center;
-	margin: 25px 0px;
-	color: #007F45;
-
-}
-h5{
-	color: white;
-	font-size: 23px;
-	margin-bottom: 15px;
-}
 .pra p{
 	color: #fcfc;
 	font-size: 16px;
 	line-height: 27px;
-	margin-bottom: 25px;
 }
 .card .button{
 	background-color: var(--primary);
