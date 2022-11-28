@@ -214,28 +214,30 @@ button:hover{
 }
 
 .skill-box {
-	overflow-x: scroll;
-	overflow-y: hidden;
-	white-space: nowrap;
+	display: flex;
 }
 
 .skill-card {
-	display: inline-block;
+	animation: carousel 4s linear infinite;
 }
 
+@keyframes carousel {
+	100%{
+		transform: translateX(-2560px);
+	}
+}
 .skill-card{
-	height: 200px;
-	width: 200px;
+	width: calc(100% / 3);
 	padding: 20px;
 	background: var(--primary);
 	border-radius: 20px;
-	margin: 10px;
-	position: relative;
-	overflow: hidden;
+	margin: 50px;
 	text-align: center;
 }
 
 .skill-card img {
+	width: 250px;
+	height: 500px;
 	background-color: var(--primary);
 	border-radius: 10px;
 }
