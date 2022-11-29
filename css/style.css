@@ -383,9 +383,16 @@ footer p:nth-child(2){
 		left:8%;
 		transform: translateY(-50%);
 	}
+	.about {
+		padding: 3em;
+	}
+
+	.about-text {
+		margin-left: 2em;
+	}
 
 	.card{
 		height: aut0;
-		width: 90%;
+		width: 80%;
 	}
 }
