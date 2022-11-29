@@ -13,11 +13,10 @@ nav{
 	top: 0;
 	display: flex;
 	flex-wrap: wrap;
+	z-index: 10;
 	align-items: center;
 	justify-content: space-between;
-	padding-top: 45px;
-	padding-left: 8%;
-	padding-right: 8%;
+	padding: 2em 8%;
 	background-color: #222222;
 }
 .logo{
@@ -375,23 +374,45 @@ footer p:nth-child(2){
 	font-size: 14px; 
 }
 
-@media screen and (orientation: potrait) {
+@media screen and (orientation: portrait) {
 	.container{
 		width: 100%;
 		height: auto;
+		padding: 50px 0;
 	}
 
 	nav{
+		position: relative;
 		display: flex;
 		flex-wrap: wrap;
-		flex-direction: row;
-		height: auto;
+		flex-direction: column;
+		padding: 3em 0 1em 0;
 	}
+
+	nav ul {
+		padding: 3em 0 0 0;
+	}
+
+	nav ul  li {
+		padding: 1em;
+		font-size: 2em;
+	}
+
+	.logo {
+		position: absolute;
+		left: 100px;
+	}
+
+	.click {
+		position: absolute;
+		right: 100px;
+	}
+
 
 	.about {
 		width: 100%;
 		height: auto;
-		padding: 3em;
+		padding: 50px 0;
 	}
 
 	.about-text {
@@ -412,7 +433,5 @@ footer p:nth-child(2){
 	}
 
 	.contact-me {
-
-		height: auto;
 	}
 }
