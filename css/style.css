@@ -429,3 +429,17 @@ footer p:nth-child(2){
 		margin-bottom: 7em;
 	}
 }
+
+@media screen and (orientation: landscape) and (min-width:768px){
+	nav{
+		padding: 2em 3em;
+	}
+
+}
+
+@media screen and (orientation: landscape) and (min-width:1240px){
+	nav{
+		padding: 2em 8%;
+	}
+
+}
