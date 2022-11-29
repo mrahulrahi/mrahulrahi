@@ -376,6 +376,9 @@ footer p:nth-child(2){
 }
 
 @media screen and (orientation: portrait) {
+	#home {
+		height: 50vh;
+	}
 	.container{
 		width: 100%;
 		height: auto;
@@ -404,7 +407,7 @@ footer p:nth-child(2){
 
 	.about {
 		width: 100%;
-		height: auto;
+		height: 50vh;
 		padding: 50px 0;
 	}
 
