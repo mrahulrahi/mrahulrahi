@@ -378,17 +378,18 @@ footer p:nth-child(2){
 
 @media screen and (orientation: portrait) {
 	#home {
-		height: 40vh;
+		height:40vh;
 	}
-	.container{
+	.home{
 		width: 100%;
-		height: auto;
-		padding: auto 0;
+		height: 30vh;
+		padding: 50px 0;
 	}
 
 	nav{
 		position: relative;
 		padding: 2em 4em;
+		height: 10vh;
 	}
 
 	nav ul {
@@ -407,7 +408,7 @@ footer p:nth-child(2){
 
 	.about {
 		width: 100%;
-		height: 60vh;
+		height: 50vh;
 		padding: 50px 0;
 	}
 
