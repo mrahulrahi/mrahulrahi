@@ -91,7 +91,8 @@ h3{
 h4{
 	color: #fcfc;
 	letter-spacing: 2px;
-	font-size: 20px;
+	font-size: 1.5em;
+	margin-bottom: 20px;
 }
 .newslatter form{
 	width: 380px;
@@ -386,16 +387,16 @@ footer p:nth-child(2){
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: column;
-		padding: 3em 0 1em 0;
-	}
-
-	nav ul {
 		padding: 3em 0 0 0;
 	}
 
+	nav ul {
+		padding: 2em 0 0 0;
+	}
+
 	nav ul  li {
-		padding: 1em;
-		font-size: 2em;
+		padding: 2em;
+		font-size: 1.5em;
 	}
 
 	.logo {
@@ -419,19 +420,12 @@ footer p:nth-child(2){
 		margin-left: 2em;
 	}
 
-	.project {
-		height: auto;
-	}
-
-	.skill {
+	.project, .skill  {
 		height: auto;
 	}
 
 	.card{
 		height: aut0;
 		width: 80%;
-	}
-
-	.contact-me {
 	}
 }
