@@ -57,8 +57,8 @@ nav ul li a:hover{
 }
 
 .home{
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	background-size: cover;
 	background-position: center;
 	background-color: #222222;
@@ -70,6 +70,7 @@ nav ul li a:hover{
 }
 .home div img {
 	width: 40vw;
+	padding-bottom: 2em;
 }
 
 h1{
@@ -115,8 +116,8 @@ h4{
 }
 
 .about{
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	padding: 100px 0px;
 	background-color: #191919;
 	display: flex;
@@ -178,13 +179,13 @@ button:hover{
 }
 
 .project {
-	width: 100vw;
+	width: 100%;
 	padding: 100px 0px;
 	background: #222222;
 }
 .skill {
-	width: 100vw;
-	height: 100vh;
+	width: 100%;
+	height: 100%;
 	padding: 100px 0px;
 	background: #191919;
 }
@@ -289,8 +290,8 @@ h5{
 	cursor: pointer;
 }
 .contact-me{
-	width: 100vw;
-	height: 20vh;
+	width: 100%;
+	height: 300px;
 	background: #222222;
 	display: flex;
 	align-items: center;
@@ -368,10 +369,7 @@ footer p:nth-child(2){
 	font-size: 14px; 
 }
 
-@media screen and (orientation)  and (min-width: 480px) {
-	*{
-		height: 100% ;
-	}
+@media screen and (orientation: potrait)  and (max-width: 480px) {
 	.home{
 		width: 100%;
 		height: auto;
@@ -379,13 +377,9 @@ footer p:nth-child(2){
 
 	nav{
 		display: flex;
-		flex-direction: column;
 		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		padding-top: 45px;
-		padding-left: 8%;
-		padding-right: 8%;
+		flex-direction: row;
+		height: auto;
 	}
 
 	.about {
@@ -398,9 +392,6 @@ footer p:nth-child(2){
 		margin-left: 2em;
 	}
 
-	.btn {
-		order: 2;
-	}
 	.project {
 		height: auto;
 	}
