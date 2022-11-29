@@ -289,8 +289,8 @@ h5{
 	cursor: pointer;
 }
 .contact-me{
-	width: 100%;
-	height: 290px;
+	width: 100vw;
+	height: 20vh;
 	background: #222222;
 	display: flex;
 	align-items: center;
@@ -368,11 +368,13 @@ footer p:nth-child(2){
 	font-size: 14px; 
 }
 
-@media screen  and (min-width: 768px) {
-
+@media screen and (orientation)  and (min-width: 480px) {
+	*{
+		height: 100% ;
+	}
 	.home{
 		width: 100%;
-		height: 30vh;
+		height: auto;
 	}
 
 	nav{
@@ -388,7 +390,7 @@ footer p:nth-child(2){
 
 	.about {
 		width: 100%;
-		height: 30vh;
+		height: auto;
 		padding: 3em;
 	}
 
@@ -399,9 +401,21 @@ footer p:nth-child(2){
 	.btn {
 		order: 2;
 	}
+	.project {
+		height: auto;
+	}
+
+	.skill {
+		height: auto;
+	}
 
 	.card{
 		height: aut0;
 		width: 80%;
+	}
+
+	.contact-me {
+
+		height: auto;
 	}
 }
