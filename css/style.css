@@ -228,6 +228,7 @@ h5{
 
 .skill-box {
 	display: flex;
+	overflow: hidden;
 }
 
 .skill-card {
@@ -241,13 +242,13 @@ h5{
 
 @keyframes carousel {
 	100%{
-		transform: translateX(-2560px);
+		transform: translateX(-100vw);
 	}
 }
 
 .skill-card img {
-	width: 250px;
-	height: 250px;
+	width: 15vw;
+	height: auto;
 	margin: 1.5em;
 	background-color: var(--primary);
 	border-radius: 10px;
@@ -255,7 +256,7 @@ h5{
 .skill-card p {
 	background-color: #000;
 	color: #dd562f;
-	font-size: 2em;
+	font-size: 2vw;
 	font-weight: bold;
 	width: 100%;
 	padding: 1em;
