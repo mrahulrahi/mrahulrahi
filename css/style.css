@@ -56,19 +56,23 @@ nav ul li a:hover{
 	transform: scale(1.2);
 }
 
-.home{
+.home {
 	width: 100%;
 	height: 100%;
-	background-size: cover;
-	background-position: center;
+	padding: 120px 0px;
 	background-color: #222222;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.container{
 	display: inline-flex;
 	flex-direction: row-reverse;
 	justify-content: center;
 	align-items: center;
-	padding: 1em;
 }
-.home div img {
+.container div img {
 	width: 40vw;
 	padding-bottom: 2em;
 }
@@ -132,7 +136,7 @@ h4{
 }
 .about-text{
 	width: 550px;
-	margin: 10px;
+	
 }
 .main{
 	width: 1130px;
@@ -183,12 +187,6 @@ button:hover{
 	padding: 100px 0px;
 	background: #222222;
 }
-.skill {
-	width: 100%;
-	height: 100%;
-	padding: 100px 0px;
-	background: #191919;
-}
 .title h2{
 	color: white;
 	font-size: 75px;
@@ -236,6 +234,12 @@ h5{
 	line-height: 27px;
 }
 
+.skill {
+	width: 100%;
+	height: 100%;
+	padding: 100px 0px;
+	background: #191919;
+}
 .skill-box {
 	display: flex;
 	overflow: hidden;
@@ -369,8 +373,8 @@ footer p:nth-child(2){
 	font-size: 14px; 
 }
 
-@media screen and (orientation: potrait)  and (max-width: 480px) {
-	.home{
+@media screen and (orientation: potrait) {
+	.container{
 		width: 100%;
 		height: auto;
 	}
