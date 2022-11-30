@@ -140,7 +140,6 @@ h4{
 }
 .about-text{
 	width: 550px;
-	
 }
 .main{
 	width: 1130px;
@@ -192,8 +191,22 @@ button:hover{
 .certificate h3 {
 	font-size: 3em;
 }
-.certificate button {
+.certi-btn {
 	margin: 2em;
+	background-color: var(--primary);
+	color: white;
+	text-decoration: none;
+	border: 2px solid transparent;
+	font-weight: bold;
+	padding: 13px 30px;
+	border-radius: 30px;
+	transition: .4s; 
+}
+
+.certi-btn:hover{
+	background-color: transparent;
+	border: 2px solid var(--primary);
+	cursor: pointer;
 }
 
 .project {
@@ -422,6 +435,9 @@ footer p:nth-child(2){
 		height: 60vh;
 		padding: auto;
 	}
+	.about-text {
+		
+	}
 	.certificate {
 		height: 20vh;
 		padding: 3vh 1vw 0 1vw;
@@ -451,7 +467,13 @@ footer p:nth-child(2){
 	}
 	.home, .about{
 		height: 100%;
-		padding: 100px;
+		padding: 100px 20px;
+	}
+	.about-text {
+		padding: 2em;
+	}
+	.certificate {
+		padding-top: 50px; 
 	}
 
 }
@@ -465,11 +487,10 @@ footer p:nth-child(2){
 		height: 100vh;
 	}
 	.about {
-		padding-top: 150px;
-		padding-bottom: 50px;
+		padding: 200px 25px 100px;
 	}
 	.certificate {
-		padding: 50px 0 0 0; 
+		padding-top: 25px; 
 	} 
 
 
