@@ -125,9 +125,10 @@ h4{
 .about{
 	width: 100%;
 	height: 100%;
-	padding: 190px 0px;
+	padding: 150px 0px;
 	background-color: #191919;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	text-align: center;
 }
@@ -183,6 +184,13 @@ button:hover{
 	background-color: transparent;
 	border: 2px solid var(--primary);
 	cursor: pointer;
+}
+
+.certificate {
+	padding: 50px;
+}
+.certificate h3 {
+	font-size: 3em;
 }
 
 .project {
@@ -378,7 +386,7 @@ footer p:nth-child(2){
 
 @media screen and (orientation: portrait) {
 	#home {
-		height:40vh;
+		height:30vh;
 	}
 	.home{
 		width: 100%;
@@ -407,12 +415,18 @@ footer p:nth-child(2){
 
 	.about {
 		width: 100%;
-		height: 60vh;
+		height: 70vh;
 		padding: 50px 0;
+	}
+	.main {
+		height: 50vh;
 	}
 
 	.about-text {
 		margin-left: 2em;
+	}
+	.certificate {
+		height: 20vh;
 	}
 
 	.project, .skill  {
@@ -440,5 +454,10 @@ footer p:nth-child(2){
 	nav{
 		padding: 2em 8%;
 	}
+
+	.home, .about{
+		height: 100vh;
+	}
+
 
 }
