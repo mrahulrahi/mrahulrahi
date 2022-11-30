@@ -268,23 +268,25 @@ h5{
 	background: #191919;
 }
 .skill-box {
-	display: flex;
+	width: 90%;
+	height: auto;
+	margin: auto;
 	overflow: hidden;
+	position: relative;
+}
+.skill-wrap {
+	display: flex;
+	width: calc(20vw * 22);
+    height: 100%;
+	animation: carousel 15s linear infinite;
 }
 
 .skill-card {
-	width: calc(100%/3);
+	width: 20vw;
 	background: var(--primary);
 	border-radius: 20px;
-	margin: 50px;
+	margin: 3em 5vw;
 	text-align: center;
-	animation: carousel 10s	 linear infinite;
-}
-
-@keyframes carousel {
-	100%{
-		transform: translateX(-100vw);
-	}
 }
 
 .skill-card img {
@@ -293,6 +295,7 @@ h5{
 	margin: 1.5em;
 	background-color: var(--primary);
 	border-radius: 10px;
+	object-fit: cover;
 }
 .skill-card p {
 	background-color: #000;
@@ -305,6 +308,14 @@ h5{
 	border-bottom-right-radius: 20px;
 }
 
+@keyframes carousel {
+	0% { 
+		transform: translateX(calc(25vw * 4));
+	}
+	100% { 
+		transform: translateX(calc(-30vw * 11));
+	}
+}
 .card .button{
 	background-color: var(--primary);
 	color: white;
