@@ -17,7 +17,7 @@ nav{
 	z-index: 10;
 	align-items: center;
 	justify-content: space-between;
-	padding: 2em 8%;
+	padding: 1.5em 8%;
 	background-color: #222222;
 }
 .logo{
@@ -187,7 +187,7 @@ button:hover{
 }
 
 .certificate {
-	padding: 50px auto;
+	padding: auto;
 }
 .certificate h3 {
 	font-size: 3em;
@@ -424,7 +424,7 @@ footer p:nth-child(2){
 	}
 	.certificate {
 		height: 20vh;
-		padding: 3vh 1vw;
+		padding: 3vh 1vw 0 1vw;
 	}
 
 	.about-text {
@@ -447,19 +447,30 @@ footer p:nth-child(2){
 
 @media screen and (orientation: landscape) and (min-width:768px){
 	nav{
-		padding: 2em 3em;
+		padding: 1em 3em;
+	}
+	.home, .about{
+		height: 100%;
+		padding: 100px;
 	}
 
 }
 
 @media screen and (orientation: landscape) and (min-width:1240px){
 	nav{
-		padding: 2em 8%;
+		padding: 1.5em 8%;
 	}
 
 	.home, .about{
 		height: 100vh;
 	}
+	.about {
+		padding-top: 150px;
+		padding-bottom: 50px;
+	}
+	.certificate {
+		padding: 50px 0 0 0; 
+	} 
 
 
 }
