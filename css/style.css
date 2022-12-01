@@ -249,9 +249,7 @@ h5{
 	margin-bottom: 1em;
 }
 .img-container {
-	
 	aspect-ratio: 16 / 9;
-	height: ;
 	overflow: hidden;
 	overflow-y: scroll;
 	border-radius: 10px;
@@ -267,17 +265,19 @@ h5{
 
   /* Chrome, Edge, and Safari */
   .img-container::-webkit-scrollbar {
-    width: 16px;
+    width: 10px;
+	
   }
 
   .img-container::-webkit-scrollbar-track {
     background: #ffffff;
+	border-radius: 10px;
   }
 
   .img-container::-webkit-scrollbar-thumb {
     background-color: var(--primary);
     border-radius: 10px;
-    border: 3px solid #ffffff;
+    border: 1px solid #ffffff;
   }
 
 .project-img {
