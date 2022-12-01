@@ -260,7 +260,7 @@ h5{
   /* Firefox */
 .img-container {
     scrollbar-width: auto;
-    scrollbar-color: var(--primary) #ffffff;
+    scrollbar-color: var(--primary) #000;
   }
 
   /* Chrome, Edge, and Safari */
@@ -270,14 +270,14 @@ h5{
   }
 
   .img-container::-webkit-scrollbar-track {
-    background: #ffffff;
+    background: #000;
 	border-radius: 10px;
   }
 
   .img-container::-webkit-scrollbar-thumb {
     background-color: var(--primary);
     border-radius: 10px;
-    border: 1px solid #ffffff;
+    border: 1px solid #000;
   }
 
 .project-img {
