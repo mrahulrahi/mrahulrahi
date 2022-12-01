@@ -261,17 +261,16 @@ h5{
 .img-container {
     scrollbar-width: auto;
     scrollbar-color: var(--primary) #191919;
+	border-radius: 10px;
   }
 
   /* Chrome, Edge, and Safari */
   .img-container::-webkit-scrollbar {
-    width: 10px;
-	
+    width: 5px;
   }
 
   .img-container::-webkit-scrollbar-track {
     background: #191919;
-	border-radius: 10px;
   }
 
   .img-container::-webkit-scrollbar-thumb {
