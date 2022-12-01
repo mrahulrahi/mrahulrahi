@@ -248,14 +248,41 @@ h5{
 	font-size: 23px;
 	margin-bottom: 1em;
 }
+.img-container {
+	
+	aspect-ratio: 16 / 9;
+	height: ;
+	overflow: hidden;
+	overflow-y: scroll;
+	border-radius: 10px;
+	scrollbar-face-color: #dd562f;
+}
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+.img-container {
+    scrollbar-width: auto;
+    scrollbar-color: var(--primary) #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  .img-container::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  .img-container::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .img-container::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
 
 .project-img {
 	width: 100%;
-	overflow-x: hidden;
-	overflow-y: auto;
-	height: 50%;
-	aspect-ratio:  16 / 9;
-	border-radius: 10px;
+	background-size: cover;
 }
 .pra {
 	margin: 1.5em;
