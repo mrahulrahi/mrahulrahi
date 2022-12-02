@@ -8,6 +8,7 @@
 	font-family: 'Josefin Sans', sans-serif;
 	box-sizing: border-box;
 }
+
 nav{
 	position: fixed;
 	width: 100%;
@@ -20,6 +21,7 @@ nav{
 	padding: 1.5em 8%;
 	background-color: #222222;
 }
+
 .logo{
 	color: white;
 	font-size: 35px;
