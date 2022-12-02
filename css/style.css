@@ -38,16 +38,19 @@ nav ul li{
 	display: inline-block;
 	padding: 10px  25px;
 }
+
 nav ul li a{
 	color: white;
 	text-decoration: none;
 	font-weight: bold;
 	text-transform: capitalize;
 }
+
 nav ul li a:hover{
 	color: var(--primary);;
 	transition: .4s;
 }
+
 .btn{
 	background-color: var(--primary);
 	color: white;
