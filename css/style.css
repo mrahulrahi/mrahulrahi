@@ -28,9 +28,11 @@ nav{
 	letter-spacing: 1px;
 	cursor: pointer;
 }
+
 span{
 	color: var(--primary);
 }
+
 nav ul li{
 	list-style-type: none;
 	display: inline-block;
