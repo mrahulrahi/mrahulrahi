@@ -61,6 +61,7 @@ nav ul li a:hover{
 	border-radius: 30px;
 	transition: transform .4s; 
 }
+
 .btn:hover{
 	transform: scale(1.2);
 }
@@ -81,6 +82,7 @@ nav ul li a:hover{
 	justify-content: center;
 	align-items: center;
 }
+
 .container div img {
 	width: 40vw;
 	padding-bottom: 2em;
@@ -91,6 +93,7 @@ h1{
 	margin: 20px 0px 20px;
 	font-size: 75px;
 }
+
 h3{
 	color: white;
 	font-size: 25px;
