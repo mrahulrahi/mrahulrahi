@@ -535,14 +535,15 @@ footer p:nth-child(2){
 	}
 
 	.home, .about{
-		height: 100vh;
+		height: 100%;
 	}
 	.about {
-		padding: 200px 25px 100px;
+		padding: 150px 25px 100px 0;
 	}
 	.certificate {
-		padding-top: 25px; 
-	} 
+		padding: 50px 0; 
+	}
+	
 
 
 }
