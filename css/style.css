@@ -146,12 +146,14 @@ h4{
 	justify-content: center;
 	text-align: center;
 }
+
 .about img{
 	height: auto;
 	width: 300px;
 	border-radius: 2.5em;
 	box-shadow: 1px 2px 1px 2px var(--primary);
 }
+
 .about-text{
 	width: 550px;
 }
