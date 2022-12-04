@@ -112,6 +112,7 @@ h4{
 	max-width: 100%;
 	position: relative;
 }
+
 .newslatter form input:first-child{
 	display: inline-block;
 	width: 100%;
@@ -120,6 +121,7 @@ h4{
 	outline: none;
 	border-radius: 30px;
 }
+
 .newslatter form input:last-child{
 	position: absolute;
 	display: inline-block;
