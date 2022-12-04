@@ -181,6 +181,7 @@ h4{
 	margin-bottom: 25px;
 	text-transform: capitalize;
 }
+
 .about-text p{
 	color: #fcfc;
 	letter-spacing: 1px;
@@ -188,6 +189,7 @@ h4{
 	font-size: 18px;
 	margin-bottom: 45px;
 }
+
 button{
 	background-color: var(--primary);
 	color: white;
@@ -198,6 +200,7 @@ button{
 	border-radius: 30px;
 	transition: .4s; 
 }
+
 button:hover{
 	background-color: transparent;
 	border: 2px solid var(--primary);
@@ -210,9 +213,11 @@ button:hover{
 	justify-content: center;
 	align-items: center;
 }
+
 .certificate h3 {
 	font-size: 3em;
 }
+
 .certi-btn {
 	margin: 2em;
 	background-color: var(--primary);
@@ -236,6 +241,7 @@ button:hover{
 	padding: 100px 0 0 0;
 	background: #222222;
 }
+
 .title h2{
 	color: white;
 	font-size: 75px;
@@ -243,6 +249,7 @@ button:hover{
 	margin: 30px auto;
 	text-align: center;
 }
+
 .box{
 	display: flex;
 	flex-wrap: wrap;
@@ -250,6 +257,7 @@ button:hover{
 	align-items: center;
 	min-height: 400px;
 }
+
 .card{
 	height: aut0;
 	width: 45%;
@@ -266,6 +274,7 @@ h5{
 	font-size: 23px;
 	margin-bottom: 1em;
 }
+
 .img-container {
 	aspect-ratio: 16 / 9;
 	overflow: hidden;
@@ -301,6 +310,7 @@ h5{
 	width: 100%;
 	background-size: cover;
 }
+
 .pra {
 	margin: 1.5em;
 }
@@ -317,12 +327,14 @@ h5{
 	padding: 100px 0;
 	background: #191919;
 }
+
 .skill-box {
 	width: 90%;
 	height: auto;
 	margin: auto;
 	overflow: hidden;
 }
+
 .skill-wrap {
 	display: flex;
 	width: calc(20vw * 22);
@@ -346,6 +358,7 @@ h5{
 	border-radius: 10px;
 	object-fit: cover;
 }
+
 .skill-card p {
 	background-color: #000;
 	color: #dd562f;
@@ -365,6 +378,7 @@ h5{
 		transform: translateX(calc(-30vw * 11));
 	}
 }
+
 .card .button{
 	background-color: var(--primary);
 	color: white;
@@ -375,11 +389,13 @@ h5{
 	border-radius: 30px;
 	transition: .4s; 
 }
+
 .card .button:hover{
 	background-color: transparent;
 	border: 2px solid var(--primary);;
 	cursor: pointer;
 }
+
 .contact-me{
 	width: 100%;
 	height: 300px;
@@ -389,12 +405,14 @@ h5{
 	flex-direction: column;
 	justify-content: center;
 }
+
 .contact-me p{
 	color: white;
 	font-size: 30px;
 	font-weight: bold;
 	margin-bottom: 25px;
 }
+
 .contact-me .button-two{
 	background-color: var(--primary);
 	color: white;
@@ -405,11 +423,13 @@ h5{
 	border-radius: 30px;
 	transition: .4s; 
 }
+
 .contact-me .button-two:hover{
 	background-color: transparent;
 	border: 2px solid var(--primary);
 	cursor: pointer;
 }
+
 footer{
 	width: 100%;
 	height: 400px;
@@ -419,12 +439,14 @@ footer{
 	align-items: center;
 	justify-content: center;
 }
+
 footer p:nth-child(1){
 	font-size: 30px;
 	color: white;
 	margin-bottom: 20px;
 	font-weight: bold;
 }
+
 footer p:nth-child(2){
 	color: white;
 	font-size: 17px;
@@ -432,9 +454,11 @@ footer p:nth-child(2){
 	text-align: center;
 	line-height: 26px;
 }
+
 .social{
 	display: flex;
 }
+
 .social a{
 	width: 45px;
 	height: 45px;
@@ -448,10 +472,12 @@ footer p:nth-child(2){
 	text-decoration: none;
 	font-size: 20px;
 }
+
 .social a:hover{
 	transform: scale(1.3);
 	transition: .3s;
 }
+
 .end{
 	color: var(--primary);
 	bottom: 35px;
@@ -553,6 +579,4 @@ footer p:nth-child(2){
 		padding: 50px 0; 
 	}
 	
-
-
 }
