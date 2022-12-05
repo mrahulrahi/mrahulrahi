@@ -17,11 +17,12 @@ body {
 /***** Navigation Section *****/
 
 .nav-wrapper {
-    padding: 4px;
     background-color: white;
     color: #18157C;
     font-family: 'Barlow', sans-serif;
     position: sticky;
+    display: flex;
+    justify-content: space-around;
 }
 
 .nav-list {
@@ -34,8 +35,6 @@ body {
 
 .site-title {
     cursor: pointer;
-    width: auto;
-    height: 10px;
 }
 
 .site-title img {
