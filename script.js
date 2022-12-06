@@ -16,5 +16,8 @@ function loadHtml(id, filename) {
         }
       }
     };
+    xhttp.open("GEt", `templates/${file}`, true);
+    xhttp.send();
+    return;
   }
 }
