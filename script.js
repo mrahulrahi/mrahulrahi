@@ -1,23 +1,68 @@
-function loadHtml(id, filename) {
-  console.log(`div id: ${id}, filename: ${filename}`);
-
-  let xhttp;
-  let element = document.getElementById(id);
-  let file = filename;
-  if (file) {
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-      if (this.readyState == 4) {
-        if (this.status == 200) {
-          element.innerHTML = this.responseText;
-        }
-        if (this.status == 404) {
-          element.innerHTML = "<h1>Page not found.</h1>";
-        }
-      }
-    };
-    xhttp.open("GET", `templates/${file}`, true);
-    xhttp.send();
-    return;
+class MyHeader extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+        <nav class="nav-wrapper">
+      <ul class="nav-list">
+        <li class="site-title">
+          Samrat Ashok Lord Buddha<br />Welfare Foundation
+        </li>
+        <span>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about/about.html">About Us</a></li>
+          <li><a href="../update/update.html">Updates</a></li>
+          <li><a href="../work/work.html">Our Works</a></li>
+          <li><a href="../contact/contact.html">Contact Us</a></li>
+        </span>
+        <li>Donate Now &gt;</li>
+      </ul>
+    </nav>
+        `;
   }
 }
+customElements.define("my-header", MyHeader);
+
+class MyFooter extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
+        <footer>
+        <span>
+          <div class="social-link">
+            <ul>
+              <li>FACEBOOK</li>
+              <li>TWITTER</li>
+              <li>INSTAGRAM</li>
+            </ul>
+            <ul>
+              <li>
+                <h5>Subscribe to Our Newsletter</h5>
+              </li>
+              <li>
+                <input
+                  type="email"
+                  id="email"
+                  name=""
+                  id=""
+                  aria-describedby="emailHelpId"
+                  placeholder="Enter your email here*"
+                />
+                <a id="submit" href="">Subscribe Now</a>
+              </li>
+            </ul>
+          </div>
+          <div class="form">
+            <ul>
+              <li>CONTACT &gt;</li>
+              <li>Phone : +91XXXXXXXXXX</li>
+              <li>Email : contact@salbwf.com</li>
+            </ul>
+            <ul>
+              <li>© 2023 by SALBWF</li>
+              <li>Proudly coded by mrahulrahi</li>
+            </ul>
+          </div>
+        </span>
+      </footer>
+        `;
+  }
+}
+customElements.define("my-footer", MyFooter);

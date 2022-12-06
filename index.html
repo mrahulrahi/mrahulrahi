@@ -6,84 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="./home.css" />
-    <script src="/script.js"></script>
+    <script type="module" src="/script.js" defer></script>
     <title>Home | SALBWF</title>
   </head>
 
   <body>
     <!-- Navigation Section -->
 
-    <nav class="nav-wrapper">
-      <div class="site-title">
-        <img src="/images/logo.png" alt="" srcset="" />
-      </div>
-      <ul class="nav-list">
-        <li>
-          <a href="#" onclick='loadHtml("template","home.html")'>Home</a>
-        </li>
-        <li>
-          <a href="#" onclick='loadHtml("template","about.html")'>About Us</a>
-        </li>
-        <li>
-          <a href="#" onclick='loadHtml("template","update.html")'>Updates</a>
-        </li>
-        <li>
-          <a href="#" onclick='loadHtml("template","work.html")'>Our Works</a>
-        </li>
-        <li>
-          <a href="#" onclick='loadHtml("template","contact.html")'
-            >Contact Us</a
-          >
-        </li>
-      </ul>
-      <div>Donate Now &gt;</div>
-    </nav>
+    <my-header></my-header>
 
     <!-- Content Section -->
-    <div id="template" class="template">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur natus
-      ratione hic autem atque voluptates fuga qui labore ab blanditiis officiis
-      vel impedit veniam quasi, omnis animi tempora maxime placeat!
+
+    <div class="container">
+      <img src="./images/bg.webp" alt="" srcset="" />
+      <article class="title">
+        <h1>
+          Samrat Ashok <br />
+          Lord Buddha <br />
+          Welfare Foundation
+        </h1>
+        <h4>
+          Take Action. <br />
+          Make a Difference.
+        </h4>
+      </article>
     </div>
+    <div class="bar">
+      <div id="about">
+        <ul>
+          <li class="bar-head">ABOUT</li>
+          <li class="bar-text">Know about Us</li>
+          <li>
+            <a href="about/about.html"
+              ><img class="bar-img" src="./images/arrow.svg" alt="" srcset=""
+            /></a>
+          </li>
+        </ul>
+      </div>
+      <div id="update">
+        <ul>
+          <li class="bar-head">UPDATES</li>
+          <li class="bar-text">Get Updated</li>
+          <li>
+            <a href="update/update.html"
+              ><img class="bar-img" src="./images/arrow.svg" alt="" srcset=""
+            /></a>
+          </li>
+        </ul>
+      </div>
+      <div id="team">
+        <ul>
+          <li class="bar-head">OUR TEAM</li>
+          <li class="bar-text">See Out Team</li>
+          <li>
+            <a href="about/about.html"
+              ><img class="bar-img" src="./images/arrow.svg" alt="" srcset=""
+            /></a>
+          </li>
+        </ul>
+      </div>
+      <div id="work">
+        <ul>
+          <li class="bar-head">OUR WORKS</li>
+          <li class="bar-text">See Our Works</li>
+          <li>
+            <a href="work/work.html"
+              ><img class="bar-img" src="./images/arrow.svg" alt="" srcset=""
+            /></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
     <!-- Footer Section -->
 
-    <footer>
-      <span>
-        <div class="social-link">
-          <ul>
-            <li>FACEBOOK</li>
-            <li>TWITTER</li>
-            <li>INSTAGRAM</li>
-          </ul>
-          <ul>
-            <li>
-              <h5>Subscribe to Our Newsletter</h5>
-            </li>
-            <li>
-              <input
-                type="email"
-                id="email"
-                name=""
-                id=""
-                aria-describedby="emailHelpId"
-                placeholder="Enter your email here*"
-              />
-              <a id="submit" href="">Subscribe Now</a>
-            </li>
-          </ul>
-        </div>
-        <div class="form">
-          <ul>
-            <li>CONTACT &gt;</li>
-            <li>Phone : +91XXXXXXXXXX</li>
-            <li>Email : contact@salbwf.com</li>
-          </ul>
-          <ul>
-            <li>© 2023 by SALBWF</li>
-            <li>Proudly coded by mrahulrahi</li>
-          </ul>
-        </div>
-      </span>
-    </footer>
+    <my-footer></my-footer>
   </body>
 </html>
