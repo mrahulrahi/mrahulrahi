@@ -17,78 +17,45 @@
         <img src="/images/logo.png" alt="" srcset="" />
       </div>
       <ul class="nav-list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="./about/about.html">About Us</a></li>
-        <li><a href="./update/update.html">Updates</a></li>
-        <li><a href="./work/work.html">Our Works</a></li>
-        <li><a href="./contact/contact.html">Contact Us</a></li>
+        <li>
+          <a href="index.html" onclick='loadHtml("template","home.html")'
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            href="./about/about.html"
+            onclick='loadHtml("template","./about/about.html")'
+            >About Us</a
+          >
+        </li>
+        <li>
+          <a
+            href="./update/update.html"
+            onclick='loadHtml("template","./update/update.html")'
+            >Updates</a
+          >
+        </li>
+        <li>
+          <a
+            href="./work/work.html"
+            onclick='loadHtml("template","./work/work.html")'
+            >Our Works</a
+          >
+        </li>
+        <li>
+          <a
+            href="./contact/contact.html"
+            onclick='loadHtml("template","./contact/contact.html")'
+            >Contact Us</a
+          >
+        </li>
       </ul>
       <div>Donate Now &gt;</div>
     </nav>
 
     <!-- Content Section -->
-
-    <div class="container">
-      <img src="./images/bg.webp" alt="" srcset="" />
-      <article class="title">
-        <h1>
-          Samrat Ashok <br />
-          Lord Buddha <br />
-          Welfare Foundation
-        </h1>
-        <h4>
-          Take Action. <br />
-          Make a Difference.
-        </h4>
-      </article>
-    </div>
-    <div class="bar">
-      <div id="about">
-        <ul>
-          <li class="bar-head">ABOUT</li>
-          <li class="bar-text">Know about Us</li>
-          <li>
-            <a href="about/about.html"
-              ><img class="bar-img" src="./images/arrow.svg" alt="" srcset=""
-            /></a>
-          </li>
-        </ul>
-      </div>
-      <div id="update">
-        <ul>
-          <li class="bar-head">UPDATES</li>
-          <li class="bar-text">Get Updated</li>
-          <li>
-            <a href="update/update.html"
-              ><img class="bar-img" src="./images/arrow.svg" alt="" srcset=""
-            /></a>
-          </li>
-        </ul>
-      </div>
-      <div id="team">
-        <ul>
-          <li class="bar-head">OUR TEAM</li>
-          <li class="bar-text">See Out Team</li>
-          <li>
-            <a href="about/about.html"
-              ><img class="bar-img" src="./images/arrow.svg" alt="" srcset=""
-            /></a>
-          </li>
-        </ul>
-      </div>
-      <div id="work">
-        <ul>
-          <li class="bar-head">OUR WORKS</li>
-          <li class="bar-text">See Our Works</li>
-          <li>
-            <a href="work/work.html"
-              ><img class="bar-img" src="./images/arrow.svg" alt="" srcset=""
-            /></a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
+    <div id="template" class="template"></div>
     <!-- Footer Section -->
 
     <footer>
