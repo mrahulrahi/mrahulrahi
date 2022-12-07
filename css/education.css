@@ -31,7 +31,13 @@
     text-align: justify;
     margin-bottom: 60px;
 }
+
 #donate-btn {
     background-color: #EADE71;
-    padding: 15px 30px;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+#donate-btn:hover {
+    opacity: 80%;
 }
