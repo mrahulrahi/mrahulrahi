@@ -9,10 +9,10 @@ class MyHeader extends HTMLElement {
         </div>
       <ul class="nav-list">
           <li><a href="./index.html">Home</a></li>
-          <li><a href="../about/about.html">About Us</a></li>
-          <li><a href="../update/update.html">Updates</a></li>
-          <li><a href="../work/work.html">Our Works</a></li>
-          <li><a href="../contact/contact.html">Contact Us</a></li>
+          <li><a href="./about.html">About Us</a></li>
+          <li><a href="./update.html">Updates</a></li>
+          <li><a href="./work.html">Our Works</a></li>
+          <li><a href="./contact.html">Contact Us</a></li>
       </ul>
       <div>Donate Now &gt;</div>
     </nav>
