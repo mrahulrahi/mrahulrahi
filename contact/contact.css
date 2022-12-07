@@ -7,10 +7,11 @@
     background-color: #18157c;
     display: flex;
     flex-direction: column;
+    padding: 5% 0;
 }
 
 .contact-title {
-    padding: 10%;
+    padding: 5% 10%;
 }
 .contact-title h3 {
     color: #EADE71;
@@ -20,7 +21,6 @@
 .contact-title h1 {
     color: white;
     font-size: 6vw;
-    line-height: 10px;
 }
 
 .contact span {
@@ -108,6 +108,7 @@ input:focus {
 
 .social-links {
     color: white;
+    line-height: 2em;
 }
 
 .social-links ul {

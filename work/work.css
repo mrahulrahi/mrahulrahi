@@ -5,7 +5,9 @@
 }
 
 .about {
-    padding: 10vh 20vw;
+    padding: 10%;
+    line-height: 2em;
+    
 }
 
 .about h3 {
