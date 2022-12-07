@@ -3,12 +3,12 @@ class MyHeader extends HTMLElement {
     this.innerHTML = `
         <nav class="nav-wrapper">
         <div class="site-title">
-        <a href="../index.html">
-        <img src="/images/logo.png">
+        <a href="./index.html">
+        <img src="./images/logo.png">
         </a>
         </div>
       <ul class="nav-list">
-          <li><a href="../index.html">Home</a></li>
+          <li><a href="./index.html">Home</a></li>
           <li><a href="../about/about.html">About Us</a></li>
           <li><a href="../update/update.html">Updates</a></li>
           <li><a href="../work/work.html">Our Works</a></li>
