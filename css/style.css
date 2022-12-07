@@ -59,6 +59,18 @@ body {
     text-decoration: none;
 }
 
+.donate-btn {
+    background-color: #18157C;
+    color: #fff;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.donate-btn:hover {
+    border-radius: 10px;
+    transform: scale(1.1);
+    transition: .3s;
+}
 
 /***** End Section *****/
 

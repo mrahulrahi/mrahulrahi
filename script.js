@@ -14,7 +14,7 @@ class MyHeader extends HTMLElement {
           <li><a href="./work.html">Our Works</a></li>
           <li><a href="./contact.html">Contact Us</a></li>
       </ul>
-      <div>Donate Now &gt;</div>
+      <div class="donate-btn">Donate Now &gt;</div>
     </nav>
         `;
   }
