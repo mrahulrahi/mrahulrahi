@@ -71,7 +71,8 @@ footer span {
     flex-direction: row;
     font-family: 'Readex Pro', sans-serif;
     justify-content: space-around;
-    margin: 5vh 50vw;
+    margin: 10vh 50vw;
+    line-height: 1.5em;
     color: #18157C;
 }
 
