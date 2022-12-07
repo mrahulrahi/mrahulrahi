@@ -5,6 +5,19 @@
     line-height: 2em;
 }
 
+.bar-img {
+    width: 2.5em;
+    padding: .5em;
+    margin-bottom: 1em;
+    background-color: #EADE71;
+    border-radius: 50%;
+}
+
+.bar-img:hover {
+    transform: scale(1.25);
+    transition: .3s;
+}
+
 .container h3 {
     color: #EADE71;
     font-size: 30px;
