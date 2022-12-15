@@ -25,7 +25,6 @@ class MyFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <footer>
-        <span>
           <div class="social-link">
             <ul>
               <li>FACEBOOK</li>
@@ -60,7 +59,6 @@ class MyFooter extends HTMLElement {
               <li>Proudly coded by mrahulrahi</li>
             </ul>
           </div>
-        </span>
       </footer>
         `;
   }

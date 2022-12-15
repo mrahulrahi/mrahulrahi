@@ -35,22 +35,24 @@ h4 {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 50px;
     gap: 10px;
     margin-bottom: 30px;
     font-family: 'Readex Pro', sans-serif;
-    color: white;
+    color: #18157C;
+    font-weight: bold;
     background-color: #18157C;
 }
 
 .bar ul {
     list-style-type: none;
-    margin: 40px;
-}
-
-.bar li {
-    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 10px;
 }
 
 .bar-head {
@@ -62,7 +64,7 @@ h4 {
 }
 
 .bar-img {
-    width: 30px;
+    width: 1vw;
 }
 
 .bar-img:hover {
@@ -74,26 +76,10 @@ h4 {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: calc(23% - 10px);
+    width: calc(25% - 10px);
     height: auto;
     box-shadow: 0px 0px 20px 5px #EADE71;
+    background-color: #EADE71;
 }
-
-#about {
-    background-color: hsl(242, 71%, 28%, 0.5); 
-}
-
-#update {
-    background-color: hsl(0, 0%, 0%, 0.5);
-}
-
-#team {
-    background-color: rgba(31, 150, 20, 0.5);
-}
-
-#work {
-    background-color: rgba(141, 23, 156, 0.5);
-}
-
 
 /***** End Section *****/

@@ -22,13 +22,17 @@ body {
     font-family: 'Barlow', sans-serif;
     position: sticky;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    width: 100%;
     height: 5em;
+    min-height: auto;
 }
 
 .nav-list {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     list-style-type: none;
     font-weight: 600;
@@ -78,18 +82,20 @@ body {
 
 /***** Footer Section *****/
 
-footer span {
+footer {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
     font-family: 'Readex Pro', sans-serif;
-    justify-content: space-around;
-    margin: 10vh 50vw;
+    justify-content: space-between;
+    margin: 10%;
+    gap: 20px;
     line-height: 1.5em;
     color: #18157C;
 }
 
 .social-link {
-    min-width: 50vw;
+    min-width: 300px;
     cursor: pointer;
 }
 
@@ -103,7 +109,7 @@ footer span {
 }
 
 .form {
-    min-width: 25vw;
+    min-width: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
