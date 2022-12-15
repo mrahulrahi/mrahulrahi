@@ -51,10 +51,9 @@
     align-items: center;
     line-height: 1.5em;
     font-size:x-large;
-    box-shadow: 0px 0px 20px 5px #EADE71;
+    box-shadow: 0px 0px 20px 2px #EADE71;
     width: 30vw;
     height: auto;
-    border-radius: 5%;
     color: #18157c;
     background-color: #EADE71;
 }
