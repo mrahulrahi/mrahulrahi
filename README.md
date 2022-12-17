@@ -29,7 +29,7 @@
 
 <p align="right">
   <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&theme=omni" alt="mrahulrahi"
-       height="400" width="500" />
+       height="200" width="500" />
   </p>
 
 <h3 align="left">Connect with me:</h3>
