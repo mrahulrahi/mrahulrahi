@@ -70,6 +70,3 @@
 
 <hr>
  
-<p><img align="center" src="https://github-profile-trophy.vercel.app/?username=mrahulrahi&theme=onedark" alt="mrahulrahi"  height="150" width="900" /></p>
-
-<hr>
