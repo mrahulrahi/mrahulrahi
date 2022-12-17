@@ -28,7 +28,7 @@
 <hr>
 
 <p align="right">
-  <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&theme=omni" alt="mrahulrahi"
+  <img align="right" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&theme=omni" alt="mrahulrahi"
        height="300" width="500" />
   </p>
 
