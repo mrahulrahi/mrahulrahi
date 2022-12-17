@@ -36,7 +36,7 @@
 <a href="https://www.topcoder.com/members/mrahulrahi" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/topcoder.svg" alt="mrahulrahi" height="30" width="40" /></a>
 </p>
 <p>
-  <p align="left">
+  <p align="right">
   <img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=mrahulrahi&theme=omni" alt="mrahulrahi"
        height="400" width="380" />
   </p>
