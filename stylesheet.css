@@ -60,7 +60,7 @@
     /********* Footer style **********/
 	footer {
 		font-size: 20px;
-		position: fixed;
+		position: sticky;
 		bottom: 5%;
 		left: 50%;
 		transform: translate(-50%, 0);
