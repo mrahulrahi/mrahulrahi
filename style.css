@@ -59,6 +59,7 @@ header {
   text-align: center;
   padding: 0.8rem 1rem;
   text-decoration: none;
+  border-radius: 5px;
 }
 
 .menu-items:hover {
@@ -104,9 +105,15 @@ header {
   font-weight: bold;
   padding: 1rem 2rem;
   color: #121212;
-  background-color: #fcaf3b;
+  background: rgba(252, 175, 59, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(252, 175, 59, 0.9);
   text-decoration: none;
   margin-top: 1em;
+  border-radius: 5px;
 }
 
 .btn-2 {
@@ -116,6 +123,11 @@ header {
   color: #121212;
   border: 2px solid #121212;
   text-decoration: none;
+  border-radius: 5px;
+  background: rgba(237, 237, 237, 0.9);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(237, 237, 237, 0.9);
 }
 
 #home span {
