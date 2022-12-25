@@ -173,14 +173,10 @@ body {
   border-radius: 25px;
 }
 
-.contact-details h4 {
-  font-size: 2em;
-}
-
 #contact {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   background-color: #121212;
@@ -314,6 +310,17 @@ body {
   transition: 0.3s;
 }
 
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 7.5em;
+}
+
+.contact-details h4 {
+  font-size: 3em;
+}
+
 .contact-form {
   padding: 7.5em;
 }
@@ -342,7 +349,7 @@ textarea {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1em;
+  gap: 2em;
 }
 
 footer {
