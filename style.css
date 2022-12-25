@@ -195,9 +195,17 @@ body {
   margin: 3em;
 }
 
+.services {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
 .web-design,
 .graphic-design {
-  padding: 7.5em;
+  width: 50%;
+  padding: 5em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -208,20 +216,23 @@ body {
 
 .app-design,
 .photography {
-  padding: 7.5em;
+  width: 50%;
+  padding: 5em;
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  background-color: #ededed;
 }
 
 .img-container img {
   border-radius: 5%;
+  width: 400px;
 }
 
 .text-container {
-  padding: 10em;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
