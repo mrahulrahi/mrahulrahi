@@ -137,7 +137,6 @@ header {
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(237, 237, 237, 0.3);
 }
 
@@ -185,7 +184,6 @@ header {
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(237, 237, 237, 0.3);
   border-radius: 10px;
   padding: 2em 1em;
@@ -227,7 +225,6 @@ header {
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(237, 237, 237, 0.3);
   color: #fcaf3b;
   padding: 1em;
@@ -260,7 +257,6 @@ header {
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(237, 237, 237, 0.3);
   border-radius: 10px;
 }
@@ -324,7 +320,6 @@ header {
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(237, 237, 237, 0.3);
   padding: 40px;
   border-radius: 10px;
@@ -375,7 +370,6 @@ header {
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(237, 237, 237, 0.3);
   margin: 50px;
 }
