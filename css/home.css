@@ -139,6 +139,7 @@ li {
 #form-message {
   background-color: #18157c;
   color: white;
+  border: none;
   border-bottom: 1px solid white;
   width: 407px;
   height: 42px;
