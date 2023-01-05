@@ -36,7 +36,7 @@ h4 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 100px;
+  padding: 100px 50px;
   gap: 10px;
   font-family: "Readex Pro", sans-serif;
   color: #18157c;
@@ -81,7 +81,7 @@ h4 {
   justify-content: space-around;
   width: calc(25% - 10px);
   height: auto;
-  box-shadow: 0px 0px 20px 5px #eade71;
+  box-shadow: 0px 0px 10px 2px #eade71;
   background-color: #eade71;
 }
 
