@@ -36,7 +36,7 @@ h4 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding: 50px;
+  padding: 100px;
   gap: 10px;
   font-family: "Readex Pro", sans-serif;
   color: #18157c;
@@ -45,6 +45,7 @@ h4 {
 }
 
 .bar ul {
+  height: 200px;
   list-style-type: none;
   display: flex;
   flex-direction: column;
