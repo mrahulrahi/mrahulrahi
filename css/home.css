@@ -1,203 +1,211 @@
 /***** Content Section *****/
 
 .container {
-    position: relative;
+  position: relative;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 h1 {
-    font-size: 5vw;
-    font-family: 'Barlow', sans-serif;
-    font-weight: 900;
-    text-align: center;
-    color: #18157C;
+  font-size: 5vw;
+  font-family: "Barlow", sans-serif;
+  font-weight: 900;
+  text-align: center;
+  color: #18157c;
 }
 
 h4 {
-    font-size: 4vw;
-    font-family: 'Readex Pro', sans-serif;
-    font-weight: 600;
-    text-align: center;
-    color: #18157C;
+  font-size: 4vw;
+  font-family: "Readex Pro", sans-serif;
+  font-weight: 600;
+  text-align: center;
+  color: #18157c;
 }
 
 .bar {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    padding: 50px;
-    gap: 10px;
-    margin-bottom: 30px;
-    font-family: 'Readex Pro', sans-serif;
-    color: #18157C;
-    font-weight: bold;
-    background-color: #18157C;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 50px;
+  gap: 10px;
+  font-family: "Readex Pro", sans-serif;
+  color: #18157c;
+  font-weight: bold;
+  background-color: #18157c;
 }
 
 .bar ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 30px;
-    gap: 10px;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+  gap: 10px;
 }
 
 .bar-head {
-    font-size: 1.75vw;
+  font-size: 1.75vw;
 }
 
 .bar-text {
-    font-size: 1.1vw;
+  font-size: 1.1vw;
 }
 
 .bar-img {
-    width: 1vw;
+  width: 1vw;
 }
 
 .bar-img:hover {
-    transform: scale(1.25);
-    transition: .3s;
+  transform: scale(1.25);
+  transition: 0.3s;
 }
 
-#about,#update,#team,#work {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: calc(25% - 10px);
-    height: auto;
-    box-shadow: 0px 0px 20px 5px #EADE71;
-    background-color: #EADE71;
+#about,
+#update,
+#team,
+#work {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: calc(25% - 10px);
+  height: auto;
+  box-shadow: 0px 0px 20px 5px #eade71;
+  background-color: #eade71;
 }
 
 /***** End Section *****/
 
-
 /***** Contact Section *****/
 
 .contact {
-    font-family: 'Readex Pro', sans-serif;
-    background-color: #18157c;
-    display: flex;
-    flex-direction: column;
-    padding: 5%;
+  font-family: "Readex Pro", sans-serif;
+  background-color: #18157c;
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
 }
 
 .contact-title {
-    padding: 5% 10%;
+  padding: 5% 10%;
 }
 .contact-title h3 {
-    color: #EADE71;
-    font-size: 1.75vw;
+  color: #eade71;
+  font-size: 1.75vw;
 }
 
 .contact-title h1 {
-    color: white;
-    font-size: 6vw;
+  color: white;
+  font-size: 6vw;
 }
 
 .contact span {
-    display: flex;
-    flex-direction: row;
-    font-family: 'Readex Pro', sans-serif;
-    justify-content: space-around;
-    color: #18157C;
+  display: flex;
+  flex-direction: row;
+  font-family: "Readex Pro", sans-serif;
+  justify-content: space-around;
+  color: #18157c;
 }
 
 .contact-form span {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;  
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .contact-info {
-    display: flex;
-    flex-direction: row;
-    padding: 50px 0 ;
+  display: flex;
+  flex-direction: row;
+  padding: 50px 0;
 }
 
 li {
-    list-style: none;
- }
-
-#form-name, #form-email,#form-subject,#form-message {
-    background-color: #18157c;
-    color: white;
-    border-bottom: 1px solid white;
-    width: 407px;
-    height: 42px;
-    margin-bottom: 1rem;
+  list-style: none;
 }
 
-#form-name, #form-email {
-    width: 190px;
+#form-name,
+#form-email,
+#form-subject,
+#form-message {
+  background-color: #18157c;
+  color: white;
+  border-bottom: 1px solid white;
+  width: 407px;
+  height: 42px;
+  margin-bottom: 1rem;
+}
+
+#form-name,
+#form-email {
+  width: 190px;
 }
 
 #form-message {
-    height: 114px;
+  height: 114px;
 }
 
 #form-submit {
-    background-color: #EADE71;
-    color: #18157C;
-    width: 407px;
-    height: 46px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
+  background-color: #eade71;
+  color: #18157c;
+  width: 407px;
+  height: 46px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 input::placeholder {
-    color: white;
-    font-size: 1rem;
-    font-weight: 200;
-    padding-left: 1rem;
-    border-style: none;
-} 
-
-input:focus {
-    outline: none;
-    border-style: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 200;
+  padding-left: 1rem;
+  border-style: none;
 }
 
-#form-name:hover, #form-email:hover, #form-subject:hover, #form-message:hover {
-    border-bottom: 3px solid white;
+input:focus {
+  outline: none;
+  border-style: none;
+}
+
+#form-name:hover,
+#form-email:hover,
+#form-subject:hover,
+#form-message:hover {
+  border-bottom: 3px solid white;
 }
 
 #donate-btn {
-    background-color: #EADE71;
-    padding: 10px 15px;
-    text-decoration: none;
+  background-color: #eade71;
+  padding: 10px 15px;
+  text-decoration: none;
 }
 
 #donate-btn:hover {
-    opacity: 80%;
+  opacity: 80%;
 }
 
 #form-submit:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .social-links {
-    color: white;
-    line-height: 2em;
+  color: white;
+  line-height: 2em;
 }
 
 .social-links ul {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 /***** End Section *****/
