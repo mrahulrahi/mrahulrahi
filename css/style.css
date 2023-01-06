@@ -1,148 +1,143 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Readex+Pro:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Readex+Pro:wght@300;400&display=swap");
 /* font-family: 'Barlow',
 sans-serif;
 font-family: 'Readex Pro',
 sans-serif; */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 /***** Navigation Section *****/
 
 .nav-wrapper {
-    background-color: white;
-    color: #18157C;
-    font-family: 'Barlow', sans-serif;
-    position: sticky;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 5em;
-    min-height: auto;
+  background-color: white;
+  color: #18157c;
+  font-family: "Barlow", sans-serif;
+  position: sticky;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 5em;
+  min-height: auto;
 }
 
 .nav-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    list-style-type: none;
-    font-weight: 600;
-    text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style-type: none;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .site-title {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .site-title img {
-    width: auto;
-    height: 60px;
+  width: auto;
+  height: 60px;
 }
 
 .nav-list li {
-    padding: 0 10px 0 10px;
-    cursor: pointer;
-    font-size: 1.25em;
-    margin: 0 2px 0 2px;
-}
-
-.nav-list li:hover {
-    color: #999997;
+  padding: 0 10px 0 10px;
+  cursor: pointer;
+  font-size: 1.25em;
+  margin: 0 2px 0 2px;
 }
 
 .nav-list li a {
-    text-decoration: none;
+  text-decoration: none;
+  color: #18157c;
 }
 
 .donate-btn {
-    background-color: #18157C;
-    color: #fff;
-    padding: 1em;
-    cursor: pointer;
+  background-color: #18157c;
+  color: #fff;
+  padding: 1em;
+  cursor: pointer;
 }
 
 .donate-btn:hover {
-    border-radius: 10px;
-    transform: scale(1.1);
-    transition: .3s;
+  border-radius: 10px;
+  transform: scale(1.1);
+  transition: 0.3s;
 }
 
 /***** End Section *****/
 
-
-
 /***** Footer Section *****/
 
 footer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    font-family: 'Readex Pro', sans-serif;
-    justify-content: space-between;
-    margin: 10%;
-    gap: 20px;
-    line-height: 1.5em;
-    color: #18157C;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  font-family: "Readex Pro", sans-serif;
+  justify-content: space-between;
+  margin: 10%;
+  gap: 20px;
+  line-height: 1.5em;
+  color: #18157c;
 }
 
 .social-link {
-    min-width: 300px;
-    cursor: pointer;
+  min-width: 300px;
+  cursor: pointer;
 }
 
 .social-link span {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .social-link ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 .form {
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .form span {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 #email {
-    border: 1px solid #18157C;
-    padding: 10px 30px 10px 30px;
-    margin-right: 10px;
+  border: 1px solid #18157c;
+  padding: 10px 30px 10px 30px;
+  margin-right: 10px;
 }
 
 #submit {
-    background: #18157C;
-    color: white;
-    text-decoration: none;
-    padding: 10px 30px 10px 30px;
+  background: #18157c;
+  color: white;
+  text-decoration: none;
+  padding: 10px 30px 10px 30px;
 }
 
 #email:hover {
-    border: 3px solid #18157C;
+  border: 3px solid #18157c;
 }
 
 #submit:hover {
-    background-color: black;
+  background-color: black;
 }
 
 /***** End Section *****/
