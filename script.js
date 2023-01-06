@@ -10,7 +10,6 @@ class MyHeader extends HTMLElement {
       <ul class="nav-list">
           <li><a href="./index.html">Home</a></li>
           <li><a href="./about.html">About Us</a></li>
-          <li><a href="./update.html">Updates</a></li>
           <li><a href="./work.html">Our Works</a></li>
           <li><a href="./index.html#contact">Contact Us</a></li>
       </ul>
