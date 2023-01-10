@@ -74,7 +74,7 @@ h2 {
   padding: 5%;
   font-size: 1.25em;
   border: 2px solid rgb(135, 109, 92);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 input[type="radio"] {
   margin-left: 10px;
