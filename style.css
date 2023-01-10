@@ -62,7 +62,8 @@ h2 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
+  padding: 100px;
 }
 
 .answer-choice {
@@ -71,6 +72,8 @@ h2 {
   width: 300px;
   height: 30px;
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   padding: 5%;
   font-size: 1.25em;
   border: 2px solid rgb(135, 109, 92);
@@ -78,8 +81,9 @@ h2 {
 }
 input[type="radio"] {
   margin-left: 10px;
-  width: 1.5em;
-  height: auto;
+  width: 25px;
+  height: 25px;
+  accent-color: rgb(63, 102, 104);
 }
 span {
   margin-left: 5px;
@@ -90,7 +94,7 @@ input[type="submit"] {
   background-color: rgb(227, 231, 234);
   font-size: 1.5em;
   font-weight: bold;
-  border-radius: 5%;
+  border-radius: 10px;
   margin-top: 30px;
   margin-bottom: 30px;
   width: 5em;
@@ -99,7 +103,7 @@ input[type="submit"] {
 
 .feedback {
   background-color: antiquewhite;
-  border-radius: 5%;
+  border-radius: 25px;
   width: 50%;
   align-self: center;
 }
@@ -107,7 +111,7 @@ input[type="submit"] {
 .start-button {
   align-self: center;
   font-weight: bold;
-  border-radius: 5%;
+  border-radius: 10px;
   margin: 30px;
   width: 5em;
   height: 3em;
@@ -117,7 +121,7 @@ input[type="submit"] {
   color: rgb(63, 102, 104);
   background-color: rgb(227, 231, 234);
   font-weight: bold;
-  border-radius: 5%;
+  border-radius: 10px;
   width: 5em;
   height: 2em;
 }
@@ -127,7 +131,7 @@ input[type="submit"] {
   background-color: rgb(227, 231, 234);
   font-size: 1em;
   font-weight: bold;
-  border-radius: 5%;
+  border-radius: 10px;
   margin: 30px;
   width: 5em;
   height: 3em;
