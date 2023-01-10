@@ -1,147 +1,146 @@
 body {
-    box-sizing: border-box;
-    background-image: url(bg-img.jpg);
-    background-size: cover;
-    background-position: fixed;
-    background-repeat: no-repeat;
+  box-sizing: border-box;
+  background-image: url(bg-img.jpg);
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: no-repeat;
 }
 header {
-    color: rgb(10,37,53);
-    font-family: 'Slabo 13px', serif;
-    text-align: center;
+  color: rgb(10, 37, 53);
+  font-family: "Slabo 13px", serif;
+  text-align: center;
 }
 #game-board {
-    border-top: 5px solid rgb(10,37,53);
-    text-align: center;
-    margin: 0 30px;
-    display: flex;
-    justify-content: center;  
-    flex-direction: column;
-    margin-bottom: 600px;
+  border-top: 5px solid rgb(10, 37, 53);
+  text-align: center;
+  margin: 0 30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 600px;
 }
 .keeping-track {
-    padding: 0;
-    margin: 0;
-    margin-top: 0px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  padding: 0;
+  margin: 0;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 h2 {
-    color: rgb(10,37,53);
-    font-family: 'Open Sans', sans-serif;
-    font-weight: lighter;
-    margin: 50px;
+  color: rgb(10, 37, 53);
+  font-family: "Open Sans", sans-serif;
+  font-weight: lighter;
+  margin: 50px;
 }
 
 .start-page {
-    background-color: antiquewhite;
-    padding: 5%;
-    border-radius: 5%;
-    width: 50%;
-    align-self: center;
+  background-color: antiquewhite;
+  padding: 5%;
+  border-radius: 10px;
+  width: 75%;
+  align-self: center;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .question-form {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5em;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-    background-color: aliceblue;
-    border-radius: 5%;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5em;
+  margin-left: auto;
+  margin-right: auto;
+  width: 75%;
+  background-color: aliceblue;
+  border-radius: 5%;
 }
 
 .answers {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .answer-choice {
-    color: rgb(227,231,234);
-    background-color: rgb(63,102,104);
-    width: 30%;
-    height: 30px;
-    display: flex;
-    padding: 5%;
-    margin: 10px 40px 0px 40px;
-    font-size: 1.25em;
-    border: 2px solid rgb(135,109,92);
-    border-radius: 5px;
+  color: rgb(227, 231, 234);
+  background-color: rgb(63, 102, 104);
+  width: 30%;
+  height: 30px;
+  display: flex;
+  padding: 5%;
+  margin: 10px 40px 0px 40px;
+  font-size: 1.25em;
+  border: 2px solid rgb(135, 109, 92);
+  border-radius: 5px;
 }
-input[type=radio] {
-    margin-left: 10px;
-    width: 1.5em;
-    height: auto;
+input[type="radio"] {
+  margin-left: 10px;
+  width: 1.5em;
+  height: auto;
 }
 span {
-    margin-left: 5px;
-    font-weight: lighter;
+  margin-left: 5px;
+  font-weight: lighter;
 }
-input[type=submit] {
-    color: rgb(63,102,104);
-    background-color: rgb(227,231,234);
-    font-size: 1.5em;
-    font-weight: bold;
-    border-radius: 5%;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    width: 5em;
-    height: 2em;
+input[type="submit"] {
+  color: rgb(63, 102, 104);
+  background-color: rgb(227, 231, 234);
+  font-size: 1.5em;
+  font-weight: bold;
+  border-radius: 5%;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 5em;
+  height: 2em;
 }
 
 .feedback {
-    background-color: antiquewhite;
-    border-radius: 5%;
-    width: 50%;
-    align-self: center;
+  background-color: antiquewhite;
+  border-radius: 5%;
+  width: 50%;
+  align-self: center;
 }
 
 .start-button {
-    align-self: center;
-    font-weight: bold;
-    border-radius: 5%;
-    margin: 30px;
-    width: 5em;
-    height: 3em;
+  align-self: center;
+  font-weight: bold;
+  border-radius: 5%;
+  margin: 30px;
+  width: 5em;
+  height: 3em;
 }
 
 .nextButton {
-    color: rgb(63,102,104);
-    background-color: rgb(227,231,234);
-    font-weight: bold;
-    border-radius: 5%;
-    width: 5em;
-    height: 2em;
+  color: rgb(63, 102, 104);
+  background-color: rgb(227, 231, 234);
+  font-weight: bold;
+  border-radius: 5%;
+  width: 5em;
+  height: 2em;
 }
 
 .restartButton {
-    color: rgb(63,102,104);
-    background-color: rgb(227,231,234);
-    font-size: 1em;
-    font-weight: bold;
-    border-radius: 5%;
-    margin: 30px;
-    width: 5em;
-    height: 3em;
+  color: rgb(63, 102, 104);
+  background-color: rgb(227, 231, 234);
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5%;
+  margin: 30px;
+  width: 5em;
+  height: 3em;
 }
 
 p {
-    font-family: 'Open Sans', sans-serif;
-    color: rgb(10,37,53);
+  font-family: "Open Sans", sans-serif;
+  color: rgb(10, 37, 53);
 }
 
 h3 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: lighter;
-    font-size: 20px;
-    color: rgb(10,37,53);
+  font-family: "Open Sans", sans-serif;
+  font-weight: lighter;
+  font-size: 20px;
+  color: rgb(10, 37, 53);
 }
-
