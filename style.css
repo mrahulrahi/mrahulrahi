@@ -70,7 +70,7 @@ h2 {
   color: rgb(227, 231, 234);
   background-color: rgb(63, 102, 104);
   width: 300px;
-  height: 30px;
+  height: 50px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
