@@ -256,16 +256,16 @@ nav ul li a.active {
 #skill .card {
 	border: none;
 }
-/* KONTAK */
-#kontak {
+/* contact */
+#contact {
 	background-color: #202020;
 	margin-top: -100px;
 }
-#kontak h2 {
+#contact h2 {
 	color: #ffff;
 	font-weight: 500;
 }
-#kontak h2::before {
+#contact h2::before {
 	content: '';
 	position: absolute;
 	margin: 40px 38px;
@@ -274,7 +274,7 @@ nav ul li a.active {
 	background-image: linear-gradient(to left, #FFFF00 50%, #E0E0E0 50%);
 	border-radius: 2px;
 }
-#kontak input {
+#contact input {
 	text-align: center;
 	display: block;
 	margin: 10px auto;
@@ -284,7 +284,7 @@ nav ul li a.active {
 	color: #ffff;
 	border-radius: 10px 2px 3px;
 }
-#kontak textarea {
+#contact textarea {
 	margin: 0 auto;
 	margin-bottom: 10px;
 	background-color: transparent;
@@ -293,13 +293,13 @@ nav ul li a.active {
 	border-radius: 10px 2px 3px;
 	display: block;
 }
-#kontak button {
+#contact button {
  padding: 8px 10px;
  border: none;
  background-color: #FFFF00;
  margin: 0 auto;
 }
-#kontak .card {
+#contact .card {
 	margin-bottom: 20px;
 }
 .sosmed {
@@ -415,7 +415,7 @@ footer span {
 		width: 750px;
 		height: 300px;
 	}*/
-	#kontak button {
+	#contact button {
 		margin-top: 0px;
 	}
 @media screen and (max-width: 576px) {
@@ -466,8 +466,8 @@ footer span {
 		width: 200px;
 		height: 200px;
 	}
-	/* KONTAK */
-	#kontak h2::before {
+	/* contact */
+	#contact h2::before {
 		margin: 30px 25px;
 	}
 }
