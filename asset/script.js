@@ -29,8 +29,9 @@ function popUp() {
   }
 }
 // bagian kontak
-const scriptURL = "https://script.google.com/macros/s/AKfycbwZ1UOuntNm_ytbFLVXAjRnhLMYer-90B9K-KzTdCgEvZf_98jXtu2hqdhBXbSyFyQpQQ/exec";
-const form = document.forms["Kontak-Website"];
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbwZ1UOuntNm_ytbFLVXAjRnhLMYer-90B9K-KzTdCgEvZf_98jXtu2hqdhBXbSyFyQpQQ/exec";
+const form = document.forms["contact-Website"];
 const kirim = document.getElementById("submit");
 const loading = document.querySelector(".btn-loading");
 const alert = document.querySelector(".alert");
