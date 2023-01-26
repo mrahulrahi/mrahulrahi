@@ -191,17 +191,17 @@ nav ul li a.active {
 .a-abt p {
 	padding-top: 10px;
 }
-/* PROJECT */
-#project h2 {
+/* video */
+#video h2 {
 	font-weight: 500;
 }
-#project .card {
+#video .card {
 	transition: .5s ease;
 }
-#project .card:hover {
+#video .card:hover {
 	box-shadow: 0 5px 10px grey;
 }
-#project h2::before {
+#video h2::before {
 	content: '';
 	position: absolute;
 	margin: 40px 38px;
@@ -210,52 +210,18 @@ nav ul li a.active {
 	background-image: linear-gradient(to left, #FFFF00 50%, #E0E0E0 50%);
 	border-radius: 2px;
 }
-/* SERTIVIKAT */
-/*.card-sertivikat {
-	display: grid;
-	grid-template-columns: auto auto auto;
-	grid-gap: 10px;
-	padding: 10px;
+iframe {
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16/9;
 }
-#sertivikat h2 {
-	font-weight: 500;
+.card-title {
+	background-color: #FFFF00;
+	padding: 2%;
+	border-radius: 5px;
+	font-weight: bold;
 }
-#sertivikat h2::before {
-	content: '';
-	position: absolute;
-	margin: 39px 24px;
-	width: 100px;
-	height: 5px;
-	background-image: linear-gradient(to left, #FFFF00 50%, #E0E0E0 50%);
-	border-radius: 2px;
-}
-.item-1 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  background-color: #FFFF00;
-}
-.card-sertivikat div {
-	background-color: rgba(255, 255, 255, 0.8);
-  	text-align: center;
-  	padding: 5px 0;
-  	font-size: 30px;
-}
-*//* SKILL */
-#skill h2 {
-	font-weight: 500;
-}
-#skill h2::before {
-	content: '';
-	position: absolute;
-	margin: 39px 12px;
-	width: 100px;
-	height: 5px;
-	background-image: linear-gradient(to left, #FFFF00 50%, #E0E0E0 50%);
-	border-radius: 2px;
-}
-#skill .card {
-	border: none;
-}
+
 /* contact */
 #contact {
 	background-color: #202020;
@@ -292,7 +258,7 @@ nav ul li a.active {
 	color: #ffff;
 	border-radius: 10px 2px 3px;
 	display: block;
-}
+} 
 #contact button {
  padding: 8px 10px;
  border: none;
@@ -372,7 +338,7 @@ footer span {
 		margin-top: 30px;
 	}
 	/* RPOJECT */
-	#project {
+	#video {
 		margin-top: 5rem;
 	}
 	/* SERTIVIKAT */
@@ -447,10 +413,10 @@ footer span {
 		margin: 30px 11px;
 	}
 	/* RPOJECT */
-	#project {
+	#video {
 		margin-top: 15rem;
 	}
-	#project h2::before {
+	#video h2::before {
 		margin: 30px 18px;
 	}
 	/* SERTIVIKAT */

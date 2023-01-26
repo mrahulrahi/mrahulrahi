@@ -22,13 +22,8 @@ window.addEventListener("scroll", function () {
   var windowPosition = window.scrollY > 100;
   logo.classList.toggle("zoom", windowPosition);
 });
-// popUp
-function popUp() {
-  if (popUp) {
-    confirm("COMING SOON GUYS!");
-  }
-}
-// bagian kontak
+
+// begin contact
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbwZ1UOuntNm_ytbFLVXAjRnhLMYer-90B9K-KzTdCgEvZf_98jXtu2hqdhBXbSyFyQpQQ/exec";
 const form = document.forms["contact-Website"];
