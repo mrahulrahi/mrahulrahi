@@ -87,7 +87,7 @@ nav ul li a.active {
 /* JUMBOTRON  */
 #jumbotron {
 	width: 100%;
-	background-image: url(../img/saya-2.jpg);
+	background-image: url(../img/bg_img.jpg);
 	background-size: cover;
 	color: #ffff;
 	padding-top: 15rem;
