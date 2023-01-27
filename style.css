@@ -12,7 +12,7 @@ body {
   background-color: #121212;
 }
 
-header {
+.navbar {
   position: relative;
   width: 100%;
   margin: 0 auto;
@@ -25,43 +25,45 @@ header {
 }
 .logo {
   float: left;
-  padding: 10px 20px;
+  padding: 10px;
   text-align: center;
   box-sizing: border-box;
   text-decoration: none;
-  font-size: 25px;
   color: #ffff;
   font-weight: bold;
   transition: 0.3s;
 }
+.logo img {
+  width: 200px;
+  height: auto;
+}
 .hamburger {
   display: none;
 }
-nav {
+.nav-menu {
   float: right;
-}
-nav ul {
   margin: 0;
   padding: 0;
   display: flex;
+  flex-direction: row;
 }
-nav ul li {
+.nav-item {
   list-style: none;
 }
-nav ul li a {
+.nav-link {
   display: block;
   margin: 10px 5px;
   padding: 0.8rem 1rem;
   color: #fcaf3b;
   border-radius: 5px;
-  font-size: 1.25em;
+  font-size: 1.1em;
   font-weight: bold;
   text-align: center;
   text-decoration: none;
   transition: background-color ease-in 0.4s;
 }
-nav ul li a:hover,
-nav ul li a.active {
+.nav-link:hover,
+.nav-link.active {
   color: #121212;
   background-color: #ededed;
 }
@@ -105,38 +107,23 @@ nav ul li a.active {
   gap: 10px;
 }
 
-.btn-1 {
+.btn {
   font-size: 1rem;
   font-weight: bold;
   padding: 1rem 2rem;
   color: #121212;
+  text-decoration: none;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
+.btn-1 {
   background: rgba(252, 175, 59, 0.9);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(252, 175, 59, 0.9);
-  text-decoration: none;
-  margin-top: 1em;
-  border-radius: 5px;
 }
-
 .btn-2 {
-  font-size: 16px;
-  font-weight: bold;
-  padding: 16px 35px;
-  color: #121212;
-  border: 2px solid #121212;
-  text-decoration: none;
-  border-radius: 5px;
   background: rgba(237, 237, 237, 0.9);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
   border: 1px solid rgba(237, 237, 237, 0.9);
-}
-
-#home span {
-  margin: 50px;
 }
 
 .about-container {
@@ -446,14 +433,6 @@ footer a {
   color: #fcaf3b;
 }
 
-/*--responsive for mobile phone--*/
-@media (min-width: 375px) {
-  .body {
-    width: 325px;
-    margin: 0 auto 1rem;
-  }
-}
-
 /* RESPONSIVE */
 @media screen and (max-width: 1024px) {
 }
@@ -486,14 +465,10 @@ footer a {
   nav ul li a {
     text-align: left;
   }
-  }
   @media screen and (max-width: 576px) {
     /* NAVBAR */
     .logo {
       font-size: 20px;
-    }
-    .logo::before {
-      margin-top: 25px;
     }
     .logo.zoom {
       font-size: 22px;

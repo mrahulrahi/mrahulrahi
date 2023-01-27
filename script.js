@@ -16,7 +16,6 @@ li_a.forEach((el) => {
 });
 // ketika navbar discroll
 var logo = document.querySelector(".logo");
-var lbr = document.querySelector(".logo::before");
 window.addEventListener("scroll", function () {
   var windowPosition = window.scrollY > 100;
   logo.classList.toggle("zoom", windowPosition);

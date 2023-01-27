@@ -13,27 +13,33 @@
       referrerpolicy="no-referrer"
     />
     <title>Rahi Creations</title>
-    <script type="text/javascript" src="./script.js"></script>
   </head>
 
   <body>
     <header>
-      <a href="#" class="logo"
-        ><img id="icon" src="images/site-logo.png" alt=""
-      /></a>
-      <div class="hamburger">
-        <h3><i class="fa fa-bars"></i></h3>
-      </div>
-      <nav>
-        <ul>
-          <span>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact">Contact Us</a></li>
-          </span>
+      <nav class="navbar">
+        <a href="#" class="logo"
+          ><img id="icon" src="images/site-logo.png" alt=""
+        /></a>
+
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact Us</a>
+          </li>
         </ul>
+        <div class="hamburger">
+          <h3><i class="fa fa-bars"></i></h3>
+        </div>
       </nav>
       <div class="clear"></div>
     </header>
@@ -44,8 +50,8 @@
         <div class="home-info">
           <h1>WHERE IMAGINATION<br />MEETS CREATIVITY</h1>
           <span>
-            <a class="btn-1" href="">LEARN MORE</a>
-            <a class="btn-2" href="">HIRE US</a>
+            <a class="btn btn-1" href="">LEARN MORE</a>
+            <a class="btn btn-2" href="">HIRE US</a>
           </span>
         </div>
       </div>
@@ -301,7 +307,7 @@
             <input type="email" class="form-control" />
             <p>Comment or Message <span>*</span></p>
             <textarea type="text"> </textarea><br />
-            <button class="btn-1" type="submit">Send Message</button>
+            <button class="btn btn-1" type="submit">Send Message</button>
           </form>
         </div>
       </div>
@@ -318,5 +324,7 @@
         </p>
       </div>
     </footer>
+
+    <script src="asset/script.js"></script>
   </body>
 </html>
