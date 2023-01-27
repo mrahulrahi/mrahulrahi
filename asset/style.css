@@ -219,6 +219,8 @@ iframe {
   width: 100%;
   height: auto;
   aspect-ratio: 16/9;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 .card-title {
   background-color: #ffff00;
