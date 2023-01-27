@@ -13,58 +13,60 @@ body {
 }
 
 header {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  padding: 5px;
+  box-sizing: border-box;
+  background-color: #202020;
   position: fixed;
   top: 0;
-  width: 100%;
-  z-index: 10;
+  z-index: 9999;
 }
-
-.nav-wrapper {
-  background: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 2vh 13rem;
-  width: 100%;
-  position: static;
-  font-family: Arial, Helvetica, sans-serif;
+.logo {
+  float: left;
+  padding: 10px 20px;
+  text-align: center;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-size: 25px;
+  color: #ffff;
+  font-weight: bold;
+  transition: 0.3s;
 }
-
-.nav-wrapper img {
-  width: auto;
-  height: 1rem;
-  align-items: center;
+.hamburger {
+  display: none;
 }
-
-.nav-list {
+nav {
+  float: right;
+}
+nav ul {
   margin: 0;
   padding: 0;
+  display: flex;
+}
+nav ul li {
   list-style: none;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
 }
-
-.nav-list span {
-  display: flex;
-}
-
-.menu-items {
+nav ul li a {
+  display: block;
+  margin: 10px 5px;
+  padding: 0.8rem 1rem;
+  color: #fcaf3b;
+  border-radius: 5px;
   font-size: 1.25em;
   font-weight: bold;
-  display: block;
-  color: #fcaf3b;
   text-align: center;
-  padding: 0.8rem 1rem;
   text-decoration: none;
-  border-radius: 5px;
+  transition: background-color ease-in 0.4s;
 }
-
-.menu-items:hover {
+nav ul li a:hover,
+nav ul li a.active {
   color: #121212;
   background-color: #ededed;
+}
+.clear {
+  clear: both;
 }
 
 .container {
@@ -95,9 +97,12 @@ header {
   margin: 0 0 0.5em;
 }
 
-.container p {
-  font-size: 1rem;
-  margin: 0 0 2em;
+.container span {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .btn-1 {
@@ -446,5 +451,52 @@ footer a {
   .body {
     width: 325px;
     margin: 0 auto 1rem;
+  }
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+  /* NAVBAR */
+  nav {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 5px 5px;
+    float: right;
+    cursor: pointer;
+  }
+  .hamburger h3 {
+    float: right;
+    font-size: 40px;
+    color: #ffff;
+  }
+  nav.slide {
+    display: block;
+    width: 100%;
+  }
+  nav ul {
+    display: block;
+    margin-top: 20px;
+  }
+  nav ul li a {
+    text-align: left;
+  }
+  }
+  @media screen and (max-width: 576px) {
+    /* NAVBAR */
+    .logo {
+      font-size: 20px;
+    }
+    .logo::before {
+      margin-top: 25px;
+    }
+    .logo.zoom {
+      font-size: 22px;
+    }
   }
 }

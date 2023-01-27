@@ -13,22 +13,29 @@
       referrerpolicy="no-referrer"
     />
     <title>Rahi Creations</title>
+    <script type="text/javascript" src="./script.js"></script>
   </head>
 
   <body>
     <header>
-      <nav class="nav-wrapper">
-        <ul class="nav-list">
-          <a href="#"><img id="icon" src="images/site-logo.png" alt="" /></a>
+      <a href="#" class="logo"
+        ><img id="icon" src="images/site-logo.png" alt=""
+      /></a>
+      <div class="hamburger">
+        <h3><i class="fa fa-bars"></i></h3>
+      </div>
+      <nav>
+        <ul>
           <span>
-            <li><a class="menu-items" href="#home">Home</a></li>
-            <li><a class="menu-items" href="#about">About Us</a></li>
-            <li><a class="menu-items" href="#services">Services</a></li>
-            <li><a class="menu-items" href="#team">Team</a></li>
-            <li><a class="menu-items" href="#contact">Contact Us</a></li>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact Us</a></li>
           </span>
         </ul>
       </nav>
+      <div class="clear"></div>
     </header>
 
     <section id="home">
@@ -36,10 +43,6 @@
         <img src="images/home-bg.jpg" alt="" srcset="" />
         <div class="home-info">
           <h1>WHERE IMAGINATION<br />MEETS CREATIVITY</h1>
-          <p>
-            Programmatically work but low hanging fruit so new economy
-            cross-pollination. Quick sync new economy onward and upward.
-          </p>
           <span>
             <a class="btn-1" href="">LEARN MORE</a>
             <a class="btn-2" href="">HIRE US</a>
