@@ -475,3 +475,10 @@ footer a {
     }
   }
 }
+/*--responsive for mobile phone--*/
+@media (min-width: 375px) {
+  .body {
+    width: 325px;
+    margin: 0 auto 1rem;
+  }
+}
