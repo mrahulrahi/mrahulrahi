@@ -257,8 +257,10 @@ iframe {
   border-radius: 10px 2px 3px;
 }
 #contact textarea {
+  text-align: center;
   margin: 0 auto;
   margin-bottom: 10px;
+  padding-top: 10px;
   background-color: transparent;
   border: 2px solid #ffff00;
   color: #ffff;
