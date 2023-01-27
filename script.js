@@ -1,22 +1,14 @@
-var hamburger = document.querySelector(".hamburger");
-var nav = document.querySelector("nav");
-hamburger.addEventListener("click", function () {
-  nav.classList.toggle("slide");
-});
-// bagian navbar ketika diklik akan menghapus class active
-// dan menambahkan class active
-var ul = document.querySelector("ul");
-var li_a = document.querySelectorAll("li a");
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
 
-li_a.forEach((el) => {
-  el.addEventListener("click", function () {
-    ul.querySelector(".active").classList.remove("active");
-    el.classList.add("active");
-  });
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
 });
-// ketika navbar discroll
-var logo = document.querySelector(".logo");
-window.addEventListener("scroll", function () {
-  var windowPosition = window.scrollY > 100;
-  logo.classList.toggle("zoom", windowPosition);
-});
+
+document.querySelectorAll(".nav-link").forEach((n) =>
+  n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+  })
+);
