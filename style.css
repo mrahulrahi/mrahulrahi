@@ -490,27 +490,11 @@ footer a {
     margin: 70px 0;
     width: 100%;
     height: 90vh;
-    overflow: hidden;
-  }
-
-  .home-info {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 
   .container h1 {
     font-size: 10vw;
     margin: 0 0 0.5em;
-  }
-
-  .container span {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
   }
 
   .about-container {
@@ -527,8 +511,6 @@ footer a {
     height: auto;
   }
   .text-container {
-    display: flex;
-    flex-direction: column;
     gap: 40px;
     padding: 20px 0;
   }
@@ -596,58 +578,10 @@ footer a {
 
   @media screen and (max-width: 576px) {
     .container img {
-      margin: 70px 0;
-      width: 100%;
-      height: 90vh;
-      overflow: hidden;
-    }
-
-    .home-info {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .container h1 {
-      font-size: 10vw;
-      margin: 0 0 0.5em;
-    }
-
-    .container span {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .about-container {
-      padding: 2em;
-    }
-
-    .about-us {
-      margin-bottom: 50px;
-      padding: 2em;
-    }
-    .img-container img {
-      border-radius: 2.5%;
-      width: 100%;
-      height: auto;
-    }
-    .text-container {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      padding: 20px 0;
+      height: 80vh;
     }
     .text-container h3 {
-      font-size: 10vw;
-      width: 400px;
-    }
-    .text-container h4,
-    .text-container p {
-      width: 100%;
+      width: 300px;
     }
 
     .contact-info,
@@ -656,6 +590,7 @@ footer a {
     .team-info {
       padding: 3em;
     }
+
     .about-info h3,
     .services-info h3,
     .team-info h3,
