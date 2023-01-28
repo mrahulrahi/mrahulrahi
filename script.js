@@ -1,21 +1,26 @@
 class MyHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-        <nav class="nav-wrapper">
-        <div class="site-title">
-        <a href="./index.html">
+    <header>
+      <nav class="navbar">
+        <a class="logo" href="./index.html">
         <img src="./images/logo.png">
         </a>
-        </div>
-      <ul class="nav-list">
-          <li><a href="./index.html">Home</a></li>
-          <li><a href="./about.html">About Us</a></li>
-          <li><a href="./work.html">Our Works</a></li>
-          <li><a href="./contact.html">Contact Us</a></li>
-      </ul>
-      <div class="donate-btn">Donate Now &gt;</div>
-    </nav>
-        `;
+        <ul class="nav-menu">
+          <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="./work.html">Our Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
+          <div class="donate-btn">Donate Now &gt;</div>
+        </ul>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>  
+      </nav>
+    </header>
+    `;
   }
 }
 customElements.define("my-header", MyHeader);
@@ -63,3 +68,18 @@ class MyFooter extends HTMLElement {
   }
 }
 customElements.define("my-footer", MyFooter);
+
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-link").forEach((n) =>
+  n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+  })
+);

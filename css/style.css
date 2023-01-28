@@ -16,48 +16,64 @@ body {
 
 /***** Navigation Section *****/
 
-.nav-wrapper {
+header {
+  width: 100%;
+  position: fixed;
+  z-index: 99;
+  background-color: #fff;
+}
+
+.navbar {
+  min-height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
   background-color: white;
   color: #18157c;
   font-family: "Barlow", sans-serif;
-  position: sticky;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
   width: 100%;
-  height: 5em;
-  min-height: auto;
 }
 
-.nav-list {
+.logo {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logo img {
+  width: 9rem;
+  height: auto;
+}
+
+.nav-menu {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 25px;
   list-style-type: none;
   font-weight: 600;
-  text-decoration: none;
 }
 
-.site-title {
-  cursor: pointer;
-}
-
-.site-title img {
-  width: auto;
-  height: 60px;
-}
-
-.nav-list li {
-  padding: 0 10px 0 10px;
+.nav-item {
+  list-style: none;
+  padding: 0 10px;
   cursor: pointer;
   font-size: 1.25em;
-  margin: 0 2px 0 2px;
 }
 
-.nav-list li a {
+.nav-link {
+  margin: 10px 5px;
+  padding: 0.75rem;
   text-decoration: none;
   color: #18157c;
+  text-align: center;
+  transition: background-color ease-in 0.7s;
+}
+
+.nav-link:hover,
+.nav-link:active {
+  color: #fff;
+  background-color: #18157c;
 }
 
 .donate-btn {
@@ -68,9 +84,23 @@ body {
 }
 
 .donate-btn:hover {
-  border-radius: 10px;
   transform: scale(1.1);
   transition: 0.3s;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #18157c;
 }
 
 /***** End Section *****/
@@ -141,3 +171,48 @@ footer {
 }
 
 /***** End Section *****/
+
+/* RESPONSIVE */
+@media screen and (max-width: 1024px) {
+}
+
+@media screen and (max-width: 768px) {
+  /* NAVBAR */
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+  .nav-menu {
+    position: fixed;
+    left: -700px;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    z-index: 99;
+    padding: 1em;
+  }
+  .nav-item {
+    margin: 16px 0;
+  }
+  .nav-menu.active {
+    left: 0;
+  }
+
+  @media screen and (max-width: 576px) {
+  }
+}
