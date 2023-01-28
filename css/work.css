@@ -72,24 +72,22 @@
   background-color: #eade71;
 }
 
-@media screen and (max-width: 1024px) {
-  @media screen and (max-width: 768px) {
-    .container {
-      padding-top: 100px;
-    }
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 100px;
+  }
 
-    .block {
-      flex-direction: column;
-      gap: 20px;
-    }
-    #education,
-    #food,
-    #health,
-    #tree {
-      width: 300px;
-      height: auto;
-    }
-    @media screen and (max-width: 576px) {
-    }
+  .block {
+    flex-direction: column;
+    gap: 20px;
+  }
+  #education,
+  #food,
+  #health,
+  #tree {
+    width: 300px;
+    height: auto;
+  }
+  @media screen and (max-width: 576px) {
   }
 }

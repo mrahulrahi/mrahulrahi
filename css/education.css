@@ -42,12 +42,10 @@
   opacity: 80%;
 }
 
-@media screen and (max-width: 1024px) {
-  @media screen and (max-width: 768px) {
-    .container {
-      padding-top: 100px;
-    }
-    @media screen and (max-width: 576px) {
-    }
+@media screen and (max-width: 768px) {
+  .container {
+    padding-top: 100px;
+  }
+  @media screen and (max-width: 576px) {
   }
 }
