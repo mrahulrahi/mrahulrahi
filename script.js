@@ -39,7 +39,7 @@ class MyFooter extends HTMLElement {
               <li>
                 <h5>Subscribe to Our Newsletter</h5>
               </li>
-              <li>
+              <li class="subscribe">
                 <input
                   type="email"
                   id="email"

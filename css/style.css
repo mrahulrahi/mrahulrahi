@@ -109,11 +109,11 @@ header {
 
 footer {
   display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
   font-family: "Readex Pro", sans-serif;
   justify-content: space-between;
-  margin: 10%;
+  align-items: center;
+  margin: 5% 10%;
   gap: 20px;
   line-height: 1.5em;
   color: #18157c;
@@ -122,11 +122,6 @@ footer {
 .social-link {
   min-width: 300px;
   cursor: pointer;
-}
-
-.social-link span {
-  display: flex;
-  flex-direction: column;
 }
 
 .social-link ul {
@@ -138,11 +133,6 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-}
-
-.form span {
-  display: flex;
-  flex-direction: column;
 }
 
 .form ul {
@@ -211,6 +201,39 @@ footer {
   }
   .nav-menu.active {
     left: 0;
+  }
+
+  footer {
+    flex-direction: column;
+    justify-content: center;
+    margin: 10%;
+    gap: 20px;
+    line-height: 1.5em;
+    color: #18157c;
+  }
+
+  .social-link ul:first-child {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+
+  .subscribe {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form {
+    min-width: 300px;
+  }
+
+  #email {
+    padding: 10px;
+    margin-right: 0px;
+  }
+
+  #submit {
+    padding: 10px 30px;
   }
 
   @media screen and (max-width: 576px) {
