@@ -1,72 +1,74 @@
 .container {
-    font-family: 'Readex Pro', sans-serif;
-    background-color: #18157c;
-    padding: 10% ;
+  font-family: "Readex Pro", sans-serif;
+  background-color: #18157c;
+  padding: 10%;
 }
 
 .about {
-    line-height: 2em;
-    
+  line-height: 2em;
 }
 
 .about h3 {
-    color: #EADE71;
-    font-size: 30px;
-    text-align: justify;
-    margin-bottom: 30px;
+  color: #eade71;
+  font-size: 30px;
+  text-align: justify;
+  margin-bottom: 30px;
 }
 
 .about p {
-    color: white;
-    font-size: 20px;
-    text-align: justify;
-    margin-bottom: 10%;
+  color: white;
+  font-size: 20px;
+  text-align: justify;
+  margin-bottom: 10%;
 }
 
-.bar {  
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 50px;
-    gap: 30px;
-    font-family: 'Readex Pro', sans-serif;
-    color: #18157c;
-    font-weight: bold;
-    width: 100%;
+.block {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 50px;
+  gap: 30px;
+  font-family: "Readex Pro", sans-serif;
+  color: #18157c;
+  font-weight: bold;
+  width: 100%;
 }
 
-.bar ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 40px;
+.block ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 40px;
 }
 
-.bar-head {
-    font-size: 25px;
+.block-head {
+  font-size: 25px;
 }
 
-.bar-text {
-    font-size: 16px;
+.block-text {
+  font-size: 16px;
 }
 
-.bar-img {
-    width: 30px;
+.block-img {
+  width: 30px;
 }
 
-.bar-img:hover {
-    transform: scale(1.3);
-    transition: .3s;
+.block-img:hover {
+  transform: scale(1.3);
+  transition: 0.3s;
 }
 
-#education, #food, #health, #tree {
-    padding-top: 60px;
-    width: calc(320px - 30px);
-    height: 300px;
-    box-shadow: 0px 0px 20px 2px #EADE71;
-    background-color: #EADE71;
+#education,
+#food,
+#health,
+#tree {
+  padding-top: 60px;
+  width: calc(320px - 30px);
+  height: 300px;
+  box-shadow: 0px 0px 20px 2px #eade71;
+  background-color: #eade71;
 }
