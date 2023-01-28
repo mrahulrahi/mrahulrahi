@@ -10,7 +10,7 @@ class MyHeader extends HTMLElement {
           <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="./about.html">About Us</a></li>
           <li class="nav-item"><a class="nav-link" href="./work.html">Our Works</a></li>
-          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact Us</a></li> 
           <div class="donate-btn">Donate Now &gt;</div>
         </ul>
         <div class="hamburger">
