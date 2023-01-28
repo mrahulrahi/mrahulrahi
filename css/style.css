@@ -41,13 +41,13 @@ header {
 }
 
 .logo img {
-  width: 9rem;
+  width: 8em;
   height: auto;
 }
 
 .nav-menu {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   gap: 25px;
   list-style-type: none;
