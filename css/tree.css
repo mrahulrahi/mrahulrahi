@@ -1,47 +1,59 @@
 .container {
-    font-family: 'Readex Pro', sans-serif;
-    background-color: #18157c;
-    padding: 10%;
-    line-height: 2em;
+  font-family: "Readex Pro", sans-serif;
+  background-color: #18157c;
+  padding: 10%;
+  line-height: 2em;
 }
 
 .bar-img {
-    width: 2.5em;
-    padding: .5em;
-    margin-bottom: 1em;
-    background-color: #EADE71;
-    border-radius: 50%;
+  width: 2.5em;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  background-color: #eade71;
+  border-radius: 50%;
 }
 
 .bar-img:hover {
-    transform: scale(1.25);
-    transition: .3s;
+  transform: scale(1.25);
+  transition: 0.3s;
 }
 
 .container h3 {
-    color: #EADE71;
-    font-size: 30px;
-    text-align: justify;
-    margin-bottom: 30px;
+  color: #eade71;
+  font-size: 30px;
+  text-align: justify;
+  margin-bottom: 30px;
 }
 
-.container p,.container ul,.container q {
-    color: white;
-    font-size: 20px;
-    text-align: justify;
-    margin-bottom: 60px;
+.container p,
+.container ul,
+.container q {
+  color: white;
+  font-size: 20px;
+  text-align: justify;
+  margin-bottom: 60px;
 }
 
-.container span{
-    text-align: center;
+.container span {
+  text-align: center;
 }
 
 #donate-btn {
-    background-color: #EADE71;
-    padding: 10px 15px;
-    text-decoration: none;
+  background-color: #eade71;
+  padding: 10px 15px;
+  text-decoration: none;
 }
 
 #donate-btn:hover {
-    opacity: 80%;
+  opacity: 80%;
+}
+
+@media screen and (max-width: 1024px) {
+  @media screen and (max-width: 768px) {
+    .container {
+      padding-top: 100px;
+    }
+    @media screen and (max-width: 576px) {
+    }
+  }
 }

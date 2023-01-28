@@ -164,78 +164,74 @@ footer {
 
 /* RESPONSIVE */
 @media screen and (max-width: 1024px) {
-}
+  @media screen and (max-width: 768px) {
+    /* NAVBAR */
+    .hamburger {
+      display: block;
+    }
 
-@media screen and (max-width: 768px) {
-  /* NAVBAR */
-  .hamburger {
-    display: block;
-  }
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+    }
 
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
+    .hamburger.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
 
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
+    .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu {
+      position: fixed;
+      left: -700px;
+      top: 70px;
+      gap: 0;
+      flex-direction: column;
+      background-color: #fff;
+      width: 100%;
+      text-align: center;
+      transition: 0.3s;
+      z-index: 99;
+      padding: 1em;
+    }
+    .nav-item {
+      margin: 16px 0;
+    }
+    .nav-menu.active {
+      left: 0;
+    }
 
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-  .nav-menu {
-    position: fixed;
-    left: -700px;
-    top: 70px;
-    gap: 0;
-    flex-direction: column;
-    background-color: #fff;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-    z-index: 99;
-    padding: 1em;
-  }
-  .nav-item {
-    margin: 16px 0;
-  }
-  .nav-menu.active {
-    left: 0;
-  }
+    footer {
+      flex-direction: column;
+      justify-content: center;
+      margin: 10%;
+    }
 
-  footer {
-    flex-direction: column;
-    justify-content: center;
-    margin: 10%;
-    gap: 20px;
-    line-height: 1.5em;
-    color: #18157c;
-  }
+    .social-link ul:first-child {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
 
-  .social-link ul:first-child {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-  }
+    .subscribe {
+      display: flex;
+      flex-direction: column;
+    }
 
-  .subscribe {
-    display: flex;
-    flex-direction: column;
-  }
+    .form {
+      min-width: 300px;
+    }
 
-  .form {
-    min-width: 300px;
-  }
+    #email {
+      padding: 10px;
+      margin-right: 0px;
+    }
 
-  #email {
-    padding: 10px;
-    margin-right: 0px;
-  }
+    #submit {
+      padding: 10px 30px;
+    }
 
-  #submit {
-    padding: 10px 30px;
-  }
-
-  @media screen and (max-width: 576px) {
+    @media screen and (max-width: 576px) {
+    }
   }
 }
