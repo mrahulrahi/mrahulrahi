@@ -25,36 +25,35 @@
 .block {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: center;
-  padding: 50px;
+  align-items: center;
   gap: 30px;
   font-family: "Readex Pro", sans-serif;
   color: #18157c;
   font-weight: bold;
-  width: 100%;
 }
 
 .block ul {
+  width: 100%;
   list-style-type: none;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   gap: 20px;
   padding: 40px;
 }
 
 .block-head {
-  font-size: 25px;
+  font-size: 1.6rem;
 }
 
 .block-text {
-  font-size: 16px;
+  font-size: 1.1rem;
 }
 
 .block-img {
-  width: 30px;
+  width: 2rem;
 }
 
 .block-img:hover {
@@ -67,7 +66,7 @@
 #health,
 #tree {
   padding-top: 60px;
-  width: calc(320px - 30px);
+  width: 400px;
   height: 300px;
   box-shadow: 0px 0px 20px 2px #eade71;
   background-color: #eade71;
@@ -77,6 +76,18 @@
   @media screen and (max-width: 768px) {
     .container {
       padding-top: 100px;
+    }
+
+    .block {
+      flex-direction: column;
+      gap: 20px;
+    }
+    #education,
+    #food,
+    #health,
+    #tree {
+      width: 300px;
+      height: auto;
     }
     @media screen and (max-width: 576px) {
     }

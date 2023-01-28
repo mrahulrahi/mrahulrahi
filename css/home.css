@@ -44,8 +44,8 @@ h4 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 100px 50px;
   gap: 20px;
+  padding: 100px 50px;
   font-family: "Readex Pro", sans-serif;
   color: #18157c;
   font-weight: bold;
@@ -59,12 +59,12 @@ h4 {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 30px;
-  gap: 10px;
+  gap: 20px;
+  padding: 40px;
 }
 
 .block-head {
-  font-size: 1.75rem;
+  font-size: 1.6rem;
 }
 
 .block-text {
@@ -127,11 +127,7 @@ h4 {
     .block {
       flex-direction: column;
       padding: 10px;
-      gap: 10px;
-      font-family: "Readex Pro", sans-serif;
-      color: #18157c;
-      font-weight: bold;
-      background-color: #18157c;
+      gap: 20px;
     }
     #about,
     #update,
@@ -139,8 +135,6 @@ h4 {
     #work {
       width: 300px;
       height: auto;
-      box-shadow: 0px 0px 10px 2px #eade71;
-      background-color: #eade71;
     }
 
     @media screen and (max-width: 576px) {
