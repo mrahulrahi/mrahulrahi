@@ -400,6 +400,7 @@ header {
 
 .contact-details h4 {
   font-size: 3em;
+  text-align: center;
 }
 
 .contact-form {
@@ -494,7 +495,6 @@ footer a {
 
   .container h1 {
     font-size: 10vw;
-    margin: 0 0 0.5em;
   }
 
   .about-container {
@@ -578,10 +578,17 @@ footer a {
 
   @media screen and (max-width: 576px) {
     .container img {
-      height: 80vh;
+      height: 85vh;
+    }
+    .container h1 {
+      font-size: 13vw;
+    }
+
+    .about-container {
+      padding: 1em;
     }
     .text-container h3 {
-      width: 300px;
+      width: 350px;
     }
 
     .contact-info,
@@ -595,15 +602,21 @@ footer a {
     .services-info h3,
     .team-info h3,
     .contact-info h3 {
-      width: 90%;
+      width: 100%;
+      padding: 0.5em;
     }
 
     .services {
       padding: 1em;
     }
-
-    .contact-details {
-      padding: 1em;
+    .web-design,
+    .graphic-design,
+    .app-design,
+    .photography {
+      width: 100%;
+    }
+    .contact-us {
+      margin: 1em;
     }
   }
 }
