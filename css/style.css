@@ -229,6 +229,7 @@ footer {
 
   #submit {
     padding: 10px 30px;
+    text-align: center;
   }
 
   @media screen and (max-width: 576px) {
