@@ -44,7 +44,7 @@
           </span>
         </div>
 
-        <div class="employee-card" id="employee1">
+        <div class="employee-card" id="employee2">
           <img class="user-img" src="img/user-2.png" alt="" />
           <span>
             <div class="employment-details" id="employee1-details">
@@ -62,7 +62,7 @@
           </span>
         </div>
 
-        <div class="employee-card" id="employee1">
+        <div class="employee-card" id="employee3">
           <img class="user-img" src="img/user-3.png" alt="" />
           <span>
             <div class="employment-details" id="employee1-details">
@@ -80,7 +80,7 @@
           </span>
         </div>
 
-        <div class="employee-card" id="employee1">
+        <div class="employee-card" id="employee4">
           <img class="user-img" src="img/user-4.png" alt="" />
           <span>
             <div class="employment-details" id="employee1-details">
@@ -121,6 +121,13 @@
         <div class="interview-card">
           <h3>Software Developer</h3>
           <p>Full-stack Developer</p>
+          <button class="accept-btn" type="button" name="button">Accept</button>
+          <button class="reject-btn" type="button" name="button">Reject</button>
+        </div>
+
+        <div class="interview-card">
+          <h3>Web Development</h3>
+          <p>Front-End Developer</p>
           <button class="accept-btn" type="button" name="button">Accept</button>
           <button class="reject-btn" type="button" name="button">Reject</button>
         </div>
@@ -219,18 +226,31 @@
       </div>
     </div>
 
-    <button class="btn" type="button" name="button" onclick="showAddIntModal()">
-      Add Interview
-    </button>
-    <button class="btn" type="button" name="button" onclick="showAddEmpModal()">
-      Add Employee
-    </button>
-
-    <footer>
-      Coded by
-      <a href="https://github.com/mrahulrahi" rel="noopener" target="_blank"
-        >mrahulrahi</a
-      >
+    <footer class="main-footer">
+      <h4>
+        Coded by
+        <a href="https://github.com/mrahulrahi" rel="noopener" target="_blank"
+          >mrahulrahi</a
+        >
+      </h4>
+      <div>
+        <button
+          class="btn"
+          type="button"
+          name="button"
+          onclick="showAddIntModal()"
+        >
+          Add Interview
+        </button>
+        <button
+          class="btn"
+          type="button"
+          name="button"
+          onclick="showAddEmpModal()"
+        >
+          Add Employee
+        </button>
+      </div>
     </footer>
 
     <script type="text/javascript" src="js/main.js"></script>
