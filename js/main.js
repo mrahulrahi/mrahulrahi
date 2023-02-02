@@ -17,10 +17,10 @@ function addEmployee() {
   var newItem =
     `
     
-        <div class="employee-card" id="employee1">
+        <div class="employee-card">
             <img class="user-img" src="img/default.png" alt="">
             <span>
-                  <div class="employment-details" id="employee1-details">
+                  <div class="employment-details">
                       <span class="name-format">` +
     name +
     `</span>
