@@ -1,5 +1,6 @@
 body {
   margin: auto;
+  box-sizing: border-box;
 }
 
 .nav-wrapper {
@@ -82,8 +83,6 @@ body {
 }
 
 .interviews {
-  margin: 1.5%;
-  width: 25%;
   list-style: none;
   background-color: #edeeef;
   border-style: hidden;
@@ -91,7 +90,17 @@ body {
   padding: 15px;
 }
 
-.list-item {
+.interview-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1.5%;
+  max-width: 100%;
+  margin: 1.5%;
+}
+
+.interview-card {
+  width: 350px;
   background-color: white;
   margin: 20px;
   padding: 10px;
@@ -264,4 +273,19 @@ footer {
 footer a {
   color: #1b91db;
   text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .employee-list {
+    display: flex;
+    max-width: 100%;
+    flex-direction: column;
+  }
+  .interview-list {
+    margin: 20px;
+    width: 350px;
+    flex-direction: column;
+  }
+  @media screen and (max-width: 576px) {
+  }
 }
