@@ -126,35 +126,6 @@ h4 {
   box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
 }
 
-.newslatter form {
-  width: 380px;
-  max-width: 100%;
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  align-items: center;
-}
-
-.newslatter form input {
-  width: 100%;
-  padding: 14px 130px;
-  color: #000;
-  border: 2px solid var(--primary);
-  outline: none;
-  border-radius: 30px;
-  margin-top: 25px;
-}
-
-.newslatter form input:last-child {
-  outline: none;
-  border: none;
-  padding: 10px 30px;
-  border-radius: 30px;
-  background-color: var(--primary);
-  color: white;
-  box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
-}
-
 .about {
   width: 100%;
   height: 100%;
@@ -417,12 +388,12 @@ h5 {
 
 .contact-me {
   width: 100%;
-  height: 300px;
+  height: fit-content;
+  padding: 50px;
   background: #222222;
   display: flex;
   align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .contact-me p {
@@ -447,6 +418,42 @@ h5 {
   background-color: transparent;
   border: 2px solid var(--primary);
   cursor: pointer;
+}
+
+.newslatter form {
+  width: 380px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.newslatter form input {
+  width: 100%;
+  padding: 14px 130px;
+  color: #000;
+  border: 2px solid var(--primary);
+  outline: none;
+  border-radius: 30px;
+  margin-top: 20px;
+}
+
+.newslatter form input:last-child {
+  width: fit-content;
+  outline: none;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 30px;
+  background-color: var(--primary);
+  color: white;
+  box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
+}
+
+.newslatter form input[placeholder] {
+  color: #000;
+  background-color: #222222;
 }
 
 footer {
