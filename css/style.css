@@ -477,7 +477,7 @@ footer {
 }
 
 footer p:nth-child(1) {
-  font-size: 30px;
+  font-size: 34px;
   color: white;
   margin-bottom: 20px;
   font-weight: bold;
@@ -485,7 +485,7 @@ footer p:nth-child(1) {
 
 footer p:nth-child(2) {
   color: white;
-  font-size: 17px;
+  font-size: 20px;
   width: 500px;
   text-align: center;
   line-height: 26px;
@@ -506,7 +506,7 @@ footer p:nth-child(2) {
   margin: 22px 10px;
   color: white;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .social a:hover {
@@ -517,7 +517,7 @@ footer p:nth-child(2) {
 .end {
   color: var(--primary);
   bottom: 35px;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 @media screen and (orientation: portrait) {
