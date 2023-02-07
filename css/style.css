@@ -386,6 +386,11 @@ h5 {
   cursor: pointer;
 }
 
+#contact-me h1 {
+  text-align: center;
+  padding-top: 50px;
+}
+
 .contact-me {
   width: 100%;
   height: fit-content;
