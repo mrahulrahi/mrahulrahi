@@ -99,7 +99,8 @@ customElements.define("responsive-cards", ResponsiveCards);
 class NFTCard extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <div class="container">
+    <section id="nft-card">
+    <div class="nft-container">
 
     <article class="main-image">
       <img src="images/image-equilibrium.jpg" alt="">
@@ -123,13 +124,7 @@ class NFTCard extends HTMLElement {
       <p>Creation of <span>Jules Wyvern</span></p>
     </article>
   </div>
-
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" rel="noopener"
-      target="_blank">Frontend Mentor</a>.
-    Coded by <a href="https://github.com/mrahulrahi" rel="noopener"
-      target="_blank">mrahulrahi</a>.
-  </div>
+  </section>
   `;
   }
 }
@@ -138,7 +133,8 @@ customElements.define("nft-card", NFTCard);
 class QRCard extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <div class="container">
+    <section id="qr-card">
+    <div class="qr-container">
     <article>
       <img src="images/image-qr-code.png" alt="">
     </article>
@@ -148,12 +144,7 @@ class QRCard extends HTMLElement {
       <p>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
     </article>
   </div>
-  
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" rel="noopener" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://github.com/mrahulrahi" rel="noopener" target="_blank">mrahulrahi</a>.
-  </div>
+  </section>
   `;
   }
 }

@@ -13,36 +13,38 @@
   --dark-blue: hsl(218, 44%, 22%);
 }
 
-body {
+#qr-card {
   font-family: "Outfit", sans-serif;
   background-color: var(--light-gray);
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.container {
+.qr-container {
   padding: 1.25rem;
   background-color: var(--white);
   border-radius: 2rem;
   margin-bottom: 1rem;
 }
 
-img {
+.qr-container img {
   max-width: 100%;
   border-radius: 1rem;
   margin-bottom: 1rem;
 }
 
-h1 {
+.qr-container h1 {
   font-weight: 700;
   color: var(--dark-blue);
   text-align: center;
   margin-bottom: 1rem;
 }
 
-p {
+.qr-container p {
   font-size: 17px;
   font-weight: 400;
   color: var(--grayish-blue);
@@ -50,18 +52,9 @@ p {
   margin-bottom: 1rem;
 }
 
-.attribution {
-  font-size: 12px;
-  text-align: center;
-}
-
-.attribution a {
-  color: var(--dark-blue);
-}
-
 /*--responsive for mobile phone--*/
 @media (min-width: 375px) {
-  .container {
+  .qr-container {
     width: 325px;
     margin: 0 auto 1rem;
   }

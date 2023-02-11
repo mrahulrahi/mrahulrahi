@@ -16,32 +16,38 @@
   --white: hsl(0, 0%, 100%);
 }
 
-body {
+#nft-card {
   font-family: "Outfit", sans-serif;
   font-size: 18px;
   background-color: var(--main-bg);
   color: hsl(0, 0%, 100%, 60%);
   padding: 1.25rem;
   margin-top: 5rem;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.container {
+.nft-container {
   padding: 1.25rem;
   background-color: var(--card-bg);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
 }
 
-img {
+.nft-container img {
   max-width: 100%;
   border-radius: 0.5rem;
 }
 
-.container .main-image {
+.nft-container .main-image {
   position: relative;
 }
 
-.container .main-image div {
+.nft-container .main-image div {
   position: absolute;
   top: 0;
   background-color: hsl(178, 100%, 50%, 50%);
@@ -52,19 +58,19 @@ img {
   transition: opacity 0.3s ease-in-out;
 }
 
-.container .main-image div:hover {
+.nft-container .main-image div:hover {
   opacity: 1;
   cursor: pointer;
 }
 
-.container .main-image div img {
+.nft-container .main-image div img {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
-.container ul {
+.nft-container ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -72,69 +78,60 @@ img {
   border-bottom: 1px solid var(--line);
 }
 
-.container h2 {
+.nft-container h2 {
   font-weight: 600;
   color: var(--white);
   margin: 1rem 0.5rem 0.5rem 0;
 }
 
-.container h2:hover {
+.nft-container h2:hover {
   color: var(--cyan);
   cursor: pointer;
 }
 
-p {
+.nft-container p {
   font-weight: 300;
 }
 
-.container ul li {
+.nft-container ul li {
   display: flex;
   align-items: center;
 }
 
-.container ul li:first-child {
+.nft-container ul li:first-child {
   color: var(--cyan);
 }
 
-.container ul li img {
+.nft-container ul li img {
   margin: 0.5rem;
 }
 
-.container .avatar {
+.nft-container .avatar {
   display: flex;
   align-items: center;
   justify-content: start;
 }
 
-.container .avatar img {
+.nft-container .avatar img {
   width: 2.5rem;
   border: 2px solid var(--white);
   border-radius: 50%;
   margin: 1rem 1rem;
 }
 
-.container .avatar p span {
+.nft-container .avatar p span {
   color: var(--white);
   font-weight: 400;
 }
 
-.container .avatar p span:hover {
+.nft-container .avatar p span:hover {
   color: var(--cyan);
   cursor: pointer;
 }
 
-.attribution {
-  font-size: 12px;
-  text-align: center;
-}
-
-.attribution a {
-  color: var(--cyan);
-}
-
 /*--responsive for mobile phone--*/
 @media (min-width: 500px) {
-  .container {
+  .nft-container {
     width: 375px;
     margin: 0 auto 1rem;
   }
