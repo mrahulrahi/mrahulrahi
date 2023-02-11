@@ -74,10 +74,13 @@
 .attribution {
   font-size: 12px;
   text-align: center;
+  background-color: hsl(217, 54%, 11%);
+  padding: 20px 0;
+  color: aliceblue;
 }
 
 .attribution a {
-  color: blueviolet;
+  color: cyan;
 }
 
 /********** Large devices only **********/
@@ -136,6 +139,9 @@
 }
 /********** Medium devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
+  #responsive-menu {
+    height: auto;
+  }
   .col-md-1,
   .col-md-2,
   .col-md-3,
@@ -190,6 +196,9 @@
 }
 /********** Small devices only **********/
 @media (max-width: 767px) {
+  #responsive-menu {
+    height: auto;
+  }
   .col-sm-1,
   .col-sm-2,
   .col-sm-3,

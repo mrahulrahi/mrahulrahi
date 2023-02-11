@@ -24,7 +24,7 @@
 
 .destination:hover,
 .destination:active {
-  background-color: #fa923f;
+  background-color: hsl(217, 54%, 11%);
   color: white;
 }
 
