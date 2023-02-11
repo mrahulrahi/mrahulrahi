@@ -7,13 +7,21 @@
   padding: 0;
 }
 /********** Container body font family and font size ***********/
-body {
+#responsive-menu {
   font-family: "Oxygen", sans-serif;
   font-size: 100%;
+  background-color: hsl(217, 54%, 11%);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
 }
 /********** Container H2 styles for region position on section with margins
   , size, border and !float clearing!********/
-h2 {
+#responsive-menu h2 {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -26,8 +34,10 @@ h2 {
   padding: center;
 }
 /********* Descripbing Header text align margins and style **********/
-h1 {
+#responsive-menu h1 {
   text-align: center;
+  color: aquamarine;
+  font-size: 2em;
   margin-top: 50px;
   margin-bottom: 50px;
 }
@@ -179,7 +189,7 @@ h1 {
   }
 }
 /********** Small devices only **********/
-***@media (max-width: 767px) {
+@media (max-width: 767px) {
   .col-sm-1,
   .col-sm-2,
   .col-sm-3,

@@ -1,7 +1,9 @@
 class ResponsiveMenu extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
+    <section id="responsive-menu">
     <h1>Our Menu</h1>
+    <div>
     <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="section">
             <h2 class="chicken">Chicken</h2>
@@ -32,6 +34,8 @@ class ResponsiveMenu extends HTMLElement {
                 deserunt mollit anim id est laborum.</p>
         </div>
     </div>
+    </div>
+    </section>
       `;
   }
 }
@@ -40,11 +44,10 @@ customElements.define("responsive-menu", ResponsiveMenu);
 class ResponsiveCards extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-    <h1 class="title">Explore The World</h1>
-    <section>
+    <section id="responsive-cards">
       <div class="destination">
         <div class="thumbnail">
-          <img src="img/new-york.jpg" alt="Sunset in New York" />
+          <img src="images/new-york.jpg" alt="Sunset in New York" />
         </div>
         <div class="content">
           <h1>New York</h1>
@@ -56,7 +59,7 @@ class ResponsiveCards extends HTMLElement {
       </div>
       <div class="destination">
         <div class="thumbnail">
-          <img src="img/kuala-lumpur.jpg" alt="Sunset in New York" />
+          <img src="images/kuala-lumpur.jpg" alt="Sunset in New York" />
         </div>
         <div class="content">
           <h1>Kuala Lumpur</h1>
@@ -68,7 +71,7 @@ class ResponsiveCards extends HTMLElement {
       </div>
       <div class="destination">
         <div class="thumbnail">
-          <img src="img/hong-kong.jpg" alt="Sunset in New York" />
+          <img src="images/hong-kong.jpg" alt="Sunset in New York" />
         </div>
         <div class="content">
           <h1>Hong Kong</h1>
@@ -80,7 +83,7 @@ class ResponsiveCards extends HTMLElement {
       </div>
       <div class="destination">
         <div class="thumbnail">
-          <img src="img/singapore.jpg" alt="Sunset in New York" />
+          <img src="images/singapore.jpg" alt="Sunset in New York" />
         </div>
         <div class="content">
           <h1>Singapore</h1>
