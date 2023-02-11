@@ -4,13 +4,27 @@
   font-family: "Montserrat", sans-serif;
   background-color: hsl(212, 45%, 89%);
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 100vw;
   height: 100vh;
-  gap: 20px;
   padding: 100px 0;
+}
+
+#responsive-cards > h1 {
+  text-align: center;
+  color: hsl(217, 54%, 11%);
+  font-size: 2em;
+  margin: 50px 0;
+}
+
+#responsive-cards > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .destination {

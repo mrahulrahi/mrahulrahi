@@ -2,7 +2,7 @@ class ResponsiveMenu extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section id="responsive-menu">
-    <h1>Our Menu</h1>
+    <h1>Responsive Menu</h1>
     <div>
     <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="section">
@@ -45,6 +45,8 @@ class ResponsiveCards extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section id="responsive-cards">
+    <h1>Responsive Cards</h1>
+    <div>
       <div class="destination">
         <div class="thumbnail">
           <img src="images/new-york.jpg" alt="Sunset in New York" />
@@ -93,6 +95,7 @@ class ResponsiveCards extends HTMLElement {
           </p>
         </div>
       </div>
+      </div>
     </section>
         `;
   }
@@ -103,8 +106,8 @@ class NFTCard extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section id="nft-card">
+    <h1>NFT Card</h1>
     <div class="nft-container">
-
     <article class="main-image">
       <img src="images/image-equilibrium.jpg" alt="">
       <div>
@@ -137,6 +140,7 @@ class QRCard extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section id="qr-card">
+    <h1>QR Card</h1>
     <div class="qr-container">
     <article>
       <img src="images/image-qr-code.png" alt="">
@@ -147,7 +151,14 @@ class QRCard extends HTMLElement {
       <p>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
     </article>
   </div>
+  <footer class="attribution">
+      © Responsive Components Coded ❤️ by
+      <a href="https://github.com/mrahulrahi" rel="noopener" target="_blank"
+        >mrahulrahi</a
+      >.
+    </footer>
   </section>
+  
   `;
   }
 }

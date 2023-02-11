@@ -14,7 +14,7 @@
   font-size: 18px;
   background-color: var(--main-bg);
   color: hsl(0, 0%, 100%, 60%);
-  padding: 1.25rem;
+  padding: 1rem;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -23,8 +23,15 @@
   flex-direction: column;
 }
 
+#nft-card > h1 {
+  text-align: center;
+  color: aquamarine;
+  font-size: 2em;
+  margin: 50px 0;
+}
+
 .nft-container {
-  padding: 1.25rem;
+  padding: 1rem;
   background-color: var(--card-bg);
   border-radius: 0.5rem;
   margin-bottom: 1rem;

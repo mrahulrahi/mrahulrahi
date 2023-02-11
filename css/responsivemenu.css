@@ -6,6 +6,38 @@
   margin: 0;
   padding: 0;
 }
+
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background-color: hsl(217, 54%, 11%);
+}
+.navbar ul {
+  width: 100vw;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+}
+.navbar ul li {
+  list-style: none;
+}
+.navbar ul li a {
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  color: aqua;
+  font-family: "Oxygen", sans-serif;
+}
+
 /********** Container body font family and font size ***********/
 #responsive-menu {
   font-family: "Oxygen", sans-serif;
@@ -34,12 +66,11 @@
   padding: center;
 }
 /********* Descripbing Header text align margins and style **********/
-#responsive-menu h1 {
+#responsive-menu > h1 {
   text-align: center;
   color: aquamarine;
   font-size: 2em;
-  margin-top: 50px;
-  margin-bottom: 50px;
+  margin: 50px 0;
 }
 /********* Section text/background align margins padding and style **********/
 
@@ -68,19 +99,6 @@
 .sushi {
   background-color: violet;
   color: black;
-}
-/********* Footer style **********/
-
-.attribution {
-  font-size: 12px;
-  text-align: center;
-  background-color: hsl(217, 54%, 11%);
-  padding: 20px 0;
-  color: aliceblue;
-}
-
-.attribution a {
-  color: cyan;
 }
 
 /********** Large devices only **********/
