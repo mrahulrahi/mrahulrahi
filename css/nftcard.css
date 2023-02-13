@@ -52,7 +52,7 @@
   background-color: hsl(178, 100%, 50%, 50%);
   width: 100%;
   height: calc(100% - 4px);
-  z-index: 999;
+  z-index: 90;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
