@@ -129,9 +129,9 @@
 }
 
 /*--responsive for mobile phone--*/
-@media (min-width: 500px) {
+@media (min-width: 300px) {
   .nft-container {
-    width: 315px;
+    width: 325px;
     height: 550px;
     margin: 0 auto 1rem;
   }
