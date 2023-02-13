@@ -271,7 +271,7 @@ body {
 }
 
 @media (min-width: 300px) and (max-width: 500px) {
-  #responsive-menu {
-    overflow: visible;
+  body {
+    overflow-y: scroll;
   }
 }
