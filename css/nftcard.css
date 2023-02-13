@@ -27,7 +27,7 @@
   text-align: center;
   color: aquamarine;
   font-size: 2em;
-  margin: 50px 0;
+  margin: 2rem 0;
 }
 
 .nft-container {
@@ -131,7 +131,8 @@
 /*--responsive for mobile phone--*/
 @media (min-width: 500px) {
   .nft-container {
-    width: 375px;
+    width: 315px;
+    height: 550px;
     margin: 0 auto 1rem;
   }
 }

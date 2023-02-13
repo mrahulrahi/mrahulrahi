@@ -70,7 +70,7 @@ body {
   text-align: center;
   color: aquamarine;
   font-size: 2em;
-  margin: 50px 0;
+  margin: 2rem 0;
 }
 /********* Section text/background align margins padding and style **********/
 
@@ -267,5 +267,11 @@ body {
   }
   .col-sm-12 {
     width: 100%;
+  }
+}
+
+@media (min-width: 300px) and (max-width: 500px) {
+  #responsive-menu {
+    overflow: visible;
   }
 }
