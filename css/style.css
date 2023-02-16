@@ -527,7 +527,7 @@ footer p:nth-child(2) {
     width: 100%;
     height: auto;
     margin-top: 0;
-    padding: 10% 10% 20%;
+    padding: 10%;
   }
 
   nav {
@@ -543,12 +543,12 @@ footer p:nth-child(2) {
     left: 0;
     background-color: #101010;
     width: 100%;
-    padding: 0 2.5em;
+    padding: 0 2em;
   }
 
   nav ul li {
     padding: 2em;
-    font-size: 1.55em;
+    font-size: 1.6em;
   }
   .container {
     flex-direction: column;
