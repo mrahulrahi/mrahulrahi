@@ -646,6 +646,9 @@ footer p:nth-child(2) {
     height: aut0;
     width: 90%;
   }
+  #contact-me {
+    padding: 10% 5%;
+  }
   .contact-me {
     flex-direction: column;
   }
