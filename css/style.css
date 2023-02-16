@@ -550,6 +550,9 @@ footer p:nth-child(2) {
     padding: 2em;
     font-size: 1.55em;
   }
+  .container {
+    flex-direction: column-reverse;
+  }
 
   .about {
     width: 100%;
