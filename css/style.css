@@ -388,9 +388,12 @@ h5 {
   cursor: pointer;
 }
 
+#contact-me {
+  padding: 100px 0;
+}
+
 #contact-me h1 {
   text-align: center;
-  padding-top: 50px;
 }
 
 #contact-me div {
