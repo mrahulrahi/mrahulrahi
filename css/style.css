@@ -525,7 +525,7 @@ footer p:nth-child(2) {
   .home {
     width: 100%;
     height: auto;
-    padding: 7%;
+    padding: 20% 10%;
   }
 
   nav {
@@ -552,18 +552,18 @@ footer p:nth-child(2) {
   }
 
   .container div img {
-    width: 50em;
+    width: 45em;
   }
   h1 {
-    font-size: 100px;
+    font-size: 90px;
   }
 
   h3 {
-    font-size: 50px;
+    font-size: 40px;
   }
 
   h4 {
-    font-size: 3em;
+    font-size: 2em;
   }
 
   .buy-coffee {
