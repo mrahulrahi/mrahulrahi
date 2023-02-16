@@ -532,8 +532,8 @@ footer p:nth-child(2) {
 
   nav {
     position: relative;
+    height: 50px;
     padding: 2em 4em;
-    height: 5vh;
   }
 
   nav ul {
@@ -543,6 +543,7 @@ footer p:nth-child(2) {
     left: 0;
     background-color: #101010;
     width: 100%;
+    padding: 0 2.5em;
   }
 
   nav ul li {
