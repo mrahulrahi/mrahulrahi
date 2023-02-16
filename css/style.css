@@ -650,6 +650,14 @@ footer p:nth-child(2) {
     flex-direction: column;
   }
 
+  .contact-me div {
+    margin-bottom: 30px;
+  }
+
+  .newslatter form {
+    width: 500px;
+  }
+
   footer {
     margin-bottom: 50px;
   }
