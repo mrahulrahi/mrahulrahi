@@ -444,6 +444,7 @@ h5 {
 
 .newslatter form input {
   width: 100%;
+  text-align: center;
   padding: 14px 130px;
   color: #000;
   border: 2px solid var(--primary);
