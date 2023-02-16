@@ -527,7 +527,7 @@ footer p:nth-child(2) {
     width: 100%;
     height: auto;
     margin-top: 0;
-    padding: 10%;
+    padding: 10% 5%;
   }
 
   nav {
@@ -585,7 +585,7 @@ footer p:nth-child(2) {
   .about {
     width: 100%;
     height: auto;
-    padding: 10%;
+    padding: 10% 5%;
   }
   .main {
     flex-direction: column-reverse;
@@ -593,7 +593,8 @@ footer p:nth-child(2) {
 
   .about img {
     height: auto;
-    width: 300px;
+    width: 500px;
+    margin-top: 3em;
     border-radius: 2.5em;
     box-shadow: 1px 2px 1px 2px var(--primary);
   }
@@ -626,6 +627,10 @@ footer p:nth-child(2) {
   }
   .certi-box {
     flex-wrap: wrap;
+  }
+
+  .certi-btn {
+    font-size: 1.5em;
   }
 
   .about-text {
