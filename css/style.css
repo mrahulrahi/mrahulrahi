@@ -526,6 +526,7 @@ footer p:nth-child(2) {
   .home {
     width: 100%;
     height: auto;
+    margin-top: 0;
     padding: 10% 10% 20%;
   }
 
