@@ -579,16 +579,47 @@ footer p:nth-child(2) {
 
   .buy-coffee button {
     padding: 10px 30px;
+    font-size: 1.5em;
   }
 
   .about {
     width: 100%;
     height: auto;
-    padding: 20% 10%;
+    padding: 10%;
   }
   .main {
     flex-direction: column-reverse;
   }
+
+  .about img {
+    height: auto;
+    width: 300px;
+    border-radius: 2.5em;
+    box-shadow: 1px 2px 1px 2px var(--primary);
+  }
+
+  .about-text h2 {
+    font-size: 80px;
+    margin-bottom: 20px;
+  }
+
+  .about-text h5 {
+    letter-spacing: 2px;
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .about-text p {
+    letter-spacing: 1px;
+    line-height: 28px;
+    font-size: 20px;
+    margin-bottom: 45px;
+  }
+
+  button {
+    font-size: 1.5em;
+  }
+
   .certificate {
     height: 20%;
     padding-top: 3vh;
