@@ -528,6 +528,7 @@ footer p:nth-child(2) {
 }
 
 @media screen and (orientation: portrait) {
+
   .home {
     width: 100%;
     height: auto;
