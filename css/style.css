@@ -556,6 +556,7 @@ footer p:nth-child(2) {
     padding: 2em;
     font-size: 1.6em;
   }
+
   .container {
     flex-direction: column;
     text-align: center;
@@ -564,6 +565,7 @@ footer p:nth-child(2) {
   .container div img {
     width: 45em;
   }
+
   h1 {
     font-size: 90px;
   }
