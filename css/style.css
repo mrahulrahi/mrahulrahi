@@ -660,6 +660,14 @@ footer p:nth-child(2) {
     flex-direction: column;
   }
 
+  .contact-me h4 {
+    font-size: 50px;
+  }
+
+  .contact-me p {
+    font-size: 40px;
+  }
+
   .contact-me div {
     margin-bottom: 30px;
   }
