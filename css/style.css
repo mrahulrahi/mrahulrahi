@@ -669,7 +669,11 @@ footer p:nth-child(2) {
   }
 
   .contact-me div {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+  }
+
+  .contact-me .button-two {
+    font-size: 1.5em;
   }
 
   .newslatter form {
