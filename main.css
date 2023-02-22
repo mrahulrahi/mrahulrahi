@@ -7,7 +7,7 @@ main {
 }
 
 #product-overview {
-  background: url("images/background.jpg") center/cover no-repeat;
+  background: url("images/background.png") center/cover no-repeat;
   position: relative;
 }
 
@@ -15,7 +15,7 @@ main {
   color: white;
   font-family: "Anton", sans-serif;
   position: absolute;
-  bottom: 5%;
+  bottom: 20%;
   left: 3%;
   font-size: 1.6rem;
 }
