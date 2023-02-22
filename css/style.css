@@ -607,8 +607,8 @@ footer p:nth-child(2) {
   }
 
   .about-text h2 {
-    font-size: 80px;
-    margin-bottom: 20px;
+    font-size: 100px;
+    margin-bottom: 50px;
   }
 
   .about-text h5 {
@@ -653,9 +653,25 @@ footer p:nth-child(2) {
     height: aut0;
     width: 90%;
   }
+
+}
+.certificate h3 {
+  margin-top: 50px;
+  font-size: 100px;
+}
+
+.title h2 {
+  font-size: 100px;
+}
+
   #contact-me {
     padding: 10% 5%;
   }
+
+  #contact-me h1 {
+    font-size: 100px;
+  }
+
   .contact-me {
     flex-direction: column;
   }
