@@ -466,7 +466,7 @@ footer a {
   .nav-menu {
     position: fixed;
     left: -700px;
-    top: 70px;
+    top: 60px;
     gap: 0;
     flex-direction: column;
     background-color: #202020;
@@ -622,19 +622,6 @@ main {
   padding: 2.5rem;
 }
 
-@media (min-width: 40rem) and (min-height: 40rem) {
-  #product-overview {
-    height: 60vh;
-    background-position: 50% 20%;
-  }
-
-  #product-overview h1 {
-    font-size: 5rem;
-    color: #454545;
-    text-shadow: 2px 2px 5px #19b84c;
-  }
-}
-
 .section-title {
   color: #0e4f1f;
   text-align: center;
@@ -686,6 +673,12 @@ main {
 
 .plan__feature {
   margin: 0.5rem 0;
+}
+
+@media screen and (min-width: 300px) and (max-width: 576px) {
+  .plan {
+    height: 28rem;
+  }
 }
 
 @media (min-width: 40rem) {
@@ -776,6 +769,18 @@ main {
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+.modal_close {
+  float: right;
+  background-color: red;
+  color: white;
+  font: inherit;
+  border: 1.5px solid red;
+  padding: 0.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 @media (min-width: 300px) {
@@ -1071,7 +1076,6 @@ main {
 }
 
 .signup-form button[type="submit"] {
-  display: block;
   margin-top: 1rem;
 }
 
