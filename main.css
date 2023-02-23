@@ -20,7 +20,7 @@ header {
 }
 
 .navbar {
-  min-height: 70px;
+  min-height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -483,7 +483,7 @@ footer a {
   }
 
   .container img {
-    margin: 70px 0;
+    margin: 60px 0;
     width: 100%;
     height: 90vh;
   }
@@ -521,12 +521,12 @@ footer a {
   .contact-info,
   .about-info,
   .services-info,
-  .team-info {
+  .plan-info {
     padding: 3em;
   }
   .about-info h3,
   .services-info h3,
-  .team-info h3,
+  .plan-info h3,
   .contact-info h3 {
     width: 90%;
   }
@@ -589,13 +589,13 @@ footer a {
     .contact-info,
     .about-info,
     .services-info,
-    .team-info {
+    .plan-info {
       padding: 3em;
     }
 
     .about-info h3,
     .services-info h3,
-    .team-info h3,
+    .plan-info h3,
     .contact-info h3 {
       width: 100%;
       padding: 0.5em;
@@ -804,6 +804,9 @@ main {
 
 #packages {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   gap: 30px;
 }
 
@@ -812,7 +815,6 @@ main {
   margin: 1rem 0;
   border: 4px solid #0e4f1f;
   border-left: none;
-  position: relative;
   border-radius: 10px;
 }
 
