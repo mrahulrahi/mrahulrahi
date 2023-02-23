@@ -1,3 +1,18 @@
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+hamburger.addEventListener("click", () => {
+  hamburger.classList.toggle("active");
+  navMenu.classList.toggle("active");
+});
+
+document.querySelectorAll(".nav-link").forEach((n) =>
+  n.addEventListener("click", () => {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+  })
+);
+
 var backdrop = document.querySelector(".backdrop");
 var modal = document.querySelector(".modal");
 var modalNoButton = document.querySelector(".modal__action--negative");
@@ -9,7 +24,7 @@ var mobileNav = document.querySelector(".mobile-nav");
 
 // console.dir(backdrop);
 for (var i = 0; i < selectPlanButtons.length; i++) {
-  selectPlanButtons[i].addEventListener("click", function() {
+  selectPlanButtons[i].addEventListener("click", function () {
     // modal.style.display = "block";
     // backdrop.style.display = "block";
     // modal.className = 'open'; // This will actually overwrite the complete class list
@@ -18,7 +33,7 @@ for (var i = 0; i < selectPlanButtons.length; i++) {
   });
 }
 
-backdrop.addEventListener("click", function() {
+backdrop.addEventListener("click", function () {
   // mobileNav.style.display = 'none';
   mobileNav.classList.remove("open");
   closeModal();
@@ -37,7 +52,7 @@ function closeModal() {
   backdrop.classList.remove("open");
 }
 
-toggleButton.addEventListener("click", function() {
+toggleButton.addEventListener("click", function () {
   // mobileNav.style.display = 'block';
   // backdrop.style.display = 'block';
   mobileNav.classList.add("open");
