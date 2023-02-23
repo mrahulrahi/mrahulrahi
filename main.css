@@ -200,6 +200,11 @@ main {
   font-weight: 700;
 }
 
+#packages {
+  display: flex;
+  gap: 30px;
+}
+
 .package {
   width: 70%;
   margin: 1rem 0;
@@ -249,20 +254,14 @@ main {
   /* font-style font-variant font-weight font-size/line-height font-family*/
 }
 
-.clearfix {
-  clear: both;
-}
-
 #plus {
   background: rgba(213, 255, 220, 0.95);
 }
 
 #free {
   background: rgba(234, 252, 237, 0.95);
-  float: right;
   border-right: none;
   border-left: 4px solid #0e4f1f;
-  text-align: right;
 }
 
 #free:hover,
