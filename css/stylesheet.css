@@ -120,6 +120,7 @@ body {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
   margin: 1% 2% 0% 0%;
 }
 
@@ -134,6 +135,7 @@ body {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
   margin: 1% 2% 0% 0%;
 }
 
@@ -144,8 +146,10 @@ body {
   border-width: 2px;
   border-radius: 10px;
   position: fixed;
-  top: 40%;
-  left: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
   background-color: white;
 }
 
@@ -186,6 +190,7 @@ input {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
   background-color: #36bc65;
   margin: 30px;
   float: right;
@@ -201,6 +206,7 @@ input {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
   background-color: red;
   margin: 30px;
   float: right;
@@ -213,8 +219,10 @@ input {
   border-width: 2px;
   border-radius: 10px;
   position: fixed;
-  top: 40%;
-  left: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
   background-color: white;
 }
 
@@ -228,6 +236,7 @@ input {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
   background-color: #36bc65;
   margin: 30px;
   float: right;
@@ -243,6 +252,7 @@ input {
   display: inline-block;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 5px;
   background-color: red;
   margin: 30px;
   float: right;
@@ -299,8 +309,10 @@ input {
     border-width: 2px;
     border-radius: 10px;
     position: fixed;
-    top: 20%;
-    left: 10%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
     background-color: white;
   }
 
@@ -311,8 +323,10 @@ input {
     border-width: 2px;
     border-radius: 10px;
     position: fixed;
-    top: 30%;
-    left: 10%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
     background-color: white;
   }
 
