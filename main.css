@@ -254,21 +254,13 @@ header {
   padding: 50px;
 }
 
-.web-design,
-.graphic-design,
-.app-design,
-.photography {
+.service_card {
   width: calc(700px - 30px);
   padding: 4em;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   gap: 20px;
-  background: rgba(237, 237, 237, 0.3);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(237, 237, 237, 0.3);
   border-radius: 10px;
 }
 
@@ -366,11 +358,7 @@ header {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background: rgba(237, 237, 237, 0.3);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(237, 237, 237, 0.3);
   margin: 50px;
 }
 
@@ -749,14 +737,12 @@ main {
   position: fixed;
   display: none;
   z-index: 200;
-  top: 2.5%;
-  left: 30%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 40%;
-  background: #c9efc7;
   padding: 1rem;
-  border: 1px solid #ccc;
   border-radius: 10px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
 
 .modal_close {
@@ -776,8 +762,9 @@ main {
     position: fixed;
     display: none;
     z-index: 200;
-    top: 5%;
-    left: 5%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 90%;
   }
 }
@@ -996,7 +983,8 @@ main {
 .signup-title {
   text-align: center;
   font-size: 1.8rem;
-  color: #2ddf5c;
+  color: #121212;
+  margin-bottom: 20px;
 }
 
 .signup-form {
