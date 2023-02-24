@@ -613,20 +613,20 @@ main {
 }
 
 .plan--highlighted {
-  background: #19b84c;
+  background: #fcaf3b;
   color: white;
 }
 
 .plan__annotation {
   background: white;
-  color: #19b84c;
+  color: #fcaf3b;
   padding: 0.5rem;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
 }
 
 .plan__title {
-  color: #0e4f1f;
+  color: #121212;
 }
 
 .plan__price {
@@ -638,7 +638,7 @@ main {
 }
 
 .plan--highlighted .plan__price {
-  color: #0e4f1f;
+  color: #121212;
 }
 
 .plan__features {
@@ -651,9 +651,15 @@ main {
   margin: 0.5rem 0;
 }
 
-@media screen and (min-width: 300px) and (max-width: 576px) {
+@media screen and (min-width: 300px) and (max-width: 768px) {
   .plan {
-    height: 28rem;
+    height: 25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
   }
 }
 
@@ -786,7 +792,6 @@ main {
 
 #packages {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 30px;
@@ -795,8 +800,9 @@ main {
 
 .package {
   width: 30%;
-  margin: 1rem 0;
-  border: 4px solid #0e4f1f;
+  height: auto 0;
+  padding: 10px;
+  border: 4px solid #121212;
   border-left: none;
   border-radius: 10px;
 }
@@ -827,28 +833,32 @@ main {
   border-radius: 5px;
 }
 
+.package__title {
+  font-size: 1.5rem;
+  line-height: 30px;
+}
+
 .package__subtitle {
-  color: #979797;
+  font-size: 1rem;
+  line-height: 30px;
+  color: #121212;
 }
 
 .package__info {
   padding: 1rem;
-  border: 1px solid #0e4f1f;
-  color: #0e4f1f;
+  border: 1px solid #121212;
+  color: #121212;
   background: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   border-radius: 10px;
   /* font-style font-variant font-weight font-size/line-height font-family*/
 }
 
-#plus {
-  background: rgba(213, 255, 220, 0.95);
-}
-
 #free {
-  background: rgba(234, 252, 237, 0.95);
+  color: white;
+  background: #fcaf3b;
   border-right: none;
-  border-left: 4px solid #0e4f1f;
+  border-left: 4px solid #121212;
 }
 
 #free:hover,
@@ -856,16 +866,20 @@ main {
   border-left-color: #ff5454;
 }
 
-#premium {
-  background: rgba(14, 79, 31, 0.95);
-}
+@media (min-width: 300px) and (max-width: 768px) {
+  #packages {
+    flex-direction: column;
+    gap: 20px;
+    padding: 5%;
+  }
+  .package {
+    width: 300px;
+    border-left: 4px solid #121212;
+  }
 
-#premium .package__title {
-  color: white;
-}
-
-#premium .package__subtitle {
-  color: #bbb;
+  #free {
+    border-right: 4px solid #121212;
+  }
 }
 
 @media (min-width: 40rem) {
@@ -878,11 +892,11 @@ main {
 
 @media (min-width: 1500px) {
   .package {
-    border-left: 4px solid #0e4f1f;
+    border-left: 4px solid #121212;
   }
 
   #free {
-    border-right: 4px solid #0e4f1f;
+    border-right: 4px solid #121212;
   }
 
   #free:hover,
@@ -897,6 +911,10 @@ main {
   font-size: 1.2rem;
 }
 
+div.glass_bg {
+  border-radius: 16px;
+}
+
 /*.testimonial__list {
     width: 80%;
     margin: auto;
@@ -904,7 +922,7 @@ main {
 
 .testimonial__image-container {
   width: 100%;
-  max-width: 40rem;
+  max-width: 30rem;
   border-radius: 10px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
@@ -916,20 +934,16 @@ main {
 }
 
 .testimonial__info {
-  text-align: right;
+  text-align: left;
   line-height: 2rem;
   padding: 2.5rem;
   background: #c9efc7dd;
-  border: 4px solid #0e4f1f;
+  border: 4px solid #121212;
   border-radius: 10px;
 }
 
 #customer-2.testimonial {
   text-align: right;
-}
-
-#customer-2 .testimonial__info {
-  text-align: left;
 }
 
 .testimonial__name {
@@ -941,7 +955,7 @@ main {
 .testimonial__subtitle {
   margin: 0;
   font-size: 1.1rem;
-  color: #0e4f1f;
+  color: #fcaf3b;
 }
 
 .testimonial__subtitle a {
@@ -956,7 +970,17 @@ main {
 
 .testimonial__text {
   margin: 0.2rem;
-  line-height: 1.5rem;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.25rem;
+}
+@media screen and (min-width: 300px) and (max-width: 768px) {
+  .testimonial {
+    margin: 30px;
+  }
+  .testimonial__info {
+    margin: 30px 0;
+  }
 }
 
 @media (min-width: 40rem) {
@@ -993,7 +1017,7 @@ main {
 .signup-form {
   padding: 2.5rem;
   background: #c9efc7dd;
-  border: 4px solid #0e4f1f;
+  border: 4px solid #121212;
   border-radius: 10px;
 }
 
@@ -1044,7 +1068,7 @@ main {
 
 .signup-form input[type="checkbox"]:checked {
   background: #2ddf5c;
-  border: #0e4f1f;
+  border: #121212;
 }
 
 .signup-form input.invalid,
