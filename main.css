@@ -12,6 +12,13 @@ body {
   background-color: #c9efc7;
 }
 
+.glass_bg {
+  background: rgba(237, 237, 237, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(237, 237, 237, 0.3);
+}
+
 header {
   width: 100%;
   position: fixed;
@@ -150,11 +157,7 @@ header {
   justify-content: space-around;
   margin-bottom: 50px;
   padding: 50px;
-  background: rgba(237, 237, 237, 0.3);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(237, 237, 237, 0.3);
 }
 
 .img-container img {
@@ -197,11 +200,6 @@ header {
 
 .container-1 {
   width: 300px;
-  background: rgba(237, 237, 237, 0.3);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(237, 237, 237, 0.3);
   border-radius: 10px;
   padding: 2em 1em;
   z-index: 5;
@@ -238,16 +236,11 @@ header {
 .plan-info h3,
 .contact-info h3 {
   width: 80%;
-  background: rgba(237, 237, 237, 0.3);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(237, 237, 237, 0.3);
   color: #fcaf3b;
   padding: 1em;
   font-size: 3em;
   text-align: center;
-  border-radius: 15px;
+  border-radius: 16px;
 }
 
 .services {
