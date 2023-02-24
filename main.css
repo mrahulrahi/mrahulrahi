@@ -594,7 +594,8 @@ main {
 }
 
 .section-title {
-  color: #0e4f1f;
+  color: #121212;
+  font-size: 1.5rem;
   text-align: center;
 }
 
@@ -605,6 +606,10 @@ main {
   margin: 0.5rem 0;
   width: 100%;
   border-radius: 10px;
+}
+
+.plan__list {
+  padding: 50px;
 }
 
 .plan--highlighted {
@@ -785,10 +790,11 @@ main {
   justify-content: center;
   align-items: center;
   gap: 30px;
+  padding: 50px;
 }
 
 .package {
-  width: 70%;
+  width: 30%;
   margin: 1rem 0;
   border: 4px solid #0e4f1f;
   border-left: none;
