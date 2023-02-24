@@ -512,10 +512,7 @@ footer a {
     gap: 20px;
     padding: 2em;
   }
-  .web-design,
-  .graphic-design,
-  .app-design,
-  .photography {
+  .service_card {
     padding: 2em;
     width: 90%;
     flex-direction: column;
@@ -580,10 +577,8 @@ footer a {
     .services {
       padding: 1em;
     }
-    .web-design,
-    .graphic-design,
-    .app-design,
-    .photography {
+
+    .service_card {
       width: 100%;
     }
     .contact-us {
@@ -683,13 +678,15 @@ main {
 }
 
 #key-features {
-  background: #454545;
   margin-top: 5rem;
   padding: 1rem;
+  margin: 50px;
+  border-radius: 16px;
 }
 
 #key-features .section-title {
-  color: white;
+  color: #121212;
+  font-size: 1.5rem;
   margin: 2rem;
 }
 
@@ -701,20 +698,20 @@ main {
 }
 
 .key-feature__image {
-  background: #ffcede;
+  background: #c9efc7;
   width: 128px;
   height: 128px;
   border: 2px solid #424242;
   border-radius: 50%;
-  margin: auto;
+  margin: 10px auto;
   padding: 1.5rem;
 }
 
 .key-feature__description {
   text-align: center;
   font-weight: bold;
-  color: white;
-  font-size: 1.2rem;
+  color: #121212;
+  font-size: 1rem;
 }
 
 @media (min-width: 40rem) {
