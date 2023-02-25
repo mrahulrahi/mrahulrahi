@@ -1,3 +1,14 @@
+@font-face {
+  font-family: "AnonymousPro";
+  src: url("anonymousPro-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "AnonymousPro";
+  src: url("anonymousPro-Bold.ttf");
+  font-weight: 700;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -708,28 +719,17 @@ main {
 
 /* ******************************************************** Packages Section ******************************************************** */
 
-@font-face {
-  font-family: "AnonymousPro";
-  src: url("anonymousPro-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "AnonymousPro";
-  src: url("anonymousPro-Bold.ttf");
-  font-weight: 700;
-}
-
 #packages {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
-  padding: 50px;
+  padding: 50px 0;
 }
 
 .package {
   width: 30%;
-  height: auto 0;
+  height: auto;
   padding: 10px;
   border: 4px solid #121212;
   border-left: none;
@@ -750,7 +750,7 @@ main {
   padding: 2rem;
 }
 
-.package__badge {
+.package-badge {
   position: absolute;
   top: 0;
   right: 0;
@@ -762,18 +762,18 @@ main {
   border-radius: 5px;
 }
 
-.package__title {
+.package-title {
   font-size: 1.5rem;
   line-height: 30px;
 }
 
-.package__subtitle {
+.package-subtitle {
   font-size: 1rem;
   line-height: 30px;
   color: #121212;
 }
 
-.package__info {
+.package-info {
   padding: 1rem;
   border: 1px solid #121212;
   color: #121212;
@@ -798,11 +798,10 @@ main {
 @media (min-width: 300px) and (max-width: 768px) {
   #packages {
     flex-direction: column;
-    gap: 20px;
-    padding: 5%;
+    gap: 30px;
   }
   .package {
-    width: 300px;
+    width: 350px;
     border-left: 4px solid #121212;
   }
 
@@ -844,20 +843,20 @@ div.glass_bg {
   border-radius: 16px;
 }
 
-.testimonial__image-container {
+.testimonial-image-container {
   width: 100%;
   max-width: 30rem;
   border-radius: 10px;
   box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, 0.3);
 }
 
-.testimonial__image {
+.testimonial-image {
   width: 100%;
   vertical-align: top;
   border-radius: 10px;
 }
 
-.testimonial__info {
+.testimonial-info {
   text-align: left;
   line-height: 2rem;
   padding: 2.5rem;
@@ -870,29 +869,29 @@ div.glass_bg {
   text-align: right;
 }
 
-.testimonial__name {
+.testimonial-name {
   margin: 0.2rem;
   color: #454545;
   font-size: 2rem;
 }
 
-.testimonial__subtitle {
+.testimonial-subtitle {
   margin: 0;
   font-size: 1.1rem;
   color: #fcaf3b;
 }
 
-.testimonial__subtitle a {
+.testimonial-subtitle a {
   color: inherit;
   text-decoration: none;
 }
 
-.testimonial__subtitle a:hover,
-.testimonial__subtitle a:active {
+.testimonial-subtitle a:hover,
+.testimonial-subtitle a:active {
   color: #7a7a7a;
 }
 
-.testimonial__text {
+.testimonial-text {
   margin: 0.2rem;
   font-size: 1rem;
   font-weight: 700;
@@ -902,7 +901,7 @@ div.glass_bg {
   .testimonial {
     margin: 30px;
   }
-  .testimonial__info {
+  .testimonial-info {
     margin: 30px 0;
   }
 }
@@ -916,11 +915,11 @@ div.glass_bg {
     justify-content: space-around;
   }
 
-  .testimonial__image-container {
+  .testimonial-image-container {
     width: 66%;
   }
 
-  .testimonial__info {
+  .testimonial-info {
     width: 30%;
   }
 }
