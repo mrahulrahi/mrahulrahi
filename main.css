@@ -252,14 +252,17 @@ header {
   width: 100%;
   gap: 30px;
   padding: 50px;
+  width: 100%;
+  gap: 20px;
+  padding: 2em;
 }
 
 .service_card {
-  width: calc(700px - 30px);
-  padding: 4em;
+  width: calc(20% - 20px);
+  padding: 2em;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
   gap: 20px;
   border-radius: 10px;
 }
@@ -279,12 +282,11 @@ header {
 
 .img-services img {
   border-radius: 2.5%;
-  width: 300px;
+  width: 100%;
   height: auto;
 }
 
 .text-services {
-  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -292,14 +294,14 @@ header {
 }
 
 .text-services h3 {
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 .text-services p {
   padding: 1.5em 0em;
   font-size: 0.85rem;
   text-align: start;
-  width: 90%;
+  width: 100%;
 }
 
 .user {
@@ -505,24 +507,6 @@ footer a {
   .plan-info h3,
   .contact-info h3 {
     width: 90%;
-  }
-
-  .services {
-    width: 100%;
-    gap: 20px;
-    padding: 2em;
-  }
-  .service_card {
-    padding: 2em;
-    width: 90%;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  .img-services img {
-    border-radius: 2.5%;
-    width: 100%;
-    height: auto;
   }
 
   .contact-details {
