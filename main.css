@@ -195,6 +195,7 @@ header {
   flex-wrap: wrap;
   text-align: center;
   gap: 20px;
+  padding: 50px;
   justify-content: space-around;
 }
 
@@ -231,10 +232,7 @@ header {
   gap: 1em;
 }
 
-.about-info h3,
-.services-info h3,
-.plan-info h3,
-.contact-info h3 {
+.section-heading {
   width: 80%;
   color: #fcaf3b;
   padding: 1em;
@@ -258,7 +256,7 @@ header {
 }
 
 .service_card {
-  width: calc(20% - 20px);
+  width: calc(300px - 20px);
   padding: 2em;
   display: flex;
   flex-direction: column;
@@ -294,7 +292,7 @@ header {
 }
 
 .text-services h3 {
-  font-size: 2rem;
+  font-size: 32px;
 }
 
 .text-services p {
@@ -502,10 +500,8 @@ footer a {
   .plan-info {
     padding: 3em;
   }
-  .about-info h3,
-  .services-info h3,
-  .plan-info h3,
-  .contact-info h3 {
+
+  .section-heading {
     width: 90%;
   }
 
@@ -550,10 +546,7 @@ footer a {
       padding: 3em;
     }
 
-    .about-info h3,
-    .services-info h3,
-    .plan-info h3,
-    .contact-info h3 {
+    .section-heading {
       width: 100%;
       padding: 0.5em;
     }
@@ -720,10 +713,6 @@ main {
     justify-content: center;
   }
 }
-
-/* h1 {
-    font-family: sans-serif;
-} */
 
 .modal {
   position: fixed;
@@ -898,11 +887,6 @@ main {
 div.glass_bg {
   border-radius: 16px;
 }
-
-/*.testimonial__list {
-    width: 80%;
-    margin: auto;
-  }*/
 
 .testimonial__image-container {
   width: 100%;
