@@ -248,16 +248,13 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 30px;
-  padding: 50px;
-  width: 100%;
   gap: 20px;
   padding: 2em;
 }
 
 .service_card {
-  width: calc(300px - 20px);
-  padding: 2em;
+  width: calc(30% - 20px);
+  padding: 1.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -268,18 +265,17 @@ header {
 .btn-3 {
   font-size: 0.75rem;
   font-weight: bold;
-  padding: 1rem;
+  padding: 0.75rem;
   color: #121212;
   background-color: #fcaf3b;
   text-decoration: none;
-  margin-top: 1em;
   text-align: center;
   align-self: flex-start;
   border-radius: 5px;
 }
 
 .img-services img {
-  border-radius: 2.5%;
+  border-radius: 5px;
   width: 100%;
   height: auto;
 }
@@ -292,7 +288,7 @@ header {
 }
 
 .text-services h3 {
-  font-size: 32px;
+  font-size: 1.75rem;
 }
 
 .text-services p {
