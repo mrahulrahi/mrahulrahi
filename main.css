@@ -242,19 +242,19 @@ header {
 }
 
 .services {
+  width: 100%;
+  padding: 50px 0;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  gap: 20px;
-  padding: 2em;
+  gap: 30px;
 }
 
 .service_card {
   width: calc(30% - 20px);
-  padding: 1.5em;
+  padding: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -265,7 +265,7 @@ header {
 .btn-3 {
   font-size: 0.75rem;
   font-weight: bold;
-  padding: 0.75rem;
+  padding: 1rem;
   color: #121212;
   background-color: #fcaf3b;
   text-decoration: none;
@@ -275,7 +275,7 @@ header {
 }
 
 .img-services img {
-  border-radius: 5px;
+  border-radius: 10px;
   width: 100%;
   height: auto;
 }
@@ -288,12 +288,12 @@ header {
 }
 
 .text-services h3 {
-  font-size: 1.75rem;
+  font-size: 2rem;
 }
 
 .text-services p {
   padding: 1.5em 0em;
-  font-size: 0.85rem;
+  font-size: 1rem;
   text-align: start;
   width: 100%;
 }
