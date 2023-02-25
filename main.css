@@ -238,35 +238,6 @@ header {
   transition: 0.3s;
 }
 
-#block {
-  flex-wrap: wrap;
-  text-align: center;
-  gap: 20px;
-  padding: 50px;
-  justify-content: space-around;
-}
-
-.container-1 {
-  width: 300px;
-  border-radius: 10px;
-  padding: 2em 1em;
-  z-index: 5;
-}
-
-.container-1 img {
-  margin: 0 0 2em;
-}
-
-.container-1 h3 {
-  font-size: 1.5em;
-  margin: 0 0 2em;
-}
-
-.container-1 p {
-  font-size: 1em;
-  margin: 0 4em;
-}
-
 .section-info {
   padding: 3em 5em;
   flex-direction: column;
