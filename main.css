@@ -456,10 +456,7 @@ footer a {
     width: 100%;
   }
 
-  .contact-info,
-  .about-info,
-  .services-info,
-  .plan-info {
+  .section-info {
     padding: 3em;
   }
 
@@ -501,10 +498,7 @@ footer a {
       width: 350px;
     }
 
-    .contact-info,
-    .about-info,
-    .services-info,
-    .plan-info {
+    .section-info {
       padding: 1em;
     }
 
@@ -547,16 +541,16 @@ main {
   border-radius: 10px;
 }
 
-.plan__list {
+.plan-list {
   padding: 50px;
 }
 
-.plan--highlighted {
+.plan-highlighted {
   background: #fcaf3b;
   color: white;
 }
 
-.plan__annotation {
+.plan-annotation {
   background: white;
   color: #fcaf3b;
   padding: 0.5rem;
@@ -564,29 +558,29 @@ main {
   border-radius: 8px;
 }
 
-.plan__title {
+.plan-title {
   color: #121212;
 }
 
-.plan__price {
+.plan-price {
   color: #858585;
 }
 
-.plan--highlighted .plan__title {
+.plan-highlighted .plan-title {
   color: white;
 }
 
-.plan--highlighted .plan__price {
+.plan-highlighted .plan-price {
   color: #121212;
 }
 
-.plan__features {
+.plan-features {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.plan__feature {
+.plan-feature {
   margin: 0.5rem 0;
 }
 
@@ -603,7 +597,7 @@ main {
 }
 
 @media (min-width: 40rem) {
-  .plan__list {
+  .plan-list {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -620,7 +614,7 @@ main {
     height: 28rem;
   }
 
-  .plan--highlighted {
+  .plan-highlighted {
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
     height: 30rem;
     z-index: 50;
@@ -640,14 +634,14 @@ main {
   margin: 2rem;
 }
 
-.key-feature__list {
+.key-feature-list {
   list-style: none;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
-.key-feature__image {
+.key-feature-image {
   background: #c9efc7;
   width: 128px;
   height: 128px;
@@ -657,7 +651,7 @@ main {
   padding: 1.5rem;
 }
 
-.key-feature__description {
+.key-feature-description {
   text-align: center;
   font-weight: bold;
   color: #121212;
@@ -670,7 +664,7 @@ main {
     max-width: 25rem;
   }
 
-  .key-feature__list {
+  .key-feature-list {
     display: flex;
     justify-content: center;
   }
@@ -688,7 +682,7 @@ main {
   border-radius: 10px;
 }
 
-.modal_close {
+.modal-close {
   float: right;
   background-color: red;
   color: white;
