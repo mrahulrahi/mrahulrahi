@@ -1,19 +1,10 @@
-@font-face {
-  font-family: "AnonymousPro";
-  src: url("anonymousPro-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "AnonymousPro";
-  src: url("anonymousPro-Bold.ttf");
-  font-weight: 700;
-}
+@import url("https://fonts.googleapis.com/css2?family=Cantora+One&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Cantora One", sans-serif;
 }
 
 body {
@@ -606,7 +597,7 @@ main {
 }
 
 #key-features {
-  padding: 2rem;
+  padding: 3rem;
   margin: 50px;
   border-radius: 16px;
 }
@@ -614,6 +605,7 @@ main {
 #key-features .section-title {
   color: #121212;
   font-size: 1.5rem;
+  margin-top: 0;
   margin-bottom: 2rem;
 }
 
@@ -849,7 +841,7 @@ div.glass_bg {
 
 .testimonial-subtitle {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   color: #fcaf3b;
 }
 
@@ -866,7 +858,7 @@ div.glass_bg {
 .testimonial-text {
   margin: 0.2rem;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.25rem;
 }
 @media screen and (min-width: 300px) and (max-width: 768px) {
