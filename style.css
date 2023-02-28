@@ -1,69 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Noto Sans", sans-serif;
 }
 
 body {
   width: 100vw;
   height: 100vh;
-  padding: 0.5em 9em;
+  padding: 1em;
   background: darkslategray;
 }
 
-main {
+.flex {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 30px;
 }
 
+main {
+  flex-direction: column;
+}
+
 main h1 {
-  width: 100%;
-  font-size: 50px;
-  font-family: cursive;
-  padding: 10px;
-  text-align: center;
+  width: 95%;
+  min-width: 400px;
+  max-width: 830px;
+  font-size: 3rem;
+  font-family: "Laila", sans-serif;
+  padding: 8px;
   border-radius: 5px;
 }
 
 .container {
-  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 30px;
+  padding: 0 8.5% 1em;
 }
 
 .card-container {
+  flex-direction: column;
+  gap: 10px;
   text-decoration: none;
   color: darkslategray;
   text-align: center;
   width: 400px;
   border-radius: 5px;
-  padding: 1em 0;
 }
 
 .container img {
   width: 90%;
   height: auto;
   aspect-ratio: 16/9;
+  margin: 16px 0 0;
   border-radius: 5px;
 }
 .card-container p {
-  margin-top: 10px;
-}
-
-.uiBoxPink {
-  background-color: #eeb1d7;
-  border: 2px solid #db2586;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
 }
 
 .uiBoxGray {
   background-color: #ccc;
   border: 2px solid #666;
+}
+
+.uiBoxPink {
+  background-color: #eeb1d7;
+  border: 2px solid #db2586;
 }
 
 .uiBoxGreen {

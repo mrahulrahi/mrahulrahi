@@ -1,43 +1,44 @@
 body {
-	width: 100vw;
-	height: 100vh:
-	font: 'Raleway', sans-serif;
-	color: rgba(0, 0, 0, .5);
-	text-align: center;
-	text-transform: uppercase;
-	letter-spacing: .5em;
-	top: 15%;
-	background: linear-gradient(to right,red,yellow) no-repeat center center fixed;
-	background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Raleway", sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  top: 15%;
+  background: linear-gradient(to right, red, yellow) no-repeat center center
+    fixed;
+  background-size: 100% 100%;
 }
 
 h1 {
-    font: 600 3.5em 'Raleway', sans-serif;
-    color: rgba(0, 0, 0, .5);
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: .5em;
-    width: 100%;
+  font: 600 3.5em "Raleway", sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  width: 100%;
 }
 
 h3 {
-    font: 900 1em 'Raleway', sans-serif;
-    color: rgba(0, 0, 0, .5);
-    text-align: center;
-    text-transform: none;
-    letter-spacing: 0.01em;
+  font: 900 1em "Raleway", sans-serif;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  text-transform: none;
+  letter-spacing: 0.01em;
 }
 
 footer {
-	font-size: 20px;
-	color: #000;
-	position: fixed;
-	bottom: 5%;
-	left: 50%;
-	transform: translate(-50%, 0);
+  font-size: 20px;
+  color: #000;
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 footer a {
-	color: rgba(0, 0, 0, .5);
-	text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
 }
