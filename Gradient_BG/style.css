@@ -1,38 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: auto;
   font-family: "Raleway", sans-serif;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.5em;
-  top: 15%;
   background: linear-gradient(to right, red, yellow) no-repeat center center
     fixed;
   background-size: 100% 100%;
 }
-
-h1 {
-  font: 600 3.5em "Raleway", sans-serif;
-  color: rgba(0, 0, 0, 0.5);
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
-  width: 100%;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 100px 0;
 }
 
-h3 {
-  font: 900 1em "Raleway", sans-serif;
-  color: rgba(0, 0, 0, 0.5);
-  text-align: center;
+.container h1 {
+  font-size: 3.5em;
+  font-weight: 600;
+  letter-spacing: 0.5em;
+}
+
+.container h3 {
+  font-size: 1em;
+  font-weight: 900;
   text-transform: none;
   letter-spacing: 0.01em;
+}
+
+.color-pick {
+  display: inline-flex;
+  gap: 50px;
+}
+
+#swatch {
+  background: white;
+  font: 0.5em Helvetica-Neue, Helvetica, sans-serif;
+  letter-spacing: 0;
+  box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+#swatch .info {
+  padding: 1em;
+  text-transform: none;
+}
+
+#swatch h4 {
+  letter-spacing: 0;
+}
+
+input[type="color"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  height: 5em;
+  padding: 0;
+  width: 5em;
+}
+
+*:focus {
+  border-radius: 0;
+  outline: none;
+}
+
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+::-webkit-color-swatch {
+  border: 0;
+  border-radius: 0;
+}
+
+::-moz-color-swatch,
+::-moz-focus-inner {
+  border: 0;
+}
+
+::-moz-focus-inner {
+  padding: 0;
 }
 
 footer {
   font-size: 20px;
   color: #000;
-  position: fixed;
+  position: absolute;
   bottom: 5%;
   left: 50%;
   transform: translate(-50%, 0);
@@ -41,4 +108,12 @@ footer {
 footer a {
   color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
+  letter-spacing: 0.1em;
+}
+
+@media screen and (orientation: portrait) and (min-device-width: 320px) and (max-device-width: 450px) {
+  .container h1 {
+    font-size: 2rem;
+    letter-spacing: 0.5em;
+  }
 }
