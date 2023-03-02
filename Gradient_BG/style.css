@@ -12,8 +12,8 @@ body {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.5em;
-  background: linear-gradient(to right, red, yellow) no-repeat center center
-    fixed;
+  background: linear-gradient(to right, #00ffff, #ff00ff) no-repeat center
+    center fixed;
   background-size: 100% 100%;
 }
 .container {
@@ -45,20 +45,16 @@ body {
 
 #swatch {
   background: white;
-  font: 0.5em Helvetica-Neue, Helvetica, sans-serif;
-  letter-spacing: 0;
   box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
 }
 
 #swatch .info {
+  font: 1.25em Helvetica-Neue, Helvetica, sans-serif;
   padding: 1em;
-  text-transform: none;
-}
-
-#swatch h4 {
   letter-spacing: 0;
+  text-transform: none;
 }
 
 input[type="color"] {
@@ -68,9 +64,9 @@ input[type="color"] {
   background: none;
   border: 0;
   cursor: pointer;
-  height: 5em;
+  width: 10em;
+  height: 10em;
   padding: 0;
-  width: 5em;
 }
 
 *:focus {
@@ -108,12 +104,28 @@ footer {
 footer a {
   color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
-  letter-spacing: 0.1em;
 }
 
 @media screen and (orientation: portrait) and (min-device-width: 320px) and (max-device-width: 450px) {
   .container h1 {
     font-size: 2rem;
     letter-spacing: 0.5em;
+  }
+
+  #swatch .info {
+    font-size: 1em;
+  }
+
+  input[type="color"] {
+    width: 7.5em;
+    height: 7.5em;
+  }
+
+  footer {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 }
