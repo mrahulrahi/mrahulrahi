@@ -28,7 +28,6 @@ main {
 
 main h1 {
   width: 95%;
-  min-width: 400px;
   max-width: 830px;
   font-size: 3rem;
   font-family: "Laila", sans-serif;
@@ -38,7 +37,7 @@ main h1 {
 
 .container {
   flex-wrap: wrap;
-  padding: 0 8.5% 1em;
+  padding: 0 8.5%;
 }
 
 .card-container {
@@ -90,4 +89,16 @@ main h1 {
 .uiBoxYellow {
   background-color: #fff9d7;
   border: 2px solid #e2c822;
+}
+
+@media screen and (orientation: portrait) and (min-device-width: 320px) and (max-device-width: 450px) {
+  main h1 {
+    width: 100%;
+  }
+  .container {
+    padding: 0 0 1em;
+  }
+  .card-container {
+    width: 100%;
+  }
 }
