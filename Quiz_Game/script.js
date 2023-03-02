@@ -8,18 +8,18 @@ const questions = [
     prompt:
       "Which attribute is used to provide a unique name to an HTML element?",
     correctAnswer: "id",
-    answers: ["id", "class", "type", "None of above"],
+    answers: ["id", "class", "type", "NOTA"],
   },
   {
     prompt: "Which property allows an image link to show a text label?",
     correctAnswer: "alt",
-    answers: ["str", "alt", "alternative", "None of above"],
+    answers: ["str", "alt", "alternative", "NOTA"],
   },
   {
     prompt:
       "The CSS property used to specify the transparency of an element is?",
     correctAnswer: "opacity",
-    answers: ["opacity", "visibility", "filter", "None of above"],
+    answers: ["opacity", "visibility", "filter", "NOTA"],
   },
   {
     prompt:
@@ -36,7 +36,7 @@ const questions = [
     prompt:
       "The CSS property used to specify whether the text is written in the horizontal or vertical direction?",
     correctAnswer: "writing-mode",
-    answers: ["writing-mode", "text-indent", "word-break", "None of above"],
+    answers: ["writing-mode", "text-indent", "word-break", "NOTA"],
   },
   {
     prompt: "In JavaScript, what kind of scoping is used?",

@@ -148,3 +148,15 @@ h3 {
   font-size: 20px;
   color: rgb(10, 37, 53);
 }
+@media screen and (orientation: portrait) and (min-device-width: 320px) and (max-device-width: 450px) {
+  .start-page {
+    width: 100%;
+  }
+  .question-form {
+    width: 100%;
+  }
+
+  .answers {
+    padding: 5%;
+  }
+}
