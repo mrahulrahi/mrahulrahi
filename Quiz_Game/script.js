@@ -145,7 +145,7 @@ function evaluateChoice() {
 }
 
 function results() {
-  $(".question-form").html(`<h2>your score: ${score}</h2>
+  $(".question-form").html(`<h2>Your Score: ${score}</h2>
     <button class="restartButton">Restart Quiz</button></div>`);
 }
 
