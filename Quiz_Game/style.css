@@ -1,9 +1,10 @@
 body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
   box-sizing: border-box;
-  background-image: url(bg-img.jpg);
-  background-size: cover;
-  background-position: fixed;
-  background-repeat: no-repeat;
+  background-color: lightgrey;
 }
 header {
   color: rgb(10, 37, 53);
@@ -17,7 +18,7 @@ header {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 600px;
+  margin-bottom: 50px;
 }
 .keeping-track {
   padding: 0;
@@ -32,7 +33,7 @@ h2 {
   color: rgb(10, 37, 53);
   font-family: "Open Sans", sans-serif;
   font-weight: lighter;
-  margin: 50px;
+  margin: 50px 50px 0;
 }
 
 .start-page {
@@ -40,6 +41,7 @@ h2 {
   padding: 5%;
   border-radius: 25px;
   width: 75%;
+  margin-top: 100px;
   align-self: center;
 }
 
@@ -50,9 +52,8 @@ h2 {
 .question-form {
   font-family: "Open Sans", sans-serif;
   font-size: 1.5em;
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
+  margin: 0 auto;
+  width: 85%;
   background-color: aliceblue;
   border-radius: 25px;
 }
@@ -63,18 +64,18 @@ h2 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
-  padding: 100px;
+  padding: 1.5em 100px;
 }
 
 .answer-choice {
   color: rgb(227, 231, 234);
   background-color: rgb(63, 102, 104);
-  width: 300px;
+  width: 40%;
   height: 50px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 5%;
+  padding: 25px;
   font-size: 1.25em;
   border: 2px solid rgb(135, 109, 92);
   border-radius: 10px;
@@ -92,19 +93,19 @@ span {
 input[type="submit"] {
   color: rgb(63, 102, 104);
   background-color: rgb(227, 231, 234);
-  font-size: 1.5em;
+  font-size: 1.25em;
   font-weight: bold;
   border-radius: 10px;
-  margin-top: 30px;
-  margin-bottom: 30px;
   width: 5em;
   height: 2em;
 }
 
 .feedback {
   background-color: antiquewhite;
+  padding: 5%;
   border-radius: 25px;
   width: 50%;
+  margin-top: 100px;
   align-self: center;
 }
 
@@ -152,11 +153,25 @@ h3 {
   .start-page {
     width: 100%;
   }
+
+  h2 {
+    margin: 25px 15px 0;
+  }
+
   .question-form {
     width: 100%;
+    font-size: 1em;
   }
 
   .answers {
-    padding: 5%;
+    padding: 25px;
+  }
+  .answer-choice {
+    width: 80%;
+    height: auto;
+    font-size: 1.25em;
+  }
+  .feedback {
+    width: 100%;
   }
 }
