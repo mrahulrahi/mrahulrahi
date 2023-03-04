@@ -527,7 +527,9 @@ footer p:nth-child(2) {
   font-size: 16px;
 }
 
-@media screen and (orientation: portrait) {
+@media only screen and (orientation: portrait) and (min-device-width : 320px) and (max-device-width : 768px) {
+  /* Styles */
+  
   .home {
     width: 100%;
     height: auto;
