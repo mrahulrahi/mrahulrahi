@@ -71,7 +71,7 @@ nav ul li a:hover {
   width: 100%;
   height: 100%;
   padding: auto;
-  margin-top: 5em;
+  margin-top: 4em;
   background-color: #222222;
   display: flex;
   justify-content: center;
@@ -748,21 +748,8 @@ footer p:nth-child(2) {
   .certi-box {
     flex-wrap: wrap;
   }
-}
 
-@media screen and (orientation: landscape) and (min-width: 1240px) {
-  nav {
-    padding: 1.5em 8%;
-  }
-
-  .home,
-  .about {
-    height: 100%;
-  }
-  .about {
-    padding: 150px 25px 100px 0;
-  }
-  .certificate {
-    padding: 50px 0;
+  footer {
+    margin-bottom: 0;
   }
 }
