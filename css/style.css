@@ -733,11 +733,13 @@ footer p:nth-child(2) {
   nav {
     padding: 1em 3em;
   }
+
   .home,
   .about {
     height: 100%;
     padding: 100px 20px;
   }
+
   .about-text {
     padding: 2em;
   }
