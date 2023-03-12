@@ -743,9 +743,11 @@ footer p:nth-child(2) {
   .about-text {
     padding: 2em;
   }
+
   .certificate {
     padding-top: 50px;
   }
+
   .certi-box {
     flex-wrap: wrap;
   }
