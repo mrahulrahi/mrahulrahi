@@ -251,6 +251,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   min-height: 400px;
+  margin-bottom: 100px;
 }
 
 .card {
@@ -756,7 +757,7 @@ footer p:nth-child(2) {
 
   .contact-me {
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
   }
 
   .contact-me h4 {
