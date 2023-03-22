@@ -340,6 +340,11 @@ textarea {
   gap: 2em;
 }
 
+.email img {
+  width: 300px;
+  height: auto;
+}
+
 footer {
   margin-top: 50px;
   padding: 30px;
