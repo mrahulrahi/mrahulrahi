@@ -319,15 +319,20 @@ header {
   color: red;
 }
 
-textarea {
-  max-width: 35em;
-  width: 35em;
-  height: 10em;
-}
-
 .form-control {
   width: 35em;
+  border-radius: 0.25rem;
+  background-color: #121212;
+  color: #c9efc7;
+}
+
+input {
   height: 4em;
+}
+
+textarea {
+  max-width: 35em;
+  height: 10em;
 }
 
 .mb-3 p {
@@ -343,6 +348,18 @@ textarea {
 .email img {
   width: 300px;
   height: auto;
+}
+
+.btn-4 {
+  width: 29.25em;
+  height: 3rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #121212;
+  text-decoration: none;
+  border-radius: 5px;
+  background: rgba(252, 175, 59, 0.9);
+  border: 1px solid rgba(252, 175, 59, 0.9);
 }
 
 footer {
