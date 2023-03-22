@@ -106,10 +106,10 @@ header {
 }
 
 .container img {
-  width: 1300px;
-  height: auto;
+  width: 95%;
+  height: 85vh;
   overflow: hidden;
-  margin: 100px 50px 50px;
+  margin: 100px 0px 50px;
 }
 
 .home-info {
@@ -380,6 +380,9 @@ footer a {
 
 /* RESPONSIVE */
 @media screen and (max-width: 1024px) {
+  .container img {
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -402,7 +405,7 @@ footer a {
   }
   .nav-menu {
     position: fixed;
-    left: -700px;
+    left: -800px;
     top: 60px;
     gap: 0;
     flex-direction: column;
@@ -422,7 +425,7 @@ footer a {
   .container img {
     margin: 100px 0 50px;
     width: 95%;
-    height: auto;
+    height: 80vh;
   }
 
   .container h1 {
@@ -494,7 +497,8 @@ footer a {
 
   @media screen and (max-width: 576px) {
     .container img {
-      height: 85vh;
+      width: 93%;
+      height: 72.5vh;
     }
     .container h1 {
       font-size: 13vw;
