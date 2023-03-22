@@ -121,7 +121,7 @@ header {
 
 .container h1 {
   font-size: 6vw;
-  margin: 0 0 0.5em;
+  margin: 0.25em 0 0.5em;
 }
 
 .container span {
@@ -322,7 +322,7 @@ header {
 .form-control {
   width: 35em;
   border-radius: 0.25rem;
-  background-color: #121212;
+  background-color: #202020;
   color: #c9efc7;
 }
 
@@ -331,8 +331,9 @@ input {
 }
 
 textarea {
+  min-width: 35em;
   max-width: 35em;
-  height: 10em;
+  min-height: 10em;
 }
 
 .mb-3 p {
@@ -346,7 +347,7 @@ textarea {
 }
 
 .email img {
-  width: 350px;
+  width: 450px;
   height: auto;
 }
 
@@ -383,6 +384,7 @@ footer a {
 
 @media screen and (max-width: 768px) {
   /* NAVBAR */
+
   .hamburger {
     display: block;
   }
@@ -474,6 +476,16 @@ footer a {
 
   .form-control {
     width: 100%;
+  }
+
+  textarea {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .email img {
+    width: 350px;
+    height: auto;
   }
 
   .btn-4 {
