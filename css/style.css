@@ -504,7 +504,8 @@ footer p:nth-child(2) {
 }
 
 .social {
-  display: flex;
+  display: inline-flex;
+  gap: 20px;
 }
 
 .social a {
@@ -515,7 +516,7 @@ footer p:nth-child(2) {
   justify-content: center;
   background: var(--primary);
   border-radius: 50%;
-  margin: 22px 10px;
+  margin: 22px 0;
   color: white;
   text-decoration: none;
   font-size: 22px;
