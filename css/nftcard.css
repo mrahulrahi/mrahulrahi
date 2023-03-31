@@ -165,3 +165,22 @@ html
   > p {
   font-size: 16px;
 }
+html
+  > body
+  > nft-card
+  > #nft-card
+  > div.nft-container
+  > article:nth-of-type(2)
+  > ul
+  > li {
+  font-size: 16px;
+}
+html
+  > body
+  > nft-card
+  > #nft-card
+  > div.nft-container
+  > article:nth-of-type(3)
+  > p {
+  font-size: 16px;
+}
