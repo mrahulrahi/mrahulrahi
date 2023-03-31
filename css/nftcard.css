@@ -136,3 +136,13 @@
     margin: 0 auto 1rem;
   }
 }
+
+/* new css */
+
+html > body > nft-card > #nft-card > div.nft-container {
+  height: 485px;
+  max-height: 485px;
+  width: 281px;
+  max-width: 281px;
+  padding-bottom: 16px;
+}
