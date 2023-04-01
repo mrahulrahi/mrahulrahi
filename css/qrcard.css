@@ -26,6 +26,7 @@
 }
 
 .qr-container {
+  width: 350px;
   padding: 1.25rem;
   background-color: var(--white);
   border-radius: 2rem;
@@ -70,9 +71,13 @@
 }
 
 /*--responsive for mobile phone--*/
-@media (min-width: 375px) {
+@media (min-width: 300px) and (max-width: 500px) {
+  #qr-card {
+    height: 90vh;
+  }
+
   .qr-container {
-    width: 325px;
+    width: 350px;
     margin: 0 auto 1rem;
   }
 }
