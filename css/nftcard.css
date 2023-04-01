@@ -82,6 +82,7 @@
 }
 
 .nft-container h2 {
+  font-size: 24px;
   font-weight: 600;
   color: var(--white);
   margin: 1rem 0.5rem 0.5rem 0;
@@ -93,12 +94,14 @@
 }
 
 .nft-container p {
+  font-size: 16px;
   font-weight: 300;
 }
 
 .nft-container ul li {
   display: flex;
   align-items: center;
+  font-size: 16px;
 }
 
 .nft-container ul li:first-child {
@@ -120,10 +123,15 @@
   border: 2px solid var(--white);
   border-radius: 50%;
   margin: 1rem 1rem;
+  width: 30px;
+  max-width: 30px;
+  height: 30px;
+  max-height: 30px;
 }
 
 .nft-container .avatar p span {
   color: var(--white);
+  font-size: 16px;
   font-weight: 400;
 }
 
@@ -139,56 +147,4 @@
     height: 550px;
     margin: 0 auto 1rem;
   }
-}
-
-/* new css */
-
-html
-  > body
-  > nft-card
-  > #nft-card
-  > div.nft-container
-  > article:nth-of-type(2)
-  > h2 {
-  font-size: 24px;
-}
-html
-  > body
-  > nft-card
-  > #nft-card
-  > div.nft-container
-  > article:nth-of-type(2)
-  > p {
-  font-size: 16px;
-}
-html
-  > body
-  > nft-card
-  > #nft-card
-  > div.nft-container
-  > article:nth-of-type(2)
-  > ul
-  > li {
-  font-size: 16px;
-}
-html
-  > body
-  > nft-card
-  > #nft-card
-  > div.nft-container
-  > article:nth-of-type(3)
-  > p {
-  font-size: 16px;
-}
-html
-  > body
-  > nft-card
-  > #nft-card
-  > div.nft-container
-  > article:nth-of-type(3)
-  > img {
-  width: 30px;
-  max-width: 30px;
-  height: 30px;
-  max-height: 30px;
 }
