@@ -27,6 +27,9 @@ nav {
   font-size: 35px;
   letter-spacing: 1px;
   cursor: pointer;
+  background-color: #101010;
+  padding: 20px;
+  border-radius: 25px;
 }
 
 span {
@@ -37,6 +40,9 @@ nav ul li {
   list-style-type: none;
   display: inline-block;
   padding: 10px 25px;
+  background-color: #101010;
+  padding: 20px;
+  border-radius: 25px;
 }
 
 nav ul li a {
@@ -61,6 +67,9 @@ nav ul li a:hover {
   padding: 10px 25px;
   border-radius: 30px;
   transition: transform 0.4s;
+  background-color: #101010;
+  padding: 20px;
+  border-radius: 25px;
 }
 
 .btn:hover {
