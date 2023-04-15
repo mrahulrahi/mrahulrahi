@@ -18,8 +18,7 @@ nav {
   z-index: 10;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5em 8%;
-  background-color: #222222;
+  padding: 1em 8%;
 }
 
 .logo {
@@ -36,13 +35,16 @@ span {
   color: var(--primary);
 }
 
+nav ul {
+  background-color: #101010;
+  padding: 20px;
+  border-radius: 25px;
+}
+
 nav ul li {
   list-style-type: none;
   display: inline-block;
   padding: 10px 25px;
-  background-color: #101010;
-  padding: 20px;
-  border-radius: 25px;
 }
 
 nav ul li a {
@@ -64,10 +66,7 @@ nav ul li a:hover {
   text-decoration: none;
   border: 2px solid transparent;
   font-weight: bold;
-  padding: 10px 25px;
-  border-radius: 30px;
   transition: transform 0.4s;
-  background-color: #101010;
   padding: 20px;
   border-radius: 25px;
 }
@@ -555,7 +554,13 @@ footer p:nth-child(2) {
   nav {
     position: relative;
     height: 50px;
-    padding: 2em 4em;
+    padding: 1em 4em;
+  }
+
+  .logo {
+    color: white;
+    font-size: 60px;
+    letter-spacing: 1px;
   }
 
   nav ul {
@@ -564,13 +569,18 @@ footer p:nth-child(2) {
     bottom: 0;
     left: 0;
     background-color: #101010;
-    width: 100%;
+    width: 99%;
+    margin: 0 4.5px;
     padding: 0 2em;
   }
 
   nav ul li {
     padding: 2em;
     font-size: 1.6em;
+  }
+
+  .btn {
+    font-size: 2em;
   }
 
   .container {
@@ -723,7 +733,7 @@ footer p:nth-child(2) {
   }
 
   footer {
-    margin-bottom: 60px;
+    padding-bottom: 60px;
   }
 
   footer p:nth-child(1) {
