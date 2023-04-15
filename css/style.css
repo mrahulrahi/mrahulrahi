@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #222222;
+}
+
 nav {
   position: fixed;
   width: 100%;
@@ -90,6 +94,10 @@ nav ul li a:hover {
   flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
+  background-color: #101010;
+  padding: 100px;
+  border-radius: 25px;
+  margin-top: 30px;
 }
 
 .container div img {
@@ -143,7 +151,7 @@ h4 {
   width: 100%;
   height: 100%;
   padding: auto;
-  background-color: #191919;
+  background-color: #222222;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -163,11 +171,14 @@ h4 {
 
 .main {
   width: 1130px;
-  max-width: 95%;
+  max-width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: #101010;
+  padding: 100px;
+  border-radius: 25px;
 }
 
 .about-text h2 {
@@ -210,6 +221,13 @@ button:hover {
   cursor: pointer;
 }
 
+.certificate {
+  background-color: #101010;
+  padding: 10px;
+  border-radius: 25px;
+  margin-top: 30px;
+}
+
 .certi-box {
   padding: auto;
   display: flex;
@@ -241,8 +259,13 @@ button:hover {
 
 .project {
   width: 100%;
-  padding: 100px 0 0 0;
+  padding: 5%;
   background: #222222;
+}
+.project-container {
+  background-color: #101010;
+  border-radius: 25px;
+  padding: 100px 0 50px;
 }
 
 .title h2 {
@@ -553,7 +576,7 @@ footer p:nth-child(2) {
 
   nav {
     position: relative;
-    height: 50px;
+    background-color: #222222;
     padding: 1em 4em;
   }
 
