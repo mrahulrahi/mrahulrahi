@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Portfolio website</title>
+    <title>mrahulrahi | Portfolio ~ Rahul Maurya</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -39,7 +40,7 @@
       <!----Home section start---->
 
       <div class="home">
-        <div class="container">
+        <div class="home-container">
           <div><img src="./img/background.svg" alt="" srcset="" /></div>
           <div>
             <h4>Hello, my name is</h4>
@@ -55,11 +56,13 @@
 
     <!----About section start---->
     <section class="about" id="about">
-      <div class="main">
+      <div class="about-container">
         <img src="img/main-img.jpg" />
         <div class="about-text">
-          <h2>About Me</h2>
-          <h5>Web <span>Developer</span></h5>
+          <div class="title">
+            <h2 class="section-title">About Me</h2>
+          </div>
+          <h4>Web <span>Developer</span></h4>
           <p>
             I am a front-end web developer. I can provide clean code and pixel
             perfect design. I also make the website more & more interactive with
@@ -76,7 +79,10 @@
         </div>
       </div>
       <div class="certificate">
-        <h3>Certificates</h3>
+        <div class="title">
+          <h2 class="section-title">Certificates</h2>
+        </div>
+
         <div class="certi-box">
           <a
             href="https://www.hackerrank.com/certificates/62ee41b69fc2"
@@ -100,7 +106,7 @@
     <section class="project" id="project">
       <div class="project-container">
         <div class="title">
-          <h2>My Projects</h2>
+          <h2 class="section-title">My Projects</h2>
         </div>
 
         <div class="box">
@@ -235,7 +241,7 @@
     <section class="skill" id="skill">
       <div class="skill-container">
         <div class="title">
-          <h2>My Skills</h2>
+          <h2 class="section-title">My Skills</h2>
         </div>
         <div class="skill-box">
           <div class="skill-wrap">
@@ -301,20 +307,20 @@
     <!------Contact Me------>
     <section id="contact-me">
       <div class="contact-container">
-        <h1>Contact Me</h1>
-        <div class="contact-me">
-          <div>
+        <div class="title">
+          <h2 class="section-title">Contact Me</h2>
+        </div>
+        <div class="contact-box">
+          <div class="contact-me">
             <h4>Get in Touch</h4>
             <p>Let Me Get You A Beautiful Website.</p>
             <a class="button-two" href="#">Hire Me</a>
           </div>
-          <div class="newslatter">
-            <form>
-              <input type="text" name="email" placeholder="Enter Your Name" />
-              <input type="email" name="email" placeholder="Enter Your Email" />
-              <input type="submit" name="submit" value="Subscribe!" />
-            </form>
-          </div>
+          <form class="newslatter">
+            <input type="text" name="email" placeholder="Enter Your Name" />
+            <input type="email" name="email" placeholder="Enter Your Email" />
+            <input type="submit" name="submit" value="Subscribe!" />
+          </form>
         </div>
       </div>
     </section>
@@ -337,7 +343,7 @@
           ><i class="fab fa-telegram-plane"></i
         ></a>
       </div>
-      <p class="end">&copy mrahulrahi</p>
+      <p class="end">&copymrahulrahi</p>
     </footer>
   </body>
 </html>
