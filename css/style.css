@@ -235,6 +235,10 @@ button:hover {
   justify-content: center;
 }
 
+.certificate .section-title {
+  font-size: 60px;
+}
+
 .certi-box {
   padding: auto;
   display: flex;
