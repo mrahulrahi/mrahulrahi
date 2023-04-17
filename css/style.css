@@ -18,7 +18,7 @@ body {
 nav {
   position: fixed;
   width: 100%;
-  padding: 0.5em 2.5%;
+  padding: 1em 2.5%;
   top: 0;
   left: 0;
   display: flex;
@@ -30,11 +30,11 @@ nav {
 
 .logo {
   color: white;
-  font-size: 35px;
+  font-size: 30px;
   letter-spacing: 1px;
   cursor: pointer;
   background-color: #101010;
-  padding: 20px;
+  padding: 15px 20px;
   border-radius: 50px;
 }
 
@@ -44,7 +44,7 @@ span {
 
 nav ul {
   background-color: #101010;
-  padding: 20px;
+  padding: 10px;
   border-radius: 50px;
 }
 
@@ -74,7 +74,7 @@ nav ul li a:hover {
   border: 2px solid transparent;
   font-weight: bold;
   transition: transform 0.4s;
-  padding: 20px;
+  padding: 20px 30px;
   border-radius: 50px;
 }
 
@@ -108,7 +108,7 @@ nav ul li a:hover {
   background-color: #101010;
   padding: 50px 0;
   border-radius: 25px;
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .home-container div img {
@@ -812,6 +812,14 @@ footer p:nth-child(2) {
     letter-spacing: 1px;
   }
 
+  nav {
+    padding: 0.5em 2.5%;
+  }
+
+  nav ul {
+    padding: 15px;
+  }
+
   nav ul li {
     padding: 0.5em 1.5em;
   }
@@ -822,6 +830,7 @@ footer p:nth-child(2) {
 
   .home-container {
     padding: 50px;
+    margin-top: 60px;
   }
 
   .home-container div img {
