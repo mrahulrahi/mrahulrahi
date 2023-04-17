@@ -370,22 +370,22 @@ h5 {
 
 .skill-wrap {
   display: flex;
-  width: calc(250px * 20);
+  width: calc(20vw * 22);
   height: 100%;
   animation: carousel 15s linear infinite;
 }
 
 .skill-card {
-  width: 250px;
-  height: 300px;
+  width: 17.5vw;
+  height: fit-content;
   background: var(--primary);
   border-radius: 20px;
-  margin: 3em 5vw;
+  margin: 2em 5vw;
   text-align: center;
 }
 
 .skill-card img {
-  width: 200px;
+  width: fit-content;
   height: auto;
   margin: 1.5em;
   background-color: var(--primary);
@@ -399,7 +399,7 @@ h5 {
   font-size: 2vw;
   font-weight: bold;
   width: 100%;
-  padding: 1em;
+  padding: 0.5em 1em;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -746,17 +746,13 @@ footer p:nth-child(2) {
     width: 90%;
   }
 
-  .skill-wrap {
-    width: calc(20vw * 22);
-  }
-
   .skill-card {
     width: 20vw;
-    height: auto;
+    margin: 3em 5vw;
   }
 
-  .skill-card img {
-    width: fit-content;
+  .skill-card p {
+    padding: 1em;
   }
 
   .contact-box {
@@ -887,17 +883,12 @@ footer p:nth-child(2) {
     gap: 15px;
   }
 
-  .skill-wrap {
-    width: calc(20vw * 22);
-  }
-
   .skill-card {
     width: 20vw;
-    height: auto;
   }
 
-  .skill-card img {
-    width: fit-content;
+  .skill-card p {
+    padding: 1em;
   }
 
   #contact-me {
