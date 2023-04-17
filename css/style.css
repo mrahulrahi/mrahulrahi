@@ -129,7 +129,7 @@ nav ul li a:hover {
 }
 
 .home-container div h4 {
-  color: #fcfc;
+  color: #ffb686;
   letter-spacing: 2px;
   font-size: 1.5em;
   margin-bottom: 20px;
@@ -237,6 +237,7 @@ button:hover {
 
 .certificate .section-title {
   font-size: 60px;
+  padding-top: 0;
 }
 
 .certi-box {
@@ -369,13 +370,14 @@ h5 {
 
 .skill-wrap {
   display: flex;
-  width: calc(20vw * 22);
+  width: calc(250px * 20);
   height: 100%;
   animation: carousel 15s linear infinite;
 }
 
 .skill-card {
-  width: 20vw;
+  width: 250px;
+  height: 300px;
   background: var(--primary);
   border-radius: 20px;
   margin: 3em 5vw;
@@ -383,7 +385,7 @@ h5 {
 }
 
 .skill-card img {
-  width: 15vw;
+  width: 200px;
   height: auto;
   margin: 1.5em;
   background-color: var(--primary);
@@ -744,6 +746,19 @@ footer p:nth-child(2) {
     width: 90%;
   }
 
+  .skill-wrap {
+    width: calc(20vw * 22);
+  }
+
+  .skill-card {
+    width: 20vw;
+    height: auto;
+  }
+
+  .skill-card img {
+    width: fit-content;
+  }
+
   .contact-box {
     flex-direction: column;
     gap: 100px;
@@ -870,6 +885,19 @@ footer p:nth-child(2) {
 
   .box {
     gap: 15px;
+  }
+
+  .skill-wrap {
+    width: calc(20vw * 22);
+  }
+
+  .skill-card {
+    width: 20vw;
+    height: auto;
+  }
+
+  .skill-card img {
+    width: fit-content;
   }
 
   #contact-me {
