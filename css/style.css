@@ -125,7 +125,43 @@ nav ul li a:hover {
 .home-container div h3 {
   color: white;
   font-size: 25px;
-  margin-bottom: 40px;
+  overflow: hidden;
+  /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid #dd562f;
+  /* The typwriter cursor */
+  white-space: nowrap;
+  /* Keeps the content on a single line */
+  margin: 0 auto;
+  /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .1em;
+  /* Adjust as needed */
+  animation:
+    typing 10s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  0% {
+    width: 0
+  }
+
+  50% {
+    width: 100%
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: #dd562f;
+  }
 }
 
 .home-container div h4 {
@@ -142,6 +178,7 @@ nav ul li a:hover {
   border: 2px solid var(--primary);
   outline: none;
   border-radius: 30px;
+  margin-top: 40px;
 }
 
 .buy-coffee button {
@@ -270,6 +307,7 @@ button:hover {
   width: 100%;
   padding: 50px 0;
 }
+
 .project-container {
   background-color: #101010;
   border-radius: 25px;
@@ -408,6 +446,7 @@ h5 {
   0% {
     transform: translateX(calc(25vw * 4));
   }
+
   100% {
     transform: translateX(calc(-30vw * 11));
   }
@@ -672,6 +711,7 @@ footer p:nth-child(2) {
   .buy-coffee {
     margin: auto;
     border-radius: 35px;
+    margin-top: 40px;
   }
 
   .buy-coffee button {
@@ -809,6 +849,7 @@ footer p:nth-child(2) {
 }
 
 @media screen and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1200px) {
+
   .home,
   .about,
   .project,
