@@ -62,6 +62,10 @@ nav ul li a {
   font-size: 20px;
 }
 
+nav ul li a i {
+  display: none;
+}
+
 nav ul li a:hover {
   color: var(--primary);
   transition: 0.4s;
@@ -680,6 +684,15 @@ footer p:nth-child(2) {
   nav ul li {
     padding: 2em;
     font-size: 1.6em;
+  }
+
+  nav ul li a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 1em;
   }
 
   .btn {
