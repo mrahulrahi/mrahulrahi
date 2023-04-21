@@ -9,26 +9,17 @@
 
 #qr-card {
   font-family: "Outfit", sans-serif;
-  background-color: var(--light-gray);
   width: 100vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-#qr-card > h1 {
-  text-align: center;
-  color: hsl(217, 54%, 11%);
-  font-size: 2em;
-  margin: 2rem 0;
-}
-
 .qr-container {
   width: 350px;
   padding: 1.25rem;
-  background-color: var(--white);
+  background-color: var(--light-gray);
   border-radius: 2rem;
   margin-bottom: 1rem;
 }
@@ -54,21 +45,7 @@
   margin-bottom: 1rem;
 }
 
-.attribution {
-  width: 100vw;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  font-size: 12px;
-  text-align: center;
-  background-color: hsl(217, 54%, 11%);
-  padding: 20px 0;
-  color: aliceblue;
-}
 
-.attribution a {
-  color: cyan;
-}
 
 /*--responsive for mobile phone--*/
 @media (min-width: 300px) and (max-width: 500px) {

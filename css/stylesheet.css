@@ -14,11 +14,6 @@ body {
   border-radius: 10px;
 }
 
-#icon {
-  width: 200px;
-  height: auto;
-}
-
 .nav-list {
   list-style: none;
   padding: 0;
@@ -298,6 +293,7 @@ input {
   .employee-list {
     flex-direction: column;
   }
+
   .interview-list {
     flex-direction: column;
   }
@@ -333,6 +329,6 @@ input {
   .main-footer {
     flex-direction: column-reverse;
   }
-  @media screen and (max-width: 576px) {
-  }
+
+  @media screen and (max-width: 576px) {}
 }

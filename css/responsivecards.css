@@ -2,24 +2,16 @@
 
 #responsive-cards {
   font-family: "Montserrat", sans-serif;
-  background-color: hsl(212, 45%, 89%);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  height: 100vh;
   padding: 100px 0;
 }
 
-#responsive-cards > h1 {
-  text-align: center;
-  color: hsl(217, 54%, 11%);
-  font-size: 2em;
-  margin: 2rem 0;
-}
 
-#responsive-cards > div {
+#responsive-cards>div {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,6 +53,7 @@
 .content h1 {
   margin: 10px 0;
 }
+
 @media (min-width: 768px) and (max-width: 1500px) {
   #responsive-cards {
     height: auto;

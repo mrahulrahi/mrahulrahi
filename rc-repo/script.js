@@ -2,7 +2,6 @@ class ResponsiveMenu extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section id="responsive-menu">
-    <h1>Responsive Menu</h1>
     <div>
     <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="section">
@@ -45,11 +44,10 @@ class ResponsiveCards extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section id="responsive-cards">
-    <h1>Responsive Cards</h1>
     <div>
       <div class="destination">
         <div class="thumbnail">
-          <img src="images/new-york.jpg" alt="Sunset in New York" />
+          <img src="img/new-york.jpg" alt="Sunset in New York" />
         </div>
         <div class="content">
           <h1>New York</h1>
@@ -61,7 +59,7 @@ class ResponsiveCards extends HTMLElement {
       </div>
       <div class="destination">
         <div class="thumbnail">
-          <img src="images/kuala-lumpur.jpg" alt="Sunset in New York" />
+          <img src="img/kuala-lumpur.jpg" alt="Sunset in New York" />
         </div>
         <div class="content">
           <h1>Kuala Lumpur</h1>
@@ -73,7 +71,7 @@ class ResponsiveCards extends HTMLElement {
       </div>
       <div class="destination">
         <div class="thumbnail">
-          <img src="images/hong-kong.jpg" alt="Sunset in New York" />
+          <img src="img/hong-kong.jpg" alt="Sunset in New York" />
         </div>
         <div class="content">
           <h1>Hong Kong</h1>
@@ -85,7 +83,7 @@ class ResponsiveCards extends HTMLElement {
       </div>
       <div class="destination">
         <div class="thumbnail">
-          <img src="images/singapore.jpg" alt="Sunset in New York" />
+          <img src="img/singapore.jpg" alt="Sunset in New York" />
         </div>
         <div class="content">
           <h1>Singapore</h1>
@@ -106,12 +104,11 @@ class NFTCard extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section id="nft-card">
-    <h1>NFT Card</h1>
     <div class="nft-container">
     <article class="main-image">
-      <img src="images/image-equilibrium.jpg" alt="">
+      <img src="img/image-equilibrium.jpg" alt="">
       <div>
-        <img src="images/icon-view.svg" alt="">
+        <img src="img/icon-view.svg" alt="">
       </div>
     </article>
 
@@ -120,13 +117,13 @@ class NFTCard extends HTMLElement {
       <p>Our Equilibrium collection promotes balance and calm.</p>
 
       <ul>
-        <li><img src="images/icon-ethereum.svg" alt=""> 0.041 ETH</li>
-        <li><img src="images/icon-clock.svg" alt="">3 days left</li>
+        <li><img src="img/icon-ethereum.svg" alt=""> 0.041 ETH</li>
+        <li><img src="img/icon-clock.svg" alt="">3 days left</li>
       </ul>
     </article>
 
     <article class="avatar">
-      <img src="images/image-avatar.png" alt="">
+      <img src="img/image-avatar.png" alt="">
       <p>Creation of <span>Jules Wyvern</span></p>
     </article>
   </div>
@@ -140,10 +137,9 @@ class QRCard extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section id="qr-card">
-    <h1>QR Card</h1>
     <div class="qr-container">
     <article>
-      <img src="images/image-qr-code.png" alt="">
+      <img src="img/image-qr-code.png" alt="">
     </article>
 
     <article>
@@ -151,12 +147,6 @@ class QRCard extends HTMLElement {
       <p>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
     </article>
   </div>
-  <footer class="attribution">
-      © Responsive Components Coded ❤️ by
-      <a href="https://github.com/mrahulrahi" rel="noopener" target="_blank"
-        >mrahulrahi</a
-      >.
-    </footer>
   </section>
   
   `;
