@@ -73,7 +73,8 @@ h4 {
 }
 
 .block-img {
-  width: 1rem;
+  width: 1.5rem;
+  mix-blend-mode: exclusion;
 }
 
 .block-img:hover {
@@ -90,8 +91,6 @@ h4 {
   justify-content: space-around;
   width: 400px;
   height: auto;
-  box-shadow: 0px 0px 10px 2px #eade71;
-  background-color: #eade71;
 }
 
 
