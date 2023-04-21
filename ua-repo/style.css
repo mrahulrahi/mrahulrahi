@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Laila:wght@300;400;500;600;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 1em;
+  background: darkslategray;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+main {
+  flex-direction: column;
+}
+
+main h1 {
+  width: 95%;
+  max-width: 830px;
+  font-size: 3rem;
+  font-family: "Laila", sans-serif;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.container {
+  flex-wrap: wrap;
+  padding: 0 8.5%;
+}
+
+.card-container {
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: darkslategray;
+  text-align: center;
+  width: 400px;
+  border-radius: 5px;
+}
+
+.container img {
+  width: 90%;
+  height: auto;
+  aspect-ratio: 16/9;
+  margin: 16px 0 0;
+  border-radius: 5px;
+}
+.card-container p {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.25;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.uiBoxGray {
+  background-color: #ccc;
+  border: 2px solid #666;
+}
+
+.uiBoxPink {
+  background-color: #eeb1d7;
+  border: 2px solid #db2586;
+}
+
+.uiBoxGreen {
+  background-color: #d1e6b9;
+  border: 2px solid #629824;
+}
+
+.uiBoxPurpule {
+  background-color: #c789ed;
+  border: 2px solid #8844b2;
+}
+
+.uiBoxYellow {
+  background-color: #fff9d7;
+  border: 2px solid #e2c822;
+}
+
+@media screen and (orientation: portrait) and (min-device-width: 320px) and (max-device-width: 450px) {
+  main h1 {
+    width: 100%;
+  }
+  .container {
+    padding: 0 0 1em;
+  }
+  .card-container {
+    width: 100%;
+  }
+}

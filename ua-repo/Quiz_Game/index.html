@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JavaScript Quiz Game</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gentium+Basic&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Slabo+13px&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>JavaScript Quiz Game</h1>
+    </header>
+    <main role="main" id="game-board">
+            <div class="keeping-track">
+                <p class="questions">questions:  <span class="question-count">0</span>/10</p>
+                <p class="score">score:  <span class="current-score">0</span></p>
+            </div>
+        <section role="start-page" class="start-page">
+            <h2>Test your knowledge of Coding</h2>
+            <form action="">
+                <input class="start-button" type="submit" value="Start">
+            </form> 
+        </section>
+        <section role="question-answer-form" class="question-form hidden">
+            <h2 class="the-question"></h2>
+                <form class="answers" action="">
+                    <div class="answer-choice">
+                        <input id="1" type="radio" name="answer-choices" value=""  required><span class="choice-1">answer one</span>
+                    </div>
+                    <div class="answer-choice">
+                        <input id="2" type="radio" name="answer-choices" value="" ><span class="choice-2">answer one</span>
+                    </div>
+                    <div class="answer-choice">   
+                        <input id="3" type="radio" name="answer-choices" value="" ><span class="choice-3">answer one</span>  
+                    </div>
+                    <div class="answer-choice"> 
+                        <input id="4" type="radio" name="answer-choices" value="" ><span class="choice-4">answer one</span>  
+                    </div> 
+                    <input class="submit-button w10-btn" type="submit" value="Submit">
+                </form> 
+        </section>
+        <section role="wrong-feedback" class="wrong-feedback feedback hidden">
+                <h2>WRONG!</h2>
+                <h3 class="correct-answer-alert"><h3>
+                    <form class="next" action="">
+                        <input class="next-button" type="submit" value="next">
+                    </form>
+        </section>
+        <section role="correct-feedback" class="correct-feedback feedback hidden">
+                <h2>CORRECT!</h2>
+                <h3 class="correct-answer-alert"><h3>
+                <form class="next" action="">
+                    <input class="next-button" type="submit" value="next">
+                </form>
+        </section>
+    </main>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
