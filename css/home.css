@@ -94,6 +94,32 @@ h4 {
   background-color: #eade71;
 }
 
+
+.uiBoxGray {
+  background-color: #ccc;
+  border: 2px solid #666;
+}
+
+.uiBoxPink {
+  background-color: #eeb1d7;
+  border: 2px solid #db2586;
+}
+
+.uiBoxGreen {
+  background-color: #d1e6b9;
+  border: 2px solid #629824;
+}
+
+.uiBoxPurpule {
+  background-color: #c789ed;
+  border: 2px solid #8844b2;
+}
+
+.uiBoxYellow {
+  background-color: #fff9d7;
+  border: 2px solid #e2c822;
+}
+
 /***** End Section *****/
 
 /* RESPONSIVE */
@@ -101,6 +127,7 @@ h4 {
   .container {
     padding-top: 70px;
   }
+
   .bg-img {
     width: 100%;
     height: 400px;
@@ -118,6 +145,7 @@ h4 {
     flex-direction: column;
     padding: 70px 0;
   }
+
   #about,
   #update,
   #team,
@@ -126,6 +154,5 @@ h4 {
     height: auto;
   }
 
-  @media screen and (max-width: 576px) {
-  }
+  @media screen and (max-width: 576px) {}
 }
