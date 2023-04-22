@@ -43,6 +43,7 @@ header {
 .logo img {
   width: 8em;
   height: auto;
+  border-radius: 30px;
 }
 
 .nav-menu {
@@ -139,6 +140,11 @@ footer {
   list-style-type: none;
 }
 
+.form ul li a {
+  color: #18157c;
+  text-decoration: none;
+}
+
 #email {
   border: 1px solid #18157c;
   padding: 10px 30px 10px 30px;
@@ -165,6 +171,7 @@ footer {
 /* RESPONSIVE */
 
 @media screen and (max-width: 768px) {
+
   /* NAVBAR */
   .hamburger {
     display: block;
@@ -181,6 +188,7 @@ footer {
   .hamburger.active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
   }
+
   .nav-menu {
     position: fixed;
     left: -700px;
@@ -194,9 +202,11 @@ footer {
     z-index: 99;
     padding: 1em;
   }
+
   .nav-item {
     margin: 16px 0;
   }
+
   .nav-menu.active {
     left: 0;
   }
@@ -232,6 +242,5 @@ footer {
     text-align: center;
   }
 
-  @media screen and (max-width: 576px) {
-  }
+  @media screen and (max-width: 576px) {}
 }

@@ -4,7 +4,7 @@ class MyHeader extends HTMLElement {
     <header>
       <nav class="navbar">
         <a class="logo" href="./index.html">
-        <img src="./images/logo.png">
+        <img src="./img/logo.png">
         </a>
         <ul class="nav-menu">
           <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
@@ -55,11 +55,11 @@ class MyFooter extends HTMLElement {
             <ul>
               <li>CONTACT &gt;</li>
               <li>Phone : +91XXXXXXXXXX</li>
-              <li>Email : contact@salbwf.com</li>
+              <li>Email : contact@a&c.com</li>
             </ul>
             <ul>
-              <li>© 2023 by SALBWF</li>
-              <li>Proudly coded by mrahulrahi</li>
+              <li>© 2023 by A&C</li>
+              <li>Proudly coded ❤️ by <a href="https://github.com/mrahulrahi" rel="noopener" target="_blank">mrahulrahi</a>.</li>
             </ul>
           </div>
       </footer>

@@ -3,38 +3,6 @@ body {
   box-sizing: border-box;
 }
 
-.nav-wrapper {
-  background-color: #ffff;
-  padding: 5px;
-  position: sticky;
-  top: 0;
-  box-shadow: 3px 3px 5px 6px #ccc;
-  z-index: 1;
-  margin: 1.5%;
-  border-radius: 10px;
-}
-
-.nav-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.nav-list li {
-  display: inline;
-  margin: 0;
-  padding-top: 26px;
-}
-
-.nav-list li a {
-  color: #1b91db;
-  text-decoration: none;
-  padding: 22px;
-}
-
 .employees {
   margin: 1.5%;
 }
@@ -268,26 +236,6 @@ input {
   cursor: pointer;
 }
 
-.main-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1.5%;
-  border-radius: 10px;
-  background-color: #edeeef;
-  font-size: 20px;
-  padding: 20px;
-}
-
-.main-footer div {
-  display: inline-flex;
-  gap: 20px;
-}
-
-.main-footer a {
-  color: #1b91db;
-  text-decoration: none;
-}
 
 @media screen and (max-width: 768px) {
   .employee-list {
