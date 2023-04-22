@@ -1,11 +1,10 @@
-body {
-  margin: auto;
-  box-sizing: border-box;
+section {
+  padding: 10% 0;
+  background-color: #F2E8B9;
+  width: 100%;
 }
 
-.employees {
-  margin: 1.5%;
-}
+.employees {}
 
 .employee-list {
   padding: 30px 20px;
@@ -274,9 +273,6 @@ input {
     background-color: white;
   }
 
-  .main-footer {
-    flex-direction: column-reverse;
-  }
 
   @media screen and (max-width: 576px) {}
 }

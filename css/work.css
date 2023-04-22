@@ -81,6 +81,7 @@
     flex-direction: column;
     gap: 20px;
   }
+
   #education,
   #food,
   #health,
@@ -88,6 +89,6 @@
     width: 300px;
     height: auto;
   }
-  @media screen and (max-width: 576px) {
-  }
+
+  @media screen and (max-width: 576px) {}
 }

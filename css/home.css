@@ -25,11 +25,9 @@
   transform: translate(-50%, -50%);
 }
 
-h1 {
-  font-size: 6vw;
-  font-family: "Barlow", sans-serif;
-  font-weight: 900;
-  color: #18157c;
+.title img {
+  width: 30%;
+  border-radius: 99px;
   margin-bottom: 25px;
 }
 
@@ -91,32 +89,38 @@ h4 {
   justify-content: space-around;
   width: 400px;
   height: auto;
+  border-radius: 30px;
 }
 
 
 .uiBoxGray {
   background-color: #ccc;
   border: 2px solid #666;
+  box-shadow: 0px 0px 20px 2px #ccc;
 }
 
 .uiBoxPink {
   background-color: #eeb1d7;
   border: 2px solid #db2586;
+  box-shadow: 0px 0px 20px 2px #eeb1d7;
 }
 
 .uiBoxGreen {
   background-color: #d1e6b9;
   border: 2px solid #629824;
+  box-shadow: 0px 0px 20px 2px #d1e6b9;
 }
 
 .uiBoxPurpule {
   background-color: #c789ed;
   border: 2px solid #8844b2;
+  box-shadow: 0px 0px 20px 2px #c789ed;
 }
 
 .uiBoxYellow {
   background-color: #fff9d7;
   border: 2px solid #e2c822;
+  box-shadow: 0px 0px 20px 2px #fff9d7;
 }
 
 #team {
@@ -139,11 +143,11 @@ h4 {
   align-items: center;
   text-align: center;
   gap: 50px;
-  margin: 30px;
+  margin-top: 30px;
 }
 
 .user-list {
-  padding: 20px 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -151,17 +155,20 @@ h4 {
   line-height: 1.5em;
   font-size: 1.5rem;
   box-shadow: 0px 0px 20px 2px #eade71;
-  width: 350px;
-  height: 450px;
+  width: 300px;
+  height: 425px;
   color: #18157c;
   background-color: #eade71;
+  border-radius: 250px;
+  border-top-left-radius: 999px;
+  border-top-right-radius: 999px;
 }
 
 .user img {
   border-radius: 50%;
-  width: 15rem;
+  width: 250px;
   height: auto;
-  margin: 20px;
+  margin-bottom: 20px;
 }
 
 .user ul {
@@ -189,20 +196,27 @@ h4 {
 /* RESPONSIVE */
 @media screen and (max-width: 768px) {
   .container {
-    padding-top: 70px;
+    padding-top: 80px;
   }
 
   .bg-img {
     width: 100%;
-    height: 400px;
+    height: 300px;
   }
 
-  h1 {
-    font-size: 10vw;
+  .title {
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .title img {
+    width: 50%;
   }
 
   h4 {
-    font-size: 5vw;
+    font-size: 7vw;
+    padding: 0 7.5%;
   }
 
   .block {
@@ -212,13 +226,11 @@ h4 {
 
   #about,
   #update,
-  #team,
+  #teams,
   #work {
     width: 300px;
     height: auto;
   }
-
-
 
   #team>h3 {
     font-size: 3rem;
