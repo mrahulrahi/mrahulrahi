@@ -48,7 +48,7 @@ h4 {
   gap: 50px;
   padding: 50px;
   font-family: "Readex Pro", sans-serif;
-  color: #18157c;
+  color: #45796F;
   font-weight: bold;
   background-color: #45796F;
 }
@@ -113,12 +113,6 @@ h4 {
   box-shadow: 0px 0px 20px 2px #d1e6b9;
 }
 
-.uiBoxPurpule {
-  background-color: #c789ed;
-  border: 2px solid #8844b2;
-  box-shadow: 0px 0px 20px 2px #c789ed;
-}
-
 .uiBoxYellow {
   background-color: #fff9d7;
   border: 2px solid #e2c822;
@@ -159,7 +153,7 @@ h4 {
   box-shadow: 0px 0px 20px 2px #eade71;
   width: 300px;
   height: 425px;
-  color: #18157c;
+  color: #45796F;
   background-color: #eade71;
   border-radius: 250px;
   border-top-left-radius: 999px;
@@ -184,7 +178,7 @@ h4 {
   height: 25px;
   margin: 10px;
   border-radius: 50%;
-  color: #18157c;
+  color: #45796F;
 }
 
 .user a i:hover {

@@ -2,7 +2,7 @@
 
 .contact {
   font-family: "Readex Pro", sans-serif;
-  background-color: #18157c;
+  background-color: #45796F;
   display: flex;
   flex-direction: column;
   padding: 5%;
@@ -11,14 +11,15 @@
 .contact-title {
   padding: 5% 10%;
 }
+
 .contact-title h3 {
-  color: #eade71;
+  color: #78AEA3;
   font-size: 2rem;
 }
 
 .contact-title h1 {
   margin-top: 1%;
-  color: white;
+  color: #F2E8B9;
   font-size: 6rem;
 }
 
@@ -28,7 +29,7 @@
   font-family: "Readex Pro", sans-serif;
   justify-content: space-around;
   align-items: center;
-  color: #18157c;
+  color: #45796F;
   padding: 50px 0;
 }
 
@@ -46,10 +47,10 @@ li {
 #form-email,
 #form-subject,
 #form-message {
-  background-color: #18157c;
-  color: white;
+  background-color: #45796F;
+  color: #F2E8B9;
   border: none;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid #F2E8B9;
   width: 407px;
   height: 42px;
   margin-bottom: 1rem;
@@ -65,24 +66,25 @@ li {
 }
 
 #form-submit {
-  background-color: #eade71;
-  color: #18157c;
+  background-color: #F2E8B9;
+  color: #45796F;
   width: 407px;
   height: 46px;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 30px;
 }
 
-input::placeholder {
-  color: white;
+.contact-form input::placeholder {
+  color: #F2E8B9;
   font-size: 1rem;
   font-weight: 200;
   padding-left: 1rem;
   border-style: none;
 }
 
-input:focus {
+.contact-form input:focus {
   outline: none;
   border-style: none;
 }
@@ -91,16 +93,16 @@ input:focus {
 #form-email:hover,
 #form-subject:hover,
 #form-message:hover {
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid #F2E8B9;
 }
 
 #form-submit:hover {
   background-color: black;
-  color: white;
+  color: #F2E8B9;
 }
 
 .social-links {
-  color: white;
+  color: #F2E8B9;
   line-height: 2em;
 }
 
@@ -151,10 +153,11 @@ input:focus {
   #form-message {
     height: 114px;
   }
+
   .social-links {
     display: flex;
     gap: 2em;
   }
-  @media screen and (max-width: 576px) {
-  }
+
+  @media screen and (max-width: 576px) {}
 }
