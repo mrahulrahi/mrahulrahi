@@ -12,6 +12,23 @@
   font-family: "Noto Sans", sans-serif;
 }
 
+.bar-img {
+  position: absolute;
+  top: 5%;
+  left: 2.5%;
+  width: 2.5em;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  color: #F2E8B9;
+  background-color: #78AEA3;
+  border-radius: 50%;
+}
+
+.bar-img:hover {
+  transform: scale(1.25);
+  transition: 0.3s;
+}
+
 .main-class {
   display: flex;
   flex-direction: column;
@@ -20,15 +37,12 @@
   gap: 20px;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(
-      to right top,
+  background: linear-gradient(to right top,
       #845ec2,
       #7464c8,
       #6169cd,
       #4b6ed0,
-      #2c73d2
-    )
-    no-repeat center center fixed;
+      #2c73d2) no-repeat center center fixed;
   background-size: 100% 100%;
 }
 

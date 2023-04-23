@@ -12,10 +12,27 @@ body {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.5em;
-  background: linear-gradient(to right, #00ffff, #ff00ff) no-repeat center
-    center fixed;
+  background: linear-gradient(to right, #00ffff, #ff00ff) no-repeat center center fixed;
   background-size: 100% 100%;
 }
+
+.bar-img {
+  position: absolute;
+  top: 5%;
+  left: 2.5%;
+  width: 2.5em;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  color: #F2E8B9;
+  background-color: #78AEA3;
+  border-radius: 50%;
+}
+
+.bar-img:hover {
+  transform: scale(1.25);
+  transition: 0.3s;
+}
+
 .container {
   display: flex;
   flex-direction: column;

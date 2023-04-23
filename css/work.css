@@ -5,19 +5,6 @@
   line-height: 2em;
 }
 
-.bar-img {
-  width: 2.5em;
-  padding: 0.5em;
-  margin-bottom: 2em;
-  color: #F2E8B9;
-  background-color: #78AEA3;
-  border-radius: 50%;
-}
-
-.bar-img:hover {
-  transform: scale(1.25);
-  transition: 0.3s;
-}
 
 .block {
   display: flex;
@@ -53,15 +40,9 @@
   font-size: 1.1rem;
 }
 
-.block-img:hover {
-  transform: scale(1.3);
-  transition: 0.3s;
-}
 
-#education,
-#food,
-#health,
-#tree {
+
+#health {
   padding-top: 10px;
   width: 600px;
   height: 200px;
@@ -75,23 +56,14 @@
     padding: 100px 5%;
   }
 
-  .bar-img {
-    margin-left: 1.25em;
-  }
-
-
   .block {
     flex-direction: column;
     gap: 20px;
   }
 
-  #education,
-  #food,
-  #health,
-  #tree {
+
+  #health {
     width: 350px;
     height: auto;
   }
-
-  @media screen and (max-width: 576px) {}
 }
