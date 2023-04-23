@@ -1,10 +1,21 @@
-section {
-  padding: 10% 0;
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+.section-main {
+  padding: 6% 0;
   background-color: #45796F;
   width: 100%;
+  font-family: "Montserrat", sans-serif;
 }
 
-.employees {}
+.section-title {
+  font-size: 2em;
+  margin: 40px 0 20px;
+}
+
+.employees {
+  margin: 1.5%;
+}
 
 .employee-list {
   padding: 30px 20px;
@@ -132,7 +143,7 @@ section {
   font-weight: bold;
 }
 
-input {
+.modal-container input {
   width: 50%;
   padding: 12px 20px;
   margin: 8px 0px;
@@ -221,9 +232,8 @@ input {
 }
 
 .btn {
-  float: right;
   background-color: #1b91db;
-  width: 150px;
+  width: 200px;
   border: none;
   border-radius: 5px;
   color: white;
@@ -237,6 +247,16 @@ input {
 
 
 @media screen and (max-width: 768px) {
+
+  .section-main {
+    padding: 20% 5%;
+  }
+
+  .employees,
+  .interviews {
+    margin: 1%;
+  }
+
   .employee-list {
     flex-direction: column;
   }
@@ -281,18 +301,17 @@ input {
 
 /********** Responsive Menu **********/
 
-@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+
 
 /********** Container body font family and font size ***********/
 #responsive-menu {
-  font-family: "Oxygen", sans-serif;
-  font-size: 100%;
-  width: 100vw;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 50px;
+  padding: 50px 0;
 }
 
 /********** Container H2 styles for region position on section with margins
@@ -417,6 +436,7 @@ input {
 /********** Medium devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
   #responsive-menu {
+    width: 100%;
     height: auto;
   }
 
@@ -488,6 +508,7 @@ input {
 /********** Small devices only **********/
 @media (max-width: 767px) {
   #responsive-menu {
+    width: 100%;
     height: auto;
   }
 
@@ -560,7 +581,7 @@ input {
 /********** Responsive Cards **********/
 
 
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
 
 #responsive-cards {
   font-family: "Montserrat", sans-serif;
@@ -568,7 +589,7 @@ input {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100vw;
+  width: 100%;
   padding: 100px 0;
 }
 
@@ -631,7 +652,7 @@ input {
 
 /********** NFT Card **********/
 
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap");
+
 
 :root {
   --soft-blue: hsl(215, 51%, 70%);
@@ -647,7 +668,7 @@ input {
   font-size: 18px;
   color: hsl(0, 0%, 100%, 60%);
   padding: 1rem;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -764,9 +785,6 @@ input {
 
 /*--responsive for mobile phone--*/
 @media (min-width: 300px) and (max-width: 500px) {
-  #nft-card {
-    height: 90vh;
-  }
 
   .nft-container {
     width: 325px;
@@ -777,7 +795,7 @@ input {
 
 
 /********** QR Card **********/
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
+
 
 :root {
   --white: hsl(0, 0%, 100%);
@@ -788,7 +806,7 @@ input {
 
 #qr-card {
   font-family: "Outfit", sans-serif;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -828,9 +846,6 @@ input {
 
 /*--responsive for mobile phone--*/
 @media (min-width: 300px) and (max-width: 500px) {
-  #qr-card {
-    height: 90vh;
-  }
 
   .qr-container {
     width: 350px;

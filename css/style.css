@@ -261,6 +261,10 @@ footer {
     color: #F2E8B9;
   }
 
+  .dropdown-content {
+    top: 170px;
+  }
+
   .nav-link {
     color: #F2E8B9;
   }

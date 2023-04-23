@@ -20,9 +20,9 @@
   <my-header></my-header>
 
   <!-- Content Section -->
-  <section>
+  <section class="section-main">
     <div class="employees">
-      <h2>Responsive Menu</h2>
+      <h2 class="section-title">Responsive Menu</h2>
       <div class="employee-list">
         <responsive-menu></responsive-menu>
         <div class="employee-card">
@@ -50,7 +50,7 @@
     </div>
 
     <div class="interviews">
-      <h2>Responsive Cards</h2>
+      <h2 class="section-title">Responsive Cards</h2>
 
       <div class="interview-list">
         <responsive-cards></responsive-cards>
@@ -66,34 +66,18 @@
     </div>
 
     <div class="interviews">
-      <h2>NFT Card</h2>
+      <h2 class="section-title">NFT Card</h2>
 
       <div class="interview-list">
         <nft-card></nft-card>
-        <div class="interview-card">
-          <h3>Marketing</h3>
-          <p>Social Media content Specialist</p>
-          <button class="accept-btn" type="button" name="button">Accept</button>
-          <button class="reject-btn" type="button" name="button">Reject</button>
-        </div>
-
-
       </div>
     </div>
 
     <div class="interviews">
-      <h2>QR Card</h2>
+      <h2 class="section-title">QR Card</h2>
 
       <div class="interview-list">
         <qr-card></qr-card>
-        <div class="interview-card">
-          <h3>Marketing</h3>
-          <p>Social Media content Specialist</p>
-          <button class="accept-btn" type="button" name="button">Accept</button>
-          <button class="reject-btn" type="button" name="button">Reject</button>
-        </div>
-
-
       </div>
     </div>
 
@@ -173,10 +157,16 @@
 
       <div>
         <button class="btn" type="button" name="button" onclick="showAddIntModal()">
-          Add Interview
+          Add Responsive Menu
         </button>
         <button class="btn" type="button" name="button" onclick="showAddEmpModal()">
-          Add Employee
+          Add Responsive Card
+        </button>
+        <button class="btn" type="button" name="button" onclick="showAddIntModal()">
+          Add NFT Card
+        </button>
+        <button class="btn" type="button" name="button" onclick="showAddEmpModal()">
+          Add QR Card
         </button>
       </div>
     </footer>
