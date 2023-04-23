@@ -6,11 +6,30 @@ body {
   box-sizing: border-box;
   background-color: lightgrey;
 }
+
+.bar-img {
+  position: absolute;
+  top: 5%;
+  left: 2.5%;
+  width: 2.5em;
+  padding: 0.5em;
+  margin-bottom: 2em;
+  color: #F2E8B9;
+  background-color: #78AEA3;
+  border-radius: 50%;
+}
+
+.bar-img:hover {
+  transform: scale(1.25);
+  transition: 0.3s;
+}
+
 header {
   color: rgb(10, 37, 53);
   font-family: "Slabo 13px", serif;
   text-align: center;
 }
+
 #game-board {
   border-top: 5px solid rgb(10, 37, 53);
   text-align: center;
@@ -80,16 +99,19 @@ h2 {
   border: 2px solid rgb(135, 109, 92);
   border-radius: 10px;
 }
+
 input[type="radio"] {
   margin-left: 10px;
   width: 25px;
   height: 25px;
   accent-color: rgb(63, 102, 104);
 }
+
 span {
   margin-left: 5px;
   font-weight: lighter;
 }
+
 input[type="submit"] {
   color: rgb(63, 102, 104);
   background-color: rgb(227, 231, 234);
@@ -149,6 +171,7 @@ h3 {
   font-size: 20px;
   color: rgb(10, 37, 53);
 }
+
 @media screen and (orientation: portrait) and (min-device-width: 320px) and (max-device-width: 450px) {
   .start-page {
     width: 80%;
@@ -163,6 +186,7 @@ h3 {
   .answers {
     padding: 25px;
   }
+
   .answer-choice {
     width: auto;
     min-width: 60%;
@@ -170,6 +194,7 @@ h3 {
     padding: 1em;
     font-size: 1em;
   }
+
   .feedback {
     width: 80%;
   }
