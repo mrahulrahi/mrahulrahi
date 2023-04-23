@@ -8,8 +8,8 @@ class MyHeader extends HTMLElement {
         </a>
         <ul class="nav-menu">
           <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="./about.html">Apps</a></li>
-          <li class="nav-item"><a class="nav-link" href="./work.html">Components</a></li>
+          <li class="nav-item"><a class="nav-link" href="./work.html">Apps</a></li>
+          <li class="nav-item"><a class="nav-link" href="./component.html">Components</a></li>
           <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
         </ul>
         <div class="hamburger">
