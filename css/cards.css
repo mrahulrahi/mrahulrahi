@@ -21,7 +21,7 @@
 .qrcard-list {
   padding: 30px 20px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 20px;
@@ -172,11 +172,12 @@
 /********** Container body font family and font size ***********/
 #responsive-menu {
   font-family: "Montserrat", sans-serif;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 50px 0;
+  padding: 25px 0;
 }
 
 /********** Container H2 styles for region position on section with margins
@@ -252,23 +253,16 @@
 
 #responsive-cards {
   font-family: "Montserrat", sans-serif;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-}
-
-#responsive-cards>div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 30px;
+  padding: 25px 0;
 }
 
 .destination {
-  width: 320px;
+  width: 325px;
   height: 420px;
   border: 1px solid #aaa;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
@@ -327,13 +321,13 @@
 
 #nft-card {
   font-family: "Outfit", sans-serif;
-  color: hsl(0, 0%, 100%, 60%);
-  padding: 1rem;
   width: 100%;
+  color: hsl(0, 0%, 100%, 60%);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 25px 0;
 }
 
 .nft-container {
@@ -341,8 +335,8 @@
   background-color: var(--card-bg);
   border-radius: 0.5rem;
   margin-bottom: 1rem;
-  max-width: 325px;
-  max-height: 550px;
+  width: 350px;
+  height: auto;
 }
 
 .nft-container img {
@@ -420,15 +414,14 @@
   display: flex;
   align-items: center;
   justify-content: start;
-
-  max-height: 70px;
+  padding-top: 1rem;
 }
 
 .nft-container .avatar img {
   width: 2.5rem;
   border: 2px solid var(--white);
   border-radius: 50%;
-  margin: 1rem 1rem;
+  margin: 0 1rem;
   max-width: 30px;
   max-height: 30px;
 }
@@ -447,9 +440,12 @@
 /*--responsive for mobile phone--*/
 @media (min-width: 300px) and (max-width: 500px) {
   .nft-container {
-    width: 325px;
-    height: 550px;
-    margin: 0 auto 1rem;
+    width: 100%;
+    height: auto;
+  }
+
+  .nft-container img {
+    border-radius: 0.5rem;
   }
 }
 
@@ -469,6 +465,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 25px 0;
 }
 
 .qr-container {
