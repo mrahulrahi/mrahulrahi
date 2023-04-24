@@ -9,9 +9,7 @@ function addResmenu() {
 
   var newInterview =
     `
-    
-    <div class="col-lg-4 col-md-12 col-sm-12">
-    <div class="section">
+    <div class="section col-lg-4 col-md-12 col-sm-12">
       <h2 class="title">` +
     title +
     `</h2>
@@ -19,8 +17,6 @@ function addResmenu() {
     content +
     `</p>
     </div>
-  </div>
-   
 `;
 
   resmenuListHolder.insertAdjacentHTML("beforeend", newInterview);
