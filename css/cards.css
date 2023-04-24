@@ -2,17 +2,18 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 .section-main {
-  padding: 6% 1%;
-  background-color: #45796F;
+  padding: 5% 1%;
+  background-color: #45796f;
   width: 100%;
   font-family: "Montserrat", sans-serif;
 }
 
 .section-title {
-  font-size: 2em;
-  margin: 40px 0 20px;
+  font-family: "Outfit", sans-serif;
+  font-size: 3em;
+  color: hsl(0, 0%, 100%, 60%);
+  margin: 50px 0 30px;
 }
-
 
 .resmenu-list,
 .rescard-list,
@@ -26,14 +27,15 @@
   gap: 20px;
   border-radius: 10px;
   max-width: 100%;
-  background-color: #edeeef;
-  border-style: hidden;
+  background-color: #ccc;
+  border: 2px solid #666;
+  box-shadow: 0px 0px 20px 2px #ccc;
+
 }
 
-
 .modal-header {
-  border-radius: 10px 10px 0px 0px;
-  background-color: #1b91db;
+  border-radius: 20px 20px 0px 0px;
+  background-color: #45796f;
 }
 
 .modal-header-content {
@@ -43,22 +45,24 @@
   font-weight: bold;
 }
 
-.name-format {
-  color: #1b91db;
-  font-weight: bold;
-}
-
 .modal-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 10% 5% 5%;
+
 }
 
 .modal-container label {
   float: left;
+  width: 30%;
+  font-weight: 900;
+  color: #45796f;
 }
 
 .modal-container input {
-  width: 50%;
+  width: 70%;
   padding: 12px 20px;
   margin: 8px 0px;
   display: inline-block;
@@ -72,16 +76,17 @@
 #nftcardModal,
 #qrcardModal {
   text-align: center;
-  width: 40%;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 10px;
+  width: 50%;
+  border-radius: 22.5px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 99;
-  background-color: white;
+  background-color: #d1e6b9;
+  border: 2px solid #629824;
+  box-shadow: 0px 0px 20px 2px #d1e6b9;
+
 }
 
 #confirmBtn {
@@ -116,11 +121,18 @@
   float: right;
 }
 
-.btn {
-  background-color: #1b91db;
+.btn-holder {
   width: 100%;
+  display: inline-flex;
+  justify-content: center;
+}
+
+.btn {
+  background-color: #45796f;
+  display: inline-block;
+  min-width: 300px;
   border: none;
-  border-radius: 5px;
+  border-radius: 30px;
   color: white;
   padding: 12px 16px;
   text-align: center;
@@ -130,11 +142,9 @@
   cursor: pointer;
 }
 
-
 @media screen and (max-width: 768px) {
-
   .section-main {
-    padding: 20% 5%;
+    padding: 10% 2.5%;
   }
 
   #resmenuModal,
@@ -142,27 +152,22 @@
   #nftcardModal,
   #qrcardModal {
     text-align: center;
-    width: 350px;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
+    width: 95%;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 99;
-    background-color: white;
   }
 
+  .btn {
+    width: 100%;
+  }
 
   @media screen and (max-width: 576px) {}
 }
 
-
-
 /********** Responsive Menu **********/
-
-
 
 /********** Container body font family and font size ***********/
 #responsive-menu {
@@ -176,7 +181,7 @@
 
 /********** Container H2 styles for region position on section with margins
   , size, border and !float clearing!********/
-#responsive-menu h2 {
+.section h2 {
   position: absolute;
   top: 0px;
   right: 0px;
@@ -191,7 +196,6 @@
 
 /********* Descripbing Header text align margins and style **********/
 
-
 /********* Section text/background align margins padding and style **********/
 
 .section {
@@ -199,7 +203,7 @@
   position: relative;
   color: black;
   background-color: grey;
-  width: 350px;
+  width: 32%;
   padding: 10px;
   padding-top: 45px;
   font-size: 100%;
@@ -208,49 +212,43 @@
 }
 
 /********* Region positioning text align margins and style **********/
-.section>.title:nth-child(3n+1) {
+.section>.title:nth-child(3n + 1) {
   background-color: darkkhaki;
   color: black;
 }
 
-.section>.title:nth-child(3n+2) {
+.section>.title:nth-child(3n + 2) {
   background-color: coral;
   color: white;
 }
 
-.section>.title:nth-child(3n+3) {
+.section>.title:nth-child(3n + 3) {
   background-color: violet;
   color: black;
 }
 
-/********** Large devices only **********/
-@media (min-width: 992px) {}
+/********** large devices only **********/
+@media (min-width: 991px) and (max-width: 1077px) {
+  .section {
+    width: 31%;
+  }
+}
 
 /********** Medium devices only **********/
 @media (min-width: 768px) and (max-width: 991px) {
-  #responsive-menu {
-
-    height: auto;
+  .section {
+    width: 100%;
   }
-
-
 }
 
 /********** Small devices only **********/
 @media (max-width: 767px) {
-  #responsive-menu {
-
-    height: auto;
+  .section {
+    width: 100%;
   }
-
-
 }
 
-
 /********** Responsive Cards **********/
-
-
-
 
 #responsive-cards {
   font-family: "Montserrat", sans-serif;
@@ -259,9 +257,7 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 100px 0;
 }
-
 
 #responsive-cards>div {
   display: flex;
@@ -318,10 +314,7 @@
   }
 }
 
-
 /********** NFT Card **********/
-
-
 
 :root {
   --soft-blue: hsl(215, 51%, 70%);
@@ -334,7 +327,6 @@
 
 #nft-card {
   font-family: "Outfit", sans-serif;
-  font-size: 18px;
   color: hsl(0, 0%, 100%, 60%);
   padding: 1rem;
   width: 100%;
@@ -454,7 +446,6 @@
 
 /*--responsive for mobile phone--*/
 @media (min-width: 300px) and (max-width: 500px) {
-
   .nft-container {
     width: 325px;
     height: 550px;
@@ -462,9 +453,7 @@
   }
 }
 
-
 /********** QR Card **********/
-
 
 :root {
   --white: hsl(0, 0%, 100%);
@@ -511,11 +500,8 @@
   margin-bottom: 1rem;
 }
 
-
-
 /*--responsive for mobile phone--*/
 @media (min-width: 300px) and (max-width: 500px) {
-
   .qr-container {
     width: 350px;
     margin: 0 auto 1rem;
