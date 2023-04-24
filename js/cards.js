@@ -2,10 +2,10 @@ class ResponsiveMenu extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <section id="responsive-menu">
-    <div>
+    <div class="res-menu-list">
     <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="section">
-            <h2 class="chicken">Chicken</h2>
+            <h2 class="title">Chicken</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -15,7 +15,7 @@ class ResponsiveMenu extends HTMLElement {
     </div>
     <div class="col-lg-4 col-md-6 col-sm-12">
         <div class="section">
-            <h2 class="beef">Beef</h2>
+            <h2 class="title">Beef</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -25,7 +25,7 @@ class ResponsiveMenu extends HTMLElement {
     </div>
     <div class="col-lg-4 col-md-12 col-sm-12">
         <div class="section">
-            <h2 class="sushi">Sushi</h2>
+            <h2 class="title">Sushi</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
                 dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu

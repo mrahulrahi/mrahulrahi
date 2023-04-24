@@ -13,118 +13,34 @@
   margin: 40px 0 20px;
 }
 
-.employees {
+#responsive-menu {
   margin: 1.5%;
-}
-
-.employee-list {
-  padding: 30px 20px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 100%;
-  background-color: #edeeef;
-  border-style: hidden;
-  border-radius: 10px;
-}
-
-.employee-card {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: white;
-  border-style: hidden;
-  border-radius: 10px;
-  width: 290px;
-  padding: 20px;
-  box-shadow: 3px 3px 5px 6px #ccc;
-}
-
-.user-img {
-  width: 84px;
-  height: 84px;
-  float: left;
-  border-width: 2px;
-  border-style: solid;
-  border-radius: 100px;
-  border-color: #1b91db;
-}
-
-.employment-details {
-  display: block;
-  float: right;
-  margin-left: 20px;
 }
 
 .interviews {
   margin: 1.5%;
 }
 
+
+
+.resmenu-list,
 .interview-list {
   padding: 30px 20px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-wrap: wrap;
-  gap: 20px;
   border-radius: 10px;
   max-width: 100%;
   background-color: #edeeef;
-}
-
-.interview-card {
-  width: 290px;
-  padding: 20px;
-  background-color: white;
-  box-shadow: 3px 3px 5px 6px #ccc;
   border-style: hidden;
-  border-radius: 5px;
 }
 
-.accept-btn {
-  width: auto;
-  background-color: #36bc65;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 1% 2% 0% 0%;
+.interview-list {
+  gap: 20px;
 }
 
-.reject-btn {
-  width: auto;
-  background-color: red;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 1% 2% 0% 0%;
-}
 
-#employeeModal {
-  text-align: center;
-  width: 30%;
-  border-style: solid;
-  border-width: 2px;
-  border-radius: 10px;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 99;
-  background-color: white;
-}
 
 .modal-header {
   border-radius: 10px 10px 0px 0px;
@@ -185,9 +101,11 @@
   float: right;
 }
 
-#interviewModal {
+#interviewModal,
+#resMenuModal {
   text-align: center;
   width: 30%;
+  height: 500px;
   border-style: solid;
   border-width: 2px;
   border-radius: 10px;
@@ -257,29 +175,13 @@
     margin: 1%;
   }
 
-  .employee-list {
-    flex-direction: column;
-  }
-
   .interview-list {
     flex-direction: column;
   }
 
-  #employeeModal {
-    text-align: center;
-    width: 350px;
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 10px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 99;
-    background-color: white;
-  }
 
-  #interviewModal {
+  #interviewModal,
+  #resmenuModal {
     text-align: center;
     width: 350px;
     border-style: solid;
@@ -350,17 +252,17 @@
 }
 
 /********* Region positioning text align margins and style **********/
-.chicken {
+.section h2:nth-child(3n+1) {
   background-color: darkkhaki;
   color: black;
 }
 
-.beef {
+.section h2:nth-child(3n+2) {
   background-color: coral;
   color: white;
 }
 
-.sushi {
+.section h2:nth-child(3n+3) {
   background-color: violet;
   color: black;
 }
