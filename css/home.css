@@ -46,7 +46,7 @@ h4 {
   justify-content: center;
   align-items: center;
   gap: 50px;
-  padding: 50px;
+  padding: 5% 2.5%;
   font-family: "Readex Pro", sans-serif;
   color: #45796F;
   font-weight: bold;
@@ -122,15 +122,16 @@ h4 {
 #team {
   min-width: 100%;
   background-color: #45796F;
-  padding: 0 2.5% 5%;
+  padding: 5% 2.5% 10%;
   font-family: "Readex Pro", sans-serif;
 }
 
-#team>h3 {
+.block-title {
   color: #eade71;
   font-size: 4rem;
   text-align: center;
-  padding: 2%;
+  padding: 0 2% 2%;
+  width: 100%;
 }
 
 .user {
