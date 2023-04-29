@@ -82,10 +82,7 @@ h4 {
   transition: 0.3s;
 }
 
-#about,
-#update,
-#teams,
-#work {
+.block div {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -127,7 +124,7 @@ h4 {
 }
 
 .block-title {
-  color: #eade71;
+  color: #F2E8B9;
   font-size: 4rem;
   text-align: center;
   padding: 0 2% 2%;
@@ -140,7 +137,7 @@ h4 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 50px;
+  gap: 150px;
   margin-top: 30px;
 }
 
@@ -222,18 +219,13 @@ h4 {
     padding: 70px 0;
   }
 
-  #about,
-  #update,
-  #teams,
-  #work {
+  .block div {
     width: 300px;
     height: auto;
   }
 
   #team {
-
     padding: 0 2.5% 15%;
-
   }
 
   #team>h3 {
@@ -242,9 +234,8 @@ h4 {
 
   .user {
     flex-direction: column;
+    gap: 50px;
   }
-
-  .user-list {}
 
 
   @media screen and (max-width: 576px) {}

@@ -28,11 +28,11 @@ body {
   display: flex;
   align-items: center;
   padding: 0 1em;
-  border-bottom: 1px solid #413627;
+  border-bottom: 1px solid #262229;
 }
 
 .header>h1 {
-  color: #413627;
+  color: #262229;
   text-align: center;
   padding: 10px;
   font-size: 3em;
@@ -43,7 +43,7 @@ body {
 .bar-img {
   width: 2em;
   padding: 0.5em;
-  background-color: #413627;
+  background-color: #262229;
   border-radius: 50%;
 }
 
