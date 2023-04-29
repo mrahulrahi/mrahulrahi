@@ -40,6 +40,7 @@ h4 {
 }
 
 .block {
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -117,7 +118,7 @@ h4 {
 }
 
 #team {
-  min-width: 100%;
+  width: 100%;
   background-color: #45796F;
   padding: 5% 2.5%;
   font-family: "Readex Pro", sans-serif;
@@ -132,6 +133,7 @@ h4 {
 }
 
 .user {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -224,10 +226,6 @@ h4 {
     height: auto;
   }
 
-  #team {
-    padding: 0 2.5% 15%;
-  }
-
   #team>h3 {
     font-size: 3rem;
   }
@@ -251,8 +249,7 @@ h4 {
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  padding: 5% 0 10%;
-
+  padding: 10% 0;
 }
 
 .contact-title h3 {
@@ -264,16 +261,6 @@ h4 {
   margin-top: 1%;
   color: #F2E8B9;
   font-size: 7rem;
-}
-
-.contact-info {
-  display: flex;
-  flex-direction: row;
-  font-family: "Readex Pro", sans-serif;
-  justify-content: space-around;
-  align-items: center;
-  color: #45796F;
-  padding: 50px 0;
 }
 
 .contact-form span {
@@ -344,21 +331,14 @@ li {
   color: #F2E8B9;
 }
 
-.social-links {
-  color: #F2E8B9;
-  line-height: 2em;
-}
-
-.social-links ul {
-  padding-bottom: 20px;
-}
-
 /***** End Section *****/
 
 @media screen and (max-width: 768px) {
   .contact {
     width: 100%;
+    padding-top: 100px;
     flex-direction: column;
+    gap: 20px;
   }
 
   .contact-title h3 {
@@ -367,10 +347,6 @@ li {
 
   .contact-title h1 {
     font-size: 3rem;
-  }
-
-  .contact-info {
-    flex-direction: column;
   }
 
   .contact-form {
