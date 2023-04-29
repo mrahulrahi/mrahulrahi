@@ -10,17 +10,31 @@
 
 body {
   background: #FAEBD7;
+  width: 100%;
 }
 
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+  border-bottom: 1px solid #413627;
+}
+
+.header>h1 {
+  color: #413627;
+  text-align: center;
+  padding: 10px;
+  font-size: 3em;
+  margin-left: 38.75%;
+}
+
+
 .bar-img {
-  position: absolute;
-  top: 5%;
-  left: 2.5%;
-  width: 2.5em;
+  float: left;
+  width: 2em;
   padding: 0.5em;
-  margin-bottom: 2em;
-  color: #F2E8B9;
-  background-color: #78AEA3;
+  background-color: #413627;
   border-radius: 50%;
 }
 
@@ -29,12 +43,6 @@ body {
   transition: 0.3s;
 }
 
-body>h1 {
-  color: #00917C;
-  text-align: center;
-  padding: 10px;
-  font-size: 3em;
-}
 
 ::selection {
   background-color: #FAEBD7;
@@ -320,5 +328,17 @@ form button {
 
   .bottom-content .settings i {
     font-size: 17px;
+  }
+}
+
+
+@media screen and (max-width: 576px) {
+  .header {
+    justify-content: space-between;
+  }
+
+  .header>h1 {
+    font-size: 2.5em;
+    margin-left: 0;
   }
 }
