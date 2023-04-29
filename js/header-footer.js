@@ -17,7 +17,7 @@ class MyHeader extends HTMLElement {
                 </div>
           </li>
           <li class="nav-item"><a class="nav-link" href="./cards.html">Cards</a></li>
-          <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="./index.html#contact">Contact</a></li>
         </ul>
         <div class="hamburger">
           <span class="bar"></span>

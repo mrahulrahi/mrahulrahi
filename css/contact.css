@@ -5,11 +5,11 @@
   background-color: #45796F;
   display: flex;
   flex-direction: column;
-  padding: 5%;
+  padding: 10;
 }
 
 .contact-title {
-  padding: 5% 10%;
+  padding: 5%;
 }
 
 .contact-title h3 {
@@ -114,11 +114,7 @@ li {
 
 @media screen and (max-width: 768px) {
   .contact {
-    padding-top: 100px;
-  }
-
-  .contact-title {
-    padding: 5px;
+    padding-top: 10px;
   }
 
   .contact-title h3 {
@@ -154,10 +150,6 @@ li {
     height: 114px;
   }
 
-  .social-links {
-    display: flex;
-    gap: 2em;
-  }
 
   @media screen and (max-width: 576px) {}
 }
