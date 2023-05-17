@@ -2,8 +2,10 @@
 
 
 :root {
-  --primary: #dd562f;
-  --bg-color: #101010;
+  --primary: #1B9C85;
+  --secondary: #FFE194;
+  --bg-color: #4C4C6D;
+
 }
 
 * {
@@ -16,7 +18,7 @@
 body {
   width: 100%;
   padding: 0 2.5%;
-  background-color: #ffb686;
+  background-color: var(--secondary);
 }
 
 nav {
@@ -139,7 +141,7 @@ nav ul li a:hover {
   font-size: 25px;
   overflow: hidden;
   /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid #dd562f;
+  border-right: .15em solid var(--primary);
   /* The typwriter cursor */
   white-space: nowrap;
   /* Keeps the content on a single line */
@@ -172,12 +174,12 @@ nav ul li a:hover {
   }
 
   50% {
-    border-color: #dd562f;
+    border-color: var(--primary);
   }
 }
 
 .home-container div h4 {
-  color: #ffb686;
+  color: var(--secondary);
   letter-spacing: 2px;
   font-size: 1.5em;
   margin-bottom: 20px;
@@ -253,7 +255,7 @@ nav ul li a:hover {
 }
 
 .about-text p {
-  color: #fcfc;
+  color: var(--secondary);
   letter-spacing: 1px;
   line-height: 28px;
   font-size: 18px;
@@ -343,15 +345,16 @@ button:hover {
   height: auto;
   width: 45%;
   padding: 20px 20px;
-  background: #191919;
+  background: var(--secondary);
   border-radius: 20px;
   margin: 1em;
   overflow: hidden;
   text-align: center;
+  border: 5px solid #000;
 }
 
 h5 {
-  color: white;
+  color: black;
   font-size: 1.75em;
   margin-bottom: 1em;
 }
@@ -361,7 +364,8 @@ h5 {
   overflow: hidden;
   overflow-y: scroll;
   border-radius: 10px;
-  scrollbar-face-color: #dd562f;
+  border: 5px solid #000;
+  scrollbar-face-color: var(--primary);
 }
 
 /* ===== Scrollbar CSS ===== */
@@ -369,8 +373,8 @@ h5 {
 /* Firefox */
 .img-container {
   scrollbar-width: auto;
-  scrollbar-color: var(--primary) #191919;
-  border-radius: 10px;
+  scrollbar-color: var(--primary);
+  border-radius: 5px;
 }
 
 /* Chrome, Edge, and Safari */
@@ -379,13 +383,13 @@ h5 {
 }
 
 .img-container::-webkit-scrollbar-track {
-  background: #191919;
+  background: var(--secondary);
 }
 
 .img-container::-webkit-scrollbar-thumb {
   background-color: var(--primary);
-  border-radius: 10px;
-  border: 1px solid #191919;
+  border-radius: 5px;
+  border: 1px solid var(--secondary);
 }
 
 .project-img {
@@ -398,7 +402,6 @@ h5 {
 }
 
 .pra p {
-  color: #fcfc;
   font-size: 16px;
   line-height: 27px;
 }
@@ -449,7 +452,7 @@ h5 {
 
 .skill-card p {
   background-color: #000;
-  color: #dd562f;
+  color: var(--primary);
   font-size: 2vw;
   font-weight: bold;
   width: 100%;
@@ -577,7 +580,7 @@ h5 {
 
 .newslatter input[placeholder] {
   color: #000;
-  background-color: #222222;
+  background-color: var(--secondary);
 }
 
 footer {
@@ -698,9 +701,11 @@ footer p:nth-child(2) {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    color: var(--secondary);
   }
 
   nav ul li a i {
+    color: var(--primary);
     font-size: 2.5em;
     visibility: visible;
   }
