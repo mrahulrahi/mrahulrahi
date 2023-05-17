@@ -123,6 +123,7 @@ nav ul li a:hover {
   padding: 50px 0;
   border-radius: 25px;
   margin-top: 50px;
+  gap: 100px;
 }
 
 .home-container div img {
@@ -350,7 +351,7 @@ button:hover {
   margin: 1em;
   overflow: hidden;
   text-align: center;
-  border: 5px solid #000;
+  border: 3px solid #000;
 }
 
 h5 {
@@ -364,7 +365,7 @@ h5 {
   overflow: hidden;
   overflow-y: scroll;
   border-radius: 10px;
-  border: 5px solid #000;
+  border: 3px solid #000;
   scrollbar-face-color: var(--primary);
 }
 
@@ -435,30 +436,31 @@ h5 {
 .skill-card {
   width: 17.5vw;
   height: fit-content;
-  background: var(--primary);
+  background: var(--secondary);
   border-radius: 20px;
   margin: 2em 5vw;
   text-align: center;
+  border: 3px solid #000;
 }
 
 .skill-card img {
   width: fit-content;
   height: auto;
   margin: 1.5em;
-  background-color: var(--primary);
+  background-color: var(--secondary);
   border-radius: 10px;
   object-fit: cover;
 }
 
 .skill-card p {
   background-color: #000;
-  color: var(--primary);
+  color: var(--secondary);
   font-size: 2vw;
   font-weight: bold;
   width: 100%;
   padding: 0.5em 1em;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 @keyframes carousel {
@@ -721,6 +723,7 @@ footer p:nth-child(2) {
     text-align: center;
     margin-top: 0;
     padding: 100px 0;
+    gap: 10px;
   }
 
   .home-container div img {
@@ -816,6 +819,12 @@ footer p:nth-child(2) {
   .card {
     height: auto;
     width: 90%;
+  }
+
+  .card,
+  .img-container,
+  .skill-card {
+    border: 5px solid #000;
   }
 
   .skill-card {
