@@ -35,7 +35,7 @@ nav {
 }
 
 .logo {
-  color: white;
+  color: var(--secondary);
   font-size: 30px;
   letter-spacing: 1px;
   cursor: pointer;
@@ -83,7 +83,7 @@ nav ul li a:hover {
 
 .btn {
   background-color: var(--primary);
-  color: white;
+  color: var(--secondary);
   text-decoration: none;
   border: 2px solid transparent;
   font-weight: bold;
