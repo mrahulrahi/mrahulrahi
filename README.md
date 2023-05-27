@@ -13,7 +13,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=mrahulrahi&label=Profile%20views&color=0e75b6&style=flat" alt="mrahulrahi" /> </p>
 
-- 🔭 I’m currently working on **Social Web App**
+- 🔭 I’m currently working on **IG App**
 
 - 🌱 I’m currently learning **Full Stack Development**
 
