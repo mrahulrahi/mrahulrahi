@@ -5,6 +5,7 @@
 <hr>
 
 <h1 align="center">Hi 👋, I'm Rahul Maurya</h1>
+
 <h3 align="center">A passionate Frontend developer from India</h3>
 
 <hr>
