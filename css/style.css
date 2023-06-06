@@ -440,16 +440,16 @@ h5 {
 .skill-box {
   width: 100%;
   height: auto;
-  margin: auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 20px;
+  padding: 20px;
 }
 
 .skill-card {
-  width: 150px;
+  width: 125px;
   height: fit-content;
   background: var(--secondary);
   border-radius: 20px;
