@@ -441,22 +441,18 @@ h5 {
   width: 100%;
   height: auto;
   margin: auto;
-  overflow: hidden;
-}
-
-.skill-wrap {
   display: flex;
-  width: calc(20vw * 22);
-  height: 100%;
-  animation: carousel 15s linear infinite;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .skill-card {
-  width: 17.5vw;
+  width: 150px;
   height: fit-content;
   background: var(--secondary);
   border-radius: 20px;
-  margin: 2em 5vw;
   text-align: center;
   border: 3px solid #000;
 }
@@ -473,22 +469,12 @@ h5 {
 .skill-card p {
   background-color: #000;
   color: var(--secondary);
-  font-size: 2vw;
+  font-size: 1vw;
   font-weight: bold;
   width: 100%;
   padding: 0.5em 1em;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
-}
-
-@keyframes carousel {
-  0% {
-    transform: translateX(calc(25vw * 4));
-  }
-
-  100% {
-    transform: translateX(calc(-30vw * 11));
-  }
 }
 
 #contact-me {
@@ -827,11 +813,6 @@ footer p:nth-child(2) {
     border: 5px solid #000;
   }
 
-  .skill-card {
-    width: 20vw;
-    margin: 3em 5vw;
-  }
-
   .skill-card p {
     padding: 1em;
   }
@@ -963,10 +944,6 @@ footer p:nth-child(2) {
 
   .box {
     gap: 15px;
-  }
-
-  .skill-card {
-    width: 20vw;
   }
 
   .skill-card p {
