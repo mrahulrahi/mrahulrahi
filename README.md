@@ -12,7 +12,7 @@
 
 <img align="right" src="https://camo.githubusercontent.com/cae12fddd9d6982901d82580bdf321d81fb299141098ca1c2d4891870827bf17/68747470733a2f2f6d69726f2e6d656469756d2e636f6d2f6d61782f313336302f302a37513379765349765f7430696f4a2d5a2e676966" height="300" width="500" />
 
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=mrahulrahi&label=Profile%20views&color=0e75b6&style=flat" alt="mrahulrahi" /> </p>
+<p align="right"> <img src="https://komarev.com/ghpvc/?username=mrahulrahi&label=Profile%20views&color=0e75b6&style=flat" alt="mrahulrahi" /> </p>
 
 # 💫 About Me:
 
@@ -30,13 +30,13 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/mrahulrahi)
 [![HackerRank](https://img.shields.io/badge/HackerRank-00EA64.svg?logo=hackerrank&logoColor=white)](https://www.hackerrank.com/mrahulrahi)
-[![LeetCode](https://img.shields.io/badge/leetcode-FFA116.svg?logo=leetcode&logoColor=white)](https://www.leetcode.com/mrahulrahi)
-[![GFG](https://img.shields.io/badge/geeksforgeeks-2F8D46.svg?logo=geeksforgeeks&logoColor=white)](https://auth.geeksforgeeks.org/user/mrahulrahi)
-[![TopCoder](https://img.shields.io/badge/topcoder-000000.svg?logo=topcoder&logoColor=white)](https://www.topcoder.com/members/mrahulrahi)
+[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116.svg?logo=leetcode&logoColor=white)](https://www.leetcode.com/mrahulrahi)
+[![GFG](https://img.shields.io/badge/GFG-2F8D46.svg?logo=geeksforgeeks&logoColor=white)](https://auth.geeksforgeeks.org/user/mrahulrahi)
+[![TopCoder](https://img.shields.io/badge/TopCoder-000000.svg?logo=topcoder&logoColor=white)](https://www.topcoder.com/members/mrahulrahi)
 
 # 💻 Tech Stack:
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/cplusplus-%23239120.svg?style=for-the-badge&logo=cplusplus&logoColor=white)
+![C++](https://img.shields.io/badge/c++-%23239120.svg?style=for-the-badge&logo=cplusplus&logoColor=white)
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
 ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
