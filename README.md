@@ -20,19 +20,19 @@
 
 - 🌱 I’m currently learning **Full Stack Development, MERN**
 
-- 👨‍💻 All of my projects are available at [https://github.com/mrahulrahi](https://github.com/mrahulrahi)
+- 👨‍💻 All of my projects are available at [github-mrahulrahi](https://mrahulrahi.github.io/mrahulrahi)
 
-- 📫 How to reach me **mrahulrahi@gmail.com**
+- 📫 How to reach me [Telegram](https://t.me/mrahulrahi)
 
 <hr>
 
 ## 🌐 Socials:
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/mrahulrahi)
-[![HackerRank](https://img.shields.io/badge/HackerRank-00EA64.svg?logo=hackerrank&logoColor=white)](https://www.hackerrank.com/mrahulrahi)
-[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116.svg?logo=leetcode&logoColor=white)](https://www.leetcode.com/mrahulrahi)
-[![GFG](https://img.shields.io/badge/GFG-2F8D46.svg?logo=geeksforgeeks&logoColor=white)](https://auth.geeksforgeeks.org/user/mrahulrahi)
-[![TopCoder](https://img.shields.io/badge/TopCoder-000000.svg?logo=topcoder&logoColor=white)](https://www.topcoder.com/members/mrahulrahi)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mrahulrahi)
+[![HackerRank](https://img.shields.io/badge/HackerRank-00EA64.svg?style=for-the-badge&logo=hackerrank&logoColor=white)](https://www.hackerrank.com/mrahulrahi)
+[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116.svg?style=for-the-badge&logo=leetcode&logoColor=white)](https://www.leetcode.com/mrahulrahi)
+[![GFG](https://img.shields.io/badge/GFG-2F8D46.svg?style=for-the-badge&logo=geeksforgeeks&logoColor=white)](https://auth.geeksforgeeks.org/user/mrahulrahi)
+[![TopCoder](https://img.shields.io/badge/TopCoder-000000.svg?style=for-the-badge&logo=topcoder&logoColor=white)](https://www.topcoder.com/members/mrahulrahi)
 
 # 💻 Tech Stack:
 ![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white)
