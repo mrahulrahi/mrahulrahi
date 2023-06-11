@@ -29,7 +29,7 @@
 ## 🌐 Socials:
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/mrahulrahi)
-[![HackerRank](https://img.shields.io/badge/hackerrank-00EA64.svg?logo=hackerrank&logoColor=white)](https://www.hackerrank.com/mrahulrahi)
+[![HackerRank](https://img.shields.io/badge/HackerRank-00EA64.svg?logo=hackerrank&logoColor=white)](https://www.hackerrank.com/mrahulrahi)
 [![LeetCode](https://img.shields.io/badge/leetcode-FFA116.svg?logo=leetcode&logoColor=white)](https://www.leetcode.com/mrahulrahi)
 [![GFG](https://img.shields.io/badge/geeksforgeeks-2F8D46.svg?logo=geeksforgeeks&logoColor=white)](https://auth.geeksforgeeks.org/user/mrahulrahi)
 [![TopCoder](https://img.shields.io/badge/topcoder-000000.svg?logo=topcoder&logoColor=white)](https://www.topcoder.com/members/mrahulrahi)
@@ -70,11 +70,9 @@
 ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
 # 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=mrahulrahi&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
+![](https://github-readme-stats.vercel.app/api?username=mrahulrahi&theme=dark&hide_border=false&include_all_commits=false&count_private=false)
 ![](https://github-readme-stats.vercel.app/api/top-langs/?username=mrahulrahi&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)<br/>
 ![](https://github-readme-streak-stats.herokuapp.com/?user=mrahulrahi&theme=dark&hide_border=false)
-
-
 
 <hr>
 
