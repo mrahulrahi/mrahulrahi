@@ -22,7 +22,7 @@
 
 - 🌱 I’m currently learning **Full Stack Development, MERN**
 
-- 👨‍💻 All of my projects are available at [github-mrahulrahi](https://mrahulrahi.github.io/mrahulrahi)
+- 👨‍💻 All of my projects are available at [Github - mrahulrahi](https://mrahulrahi.github.io/mrahulrahi)
 
 - 📫 How to reach me [Telegram](https://t.me/mrahulrahi)
 
