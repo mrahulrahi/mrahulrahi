@@ -872,6 +872,7 @@ footer p:nth-child(2) {
   .social a {
     font-size: 30px;
   }
+  
 }
 
 @media screen and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1200px) {
@@ -969,4 +970,5 @@ footer p:nth-child(2) {
   .newslatter {
     width: 400px;
   }
+  
 }
