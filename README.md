@@ -32,8 +32,8 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mrahulrahi)
 [![HackerRank](https://img.shields.io/badge/HackerRank-00EA64.svg?style=for-the-badge&logo=hackerrank&logoColor=white)](https://www.hackerrank.com/mrahulrahi)
-[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116.svg?style=for-the-badge&logo=leetcode&logoColor=white)](https://www.leetcode.com/mrahulrahi)
 [![GFG](https://img.shields.io/badge/GFG-2F8D46.svg?style=for-the-badge&logo=geeksforgeeks&logoColor=white)](https://auth.geeksforgeeks.org/user/mrahulrahi)
+[![LeetCode](https://img.shields.io/badge/LeetCode-FFA116.svg?style=for-the-badge&logo=leetcode&logoColor=white)](https://www.leetcode.com/mrahulrahi)
 [![TopCoder](https://img.shields.io/badge/TopCoder-000000.svg?style=for-the-badge&logo=topcoder&logoColor=white)](https://www.topcoder.com/members/mrahulrahi)
 
 # 💻 Tech Stack:
