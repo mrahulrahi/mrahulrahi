@@ -342,9 +342,29 @@ button:hover {
   min-height: 400px;
 }
 
+.projectSwiper .swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.projectSwiper .swiper-button-next,
+.projectSwiper .swiper-button-prev {
+  background: var(--primary);
+  color: var(--secondary);
+  border-radius: 100%;
+  padding: 30px;
+  font-size: 20px;
+}
+
+.projectSwiper .swiper-button-next:after,
+.projectSwiper .swiper-button-prev:after {
+  font-size: 30px;
+}
+
 .card {
   height: auto;
-  width: 45%;
+  width: 80%;
   padding: 20px 20px;
   background: var(--secondary);
   border-radius: 20px;
@@ -872,7 +892,7 @@ footer p:nth-child(2) {
   .social a {
     font-size: 30px;
   }
-  
+
 }
 
 @media screen and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1200px) {
@@ -970,5 +990,5 @@ footer p:nth-child(2) {
   .newslatter {
     width: 400px;
   }
-  
+
 }
