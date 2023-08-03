@@ -364,20 +364,14 @@ button:hover {
 
 .card {
   height: auto;
-  width: 80%;
-  padding: 20px 20px;
+  width: 50%;
+  padding: 20px;
   background: var(--secondary);
   border-radius: 20px;
   margin: 1em;
   overflow: hidden;
   text-align: center;
   border: 3px solid #000;
-}
-
-h5 {
-  color: black;
-  font-size: 1.75em;
-  margin-bottom: 1em;
 }
 
 .img-container {
@@ -418,16 +412,31 @@ h5 {
   background-size: cover;
 }
 
-.pra {
-  margin: 1.5em;
+.card-content {
+  width: 30%;
+  height: auto;
+  padding: 20px;
+  background: var(--secondary);
+  border-radius: 20px;
+  margin: 1em;
+  overflow: hidden;
+  text-align: center;
+  border: 3px solid #000;
 }
 
-.pra p {
+.card-content h5 {
+  color: black;
+  font-size: 1.75em;
+  margin-bottom: 1em;
+}
+
+
+.card-content span {
   font-size: 16px;
   line-height: 27px;
 }
 
-.card .button {
+.card-content .button {
   background-color: var(--primary);
   color: white;
   text-decoration: none;
@@ -436,10 +445,11 @@ h5 {
   font-weight: bold;
   padding: 10px 15px;
   border-radius: 30px;
-  transition: 0.4s;
+  transition: 0.4s ease;
 }
 
-.card .button:hover {
+.card-content .button:hover {
+  color: var(--primary);
   background-color: transparent;
   border: 2px solid var(--primary);
   cursor: pointer;
