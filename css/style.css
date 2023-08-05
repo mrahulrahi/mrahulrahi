@@ -186,9 +186,10 @@ nav ul li a:hover {
   margin-bottom: 20px;
 }
 
-.buy-coffee {
+.arrow-down {
+  display: inline-flex;
   padding: 5px;
-  width: fit-content;
+  text-decoration: none;
   background-color: white;
   border: 2px solid var(--primary);
   outline: none;
@@ -196,7 +197,8 @@ nav ul li a:hover {
   margin-top: 40px;
 }
 
-.buy-coffee button {
+.arrow-down div {
+  width: 100%;
   outline: none;
   border: none;
   padding: 10px 30px;
@@ -206,11 +208,11 @@ nav ul li a:hover {
   box-shadow: 0px 0px 5px #000, 0px 0px 15px #858585;
 }
 
-.buy-coffee button i {
-  margin-right: 10px;
+.arrow-down div i {
+  margin-left: 10px;
 }
 
-.buy-coffee button:hover {
+.arrow-down div:hover {
   color: #000;
 }
 
