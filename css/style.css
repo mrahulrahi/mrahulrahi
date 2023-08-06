@@ -35,7 +35,7 @@ nav {
   justify-content: space-between;
 }
 
-.logo {
+.nav-logo {
   color: var(--secondary);
   font-size: 30px;
   letter-spacing: 1px;
@@ -82,7 +82,7 @@ nav ul li a:hover {
   transition: 0.4s;
 }
 
-.btn {
+.nav-btn {
   background-color: var(--primary);
   color: var(--secondary);
   text-decoration: none;
@@ -93,7 +93,7 @@ nav ul li a:hover {
   border-radius: 50px;
 }
 
-.btn:hover {
+.nav-btn:hover {
   transform: scale(1.2);
 }
 
@@ -130,11 +130,11 @@ section {
   align-items: center;
   background-color: var(--bg-color);
   border-radius: 25px;
-  gap: 100px;
+  gap: 50px;
 }
 
 .home-container div img {
-  width: 40vw;
+  width: 100%;
   padding: 2em 0;
 }
 
@@ -860,7 +860,7 @@ footer p:nth-child(2) {
   }
 
   .home-container div img {
-    width: 45em;
+    width: 100%;
   }
 
   .home-container div h1 {
