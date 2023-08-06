@@ -303,44 +303,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="custom.js"></script>
 
-  <script>
-    var swiper = new Swiper(".projectSwiper", {
-      effect: "fade",
-      freeMode: true,
-      autoplay: {
-        delay: 3000,
-      },
-      slidePerView: 1,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
 
-  <script>
-    gsap.registerPlugin(ScrollTrigger);
-
-    let roomBlock = gsap.matchMedia();
-    roomBlock.add("(min-width:991.98px)", () => {
-      const roomPanels = gsap.utils.toArray("section");
-      roomPanels.forEach((panel) => {
-        gsap.to(panel, {
-          // ease: 'power4.inOut',
-          scrollTrigger: {
-            trigger: panel,
-            pin: true,
-            pinSpacing: false,
-            start: "top top",
-            end: "top top",
-            endTrigger: "contact-me",
-            // markers: true,
-          },
-        });
-      });
-    });
-  </script>
 </body>
 
 </html>
