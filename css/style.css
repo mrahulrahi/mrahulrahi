@@ -91,10 +91,11 @@ nav ul li a:hover {
   transition: transform 0.4s;
   padding: 20px 30px;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .nav-btn:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
 .section-title {
@@ -133,9 +134,22 @@ section {
   gap: 50px;
 }
 
-.home-container div img {
-  width: 100%;
-  padding: 2em 0;
+.header-bg {
+  position: relative;
+  width: 50%;
+}
+
+.header-bg img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  right: 0;
+}
+
+.header-bg img:first-child {
+  z-index: 2;
+
 }
 
 .home-container div h1 {
