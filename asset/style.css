@@ -484,7 +484,7 @@ footer span {
 
 
 
-.img-container {
+.container {
   top: 0;
   left: 0;
   bottom: 0;
@@ -495,11 +495,19 @@ footer span {
   position: relative;
 }
 
+.img-container {
+  position: relative;
+  padding-bottom: 50%;
+  margin: 50px 0px;
+}
+
 .img-container img {
-  width: 95%;
+  width: 100%;
   height: 100%;
-  overflow: hidden;
-  margin: 100px 0px 50px;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .home-info {
@@ -509,12 +517,12 @@ footer span {
   transform: translate(-50%, -50%);
 }
 
-.img-container h1 {
-  font-size: 6vw;
-  margin: 0.25em 0 0.5em;
+.container h1 {
+  font-size: 90px;
+  margin-bottom: 20px;
 }
 
-.img-container span {
+.container span {
   flex-wrap: wrap;
   gap: 10px;
 }
@@ -542,12 +550,41 @@ footer span {
 
 .glass-bg {
   background: rgba(237, 237, 237, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(5px);
   border: 1px solid rgba(237, 237, 237, 0.3);
   border-radius: 16px;
 }
 
-div.glass_bg {
-  border-radius: 16px;
+.icon {
+  width: 200px;
+}
+
+@media screen and (max-width: 1400px) {
+  .img-container {
+    padding-bottom: 50%;
+  }
+
+  .container h1 {
+    font-size: 70px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .img-container {
+    padding-bottom: 100%;
+  }
+
+  .container h1 {
+    font-size: 50px;
+  }
+
+
+
+  @media screen and (max-width: 576px) {
+
+    .container h1 {
+      font-size: 30px;
+    }
+  }
 }
