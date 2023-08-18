@@ -106,10 +106,6 @@ nav ul li a:hover {
   text-align: center;
 }
 
-section {
-  height: 100vh;
-}
-
 .content-container {
   padding: 50px 0;
 }
@@ -127,24 +123,28 @@ section {
   height: 100%;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: start;
   align-items: center;
   background-color: var(--bg-color);
   border-radius: 25px;
   gap: 50px;
+  position: relative;
 }
 
 .header-bg {
-  position: relative;
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 50%;
+  height: 100%;
 }
 
 .header-bg img {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .header-bg img:first-child {
@@ -156,6 +156,7 @@ section {
   color: white;
   margin: 20px 0px;
   font-size: 75px;
+  padding-left: 10px;
 }
 
 .home-container div h3 {
@@ -785,7 +786,16 @@ footer p:nth-child(2) {
 /*==========================================
 ! Medium devices (tablets, less than 992px)
 ========================================== */
-@media (max-width: 991.98px) {}
+@media (max-width: 991.98px) {
+  .home-container div {
+    width: 100%;
+  }
+
+  .header-bg {
+    position: relative;
+  }
+
+}
 
 /* =================================================  
 ! Small devices (landscape phones, less than 768px)
@@ -866,7 +876,6 @@ footer p:nth-child(2) {
 
   .home-container {
     width: 100%;
-    flex-direction: column;
     text-align: center;
     margin-top: 0;
     padding: 100px 0;
