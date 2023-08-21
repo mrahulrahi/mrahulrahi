@@ -4,7 +4,7 @@ class MyHeader extends HTMLElement {
     <header>
       <nav class="navbar">
         <a class="logo" href="./index.html">
-        <img src="./img/logo.png">
+        <img src="include/images/logo.png">
         </a>
         <ul class="nav-menu">
           <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
