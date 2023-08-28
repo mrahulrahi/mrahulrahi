@@ -32,7 +32,7 @@ header {width: 100%;position: fixed;z-index: 99;}
 
 /***** Footer Section *****/
 
-footer{display:flex;flex-direction:row;font-family:"Readex Pro",sans-serif;justify-content:space-between;align-items:center;margin:5%;gap:20px;line-height:1.5em;color:#45796F}
+footer{display:flex;flex-direction:row;font-family:"Readex Pro",sans-serif;justify-content:space-between;align-items:center;margin:5%;gap:20px;line-height:1.5em;color:#45796F;}
 .social-link{min-width:300px;cursor:pointer}
 .social-link ul{list-style-type:none}
 .form{min-width:300px;display:flex;flex-direction:column;justify-content:space-around}
