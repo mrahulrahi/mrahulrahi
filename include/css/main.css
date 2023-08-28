@@ -173,6 +173,7 @@ body {
 
 .contact-us {
   flex-wrap: wrap;
+  justify-content: space-around;
   border-radius: 16px;
   margin: 50px;
 }
@@ -180,7 +181,7 @@ body {
 .contact-details {
   flex-direction: column;
   gap: 50px;
-  padding: 7.5em;
+  padding: 7.5em 0;
 }
 
 .contact-details h4 {
@@ -189,7 +190,7 @@ body {
 }
 
 .contact-form {
-  padding: 7.5em;
+  padding: 7.5em 0;
 }
 
 .contact-form span {
