@@ -1,8 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow:wght@500&family=Readex+Pro:wght@300;400&display=swap");
-/* font-family: 'Barlow',
-sans-serif;
-font-family: 'Readex Pro',
-sans-serif; */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+:root {
+  --soft-blue: hsl(215, 51%, 70%);
+  --cyan: hsl(178, 100%, 50%);
+  --main-bg: hsl(217, 54%, 11%);
+  --card-bg: hsl(216, 50%, 16%);
+  --line: hsl(215, 32%, 27%);
+  --white: hsl(0, 0%, 100%);
+  --light-gray: hsl(212, 45%, 89%);
+  --grayish-blue: hsl(220, 15%, 55%);
+  --dark-blue: hsl(218, 44%, 22%);
+}
 
 * {margin: 0;padding: 0;box-sizing: border-box;}
 body {text-decoration: none;}
@@ -45,7 +55,120 @@ footer{display:flex;flex-direction:row;font-family:"Readex Pro",sans-serif;justi
 
 /***** End Section *****/
 
-/* RESPONSIVE */
+/***** Content Section *****/
+.container{top:0;left:0;bottom:0;right:0;z-index:1;display:block;text-align:center;position:relative;padding-top:35px}
+.bg-img{width:100%;height:100%;overflow:hidden}
+.title{position:absolute;width:100%;top:50%;left:50%;transform:translate(-50%,-50%)}
+.title img{width:30%;border-radius:99px;margin-bottom:25px}
+h4{font-size:3vw;font-family:"Readex Pro",sans-serif;font-weight:600;color:#45796F}
+.block{width:100%;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;gap:50px;padding:5% 2.5%;font-family:"Readex Pro",sans-serif;color:#45796F;font-weight:700;background-color:#45796F}
+.block ul{height:200px;list-style-type:none;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:20px;padding:40px}
+.block-head{font-size:1.6rem}
+.block-text{font-size:1.1rem}
+.block-img{width:1.5rem;mix-blend-mode:exclusion}
+.block-img:hover{transform:scale(1.25);transition:.3s}
+.block div{display:flex;flex-direction:column;justify-content:space-around;width:300px;height:auto;border-radius:30px}
+.uiBoxGray{background-color:#ccc;border:2px solid #666;box-shadow:0 0 20px 2px #ccc}
+.uiBoxPink{background-color:#eeb1d7;border:2px solid #db2586;box-shadow:0 0 20px 2px #eeb1d7}
+.uiBoxGreen{background-color:#d1e6b9;border:2px solid #629824;box-shadow:0 0 20px 2px #d1e6b9}
+.uiBoxYellow{background-color:#fff9d7;border:2px solid #e2c822;box-shadow:0 0 20px 2px #fff9d7}
+#team{width:100%;background-color:#45796F;padding:5% 2.5%;font-family:"Readex Pro",sans-serif}
+.block-title{color:#F2E8B9;font-size:4rem;text-align:center;padding:0 2% 2%;width:100%}
+.user{width:100%;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;text-align:center;gap:150px;margin-top:30px}
+.user-list{padding:0;display:flex;flex-direction:column;justify-content:center;align-items:center;line-height:1.5em;font-size:1.5rem;box-shadow:0 0 20px 2px #eade71;width:300px;height:425px;color:#45796F;background-color:#eade71;border-radius:250px;border-top-left-radius:999px;border-top-right-radius:999px}
+.user img{border-radius:50%;width:250px;height:auto;margin-bottom:20px}
+.user ul{display:flex;justify-content:center;list-style:none}
+.user a{width:25px;height:25px;margin:10px;border-radius:50%;color:#45796F}
+.user a i:hover{transform:scale(1.5);transition:.3s}
+
+/***** Contact Section *****/
+.contact{font-family:"Readex Pro",sans-serif;background-color:#45796F;display:flex;flex-direction:row;justify-content:space-evenly;align-items:center;padding:10% 0}
+.contact-title h3{color:#78AEA3;font-size:3rem}
+.contact-title h1{margin-top:1%;color:#F2E8B9;font-size:7rem}
+.contact-form span{display:flex;flex-direction:row;justify-content:space-between}
+li{list-style:none}
+#form-name,#form-email,#form-subject,#form-message{background-color:#45796F;color:#F2E8B9;border:none;border-bottom:1px solid #F2E8B9;width:407px;height:42px;margin-bottom:1rem}
+#form-name,#form-email{width:190px}
+#form-message{height:114px}
+#form-submit{background-color:#F2E8B9;color:#45796F;width:407px;height:46px;font-size:1rem;font-weight:700;cursor:pointer;border-radius:30px}
+.contact-form input::placeholder{color:#F2E8B9;font-size:1rem;font-weight:200;padding-left:1rem;border-style:none}
+.contact-form input:focus{outline:none;border-style:none}
+#form-name:hover,#form-email:hover,#form-subject:hover,#form-message:hover{border-bottom:3px solid #F2E8B9}
+#form-submit:hover{background-color:#000;color:#F2E8B9}
+
+
+
+.section-main{padding:5% 1%;background-color:#45796f;width:100%;font-family:"Montserrat",sans-serif}
+.section-title{font-family:"Outfit",sans-serif;font-size:3em;color:hsl(0,0%,100%,60%);margin:50px 0 30px}
+.resmenu-list,.rescard-list,.nftcard-list,.qrcard-list{padding:30px 20px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:20px;border-radius:10px;max-width:100%;background-color:#ccc;border:2px solid #666;box-shadow:0 0 20px 2px #ccc}
+.modal-header{border-radius:20px 20px 0 0;background-color:#45796f}
+.modal-header-content{font-size:20px;padding-top:20px;padding-bottom:20px;font-weight:700}
+.modal-container{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:10% 5% 5%}
+.modal-container label{float:left;width:30%;font-weight:900;color:#45796f}
+.modal-container input{width:70%;padding:12px 20px;margin:8px 0;display:inline-block;border:1px solid #ccc;border-radius:4px;box-sizing:border-box}
+#resmenuModal,#rescardModal,#nftcardModal,#qrcardModal{text-align:center;width:50%;border-radius:22.5px;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99;background-color:#d1e6b9;border:2px solid #629824;box-shadow:0 0 20px 2px #d1e6b9}
+#confirmBtn{width:auto;border:none;color:#fff;padding:8px 12px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;cursor:pointer;border-radius:5px;background-color:#36bc65;margin:30px;float:right}
+#closeBtn{width:auto;border:none;color:#fff;padding:8px 12px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;cursor:pointer;border-radius:5px;background-color:red;margin:30px;float:right}
+.btn-holder{width:100%;display:inline-flex;justify-content:center}
+.btn{background-color:#45796f;display:inline-block;min-width:300px;border:none;border-radius:30px;color:#fff;padding:12px 16px;text-align:center;text-decoration:none;display:inline-block;font-size:16px;cursor:pointer}
+
+/********** Responsive Menu **********/
+#responsive-menu {font-family: "Montserrat", sans-serif;width: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;padding: 25px 0;}
+.section h2 {position: absolute;top: 0px;right: 0px;margin: auto;float: none;width: 140px;height: 35px;border: 1px solid black;text-align: center;padding: center;}
+.section {clear: margin;position: relative;color: black;background-color: grey;width: 32%;padding: 10px;padding-top: 45px;font-size: 100%;border: 3px solid black;border-radius: 10px 0;}
+.section>.title:nth-child(3n + 1) {background-color: darkkhaki;color: black;}
+.section>.title:nth-child(3n + 2) {background-color: coral;color: white;}
+.section>.title:nth-child(3n + 3) {background-color: violet;color: black;}
+
+/********** Responsive Cards **********/
+#responsive-cards{font-family:"Montserrat",sans-serif;width:100%;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:25px 0}
+.destination{width:325px;height:420px;border:1px solid #aaa;box-shadow:1px 1px 5px rgba(0,0,0,0.5);cursor:pointer;transition:background-color 400ms ease-out;border-radius:10px}
+.destination:hover,.destination:active{background-color:hsl(217,54%,11%);color:#fff}
+.thumbnail{width:100%;height:300px;overflow:hidden}
+.thumbnail img{width:100%;border-radius:10px}
+.content{text-align:center}
+.content h1{margin:10px 0}
+
+/********** NFT Card **********/
+#nft-card{font-family:"Outfit",sans-serif;width:100%;color:hsl(0,0%,100%,60%);display:flex;justify-content:center;align-items:center;flex-direction:column;padding:25px 0}
+.nft-container{padding:1rem;background-color:var(--card-bg);border-radius:.5rem;margin-bottom:1rem;width:350px;height:auto}
+.nft-container img{max-width:100%;border-radius:.5rem}
+.nft-container .main-image{position:relative}
+.nft-container .main-image div{position:absolute;top:0;background-color:hsl(178,100%,50%,50%);width:100%;height:calc(100% - 4px);z-index:90;opacity:0;transition:opacity .3s ease-in-out}
+.nft-container .main-image div:hover{opacity:1;cursor:pointer}
+.nft-container .main-image div img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.nft-container ul{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--line)}
+.nft-container h2{font-size:28px;font-weight:600;color:var(--white);margin:1rem .5rem .5rem 0}
+.nft-container h2:hover{color:var(--cyan);cursor:pointer}
+.nft-container p{font-size:18px;font-weight:300}
+.nft-container ul li{display:flex;align-items:center;font-size:18px}
+.nft-container ul li:first-child{color:var(--cyan)}
+.nft-container ul li img{margin:.5rem}
+.nft-container .avatar{display:flex;align-items:center;justify-content:start;padding-top:1rem}
+.nft-container .avatar img{width:2.5rem;border:2px solid var(--white);border-radius:50%;margin:0 1rem;max-width:30px;max-height:30px}
+.nft-container .avatar p span{color:var(--white);font-size:18px;font-weight:400}
+.nft-container .avatar p span:hover{color:var(--cyan);cursor:pointer}
+
+/********** QR Card **********/
+#qr-card{font-family:"Outfit",sans-serif;width:100%;display:flex;justify-content:center;align-items:center;flex-direction:column;padding:25px 0}
+.qr-container{width:350px;padding:1.25rem;background-color:var(--light-gray);border-radius:2rem;margin-bottom:1rem}
+.qr-container img{max-width:100%;border-radius:1rem;margin-bottom:1rem}
+.qr-container h1{font-weight:700;color:var(--dark-blue);text-align:center;margin-bottom:1rem}
+.qr-container p{font-size:17px;font-weight:400;color:var(--grayish-blue);text-align:center;margin-bottom:1rem}
+
+
+/*--responsive for mobile phone--*/
+@media (max-width: 1400px) {
+  #responsive-cards {height: auto;}
+}
+
+@media (max-width: 1200px) {
+  .section {width: 31%;}
+}
+
+@media (max-width: 991px) {
+  .section {width: 100%;}
+}
 
 @media screen and (max-width: 768px) {
 
@@ -68,6 +191,43 @@ footer{display:flex;flex-direction:row;font-family:"Readex Pro",sans-serif;justi
   #email{padding:10px;margin-right:0;margin-bottom:10px}
   #submit{padding:10px 30px;text-align:center}
 
+  .container{padding-top:80px}
+  .bg-img{width:100%;height:300px}
+  .title{top:60%;left:50%;transform:translate(-50%,-50%)}
+  .title img{width:50%}
+  h4{font-size:7vw;padding:0 7.5%}
+  .block{flex-direction:column;padding:70px 0}
+  .block div{width:300px;height:auto}
+  #team>h3{font-size:3rem}
+  .user{flex-direction:column;gap:50px}
+
+  .contact{width:100%;padding-top:100px;flex-direction:column;gap:20px}
+  .contact-title h3{font-size:1rem}
+  .contact-title h1{font-size:3rem}
+  .contact-form{padding-bottom:2rem}
+  #form-name,#form-email,#form-subject,#form-message{width:100%;height:42px}
+  #form-name,#form-email{width:49.5%}
+  #form-message{height:114px}
+  #form-submit{width:100%}
+
+  .section-main {padding: 10% 2.5%;}
+  #resmenuModal,#rescardModal,#nftcardModal,#qrcardModal {text-align: center;width: 95%;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 99;}
+  .btn {width: 100%;}
+
+  .section { width: 100%;}
+  
 }
 
-@media screen and (max-width: 576px) {}
+@media screen and (max-width: 576px) {
+  .nft-container {width: 100%;height: auto;}
+  .nft-container img {border-radius: 0.5rem;}
+
+  .qr-container {width: 350px;margin: 0 auto 1rem;}
+}
+
+
+
+
+
+
+
