@@ -565,10 +565,6 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
 }
 
 @media screen and (max-width: 768px) {
-
-
-
-
   .bg-img{width:100%;height:300px}
   .title{top:60%;left:50%;transform:translate(-50%,-50%)}
   .title img{width:50%}
@@ -587,7 +583,7 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
   #form-message{height:114px}
   #form-submit{width:100%}
 
-  .section-main {padding: 10% 2.5%;}
+
   #resmenuModal,#rescardModal,#nftcardModal,#qrcardModal {text-align: center;width: 95%;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 99;}
   .btn {width: 100%;}
 
@@ -626,10 +622,10 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
 }
 
 @media screen and (max-width: 576px) {
-  .nft-container {width: 100%;height: auto;}
-  .nft-container img {border-radius: 0.5rem;}
+  .nftcard-box {width: 100%;height: auto;}
+  .nftcard-box img {border-radius: 0.5rem;}
 
-  .qr-container {width: 350px;margin: 0 auto 1rem;}
+  .qrcard-box {width: 100%;margin: 0 auto 1rem;}
 
   .container-1 img{width:93%;height:72.5vh}
   .container-1 h1{font-size:13vw}
