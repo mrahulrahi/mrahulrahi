@@ -1,849 +1,234 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="HandheldFriendly" content="true" />
-  <meta charset="UTF-8" />
-  <title>Responsive Cards | A & C</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <link rel="stylesheet" href="./include/css/style.css" />
-  <link rel="stylesheet" href="./include/css/cards.css" />
-  <link rel="stylesheet" href="./include/css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | A & C</title>
+  <link rel="icon" href="include/images/favicon.png" sizes="32x32">
+  <link href="include/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="include/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://kit.fontawesome.com/0425357ddf.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <!-- Navigation Section -->
-  <my-header></my-header>
-
-  <!-- Content Section -->
-  <section class="section-main">
-    <div id="responsive-menu">
-      <h2 class="section-title">Responsive Menu</h2>
-      <div class="resmenu-list glass-bg">
-        <div class="btn-holder"><button class="btn" type="button" name="button" onclick="showAddResmenuModal()">
-            Add Responsive Menu
-          </button></div>
-
-
-        <div class="section">
-          <h2 class="title">Chicken</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum.</p>
-        </div>
-
-
-        <div class="section">
-          <h2 class="title">Beef</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum.</p>
-        </div>
-
-
-        <div class="section">
-          <h2 class="title">Sushi</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-            et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip
-            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-            eu
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-            deserunt mollit anim id est laborum.</p>
-        </div>
-      </div>
-    </div>
-
-
-    <div id="responsive-cards">
-      <h2 class="section-title">Responsive Cards</h2>
-
-      <div class="rescard-list glass-bg">
-        <div class="btn-holder"><button class="btn" type="button" name="button" onclick="showAddRescardModal()">
-            Add Responsive Card
-          </button></div>
-
-        <div class="destination">
-          <div class="thumbnail">
-            <img src="include/images/new-york.jpg" alt="Sunset in New York" />
-          </div>
-          <div class="content">
-            <h1>New York</h1>
-            <p>
-              One of the most vibrant cities you can visit - a trip no one should
-              miss!
-            </p>
-          </div>
-        </div>
-        <div class="destination">
-          <div class="thumbnail">
-            <img src="include/images/kuala-lumpur.jpg" alt="Sunset in New York" />
-          </div>
-          <div class="content">
-            <h1>Kuala Lumpur</h1>
-            <p>
-              One of the most vibrant cities you can visit - a trip no one should
-              miss!
-            </p>
-          </div>
-        </div>
-        <div class="destination">
-          <div class="thumbnail">
-            <img src="include/images/hong-kong.jpg" alt="Sunset in New York" />
-          </div>
-          <div class="content">
-            <h1>Hong Kong</h1>
-            <p>
-              One of the most vibrant cities you can visit - a trip no one should
-              miss!
-            </p>
-          </div>
-        </div>
-        <div class="destination">
-          <div class="thumbnail">
-            <img src="include/images/singapore.jpg" alt="Sunset in New York" />
-          </div>
-          <div class="content">
-            <h1>Singapore</h1>
-            <p>
-              One of the most vibrant cities you can visit - a trip no one should
-              miss!
-            </p>
-          </div>
-        </div>
-
-        <responsive-cards></responsive-cards>
-      </div>
-    </div>
-
-    <div id="nft-card">
-      <h2 class="section-title">NFT Card</h2>
-
-      <div class="nftcard-list glass-bg">
-        <div class="btn-holder">
-          <button class="btn" type="button" name="button" onclick="showAddNftcardModal()">
-            Add NFT Card
+  <!--============================== Header Start ==============================-->
+  <header id="header">
+    <nav class="navbar navbar-expand-xl">
+      <div class="container">
+        <div class="nav-inside d-flex align-items-center justify-content-between">
+          <a class="navbar-brand" href="#!"><img src="include/images/logo.png" alt="logo"></a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
           </button>
-        </div>
-
-        <div class="nft-container">
-          <article class="main-image">
-            <img src="include/images/image-equilibrium.jpg" alt="">
-            <div>
-              <img src="img/icon-view.svg" alt="">
-            </div>
-          </article>
-
-          <article>
-            <h2>Equilibrium #3429</h2>
-            <p>Our Equilibrium collection promotes balance and calm.</p>
-
-            <ul>
-              <li><img src="include/images/icon-ethereum.svg" alt=""> 0.041 ETH</li>
-              <li><img src="include/images/icon-clock.svg" alt="">3 days left</li>
-            </ul>
-          </article>
-
-          <article class="avatar">
-            <img src="include/images/image-avatar.png" alt="">
-            <p>Creation of <span>Jules Wyvern</span></p>
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div id="qr-card">
-      <h2 class="section-title">QR Card</h2>
-
-      <div class="qrcard-list glass-bg">
-        <div class="btn-holder">
-          <button class="btn" type="button" name="button" onclick="showAddQrcardModal()">
-            Add QR Card
-          </button>
-        </div>
-
-        <div class="qr-container">
-          <article>
-            <img src="include/images/image-qr-code.png" alt="">
-          </article>
-
-          <article>
-            <h1>Improve your front-end skills by building projects</h1>
-            <p>Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
-          </article>
-        </div>
-
-      </div>
-    </div>
-
-    <div id="resmenuModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-header-content">
-            <span>Add Responsive Menu</span>
-          </div>
-        </div>
-
-        <div class="modal-container">
-          <label for="title">Title</label>
-          <input id="title" type="text" />
-          <br />
-
-          <label for="content">Content</label>
-          <input id="content" type="text" />
-
-          <button id="confirmBtn" type="button" name="button" onclick="addResmenu()">
-            Confirm
-          </button>
-          <button id="closeBtn" type="button" name="button" onclick="closeResmenuBtn()">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div id="rescardModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-header-content">
-            <span>Add Responsive Card</span>
-          </div>
-        </div>
-
-        <div class="modal-container">
-          <label for="image">Image Url</label>
-          <input id="image" type="text" />
-          <br />
-          <label for="title">Title</label>
-          <input id="res-title" type="text" />
-          <br />
-
-          <label for="content">Content</label>
-          <input id="res-content" type="text" />
-
-          <button id="confirmBtn" type="button" name="button" onclick="addRescard()">
-            Confirm
-          </button>
-          <button id="closeBtn" type="button" name="button" onclick="closeRescardBtn()">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div id="nftcardModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-header-content">
-            <span>Add NFT Card</span>
-          </div>
-        </div>
-
-        <div class="modal-container">
-          <label for="image">Image Url</label>
-          <input id="nft-image" type="text" />
-          <br />
-          <label for="title">Title</label>
-          <input id="nft-title" type="text" />
-          <br />
-
-          <label for="content">Content</label>
-          <input id="nft-content" type="text" />
-
-          <label for="price">Price</label>
-          <input id="nft-price" type="text" />
-
-          <label for="time">Time</label>
-          <input id="nft-time" type="text" />
-
-          <label for="creator">Creator</label>
-          <input id="nft-creator" type="text" />
-
-          <button id="confirmBtn" type="button" name="button" onclick="addNftcard()">
-            Confirm
-          </button>
-          <button id="closeBtn" type="button" name="button" onclick="closeNftcardBtn()">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div id="qrcardModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-header-content">
-            <span>Add QR Card</span>
-          </div>
-        </div>
-
-        <div class="modal-container">
-          <label for="image">Image Url</label>
-          <input id="qr-image" type="text" />
-          <br />
-          <label for="title">Title</label>
-          <input id="qr-title" type="text" />
-          <br />
-
-          <label for="content">Content</label>
-          <input id="qr-content" type="text" />
-
-          <button id="confirmBtn" type="button" name="button" onclick="addQrcard()">
-            Confirm
-          </button>
-          <button id="closeBtn" type="button" name="button" onclick="closeQrcardBtn()">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-info flex">
-      <h3 class="section-heading glass-bg">Components</h3>
-    </div>
-
-    <section id="about">
-      <div class="about-container">
-        <div class="about-us flex glass-bg">
-          <div class="img-container">
-            <img src="include/images/about.jpg" alt="" srcset="" />
-          </div>
-          <div class="text-container flex">
-            <h3>Our Story</h3>
-            <h4>
-              Welcome to RahiCreations<br />
-              Glad to have you here!<br />
-              We’re keen to tell you about us.
-            </h4>
-            <p>
-              The website which you’re looking at right now was established in
-              November 2019. With more than five years development experience,
-              we here at Rahi Creations are whizz at Graphics Designing , Web
-              Designing , App Designing And Photography that provide excellent
-              user experience and are quite easy to manage. We are obsessed with
-              web-app development and committed to our work. Moreover, Our
-              vision is to deliver best in class stuff that you’re looking for
-              and we do assure you of providing best service out-there.
-            </p>
-          </div>
-        </div>
-
-        <section id="customers">
-          <div class="glass-bg">
-            <div class="testimonial" id="customer-1">
-              <div class="testimonial-image-container">
-                <img src="include/images/customer-1.jpg" alt="Mike Statham - Customer" class="testimonial-image" />
-              </div>
-              <div class="testimonial-info">
-                <h1 class="testimonial-name">Mike Statham</h1>
-                <h2 class="testimonial-subtitle">Co-Founder</h2>
-                <p class="testimonial-text">
-                  hostingry helped me realize my project with a highly
-                  constrained budget in like no time.
-                </p>
-              </div>
-            </div>
-            <div class="testimonial" id="customer-2">
-              <div class="testimonial-info">
-                <h1 class="testimonial-name">John Mellow</h1>
-                <h2 class="testimonial-subtitle">Founder</h2>
-                <p class="testimonial-text">
-                  I worked as a blogger and always looked for an integrated
-                  hosting and file storage solution. I found it in hostingry!
-                </p>
-              </div>
-              <div class="testimonial-image-container">
-                <img src="include/images/customer-2.jpg" alt="John Mellow - Customer" class="testimonial-image" />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="team">
-          <div class="user flex">
-            <div class="user-1 flex glass-bg">
-              <img width="400" height="400" src="include/images/user-4.jpg" alt="" />
-              <h3>Keith Marshall</h3>
-              <p>Designer</p>
-              <ul class="flex">
-                <li>
-                  <a href="#">
-                    <i class="fab fa-facebook"></i>
-                  </a>
+          <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+            <div class="navbar-inside">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                <li class="nav-item dropdown"><a class="nav-link" href="./apps.html">Apps</a>
+                  <em class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" role="button"></em>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="./Calculator_UI/index.html">Calculator UI</a></li>
+                    <li><a class="dropdown-item" href="./Gradient_BG/index.html">Gradient BG</a></li>
+                    <li><a class="dropdown-item" href="./Notes_App/index.html">Notes App</a></li>
+                    <li><a class="dropdown-item" href="./Quiz_Game/index.html">Quiz Game</a></li>
+                  </ul>
                 </li>
-
-                <li>
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="user-2 flex glass-bg">
-              <img width="400" height="400" src="include/images/user-5.jpg" alt="" />
-              <h3>George Williams</h3>
-              <p>Developer</p>
-              <ul class="flex">
-                <li>
-                  <a href="#">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div class="user-3 flex glass-bg">
-              <img width="400" height="400" src="include/images/user-6.jpg" alt="" />
-              <h3>Julia Castillo</h3>
-              <p>Client Service</p>
-              <ul class="flex">
-                <li>
-                  <a href="#">
-                    <i class="fab fa-facebook"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i class="fab fa-twitter"></i>
-                  </a>
-                </li>
-
-                <li>
-                  <a href="#">
-                    <i class="fab fa-linkedin"></i>
-                  </a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="./cards.html">Cards</a></li>
+                <li class="nav-item"><a class="nav-link" href="./components.html">Components</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
               </ul>
             </div>
           </div>
-        </section>
-      </div>
-      <section id="key-features" class="glass-bg">
-        <h1 class="section-title">Many Good Reasons to Stick Around</h1>
-        <ul class="key-feature-list flex">
-          <li class="key-feature">
-            <div class="key-feature-image">
-              <img src="include/images/icon-1.png" alt="" srcset="" />
-            </div>
-            <p class="key-feature-description">Fixed Price Projects</p>
-          </li>
-          <li class="key-feature">
-            <div class="key-feature-image">
-              <img src="include/images/icon-2.png" alt="" srcset="" />
-            </div>
-            <p class="key-feature-description">Receive on time</p>
-          </li>
-          <li class="key-feature">
-            <div class="key-feature-image">
-              <img src="include/images/icon-3.png" alt="" srcset="" />
-            </div>
-            <p class="key-feature-description">Highly Skilled</p>
-          </li>
-        </ul>
-      </section>
-    </section>
-
-    <section id="services">
-      <div class="services flex">
-        <div class="service_card flex glass-bg">
-          <div class="img-services">
-            <img src="include/images/web-design.png" alt="" srcset="" />
-          </div>
-          <div class="text-services flex">
-            <h3>Web Design</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-            <a class="btn-3" href="">LEARN MORE</a>
-          </div>
-        </div>
-        <div class="service_card flex glass-bg">
-          <div class="img-services">
-            <img src="include/images/app-design.png" alt="" srcset="" />
-          </div>
-          <div class="text-services flex">
-            <h3>App Design</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-            <a class="btn-3" href="">LEARN MORE</a>
-          </div>
-        </div>
-        <div class="service_card flex glass-bg">
-          <div class="img-services">
-            <img src="include/images/graphic-design.png" alt="" srcset="" />
-          </div>
-          <div class="text-services flex">
-            <h3>Graphic Design</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-            <a class="btn-3" href="">LEARN MORE</a>
-          </div>
-        </div>
-        <div class="service_card flex glass-bg">
-          <div class="img-services">
-            <img src="include/images/photography.png" alt="" srcset="" />
-          </div>
-          <div class="text-services flex">
-            <h3>Photography</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-            <a class="btn-3" href="">LEARN MORE</a>
-          </div>
-        </div>
-        <div class="service_card flex glass-bg">
-          <div class="img-services">
-            <img src="include/images/hostingry.png" alt="" srcset="" />
-          </div>
-          <div class="text-services flex">
-            <h3>Hostingry</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-            <a class="btn-3" href="">LEARN MORE</a>
-          </div>
-        </div>
-        <div class="service_card flex glass-bg">
-          <div class="img-services">
-            <img src="include/images/phonesmania.png" alt="" srcset="" />
-          </div>
-          <div class="text-services flex">
-            <h3>PhonesMania</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-              tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
-            </p>
-            <a class="btn-3" href="">LEARN MORE</a>
+          <div class="header-btn">
+            <a href="#!" class="btn btn-default">Donate</a>
           </div>
         </div>
       </div>
-
-      <section>
-        <div class="backdrop glass-bg"></div>
-        <div class="modal">
-          <section id="start-hosting" class="signup-page">
-            <h1 class="signup-title">Awesome! Let's dive right in!</h1>
-            <form action="index.html" class="signup-form">
-              <label for="title">Title</label>
-              <select id="title">
-                <option value="mr">Mr.</option>
-                <option value="ms">Ms.</option>
-              </select>
-              <label for="first-name">First name</label>
-              <input type="text" id="first-name" required />
-              <label for="last-name">Last name</label>
-              <input type="text" id="last-name" required />
-              <label for="email">E-Mail</label>
-              <input type="email" id="email" required />
-              <label for="password">Password</label>
-              <input type="password" id="password" required />
-              <input type="checkbox" id="agree-terms" required />
-              <label for="agree-terms">Agree to <a href="#">Terms &amp; Conditions</a>
-              </label>
-              <span>
-                <button type="submit" class="button">Sign Up</button>
-                <button type="submit" class="modal-close">Close</button>
-              </span>
-            </form>
-          </section>
-        </div>
-
-        <section id="plans">
-          <section id="plans">
-            <h1 class="section-title">Choose Your Plan</h1>
-            <div class="plan-list">
-              <article class="plan glass-bg">
-                <h1 class="plan-title">FREE</h1>
-                <h2 class="plan-price">$0/month</h2>
-                <h3>For hobby projects or small teams.</h3>
-                <ul class="plan-features">
-                  <li class="plan-feature">1 Workspace</li>
-                  <li class="plan-feature">Unlimited Traffic</li>
-                  <li class="plan-feature">10GB Storage</li>
-                  <li class="plan-feature">Basic Support</li>
-                </ul>
-                <div>
-                  <button class="button">CHOOSE PLAN</button>
-                </div>
-              </article>
-              <article class="plan plan-highlighted glass-bg">
-                <h1 class="plan-annotation">RECOMMENDED</h1>
-                <h1 class="plan-title">PLUS</h1>
-                <h2 class="plan-price">$29/month</h2>
-                <h3>For ambitious projects.</h3>
-                <ul class="plan-features">
-                  <li class="plan-feature">5 Workspaces</li>
-                  <li class="plan-feature">Unlimited Traffic</li>
-                  <li class="plan-feature">100GB Storage</li>
-                  <li class="plan-feature">Plus Support</li>
-                </ul>
-                <div>
-                  <button class="button">CHOOSE PLAN</button>
-                </div>
-              </article>
-              <article class="plan glass-bg">
-                <h1 class="plan-title">PREMIUM</h1>
-                <h2 class="plan-price">$99/month</h2>
-                <h3>Your enterprise solution.</h3>
-                <ul class="plan-features">
-                  <li class="plan-feature">10 Workspaces</li>
-                  <li class="plan-feature">Unlimited Traffic</li>
-                  <li class="plan-feature">Unlimited Storage</li>
-                  <li class="plan-feature">Priority Support</li>
-                </ul>
-                <div>
-                  <button class="button">CHOOSE PLAN</button>
-                </div>
-              </article>
-            </div>
-          </section>
-
-          <section id="packages">
-            <section class="package glass-bg" id="plus">
-              <a href="#">
-                <h1 class="package-title">Jake Sinclair</h1>
-                <h2 class="package-subtitle">Brand Designer</h2>
-                <p class="package-info">
-                  Hostingry impressed me with amazing customer experience and
-                  effortless migration from my previous provider.
-                </p>
-              </a>
-            </section>
-            <section class="package glass-bg" id="free">
-              <a href="#">
-                <h1 class="package-title">Yassen Sattar</h1>
-                <h2 class="package-subtitle">Graphic and Web Designer</h2>
-                <p class="package-info">
-                  Support matters to me the most. Your specialists were always
-                  there to help me immediately.
-                </p>
-              </a>
-            </section>
-            <section class="package glass-bg" id="premium">
-              <a href="#">
-                <h1 class="package-title">Jhon Ortega</h1>
-                <h2 class="package-subtitle">Entrepreneur</h2>
-                <p class="package-info">
-                  I was looking for a company that is very intuitive for beginners
-                  and very well-configured for good performance.
-                </p>
-              </a>
-            </section>
-          </section>
-          <section class="glass-bg" id="key-features">
-            <h1 class="section-title">Many Good Reasons to Stick Around</h1>
-            <ul class="key-feature-list flex">
-              <li class="key-feature">
-                <div class="key-feature-image">
-                  <img src="./include/images/feature-img-1.png" alt="">
-                </div>
-                <p class="key-feature-description">3,857,000 Trusting Customers</p>
-              </li>
-              <li class="key-feature">
-                <div class="key-feature-image">
-                  <img src="include/images/feature-img-2.png" alt="">
-                </div>
-                <p class="key-feature-description">99.999% Uptime Guarantee</p>
-              </li>
-              <li class="key-feature">
-                <div class="key-feature-image">
-                  <img src="include/images/feature-img-3.png" alt="">
-                </div>
-                <p class="key-feature-description">Lightning Fast CDN</p>
-              </li>
-            </ul>
-          </section>
-        </section>
-      </section>
-
-      <section id="contact">
-        <div class="contact-us flex glass-bg">
-          <div class="contact-details flex">
-            <h4>Let's talk!</h4>
-            <div class="email flex">
-              <img src="include/images/email.svg" alt="" width="50px" height="50px" />
-              <h3 id="email">Email</h3>
-              <span>byrahicreations@gmail.com | Monday - Friday</span>
-            </div>
-          </div>
-
-          <div class="contact-form">
-            <form class="mb-3">
-              <p>Name <span>*</span></p>
-              <input type="text" class="form-control" />
-              <p>Email <span>*</span></p>
-              <input type="email" class="form-control" />
-              <p>Comment or Message <span>*</span></p>
-              <textarea type="text" class="form-control"> </textarea><br />
-              <button class="btn-4" type="submit">SEND MESSAGE</button>
-            </form>
+    </nav>
+  </header>
+  <!--============================== Header End ==============================-->
+  <!--============================== Hero Start ==============================-->
+  <div class="banner-container d-flex align-items-center position-relative">
+    <div class="banner-bg" style="background-image: url(include/images/hero-img.webp);"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-10 mx-auto">
+          <div class="banner-text">
+            <h1>Responsive Cards</h1>
           </div>
         </div>
-      </section>
-    </section>
-  </section>
-
-  <section id="team">
-    <h3 class="block-title">Meet The Team</h3>
-    <span class="user">
-
-      <div class="user-list">
-        <img width="400" height="400" src="include/images/user-1.jpg" alt="" />
-        <h3>Rahul Maurya</h3>
-        <p>Web Developer</p>
-        <ul>
-          <li>
-            <a href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-        </ul>
       </div>
-
-      <div class="user-list">
-        <img width="400" height="400" src="include/images/user-2.jpg" alt="" />
-        <h3>Keith Marshall</h3>
-        <p>Designer</p>
-        <ul>
-          <li>
-            <a href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="user-list">
-        <img width="400" height="400" src="include/images/user-3.jpg" alt="" />
-        <h3>George Williams</h3>
-        <p>Developer</p>
-        <ul>
-          <li>
-            <a href="#">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-
-          <li>
-            <a href="#">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-    </span>
-  </section>
-
-  <!-- Content Section -->
-
-  <!-- Contact Section -->
-
-  <div id="contact" class="contact">
-    <div class="contact-title">
-      <h3>CONTACT</h3>
-      <h1>GET IN TOUCH</h1>
-    </div>
-
-    <div class="contact-form">
-      <span>
-        <input type="text" name="Name" placeholder="Name" id="form-name" />
-        <input type="email" name="Email" placeholder="Email" id="form-email" />
-      </span>
-      <input type="text" name="Subject" placeholder="Subject" id="form-subject" />
-      <br />
-      <input type="text" name="Message" placeholder="Message" id="form-message" />
-      <br />
-      <input type="button" value="Submit" id="form-submit" />
     </div>
   </div>
-  <!-- Contact Section -->
+  <!--============================== Hero End ==============================-->
+  <!---=================================== Content Container Start ============================ -->
+  <div class="content-container bg-gold">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="content-box d-flex flex-wrap">
+            <div class="heading">
+              <h3>Responsive Menu</h3>
+              <div class="btn-holder"><button class="btn btn-default" type="button" name="button" onclick="showAddResmenuModal()">
+                Add Responsive Menu
+              </button></div>
+            </div>
+            <div class="resmenu-list d-flex flex-wrap glass-bg">
+              <div class="resmenu-item">
+                <div class="resmenu-box">
+                  <div class="resmenu-heading">Chicken</div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip
+                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                    eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                    deserunt mollit anim id est laborum.</p>
+                </div>
+              </div>    
+              
+      
+      
+              <div class="section">
+                <h2 class="title">Beef</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip
+                  ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                  eu
+                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                  deserunt mollit anim id est laborum.</p>
+              </div>
+      
+      
+              <div class="section">
+                <h2 class="title">Sushi</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                  et
+                  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip
+                  ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                  eu
+                  fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                  deserunt mollit anim id est laborum.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---=================================== Content Container End ============================ -->
+  <!--============================== Footer Start ==============================-->
+  <footer id="footer" class="">
+    <div class="footer-upper">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="footer-upper-box d-flex flex-wrap">
+              <div class="footer-top d-flex flex-column flex-md-row justify-content-between">
+                <a class="footer-logo" href="#!"><img src="include/images/logo.png" alt="footer logo"></a>
+                <div class="footer-top-content">
+                  <h5>Subscribe to Our Newsletter</h5>
+                  <div class="subscribe">
+                    <input type="email" id="email" name="" id="" aria-describedby="emailHelpId"
+                      placeholder="Enter your email here*" />
+                    <a id="submit" href="">Subscribe Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="footer-bottom">
+                <div class="footer-nav d-flex flex-wrap">
+                  <ul class="footer-nav-list">
+                    <li class="footer-heading"><a href="terms-conditions.html">Apps</a></li>
+                    <li class="footer-nav-item"><a href="privacy-policy.html">Staff + Board</a></li>
+                    <li class="footer-nav-item"><a href="terms-conditions.html">Collaborators</a>
+                    </li>
+                    <li class="footer-nav-item"><a href="terms-conditions.html">Contact Us</a></li>
+                  </ul>
 
-  <!-- Footer Section -->
+                  <ul class="footer-nav-list">
+                    <li class="footer-heading"><a href="terms-conditions.html">Cards</a></li>
+                    <li class="footer-nav-item"><a href="privacy-policy.html">Eligibility</a></li>
+                    <li class="footer-nav-item"><a href="terms-conditions.html">Selection
+                        Process</a></li>
+                    <li class="footer-nav-item"><a href="terms-conditions.html">Application
+                        Information</a></li>
+                  </ul>
 
-  <my-footer></my-footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  <script type="module" src="./include/js/header-footer.js"></script>
-  <script type="text/javascript" src="./include/js/res-menu.js"></script>
-  <script type="text/javascript" src="./include/js/qr-card.js"></script>
-  <script type="text/javascript" src="./include/js/nft-card.js"></script>
-  <script type="text/javascript" src="./include/js/res-card.js"></script>
-  <script src="./include/js/shared.js"></script>
+                  <ul class="footer-nav-list">
+                    <li class="footer-heading"><a href="terms-conditions.html">Components</a></li>
+                    <li class="footer-nav-item"><a href="privacy-policy.html">Stories</a></li>
+                    <li class="footer-nav-item"><a href="terms-conditions.html">Data</a></li>
+                    <li class="footer-nav-item"><a href="terms-conditions.html">Reports</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-middle">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="footer-middle-box d-flex flex-wrap align-items-center justify-content-between">
+              <div class="footer-contact-box">
+                <div class="footer-contact-heading">Email</div>
+                <a href="mailto:contact@a&c.com">contact@a&c.com</a>
+              </div>
+              <div class="footer-contact-box">
+                <div class="footer-contact-heading">Phone</div>
+                <a href="tel:+91XXXXXXXXXX">+91XXXXXXXXXX</a>
+              </div>
+              <div class="footer-contact-box">
+                <div class="footer-contact-heading">Connect with A&C</div>
+                <ul class="social-links d-flex flex-wrap">
+                  <li><a href="#" target="_blank">FACEBOOK</a></li>
+                  <li><a href="#" target="_blank">TWITTER</a></li>
+                  <li><a href="#" target="_blank">INSTAGRAM</i></a></li>
+                  <li><a href="#" target="_blank">YOUTUBE</a></li>
+                  <li><a href="#" target="_blank">LINKEDIN</a></li>
+                </ul>
+              </div>
+              <div class="footer-contact-box">
+                <div class="footer-btn">
+                  <a href="#!" class="btn btn-default">Donate</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-lower">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="footer-lower-box d-flex flex-wrap align-items-center justify-content-between">
+              <div class="copyright">&copy;2023 by A&C. All rights reserved</div>
+              <ul class="footer-lower-nav d-flex">
+                <li class="footer-lower-item">Proudly coded ❤️ by <a href="https://github.com/mrahulrahi" rel="noopener"
+                    target="_blank">mrahulrahi</a>.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--============================== Footer End ==============================-->
 
-
+  <script src="include/js/jquery.min.js"></script>
+  <script src="include/js/bootstrap.bundle.min.js"></script>
+  <script src="include/js/main.js"></script>
+  <script src="include/js/custom.js"></script>
 </body>
 
 </html>
