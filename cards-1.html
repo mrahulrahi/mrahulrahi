@@ -10,111 +10,12 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link rel="stylesheet" href="./include/css/style.css" />
-  <link rel="stylesheet" href="./include/css/cards.css" />
-  <link rel="stylesheet" href="./include/css/main.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="bg-green">
-
-  <section>
-
-    <div id="resmenuModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-header-content">
-            <span>Add Responsive Menu</span>
-          </div>
-        </div>
-
-        <div class="modal-container">
-          <label for="title">Title</label>
-          <input id="title" type="text" />
-          <br />
-
-          <label for="content">Content</label>
-          <input id="content" type="text" />
-
-          <button id="confirmBtn" type="button" name="button" onclick="addResmenu()">
-            Confirm
-          </button>
-          <button id="closeBtn" type="button" name="button" onclick="closeResmenuBtn()">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div id="rescardModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-header-content">
-            <span>Add Responsive Card</span>
-          </div>
-        </div>
-
-        <div class="modal-container">
-          <label for="image">Image Url</label>
-          <input id="image" type="text" />
-          <br />
-          <label for="title">Title</label>
-          <input id="res-title" type="text" />
-          <br />
-
-          <label for="content">Content</label>
-          <input id="res-content" type="text" />
-
-          <button id="confirmBtn" type="button" name="button" onclick="addRescard()">
-            Confirm
-          </button>
-          <button id="closeBtn" type="button" name="button" onclick="closeRescardBtn()">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div id="nftcardModal" class="modal">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div class="modal-header-content">
-            <span>Add NFT Card</span>
-          </div>
-        </div>
-
-        <div class="modal-container">
-          <label for="image">Image Url</label>
-          <input id="nft-image" type="text" />
-          <br />
-          <label for="title">Title</label>
-          <input id="nft-title" type="text" />
-          <br />
-
-          <label for="content">Content</label>
-          <input id="nft-content" type="text" />
-
-          <label for="price">Price</label>
-          <input id="nft-price" type="text" />
-
-          <label for="time">Time</label>
-          <input id="nft-time" type="text" />
-
-          <label for="creator">Creator</label>
-          <input id="nft-creator" type="text" />
-
-          <button id="confirmBtn" type="button" name="button" onclick="addNftcard()">
-            Confirm
-          </button>
-          <button id="closeBtn" type="button" name="button" onclick="closeNftcardBtn()">
-            Close
-          </button>
-        </div>
-      </div>
-    </div>
-
-  </section>
 
   <div class="section-info d-flex">
     <h3 class="section-heading glass-bg">Components</h3>
@@ -551,7 +452,7 @@
 
 
 
-
+  <script src="./include/js/shared.js"></script>
 </body>
 
 </html>

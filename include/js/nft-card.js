@@ -12,42 +12,28 @@ function addNftcard() {
   var nftCreator = document.querySelector("#nft-creator").value;
 
   var newNftcard =
-    `  
-    <div class="nft-container">
-    <article class="main-image">
-      <img src="` +
-    nftImage +
-    `" alt="">
-      <div>
-        <img src="img/icon-view.svg" alt="">
+    ` <div class="nftcard-item">
+    <div class="nftcard-box">
+      <div class="nftcard-main-image">
+        <img src="` + nftImage + `" alt="">
+        <div class="nft-eye-icon">
+          <img src="img/icon-view.svg" alt="">
+        </div>
       </div>
-    </article>
-
-    <article>
-      <h2>` +
-    nftTitle +
-    `</h2>
-      <p>` +
-    nftContent +
-    `</p>
-
-      <ul>
-        <li><img src="img/icon-ethereum.svg" alt="">` +
-    nftPrice +
-    ` ETH</li>
-        <li><img src="img/icon-clock.svg" alt="">` +
-    nftTime +
-    ` left</li>
-      </ul>
-    </article>
-
-    <article class="avatar">
-      <img src="img/image-avatar.png" alt="">
-      <p>Creation of <span>` +
-    nftCreator +
-    `</span></p>
-    </article>
-  </div>
+      <div class="nftcard-text">
+        <h2>` + nftTitle + `</h2>
+        <p>` + nftContent + `</p>
+        <ul>
+          <li><img src="include/images/icon-ethereum.svg" alt="">` + nftPrice + `</li>
+          <li><img src="include/images/icon-clock.svg" alt="">` + nftTime + ` </li>
+        </ul>
+      </div>
+      <div class="nftcard-avatar">
+        <img src="include/images/image-avatar.png" alt="">
+        <p>Creation of <span>` + nftCreator + `</span></p>
+      </div>
+    </div>
+  </div>  
 `;
 
   nftcardListHolder.insertAdjacentHTML("beforeend", newNftcard);

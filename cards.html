@@ -468,16 +468,112 @@
   </footer>
   <!--============================== Footer End ==============================-->
 
+  <section class="modal-content-container">
+
+    <div id="resmenuModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-header-content">
+            <span>Add Responsive Menu</span>
+          </div>
+        </div>
+
+        <div class="modal-container">
+          <label for="title">Title</label>
+          <input id="title" type="text" />
+          <br />
+
+          <label for="content">Content</label>
+          <input id="content" type="text" />
+
+          <button id="confirmBtn" type="button" name="button" onclick="addResmenu()">
+            Confirm
+          </button>
+          <button id="closeBtn" type="button" name="button" onclick="closeResmenuBtn()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="rescardModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-header-content">
+            <span>Add Responsive Card</span>
+          </div>
+        </div>
+
+        <div class="modal-container">
+          <label for="image">Image Url</label>
+          <input id="image" type="text" />
+          <br />
+          <label for="title">Title</label>
+          <input id="res-title" type="text" />
+          <br />
+
+          <label for="content">Content</label>
+          <input id="res-content" type="text" />
+
+          <button id="confirmBtn" type="button" name="button" onclick="addRescard()">
+            Confirm
+          </button>
+          <button id="closeBtn" type="button" name="button" onclick="closeRescardBtn()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="nftcardModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-header-content">
+            <span>Add NFT Card</span>
+          </div>
+        </div>
+
+        <div class="modal-container">
+          <label for="image">Image Url</label>
+          <input id="nft-image" type="text" />
+          <br />
+          <label for="title">Title</label>
+          <input id="nft-title" type="text" />
+          <br />
+
+          <label for="content">Content</label>
+          <input id="nft-content" type="text" />
+
+          <label for="price">Price</label>
+          <input id="nft-price" type="text" />
+
+          <label for="time">Time</label>
+          <input id="nft-time" type="text" />
+
+          <label for="creator">Creator</label>
+          <input id="nft-creator" type="text" />
+
+          <button id="confirmBtn" type="button" name="button" onclick="addNftcard()">
+            Confirm
+          </button>
+          <button id="closeBtn" type="button" name="button" onclick="closeNftcardBtn()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
   <script src="include/js/jquery.min.js"></script>
   <script src="include/js/bootstrap.bundle.min.js"></script>
   <script src="include/js/main.js"></script>
   <script src="include/js/custom.js"></script>
 
   <script type="text/javascript" src="./include/js/res-menu.js"></script>
-  <script type="text/javascript" src="./include/js/qr-card.js"></script>
   <script type="text/javascript" src="./include/js/nft-card.js"></script>
   <script type="text/javascript" src="./include/js/res-card.js"></script>
-  <script src="./include/js/shared.js"></script>
+
 </body>
 
 </html>
