@@ -352,9 +352,14 @@ p:last-child{margin-bottom:0;}
 .nftcard-avatar p span{color:var(--white);font-size:18px;font-weight:400}
 .nftcard-avatar p span:hover{color:var(--cyan);cursor:pointer}
 
+@media screen and (max-width: 576px) {
+  .nftcard-box {width: 100%;height: auto;}
+  .nftcard-box img {border-radius: 0.5rem;}
+}
+
 /********** Services Card **********/
 
-.service-card-list{width: calc(100% + 30px);margin-bottom: -30px;}
+.service-card-list{width: calc(100% + 30px);margin: 0 -15px;margin-bottom: -30px;}
 .service-card-item{width: 33.33%;padding: 0 15px;margin-bottom: 30px;}
 .service-card-box{padding: 20px;border-radius:10px}
 .service-card-img{width: 100%;border-radius: 10px;overflow: hidden;}
@@ -397,8 +402,6 @@ li{list-style:none}
 .contact-form input:focus{outline:none;border-style:none}
 #form-name:hover,#form-email:hover,#form-subject:hover,#form-message:hover{border-bottom:3px solid #F2E8B9}
 #form-submit:hover{background-color:#000;color:#F2E8B9}
-
-
 
 
 
@@ -478,7 +481,6 @@ main{padding:2.5rem}
 
 /* ******************************************************** Signup Section ******************************************************** */
 
-main{padding:2.5rem}
 .signup-title{text-align:center;font-size:1.8rem;color:#121212;margin-bottom:20px}
 .signup-form{padding:2.5rem;background:#c9efc7dd;border:4px solid #121212;border-radius:10px}
 .signup-form label{font-weight:700}
@@ -592,8 +594,6 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
   .btn {width: 100%;}
 
   .section { width: 100%;}
-
-  
   .container-1 img{margin:100px 0 50px;width:95%;height:80vh}
   .container-1 h1{font-size:10vw}
   .about-container{padding:2em}
@@ -626,10 +626,6 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
 }
 
 @media screen and (max-width: 576px) {
-  .nftcard-box {width: 100%;height: auto;}
-  .nftcard-box img {border-radius: 0.5rem;}
-
-  .qrcard-box {width: 100%;margin: 0 auto 1rem;}
 
   .container-1 img{width:93%;height:72.5vh}
   .container-1 h1{font-size:13vw}
@@ -637,7 +633,5 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
   .text-container h3{width:350px}
   .section-info{padding:1em}
   .section-heading{width:100%;padding:.5em}
-  .services{padding:1em}
-  .service_card{width:100%}
   .contact-us{margin:1em}
 }
