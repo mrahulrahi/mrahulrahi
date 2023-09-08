@@ -1,15 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cantora+One&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,400,900");
-@import url("https://fonts.googleapis.com/css?family=Anton");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 
 :root{--white:#fff;
   --black:#000;
   --gold:#F2E8B9;
   --green:#45796F;
-  --soft-blue: hsl(215, 51%, 70%);
   --cyan: hsl(178, 100%, 50%);
   --main-bg: hsl(217, 54%, 11%);
   --card-bg: hsl(216, 50%, 16%);
@@ -53,7 +50,7 @@ a:focus,input:focus,textarea:focus,*:focus{outline:0!important;}
 /* =================reset css ends here================= */
 
 /* =================core css starts here================= */
-body{font-family:"Cantora One",sans-serif;font-size:16px;line-height:24px;font-weight:300;;color:var(--black);background: var(--white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; }
+body{font-family:"Roboto",sans-serif;font-size:16px;line-height:24px;font-weight:400;;color:var(--black);background: var(--white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; }
 .container{width:100%;max-width:1300px;}
 .content-container{padding: 100px 0;}
 a,input,button{display:inline-block;text-decoration:none;color:inherit;outline:none;transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;}
@@ -82,7 +79,7 @@ p:last-child{margin-bottom:0;}
 
 .btn {min-width: 160px;width: fit-content;border-radius: 30px;padding: 15px;font-family:"Readex Pro",sans-serif;font-size: 16px;font-weight: 500;line-height: 1;box-shadow: none;position: relative;}
 .btn-default,.btn-default:focus { color: var(--green);background-color: var(--gold);border: solid 1px var(--gold); }
-.btn-default:hover,.btn-default:active { color: var(--gold)!important;background-color: var(--green)!important;border-color: var(--gold)!important;}
+.btn-default:hover,.btn-default:active { color: var(--gold)!important;background-color: var(--line)!important;border-color: var(--line)!important;}
 .btn.btn-block{min-width: 100%;}
 .btn+.btn {margin-left: 25px;}
 
@@ -394,18 +391,6 @@ p:last-child{margin-bottom:0;}
 }
 
 
-
-/***** Content Section *****/
-
-#team{width:100%;background-color:#45796F;padding:5% 2.5%;font-family:"Readex Pro",sans-serif}
-
-.user{width:100%;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;text-align:center;gap:150px;margin-top:30px}
-.user-list{padding:0;display:flex;flex-direction:column;justify-content:center;align-items:center;line-height:1.5em;font-size:1.5rem;box-shadow:0 0 20px 2px #eade71;width:300px;height:425px;color:#45796F;background-color:#eade71;border-radius:250px;border-top-left-radius:999px;border-top-right-radius:999px}
-.user img{border-radius:50%;width:250px;height:auto;margin-bottom:20px}
-.user ul{display:flex;justify-content:center;list-style:none}
-.user a{width:25px;height:25px;margin:10px;border-radius:50%;color:#45796F}
-.user a i:hover{transform:scale(1.5);transition:.3s}
-
 /***** Contact Section *****/
 .contact{font-family:"Readex Pro",sans-serif;background-color:#45796F;display:flex;flex-direction:row;justify-content:space-evenly;align-items:center;padding:10% 0}
 .contact-title h3{color:#78AEA3;font-size:3rem}
@@ -423,8 +408,31 @@ li{list-style:none}
 
 
 
+.contact-box{border-radius:16px;}
+.contact-text{width: 50%;}
+.contact-text h4{font-size:3em;text-align:center}
+.contact-form{padding:7.5em 0; width: 50%;}
+.contact-form span{color:red}
+.form-control{width:35em;border-radius:.25rem;background-color:#202020;color:#c9efc7}
+.form-control input{height:4em}
+.form-control textarea{min-width:35em;max-width:35em;min-height:10em}
+.mb-3 p{padding-top:1em;padding-bottom:.1em}
+.contact-email{flex-direction:column;gap:2em}
+.contact-email img{width:450px;height:auto}
+.btn-4{margin-top:2em;width:29.25em;height:3rem;font-size:1rem;font-weight:700;color:#121212;text-decoration:none;border-radius:5px;background:rgba(252,175,59,0.9);border:1px solid rgba(252,175,59,0.9)}
 
 
+
+/***** Content Section *****/
+
+#team{width:100%;background-color:#45796F;padding:5% 2.5%;font-family:"Readex Pro",sans-serif}
+
+.user-box{width:100%;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;text-align:center;gap:150px;margin-top:30px}
+.user-list{padding:0;display:flex;flex-direction:column;justify-content:center;align-items:center;line-height:1.5em;font-size:1.5rem;box-shadow:0 0 20px 2px #eade71;width:300px;height:425px;color:#45796F;background-color:#eade71;border-radius:250px;border-top-left-radius:999px;border-top-right-radius:999px}
+.user-box img{border-radius:50%;width:250px;height:auto;margin-bottom:20px}
+.user-box ul{display:flex;justify-content:center;list-style:none}
+.user-box a{width:25px;height:25px;margin:10px;border-radius:50%;color:#45796F}
+.user-box a i:hover{transform:scale(1.5);transition:.3s}
 
 
 .user{flex-wrap:wrap;padding:50px 0;gap:30px;text-align:center}
@@ -436,18 +444,7 @@ li{list-style:none}
 .section-info{padding:3em;flex-direction:column;gap:1em}
 .section-heading{width:100%;color:#fcaf3b;padding:1em;font-size:3em;text-align:center;border-radius:16px}
 
-.contact-us{flex-wrap:wrap;justify-content:space-around;border-radius:16px;margin:50px}
-.contact-details{flex-direction:column;gap:50px;padding:7.5em 0}
-.contact-details h4{font-size:3em;text-align:center}
-.contact-form{padding:7.5em 0}
-.contact-form span{color:red}
-.form-control{width:35em;border-radius:.25rem;background-color:#202020;color:#c9efc7}
-input{height:4em}
-textarea{min-width:35em;max-width:35em;min-height:10em}
-.mb-3 p{padding-top:1em;padding-bottom:.1em}
-.email{flex-direction:column;gap:2em}
-.email img{width:450px;height:auto}
-.btn-4{margin-top:2em;width:29.25em;height:3rem;font-size:1rem;font-weight:700;color:#121212;text-decoration:none;border-radius:5px;background:rgba(252,175,59,0.9);border:1px solid rgba(252,175,59,0.9)}
+
 
 /* ******************************************************** Other CSS Section ******************************************************** */
 
@@ -649,96 +646,16 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
 }
 
 
-.login-container {
-  display: flex;
-  justify-content: center;
-  height: 20em;
-  width: 30em;
-  box-shadow: 1px 2px 2px 4px #000;
-  padding-top: 60px;
-  border-radius: 40px; 
-  background-color: #fff ;
-  opacity: 75%;
-  background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84); 
-}
 
-.username {
-  font-weight: bold;
-  color: #000;
-  position: absolute;
-  top: 15px;
-  right: 20px;
-}
 
-.img-container {
-    padding-top: 20px;
-    justify-content: center;
-    display: flex;
-  }
-
-.profile {
-  position: absolute;
-  top: 7rem;
-  height: 100px;
-  width: 100px;
-  border-radius: 20%;
-  border-style: solid;
-  border-width: 0.625rem;
-  border-color: #01274D;
-  background-color: #01274D;
-} 
-
-.input{
-    width: 18.75rem;
-    height: 3.125rem;
-    border: none;
-    outline: none;
-    background-color: #385072;
-}
-
-.user-name,.pass{
-  justify-content: center;
-  align-items: center;
-  background-color: #01274D;
-  height: 2.5rem;
-  width: 2.5rem;
-  position: absolute;
-  padding: 5px;
-}
-
-.name{
-    padding-left: 4.375rem;
-    font-size: 20px;
-}
-
-.second-input{
-    padding-top: 20px;
-}
-
-.link{
-    font-size: 16px;
-    font-weight: 400;
-    padding-top: 1.5rem;
-    padding-bottom: 2rem;
-    display: flex;
-    justify-content: space-between;
-}
-
-a{
-     color: #01274D;
-     font-style: italic;
-     text-decoration: none;
- }
-
- .login-btn{
-  cursor: pointer;
-  width: 380px;
-  height: 70px;
-  border-radius: 20px;
-  color: white;
-  background-color: #01274D;
-  font-size: 25px;
-  justify-content: center;
-  border: none;
-  box-shadow: #000;
-}
+.login-container{display:flex;justify-content:center;height:20em;width:30em;box-shadow:1px 2px 2px 4px #000;padding-top:60px;border-radius:40px;background-color:#fff;opacity:75%}
+.login-container .username{font-weight:700;color:#000;position:absolute;top:15px;right:20px}
+.login-container .img-container{padding-top:20px;justify-content:center;display:flex}
+.login-container .profile{position:absolute;top:7rem;height:100px;width:100px;border-radius:20%;border-style:solid;border-width:.625rem;border-color:#01274D;background-color:#01274D}
+.login-container .input{width:18.75rem;height:3.125rem;border:none;outline:none;background-color:#385072}
+.login-container .user-name,.pass{justify-content:center;align-items:center;background-color:#01274D;height:2.5rem;width:2.5rem;position:absolute;padding:5px}
+.login-container .name{padding-left:4.375rem;font-size:20px}
+.login-container .second-input{padding-top:20px}
+.login-container .link{font-size:16px;font-weight:400;padding-top:1.5rem;padding-bottom:2rem;display:flex;justify-content:space-between}
+.login-container a{color:#01274D;font-style:italic;text-decoration:none}
+.login-container .login-btn{cursor:pointer;width:380px;height:70px;border-radius:20px;color:#fff;background-color:#01274D;font-size:25px;justify-content:center;border:none;box-shadow:#000}
