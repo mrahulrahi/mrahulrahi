@@ -419,7 +419,7 @@ p:last-child{margin-bottom:0;}
 
 .contact-box+.contact-box{margin-top: 60px;}
 
-/***** Content Section *****/
+/***** Team Section *****/
 
 #team{width:100%;background-color:#45796F;padding:5% 2.5%;font-family:"Readex Pro",sans-serif}
 
@@ -438,13 +438,24 @@ p:last-child{margin-bottom:0;}
 .user a{width:25px;height:25px;margin:10px;border-radius:50%;color:#000}
 .user a:hover{transform:scale(1.3);transition:.3s}
 .section-info{padding:3em;flex-direction:column;gap:1em}
-.section-heading{width:100%;color:#fcaf3b;padding:1em;font-size:3em;text-align:center;border-radius:16px}
+
+
+
+.testimonial{font-size:1.2rem}
+.testimonial-image-container{width:100%;max-width:30rem;border-radius:10px;box-shadow:3px 3px 5px 3px rgba(0,0,0,0.3)}
+.testimonial-image{width:100%;vertical-align:top;border-radius:10px}
+.testimonial-info{text-align:left;line-height:2rem;padding:2.5rem;background:#c9efc7dd;border:4px solid #121212;border-radius:10px}
+#customer-2.testimonial{text-align:right}
+.testimonial-name{margin:.2rem;color:#454545;font-size:2rem}
+.testimonial-subtitle{margin:0;font-size:1.25rem;color:#fcaf3b}
+.testimonial-subtitle a{color:inherit;text-decoration:none}
+.testimonial-subtitle a:hover,.testimonial-subtitle a:active{color:#7a7a7a}
+.testimonial-text{margin:.2rem;font-size:1rem;font-weight:500;line-height:1.25rem}
 
 
 
 /* ******************************************************** Other CSS Section ******************************************************** */
 
-main{padding:2.5rem}
 .section-title{color:#121212;font-size:1.5rem;text-align:center;margin-top:50px}
 .plan{background:#d5ffdc;text-align:center;padding:1rem;margin:.5rem 0;width:100%;border-radius:10px}
 .plan-list{padding:50px}
@@ -476,16 +487,6 @@ main{padding:2.5rem}
 
 /* ******************************************************** Customers Section ******************************************************** */
 
-.testimonial{font-size:1.2rem}
-.testimonial-image-container{width:100%;max-width:30rem;border-radius:10px;box-shadow:3px 3px 5px 3px rgba(0,0,0,0.3)}
-.testimonial-image{width:100%;vertical-align:top;border-radius:10px}
-.testimonial-info{text-align:left;line-height:2rem;padding:2.5rem;background:#c9efc7dd;border:4px solid #121212;border-radius:10px}
-#customer-2.testimonial{text-align:right}
-.testimonial-name{margin:.2rem;color:#454545;font-size:2rem}
-.testimonial-subtitle{margin:0;font-size:1.25rem;color:#fcaf3b}
-.testimonial-subtitle a{color:inherit;text-decoration:none}
-.testimonial-subtitle a:hover,.testimonial-subtitle a:active{color:#7a7a7a}
-.testimonial-text{margin:.2rem;font-size:1rem;font-weight:500;line-height:1.25rem}
 
 /* ******************************************************** Signup Section ******************************************************** */
   
