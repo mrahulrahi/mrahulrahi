@@ -407,19 +407,17 @@ li{list-style:none}
 #form-submit:hover{background-color:#000;color:#F2E8B9}
 
 
-
+.contact-wrapper{width: 100%;}
 .contact-box{border-radius:16px;}
 .contact-text{width: 50%;}
 .contact-text h4{font-size:3em;text-align:center}
-.contact-form{padding:7.5em 0; width: 50%;}
+.contact-form{width: 50%;}
 .contact-form span{color:red}
-.form-control{width:35em;border-radius:.25rem;background-color:#202020;color:#c9efc7}
+.form-control{width:100%;border-radius:.25rem;background-color:#202020;color:#c9efc7}
 .form-control input{height:4em}
-.form-control textarea{min-width:35em;max-width:35em;min-height:10em}
-.mb-3 p{padding-top:1em;padding-bottom:.1em}
-.contact-email{flex-direction:column;gap:2em}
+.form-control textarea{min-width:100%;max-width:35em;min-height:10em}
+.contact-form label{padding-top:1em;padding-bottom:.1em}
 .contact-email img{width:450px;height:auto}
-.btn-4{margin-top:2em;width:29.25em;height:3rem;font-size:1rem;font-weight:700;color:#121212;text-decoration:none;border-radius:5px;background:rgba(252,175,59,0.9);border:1px solid rgba(252,175,59,0.9)}
 
 
 
