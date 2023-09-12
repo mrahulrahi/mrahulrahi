@@ -503,6 +503,8 @@ p:last-child{margin-bottom:0;}
 .signup-form input[type="checkbox"]:checked{background:#2ddf5c;border:#121212}
 .signup-form input.invalid,.signup-form select.invalid,.signup-form :invalid{border-color:red!important;background:#faacac}
 .signup-form button[type="submit"]{margin-top:1rem}
+.signup-form {margin: auto;width: 100%;}
+.signup-page{width: 50%;}
 
 /* ******************************************************** Backdrop Section ******************************************************** */
 
@@ -529,7 +531,7 @@ main{min-height:calc(100vh - 3.5rem - 8rem);margin-top:3.5rem}
 .plan{width:30%;min-width:13rem;max-width:25rem;display:flex;flex-direction:column;justify-content:space-between;height:28rem}
 .plan-highlighted{box-shadow:2px 2px 2px 2px rgba(0,0,0,0.5);height:30rem;z-index:50}
 .key-feature {width: 30%;max-width: 25rem;}
-#key-features{padding:3rem;margin:50px;border-radius:16px}
+#key-features{width: 100%;border-radius:16px}
 #key-features .section-title{color:#121212;font-size:1.5rem;margin-top:0;margin-bottom:2rem}
 .key-feature-list{list-style:none;gap:2rem;margin:0;padding:0;text-align:center}
 .key-feature-image{background:#c9efc7;width:128px;height:128px;border:2px solid #424242;border-radius:50%;margin:10px auto;padding:1.5rem}
@@ -542,7 +544,7 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
 .testimonial-image-container {width: 66%;}
 .testimonial-info {width: 30%;}
 
-.signup-form {margin: auto;width: 25rem;}
+
 
 
 .toggle-button{display:none}
@@ -577,10 +579,6 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
   #free:hover, #free:active {border-right-color: #ff5454;}
 }
 
-@media (max-width: 991px) {
-  .section {width: 100%;}
-}
-
 @media screen and (max-width: 768px) {
   .bg-img{width:100%;height:300px}
   .title{top:60%;left:50%;transform:translate(-50%,-50%)}
@@ -599,15 +597,11 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
   #form-message{height:114px}
   #form-submit{width:100%}
 
-
   #resmenuModal,#rescardModal,#nftcardModal,#qrcardModal {text-align: center;width: 95%;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 99;}
   .btn {width: 100%;}
 
-  .section { width: 100%;}
   .container-1 img{margin:100px 0 50px;width:95%;height:80vh}
   .container-1 h1{font-size:10vw}
-
-
 
   .section-info{padding:3em}
   .section-heading{width:90%}
@@ -646,13 +640,13 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
 
 
 
-.login-container{display:flex;justify-content:center;height:20em;width:30em;box-shadow:1px 2px 2px 4px #000;padding-top:60px;border-radius:40px;background-color:#fff;opacity:75%}
+.login-container{display:flex;justify-content:center;height:20em;width:30em;padding-top:60px;border-radius:20px;b}
 .login-container .username{font-weight:700;color:#000;position:absolute;top:15px;right:20px}
 .login-container .img-container{padding-top:20px;justify-content:center;display:flex}
-.login-container .profile{position:absolute;top:7rem;height:100px;width:100px;border-radius:20%;border-style:solid;border-width:.625rem;border-color:#01274D;background-color:#01274D}
+.login-container .profile{position:absolute;top:0;margin-top: -50px;height:100px;width:100px;border-radius:20%;border-style:solid;border-width:.625rem;border-color:#01274D;background-color:#01274D}
 .login-container .input{width:18.75rem;height:3.125rem;border:none;outline:none;background-color:#385072}
-.login-container .user-name,.pass{justify-content:center;align-items:center;background-color:#01274D;height:2.5rem;width:2.5rem;position:absolute;padding:5px}
-.login-container .name{padding-left:4.375rem;font-size:20px}
+.login-container .user-name,.pass{justify-content:center;align-items:center;background-color:#01274D;height:3rem;width:3rem;position:absolute;padding:10px}
+.login-container .name{padding-left:4.375rem;font-size:20px;width: 100%;}
 .login-container .second-input{padding-top:20px}
 .login-container .link{font-size:16px;font-weight:400;padding-top:1.5rem;padding-bottom:2rem;display:flex;justify-content:space-between}
 .login-container a{color:#01274D;font-style:italic;text-decoration:none}
