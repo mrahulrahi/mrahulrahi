@@ -640,7 +640,7 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
 
 
 
-.login-container{display:flex;justify-content:center;height:20em;width:30em;padding-top:60px;border-radius:20px;b}
+.login-container{display:flex;justify-content:center;height:20em;width:30em;padding-top:60px;border-radius:20px;}
 .login-container .username{font-weight:700;color:#000;position:absolute;top:15px;right:20px}
 .login-container .img-container{padding-top:20px;justify-content:center;display:flex}
 .login-container .profile{position:absolute;top:0;margin-top: -50px;height:100px;width:100px;border-radius:20%;border-style:solid;border-width:.625rem;border-color:#01274D;background-color:#01274D}
@@ -648,6 +648,6 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
 .login-container .user-name,.pass{justify-content:center;align-items:center;background-color:#01274D;height:3rem;width:3rem;position:absolute;padding:10px}
 .login-container .name{padding-left:4.375rem;font-size:20px;width: 100%;}
 .login-container .second-input{padding-top:20px}
-.login-container .link{font-size:16px;font-weight:400;padding-top:1.5rem;padding-bottom:2rem;display:flex;justify-content:space-between}
+.login-container .link{font-size:16px;font-weight:400;padding-top:1.5rem;padding-bottom:2rem;}
 .login-container a{color:#01274D;font-style:italic;text-decoration:none}
-.login-container .login-btn{cursor:pointer;width:380px;height:70px;border-radius:20px;color:#fff;background-color:#01274D;font-size:25px;justify-content:center;border:none;box-shadow:#000}
+.login-container .login-btn{cursor:pointer;width:380px;height:70px;border-radius:20px;color:#fff;background-color:#01274D;font-size:25px;justify-content:center;border:none;}
