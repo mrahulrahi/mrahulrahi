@@ -330,13 +330,15 @@ p:last-child{margin-bottom:0;}
 }
  
 /********** NFT Card **********/
-.nftcard-list{font-family:"Outfit",sans-serif;}
-.nftcard-box{padding:1rem;background-color:var(--card-bg);border-radius:.5rem;margin-bottom:1rem;width:350px;height:auto}
+.nftcard-list{font-family:"Outfit",sans-serif;width: calc(100% + 30px);}
+.nftcard-item{width: 33.33%;padding: 0 15px;}
+.nftcard-box{padding:1rem;background-color:var(--card-bg);border-radius:.5rem;margin-bottom:1rem;width:100%;height:100%}
 .nftcard-box img{max-width:100%;border-radius:.5rem}
-.nftcard-main-image{position:relative}
-.nftcard-main-image div{position:absolute;top:0;background-color:hsl(178,100%,50%,50%);width:100%;height:calc(100% - 4px);z-index:90;opacity:0;transition:opacity .3s ease-in-out}
-.nftcard-main-image div:hover{opacity:1;cursor:pointer}
-.nftcard-main-image div img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
+.nftcard-image{position:relative;width: 100%;padding-bottom: 100%;}
+.nftcard-image img{width: 100%;height: 100%;object-fit: cover;position: absolute;top: 0;left: 0;}
+.nftcard-image::before{content: '';position:absolute;top:0;left: 0;bottom: 0;right: 0; background: url(../images/icon-view.svg); background-color:hsl(178,100%,50%,50%);width:100%;height: 100%;z-index:90;opacity:0;transition:opacity .3s ease-in-out}
+.nftcard-image:hover .nftcard-main-image::before{opacity:1;cursor:pointer}
+.nftcard-image div img{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%)}
 .nftcard-box ul{display:flex;align-items:center;justify-content:space-between;padding:1rem 0;border-bottom:1px solid var(--line)}
 .nftcard-box h2{font-size:28px;font-weight:600;color:var(--white);margin:1rem .5rem .5rem 0}
 .nftcard-box h2:hover{color:var(--cyan);cursor:pointer}
