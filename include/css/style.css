@@ -314,9 +314,9 @@ p:last-child{margin-bottom:0;}
 /********** Responsive Cards **********/
 .rescard-list{width: calc(100% + 20px);margin: 0 -10px;margin-bottom: -20px;font-family:"Outfit",sans-serif;}
 .rescard-item{width: 33.33%;padding: 0 10px;margin-bottom: 20px;}
-.rescard-box{border:1px solid #aaa;box-shadow:1px 1px 5px rgba(0,0,0,0.5);cursor:pointer;transition:background-color 400ms ease-out;border-radius:20px; background-color:var(--light-gray);overflow: hidden;}
+.rescard-box{height:100%;border:1px solid #aaa;box-shadow:1px 1px 5px rgba(0,0,0,0.5);cursor:pointer;transition:background-color 400ms ease-out;border-radius:20px; background-color:var(--light-gray);overflow: hidden;}
 .rescard-box:hover{background-color:hsl(217,54%,11%);}
-.rescard-img{width:100%;height:100%;position: relative;padding-bottom: 100%;}
+.rescard-img{width:100%;position: relative;padding-bottom: 100%;}
 .rescard-img img{width:100%;height: 100%;object-fit: cover;position: absolute;top: 0;left: 0;}
 .rescard-text{font-size:17px;font-weight:400;color:var(--grayish-blue);padding: 20px;text-align:center;}
 .rescard-text h4{font-weight:700;color:var(--dark-blue);text-align:center;margin-bottom:1rem}
@@ -364,12 +364,11 @@ p:last-child{margin-bottom:0;}
 
 .service-card-list{width: calc(100% + 30px);margin: 0 -15px;margin-bottom: -30px;}
 .service-card-item{width: 33.33%;padding: 0 15px;margin-bottom: 30px;}
-.service-card-box{padding: 20px;border-radius:10px}
+.service-card-box{padding: 20px;border-radius:10px;height: 100%;}
 .service-card-img{width: 100%;border-radius: 10px;overflow: hidden;}
 .service-card-img img{width:100%;height:100%;object-fit: cover;}
-.service-card-text{font-size:16px;color: var(--green);margin-top: 30px;}
+.service-card-text{font-size:16px;color: var(--green);margin: 30px 0;}
 .service-card-text h4{font-size:40px}
-.service-card-text+.btn{margin-top: 40px;}
 
 
 @media (max-width:991.98px){
@@ -537,20 +536,29 @@ p:last-child{margin-bottom:0;}
 .main-nav__item--cta a:hover,.main-nav__item--cta a:active,.mobile-nav__item--cta a:hover,.mobile-nav__item--cta a:active{color:#454545;background:#fff;border:none}
 
 
-
-
 .plan-list{width:100%;display:flex;justify-content:center;align-items:center}
 .plan{width:30%;min-width:13rem;max-width:25rem;display:flex;flex-direction:column;justify-content:space-between;height:28rem}
 .plan-highlighted{box-shadow:2px 2px 2px 2px rgba(0,0,0,0.5);height:30rem;z-index:50}
-.key-feature {width: 30%;max-width: 25rem;}
-#key-features{width: 100%;border-radius:16px}
-#key-features .section-title{color:#121212;font-size:1.5rem;margin-top:0;margin-bottom:2rem}
-.key-feature-list{list-style:none;gap:2rem;margin:0;padding:0;text-align:center}
-.key-feature-image{background:#c9efc7;width:128px;height:128px;border:2px solid #424242;border-radius:50%;margin:10px auto;padding:1.5rem}
-.key-feature-image img{width: 100%;height: 100%;object-fit: cover;}
-.key-feature-description{font-weight:700;color:#121212;font-size:1rem}
 
-main {max-width: 1500px;margin-left: auto;margin-right: auto;}
+#key-features{width: 100%;border-radius:16px}
+#key-features .section-title{color:#121212;font-size:24px;margin-top:0;margin-bottom:2rem}
+.key-feature-list{width: calc(100% + 20px);margin: 0 -10px;margin-bottom: -20px;}
+.key-feature-item {width: 16.66%;padding: 0 10px;margin-bottom: 20px;}
+.key-feature-image{background:#c9efc7;width:128px;height:128px;border:2px solid #424242;border-radius:50%;margin-bottom:10px;padding:1.5rem}
+.key-feature-image img{width: 100%;height: 100%;object-fit: cover;}
+.key-feature-description{font-weight:700;color:#121212;font-size:16px;text-align:center}
+
+@media screen and (max-width: 1199.98px) {
+  .key-feature-item{width: 33.33%;}
+}
+
+@media screen and (max-width: 767.98px) {
+  .key-feature-item{width: 50%;}
+}
+
+@media screen and (max-width: 575.98px) {
+  .key-feature-item{width: 100%;}
+}
 
 .testimonial {margin: 3rem auto;max-width: 1500px;display: flex;align-items: center;justify-content: space-around;}
 .testimonial-image-container {width: 66%;}
@@ -626,7 +634,7 @@ main {max-width: 1500px;margin-left: auto;margin-right: auto;}
   .btn-4{width:100%}
 
   .plan {height: 25rem;display: flex;justify-content: center;align-items: center;flex-direction: column;gap: 10px;padding: 20px;}
-  .key-feature-list {flex-direction: column;}
+
 
   #packages {flex-direction: column;gap: 30px;}
   .package {width: 350px;border-left: 4px solid #121212;}
