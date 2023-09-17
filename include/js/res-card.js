@@ -9,25 +9,19 @@ function addRescard() {
   var resContent = document.querySelector("#res-content").value;
 
   var newRescard =
-    `  
-    <div class="destination">
-    <div class="thumbnail">
-      <img src="` +
-    image +
-    `" alt="Sunset in New York" />
+  `  
+    <div class="rescard-item">
+      <div class="rescard-box">
+        <div class="rescard-img">
+          <img src="` + image + `" alt="Sunset in New York" />
+        </div>
+        <div class="rescard-text">
+          <h4>` + resTitle + `</h4>
+          <p> ` + resContent + `</p>
+        </div>
+      </div>
     </div>
-    <div class="content">
-      <h1>` +
-    resTitle +
-    `</h1>
-      <p>
-        ` +
-    resContent +
-    `
-      </p>
-    </div>
-  </div>
-`;
+  `;
 
   rescardListHolder.insertAdjacentHTML("beforeend", newRescard);
   addRescardModal.style.display = "none";

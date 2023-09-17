@@ -7,19 +7,17 @@ function addResmenu() {
   var title = document.querySelector("#title").value;
   var content = document.querySelector("#content").value;
 
-  var newInterview =
-    `
-    <div class="section col-lg-4 col-md-12 col-sm-12">
-      <h2 class="title">` +
-    title +
-    `</h2>
-      <p>` +
-    content +
-    `</p>
+  var newResmenu =
+  `
+    <div class="resmenu-item">
+      <div class="resmenu-box">
+        <div class="resmenu-heading ms-auto">` + title + `</div>
+        <p>` + content + `</p>
+      </div>
     </div>
-`;
+  `;
 
-  resmenuListHolder.insertAdjacentHTML("beforeend", newInterview);
+  resmenuListHolder.insertAdjacentHTML("beforeend", newResmenu);
   addResmenuModal.style.display = "none";
 }
 
