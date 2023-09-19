@@ -153,8 +153,6 @@ body{padding-top: 70px;}
 .about-text{width:550px}
 .about-text h4{color:#fff;letter-spacing:2px;font-size:22px;margin-bottom:25px;text-transform:capitalize}
 .about-text p{color:var(--secondary);letter-spacing:1px;line-height:28px;font-size:18px;margin-left:25px;margin-bottom:45px}
-button{background-color:var(--primary);color:#fff;text-decoration:none;border:2px solid transparent;font-weight:700;padding:13px 30px;border-radius:30px;transition:.4s}
-button:hover{background-color:transparent;border:2px solid var(--primary);cursor:pointer}
 
 
 .certificate{background-color:var(--violet);padding:40px;border-radius:25px;display:flex;flex-direction:column;justify-content:center}
@@ -174,10 +172,15 @@ button:hover{background-color:transparent;border:2px solid var(--primary);cursor
 .services-card-item{width: 50%;padding: 0 12px;margin-bottom: 24px;}
 .services-card-box{position: relative;border-radius: 10px;overflow: hidden;}
 .services-card-box::after{content: '';position: absolute;top: 0;left: 0;bottom: 0;right: 0;background: linear-gradient(9deg, #1A1B25 -6.2%, rgba(26, 27, 37, 0.00) 87.9%);}
-.services-card-img{width: 100%;position: relative;padding-bottom: 97.8%;}
-.services-card-img img{width: 100%;height: 100%;object-fit: cover;position: absolute;top: 0;left: 0;}
+.services-card-img{width: 100%;position: relative;aspect-ratio:16 / 9;}
+.services-card-img img{width: 100%;height: 100%;object-fit: cover;}
 .services-card-text{font-size: 16px;font-weight: 300;line-height: 1.6;position: absolute;left: 0;bottom: 0;right: 0;z-index: 9;padding: 40px;color: var(--white);}
 .services-card-text h4{font-size: 40px;font-weight: 600;line-height: 1.6;margin-bottom: 10px;}
+
+
+
+
+
 
 .community-card-list{width: calc(100% + 20px);margin: 0 -10px; margin-bottom: -20px;}
 .community-card-item{width: 20%;padding: 0 10px;margin-bottom: 20px;}
@@ -187,12 +190,7 @@ button:hover{background-color:transparent;border:2px solid var(--primary);cursor
 
 
 .testimonials-list-outer{width: 100%;position: relative;overflow: hidden;}
-.testimonials-box{background: #F5F5F5;padding: 40px;border-radius: 10px;}
-.testimonials-quote-icon{width: 38px;height: 38px;margin-bottom: 16px;}
-.testimonials-quote-icon img{width: 100%;height: 100%;object-fit: contain;}
-.testimonials-text h6{font-size: 20px;font-weight: 500;line-height: 1.5;margin-bottom: 32px;}
 
-.testimonials-list-pagination{position: relative;top: 60px;}
 
 .testimonials-list-arrow-container{width: 100%;position: absolute;top: 50%;transform: translateY(-50%);left: 0;z-index: 999;}
 .testimonials-list-arrow-container .swiper-arrow-prev{transform:rotate(180deg);right:0;}
@@ -324,24 +322,7 @@ body.home:not(.fixed) .navbar-brand img{filter: brightness(0) invert(1);opacity:
 
 
 
-.project{width:100%;padding:50px 0}
-.project-container{background-color:var(--violet);border-radius:25px;padding:50px 0}
-.box{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:20px;min-height:400px}
-.projectSwiper .swiper-slide{display:flex;justify-content:center;align-items:center;flex-wrap:wrap}
-.projectSwiper .swiper-button-next,.projectSwiper .swiper-button-prev{background:var(--primary);color:var(--secondary);border-radius:100%;padding:30px;font-size:20px}
-.projectSwiper .swiper-button-next:after,.projectSwiper .swiper-button-prev:after{font-size:30px}
-.card{height:100%;width:50%;padding:20px;background:var(--secondary);border-radius:20px;margin:1em;overflow:hidden;text-align:center;border:3px solid #000}
-.img-container{aspect-ratio:16 / 9;overflow:hidden;overflow-y:scroll;border-radius:10px;border:3px solid #000;scrollbar-face-color:var(--primary)}
-.img-container{scrollbar-width:auto;scrollbar-color:var(--primary);border-radius:5px}
-.img-container::-webkit-scrollbar{width:5px}
-.img-container::-webkit-scrollbar-track{background:var(--secondary)}
-.img-container::-webkit-scrollbar-thumb{background-color:var(--primary);border-radius:5px;border:1px solid var(--secondary)}
-.project-img{width:100%;background-size:cover}
-.card-content{width:30%;height:100%;padding:20px;background:var(--secondary);border-radius:20px;margin:1em;overflow:hidden;text-align:center;border:3px solid #000}
-.card-content h5{color:#000;font-size:1.75em;margin-bottom:1em}
-.card-content span{font-size:16px;line-height:27px}
-.card-content .button{background-color:var(--primary);color:#fff;text-decoration:none;border:2px solid transparent;font-size:1em;font-weight:700;padding:10px 15px;border-radius:30px;transition:.4s ease}
-.card-content .button:hover{color:var(--primary);background-color:transparent;border:2px solid var(--primary);cursor:pointer}
+
 
 .skill{padding:50px 0}
 .skill-container{width:100%;height:100%;background-color:var(--violet);border-radius:25px;padding:50px 0}
