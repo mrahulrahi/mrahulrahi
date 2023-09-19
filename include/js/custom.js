@@ -61,12 +61,8 @@ $('.navbar-toggler').on('click', function () {
 /************** Blog Card Swiper Start **************/
 if ($('.testimonials-list-slider').length > 0) {
   var portfolioSwiper = new Swiper(".testimonials-list-slider", {
-    slidesPerView: 'auto',
+    slidesPerView: 5,
     spaceBetween: 30,
-    pagination: {
-      el: ".testimonials-list-pagination",
-      clickable: true,
-    },
     navigation: {
       nextEl: ".testimonials-arrow-next",
       prevEl: ".testimonials-arrow-prev",
