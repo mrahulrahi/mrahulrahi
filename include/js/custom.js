@@ -61,19 +61,31 @@ $('.navbar-toggler').on('click', function () {
 /************** Blog Card Swiper Start **************/
 if ($('.testimonials-list-slider').length > 0) {
   var portfolioSwiper = new Swiper(".testimonials-list-slider", {
-    slidesPerView: 5,
+    slidesPerView: 1,
     spaceBetween: 30,
     autoplay: {
       delay: 1000,
   },
     loop:true,
 
-    // breakpoints: {
-    //   992: {
-    //     slidesPerView: 1,
-    //     spaceBetween: 30,
-    //   }
-    // }
+    breakpoints: {
+      376: {
+        slidesPerView: 2,
+        spaceBetween: 30,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 30,
+      },
+      1200: {
+        slidesPerView: 5,
+        spaceBetween: 30,
+      }
+    }
   });
 }
 /************** Blog Card Swiper End **************/
