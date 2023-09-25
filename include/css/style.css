@@ -78,7 +78,7 @@ strong{font-weight:700;}
 b{font-weight:400;}
 p:last-child{margin-bottom:0;}
 
-.btn {min-width: 196px;width: fit-content;border-radius: 80px;padding: 20.5px 15px;font-family: 'Josefin Sans', sans-serif;font-size: 14px;font-weight: 400;line-height: 1;box-shadow: none;position: relative;}
+.btn {min-width: 160px;width: fit-content;border-radius: 80px;padding: 16px 15px;font-family: 'Josefin Sans', sans-serif;font-size: 16px;font-weight: 500;line-height: 1;box-shadow: none;position: relative;}
 .btn-default,.btn-default:focus { color: var(--white);background-color: var(--violet);border: solid 1px var(--violet); }
 .btn-default:hover,.btn-default:active { color: var(--white)!important;background-color: var(--primary)!important;border-color: var(--primary)!important;}
 .btn.white,.btn.white:focus { color: var(--violet);background-color: var(--white);border: solid 1px var(--white); }
@@ -107,7 +107,7 @@ body{padding-top: 70px;}
 .nav-inside{width:100%;padding:0;}
 .nav-inside-content{padding:30px 0;}
 .header-btn{padding-left: 15px;}
-.header-btn .btn{min-width: 118px;padding: 17px 30px;background:var(--primary);color:var(--secondary);border: solid 1px var(--primary);transition: .2s ease-in;font-size: 16;font-weight:700;border-radius:50px;}
+.header-btn .btn{min-width: 118px;padding: 16px 30px;background:var(--primary);color:var(--secondary);border: solid 1px var(--primary);transition: .2s ease-in;font-weight:700;border-radius:50px;}
 .header-btn .btn:hover{transform:scale(1.1)}
 
 /* ============================== header end here ================================== */
