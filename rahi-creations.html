@@ -2,60 +2,96 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="asset/style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="shortcut icon" href="img/saya.png" />
-  <title>Rahi Creations</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rahi Creations | Portfolio</title>
+  <link rel="icon" href="include/images/favicon.svg" sizes="32x32">
+  <link href="include/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="include/css/style.css" rel="stylesheet" type="text/css">
+  <script src="https://kit.fontawesome.com/8c25ccfa63.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <header>
-    <a href="#" class="logo"><img class="icon" src="img/site-logo.png" alt=""></a>
-    <div class="hamburger">
-      <h3><i class="bi bi-filter-right"></i></h3>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#jumbotron" class="active">Home</a></li>
-        <li><a href="index.html">Fire Liquidator</a></li>
-        <li><a href="#about">About me</a></li>
-        <li><a href="#video">My Videos</a></li>
-        <li><a href="#contact">Contact me</a></li>
-      </ul>
+  <!--============================== Header Start ==============================-->
+  <header id="header">
+    <nav class="navbar navbar-expand-xl">
+      <div class="container">
+        <div class="nav-inside d-flex align-items-center justify-content-between">
+          <a class="navbar-brand nav-logo logo" href="#!">
+            <img class="icon" src="include/images/site-logo.png " alt="">
+          </a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+            aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-center" id="mainNav">
+            <div class="navbar-inside">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="#!">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Videos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Rahi Creations</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">mrahulrahi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">Contact</a></li>
+                <div class="nav-item header-btn d-xl-none">
+                  <a href="#!" class="btn btn-default nav-btn">Hire Me</a>
+                </div>
+              </ul>
+              <div class="navbar-bottom mt-auto d-xl-none">
+                <ul class="social d-flex justify-content-center">
+                  <li><a href="tel:1-800-681-2667" target="_blank"><img src="include/images/phone-icon.svg" alt=""></a>
+                  </li>
+                  <li><a href="mailto:admin@kjpcounsel.com" target="_blank"><img src="include/images/mail-icon.svg"
+                        alt=""></a>
+                  </li>
+                  <li><a href="#" target="_blank"><img src="include/images/linkedin-icon.svg" alt=""></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="header-btn d-none d-xl-block">
+            <a href="#!" class="btn btn-default white nav-btn">Hire Me</a>
+          </div>
+        </div>
+      </div>
     </nav>
-    <div class="clear"></div>
   </header>
-
-  <section id="home">
+  <!--============================== Header End ==============================-->
+  <!--============================== Hero Start ==============================-->
+  <div class="banner-container d-flex align-items-center position-relative">
+    <div class="banner-bg" style="background-image: url(include/images/home-bg.jpg);"></div>
     <div class="container">
-      <div class="img-container">
-        <img class="glass-bg" src="img/home-bg.jpg" alt="" srcset="" />
-      </div>
-      <div class="home-info">
-        <h1>WHERE IMAGINATION<br />MEETS CREATIVITY</h1>
-        <span class="flex">
-          <a class="btn btn-1" href="">LEARN MORE</a>
-          <a class="btn btn-2" href="">HIRE US</a>
-        </span>
+      <div class="row os-animation" data-os-animation="fadeInUp" data-os-animation-delay="0.2s">
+        <div class="col-lg-12">
+          <div class="banner-box d-flex">
+            <div class="banner-text mx-auto">
+              <h1>WHERE IMAGINATION<br />MEETS CREATIVITY</h1>
+              <div class="banner-btn">
+                <a class="btn btn-default btn-1" href="">LEARN MORE</a>
+                <a class="btn btn-default btn-2" href="">HIRE US</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+  <!--============================== Hero End ==============================-->
+
+
   <!-- part about -->
   <section id="about">
     <div class="container">
       <div class="row justify-content-center text-center">
         <div class="col-md-6">
           <div class="a-img">
-            <img src="img/main-img.jpg" class="img-fluid" />
+            <img src="include/images/main-img.jpg" class="img-fluid" />
           </div>
         </div>
         <div class="col-md-6">
-          <div class="a-1">
-            <h2>About me</h2>
+          <div class="heading">
+            <h3>About me</h3>
             <div class="a-abt">
               <p>
                 Hi, This side Rahul Maurya <br />
@@ -71,79 +107,93 @@
       </div>
     </div>
   </section>
-  <section id="contact">
+
+
+  <!--============================== bottom-contact-signpost Start ==============================-->
+  <div class="content-container bottom-contact-signpost text-center bg-violet">
     <div class="container">
       <div class="row">
-        <div class="row text-center mt-5 mb-5">
-          <div class="col">
-            <h2>Contact me</h2>
+        <div class="col-lg-12">
+          <div class="heading d-flex justify-content-center align-items-center">
+            <h3>Contact Me</h3>
           </div>
-        </div>
-      </div>
-      <div class="row justify-content-center text-center">
-        <div class="col-md-6 justify-content-center d-flex ftr">
-          <div class="ct-1">
-            <div class="card">
-              <div class="card-body">
-                <div class="sosmed">
-                  <h3>
-                    <a href="https://www.instagram.com/mrahulrahi/"><i class="bi bi-instagram"
-                        style="color: #ff0066"></i></a>
-                  </h3>
-                  <h3>
-                    <a href="https://www.linkedin.com/in/mrahulrahi/"><i class="bi bi-linkedin"
-                        style="color: #3333cc"></i></a>
-                  </h3>
-                  <h3>
-                    <a href="https://www.youtube.com/@fireliquidator"><i class="bi bi-youtube"
-                        style="color: #e00000"></i></a>
-                  </h3>
-                  <h3>
-                    <a href="https://github.com/mrahulrahi" style="color: #100000"><i class="bi bi-github"></i></a>
-                  </h3>
-                </div>
-                <p class="card-text">
-                  Hi, This side Rahul Maurya <br />
-                  I'm a Web Developer & I'm also a IT student whose life's
-                  passion is Technology. I try to make videos that are
-                  to-the-point and as content-packed as possible, so if that
-                  sounds like your cup of tea, a sub would be massively
-                  appreciated! 🙏
-                </p>
+          <div class="bottom-contact-signpost-content">
+            <div class="contact-box">
+              <div class="contact-me">
+                <h4>Get in Touch</h4>
+                <p>Let Me Get You A Beautiful Website.</p>
+                <a class="button-two" href="#">Hire Me</a>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <form name="contact-Website">
-            <h5 style="color: #ffff; display: none" class="alert">
-              Pesan anda telah terkirim
-            </h5>
-            <input type="email" name="email" placeholder="your email" />
-            <textarea rows="2" cols="25" required id="send" name="pesan" placeholder="your message"></textarea>
-            <button type="submit" id="submit">Send</button>
-            <h5 class="btn-loading" style="color: white; display: none; text-align: center">
-              <i>Message sent successful!</i>
-            </h5>
-          </form>
+      </div>
+    </div>
+  </div>
+  <!--==============================  bottom-contact-signpost End ==============================-->
+  <!--============================== Footer Start ==============================-->
+  <footer id="footer" class="footer bg-violet">
+    <div class="footer-upper">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="footer-upper-list d-flex flex-wrap align-items-center justify-content-between">
+              <a class="footer-logo" href="#!">mrahul<span>rahi</span></a>
+
+              <div class="footer-nav">
+                <ul class="footer-nav-list d-flex flex-wrap align-items-center justify-content-center">
+                  <li class="footer-nav-item"><a href="#!">Home</a></li>
+                  <li class="footer-nav-item"><a href="#!">About</a></li>
+                  <li class="footer-nav-item"><a href="#!">Skills</a></li>
+                  <li class="footer-nav-item"><a href="#!">Project</a></li>
+                  <li class="footer-nav-item"><a href="#!">Rahi Creations</a></li>
+                  <li class="footer-nav-item"><a href="#!">FireLiquidator</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
-  <footer>
-    <p>
-      <span>&copy;</span> 2023 All Reserved Alright |
-      <span>FireLiquidator</span> |
-      <span><a href="https://gurushots.com/rahicreations/photos">Rahi Creations</a></span> |
-      <span><a href="https://github.com/mrahulrahi">mrahulrahi</a></span>
-    </p>
+    <div class="footer-middle">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class=" d-flex flex-column flex-sm-row align-items-center justify-content-between">
+              <div class="footer-heading">Connect with me :</div>
+              <div class="social d-flex">
+                <a href="https://linkedin.com/in/mrahulrahi/"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/mrahulrahi/"><i class="fab fa-github"></i></a>
+                <a href="https://www.youtube.com/@fireliquidator"><i class="fab fa-youtube"></i></a>
+                <a href="https://t.me/mrahulrahi"><i class="fab fa-telegram-plane"></i></a>
+              </div>
+              <div class="end">&commat;mrahulrahi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-lower">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div
+              class="footer-lower-box d-flex flex-column-reverse flex-sm-row flex-wrap align-items-center justify-content-between">
+              <div class="copyright">2023 mrahulrahi &copy; All rights reserved</div>
+              <div class="">Proudly coded ❤️ by mrahulrahi.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
+  <!--============================== Footer End ==============================-->
 
-  <script src="asset/script.js"></script>
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+  <script src="include/js/jquery.min.js"></script>
+  <script src="include/js/bootstrap.bundle.min.js"></script>
+  <script src="include/js/main.js"></script>
+  <script src="include/js/custom.js"></script>
 </body>
+
 
 </html>
