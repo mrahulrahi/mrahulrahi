@@ -59,15 +59,14 @@ $('.navbar-toggler').on('click', function () {
 
 
 /************** Blog Card Swiper Start **************/
-if ($('.testimonials-list-slider').length > 0) {
-  var portfolioSwiper = new Swiper(".testimonials-list-slider", {
+if ($(".skill-card-list-slider").length > 0) {
+  var skillCardSwiper = new Swiper(".skill-card-list-slider", {
     slidesPerView: 1,
     spaceBetween: 30,
+    loop: true,
     autoplay: {
       delay: 1000,
-  },
-    loop:true,
-
+    },
     breakpoints: {
       376: {
         slidesPerView: 2,
@@ -91,15 +90,17 @@ if ($('.testimonials-list-slider').length > 0) {
 /************** Blog Card Swiper End **************/
 
 
-var swiper = new Swiper(".project-list-slider", {
-  autoplay: {
+if ($(".projects-card-list-slider").length > 0) {
+  var projectsCardSwiper = new Swiper(".projects-card-list-slider", {
+    loop: true,
+    slidePerView: 3,
+    spaceBetween: 30,
+    autoplay: {
       delay: 3000,
-  },
-  loop:true,
-  slidePerView: 3,
-  spaceBetween: 30,
-  navigation: {
-    nextEl: ".testimonials-arrow-next",
-    prevEl: ".testimonials-arrow-prev",
-  },
-});
+    },
+    navigation: {
+      nextEl: ".projects-arrow-next",
+      prevEl: ".projects-arrow-prev",
+    },
+  });
+}
