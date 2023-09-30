@@ -58,6 +58,23 @@ $('.navbar-toggler').on('click', function () {
 });
 
 
+
+
+
+if ($(".projects-card-list-slider").length > 0) {
+  var projectsCardSwiper = new Swiper(".projects-card-list-slider", {
+    slidePerView: 'auto',
+    spaceBetween: 30,
+    autoplay: {
+      delay: 3000,
+    },
+    navigation: {
+      nextEl: ".projects-arrow-next",
+      prevEl: ".projects-arrow-prev",
+    },
+  });
+}
+
 /************** Blog Card Swiper Start **************/
 if ($(".skill-card-list-slider").length > 0) {
   var skillCardSwiper = new Swiper(".skill-card-list-slider", {
@@ -88,19 +105,3 @@ if ($(".skill-card-list-slider").length > 0) {
   });
 }
 /************** Blog Card Swiper End **************/
-
-
-if ($(".projects-card-list-slider").length > 0) {
-  var projectsCardSwiper = new Swiper(".projects-card-list-slider", {
-    loop: true,
-    slidePerView: 3,
-    spaceBetween: 30,
-    autoplay: {
-      delay: 3000,
-    },
-    navigation: {
-      nextEl: ".projects-arrow-next",
-      prevEl: ".projects-arrow-prev",
-    },
-  });
-}
