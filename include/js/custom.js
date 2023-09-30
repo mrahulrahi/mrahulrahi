@@ -92,12 +92,12 @@ if ($('.testimonials-list-slider').length > 0) {
 
 
 var swiper = new Swiper(".project-list-slider", {
-  effect: "fade",
-  freeMode: true,
   autoplay: {
       delay: 3000,
   },
-  slidePerView: 1,
+  loop:true,
+  slidePerView: 3,
+  spaceBetween: 30,
   navigation: {
     nextEl: ".testimonials-arrow-next",
     prevEl: ".testimonials-arrow-prev",
