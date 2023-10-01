@@ -63,11 +63,8 @@ $('.navbar-toggler').on('click', function () {
 
 if ($(".projects-card-list-slider").length > 0) {
   var projectsCardSwiper = new Swiper(".projects-card-list-slider", {
-    slidePerView: 'auto',
+    slidesPerView: 'auto',
     spaceBetween: 30,
-    autoplay: {
-      delay: 3000,
-    },
     navigation: {
       nextEl: ".projects-arrow-next",
       prevEl: ".projects-arrow-prev",
@@ -85,21 +82,20 @@ if ($(".skill-card-list-slider").length > 0) {
       delay: 1000,
     },
     breakpoints: {
-      376: {
+      375: {
         slidesPerView: 2,
-        spaceBetween: 30,
+      },
+      576: {
+        slidesPerView: 3,
       },
       768: {
-        slidesPerView: 3,
-        spaceBetween: 30,
+        slidesPerView: 4,
       },
       992: {
-        slidesPerView: 4,
-        spaceBetween: 30,
+        slidesPerView: 5,
       },
       1200: {
-        slidesPerView: 5,
-        spaceBetween: 30,
+        slidesPerView: 6,
       }
     }
   });
