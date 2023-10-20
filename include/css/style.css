@@ -173,10 +173,10 @@ p:last-child{margin-bottom:0;}
 
 .card-list{width: calc(100% + 20px);margin-left: -10px; margin-bottom: -20px;}
 .card-item{width: 25%;padding: 0 10px;margin-bottom: 20px;}
-.card-box{padding: 20px;min-height: 200px;background: rgba(255, 255, 255, 0.06);border-radius: 10px;height: 100%;}
+.card-box{padding: 20px;min-height: 150px;background: rgba(255, 255, 255, 0.06);border-radius: 10px;height: 100%;}
 .card-box:hover{background: var(--green);color: var(--white);}
 .card-text{font-size: 16px;font-weight: 300;}
-.card-text h4{font-size: 28px;font-weight: 600;margin-bottom: 10px;}
+.card-text h4{font-size: 24px;font-weight: 600;margin-bottom: 10px;}
 
 .projects-card-container{overflow: hidden;}
 .projects-card-list-outer{width: 100%;}
@@ -333,9 +333,10 @@ p:last-child{margin-bottom:0;}
 .skill-card-item{width: 25%;}
 
 .card-item{width: 50%;}
-.card-box h4{font-size: 30px;}
 
 .projects-card-list .swiper-slide{width: 100%;}
+.projects-card-text{font-size: 16px;font-weight: 300;line-height: 1.6;padding-bottom: 10px;border-bottom: 1px solid var(--violet);}
+.projects-card-text h4{font-size: 30px;}
 
 .contact-box h4{margin-bottom: 20px;}
 
