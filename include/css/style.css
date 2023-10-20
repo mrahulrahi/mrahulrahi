@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
-@import url("https://fonts.googleapis.com/css2?family=Staatliches&display=swap");
 
 :root{--white:#fff;--violet: #4C4C6D;--green: #1B9C85;--yellow: #FFE194;}
 
@@ -139,7 +138,7 @@ p:last-child{margin-bottom:0;}
 .banner-container .container{position:relative;z-index:9;}
 .banner-container::before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;z-index:2;background: rgba(0,0,0,0.8)}
 .banner-bg{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;background-size:cover;background-repeat:no-repeat;background-position:center;z-index:1;}
-.banner-text h1{font-size:80px;letter-spacing:3px;font-weight:700;font-family:"Staatliches",cursive;color: var(--white);margin-bottom:0;}
+.banner-text h1{font-size:80px;letter-spacing:3px;font-weight:700;color: var(--white);margin-bottom:0;}
 .banner-text span{color: var(--green)}
 .banner-btn{margin-top: 40px;}
 
@@ -297,6 +296,7 @@ p:last-child{margin-bottom:0;}
 .hero-text h1{font-size:70px;}
 .hero-text h3{font-size:35px;}
 .hero-text h4{font-size:28px;}
+.banner-text h1{font-size:70px;}
 
 .skill-card-item{width: 16.66%;}
 }
@@ -352,6 +352,8 @@ p:last-child{margin-bottom:0;}
 .hero-text h3{font-size:28px;}
 .hero-text h4{font-size:24px;}
 
+.banner-text h1{font-size:52px;}
+
 .skill-card-item{width: 33.33%;}
 
 .itb-content-box{padding: 20px;}
@@ -373,7 +375,7 @@ p:last-child{margin-bottom:0;}
 .hero-text h1{font-size:42px;}
 .hero-text h3{font-size:20px;}
 .hero-text h4{font-size:18px;} 
-
+.banner-text h1{font-size:42px;}
 .skill-card-item{width: 50%;}
 
 
