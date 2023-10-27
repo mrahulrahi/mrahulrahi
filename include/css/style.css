@@ -84,6 +84,9 @@ p:last-child{margin-bottom:0;}
 .btn.violet,.btn.violet:focus { color: var(--white);background-color: var(--violet);border: solid 1px var(--violet); }
 .btn.green,.btn.green:focus { color: var(--white);background-color: var(--green);border: solid 1px var(--green); }
 
+.btn i{transition: all .2s ease-in;}
+.btn:hover i{transform: scale(1.25);}
+
 .btn.btn-block{min-width: 100%;}
 .bottom-btn-box{margin-top: 40px;}
 
