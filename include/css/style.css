@@ -416,7 +416,7 @@ p:last-child{margin-bottom:0;}
 .timeline-item--active { opacity: 1; transform: translateY(0); filter: blur(0px); }
 .timeline-item--active:before { top: 50%; transition: 0.3s all 0.2s; opacity: 1; }
 .timeline-item--active .timeline-content-title { margin: -50px 0 20px 0; }
-.timeline-img { max-width: 100%; width: 350px; height: 500px; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7); border-radius: 15px; }
+.timeline-img { max-width: 100%; width: 350px; height: 350px; box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7); border-radius: 15px; }
 .timeline-container { width: 100%; position: relative; padding: 80px 0; transition: 0.3s ease 0s; background-attachment: fixed; background-size: cover; background-position: center; }
 #timeline-1:after { content: ''; height: 35vh; width: 100%; position: absolute; left: 0; bottom: -80px; background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%); border-bottom: solid 20vh #fff; }
 
@@ -447,10 +447,6 @@ p:last-child{margin-bottom:0;}
 
 
 
-.slider-fluid .swiper-slide {width: 500px;max-width: calc(100vw - 70px);}
-.slider-fluid {overflow: visible;}
-
-
 
 /* =================  Hero-start  ================= */
 .hero-container {height: 100vh;background: linear-gradient(315deg, rgb(76 142 213 / 22%) 10%, rgb(117 182 193 / 36%) 60%);width: 100%;}
@@ -464,8 +460,8 @@ p:last-child{margin-bottom:0;}
 .hero-img img { width: 100%; height: 100%; object-fit: cover;}
 .hero-img-2 {width: 70%;height: 80%;position: absolute;border-radius: 10px;overflow: hidden;bottom: -40%;left: -26%;}
 .hero-icon {position: absolute;width: 100px;height: 100px;padding: 20px;border-radius: 10px; }
-.hero-icon.hi-1 {top: -12%;background: #ff6c39;left: -120px;}
-.hero-icon.hi-2 {bottom: -18%;background: #2965f1;left: 70%;}
+.hero-icon.hi-1 {top: -5%;background: #ff6c39;left: -60px;}
+.hero-icon.hi-2 {bottom: -10%;background: #2965f1;left: 90%;}
 .hero-icon.hi-3 {top: -77px;background: #ffd814;right: -50px;}
 .ht-left h3 {font-size: 32px;margin-bottom: 0;line-height: 1.2;font-weight: 500;color: #629bed;}
 .ht-left {position: absolute; left: 18px;}
@@ -502,7 +498,7 @@ p:last-child{margin-bottom:0;}
 /* =================  Info-End  ================= */ 
 
 /* =================  work-start  ================= */
-.content-left{width:40%; padding-right:40px;position: sticky; top: 100px;}
+.content-left{width:40%; padding-right:40px;position: sticky; top: 100px;height: 100%;}
 .content-right{ width:60%;}
 .skill-list { height: 100%;padding: 30px;border-radius: 10px;background: rgb(209 209 209 / 20%);}
 .skill-item { width: 100%;padding: 0 10px; margin-bottom: 20px;}
