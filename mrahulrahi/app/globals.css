@@ -157,7 +157,7 @@ p:last-child{margin-bottom:0;}
 .itb-text h5{font-size: 24px;font-weight: 500;line-height: 1.6;letter-spacing:2px;margin-bottom: 20px;}
 .itb-text .btn{margin-top: 20px;}
 .itb-img::after {content: "";position: absolute;top: 0;left: 0;width: 100%;height: 100%;border-radius: 50%;border: 5px solid #ffff;background-color: transparent;border-right-color: var(--green);animation: puterin 2s linear infinite;}
-.itb-img-box::before{content:'';position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:110%;height:110%;z-index:1;background: url(../images/animate-bg.svg) center / contain no-repeat ;}
+/* .itb-img-box::before{content:'';position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:110%;height:110%;z-index:1;background: url(../images/animate-bg.svg) center / contain no-repeat ;} */
 
 .itb-skill-box{margin-top: 30px;padding: 40px;border-radius: 20px;}
 .skill-card-list{width: 100%;margin-bottom: -5px;}
