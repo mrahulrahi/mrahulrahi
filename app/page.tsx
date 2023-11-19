@@ -28,15 +28,15 @@ export default function Home() {
     id: 6,
     logo: 'fa-brands fa-node-js',
     title: 'Node.js'
-  },{
+  }, {
     id: 7,
     logo: 'fa-brands fa-git-alt',
     title: 'Git'
-  },{
+  }, {
     id: 8,
     logo: 'fa-brands fa-github',
     title: 'GitHub'
-  },{
+  }, {
     id: 9,
     logo: 'fa-brands fa-figma',
     title: 'Figma'
@@ -116,6 +116,56 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
+      <div className="content-container card-container bg-violet">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-12">
+                    <div className="card-content-box d-flex flex-column">
+                        <div className="heading d-flex">
+                            <h3>Certificates</h3>
+                        </div>
+                        <div className="card-list d-flex flex-wrap">
+                            <div className="card-item">
+                                <a className="card-box d-flex" href="https://www.hackerrank.com/certificates/62ee41b69fc2">
+                                    <div className="card-text mt-auto">
+                                        <h4>SQL (Basic)</h4>
+                                        <p>Hacker Rank</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div className="card-item">
+                                <a className="card-box d-flex" href="https://codedamn.com/user/mrahulrahi">
+                                    <div className="card-text mt-auto">
+                                        <h4>Codedamn Certificates</h4>
+                                        <p>Codedamn</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div className="card-item">
+                                <a className="card-box d-flex"
+                                    href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Nordics/PxenP4rHNE6Bh4nQz_Accenture%20Nordics_f635M87hfdNWoDbzC_1666336729816_completion_certificate.pdf">
+                                    <div className="card-text mt-auto">
+                                        <h4>Dev Virtual Exp Program</h4>
+                                        <p>Forage</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div className="card-item">
+                                <a className="card-box d-flex" href="https://profiles.topcoder.com/mrahulrahi">
+                                    <div className="card-text mt-auto">
+                                        <h4>Top coder</h4>
+                                        <p>Topcoder</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </main >
   )

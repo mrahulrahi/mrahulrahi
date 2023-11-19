@@ -5,6 +5,7 @@ import { Josefin_Sans } from 'next/font/google'
 import './globals.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Contact from './components/Contact';
 
 const josefinSans = Josefin_Sans({ subsets: ['latin'] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body className={josefinSans.className}>
         <Header />
         <main>{children}</main>
+        <Contact />
         <Footer />
       </body>
     </html>
