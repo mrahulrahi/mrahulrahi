@@ -1,6 +1,18 @@
+'use client'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation'
 import React from 'react'
 
 const Header = () => {
+    const currentPath = usePathname();
+    const links =[
+        {'path': '/', 'label': 'Home'},
+        {'path': '/about', 'label': 'About'},
+        {'path': '/portfolio', 'label': 'Portfolio'},
+        {'path': '/apps-cards', 'label': 'Apps & Cards'},
+        {'path': '/contact', 'label': 'Contact'},
+    ]
+
     return (
         <header id="header">
         <nav className="navbar navbar-expand-xl">
@@ -15,13 +27,10 @@ const Header = () => {
                     <div className="collapse navbar-collapse justify-content-center" id="mainNav">
                         <div className="navbar-inside">
                             <ul className="navbar-nav">
-                                <li className="nav-item"><a className="nav-link" href="index.html">Home</a></li>
-                                <li className="nav-item"><a className="nav-link" href="about.html">About</a></li>
-                                <li className="nav-item"><a className="nav-link" href="content-page.html">Rahi Creations</a>
-                                </li>
-                                <li className="nav-item"><a className="nav-link" href="content-page.html">FireLiquidator</a>
-                                </li>
-                                <li className="nav-item"><a className="nav-link" href="#contact">Contact</a></li>
+                                {links.map(link => 
+                                    <li key={link.path} className="nav-item"><Link className="nav-link" href={link.path}>{link.label}</Link></li>
+                                    )}
+                        
                                 <div className="nav-item header-btn d-xl-none">
                                     <a href="#!" className="btn btn-default green">Hire Me</a>
                                 </div>
