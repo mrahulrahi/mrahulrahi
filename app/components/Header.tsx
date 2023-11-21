@@ -10,7 +10,7 @@ const Header = () => {
         {'path': '/about', 'label': 'About'},
         {'path': '/portfolio', 'label': 'Portfolio'},
         {'path': '/apps-cards', 'label': 'Apps & Cards'},
-        {'path': '/contact', 'label': 'Contact'},
+        {'path': '#contact', 'label': 'Contact'},
     ]
 
     return (
@@ -18,7 +18,7 @@ const Header = () => {
         <nav className="navbar navbar-expand-xl">
             <div className="container">
                 <div className="nav-inside d-flex align-items-center justify-content-between">
-                    <a className="navbar-brand nav-logo" href="#!">mrahul<span>rahi</span></a>
+                    <Link className="navbar-brand nav-logo" href="/">mrahul<span>rahi</span></Link>
                     <button className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -28,7 +28,7 @@ const Header = () => {
                         <div className="navbar-inside">
                             <ul className="navbar-nav">
                                 {links.map(link => 
-                                    <li key={link.path} className="nav-item"><Link className="nav-link" href={link.path}>{link.label}</Link></li>
+                                    <li key={link.path} className={`${link.path === currentPath ? 'active' : ''} nav-item`}><Link className="nav-link" href={link.path}>{link.label}</Link></li>
                                     )}
                         
                                 <div className="nav-item header-btn d-xl-none">

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Contact = () => {
     return (
-        <div className="content-container contact-container bg-violet">
+        <div className="content-container contact-container bg-violet" id='contact'>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
