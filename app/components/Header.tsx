@@ -57,42 +57,6 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-
-
-                <nav className="navbar navbar-expand-xl">
-                    <div className="container">
-                        <div className="nav-inside d-flex align-items-center justify-content-between">
-                            <a className="navbar-brand" href="#!"><img src="include/images/logo.png" alt="logo"/></a>
-                            <button className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-                                aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon"></span>
-                            </button>
-                            <div className="collapse navbar-collapse justify-content-end" id="mainNav">
-                                <div className="navbar-inside">
-                                    <ul className="navbar-nav">
-                                        <li className="nav-item"><a className="nav-link" href="./index.html">Home</a></li>
-                                        <li className="nav-item dropdown"><a className="nav-link" href="./apps.html">Apps</a>
-                                            <em className="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" role="button"></em>
-                                            <ul className="dropdown-menu">
-                                                <li><a className="dropdown-item" href="./Calculator_UI/index.html">Calculator UI</a></li>
-                                                <li><a className="dropdown-item" href="./Gradient_BG/index.html">Gradient BG</a></li>
-                                                <li><a className="dropdown-item" href="./Notes_App/index.html">Notes App</a></li>
-                                                <li><a className="dropdown-item" href="./Quiz_Game/index.html">Quiz Game</a></li>
-                                            </ul>
-                                        </li>
-                                        <li className="nav-item"><a className="nav-link" href="./cards.html">Cards</a></li>
-                                        <li className="nav-item"><a className="nav-link" href="./components.html">Components</a></li>
-                                        <li className="nav-item"><a className="nav-link" href="#!">Contact</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div className="header-btn">
-                                <a href="#!" className="btn btn-default">Donate</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-         
         </header>
     )
 }
