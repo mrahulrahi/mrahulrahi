@@ -174,7 +174,7 @@ p:last-child{margin-bottom:0;}
 .contact-box .button-two{background-color:var(--yellow);color: var(--violet);}
 .contact-box .button-two:hover{background-color:transparent;border:2px solid var(--green);cursor:pointer}
 .contact-top-content{font-size: 16px;font-weight: 300;line-height: 1.6;width: 50%;}
-.contact-email{border:3px solid var(--green);padding:10px 30px;margin-right:10px;border-radius:30px;height: 50px;width: calc(100% - 175px);}
+.contact-email{border:3px solid var(--green);padding:10px 30px;margin-right:10px;border-radius:30px;height: 50px;width: calc(100% - 180px);}
 .contact-submit{background:#45796F;color:#fff;text-decoration:none;padding:13px 30px;border-radius:30px}
 .contact-email:hover{border:3px solid var(--black)}
 .contact-submit:hover{background-color:var(--black)}  
@@ -223,6 +223,8 @@ p:last-child{margin-bottom:0;}
 .social-links a{width:45px;height:45px;display:flex;align-items:center;justify-content:center;background:var(--green);border-radius:50%;color:var(--white);font-size:22px}
 .social-links a:hover{transform:scale(1.2);transition:.3s;}
 .social-links a:after{display: none;}
+.footer-contact-box{font-size: 14px;font-weight: 300;line-height: 1.6;text-align: center;padding: 0 10px;}
+.footer-contact-heading{font-family: var(--primary-font);font-size: 14px;font-weight: 700;line-height: 1.6;text-transform: uppercase;margin-bottom: 10px;}
 /* ========================== footer End ============================ */
 
 /* ========================================== 
@@ -635,67 +637,3 @@ body{padding-top: 80px;}
 .card-item { padding: 0;width: 100%;margin-bottom: 10px;}
 }
 
-
-/* ========================== footer Start ============================ */
-#footer{font-family:"Readex Pro",sans-serif;color:#45796F;}
-.footer-upper-1 {padding: 80px 0;border-top: 1px solid rgba(0, 0, 0, 0.10);}
-.footer-top{position: relative;width:100%;padding-bottom: 60px;} 
-.footer-top::after{content: '';width: 100%;height: 1px;position: absolute;bottom: 0;left: 50%;transform: translateX(-50%); background: rgba(0, 0, 0, 0.10);}
-.footer-logo{width: 240px;border-radius: 30px;overflow: hidden;}
-
-.footer-heading{font-family: var(--primary-font);font-size: 16px;font-weight: 700;line-height: normal;text-transform: uppercase;margin-bottom: 20px;}
-
-
-.footer-bottom {position: relative;width:100%;margin-top:60px; } 
-.footer-nav{width: 100%;margin-bottom: -80px;}
-.footer-nav-list{width: 40%;margin-bottom: 80px;}
-.footer-nav-list:last-child{width: 20%;}
-.footer-nav-item{font-size: 16px;font-weight: 400;line-height: normal;}
-.footer-nav-item+.footer-nav-item{margin-top: 25px;}
-
-.footer-middle{padding: 40px 0;border-top: 1px solid rgb(0, 0, 0, 0.10);}
-.footer-contact-box{font-size: 14px;font-weight: 300;line-height: 1.6;text-align: center;padding: 0 10px;}
-.footer-contact-heading{font-family: var(--primary-font);font-size: 14px;font-weight: 700;line-height: 1.6;text-transform: uppercase;margin-bottom: 10px;}
-.social-links{font-size: 14px;color: var(--green);}
-.social-links li {margin-right: 20px;}
-.footer-btn .btn{min-width: 134px;padding: 14.5px 15px;}
-
-/* ========================== footer End ============================ */
-
-
-/*==========================================
-! Medium devices (tablets, less than 992px)
-========================================== */
-@media (max-width:991.98px){
-.content-container{padding: 60px 0;}
-.footer-nav-list{width: 33.33%;margin-bottom: 40px;}
-.footer-nav{margin-bottom: -40px;}
-.footer-contact-box{width: 50%;text-align: left;padding: 0;margin-bottom:40px;}
-}
-
-/* =================================================  
-! Small devices (landscape phones, less than 768px)
-================================================= */
-@media (max-width:767.98px){
-.footer-upper {padding: 60px 0;}
-.footer-logo{margin-bottom: 60px;}
-.footer-nav{margin-bottom: -40px;}
-.footer-nav-list{width: 50%;}
-.subscribe{display:flex;flex-direction:column}
-#email{padding:10px 20px;margin-right:0;margin-bottom:10px}
-#submit{padding:10px 30px;text-align:center}
-
-.glass-bg{padding: 20px ;}
-}
-
-/* ======================================================
-! Extra small devices (portrait phones, less than 576px)
-====================================================== */
-@media (max-width:575.98px){
-.footer-contact-box{width: 100%;}
-
-}
-
-@media (max-width:369.98px){
-    .footer-nav-list{width: 100%;}  
-}
