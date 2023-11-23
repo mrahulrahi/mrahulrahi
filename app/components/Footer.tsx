@@ -1,6 +1,16 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Footer = () => {
+
+  const links = [
+    { 'path': '/', 'label': 'Home' },
+    { 'path': '/about', 'label': 'About' },
+    { 'path': '/portfolio', 'label': 'Portfolio' },
+    { 'path': '/apps&cards', 'label': 'Apps & Cards' },
+    { 'path': '#contact', 'label': 'Contact' },
+]
+
   return (
     <footer id="footer" className="footer bg-violet">
       <div className="footer-upper">
@@ -12,11 +22,7 @@ const Footer = () => {
 
                 <div className="footer-nav">
                   <ul className="footer-nav-list d-flex flex-wrap align-items-center justify-content-between">
-                    <li className="footer-nav-item"><a href="#!">Home</a></li>
-                    <li className="footer-nav-item"><a href="#!">About</a></li>
-                    <li className="footer-nav-item"><a href="#!">Projects</a></li>
-                    <li className="footer-nav-item"><a href="rahi-creations.html">Rahi Creations</a></li>
-                    <li className="footer-nav-item"><a href="fireliquidator.html">FireLiquidator</a></li>
+                    {links.map(link => <li key={link.path} className="footer-nav-item"><Link href={link.path}>{link.label}</Link></li>)}
                   </ul>
                 </div>
               </div>
