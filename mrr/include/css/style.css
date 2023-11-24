@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,400,900");
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,400,900");  
 
 :root{--white:#fff;
   --black:#000;
@@ -65,13 +64,6 @@ p:last-child{margin-bottom:0;}
 
 
 
-.hero-container{height:100vh;}
-.hero-container .container{position:relative;z-index:3;}
-.hero-container::before{content:'';position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;z-index:2;background: linear-gradient(180deg, rgba(0, 48, 60, 0.80) -10.44%, rgba(0, 0, 0, 0.00) 22.61%), linear-gradient(0deg, rgba(0, 48, 60, 0.80) 0%, rgba(0, 0, 0, 0.00) 56.33%), linear-gradient(0deg, rgba(0, 0, 0, 0.40) 0%, rgba(0, 0, 0, 0.40) 100%)}
-.hero-bg{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;background-size:cover;background-repeat:no-repeat;background-position:center;z-index:1;}
-.hero-text{text-align: center;}
-.hero-text h1{font-family: "Readex Pro",sans-serif;font-size:64px;font-weight:600;line-height:1.2;color: #F2E8B9;margin-bottom:0;}
-.hero-logo{width:30%;border-radius:99px;margin-bottom:25px;overflow: hidden;}
 
 .banner-container{height:500px;}
 .banner-container .container{position:relative;z-index:3;}
@@ -79,10 +71,9 @@ p:last-child{margin-bottom:0;}
 .banner-bg{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;background-size:cover;background-repeat:no-repeat;background-position:center;z-index:1;}
 .banner-text{text-align: center;}
 .banner-text h1{font-family: "Readex Pro",sans-serif;font-size:64px;font-weight:600;line-height:1.2;color: #F2E8B9;margin-bottom:0;}
+.banner-logo{width:30%;border-radius:99px;margin-bottom:25px;overflow: hidden;}
 
 @media (max-width:991.98px){
-.hero-text{font-size: 16px;}
-.hero-text h1{font-size:54px;}
 
 .banner-text{font-size: 16px;}
 .banner-text h1{font-size:54px;}
@@ -129,7 +120,7 @@ p:last-child{margin-bottom:0;}
 .resmenu-list{width: calc(100% + 40px);margin: 0 -20px;margin-bottom: -40px;}
 .resmenu-item{width: 33.33%;padding: 0 20px;margin-bottom: 40px;}
 .resmenu-heading {width: 140px;height: 35px;border: 1px solid black;text-align: center;margin: -10px -10px 20px 0;}
-.resmenu-box {font-family:"Montserrat",sans-serif; position: relative;color: var(--gold);background-color: grey;width: 100%;padding: 10px;font-size: 100%;border: 3px solid black;border-radius: 10px 0;}
+.resmenu-box {font-family:"Outfit",sans-serif; position: relative;color: var(--gold);background-color: var(--green);width: 100%;padding: 10px;font-size: 100%;border: 3px solid black;border-radius: 10px 0;}
 .resmenu-item:nth-child(3n + 1) .resmenu-heading {background-color: darkkhaki;color: black;}
 .resmenu-item:nth-child(3n + 2) .resmenu-heading {background-color: coral;color: white;}
 .resmenu-item:nth-child(3n + 3) .resmenu-heading {background-color: violet;color: black;}
