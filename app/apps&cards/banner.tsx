@@ -8,7 +8,7 @@ const Banner = () => {
       <div className="row">
         <div className="col-md-10 mx-auto">
           <div className="banner-logo mx-auto">
-            <img src="include/images/logo.png" alt=""/>
+            <img src="/logo.png" alt=""/>
           </div>
           <div className="banner-text">
             <h1>Apps & Components</h1>

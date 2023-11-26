@@ -40,13 +40,13 @@ const About = () => {
             </div>
 
 
-            <div className="content-container">
+            <div className="content-container bg-violet">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="d-flex">
                                 <div className="content-left">
-                                    <div><img src="include/images/rahi.webp" alt=""/></div>
+                                    <div><img src="/rahi.webp" alt=""/></div>
 
                                 </div>
                                 <div className="content-right">
@@ -131,7 +131,7 @@ const About = () => {
             </div>
 
 
-            <div className="content-container">
+            <div className="content-container bg-green">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
@@ -146,7 +146,7 @@ const About = () => {
                             <ul className="work-list">
                                 <li className="work-item">
                                     <div className="work-box d-flex flex-wrap align-items-center justify-content-between flex-md-row flex-column-reverse"
-                                        style={{background: 'rgb(48 166 254 / 20%);'}}>
+                                        style={{background: 'rgb(48 166 254 / 20%)'}}>
                                         <div className="wb-img"> <img src="/project-img-3.png" alt=""/> </div>
                                         <div className="wb-text">
                                             <h3> WEB DESIGN </h3>
@@ -186,7 +186,7 @@ const About = () => {
                                     </div>
                                     <div className="wi-content">
                                         <div className="work-box d-flex flex-wrap flex-column-reverse"
-                                            style={{background: 'rgb(10 119 118 / 20%);'}}>
+                                            style={{background: 'rgb(10 119 118 / 20%)'}}>
                                             <div className="wb-img w-100"> <img src="/project-img-2.png" alt=""/>
                                             </div>
                                             <div className="wb-text w-100">
@@ -208,7 +208,7 @@ const About = () => {
                                 </li>
                                 <li className="work-item">
                                     <div className="work-box d-flex flex-wrap align-items-center justify-content-between flex-md-row flex-column-reverse"
-                                        style={{background: 'rgb(134 109 217 / 20%);'}}>
+                                        style={{background: 'rgb(134 109 217 / 20%)'}}>
                                         <div className="wb-img"> <img src="/project-img-4.png" alt=""/> </div>
                                         <div className="wb-text">
                                             <h3> WEB DESIGN </h3>
