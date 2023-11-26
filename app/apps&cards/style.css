@@ -217,7 +217,7 @@ p:last-child{margin-bottom:0;}
 
 
 /***** Contact Section *****/
-.contact-box{font-family:"Readex Pro",sans-serif;}
+.contact-box{font-family:"Readex Pro",sans-serif;width: 100%;}
 .contact-title{width: 50%;}
 .contact-title h3{color:var(--green);font-size:48px;}
 .contact-title h1{margin-top:1%;color:#F2E8B9;font-size:80px;}
