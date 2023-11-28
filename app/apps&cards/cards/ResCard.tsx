@@ -95,20 +95,20 @@ const ResCard = () => {
                         </div>
 
                         <div className="modal-body">
-                            <label for="image">Image Url</label>
+                            <label htmlFor="#res-image">Image Url</label>
                             <input id="image" type="text" />
                             <br />
-                            <label for="title">Title</label>
+                            <label htmlFor="#res-title">Title</label>
                             <input id="res-title" type="text" />
                             <br />
 
-                            <label for="content">Content</label>
+                            <label htmlFor="#res-content">Content</label>
                             <input id="res-content" type="text" />
                             <div className="modal-btn-box d-flex gap-1 justify-content-center">
-                                <button className="btn btn-default confirm-btn" type="button" name="button" onclick="addRescard()">
+                                <button className="btn btn-default confirm-btn" type="button" name="button" onClick={addRescard}>
                                     Confirm
                                 </button>
-                                <button className="btn btn-default close-btn" type="button" name="button" onclick="closeRescardBtn()">
+                                <button className="btn btn-default close-btn" type="button" name="button" onClick={closeRescardBtn}>
                                     Close
                                 </button>
                             </div>

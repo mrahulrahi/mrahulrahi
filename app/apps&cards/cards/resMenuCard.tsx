@@ -82,11 +82,11 @@ const resMenuCard = () => {
                         </div>
 
                         <div className="modal-body">
-                            <label for="title">Title</label>
+                            <label htmlFor="title">Title</label>
                             <input id="title" type="text" />
                             <br />
 
-                            <label for="content">Content</label>
+                            <label htmlFor="content">Content</label>
                             <input id="content" type="text" />
                             <div className="modal-btn-box d-flex gap-1 justify-content-center">
                                 <button className="btn btn-default confirm-btn" type="button" name="button" onclick="addResmenu()">

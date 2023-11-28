@@ -176,13 +176,13 @@ const Portfolio = () => {
 
 
       <div className="full-bg-container d-flex align-items-center position-relative">
-        <div className="full-bg" style={{ backgroundImage: 'url(include/images/banner-bg.jpg);' }}></div>
+        <div className="full-bg"></div>
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
               <div className="full-bg-box d-flex align-items-center justify-content-center">
                 <div className="full-bg-logo">
-                  <img className="icon" src="include/images/rc-logo.png " alt="" />
+                  <img className="icon" src="/rc-logo.png " alt="" />
                 </div>
               </div>
             </div>

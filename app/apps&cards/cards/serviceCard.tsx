@@ -11,7 +11,7 @@ const serviceCard = () => {
                                 <div className="heading d-flex flex-wrap justify-content-between align-items-center">
                                     <h3>Service Card</h3>
                                     <div className="btn-holder">
-                                        <button className="btn btn-default" type="button" name="button" onclick="showAddQrcardModal()">
+                                        <button className="btn btn-default" type="button" name="button">
                                             Add Service Card
                                         </button>
                                     </div>
