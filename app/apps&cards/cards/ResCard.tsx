@@ -105,10 +105,10 @@ const ResCard = () => {
                             <label htmlFor="#res-content">Content</label>
                             <input id="res-content" type="text" />
                             <div className="modal-btn-box d-flex gap-1 justify-content-center">
-                                <button className="btn btn-default confirm-btn" type="button" name="button" onClick={addRescard}>
+                                <button className="btn btn-default confirm-btn" type="button" name="button" onClick="{addRescard}">
                                     Confirm
                                 </button>
-                                <button className="btn btn-default close-btn" type="button" name="button" onClick={closeRescardBtn}>
+                                <button className="btn btn-default close-btn" type="button" name="button" onClick="{closeRescardBtn}">
                                     Close
                                 </button>
                             </div>

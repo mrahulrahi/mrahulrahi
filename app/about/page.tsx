@@ -1,43 +1,171 @@
 import React from 'react'
+import Image from 'next/image'
 
 const About = () => {
+
+    const skills = [{
+        id: 1,
+        logo: 'fa-brands fa-html5',
+        title: 'HTML'
+      },
+      {
+        id: 2,
+        logo: 'fa-brands fa-css3-alt',
+        title: 'CSS'
+      }, {
+        id: 3,
+        logo: 'fa-brands fa-square-js',
+        title: 'JavaScript'
+      }, {
+        id: 4,
+        logo: 'fa-brands fa-bootstrap',
+        title: 'Bootstrap'
+      }, {
+        id: 5,
+        logo: 'fa-brands fa-react',
+        title: 'ReactJS'
+      }, {
+        id: 6,
+        logo: 'fa-brands fa-node-js',
+        title: 'Node.js'
+      }, {
+        id: 7,
+        logo: 'fa-brands fa-git-alt',
+        title: 'Git'
+      }, {
+        id: 8,
+        logo: 'fa-brands fa-github',
+        title: 'GitHub'
+      }, {
+        id: 9,
+        logo: 'fa-brands fa-figma',
+        title: 'Figma'
+      }]
+
     return (
         <div>
-            <div className="hero-container d-flex flex-wrap align-items-center position-relative">
-                <div className="hero-bg"> <img src="include/images/bg-bottom-hero.png" alt="" /></div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-10 col-12 mx-auto">
-                            <div className="hero-content d-flex flex-wrap justify-content-between">
-                                <div className="hero-left">
-                                    <div className="hl-content">
-                                        <div className="hero-img"> <img src="/hero-img-1.jpg" alt="" /> </div>
-                                        <div className="hero-icon hi-1"> <img src="/html-5.png" alt="" />
-                                        </div>
-                                        <div className="hero-icon hi-2"> <img src="/css-3.png" alt="" />
-                                        </div>
-                                        <div className="hero-icon hi-3"> <img src="/java.png" alt="" /> </div>
-                                    </div>
-                                </div>
-                                <div className="hero-right">
-                                    <div className="hr-content">
-                                        <h1> Hello I'm </h1>
-                                        <h2> Rahul Maurya </h2>
-                                        <h3> Web Developer From India </h3>
-                                        <p> I'm Rahul, an experienced Front End Developer based in India and specialise
-                                            in PSD to
-                                            Html & WordPress. I'm available for freelance works. </p>
-                                        <div className="hero-btn-box">
-                                            <a href="#" className="btn btn-default"> Know More </a>
-                                            <a href="#" className="btn btn-default btn-blue"> Contact Me </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            
+      <div className="hero-container d-flex align-items-start position-relative">
+        <div className="hero-bg"></div>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="hero-box d-flex align-items-center justify-content-center">
+                <div className="hero-text text-center">
+                  <h4><span>Hello,</span> I'm</h4>
+                  <h1>Rahul <span>Maurya</span></h1>
+                  <h3>I'm a <span>Web Developer</span>.</h3>
+                  <div className="hero-btn">
+                    <a href="#projects" className="btn btn-default">Featured Work
+                      <i className="fas fa-arrow-down ms-2"></i></a>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="content-container image-text-block-container bg-yellow">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="itb-content-box d-flex flex-wrap bg-violet">
+                <div className="itb-img-box d-flex align-items-center justify-content-center">
+                  <div className="itb-img">
+                    <Image src="/main-img.jpg" alt="" width={1000} height={1000} />
+                  </div>
+                </div>
+                <div className="itb-text">
+                  <div className="heading d-flex">
+                    <h3>About Me</h3>
+                  </div>
+                  <h2>Rahul <span>Maurya</span></h2>
+                  <h5>Web <span>Developer</span></h5>
+                  <p>I am a front-end web developer whose life's passion is Technology and I also love to
+                    click photographs. I can provide clean code and pixel perfect design. I also make the
+                    website responsive & more interactive with web animations. I try to make videos that are
+                    to-the-point and as content-packed as possible, so if that sounds like your cup of tea,
+                    a sub would be massively appreciated! 🙏</p>
+                  <p>Stack - MERN Stack</p>
+
+                  <a href="https://drive.google.com/file/d/1-4vdQtKGmM2ixaMvL2Wav6KY9ncrglcT/view?usp=sharing"
+                    className="btn btn-default white">Download Resume</a>
+                </div>
+
+              </div>
+
+              <div className="itb-skill-box d-flex flex-column bg-violet">
+                <div className="heading d-flex">
+                  <h3>Skills</h3>
+                </div>
+
+                <div className="skill-card-list d-flex flex-wrap">
+                  {skills.map(skill => <div key={skill.id} className="skill-card-item">
+                    <div className="skill-card-box">
+                      <div className="skill-card-icon mx-auto">
+                        <i className={skill.logo}></i>
+                      </div>
+                      <p>{skill.title}</p>
+                    </div>
+                  </div>)}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className="content-container card-container bg-violet">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card-content-box d-flex flex-column">
+                <div className="heading d-flex">
+                  <h3>Certificates</h3>
+                </div>
+                <div className="card-list d-flex flex-wrap">
+                  <div className="card-item">
+                    <a className="card-box d-flex" href="https://www.hackerrank.com/certificates/62ee41b69fc2">
+                      <div className="card-text mt-auto">
+                        <h4>SQL (Basic)</h4>
+                        <p>Hacker Rank</p>
+                      </div>
+                    </a>
+                  </div>
+                  <div className="card-item">
+                    <a className="card-box d-flex" href="https://codedamn.com/user/mrahulrahi">
+                      <div className="card-text mt-auto">
+                        <h4>Codedamn Certificates</h4>
+                        <p>Codedamn</p>
+                      </div>
+                    </a>
+                  </div>
+                  <div className="card-item">
+                    <a className="card-box d-flex"
+                      href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Nordics/PxenP4rHNE6Bh4nQz_Accenture%20Nordics_f635M87hfdNWoDbzC_1666336729816_completion_certificate.pdf">
+                      <div className="card-text mt-auto">
+                        <h4>Dev Virtual Exp Program</h4>
+                        <p>Forage</p>
+                      </div>
+                    </a>
+                  </div>
+                  <div className="card-item">
+                    <a className="card-box d-flex" href="https://profiles.topcoder.com/mrahulrahi">
+                      <div className="card-text mt-auto">
+                        <h4>Top coder</h4>
+                        <p>Topcoder</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
             <div className="content-container bg-violet">
@@ -131,104 +259,7 @@ const About = () => {
             </div>
 
 
-            <div className="content-container bg-green">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="heading d-flex flex-wrap justify-content-between align-items-start position-relative">
-                                <div className="heading-text">
-
-                                    <h3> My Project </h3>
-
-                                </div>
-
-                            </div>
-                            <ul className="work-list">
-                                <li className="work-item">
-                                    <div className="work-box d-flex flex-wrap align-items-center justify-content-between flex-md-row flex-column-reverse"
-                                        style={{background: 'rgb(48 166 254 / 20%)'}}>
-                                        <div className="wb-img"> <img src="/project-img-3.png" alt=""/> </div>
-                                        <div className="wb-text">
-                                            <h3> WEB DESIGN </h3>
-                                            <h5> Snowlake Theme </h5>
-                                            <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
-                                                lobortis.
-                                                Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus
-                                                cursus.
-                                            </p>
-                                            <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                                                Projects <div className="arrow-icon"> <img src="/arrow-icon.svg"/>
-                                                </div></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="work-item d-flex flex-wrap">
-                                    <div className="wi-content">
-                                        <div className="work-box d-flex flex-wrap flex-column-reverse"
-                                            style={{background: 'rgb(255 0 0 / 20%)'}}>
-                                            <div className="wb-img w-100"> <img src="/project-img-1.png" alt=""/>
-                                            </div>
-                                            <div className="wb-text w-100">
-                                                <h3> WEB DESIGN </h3>
-                                                <h5> Snowlake Theme </h5>
-                                                <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
-                                                    lobortis.
-                                                    Scelerisque id ligula porta felis euismod semper. Fusce dapibus
-                                                    tellus
-                                                    cursus. </p>
-                                                <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                                                    Projects
-                                                    <div className="arrow-icon"> <img src="/arrow-icon.svg"/>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="wi-content">
-                                        <div className="work-box d-flex flex-wrap flex-column-reverse"
-                                            style={{background: 'rgb(10 119 118 / 20%)'}}>
-                                            <div className="wb-img w-100"> <img src="/project-img-2.png" alt=""/>
-                                            </div>
-                                            <div className="wb-text w-100">
-                                                <h3> WEB DESIGN </h3>
-                                                <h5> Snowlake Theme </h5>
-                                                <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
-                                                    lobortis.
-                                                    Scelerisque id ligula porta felis euismod semper. Fusce dapibus
-                                                    tellus
-                                                    cursus. </p>
-                                                <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                                                    Projects
-                                                    <div className="arrow-icon"> <img src="/arrow-icon.svg"/>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="work-item">
-                                    <div className="work-box d-flex flex-wrap align-items-center justify-content-between flex-md-row flex-column-reverse"
-                                        style={{background: 'rgb(134 109 217 / 20%)'}}>
-                                        <div className="wb-img"> <img src="/project-img-4.png" alt=""/> </div>
-                                        <div className="wb-text">
-                                            <h3> WEB DESIGN </h3>
-                                            <h5> Snowlake Theme </h5>
-                                            <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
-                                                lobortis.
-                                                Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus
-                                                cursus.
-                                            </p>
-                                            <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                                                Projects <div className="arrow-icon"> <img src="/arrow-icon.svg"/>
-                                                </div></a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+       
 
         </div >
     )
