@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import AboutHero from './AboutHero'
 
 const About = () => {
 
@@ -45,26 +46,7 @@ const About = () => {
     return (
         <div>
             
-      <div className="about-hero-container d-flex align-items-start position-relative">
-        <div className="about-hero-bg"></div>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="about-hero-box d-flex align-items-center justify-content-center">
-                <div className="about-hero-text text-center">
-                  <h4><span>Hello,</span> I'm</h4>
-                  <h1>Rahul <span>Maurya</span></h1>
-                  <h3>I'm a <span>Web Developer</span>.</h3>
-                  <div className="about-hero-btn">
-                    <a href="#projects" className="btn btn-default">Featured Work
-                      <i className="fas fa-arrow-down ms-2"></i></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <AboutHero />
 
 
       <div className="content-container image-text-block-container bg-yellow">
@@ -78,9 +60,7 @@ const About = () => {
                   </div>
                 </div>
                 <div className="itb-text">
-                  <div className="heading d-flex">
-                    <h3>About Me</h3>
-                  </div>
+                  <h4><span>Hello,</span> I'm</h4>
                   <h2>Rahul <span>Maurya</span></h2>
                   <h5>Web <span>Developer</span></h5>
                   <p>I am a front-end web developer whose life's passion is Technology and I also love to

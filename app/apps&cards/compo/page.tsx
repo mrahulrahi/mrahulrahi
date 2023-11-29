@@ -48,7 +48,7 @@ const compo = () => {
                 </div>
 
                 <div className="contact-wrapper">
-                  <div className="contact-box d-flex flex-wrap glass-bg">
+                  <div className="contact-box-1 d-flex flex-wrap glass-bg">
                     <div className="contact-text">
                       <h4>Let's talk!</h4>
                       <div className="contact-details-list d-flex flex-wrap">
@@ -84,7 +84,7 @@ const compo = () => {
                     </div>
                   </div>
 
-                  <div className="contact-box glass-bg d-flex flex-wrap justify-content-between align-items-center">
+                  <div className="contact-box-1 glass-bg d-flex flex-wrap justify-content-between align-items-center">
                     <div className="contact-text">
                       <h3>CONTACT</h3>
                       <h1>GET IN TOUCH</h1>

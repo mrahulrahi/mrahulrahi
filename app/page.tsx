@@ -3,46 +3,44 @@
 
 
 export default function Home() {
- 
+
 
   return (
     <main >
 
-<div className="hero-container d-flex flex-wrap align-items-center position-relative">
-                <div className="hero-bg"> <img src="/animated-shape.svg" alt="" /></div>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-10 col-12 mx-auto">
-                            <div className="hero-content d-flex flex-wrap justify-content-between">
-                                <div className="hero-left">
-                                    <div className="hl-content">
-                                        <div className="hero-img"> <img src="/hero-img-1.jpg" alt="" /> </div>
-                                        <div className="hero-icon hi-1"> <img src="/html-5.png" alt="" />
-                                        </div>
-                                        <div className="hero-icon hi-2"> <img src="/css-3.png" alt="" />
-                                        </div>
-                                        <div className="hero-icon hi-3"> <img src="/java.png" alt="" /> </div>
-                                    </div>
-                                </div>
-                                <div className="hero-right">
-                                    <div className="hr-content">
-                                        <h1> Hello I'm </h1>
-                                        <h2> Rahul Maurya </h2>
-                                        <h3> Web Developer From India </h3>
-                                        <p> I'm Rahul, an experienced Front End Developer based in India and specialise
-                                            in PSD to
-                                            Html & WordPress. I'm available for freelance works. </p>
-                                        <div className="hero-btn-box">
-                                            <a href="#" className="btn btn-default"> Know More </a>
-                                            <a href="#" className="btn btn-default btn-blue"> Contact Me </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+      <div className="hero-container d-flex flex-wrap align-items-center position-relative">
+        <div className="hero-bg"> <img src="/animated-shape.svg" alt="" /></div>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-10 col-12 mx-auto">
+              <div className="hero-content d-flex flex-wrap justify-content-between glass-bg">
+                <div className="hero-left">
+                  <div className="hl-content">
+                    <div className="hero-img"> <img src="/hero-img-1.jpg" alt="" /> </div>
+                    <div className="hero-icon hi-1"> <img src="/html-5.png" alt="" />
                     </div>
+                    <div className="hero-icon hi-2"> <img src="/css-3.png" alt="" />
+                    </div>
+                    <div className="hero-icon hi-3"> <img src="/java.png" alt="" /> </div>
+                  </div>
                 </div>
+                <div className="hero-right">
+                  <div className="hr-content">
+                    <h4><span>Hello,</span> I'm</h4>
+                    <h1>Rahul <span>Maurya</span></h1>
+                    <h3>I'm a <span>Web Developer</span> <br /> From <span>India</span> .</h3>
+                    <p>Tech Stack - MERN</p>
+                      <div className="about-hero-btn">
+                      <a href="#projects" className="btn btn-default">Featured Work
+                        <i className="fas fa-arrow-down ms-2"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
+      </div>
 
 
 
