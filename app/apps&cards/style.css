@@ -2,18 +2,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:100,400,900");  
 
-:root{--white:#fff;
-  --black:#000;
-  --gold:#F2E8B9;
-  --green:#45796F;
-  --cyan: hsl(178, 100%, 50%);
-  --card-bg: hsl(216, 50%, 16%);
-  --line: hsl(215, 32%, 27%);
-  --light-gray: hsl(212, 45%, 89%);
-  --grayish-blue: hsl(220, 15%, 55%);
-  --dark-blue: hsl(218, 44%, 22%);
-}
-
 
 /* =================core css starts here================= */
 body{font-family:"Roboto",sans-serif;font-size:16px;line-height:24px;font-weight:400;;color:var(--black);background: var(--white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; }

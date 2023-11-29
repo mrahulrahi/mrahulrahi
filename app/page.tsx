@@ -9,7 +9,7 @@ export default function Home() {
     <main >
 
 <div className="hero-container d-flex flex-wrap align-items-center position-relative">
-                <div className="hero-bg"> <img src="include/images/bg-bottom-hero.png" alt="" /></div>
+                <div className="hero-bg"> <img src="/animated-shape.svg" alt="" /></div>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-10 col-12 mx-auto">
