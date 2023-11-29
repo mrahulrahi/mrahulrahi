@@ -62,14 +62,13 @@ p:last-child{margin-bottom:0;}
 .heading{width: 100%;margin-bottom: 60px;}
 .heading h3{font-family:"Outfit",sans-serif;font-size: 64px;font-weight: 700;line-height: 1.3;margin-bottom: 0;}
 
-.uiBoxGray{background-color:#ccc;border:2px solid #666;box-shadow:0 0 20px 2px #ccc}
-.uiBoxPink{background-color:#eeb1d7;border:2px solid #db2586;box-shadow:0 0 20px 2px #eeb1d7}
-.uiBoxGreen{background-color:#d1e6b9;border:2px solid #629824;box-shadow:0 0 20px 2px #d1e6b9}
-.uiBoxYellow{background-color:#fff9d7;border:2px solid #e2c822;box-shadow:0 0 20px 2px #fff9d7}
 
-.block-card-list{width:calc(100% + 40px);margin: 0 -20px;font-family:"Readex Pro",sans-serif;}
-.block-card-item{width: 25%;padding: 0 20px;}
+
+.block-card-list{width:calc(100% + 40px);margin: 0 -20px;font-family:"Readex Pro",sans-serif;margin-bottom: -20px;}
+.block-card-item{width: 33.33%;padding: 0 20px;margin-bottom: 20px;}
 .block-card-box{padding:40px;border-radius: 30px;color: var(--green);font-size:18px;min-height: 240px;}
+.block-card-item:nth-child(even) .block-card-box{background-color:#d1e6b9;border:2px solid #629824;}
+.block-card-item:nth-child(odd) .block-card-box{background-color:#fff9d7;border:2px solid #e2c822;}
 .block-card-box h5{font-size:26px;margin-bottom: 20px;}
 .block-img{width:1.5rem;mix-blend-mode:exclusion}
 .block-img:hover{transform:scale(1.25);transition:.3s}

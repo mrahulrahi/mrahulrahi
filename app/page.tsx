@@ -1,4 +1,4 @@
-
+import React from "react"
 
 
 
@@ -44,7 +44,6 @@ export default function Home() {
       </div>
 
 
-
       <div className="content-container projects-card-container bg-green" id="projects">
         <div className="container">
           <div className="row">
@@ -63,6 +62,7 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
+
                 <div className="projects-card-list-outer">
                   <div className="swiper projects-card-list projects-card-list-slider">
                     <div className="swiper-wrapper">

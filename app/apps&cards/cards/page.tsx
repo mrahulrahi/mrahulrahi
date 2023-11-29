@@ -1,8 +1,8 @@
 import React from 'react'
-import ResMenuCard from './resMenuCard'
+import ResMenuCard from './ResMenuCard'
 import ResCard from './ResCard'
-import NftCard from './nftCard'
-import ServiceCard from './serviceCard'
+import NftCard from './NftCard'
+import ServiceCard from './ServiceCard'
 
 const cards = () => {
   return (

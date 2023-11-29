@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import Banner from './banner' 
+import Banner from './Banner' 
 
 export default function ACLayout({
 
