@@ -2,6 +2,12 @@ import React from 'react'
 
 
 const Portfolio = () => {
+const videoCards = [{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4'},
+{id : 1, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY'}
+{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4'}
+{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4'}
+{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4'}]
+
   return (
     <div>
       <div className="banner-container d-flex align-items-center position-relative">
@@ -166,14 +172,14 @@ const Portfolio = () => {
                   <div className="video-card-item">
                     <div className="video-card-box bg-yellow" data-aos="fade-up">
                       <div className="video-card-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/KVPr-Q-cloY"
+                        <iframe width="560" height="315" src=""
                           title="YouTube video player" frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen></iframe>
                       </div>
                       <div className="video-card-text">
                         <h5>
-                          OnePlus NORD | B-roll | Cinematic Shots
+                
                         </h5>
                       </div>
                     </div>
