@@ -3,10 +3,13 @@ import React from 'react'
 
 const Portfolio = () => {
 const videoCards = [{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4'},
-{id : 1, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY'}
-{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4'}
-{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4'}
-{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4'}]
+{id : 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY'},
+{id : 3, title: 'Xiaomi Mi 10i | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/vNFb5rk77Pg'},
+{id : 4, title: 'OnePlus NORD Vs OnePlus 8 | Camera Comparison', url: 'https://www.youtube.com/embed/1fiuAE0bRDY'},
+{id : 5, title: '5 OnePlus Benefits | Red Cable Club Membership', url: 'https://www.youtube.com/embed/Kb-tjX9orj0'},
+{id : 5, title: 'Cinematic B-roll | OnePlus Bullets Wireless Z', url: 'https://www.youtube.com/embed/4OHGr67Xiag'},
+{id : 5, title: 'Cinematic B-roll | Asus ROG Strix G15 531GT', url: 'https://www.youtube.com/embed/tb1pmAbIlKg'},
+{id : 5, title: 'Apps Review | YMUSIC | Fire Liquidator', url: 'https://www.youtube.com/embed/xnavnMUQjkE'},]
 
   return (
     <div>
@@ -156,124 +159,20 @@ const videoCards = [{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url:
                 </div>
 
                 <div className="video-card-list">
-                  <div className="video-card-item">
+                  {videoCards.map (card =>   <div key={card.id} className="video-card-item">
                     <div className="video-card-box bg-yellow" data-aos="fade-up">
                       <div className="video-card-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/O3zRzznPFA4"
+                        <iframe width="560" height="315" src={card.url}
                           title="YouTube video player" frameborder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           allowfullscreen></iframe>
                       </div>
                       <div className="video-card-text">
-                        <h5>OnePlus 8 | B-roll | Cinematic Shots</h5>
+                        <h5>{card.title}</h5>
                       </div>
                     </div>
-                  </div>
-                  <div className="video-card-item">
-                    <div className="video-card-box bg-yellow" data-aos="fade-up">
-                      <div className="video-card-iframe">
-                        <iframe width="560" height="315" src=""
-                          title="YouTube video player" frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
-                      </div>
-                      <div className="video-card-text">
-                        <h5>
-                
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="video-card-item">
-                    <div className="video-card-box bg-yellow" data-aos="fade-up">
-                      <div className="video-card-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/vNFb5rk77Pg"
-                          title="YouTube video player" frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
-                      </div>
-                      <div className="video-card-text">
-                        <h5>
-                          Xiaomi Mi 10i | B-roll | Cinematic Shots
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="video-card-item">
-                    <div className="video-card-box bg-yellow" data-aos="fade-up">
-                      <div className="video-card-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/1fiuAE0bRDY"
-                          title="YouTube video player" frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
-                      </div>
-                      <div className="video-card-text">
-                        <h5>
-                          OnePlus NORD Vs OnePlus 8 | Camera Comparison
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="video-card-item">
-                    <div className="video-card-box bg-yellow" data-aos="fade-up">
-                      <div className="video-card-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Kb-tjX9orj0"
-                          title="YouTube video player" frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
-                      </div>
-                      <div className="video-card-text">
-                        <h5>
-                          5 OnePlus Benefits | Red Cable Club Membership
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="video-card-item">
-                    <div className="video-card-box bg-yellow" data-aos="fade-up">
-                      <div className="video-card-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/4OHGr67Xiag"
-                          title="YouTube video player" frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
-                      </div>
-                      <div className="video-card-text">
-                        <h5>
-                          Cinematic B-roll | OnePlus Bullets Wireless Z
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="video-card-item">
-                    <div className="video-card-box bg-yellow" data-aos="fade-up">
-                      <div className="video-card-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/tb1pmAbIlKg"
-                          title="YouTube video player" frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
-                      </div>
-                      <div className="video-card-text">
-                        <h5>
-                          Cinematic B-roll | Asus ROG Strix G15 531GT
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="video-card-item">
-                    <div className="video-card-box bg-yellow" data-aos="fade-up">
-                      <div className="video-card-iframe">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/xnavnMUQjkE"
-                          title="YouTube video player" frameborder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
-                      </div>
-                      <div className="video-card-text">
-                        <h5>
-                          App's Review | YMUSIC | Fire Liquidator
-                        </h5>
-                      </div>
-                    </div>
-                  </div>
+                  </div>)}
+                  
                 </div>
               </div>
             </div>

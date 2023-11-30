@@ -9,7 +9,7 @@ const Header = () => {
         { 'path': '/', 'label': 'Home' },
         { 'path': '/about', 'label': 'About' },
         { 'path': '/portfolio', 'label': 'Portfolio' },
-        { 'path': '/apps&cards', 'label': 'AeroC Ui' },
+        { 'path': '/aerocPage', 'label': 'AeroC Elements' },
         { 'path': '#contact', 'label': 'Contact' },
     ]
 

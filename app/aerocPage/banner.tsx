@@ -11,7 +11,7 @@ const Banner = () => {
             <img src="/logo.png" alt=""/>
           </div>
           <div className="banner-text">
-            <h1>AeroC Ui Elements</h1>
+            <h1>   Elements</h1>
           </div>
         </div>
       </div>
