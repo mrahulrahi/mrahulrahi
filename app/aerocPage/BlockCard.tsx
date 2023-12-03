@@ -1,10 +1,14 @@
 import React from 'react'
 
-
-
 interface Props {
-    items: string[],
+    items: Item[],
 }
+
+interface Item {
+    id: number,
+    title: string,
+    url: string,
+  }
 
 const BlockCard = (props: Props) => {
 

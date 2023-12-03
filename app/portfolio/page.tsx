@@ -163,9 +163,9 @@ const videoCards = [{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url:
                     <div className="video-card-box bg-yellow" data-aos="fade-up">
                       <div className="video-card-iframe">
                         <iframe width="560" height="315" src={card.url}
-                          title="YouTube video player" frameborder="0"
+                          title="YouTube video player" frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
+                          allowFullScreen></iframe>
                       </div>
                       <div className="video-card-text">
                         <h5>{card.title}</h5>

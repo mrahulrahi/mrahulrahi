@@ -78,7 +78,7 @@ const compo = () => {
                         <label>Email <span>*</span></label>
                         <input type="email" className="form-control" />
                         <label>Comment or Message <span>*</span></label>
-                        <textarea type="text" className="form-control"> </textarea><br />
+                        <textarea className="form-control"> </textarea><br />
                         <button className="btn btn-default" type="submit">SEND MESSAGE</button>
                       </form>
                     </div>
@@ -504,7 +504,7 @@ const compo = () => {
                     <div className="link d-flex justify-content-between">
                       <span>
                         <input type="checkbox" id="agree-terms" required />
-                        <label for="agree-terms"><a href="#">Agree to Terms &amp; Conditions</a>
+                        <label htmlFor="agree-terms"><a href="#">Agree to Terms &amp; Conditions</a>
                         </label>
                       </span>
                       <a href="google.com">Forgot Password?</a>

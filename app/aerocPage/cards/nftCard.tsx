@@ -12,7 +12,7 @@ const nftCard = () => {
                                 <div className="heading d-flex flex-wrap justify-content-between align-items-center">
                                     <h3>NFT Card</h3>
                                     <div className="btn-holder">
-                                        <button className="btn btn-default btn-green" type="button" name="button" onclick="showAddNftcardModal()">
+                                        <button className="btn btn-default btn-green" type="button" name="button">
                                             Add NFT Card
                                         </button>
                                     </div>
@@ -104,10 +104,10 @@ const nftCard = () => {
                             <label htmlFor="creator">Creator</label>
                             <input id="nft-creator" type="text" />
                             <div className="modal-btn-box d-flex gap-1 justify-content-center">
-                                <button className="btn btn-default confirm-btn" type="button" name="button" onclick="addNftcard()">
+                                <button className="btn btn-default confirm-btn" type="button" name="button">
                                     Confirm
                                 </button>
-                                <button className="btn btn-default close-btn" type="button" name="button" onclick="closeNftcardBtn()">
+                                <button className="btn btn-default close-btn" type="button" name="button">
                                     Close
                                 </button>
                             </div>

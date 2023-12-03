@@ -207,9 +207,9 @@ export default function Home() {
                     <div className="video-card-box bg-yellow" data-aos="fade-up">
                       <div className="video-card-iframe">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/O3zRzznPFA4"
-                          title="YouTube video player" frameborder="0"
+                          title="YouTube video player" frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
+                          allowFullScreen></iframe>
                       </div>
                       <div className="video-card-text">
                         <h5>OnePlus 8 | B-roll | Cinematic Shots</h5>
@@ -220,9 +220,9 @@ export default function Home() {
                     <div className="video-card-box bg-yellow" data-aos="fade-up">
                       <div className="video-card-iframe">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/KVPr-Q-cloY"
-                          title="YouTube video player" frameborder="0"
+                          title="YouTube video player" frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
+                          allowFullScreen></iframe>
                       </div>
                       <div className="video-card-text">
                         <h5>
@@ -235,9 +235,9 @@ export default function Home() {
                     <div className="video-card-box bg-yellow" data-aos="fade-up">
                       <div className="video-card-iframe">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/vNFb5rk77Pg"
-                          title="YouTube video player" frameborder="0"
+                          title="YouTube video player" frameBorder="0"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowfullscreen></iframe>
+                          allowFullScreen></iframe>
                       </div>
                       <div className="video-card-text">
                         <h5>

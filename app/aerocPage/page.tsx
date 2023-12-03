@@ -1,11 +1,5 @@
 import React from 'react'
 import BlockCard from './BlockCard'
-interface Prpos {
-  id: number,
-  title: string,
-  url: string,
-}
-
 
 const AppsCardsPage = () => {
   const cards = [{ id: 1, title: 'Calculator UI', url: '/aerocPage/apps'},

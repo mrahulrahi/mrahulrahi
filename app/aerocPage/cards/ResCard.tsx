@@ -11,7 +11,7 @@ const ResCard = () => {
                                 <div className="heading d-flex flex-wrap justify-content-between align-items-center">
                                     <h3>Responsive Cards</h3>
                                     <div className="btn-holder">
-                                        <button className="btn btn-default" type="button" name="button" onclick="showAddRescardModal()">
+                                        <button className="btn btn-default" type="button" name="button">
                                             Add Responsive Card
                                         </button>
                                     </div>
@@ -105,10 +105,10 @@ const ResCard = () => {
                             <label htmlFor="#res-content">Content</label>
                             <input id="res-content" type="text" />
                             <div className="modal-btn-box d-flex gap-1 justify-content-center">
-                                <button className="btn btn-default confirm-btn" type="button" name="button" onClick="{addRescard}">
+                                <button className="btn btn-default confirm-btn" type="button" name="button">
                                     Confirm
                                 </button>
-                                <button className="btn btn-default close-btn" type="button" name="button" onClick="{closeRescardBtn}">
+                                <button className="btn btn-default close-btn" type="button" name="button">
                                     Close
                                 </button>
                             </div>

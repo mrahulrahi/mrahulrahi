@@ -8,11 +8,11 @@ const cards = () => {
   return (
     <div>
 
-    <ResMenuCard />
-    <ResCard />
-    <NftCard />
-    <ServiceCard />
-    
+      <ResMenuCard />
+      <ResCard />
+      <NftCard />
+      <ServiceCard />
+
     </div>
   )
 }
