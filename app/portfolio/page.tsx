@@ -2,14 +2,14 @@ import React from 'react'
 
 
 const Portfolio = () => {
-const videoCards = [{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4'},
-{id : 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY'},
-{id : 3, title: 'Xiaomi Mi 10i | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/vNFb5rk77Pg'},
-{id : 4, title: 'OnePlus NORD Vs OnePlus 8 | Camera Comparison', url: 'https://www.youtube.com/embed/1fiuAE0bRDY'},
-{id : 5, title: '5 OnePlus Benefits | Red Cable Club Membership', url: 'https://www.youtube.com/embed/Kb-tjX9orj0'},
-{id : 5, title: 'Cinematic B-roll | OnePlus Bullets Wireless Z', url: 'https://www.youtube.com/embed/4OHGr67Xiag'},
-{id : 5, title: 'Cinematic B-roll | Asus ROG Strix G15 531GT', url: 'https://www.youtube.com/embed/tb1pmAbIlKg'},
-{id : 5, title: 'Apps Review | YMUSIC | Fire Liquidator', url: 'https://www.youtube.com/embed/xnavnMUQjkE'},]
+  const videoCards = [{ id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
+  { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },
+  { id: 3, title: 'Xiaomi Mi 10i | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/vNFb5rk77Pg' },
+  { id: 4, title: 'OnePlus NORD Vs OnePlus 8 | Camera Comparison', url: 'https://www.youtube.com/embed/1fiuAE0bRDY' },
+  { id: 5, title: '5 OnePlus Benefits | Red Cable Club Membership', url: 'https://www.youtube.com/embed/Kb-tjX9orj0' },
+  { id: 5, title: 'Cinematic B-roll | OnePlus Bullets Wireless Z', url: 'https://www.youtube.com/embed/4OHGr67Xiag' },
+  { id: 5, title: 'Cinematic B-roll | Asus ROG Strix G15 531GT', url: 'https://www.youtube.com/embed/tb1pmAbIlKg' },
+  { id: 5, title: 'Apps Review | YMUSIC | Fire Liquidator', url: 'https://www.youtube.com/embed/xnavnMUQjkE' },]
 
   return (
     <div>
@@ -36,103 +36,103 @@ const videoCards = [{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url:
 
 
       <div className="content-container bg-green">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="heading d-flex flex-wrap justify-content-between align-items-start position-relative">
-                                <div className="heading-text">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="heading d-flex flex-wrap justify-content-between align-items-start position-relative">
+                <div className="heading-text">
 
-                                    <h3> My Project </h3>
+                  <h3> My Project </h3>
 
-                                </div>
-
-                            </div>
-                            <ul className="work-list">
-                                <li className="work-item">
-                                    <div className="work-box d-flex flex-wrap align-items-center justify-content-between flex-md-row flex-column-reverse"
-                                        style={{background: 'rgb(48 166 254 / 20%)'}}>
-                                        <div className="wb-img"> <img src="/project-img-3.png" alt=""/> </div>
-                                        <div className="wb-text">
-                                            <h3> WEB DESIGN </h3>
-                                            <h5> Snowlake Theme </h5>
-                                            <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
-                                                lobortis.
-                                                Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus
-                                                cursus.
-                                            </p>
-                                            <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                                                Projects <div className="arrow-icon"> <img src="/arrow-icon.svg"/>
-                                                </div></a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="work-item d-flex flex-wrap">
-                                    <div className="wi-content">
-                                        <div className="work-box d-flex flex-wrap flex-column-reverse"
-                                            style={{background: 'rgb(255 0 0 / 20%)'}}>
-                                            <div className="wb-img w-100"> <img src="/project-img-1.png" alt=""/>
-                                            </div>
-                                            <div className="wb-text w-100">
-                                                <h3> WEB DESIGN </h3>
-                                                <h5> Snowlake Theme </h5>
-                                                <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
-                                                    lobortis.
-                                                    Scelerisque id ligula porta felis euismod semper. Fusce dapibus
-                                                    tellus
-                                                    cursus. </p>
-                                                <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                                                    Projects
-                                                    <div className="arrow-icon"> <img src="/arrow-icon.svg"/>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="wi-content">
-                                        <div className="work-box d-flex flex-wrap flex-column-reverse"
-                                            style={{background: 'rgb(10 119 118 / 20%)'}}>
-                                            <div className="wb-img w-100"> <img src="/project-img-2.png" alt=""/>
-                                            </div>
-                                            <div className="wb-text w-100">
-                                                <h3> WEB DESIGN </h3>
-                                                <h5> Snowlake Theme </h5>
-                                                <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
-                                                    lobortis.
-                                                    Scelerisque id ligula porta felis euismod semper. Fusce dapibus
-                                                    tellus
-                                                    cursus. </p>
-                                                <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                                                    Projects
-                                                    <div className="arrow-icon"> <img src="/arrow-icon.svg"/>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li className="work-item">
-                                    <div className="work-box d-flex flex-wrap align-items-center justify-content-between flex-md-row flex-column-reverse"
-                                        style={{background: 'rgb(134 109 217 / 20%)'}}>
-                                        <div className="wb-img"> <img src="/project-img-4.png" alt=""/> </div>
-                                        <div className="wb-text">
-                                            <h3> WEB DESIGN </h3>
-                                            <h5> Snowlake Theme </h5>
-                                            <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
-                                                lobortis.
-                                                Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus
-                                                cursus.
-                                            </p>
-                                            <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                                                Projects <div className="arrow-icon"> <img src="/arrow-icon.svg"/>
-                                                </div></a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
+
+              </div>
+              <ul className="work-list">
+                <li className="work-item">
+                  <div className="work-box d-flex flex-wrap align-items-center justify-content-between flex-md-row flex-column-reverse"
+                    style={{ background: 'rgb(48 166 254 / 20%)' }}>
+                    <div className="wb-img"> <img src="/project-img-3.png" alt="" /> </div>
+                    <div className="wb-text">
+                      <h3> WEB DESIGN </h3>
+                      <h5> Snowlake Theme </h5>
+                      <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
+                        lobortis.
+                        Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus
+                        cursus.
+                      </p>
+                      <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
+                        Projects <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                        </div></a>
+                    </div>
+                  </div>
+                </li>
+                <li className="work-item d-flex flex-wrap">
+                  <div className="wi-content">
+                    <div className="work-box d-flex flex-wrap flex-column-reverse"
+                      style={{ background: 'rgb(255 0 0 / 20%)' }}>
+                      <div className="wb-img w-100"> <img src="/project-img-1.png" alt="" />
+                      </div>
+                      <div className="wb-text w-100">
+                        <h3> WEB DESIGN </h3>
+                        <h5> Snowlake Theme </h5>
+                        <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
+                          lobortis.
+                          Scelerisque id ligula porta felis euismod semper. Fusce dapibus
+                          tellus
+                          cursus. </p>
+                        <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
+                          Projects
+                          <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="wi-content">
+                    <div className="work-box d-flex flex-wrap flex-column-reverse"
+                      style={{ background: 'rgb(10 119 118 / 20%)' }}>
+                      <div className="wb-img w-100"> <img src="/project-img-2.png" alt="" />
+                      </div>
+                      <div className="wb-text w-100">
+                        <h3> WEB DESIGN </h3>
+                        <h5> Snowlake Theme </h5>
+                        <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
+                          lobortis.
+                          Scelerisque id ligula porta felis euismod semper. Fusce dapibus
+                          tellus
+                          cursus. </p>
+                        <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
+                          Projects
+                          <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li className="work-item">
+                  <div className="work-box d-flex flex-wrap align-items-center justify-content-between flex-md-row flex-column-reverse"
+                    style={{ background: 'rgb(134 109 217 / 20%)' }}>
+                    <div className="wb-img"> <img src="/project-img-4.png" alt="" /> </div>
+                    <div className="wb-text">
+                      <h3> WEB DESIGN </h3>
+                      <h5> Snowlake Theme </h5>
+                      <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
+                        lobortis.
+                        Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus
+                        cursus.
+                      </p>
+                      <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
+                        Projects <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                        </div></a>
+                    </div>
+                  </div>
+                </li>
+              </ul>
             </div>
+          </div>
+        </div>
+      </div>
 
 
       <div className="content-container bg-green">
@@ -159,7 +159,7 @@ const videoCards = [{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url:
                 </div>
 
                 <div className="video-card-list">
-                  {videoCards.map (card =>   <div key={card.id} className="video-card-item">
+                  {videoCards.map(card => <div key={card.id} className="video-card-item">
                     <div className="video-card-box bg-yellow" data-aos="fade-up">
                       <div className="video-card-iframe">
                         <iframe width="560" height="315" src={card.url}
@@ -172,7 +172,6 @@ const videoCards = [{id : 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url:
                       </div>
                     </div>
                   </div>)}
-                  
                 </div>
               </div>
             </div>

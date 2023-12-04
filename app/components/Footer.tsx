@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
 
 const Footer = () => {
 
@@ -39,13 +40,13 @@ const Footer = () => {
                   <div className="footer-heading">Connect with me :</div>
                   <div className="social-links d-flex">
                     <a className="d-flex align-items-center justify-content-center"
-                      href="https://linkedin.com/in/mrahulrahi/"><i className="fab fa-linkedin-in"></i></a>
+                      href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></a>
                     <a className="d-flex align-items-center justify-content-center"
-                      href="https://github.com/mrahulrahi/"><i className="fab fa-github"></i></a>
+                      href="https://github.com/mrahulrahi/"><FaGithub /></a>
                     <a className="d-flex align-items-center justify-content-center"
-                      href="https://www.youtube.com/@fireliquidator"><i className="fab fa-youtube"></i></a>
+                      href="https://www.youtube.com/@fireliquidator"><FaYoutube /></a>
                     <a className="d-flex align-items-center justify-content-center"
-                      href="https://t.me/mrahulrahi"><i className="fab fa-telegram-plane"></i></a>
+                      href="https://t.me/mrahulrahi"><FaTelegram /></a>
                   </div>
 
                 </div>

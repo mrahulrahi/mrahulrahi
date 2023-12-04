@@ -24,7 +24,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <script src="https://kit.fontawesome.com/8c25ccfa63.js" crossOrigin="anonymous"></script>
       <ImportBsJS />
       <body className={josefinSans.className}>
         <Header />

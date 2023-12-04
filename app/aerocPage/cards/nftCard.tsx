@@ -114,7 +114,6 @@ const nftCard = () => {
                         </div>
                     </div>
                 </div>
-
             </section>
         </div>
     )
