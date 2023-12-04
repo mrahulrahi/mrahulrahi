@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import AboutHero from './AboutHero'
+import { IoIosArrowDropdownCircle } from "react-icons/io";
 
 const About = () => {
 
@@ -71,7 +72,7 @@ const About = () => {
                   <p>Stack - MERN Stack</p>
 
                   <a href="https://drive.google.com/file/d/1-4vdQtKGmM2ixaMvL2Wav6KY9ncrglcT/view?usp=sharing"
-                    className="btn btn-default white">Download Resume</a>
+                    className="btn btn-default white">Download Resume<IoIosArrowDropdownCircle /></a>
                 </div>
 
               </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const AboutHero = () => {
     return (
@@ -14,7 +15,7 @@ const AboutHero = () => {
                                     <h3>I'm a <span>Web Developer</span>.</h3>
                                     <div className="hero-btn-box">
                                         <a href="#projects" className="btn btn-default">Featured Work
-                                            <i className="fas fa-arrow-down ms-2"></i></a>
+                                        <IoIosArrowDroprightCircle /></a>
                                     </div>
                                 </div>
                             </div>
