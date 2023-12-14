@@ -2,52 +2,53 @@ import React from 'react'
 import Image from 'next/image'
 import AboutHero from './AboutHero'
 import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
 
 const About = () => {
 
-    const skills = [{
-        id: 1,
-        logo: 'fa-brands fa-html5',
-        title: 'HTML'
-      },
-      {
-        id: 2,
-        logo: 'fa-brands fa-css3-alt',
-        title: 'CSS'
-      }, {
-        id: 3,
-        logo: 'fa-brands fa-square-js',
-        title: 'JavaScript'
-      }, {
-        id: 4,
-        logo: 'fa-brands fa-bootstrap',
-        title: 'Bootstrap'
-      }, {
-        id: 5,
-        logo: 'fa-brands fa-react',
-        title: 'ReactJS'
-      }, {
-        id: 6,
-        logo: 'fa-brands fa-node-js',
-        title: 'Node.js'
-      }, {
-        id: 7,
-        logo: 'fa-brands fa-git-alt',
-        title: 'Git'
-      }, {
-        id: 8,
-        logo: 'fa-brands fa-github',
-        title: 'GitHub'
-      }, {
-        id: 9,
-        logo: 'fa-brands fa-figma',
-        title: 'Figma'
-      }]
+  const skills = [{
+    id: 1,
+    logo: <FaHtml5 />,
+    title: 'HTML'
+  },
+  {
+    id: 2,
+    logo: <FaCss3Alt />,
+    title: 'CSS'
+  }, {
+    id: 3,
+    logo: <FaJsSquare />,
+    title: 'JavaScript'
+  }, {
+    id: 4,
+    logo: <FaBootstrap />,
+    title: 'Bootstrap'
+  }, {
+    id: 5,
+    logo: <FaReact />,
+    title: 'ReactJS'
+  }, {
+    id: 6,
+    logo: <FaNodeJs />,
+    title: 'Node.js'
+  }, {
+    id: 7,
+    logo: <FaGitAlt />,
+    title: 'Git'
+  }, {
+    id: 8,
+    logo: <FaGithub />,
+    title: 'GitHub'
+  }, {
+    id: 9,
+    logo: <FaFigma />,
+    title: 'Figma'
+  }]
 
-    return (
-        <div>
-            
-    <AboutHero />
+  return (
+    <div>
+
+      <AboutHero />
 
 
       <div className="content-container image-text-block-container bg-yellow">
@@ -86,7 +87,7 @@ const About = () => {
                   {skills.map(skill => <div key={skill.id} className="skill-card-item">
                     <div className="skill-card-box">
                       <div className="skill-card-icon mx-auto">
-                        <i className={skill.logo}></i>
+                        {skill.logo}
                       </div>
                       <p>{skill.title}</p>
                     </div>
@@ -149,101 +150,101 @@ const About = () => {
       </div>
 
 
-            <div className="content-container bg-violet">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="d-flex">
-                                <div className="content-left">
-                                    <div><img src="/rahi.webp" alt=""/></div>
+      <div className="content-container bg-violet">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="d-flex">
+                <div className="content-left">
+                  <div><img src="/rahi.webp" alt="" /></div>
 
-                                </div>
-                                <div className="content-right">
-                                    <div className="main-container d-flex flex-wrap">
-                                        <div
-                                            className="heading d-flex flex-wrap justify-content-between align-items-start position-relative">
-                                            <div className="heading-text">
-                                                <h3> What I do </h3>
-                                            </div>
-                                        </div>
-                                        <div className="timeline-container">
-                                            <div className="timeline">
-                                                <div className="timeline-item">
-                                                    <div className="timeline-content" data-aos="fade-up">
-                                                        <div className="timeline-img">
-                                                            <img
-                                                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
-                                                        </div>
-                                                        <h2 className="timeline-content-title">Childhood
-                                                        </h2>
-                                                        <p className="timeline-content-desc">Birth and Early
-                                                            Years School Days
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div className="timeline-item">
-                                                    <div className="timeline-content" data-aos="fade-up">
-                                                        <div className="timeline-img">
-                                                            <img
-                                                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
-                                                        </div>
-                                                        <h2 className="timeline-content-title">Teenage Years
-                                                        </h2>
-                                                        <p className="timeline-content-desc">Adolescence
-                                                            Milestone Moments</p>
-                                                    </div>
-                                                </div>
-                                                <div className="timeline-item">
-                                                    <div className="timeline-content" data-aos="fade-up">
-                                                        <div className="timeline-img">
-                                                            <img
-                                                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
-                                                        </div>
-                                                        <h2 className="timeline-content-title">Adulthood
-                                                        </h2>
-                                                        <p className="timeline-content-desc">Education and
-                                                            Career Love and
-                                                            Family.</p>
-                                                    </div>
-                                                </div>
-                                                <div className="timeline-item">
-                                                    <div className="timeline-content" data-aos="fade-up">
-                                                        <div className="timeline-img">
-                                                            <img
-                                                                src="http://imaginegrouptourandtravels.com/assets/imgs/logo.png" />
-                                                        </div>
-                                                        <h2 className="timeline-content-title">Imagine Group
-                                                        </h2>
-                                                        <p className="timeline-content-desc">Dec,2022 - Jun,2023</p>
-                                                    </div>
-                                                </div>
-                                                <div className="timeline-item">
-                                                    <div className="timeline-content" data-aos="fade-up">
-                                                        <div className="timeline-img">
-                                                            <img
-                                                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
-                                                        </div>
-                                                        <h2 className="timeline-content-title">SlicemyPage
-                                                        </h2>
-                                                        <p className="timeline-content-desc">Jun,2023 - Now</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
+                <div className="content-right">
+                  <div className="main-container d-flex flex-wrap">
+                    <div
+                      className="heading d-flex flex-wrap justify-content-between align-items-start position-relative">
+                      <div className="heading-text">
+                        <h3> What I do </h3>
+                      </div>
+                    </div>
+                    <div className="timeline-container">
+                      <div className="timeline">
+                        <div className="timeline-item">
+                          <div className="timeline-content" data-aos="fade-up">
+                            <div className="timeline-img">
+                              <img
+                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
+                            </div>
+                            <h2 className="timeline-content-title">Childhood
+                            </h2>
+                            <p className="timeline-content-desc">Birth and Early
+                              Years School Days
+                            </p>
+                          </div>
+                        </div>
+                        <div className="timeline-item">
+                          <div className="timeline-content" data-aos="fade-up">
+                            <div className="timeline-img">
+                              <img
+                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
+                            </div>
+                            <h2 className="timeline-content-title">Teenage Years
+                            </h2>
+                            <p className="timeline-content-desc">Adolescence
+                              Milestone Moments</p>
+                          </div>
+                        </div>
+                        <div className="timeline-item">
+                          <div className="timeline-content" data-aos="fade-up">
+                            <div className="timeline-img">
+                              <img
+                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
+                            </div>
+                            <h2 className="timeline-content-title">Adulthood
+                            </h2>
+                            <p className="timeline-content-desc">Education and
+                              Career Love and
+                              Family.</p>
+                          </div>
+                        </div>
+                        <div className="timeline-item">
+                          <div className="timeline-content" data-aos="fade-up">
+                            <div className="timeline-img">
+                              <img
+                                src="http://imaginegrouptourandtravels.com/assets/imgs/logo.png" />
+                            </div>
+                            <h2 className="timeline-content-title">Imagine Group
+                            </h2>
+                            <p className="timeline-content-desc">Dec,2022 - Jun,2023</p>
+                          </div>
+                        </div>
+                        <div className="timeline-item">
+                          <div className="timeline-content" data-aos="fade-up">
+                            <div className="timeline-img">
+                              <img
+                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
+                            </div>
+                            <h2 className="timeline-content-title">SlicemyPage
+                            </h2>
+                            <p className="timeline-content-desc">Jun,2023 - Now</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
+          </div>
+        </div>
+      </div>
 
 
-       
 
-        </div >
-    )
+
+    </div >
+  )
 }
 
 export default About
