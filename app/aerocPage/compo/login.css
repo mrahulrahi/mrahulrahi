@@ -7,7 +7,7 @@
   font-family: 'poppins',sans-serif;
 }
 
-body {
+.login-page {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,14 +37,14 @@ h1 {
     text-align: center;
 }
 
-.inputbox {
+.login-inputbox {
     position: relative;
     margin: 30px 0;
     max-width: 310px;
     border-bottom: 2px solid #fff;
 }
 
-.inputbox label {
+.login-inputbox label {
     position: absolute;
     top: 50%;
     left: 5px;
@@ -60,7 +60,7 @@ input:valid ~ label {
     top: -5px;
 }
 
-.inputbox input {
+.login-inputbox input {
     width: 100%;
     height: 60px;
     background: transparent;
@@ -71,7 +71,7 @@ input:valid ~ label {
     color: #fff;
 }
 
-.inputbox ion-icon {
+.login-inputbox ion-icon {
     position: absolute;
     right: 8px;
     color: #fff;
@@ -79,7 +79,7 @@ input:valid ~ label {
     top: 20px;
 }
 
-.forget {
+.login-forget {
     margin: 35px 0;
     font-size: 0.85rem;
     color: #fff;
@@ -88,22 +88,22 @@ input:valid ~ label {
  
 }
 
-.forget label {
+.login-forget label {
     display: flex;
     align-items: center;
 }
 
-.forget label input {
+.login-forget label input {
     margin-right: 3px;
 }
 
-.forget a {
+.login-forget a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
 }
 
-.forget a:hover {
+.login-forget a:hover {
     text-decoration: underline;
 }
 
@@ -124,19 +124,19 @@ button:hover {
   background-color: rgb(255, 255,255, 0.5);
 }
 
-.register {
+.login-register {
     font-size: 0.9rem;
     color: #fff;
     text-align: center;
     margin: 25px 0 10px;
 }
 
-.register p a {
+.login-register p a {
     text-decoration: none;
     color: #fff;
     font-weight: 600;
 }
 
-.register p a:hover {
+.login-register p a:hover {
     text-decoration: underline;
 }
