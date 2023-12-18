@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from './components/Button'
+import { IoIosArrowDropdownCircle } from "react-icons/io";
 
 const Hero = () => {
   return (
@@ -26,8 +28,7 @@ const Hero = () => {
                     <h3>I'm a <span>Web Developer</span> <br /> From <span>India</span> .</h3>
                     <p>Tech Stack - MERN</p>
                     <div className="about-hero-btn">
-                      <a href="#projects" className="btn btn-default">Featured Work
-                        <i className="fas fa-arrow-down ms-2"></i></a>
+                      <Button title='Featured Work' style='default' icon={<IoIosArrowDropdownCircle />}/>
                     </div>
                   </div>
                 </div>
