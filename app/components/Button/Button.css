@@ -1,0 +1,5 @@
+.btn {min-width: 160px;width: fit-content;border-radius: 80px;padding: 16px 20px;font-family: 'Josefin Sans', sans-serif;font-size: 16px;font-weight: 700;line-height: 1;box-shadow: none;position: relative;}
+.btn-default,.btn-default:focus { color: var(--violet);background-color: var(--white);border: solid 1px var(--white); }
+.btn-default:hover,.btn-default:active { color: var(--white)!important;background-color: var(--green)!important;border-color: var(--green)!important;}
+.btn-violet,.btn-violet:focus { color: var(--white);background-color: var(--violet);border: solid 1px var(--violet); }
+.btn-green,.btn-green:focus { color: var(--white);background-color: var(--green);border: solid 1px var(--green); }
