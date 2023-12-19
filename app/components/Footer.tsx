@@ -10,7 +10,7 @@ const Footer = () => {
     { 'path': '/portfolio', 'label': 'Portfolio' },
     { 'path': '/apps&cards', 'label': 'Apps & Cards' },
     { 'path': '#contact', 'label': 'Contact' },
-]
+  ]
 
   return (
     <footer id="footer" className="footer bg-violet">
@@ -56,10 +56,6 @@ const Footer = () => {
                     <a href="#!" className="btn btn-default">Donate</a>
                   </div>
                 </div>
-              </div>
-              <div className=" d-flex flex-column flex-sm-row align-items-center justify-content-between">
-
-
               </div>
             </div>
           </div>
