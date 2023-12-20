@@ -2,6 +2,7 @@
 import './Header.css'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
+import Button from '../Button/Button';
 
 
 const Header = () => {
@@ -53,7 +54,7 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="header-btn d-none d-xl-block">
-                            <a href="#!" className="btn btn-green">Hire Me</a>
+                            <Button title="Hire Me" style='green' />
                         </div>
                     </div>
                 </div>
