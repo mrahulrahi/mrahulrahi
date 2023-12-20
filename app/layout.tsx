@@ -4,8 +4,8 @@ import './globals.css'
 import ImportBsJS from "./importBsJS";
 import { Josefin_Sans } from 'next/font/google'
 
-import Header from './components/Header'
-import Footer from './components/Footer'
+import Header from './components/Header/Header'
+import Footer from './components/Footer/Footer'
 import Contact from './components/Contact';
 
 const josefinSans = Josefin_Sans({ subsets: ['latin'] })

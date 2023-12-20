@@ -1,7 +1,8 @@
 'use client'
+import './Header.css'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
-import React from 'react'
+
 
 const Header = () => {
     const currentPath = usePathname();
@@ -52,7 +53,7 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="header-btn d-none d-xl-block">
-                            <a href="#!" className="btn btn-default green">Hire Me</a>
+                            <a href="#!" className="btn btn-green">Hire Me</a>
                         </div>
                     </div>
                 </div>

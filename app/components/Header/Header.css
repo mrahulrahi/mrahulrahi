@@ -1,0 +1,79 @@
+/* ============================== header start here ================================== */
+#header {position: fixed;left: 0;top: 0;right: 0;padding: 0;z-index: 9999;background: transparent;color: var(--violet);transition:all 0.5s cubic-bezier(0.215,0.61,0.355,1);-webkit-transition:all 0.5s cubic-bezier(0.215,0.61,0.355,1);border-bottom: 1px solid rgba(255, 255, 255, 0.10);box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.08);}
+.fixed #header{ background:rgba(237,237,237,0.3);box-shadow:0 5px 30px rgba(0,0,0,0.1);backdrop-filter:blur(5px);border:1px solid rgba(237,237,237,0.3);transition: all 0.2s ease-in;}
+.navbar{padding: 0; width: 100%; height: 70px;} 
+.navbar-brand{padding:0;margin:0;position:relative;z-index:999;color:var(--yellow);font-size:26px;font-weight:600;letter-spacing:1px;background:var(--violet);padding:13px 20px;border-radius:50px;}
+.navbar-brand span{color:var(--green)}
+.nav-inside{padding: 0;width: 100%;}
+.navbar-nav{width: 100%;background-color:var(--violet);padding:10px;border-radius:50px}
+.navbar-expand-xl .navbar-nav .nav-item{margin:0 25px;}
+.navbar-expand-xl .navbar-nav .nav-link{font-size: 18px;font-weight: 700;line-height: 30px;color:var(--white);padding:0;margin:0;}
+.navbar-expand-xl .navbar-nav .nav-item:hover .nav-link,.navbar-expand-xl .navbar-nav .nav-item.active .nav-link{color:var(--green);}
+.navbar-nav:not(.sm-collapsible) .nav-link .sub-arrow{display:none;}
+.nav-inside{width:100%;padding:0;}
+.nav-inside-content{padding:30px 0;}
+.header-btn{padding-left: 15px;}
+.header-btn .btn{min-width: 118px;padding: 16px 30px;}
+.header-btn .btn:hover{transform:scale(1.1)}
+/* ============================== header end here ================================== */
+
+/* ========================================== 
+! Large devices (desktops, less than 1200px)
+=========================================== */
+@media (max-width: 1199.98px){
+    .navbar{height:70px;}
+    .navbar-toggler{width:60px;height:50px;border-radius:0;cursor:pointer;text-decoration:none;padding:0;border:0;background:transparent;margin:0;position:absolute;right:20px;top:50%;z-index:999;transform:translateY(-50%);}
+    .navbar-default .navbar-toggler:hover,.navbar-default .navbar-toggler:focus{background:transparent;}
+    .navbar-toggler:not([class="collapsed"]),.navbar-toggler:not([class="collapsed"]):focus,.navbar-toggler:not([class="collapsed"]):hover{background:transparent;box-shadow:none;}
+    .navbar-toggler.collapsed,.navbar-toggler.collapsed:focus,.navbar-toggler.collapsed:hover{background:var(--violet); border-radius: 30px;}
+    .home .navbar-toggler.collapsed,.home .navbar-toggler.collapsed:focus,.home .navbar-toggler.collapsed:hover{background:transparent;}
+    .navbar-toggler .navbar-toggler-icon{position:relative;display:inline-block;width: 20px;height:3px;color:var(--green);text-indent:-55px;margin-top:0;background:transparent;transition:all .2s ease-in;-webkit-transition:all .2s ease-in;vertical-align:middle;}
+    .navbar-toggler .navbar-toggler-icon:before,.navbar-toggler .navbar-toggler-icon:after{content:"";width:25px;height:3px;background:var(--green);position:absolute;right:0;transition:all .2s ease-in;}
+    .navbar-toggler.collapsed .navbar-toggler-icon{background:var(--green);}
+    .navbar-toggler.collapsed .navbar-toggler-icon:before,.navbar-toggler.collapsed .navbar-toggler-icon:after{background:var(--green);}
+    .navbar-toggler.collapsed .navbar-toggler-icon:before{top:-8px;-webkit-transform:rotateZ(0deg);-moz-transform:rotateZ(0deg);-ms-transform:rotateZ(0deg);-o-transform:rotateZ(0deg);transform:rotateZ(0deg);width: 25px;}
+    .navbar-toggler .navbar-toggler-icon:before{top:0;-webkit-transform:rotateZ(45deg);-moz-transform:rotateZ(45deg);-ms-transform:rotateZ(45deg);-o-transform:rotateZ(45deg);transform:rotateZ(45deg);width: 25px;}
+    .navbar-toggler.collapsed .navbar-toggler-icon:after{bottom:-8px;-webkit-transform:rotateZ(0deg);-moz-transform:rotateZ(0deg);-ms-transform:rotateZ(0deg);-o-transform:rotateZ(0deg);transform:rotateZ(0deg);width: 15px;}
+    .navbar-toggler .navbar-toggler-icon:after{bottom:0;-webkit-transform:rotateZ(-45deg);-moz-transform:rotateZ(-45deg);-ms-transform:rotateZ(-45deg);-o-transform:rotateZ(-45deg);transform:rotateZ(-45deg);width: 25px;}
+    .navbar-collapse,.navbar-collapse.collapsing{width:100%;height:100vh;position:fixed;top:0;left:100%;background:var(--white);padding:0;z-index:99;margin:0;border:0;overflow-y:auto;display:block!important;transition:all .2s ease-in;padding-top:70px;}
+    .navbar .collapse.show{left:0;}
+    .navbar-inside{height:100%;padding:0;overflow:hidden;overflow-y:auto;display:flex;flex-flow:column;}
+    .navbar-expand-xl .navbar-nav .nav-item{padding:0 20px;margin:0;margin-top:60px;transform:translateX(10px);opacity:0;transition:all .2s ease-in;}
+    .navbar-expand-xl .navbar-nav .nav-link{font-size:20px;line-height: 30px;font-weight:500;color: var(--violet);}
+    .navbar-expand-xl .show .navbar-nav .nav-item{transform:translateX(0px);opacity:1;text-align: center;}
+    .navbar-expand-xl .show .navbar-nav .nav-item:nth-child(1){transition-delay:0.3s;}
+    .navbar-expand-xl .show .navbar-nav .nav-item:nth-child(2){transition-delay:0.4s;}
+    .navbar-expand-xl .show .navbar-nav .nav-item:nth-child(3){transition-delay:0.5s;}
+    .navbar-expand-xl .show .navbar-nav .nav-item:nth-child(4){transition-delay:0.6s;}
+    .navbar-expand-xl .show .navbar-nav .nav-item:nth-child(5){transition-delay:0.7s;}
+    .navbar-expand-xl .show .navbar-nav .nav-item:nth-child(6){transition-delay:0.8s;}
+    .navbar-expand-xl .show .navbar-nav .nav-item:nth-child(7){transition-delay:0.9s;}
+    .navbar-expand-xl .show .navbar-nav .nav-item:nth-child(8){transition-delay:1s;}
+    .header-btn{position:relative;z-index:999;margin-right:50px;}
+    .navbar-bottom{opacity: 0;visibility: hidden;position: relative;top: -5px;padding: 55px 30px;}
+    .navbar-expand-xl .show .navbar-bottom {opacity: 1;visibility: visible;top: 0;transition:  all 0.4s cubic-bezier(0.215,0.61,0.355,1);;transition-delay: 1s;}
+    .navbar-nav{width: 100%;background: transparent;padding:0;border-radius:0}
+    
+    }
+    /*==========================================
+    ! Medium devices (tablets, less than 992px)
+    ========================================== */
+    @media (max-width: 991.98px){
+    
+   
+    
+    }
+    /* =================================================  
+     ! Small devices (landscape phones, less than 768px)
+     ================================================= */
+    @media (max-width: 767.98px){
+ 
+    
+    }
+    /* ======================================================
+     ! Extra small devices (portrait phones, less than 576px)
+     ====================================================== */
+    @media (max-width: 575.98px){
+    
+    }
+    

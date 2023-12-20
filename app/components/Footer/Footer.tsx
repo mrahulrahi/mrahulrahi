@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React from 'react'
+import './Footer.css'
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
 
 const Footer = () => {
