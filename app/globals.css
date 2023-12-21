@@ -186,19 +186,7 @@ p:last-child{margin-bottom:0;}
 .arrow-button-box:hover{background:var(--violet);border-color:var(--white);}
 .arrow-button-box:hover img{filter: brightness(0) invert(1);}
 
-.contact-container{padding:100px 0;}
-.contact-box{width:50%;}
-.contact-box h4{color:var(--yellow);font-size:40px; margin-bottom: 0;}
-.contact-box {font-size:25px;font-weight:700; margin-bottom: 0;}
-.contact-box .button-two{background-color:var(--yellow);color: var(--violet);}
-.contact-box .button-two:hover{background-color:transparent;border:2px solid var(--green);cursor:pointer}
-.contact-top-content{font-size: 16px;font-weight: 300;line-height: 1.6;width: 50%;}
-.contact-email{border:3px solid var(--green);padding:10px 30px;margin-right:10px;border-radius:30px;height: 50px;width: calc(100% - 180px);}
-.contact-submit{background:#45796F;color:#fff;text-decoration:none;padding:13px 30px;border-radius:30px}
-.contact-email:hover{border:3px solid var(--black)}
-.contact-submit:hover{background-color:var(--black)}  
-.contact-btn{width: 100%;margin-top: 20px;}
-.contact-box h4{margin-bottom: 20px;}
+
 
 .video-logo-box{position: sticky;top: 30px;height: 100vh;}
 .video-logo{width:300px;height:300px;margin:0 auto;background-image:linear-gradient(to right,var(--green) 50%,#e0e0e0 50%);border-radius:50%;overflow:hidden;z-index:9;position:relative}
@@ -279,10 +267,7 @@ p:last-child{margin-bottom:0;}
 
 .home-video-card-container .video-card-item{width: 100%;}
 
-.footer-logo{width: 100%;text-align: center;margin-bottom: 30px;}
-.footer-nav{width: 100%;}
 
-.contact-box,.contact-top-content{width: 100%;}
 }
 
 /* ======================================================
@@ -302,10 +287,7 @@ p:last-child{margin-bottom:0;}
 
 .card-item{width: 100%;}
 
-.footer-nav-list{margin-bottom: -20px;}
-.footer-nav-item{width: 33.33%;text-align: center;margin-bottom: 20px;margin-right: 0;}
-.copyright{margin-top: 30px;}
-.social-links{margin-top: 30px;}
+
 
 .logo{font-size:20px}
 .logo::before{margin-top:25px}

@@ -6,7 +6,7 @@ import { Josefin_Sans } from 'next/font/google'
 
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
-import Contact from './components/Contact';
+import Contact from './components/Contact/Contact';
 
 const josefinSans = Josefin_Sans({ subsets: ['latin'] })
 
