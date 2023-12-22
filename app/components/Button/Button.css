@@ -10,3 +10,9 @@
 .btn-green{ color: var(--gold);background-color: var(--green);border: solid 1px var(--green); }
 .btn.btn-block{min-width: 100%;}
 .btn+.btn {margin-left: 25px;}
+
+.btn i{transition: all .2s ease-in;}
+.btn:hover i{transform: scale(1.25);}
+
+.btn.btn-block{min-width: 100%;}
+.bottom-btn-box{margin-top: 40px;}

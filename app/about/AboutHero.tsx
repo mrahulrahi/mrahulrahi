@@ -1,4 +1,4 @@
-import React from 'react'
+import './AboutHero.css'
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const AboutHero = () => {
