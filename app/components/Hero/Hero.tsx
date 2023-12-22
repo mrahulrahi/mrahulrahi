@@ -1,5 +1,5 @@
-import React from 'react'
-import Button from './components/Button/Button'
+import './Hero.css'
+import Button from '../Button/Button'
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 
 const Hero = () => {

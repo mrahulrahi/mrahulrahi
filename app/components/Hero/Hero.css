@@ -1,0 +1,90 @@
+/* =================  Hero-start  ================= */
+.hero-container {height: 100vh;background: linear-gradient(315deg, rgb(76 142 213 / 22%) 10%, rgb(117 182 193 / 36%) 60%);width: 100%;}
+.hero-bg { width: 100%;height: 100%;position: absolute; top: 0;left: 0;}
+.hero-bg img {width: 100%;height: 100%;object-fit: cover;}
+.hero-left {width: 45%;position: relative;}
+.hero-right {width: 45%;  z-index: 1;}
+.hero-content {padding: 80px;}
+.hero-img {width: 100%;height: 100%;border-radius: 10px;overflow: hidden;position: relative;}
+.hl-content {width: 100%;height: 100%;}
+.hero-img img { width: 100%; height: 100%; object-fit: cover;}
+.hero-img-2 {width: 70%;height: 80%;position: absolute;border-radius: 10px;overflow: hidden;bottom: -40%;left: -26%;}
+.hero-icon {position: absolute;width: 100px;height: 100px;padding: 20px;border-radius: 10px; }
+.hero-icon.hi-1 {top: -5%;background: #ff6c39;left: -5%;}
+.hero-icon.hi-2 {bottom: -10%;background: #2965f1;left: 90%;}
+.hero-icon.hi-3 {top: -10%;background: #ffd814;right: -10%;}
+.hero-icon.hi-4 {bottom: -5%;background: #5ed3f3;left: -5%;}
+.ht-left h3 {font-size: 32px;margin-bottom: 0;line-height: 1.2;font-weight: 500;color: #629bed;}
+.ht-left {position: absolute; left: 18px;}
+.ht-right {font-size: 22px;line-height: 1.2;font-weight: 500;}
+.hr-content h1{font-size:60px;font-weight:600;line-height:1;color:var(--white);margin-bottom:40px;}
+.hr-content h3{color: var(--white);font-size:32px;}
+.hr-content h4{color:var(--white);letter-spacing:2px;font-size:32px;margin-bottom:40px}
+.hr-content span{color: var(--green);}
+.hr-content {font-size: 18px;line-height: 1.5;}
+
+/* ================= Hero-End  ================= */
+
+
+/* ========================================== 
+! Large devices (desktops, less than 1200px)
+=========================================== */
+@media (max-width:1199.98px){
+    .hero-container h1{font-size:54px;}
+    .hero-btn{margin-top:45px;}
+    .hero-icon { width: 80px; height: 80px; padding: 10px;}
+.hero-icon.hi-1 {left: -8%;}
+.hero-icon.hi-2 {bottom: -35px;left: auto;right: -30px;}
+.hero-icon.hi-3 {top: -40px;right: -40px;}
+.hero-text {padding: 15px;padding-left: 90px; left: 15%;}
+.ht-left h3 {font-size: 24px;}
+.ht-right { font-size: 18px;}
+
+}
+/*==========================================
+! Medium devices (tablets, less than 992px)
+========================================== */
+@media (max-width:991.98px){
+    .hero-icon.hi-1 {left: 0;top: -25%;}
+    .hero-img.hero-img-2 {left: 0;bottom: -35%;}    
+    .hr-content h1 {font-size: 28px;}
+    .hr-content h2 {font-size: 48px;}
+    .hr-content h3 {font-size: 20px; margin-bottom: 15px;}
+    .hr-content{font-size:16px;}
+    
+    .hero-text {top: auto;bottom: -42%;}
+    .ht-left h3 {font-size: 20px;}
+    .ht-right {font-size: 16px;}
+}
+
+/* =================================================  
+! Small devices (landscape phones, less than 768px)
+================================================= */
+@media (max-width:767.98px){
+    .hero-left {width: 100%;}
+    .hero-right { width: 100%; margin-top: 50px;}    
+    .hero-img {width: 80%;margin: 0 auto;}
+    .hero-icon.hi-3 { top: -30px; right: 30px;}
+    .hero-icon.hi-2 { bottom: -30px; left: auto; right: 30px;}
+    .hero-icon.hi-1 {left: 30px;top: -30px;}
+    .hero-img.hero-img-2 {width: 50%;height: 70%;left: 0;bottom: -20%;}
+    .hero-icon {width: 70px;height: 70px;}
+    .hero-left {margin-bottom: 13%;}
+    .hr-content h1 {font-size: 24px;}
+    .hr-content h2 {font-size: 38px;}
+    .hr-content h3 {font-size: 18px; margin-bottom: 15px;}
+    .hr-content{font-size:14px;}
+    .hero-text {top: auto;bottom:-25%;}
+    .ht-right {font-size: 14px;}
+    .ht-left h3 { font-size: 18px;}
+    .hero-text {padding: 10px;padding-left: 75px;}
+    .hero-btn-box .btn{margin-top:20px;}
+    .hero-btn-box .btn+.btn{margin-left:0;}
+}
+
+/* ======================================================
+! Extra small devices (portrait phones, less than 576px)
+====================================================== */
+@media (max-width:575.98px){
+
+}
