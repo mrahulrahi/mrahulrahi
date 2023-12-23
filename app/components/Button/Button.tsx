@@ -10,9 +10,9 @@ const Button = (props: Button) => {
   return (
     <a href="#!" className={`btn btn-${props.style} d-flex`}>
       {props.title}
-      <span className='d-flex align-items-center justify-content-center ms-2'>
+      <i className='btn-icon d-flex align-items-center justify-content-center ms-2'>
         {props.icon}
-      </span>
+      </i>
     </a>
   )
 }

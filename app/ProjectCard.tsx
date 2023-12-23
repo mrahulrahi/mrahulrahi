@@ -23,9 +23,9 @@ const ProjectCard = () => {
                                     className="projects-card-text d-flex justify-content-between align-items-center">
                                     <h4>{card.title}</h4>
                                     <div className="d-flex">
-                                        <a className="btn-icon d-flex align-items-center justify-content-center"
+                                        <a className="icon-link-btn d-flex align-items-center justify-content-center"
                                             href={card.liveUrl}><FaGlobe /></a>
-                                        <a className="btn-icon d-flex align-items-center justify-content-center"
+                                        <a className="icon-link-btn d-flex align-items-center justify-content-center"
                                             href={card.gitHubUrl}><FaGithub /></a>
                                     </div>
                                 </div>

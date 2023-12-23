@@ -20,7 +20,7 @@ const Header = () => {
             <nav className="navbar navbar-expand-xl">
                 <div className="container">
                     <div className="nav-inside d-flex align-items-center justify-content-between">
-                        <Link className="navbar-brand nav-logo" href="/">mrahul<span>rahi</span></Link>
+                        <Link className="navbar-logo" href="/">mrahul<span>rahi</span></Link>
                         <button className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
                             aria-label="Toggle navigation">
