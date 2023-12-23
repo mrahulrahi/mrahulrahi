@@ -3,7 +3,6 @@ import Hero from "./components/Hero/Hero";
 import ProjectCard from "./ProjectCard";
 
 
-
 export default function Home() {
   const videoCards = [{ id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
   { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },
