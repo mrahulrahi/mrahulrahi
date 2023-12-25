@@ -5,7 +5,7 @@ import TeamCard from './TeamCard'
 import TextCard from './TextCard'
 import PlanCard from './PlanCard'
 import SignupForm from './SignupForm'
-import LoginForm from './LoginForm'
+import LoginForm from './LoginForm/LoginForm'
 
 const compo = () => {
   return (

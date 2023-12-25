@@ -51,7 +51,7 @@ export default function Home() {
                   <h3>Videos</h3>
                 </div>
 
-                <div className="video-card-list d-flex">
+                <div className="video-card-list d-flex flex-wrap">
                   {videoCards.map(card => <div key={card.id} className="video-card-item">
                     <div className="video-card-box bg-yellow" data-aos="fade-up">
                       <div className="video-card-iframe">
