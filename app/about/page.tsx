@@ -171,62 +171,38 @@ const About = () => {
                       <div className="timeline">
                         <div className="timeline-item">
                           <div className="timeline-content" data-aos="fade-up">
-                            <div className="timeline-img">
-                              <img
-                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
-                            </div>
-                            <h2 className="timeline-content-title">Childhood
-                            </h2>
-                            <p className="timeline-content-desc">Birth and Early
-                              Years School Days
-                            </p>
+                            <h3 className="timeline-content-title">Diploma</h3>
+                            <p className="timeline-content-desc"><span>AIMT</span>July 2017 - Nov 2020</p>
                           </div>
                         </div>
                         <div className="timeline-item">
                           <div className="timeline-content" data-aos="fade-up">
-                            <div className="timeline-img">
-                              <img
-                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
-                            </div>
-                            <h2 className="timeline-content-title">Teenage Years
-                            </h2>
-                            <p className="timeline-content-desc">Adolescence
-                              Milestone Moments</p>
+                            <h3 className="timeline-content-title">BCA</h3>
+                            <p className="timeline-content-desc"><span>IGNOU</span>July 2021 - Jun 2024</p>
                           </div>
                         </div>
                         <div className="timeline-item">
                           <div className="timeline-content" data-aos="fade-up">
-                            <div className="timeline-img">
-                              <img
-                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
-                            </div>
-                            <h2 className="timeline-content-title">Adulthood
-                            </h2>
-                            <p className="timeline-content-desc">Education and
-                              Career Love and
-                              Family.</p>
+                            <h3 className="timeline-content-title">Fireliquidtaor</h3>
+                            <p className="timeline-content-desc"><span>Youtuber</span>Oct 2018 - Sep 2022 </p>
                           </div>
                         </div>
                         <div className="timeline-item">
                           <div className="timeline-content" data-aos="fade-up">
-                            <div className="timeline-img">
-                              <img
-                                src="http://imaginegrouptourandtravels.com/assets/imgs/logo.png" />
-                            </div>
-                            <h2 className="timeline-content-title">Imagine Group
-                            </h2>
-                            <p className="timeline-content-desc">Dec,2022 - Jun,2023</p>
+                            <h3 className="timeline-content-title">CodeClause</h3>
+                            <p className="timeline-content-desc"><span>Web Dev Intern</span>Nov 2022</p>
                           </div>
                         </div>
                         <div className="timeline-item">
                           <div className="timeline-content" data-aos="fade-up">
-                            <div className="timeline-img">
-                              <img
-                                src="https://www.slicemypage.com/wp-content/themes/smp/include/images/smp-icon.png" />
-                            </div>
-                            <h2 className="timeline-content-title">SlicemyPage
-                            </h2>
-                            <p className="timeline-content-desc">Jun,2023 - Now</p>
+                            <h3 className="timeline-content-title">Imagine Group</h3>
+                            <p className="timeline-content-desc"><span>Freelancer</span>Dec 2022 - Jun 2023</p>
+                          </div>
+                        </div>
+                        <div className="timeline-item">
+                          <div className="timeline-content" data-aos="fade-up">
+                            <h3 className="timeline-content-title">SlicemyPage</h3>
+                            <p className="timeline-content-desc"><span>Front End Developer</span>Jun 2023 - Now</p>
                           </div>
                         </div>
                       </div>
