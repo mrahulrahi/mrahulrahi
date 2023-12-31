@@ -2,48 +2,26 @@ import React from 'react'
 import Image from 'next/image'
 import AboutHero from './AboutHero'
 import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
+import { SiAdobexd } from "react-icons/si";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
 
 const About = () => {
 
-  const skills = [{
-    id: 1,
-    logo: <FaHtml5 />,
-    title: 'HTML'
-  },
-  {
-    id: 2,
-    logo: <FaCss3Alt />,
-    title: 'CSS'
-  }, {
-    id: 3,
-    logo: <FaJsSquare />,
-    title: 'JavaScript'
-  }, {
-    id: 4,
-    logo: <FaBootstrap />,
-    title: 'Bootstrap'
-  }, {
-    id: 5,
-    logo: <FaReact />,
-    title: 'ReactJS'
-  }, {
-    id: 6,
-    logo: <FaNodeJs />,
-    title: 'Node.js'
-  }, {
-    id: 7,
-    logo: <FaGitAlt />,
-    title: 'Git'
-  }, {
-    id: 8,
-    logo: <FaGithub />,
-    title: 'GitHub'
-  }, {
-    id: 9,
-    logo: <FaFigma />,
-    title: 'Figma'
-  }]
+  const skills = [
+    { id: 1, logo: <FaHtml5 />, title: 'HTML' },
+    { id: 2, logo: <FaCss3Alt />, title: 'CSS' },
+    { id: 3, logo: <FaJsSquare />, title: 'JavaScript' },
+    { id: 4, logo: <FaBootstrap />, title: 'Bootstrap' },
+    { id: 5, logo: <TbBrandTailwind />, title: 'Tailwind CSS' },
+    { id: 6, logo: <FaReact />, title: 'ReactJS' },
+    { id: 7, logo: <TbBrandNextjs />, title: 'Next Js' },
+    { id: 8, logo: <FaNodeJs />, title: 'Node.js' },
+    { id: 9, logo: <FaGitAlt />, title: 'Git' },
+    { id: 10, logo: <FaGithub />, title: 'GitHub' },
+    { id: 11, logo: <FaFigma />, title: 'Figma' },
+    { id: 12, logo: <SiAdobexd />, title: 'Adobe Xd' },
+  ]
 
   return (
     <div>
@@ -84,7 +62,7 @@ const About = () => {
                 </div>
 
                 <div className="skill-card-list d-flex flex-wrap">
-                  {skills.map(skill => <div key={skill.id} className="skill-card-item">
+                  {skills.map(skill => <div key={skill.id} className="skill-card-item flex-grow-1">
                     <div className="skill-card-box">
                       <div className="skill-card-icon mx-auto">
                         {skill.logo}
@@ -139,6 +117,14 @@ const About = () => {
                       <div className="card-text mt-auto">
                         <h4>Top coder</h4>
                         <p>Topcoder</p>
+                      </div>
+                    </a>
+                  </div>
+                  <div className="card-item">
+                    <a className="card-box d-flex" href="https://profiles.topcoder.com/mrahulrahi">
+                      <div className="card-text mt-auto">
+                        <h4>MERN Dev</h4>
+                        <p>Udemy</p>
                       </div>
                     </a>
                   </div>

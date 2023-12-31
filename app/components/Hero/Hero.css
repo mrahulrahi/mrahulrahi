@@ -1,19 +1,20 @@
 /* =================  Hero-start  ================= */
-.hero-container {height: 100vh;background: linear-gradient(315deg, rgb(76 142 213 / 22%) 10%, rgb(117 182 193 / 36%) 60%);width: 100%;}
-.hero-bg { width: 100%;height: 100%;position: absolute; top: 0;left: 0;}
+.hero-container {height: 100vh;width: 100%;}
+.hero-bg { width: 100%;height: 100%;position: absolute; top: 0;left: 0;filter: blur(5px);}
 .hero-bg img {width: 100%;height: 100%;object-fit: cover;}
-.hero-left {width: 45%;position: relative;}
-.hero-right {width: 45%;  z-index: 1;}
+.hero-left {width: 50%;position: relative;padding-right: 10%;}
+.hero-right {width: 45%; z-index: 1;}
 .hero-content {padding: 80px;}
-.hero-img {width: 100%;height: 100%;border-radius: 10px;overflow: hidden;position: relative;}
-.hl-content {width: 100%;height: 100%;}
-.hero-img img { width: 100%; height: 100%; object-fit: cover;}
-.hero-img-2 {width: 70%;height: 80%;position: absolute;border-radius: 10px;overflow: hidden;bottom: -40%;left: -26%;}
-.hero-icon {position: absolute;width: 100px;height: 100px;padding: 20px;border-radius: 10px; }
-.hero-icon.hi-1 {top: -5%;background: #ff6c39;left: -5%;}
-.hero-icon.hi-2 {bottom: -10%;background: #2965f1;left: 90%;}
-.hero-icon.hi-3 {top: -10%;background: #ffd814;right: -10%;}
-.hero-icon.hi-4 {bottom: -5%;background: #5ed3f3;left: -5%;}
+.hl-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;}
+.hl-content::before{content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); width: 130%;height: 130%;border-radius: 50%;border: 2px dashed var(--gold);}
+.hl-content::after{content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); width: 100%;height: 100%;border-radius: 50%;border: 2px dashed var(--gold );}
+.hero-img {width: 70%;height: 70%;border-radius: 50%;overflow: hidden;position: relative;}
+.hero-img img { width: 100%; height: 100%; object-fit: cover;object-position: top;}
+.hero-icon {position: absolute;width: 60px;height: 60px;padding: 15px;border-radius: 50%; z-index: 9;}
+.hero-icon.hi-1 {top: 17.5%;background: #ff6c39;left: 0%;}
+.hero-icon.hi-2 {bottom: 12.5%;background: #2965f1;left: 80%;}
+.hero-icon.hi-3 {top: -12.5%;background: #ffd814;right: 5%;}
+.hero-icon.hi-4 {bottom: -7.5%;background: #5ed3f3;left: 0%;}
 .ht-left h3 {font-size: 32px;margin-bottom: 0;line-height: 1.2;font-weight: 500;color: #629bed;}
 .ht-left {position: absolute; left: 18px;}
 .ht-right {font-size: 22px;line-height: 1.2;font-weight: 500;}
@@ -30,12 +31,8 @@
 ! Large devices (desktops, less than 1200px)
 =========================================== */
 @media (max-width:1199.98px){
-    .hero-container h1{font-size:54px;}
-    .hero-btn{margin-top:45px;}
-    .hero-icon { width: 80px; height: 80px; padding: 10px;}
-.hero-icon.hi-1 {left: -8%;}
-.hero-icon.hi-2 {bottom: -35px;left: auto;right: -30px;}
-.hero-icon.hi-3 {top: -40px;right: -40px;}
+.hero-container h1{font-size:54px;}
+.hero-btn{margin-top:45px;}
 .hero-text {padding: 15px;padding-left: 90px; left: 15%;}
 .ht-left h3 {font-size: 24px;}
 .ht-right { font-size: 18px;}
@@ -61,7 +58,7 @@
 ! Small devices (landscape phones, less than 768px)
 ================================================= */
 @media (max-width:767.98px){
-    .hero-left {width: 100%;}
+    .hero-left {width: 100%;padding-right: 0;}
     .hero-right { width: 100%; margin-top: 50px;}    
     .hero-img {width: 80%;margin: 0 auto;}
     .hero-icon.hi-3 { top: -30px; right: 30px;}
@@ -80,6 +77,7 @@
     .hero-text {padding: 10px;padding-left: 75px;}
     .hero-btn-box .btn{margin-top:20px;}
     .hero-btn-box .btn+.btn{margin-left:0;}
+    .hero-content {padding: 20px;}
 }
 
 /* ======================================================

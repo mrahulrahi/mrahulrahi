@@ -4,7 +4,6 @@
 
 :root{--white:#fff;--black:#000;--violet: #4C4C6D;--green: #1B9C85;--yellow: #F2E8B9;
   --gold:#F2E8B9;
-  --dark-green:#45796F;
   --cyan: #00fff7;
   --card-bg: #14253d;
   --line: #2f415b;
@@ -90,7 +89,7 @@ p:last-child{margin-bottom:0;}
 .itb-img-box{width: 40%;position: relative;}
 .itb-img{width: 90%;position: relative;padding-bottom: 90%;border-radius: 50%;overflow: hidden;z-index: 5;}
 .itb-img img{width: 100%;height: 100%;object-fit: cover;position: absolute;top: 0;left: 0;}
-.itb-text{font-size: 18px;font-weight: 300;line-height: 1.3;width: 60%;padding-left:5%;}
+.itb-text{font-size: 18px;font-weight: 300;line-height: 1.3;width: 60%;padding-left:5%;align-self: center;}
 .itb-text h5{font-size: 24px;font-weight: 500;line-height: 1.6;letter-spacing:2px;margin-bottom: 20px;}
 .itb-text .btn{margin-top: 20px;}
 .itb-img::after {content: "";position: absolute;top: 0;left: 0;width: 100%;height: 100%;border-radius: 50%;border: 5px solid #ffff;background-color: transparent;border-right-color: var(--green);animation: puterin 2s linear infinite;}
@@ -110,7 +109,7 @@ p:last-child{margin-bottom:0;}
 .certi-btn:hover{background-color:transparent;border:2px solid var(--green);cursor:pointer}
 
 .card-list{width: calc(100% + 20px);margin-left: -10px; margin-bottom: -20px;}
-.card-item{width: 25%;padding: 0 10px;margin-bottom: 20px;}
+.card-item{width: 33.33%;padding: 0 10px;margin-bottom: 20px;flex-grow: 1;}
 .card-box{padding: 20px;min-height: 150px;background: rgba(255, 255, 255, 0.06);border-radius: 10px;height: 100%;}
 .card-box:hover{background: var(--green);color: var(--white);}
 .card-text{font-size: 16px;font-weight: 300;}

@@ -4,14 +4,14 @@ import { IoIosArrowDropdownCircle } from "react-icons/io";
 
 const Hero = () => {
   return (
-    <div className="hero-container d-flex flex-wrap align-items-center position-relative">
-        <div className="hero-bg"> <img src="/animated-shape.svg" alt="" /></div>
+    <div className="hero-container d-flex flex-wrap align-items-center position-relative bg-violet">
+        <div className="hero-bg"> <img src="/hero-bg.svg" alt="" /></div>
         <div className="container">
           <div className="row">
             <div className="col-lg-10 col-12 mx-auto">
-              <div className="hero-content d-flex flex-wrap justify-content-between glass-bg">
+              <div className="hero-content d-flex flex-wrap justify-content-between">
                 <div className="hero-left">
-                  <div className="hl-content">
+                  <div className="hl-content d-flex align-items-center justify-content-center">
                     <div className="hero-img"> <img src="/hero-img-1.jpg" alt="" /> </div>
                     <div className="hero-icon hi-1"> <img src="/html-5.png" alt="" />
                     </div>
@@ -26,8 +26,7 @@ const Hero = () => {
                     <h4><span>Hello,</span> I'm</h4>
                     <h1>Rahul <span>Maurya</span></h1>
                     <h3>I'm a <span>Web Developer</span> <br /> From <span>India</span> .</h3>
-                    <p>Tech Stack - MERN</p>
-                    <div className="about-hero-btn">
+                    <div className="about-hero-btn mt-5">
                       <Button title='Featured Work' style='default' icon={<IoIosArrowDropdownCircle />}/>
                     </div>
                   </div>
