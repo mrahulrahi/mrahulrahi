@@ -121,7 +121,7 @@ const About = () => {
                     </a>
                   </div>
                   <div className="card-item">
-                    <a className="card-box d-flex" href="https://profiles.topcoder.com/mrahulrahi">
+                    <a className="card-box d-flex" href="https://www.udemy.com/certificate/UC-4e377dc1-f535-4589-b877-ba5257976fa9/">
                       <div className="card-text mt-auto">
                         <h4>MERN Dev</h4>
                         <p>Udemy</p>
