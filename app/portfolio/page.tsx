@@ -4,18 +4,18 @@ import BlockCard from './BlockCard'
 
 
 const Portfolio = () => {
-  const cards = [{ id: 1, title: 'Calculator UI', url: '/aerocPage/apps'},
-  { id: 2, title: 'Gradient BG', url: '/aerocPage/apps'},
-  { id: 3, title: 'Notes App', url: '/aerocPage/apps'},
-  { id: 4, title: 'Quiz Game', url: '/aerocPage/apps'},
-  { id: 5, title: 'Responsive Menu', url: '/aerocPage/cards'},
-  { id: 6, title: 'Responsive Cards', url: '/aerocPage/cards'},
-  { id: 7, title: 'NFT Card', url: '/aerocPage/cards'},
-  { id: 8, title: 'Service Card', url: '/aerocPage/cards'},
-  { id: 9, title: 'Team Component', url: '/aerocPage/compo'},
-  { id: 10, title: 'Contact Component', url: '/aerocPage/compo'},
-  { id: 11, title: 'Login Component', url: '/aerocPage/compo'},
-  { id: 12, title: 'Service Card', url: '/aerocPage/compo'}] 
+  const cards = [{ id: 1, title: 'Calculator UI', url: '/portfolio/apps'},
+  { id: 2, title: 'Gradient BG', url: '/portfolio/apps'},
+  { id: 3, title: 'Notes App', url: '/portfolio/apps'},
+  { id: 4, title: 'Quiz Game', url: '/portfolio/apps'},
+  { id: 5, title: 'Responsive Menu', url: '/portfolio/cards'},
+  { id: 6, title: 'Responsive Cards', url: '/portfolio/cards'},
+  { id: 7, title: 'NFT Card', url: '/portfolio/cards'},
+  { id: 8, title: 'Service Card', url: '/portfolio/cards'},
+  { id: 9, title: 'Team Component', url: '/portfolio/compo'},
+  { id: 10, title: 'Contact Component', url: '/portfolio/compo'},
+  { id: 11, title: 'Login Component', url: '/portfolio/compo'},
+  { id: 12, title: 'Service Card', url: '/portfolio/compo'}] 
 
   const videoCards = [{ id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
   { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },

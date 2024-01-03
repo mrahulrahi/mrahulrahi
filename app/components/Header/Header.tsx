@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import Button from '../Button/Button';
 
-
 const Header = () => {
     const currentPath = usePathname();
     const links = [
@@ -55,6 +54,27 @@ const Header = () => {
                         <div className="header-btn d-none d-xl-block">
                             <Button title="Hire Me" style='green' />
                         </div>
+                    </div>
+                </div>
+            </nav>
+
+            <nav id="header-nav" className="navbar navbar-default">
+                <div className="container">
+                    <div className="navbar-header">
+                        
+                        <button id="navbarToggle" type="button" className="navbar-toggler collapsed" data-toggle="collapse"
+                            data-target="#collapsable-nav" aria-controls="collapsable-nav" aria-expanded="false">
+                          <span className="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+
+                    <div id="collapsable-nav" className="collapse navbar-collapse">
+                        <ul id="nav-list" className="nav navbar-nav ">
+                            <li id="navHomeButton" className="active"><a href="#"> Home</a></li>
+                            <li id="navMenuButton"><a href="#">Beverages</a></li>
+                            <li><a href="#">Snacks</a></li>
+                            <li><a href="#">Desserts</a></li>
+                        </ul>
                     </div>
                 </div>
             </nav>
