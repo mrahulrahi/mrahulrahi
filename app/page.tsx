@@ -1,7 +1,6 @@
 import React from "react"
 import Hero from "./components/Hero/Hero";
 import ProjectCard from "./ProjectCard";
-import FoodCard from "./portfolio/components/FoodCard/FoodCard";
 
 
 export default function Home() {

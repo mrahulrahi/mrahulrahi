@@ -19,12 +19,12 @@ const Header = () => {
                 <div className="container">
                     <div className="nav-inside d-flex align-items-center justify-content-between">
                         <Link className="navbar-logo" href="/">mrahul<span>rahi</span></Link>
-                        <button className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
+                        <button id="navbarToggle" className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapsable-nav" aria-controls="collapsable-nav" aria-expanded="false"
                             aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
-                        <div className="collapse navbar-collapse justify-content-center" id="mainNav">
+                        <div className="collapse navbar-collapse justify-content-center" id="collapsable-nav">
                             <div className="navbar-inside">
                                 <ul className="navbar-nav">
                                     {links.map(link =>
@@ -54,27 +54,6 @@ const Header = () => {
                         <div className="header-btn d-none d-xl-block">
                             <Button title="Hire Me" style='green' />
                         </div>
-                    </div>
-                </div>
-            </nav>
-
-            <nav id="header-nav" className="navbar navbar-default">
-                <div className="container">
-                    <div className="navbar-header">
-                        
-                        <button id="navbarToggle" type="button" className="navbar-toggler collapsed" data-toggle="collapse"
-                            data-target="#collapsable-nav" aria-controls="collapsable-nav" aria-expanded="false">
-                          <span className="navbar-toggler-icon"></span>
-                        </button>
-                    </div>
-
-                    <div id="collapsable-nav" className="collapse navbar-collapse">
-                        <ul id="nav-list" className="nav navbar-nav ">
-                            <li id="navHomeButton" className="active"><a href="#"> Home</a></li>
-                            <li id="navMenuButton"><a href="#">Beverages</a></li>
-                            <li><a href="#">Snacks</a></li>
-                            <li><a href="#">Desserts</a></li>
-                        </ul>
                     </div>
                 </div>
             </nav>

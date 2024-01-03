@@ -1,3 +1,5 @@
+import './FoodCard.css'
+
 
 const FoodCard = () => {
 
