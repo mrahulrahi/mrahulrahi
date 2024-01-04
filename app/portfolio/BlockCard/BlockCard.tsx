@@ -1,4 +1,4 @@
-import React from 'react'
+import './BlockCard.css'
 
 interface Props {
     items: Item[],

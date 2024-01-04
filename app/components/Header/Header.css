@@ -78,29 +78,3 @@
     }
     
 
-
-    
-
-/** HEADER **/
-#header-nav {background-color: wheat;border: 0;border-radius: 10px;}
-#nav-list {margin-top: 10px;}
-#nav-list a {color: #551e19;text-align: center;margin-bottom: 10px;border-radius: 10px;font-family: "Short Stack", cursive;}
-#nav-list a:hover, #nav-list a:active {background: #e6b17e;}
-#nav-list a span {font-size: 1.8em;}
-.navbar-header button.navbar-toggle, .navbar-header .icon-bar {border: 1px solid #e6b17e;}
-.navbar-header button.navbar-toggle {clear: both;margin-top: -22.5px;}
-/* END HEADER */
-
-
-/********** Extra small devices only **********/
-@media (max-width: 767px) {
-
-  /* Header */
-  #header-nav {margin: 5px 5px 50px;}
-  .navbar-header {height: 90px;}
-  #collapsable-nav a {font-size: 1.2em;}
-  #collapsable-nav a span {font-size: 1em;margin-right: 5px;}
-  /* End Header */
-
-}
-

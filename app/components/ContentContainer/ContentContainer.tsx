@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Container = () => {
+interface Props{
+    child : JSX.Element;
+}
+
+const Container = ({ child } : Props) => {
     return (
         <>
             <div className="content-container bg-green">
@@ -8,7 +12,7 @@ const Container = () => {
                     <div className="row">
                         <div className="col-lg-12">
 
-
+                            {child}
 
 
                         </div>

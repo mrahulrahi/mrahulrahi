@@ -1,4 +1,4 @@
-import React from 'react'
+import './ProjectCard.css'
 import { RiHtml5Fill, RiJavascriptFill, RiBootstrapFill } from "react-icons/ri";
 import { FaCss3Alt, FaGlobe, FaGithub } from "react-icons/fa";
 

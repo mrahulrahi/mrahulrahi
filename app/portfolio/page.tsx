@@ -1,6 +1,6 @@
 import './style.css'
 import Banner from './Banner' 
-import BlockCard from './BlockCard'
+import BlockCard from './BlockCard/BlockCard'
 
 
 const Portfolio = () => {

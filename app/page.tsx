@@ -1,6 +1,6 @@
 import React from "react"
 import Hero from "./components/Hero/Hero";
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "./components/ProjectCard/ProjectCard";
 
 
 export default function Home() {

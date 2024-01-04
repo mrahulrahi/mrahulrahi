@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import AboutHero from './AboutHero'
+import AboutHero from '../components/InnerHero/InnerHero'
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { SiAdobexd } from "react-icons/si";
