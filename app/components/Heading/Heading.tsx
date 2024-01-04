@@ -1,10 +1,13 @@
-import React from 'react'
+import './Heading.css'
+interface Props {
+    heading : string;
+}
 
-const Heading = () => {
+const Heading = ({heading} : Props) => {
     return (
         <>
             <div className="heading d-flex justify-content-between align-items-end">
-                <h3>Projects</h3>
+                <h3>{heading}</h3>
                
             </div>
         </>

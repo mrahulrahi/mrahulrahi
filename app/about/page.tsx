@@ -1,10 +1,22 @@
 import React from 'react'
 import Image from 'next/image'
-import AboutHero from '../components/InnerHero/InnerHero'
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { SiAdobexd } from "react-icons/si";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
+import InnerHero from '../components/InnerHero/InnerHero';
+
+const HeroHeading = () => {
+  return (<>
+    About <span>me</span>
+  </>)
+}
+
+const HeroSubHeading = () => {
+  return (<>
+         I'm a <span>Web Developer</span>.
+  </>)
+}
 
 const About = () => {
 
@@ -24,9 +36,13 @@ const About = () => {
   ]
 
   return (
-    <div>
+    <div >
 
-      <AboutHero />
+      <InnerHero heading={<HeroHeading />}  subHeading={<HeroSubHeading />}>
+
+
+   
+      </InnerHero>
 
 
       <div className="content-container image-text-block-container bg-yellow">

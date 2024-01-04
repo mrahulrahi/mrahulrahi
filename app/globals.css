@@ -23,6 +23,10 @@ a:focus,input:focus,textarea:focus,*:focus{outline:0!important;}
 /* =================reset css ends here================= */
 
 /* =================core css starts here================= */
+body{font-family:"Roboto",sans-serif;font-size:16px;line-height:24px;font-weight:400;}
+
+
+/* =================core css starts here================= */
 body{font-family: "Josefin Sans", sans-serif;font-size:16px;line-height:1.2;font-weight:300;;color: inherit;background: var(--white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; }
 .container{width:100%;max-width:1320px;}
 .content-container{padding: 120px 0;}

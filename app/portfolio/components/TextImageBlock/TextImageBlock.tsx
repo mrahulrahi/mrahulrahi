@@ -1,4 +1,4 @@
-import React from 'react'
+import './TextImageBlock.css'
 
 const TextImageBlock = () => {
   return (

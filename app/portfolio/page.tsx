@@ -1,6 +1,20 @@
 import './style.css'
-import Banner from './Banner' 
-import BlockCard from './BlockCard/BlockCard'
+import Banner from './components/Banner/Banner' 
+import BlockCard from './components/BlockCard/BlockCard'
+import InnerHero from '../components/InnerHero/InnerHero'
+
+const HeroHeading = () => {
+  return (<>
+    My <span>Portfolio</span>
+  </>)
+}
+
+const HeroSubHeading = () => {
+  return (<>
+    WHERE <span>IMAGINATION</span><br />MEETS <span>CREATIVITY</span>
+  </>)
+}
+
 
 
 const Portfolio = () => {
@@ -27,27 +41,9 @@ const Portfolio = () => {
   { id: 5, title: 'Apps Review | YMUSIC | Fire Liquidator', url: 'https://www.youtube.com/embed/xnavnMUQjkE' },]
 
   return (
-    <div>
-      <div className="banner-container d-flex align-items-center position-relative">
-        <div className="banner-bg"></div>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="banner-box d-flex">
-                <div className="banner-text mx-auto text-center">
-
-                  <h1>WHERE <span>IMAGINATION</span><br />MEETS <span>CREATIVITY</span></h1>
-
-                  <div className="banner-btn d-flex flex-wrap align-items-center justify-content-center">
-                    <a className="btn btn-default green" href="">FireLiquidator</a>
-                    <a className="btn btn-default" href="">Rahi Creations</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <>
+    <InnerHero heading={<HeroHeading />} subHeading={<HeroSubHeading />}/>
+    
 
 
       <div className="content-container bg-green">
@@ -359,7 +355,7 @@ const Portfolio = () => {
       </div>
 
 
-    </div>
+    </>
   )
 }
 

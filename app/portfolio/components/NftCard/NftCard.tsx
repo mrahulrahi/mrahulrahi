@@ -1,4 +1,4 @@
-import React from 'react'
+import './NftCard.css'
 
 const nftCard = () => {
     return (
