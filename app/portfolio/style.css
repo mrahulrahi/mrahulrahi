@@ -1,23 +1,6 @@
 
 
 
-
-
-@media (max-width:991.98px){
-
-.banner-text{font-size: 16px;}
-.banner-text h1{font-size:54px;}
-}
-
-
-
-.heading{width: 100%;margin-bottom: 60px;}
-.heading h3{font-family:"Outfit",sans-serif;font-size: 64px;font-weight: 700;line-height: 1.3;margin-bottom: 0;}
-
-
-
-
-
 .modal-content{background: rgb(242, 232, 185, 0.8);}
 .modal-head-content{font-size:20px;padding-top:20px;padding-bottom:20px;font-weight:700;color: var(--light-gray);text-align: center;}
 .modal-body{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:10% 5% 5%}
@@ -28,182 +11,13 @@
 .confirm-btn{background:#36bc65;color: var(--white);}
 .close-btn{background:red;color: var(--white);}
 
-
-
-/********** About Card **********/
-
-
-
-/***** Contact Section *****/
-.contact-box-1{font-family:"Readex Pro",sans-serif;width: 100%;}
-.contact-title{width: 50%;}
-.contact-title h3{color:var(--green);font-size:48px;}
-.contact-title h1{margin-top:1%;color:#F2E8B9;font-size:80px;}
-#form-name,#form-email,#form-subject,#form-message{background-color:#45796F;color:#F2E8B9;border:none;border-bottom:1px solid #F2E8B9;width:100%;height:42px;margin-bottom:1rem}
-#form-name,#form-email{width:250px}
-#form-message{height:114px}
-#form-submit{background-color:#F2E8B9;color:#45796F;width:100%;height:46px;font-size:1rem;font-weight:700;cursor:pointer;border-radius:30px}
-.contact-form input::placeholder{color:#F2E8B9;font-size:1rem;font-weight:200;padding-left:1rem;border-style:none}
-.contact-form input:focus{outline:none;border-style:none}
-#form-name:hover,#form-email:hover,#form-subject:hover,#form-message:hover{border-bottom:3px solid #F2E8B9}
-#form-submit:hover{background-color:#000;color:#F2E8B9}
-
-
-.contact-wrapper{width: 100%;}
-.contact-box-1{border-radius:16px;}
-.contact-text{width: 50%;}
-.contact-text h4{font-size:80px;color: var(--green);}
-.contact-text h5{font-size:32px;margin-bottom: 10px;}
-.contact-form{width: 50%;padding-left: 10%;}
-.contact-form span{color:red}
-.form-control{width:100%;border-radius:.25rem;background-color:#202020;color:#c9efc7}
-.form-control input{height:4em}
-.form-control textarea{min-width:100%;max-width:35em;min-height:10em}
-.contact-form label{padding-top:1em;padding-bottom:.1em}
-.contact-box+.contact-box{margin-top: 60px;}
-.contact-details-item{width: 50%;}
-
-/***** Team Section *****/
-
-#team-list {width:100%;background-color:#45796F;padding:5% 2.5%;font-family:"Readex Pro",sans-serif}
-
-.user-list{width: 100%;margin-top: 30px;}
-.user-item{width: 33.33%;padding: 0 30px;}
-.user-box{width:100%;height: 100%;text-align:center;line-height:1.5em;font-size:1.5rem;box-shadow:0 0 20px 2px #eade71;min-height:500px;color:#45796F;background-color:#eade71;border-radius:250px;border-top-left-radius:999px;border-top-right-radius:999px;padding: 30px;}
-.user-box img{border-radius:50%;width:250px;height:auto;margin-bottom:20px}
-.user-box ul{display:flex;justify-content:center;list-style:none}
-.user-box a{width:25px;height:25px;margin:10px;border-radius:50%;color:#45796F}
-.user-box a i:hover{transform:scale(1.5);transition:.3s}
-
-
-.team-item{width: 33.33%;padding: 0 20px;}
-.team-box{padding:40px;border-radius:10px;flex-direction:column;gap:20px;font-size:1.5rem}
-.team-img {border-radius:2.5%;width:100%;height:auto;overflow: hidden;}
-.team-img img{width: 100%;height: 100%;object-fit: cover;}
-.team-text{font-size: 24px;text-align: center;margin-top: 30px;}
-.team-text h3{font-size: 40px;}
-.team-text ul{list-style-type:none}
-.team-text a{width:25px;height:25px;margin:10px;border-radius:50%;}
-.team-text a:hover{transform:scale(1.3);transition:.3s;color: var(--grayish-blue);}
-
-
-.testimonial-list{margin-top: 60px;}
-.testimonial-box{font-size:1.2rem;width: 100%;}
-.testimonial-item+.testimonial-item{margin-top: 20px;}
-.testimonial-image-box{width:66.66%;max-width:30rem;border-radius:10px;box-shadow:3px 3px 5px 3px rgba(0,0,0,0.3);overflow: hidden;}
-.testimonial-image{width:100%;height: 100%;}
-.testimonial-info{width: 33.33%;text-align:left;line-height:2rem;padding:2.5rem;background:#c9efc7dd;border:4px solid #121212;border-radius:10px}
-#customer-2.testimonial{text-align:right}
-.testimonial-name{margin:.2rem;color:#454545;font-size:2rem}
-.testimonial-subtitle{margin:0;font-size:1.25rem;color:#fcaf3b}
-.testimonial-subtitle a{color:inherit;text-decoration:none}
-.testimonial-subtitle a:hover,.testimonial-subtitle a:active{color:#7a7a7a}
-.testimonial-text{margin:.2rem;font-size:1rem;font-weight:500;line-height:1.25rem}
-
-@media screen and (max-width: 991.98px) {
-  .testimonial-item{width: 100%;}
-  .testimonial-image-box, .testimonial-info{width: 50%;}
-}
-
-@media screen and (max-width: 767.98px) {
-  .testimonial-image-box, .testimonial-info{width: 100%;}
-}
-
-
-/* ******************************************************** Packages Section ******************************************************** */
-
-.package-list{width: calc(100% + 30px);margin: 0 -15px;margin-bottom: -30px;}
-.package-item{width:33.33%;height:auto;padding: 0 15px;margin-bottom: 30px;}
-.package-box{border:4px solid #121212;}
-.package:hover,.package:active{box-shadow:2px 2px 4px rgba(0,0,0,0.5);border-color:#ff5454}
-.package a{text-decoration:none;color:inherit;display:block;padding:2rem}
-.package-badge{position:absolute;top:0;right:0;margin:1.2rem;font-size:.8rem;color:#fff;background:#ff5454;padding:.5rem;border-radius:5px}
-.package-title{font-size:1.5rem;line-height:30px}
-.package-subtitle{font-size:1rem;line-height:30px;color:#121212}
-.package-info{padding:1rem;border:1px solid #121212;color:#121212;background:#fff;font-size:1rem;border-radius: 10px;}
-.package-item:nth-child(2) .package-box{color:#fff;background:#fcaf3b;}
-.package-box:hover{border-color:#ff5454}
-
-
-@media screen and (max-width: 991.98px) {
-  .package-item{width: 50%;}
-}
-
-@media screen and (max-width: 767.98px) {
-  .package-item{width: 100%;}
-}
-
-
-/* ******************************************************** Other CSS Section ******************************************************** */
-
-.section-title{color:#121212;font-size:1.5rem;text-align:center;margin-top:50px}
-.plan-list{padding-bottom:80px;width:100%;display:flex;justify-content:center;align-items:center}
-.plan{background:#d5ffdc;text-align:center;padding:1rem;margin:.5rem 0;border-radius:10px}
-.plan{width:33%;display:flex;flex-direction:column;justify-content:space-between;height: calc(100% - 30px);}
-.plan-highlighted{background:#fcaf3b;color:#fff;box-shadow:2px 2px 2px 2px rgba(0,0,0,0.5);height:30rem;z-index:50;height: 100%;}
-.plan-annotation{background:#fff;color:#fcaf3b;padding:.5rem;box-shadow:2px 2px 2px 2px rgba(0,0,0,0.5);border-radius:8px}
-.plan-title{color:#121212}
-.plan-price{color:#858585}
-.plan-highlighted .plan-title{color:#fff}
-.plan-highlighted .plan-price{color:#121212}
-.plan-features{list-style:none;margin:0;padding:0}
-.plan-feature{margin:.5rem 0}
-
-
-/* ******************************************************** Customers Section ******************************************************** */
-
 .backdrop{position:fixed;display:none;top:0;left:0;z-index:100;width:100vw;height:100vh;background:rgba(0,0,0,0.5)}
 
-#key-features{width: 100%;border-radius:16px}
-#key-features .section-title{color:#121212;font-size:24px;margin-top:0;margin-bottom:2rem}
-.key-feature-list{width: calc(100% + 20px);margin: 0 -10px;margin-bottom: -20px;}
-.key-feature-item {width: 16.66%;padding: 0 10px;margin-bottom: 20px;}
-.key-feature-image{background:#c9efc7;width:128px;height:128px;border:2px solid #424242;border-radius:50%;margin-bottom:10px;padding:1.5rem}
-.key-feature-image img{width: 100%;height: 100%;object-fit: cover;}
-.key-feature-description{font-weight:700;color:#121212;font-size:16px;text-align:center}
-
-@media screen and (max-width: 1199.98px) {
-  .key-feature-item{width: 33.33%;}
-}
-
-@media screen and (max-width: 767.98px) {
-  .key-feature-item{width: 50%;}
-}
-
-@media screen and (max-width: 575.98px) {
-  .key-feature-item{width: 100%;}
-}
-
-
-/*--responsive for mobile phone--*/
-
 @media screen and (max-width: 767.99px) {
-  .contact{width:100%;padding-top:100px;flex-direction:column;gap:20px}
-  .contact-title h3{font-size:1rem}
-  .contact-title h1{font-size:3rem}
-  #form-name,#form-email,#form-subject,#form-message{width:100%;height:42px}
-  #form-name,#form-email{width:49.5%}
-  #form-message{height:114px}
-  #form-submit{width:100%}
-
   .modal {text-align: center;width: 95%;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 99;}
   .btn {width: 100%;}
-
-  .contact-details{padding:2em}
-  .contact-details h4{font-size:10vw}
-  .contact-form{width: 100%;}
-  .form-control{width:100%}
-  textarea{min-width:100%;max-width:100%}
-  .email img{width:350px;height:auto}
-  .btn-4{width:100%}
-
-  .plan {height: 25rem;display: flex;justify-content: center;align-items: center;flex-direction: column;gap: 10px;padding: 20px;}
-
-  .testimonial {margin: 30px;}
-  .testimonial-info {margin: 30px 0;}
 }
 
-/* ******************************************************** Signup Section ******************************************************** */
 
 
 

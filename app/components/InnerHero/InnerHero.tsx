@@ -18,7 +18,7 @@ const InnerHero = ({ heading, subHeading }: Props) => {
                                 <div className="inner-hero-text text-center">
                                     <h1>{heading}</h1>
                                     <h3>{subHeading}</h3>
-                                    <div className="hero-btn-box">
+                                    <div className="inner-hero-btn-box">
                                         <a href="#projects" className="btn btn-default">Featured Work
                                             <IoIosArrowDroprightCircle /></a>
                                         <a className="btn btn-default green" href="">FireLiquidator</a>

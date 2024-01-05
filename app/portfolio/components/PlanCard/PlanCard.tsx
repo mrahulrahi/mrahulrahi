@@ -1,4 +1,4 @@
-import React from 'react'
+import './PlanCard.css'
 
 const PlanCard = () => {
     return (

@@ -7,7 +7,7 @@
 .inner-hero-text h3{color: var(--white);font-size:40px;}
 .inner-hero-text h4{color:var(--yellow);letter-spacing:2px;font-size:32px;margin-bottom:40px}
 .inner-hero-text span{color: var(--green);}
-.inner-hero-btn{margin-top: 40px;}
+.inner-hero-btn-box{margin-top: 40px;}
 .inner-hero-img{width:30%;height: 100%;}
 .inner-hero-img img{width: 100%;height: 100%;object-fit: cover;}
 

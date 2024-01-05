@@ -1,4 +1,4 @@
-import React from 'react'
+import './TextCard.css'
 
 const TextCard = () => {
   return (
