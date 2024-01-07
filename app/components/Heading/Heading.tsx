@@ -1,14 +1,18 @@
+import { ReactNode } from 'react';
 import './Heading.css'
 interface Props {
-    heading : string;
+    children?: ReactNode;
+    heading: string;
 }
 
-const Heading = ({heading} : Props) => {
+const Heading = ({ heading, children }: Props) => {
     return (
         <>
             <div className="heading d-flex justify-content-between align-items-end">
                 <h3>{heading}</h3>
-               
+                <div className="heading-right">
+                    {children}
+                </div>
             </div>
         </>
     )

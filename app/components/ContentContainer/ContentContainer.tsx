@@ -1,19 +1,20 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
-interface Props{
-    child : JSX.Element;
+interface Props {
+    children: ReactNode;
+    background?: string;
+    className? : string;
 }
 
-const Container = ({ child } : Props) => {
+const ContentContainer = ({ children, background, className }: Props) => {
     return (
         <>
-            <div className="content-container bg-green">
+            <div className={`content-container `+ className + ` bg-` + background}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
 
-                            {child}
-
+                            {children}
 
                         </div>
                     </div>
@@ -24,4 +25,4 @@ const Container = ({ child } : Props) => {
     )
 }
 
-export default Container
+export default ContentContainer
