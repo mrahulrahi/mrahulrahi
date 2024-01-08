@@ -1,6 +1,6 @@
 import './Hero.css'
 import Button from '../Button/Button'
-import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const Hero = () => {
   return (
@@ -25,7 +25,7 @@ const Hero = () => {
                   <h1>Rahul <span>Maurya</span></h1>
                   <h3>I'm a <span>Web Developer</span> <br /> From <span>India</span> .</h3>
                   <div className="about-hero-btn mt-5">
-                    <Button title='About me' style='default' url='/about' icon={<IoIosArrowDropdownCircle />} />
+                    <Button title='About me' style='default' url='/about' icon={<IoIosArrowDroprightCircle />} />
                   </div>
                 </div>
               </div>

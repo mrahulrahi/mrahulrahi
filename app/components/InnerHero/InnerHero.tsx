@@ -1,12 +1,14 @@
+import { ReactNode } from 'react';
 import './InnerHero.css'
-import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 interface Props {
     heading: JSX.Element;
     subHeading?: JSX.Element;
+    children: ReactNode;
 }
 
-const InnerHero = ({ heading, subHeading }: Props) => {
+
+const InnerHero = ({ heading, subHeading, children }: Props) => {
     return (
         <div>
             <div className="inner-hero-container d-flex align-items-start position-relative">
@@ -18,11 +20,8 @@ const InnerHero = ({ heading, subHeading }: Props) => {
                                 <div className="inner-hero-text text-center">
                                     <h1>{heading}</h1>
                                     <h3>{subHeading}</h3>
-                                    <div className="inner-hero-btn-box">
-                                        <a href="#projects" className="btn btn-default">Featured Work
-                                            <IoIosArrowDroprightCircle /></a>
-                                        <a className="btn btn-default green" href="">FireLiquidator</a>
-                                        <a className="btn btn-default" href="">Rahi Creations</a>
+                                    <div className="inner-hero-btn-box d-flex align-items-center justify-content-center">
+                                       {children}
                                     </div>
                                 </div>
                             </div>

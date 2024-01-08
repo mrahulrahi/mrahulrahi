@@ -1,6 +1,11 @@
 import './Banner.css'
 
-const Banner = () => {
+interface Props {
+  title : string;
+  logo: string;
+}
+
+const Banner = ({title, logo} : Props) => {
   return (
     <div className="banner-container d-flex align-items-center position-relative">
     <div className="banner-bg"></div>
@@ -8,10 +13,10 @@ const Banner = () => {
       <div className="row">
         <div className="col-md-10 mx-auto">
           <div className="banner-logo mx-auto">
-            <img src="/logo.png" alt=""/>
+            <img src={logo} alt=""/>
           </div>
           <div className="banner-text">
-            <h1>Elements</h1>
+            <h1>{title}</h1>
           </div>
         </div>
       </div>

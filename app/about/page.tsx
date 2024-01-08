@@ -5,6 +5,11 @@ import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { SiAdobexd } from "react-icons/si";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
 import InnerHero from '../components/InnerHero/InnerHero';
+import { IoIosArrowDroprightCircle } from "react-icons/io";
+import Button from '../components/Button/Button';
+import ContentContainer from '../components/ContentContainer/ContentContainer';
+import Heading from '../components/Heading/Heading';
+import Link from 'next/link';
 
 const HeroHeading = () => {
   return (<>
@@ -14,7 +19,7 @@ const HeroHeading = () => {
 
 const HeroSubHeading = () => {
   return (<>
-         I'm a <span>Web Developer</span>.
+    I'm a <span>Web Developer</span>.
   </>)
 }
 
@@ -35,13 +40,19 @@ const About = () => {
     { id: 12, logo: <SiAdobexd />, title: 'Adobe Xd' },
   ]
 
+  const certificates = [
+    { id: 1, url: 'https://www.udemy.com/certificate/UC-4e377dc1-f535-4589-b877-ba5257976fa9/', title: 'Web Development Bootcamp', organization: 'Udemy' },
+    { id: 1, url: 'https://profiles.topcoder.com/mrahulrahi', title: 'Full stack Development', organization: 'Topcoder' },
+    { id: 1, url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Nordics/PxenP4rHNE6Bh4nQz_Accenture%20Nordics_f635M87hfdNWoDbzC_1666336729816_completion_certificate.pdf', title: 'Dev Virtual Exp Program', organization: 'Forage' },
+    { id: 1, url: 'https://codedamn.com/user/mrahulrahi', title: 'Codedamn Certificates', organization: 'Codedamn' },
+    { id: 1, url: 'https://www.hackerrank.com/certificates/62ee41b69fc2', title: 'SQL (Basic)', organization: 'Hacker Rank' },
+  ]
+
   return (
-    <div >
+    <>
 
-      <InnerHero heading={<HeroHeading />}  subHeading={<HeroSubHeading />}>
-
-
-   
+      <InnerHero heading={<HeroHeading />} subHeading={<HeroSubHeading />}>
+        <Button title='Featured Work' style='default' url='/portfolio' icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
 
 
@@ -66,8 +77,8 @@ const About = () => {
                     a sub would be massively appreciated! 🙏</p>
                   <p>Stack - MERN Stack</p>
 
-                  <a href="https://drive.google.com/file/d/1-4vdQtKGmM2ixaMvL2Wav6KY9ncrglcT/view?usp=sharing"
-                    className="btn btn-default white">Download Resume<IoIosArrowDropdownCircle /></a>
+                  <Button title='Download Resume' style='green' url='https://drive.google.com/file/d/1-4vdQtKGmM2ixaMvL2Wav6KY9ncrglcT/view?usp=sharing' icon={<IoIosArrowDropdownCircle />} />
+
                 </div>
 
               </div>
@@ -93,135 +104,85 @@ const About = () => {
         </div>
       </div>
 
+      <ContentContainer background='violet'>
+        <div className="d-flex">
+          <div className="content-left">
+            <div><img src="/rahi.webp" alt="" /></div>
 
-      <div className="content-container card-container bg-violet">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="card-content-box d-flex flex-column">
-                <div className="heading d-flex">
-                  <h3>Certificates</h3>
+          </div>
+          <div className="content-right">
+            <div className="main-container d-flex flex-wrap">
+              <div
+                className="heading d-flex flex-wrap justify-content-between align-items-start position-relative">
+                <div className="heading-text">
+                  <h3> What I do </h3>
                 </div>
-                <div className="card-list d-flex flex-wrap">
-                  <div className="card-item">
-                    <a className="card-box d-flex" href="https://www.hackerrank.com/certificates/62ee41b69fc2">
-                      <div className="card-text mt-auto">
-                        <h4>SQL (Basic)</h4>
-                        <p>Hacker Rank</p>
-                      </div>
-                    </a>
+              </div>
+              <div className="timeline-container">
+                <div className="timeline">
+                  <div className="timeline-item">
+                    <div className="timeline-content" data-aos="fade-up">
+                      <h3 className="timeline-content-title">Diploma</h3>
+                      <p className="timeline-content-desc"><span>AIMT</span>July 2017 - Nov 2020</p>
+                    </div>
                   </div>
-                  <div className="card-item">
-                    <a className="card-box d-flex" href="https://codedamn.com/user/mrahulrahi">
-                      <div className="card-text mt-auto">
-                        <h4>Codedamn Certificates</h4>
-                        <p>Codedamn</p>
-                      </div>
-                    </a>
+                  <div className="timeline-item">
+                    <div className="timeline-content" data-aos="fade-up">
+                      <h3 className="timeline-content-title">BCA</h3>
+                      <p className="timeline-content-desc"><span>IGNOU</span>July 2021 - Jun 2024</p>
+                    </div>
                   </div>
-                  <div className="card-item">
-                    <a className="card-box d-flex"
-                      href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Nordics/PxenP4rHNE6Bh4nQz_Accenture%20Nordics_f635M87hfdNWoDbzC_1666336729816_completion_certificate.pdf">
-                      <div className="card-text mt-auto">
-                        <h4>Dev Virtual Exp Program</h4>
-                        <p>Forage</p>
-                      </div>
-                    </a>
+                  <div className="timeline-item">
+                    <div className="timeline-content" data-aos="fade-up">
+                      <h3 className="timeline-content-title">Fireliquidtaor</h3>
+                      <p className="timeline-content-desc"><span>Youtuber</span>Oct 2018 - Sep 2022 </p>
+                    </div>
                   </div>
-                  <div className="card-item">
-                    <a className="card-box d-flex" href="https://profiles.topcoder.com/mrahulrahi">
-                      <div className="card-text mt-auto">
-                        <h4>Top coder</h4>
-                        <p>Topcoder</p>
-                      </div>
-                    </a>
+                  <div className="timeline-item">
+                    <div className="timeline-content" data-aos="fade-up">
+                      <h3 className="timeline-content-title">CodeClause</h3>
+                      <p className="timeline-content-desc"><span>Web Dev Intern</span>Nov 2022</p>
+                    </div>
                   </div>
-                  <div className="card-item">
-                    <a className="card-box d-flex" href="https://www.udemy.com/certificate/UC-4e377dc1-f535-4589-b877-ba5257976fa9/">
-                      <div className="card-text mt-auto">
-                        <h4>MERN Dev</h4>
-                        <p>Udemy</p>
-                      </div>
-                    </a>
+                  <div className="timeline-item">
+                    <div className="timeline-content" data-aos="fade-up">
+                      <h3 className="timeline-content-title">Imagine Group</h3>
+                      <p className="timeline-content-desc"><span>Freelancer</span>Dec 2022 - Jun 2023</p>
+                    </div>
+                  </div>
+                  <div className="timeline-item">
+                    <div className="timeline-content" data-aos="fade-up">
+                      <h3 className="timeline-content-title">SlicemyPage</h3>
+                      <p className="timeline-content-desc"><span>Front End Developer</span>Jun 2023 - Now</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </ContentContainer>
 
 
-      <div className="content-container bg-violet">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="d-flex">
-                <div className="content-left">
-                  <div><img src="/rahi.webp" alt="" /></div>
-
-                </div>
-                <div className="content-right">
-                  <div className="main-container d-flex flex-wrap">
-                    <div
-                      className="heading d-flex flex-wrap justify-content-between align-items-start position-relative">
-                      <div className="heading-text">
-                        <h3> What I do </h3>
-                      </div>
-                    </div>
-                    <div className="timeline-container">
-                      <div className="timeline">
-                        <div className="timeline-item">
-                          <div className="timeline-content" data-aos="fade-up">
-                            <h3 className="timeline-content-title">Diploma</h3>
-                            <p className="timeline-content-desc"><span>AIMT</span>July 2017 - Nov 2020</p>
-                          </div>
-                        </div>
-                        <div className="timeline-item">
-                          <div className="timeline-content" data-aos="fade-up">
-                            <h3 className="timeline-content-title">BCA</h3>
-                            <p className="timeline-content-desc"><span>IGNOU</span>July 2021 - Jun 2024</p>
-                          </div>
-                        </div>
-                        <div className="timeline-item">
-                          <div className="timeline-content" data-aos="fade-up">
-                            <h3 className="timeline-content-title">Fireliquidtaor</h3>
-                            <p className="timeline-content-desc"><span>Youtuber</span>Oct 2018 - Sep 2022 </p>
-                          </div>
-                        </div>
-                        <div className="timeline-item">
-                          <div className="timeline-content" data-aos="fade-up">
-                            <h3 className="timeline-content-title">CodeClause</h3>
-                            <p className="timeline-content-desc"><span>Web Dev Intern</span>Nov 2022</p>
-                          </div>
-                        </div>
-                        <div className="timeline-item">
-                          <div className="timeline-content" data-aos="fade-up">
-                            <h3 className="timeline-content-title">Imagine Group</h3>
-                            <p className="timeline-content-desc"><span>Freelancer</span>Dec 2022 - Jun 2023</p>
-                          </div>
-                        </div>
-                        <div className="timeline-item">
-                          <div className="timeline-content" data-aos="fade-up">
-                            <h3 className="timeline-content-title">SlicemyPage</h3>
-                            <p className="timeline-content-desc"><span>Front End Developer</span>Jun 2023 - Now</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+      <ContentContainer background='green'>
+        <Heading heading='Certificates' />
+        <div className="card-list d-flex flex-wrap">
+          {certificates.map(item => <div key={item.id} className="card-item">
+            <Link className="card-box d-flex" href={item.url}>
+              <div className="card-text mt-auto">
+                <h4>{item.title}</h4>
+                <p>{item.organization}</p>
               </div>
-
-            </div>
-          </div>
+            </Link>
+          </div>)}
         </div>
-      </div>
+      </ContentContainer>
 
 
 
 
-    </div >
+
+    </ >
   )
 }
 
