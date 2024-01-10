@@ -3,6 +3,7 @@ import Hero from "./components/Hero/Hero";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
 import ContentContainer from "./components/ContentContainer/ContentContainer";
 import Heading from "./components/Heading/Heading";
+import VideoCard from "./components/VideoCard/VideoCard";
 
 
 export default function Home() {
@@ -37,19 +38,9 @@ export default function Home() {
         <div className="skill-card-card-content-box d-flex flex-column h-100">
           <Heading heading="Videos"></Heading>
           <div className="video-card-list d-flex flex-wrap">
-            {videoCards.map(card => <div key={card.id} className="video-card-item">
-              <div className="video-card-box bg-yellow" data-aos="fade-up">
-                <div className="video-card-iframe">
-                  <iframe width="560" height="315" src={card.url}
-                    title="YouTube video player" frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen></iframe>
-                </div>
-                <div className="video-card-text">
-                  <h5>{card.title}</h5>
-                </div>
-              </div>
-            </div>)}
+          {videoCards.map(card => <div key={card.id} className="video-card-item">
+                  <VideoCard item={card} />
+                  </div>)}
           </div>
         </div>
 

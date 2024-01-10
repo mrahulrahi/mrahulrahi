@@ -6,6 +6,7 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 import Button from '../components/Button/Button';
 import Heading from '../components/Heading/Heading';
 import ContentContainer from '../components/ContentContainer/ContentContainer';
+import VideoCard from '../components/VideoCard/VideoCard';
 
 const HeroHeading = () => {
   return (<>
@@ -189,17 +190,7 @@ const Portfolio = () => {
 
                 <div className="video-card-list">
                   {videoCards.map(card => <div key={card.id} className="video-card-item">
-                    <div className="video-card-box bg-yellow">
-                      <div className="video-card-iframe">
-                        <iframe width="560" height="315" src={card.url}
-                          title="YouTube video player" frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowFullScreen></iframe>
-                      </div>
-                      <div className="video-card-text">
-                        <h5>{card.title}</h5>
-                      </div>
-                    </div>
+                  <VideoCard item={card} />
                   </div>)}
                 </div>
               </div>
