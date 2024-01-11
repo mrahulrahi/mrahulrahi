@@ -98,12 +98,7 @@ p:last-child{margin-bottom:0;}
 .certi-btn{background-color:var(--green);color:#fff;text-decoration:none;border:2px solid transparent;font-weight:700;padding:13px 30px;border-radius:30px;transition:.4s}
 .certi-btn:hover{background-color:transparent;border:2px solid var(--green);cursor:pointer}
 
-.card-list{width: calc(100% + 20px);margin-left: -10px; margin-bottom: -20px;}
-.card-item{width: 33.33%;padding: 0 10px;margin-bottom: 20px;flex-grow: 1;}
-.card-box{padding: 20px;min-height: 150px;background: rgba(255, 255, 255, 0.06);border-radius: 10px;height: 100%;}
-.card-box:hover{background: var(--green);color: var(--white);}
-.card-text{font-size: 16px;font-weight: 300;}
-.card-text h4{font-size: 24px;font-weight: 600;margin-bottom: 10px;}
+
 
 .video-logo-box{position: sticky;top: 30px;height: 100vh;}
 .video-logo{width:300px;height:300px;margin:0 auto;background-image:linear-gradient(to right,var(--green) 50%,#e0e0e0 50%);border-radius:50%;overflow:hidden;z-index:9;position:relative}

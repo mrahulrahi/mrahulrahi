@@ -10,6 +10,7 @@ import Button from '../components/Button/Button';
 import ContentContainer from '../components/ContentContainer/ContentContainer';
 import Heading from '../components/Heading/Heading';
 import Link from 'next/link';
+import CertificateCard from '../components/CertificateCard/CertificateCard';
 
 const HeroHeading = () => {
   return (<>
@@ -168,12 +169,7 @@ const About = () => {
         <Heading heading='Certificates' />
         <div className="card-list d-flex flex-wrap">
           {certificates.map(item => <div key={item.id} className="card-item">
-            <Link className="card-box d-flex" href={item.url}>
-              <div className="card-text mt-auto">
-                <h4>{item.title}</h4>
-                <p>{item.organization}</p>
-              </div>
-            </Link>
+          <CertificateCard item={item} />
           </div>)}
         </div>
       </ContentContainer>

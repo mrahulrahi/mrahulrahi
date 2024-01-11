@@ -1,6 +1,6 @@
 import './VideoCard.css'
 interface Props {
-  item : Item[];
+  item : Item;
 }
 
 interface Item {
