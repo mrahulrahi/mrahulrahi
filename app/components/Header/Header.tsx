@@ -15,7 +15,7 @@ const Header = () => {
         const scrollY = window.scrollY;
 
         // Define a threshold value to determine when to add the class
-        const scrollThreshold = 200;
+        const scrollThreshold = 10;
 
         // Update the state based on the scroll position
         if (scrollY > scrollThreshold) {

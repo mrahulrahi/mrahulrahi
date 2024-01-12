@@ -18,12 +18,6 @@ const HeroHeading = () => {
   </>)
 }
 
-const HeroSubHeading = () => {
-  return (<>
-    I'm a <span>Web Developer</span>.
-  </>)
-}
-
 const About = () => {
 
   const skills = [
@@ -52,7 +46,7 @@ const About = () => {
   return (
     <>
 
-      <InnerHero heading={<HeroHeading />} subHeading={<HeroSubHeading />}>
+      <InnerHero heading={<HeroHeading />} >
         <Button title='Featured Work' style='default' url='/portfolio' icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
 

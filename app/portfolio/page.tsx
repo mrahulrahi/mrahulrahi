@@ -14,14 +14,6 @@ const HeroHeading = () => {
   </>)
 }
 
-const HeroSubHeading = () => {
-  return (<>
-    
-  </>)
-}
-
-
-
 const Portfolio = () => {
   const cards = [{ id: 1, title: 'Calculator UI', url: '/portfolio/apps' },
   { id: 2, title: 'Gradient BG', url: '/portfolio/apps' },
@@ -45,9 +37,12 @@ const Portfolio = () => {
   { id: 5, title: 'Cinematic B-roll | Asus ROG Strix G15 531GT', url: 'https://www.youtube.com/embed/tb1pmAbIlKg' },
   { id: 5, title: 'Apps Review | YMUSIC | Fire Liquidator', url: 'https://www.youtube.com/embed/xnavnMUQjkE' },]
 
+  const imageLinks = [{title: '3 Elements', url: 'https://lh3.googleusercontent.com/pw/ABLVV86X7Kk2y8JL4Xv2YX1B8IJCEq1pQ-hU7Z_eUDPT6AQOQFnz_Rt22KroEThSiPxANkAzabiEkpKk6eCRpsh5cxdD0P5BQ_XeHB0emxhQUupvw8nIG5MvoQ-qvRIDkEK6xzh54Y8PitUClqj-UzVglblK=w1196-h898-s-no-gm?authuser=0' },
+,]
+
   return (
     <>
-      <InnerHero heading={<HeroHeading />} subHeading={<HeroSubHeading />}>
+      <InnerHero heading={<HeroHeading />} >
         <Button title='FireLiquidator' style='default' url='/about' icon={<IoIosArrowDroprightCircle />} />
         <Button title='Rahi Creations' style='default' url='/about' icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
@@ -147,7 +142,9 @@ const Portfolio = () => {
         </div>
       </div>
 
-      <Banner title='Elements' logo='/logo.png'/>
+      <Banner logo='/logo.png' >
+        Elements
+      </Banner>
       <div className="content-container bg-green">
         <div className="container">
           <div className="row">
@@ -164,7 +161,9 @@ const Portfolio = () => {
         </div>
       </div>
 
-
+      <Banner >
+        WHERE <span>IMAGINATION</span><br />MEETS <span>CREATIVITY</span>
+      </Banner>
       <div className="content-container bg-green">
         <div className="container">
           <div className="row">
@@ -190,7 +189,7 @@ const Portfolio = () => {
 
                 <div className="video-card-list">
                   {videoCards.map(card => <div key={card.id} className="video-card-item">
-                  <VideoCard item={card} />
+                    <VideoCard item={card} />
                   </div>)}
                 </div>
               </div>
@@ -200,35 +199,23 @@ const Portfolio = () => {
       </div>
 
 
-      <Banner title='Elements' logo='/rc-logo.png'/>
-      <div className="full-bg-container d-flex align-items-center position-relative">
-        <div className="full-bg"></div>
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12">
-              <div className="full-bg-box d-flex align-items-center justify-content-center">
-                <div className="full-bg-logo">
-                  <img className="icon" src="/rc-logo.png " alt="" />
-                </div>
-                WHERE <span>IMAGINATION</span><br />MEETS <span>CREATIVITY</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Banner logo='/rc-logo.png'>
+        <span>RAHI</span>CREATIONS
+      </Banner>
 
 
       <ContentContainer background='violet'>
         <Heading heading='Gallery' />
+     
         <div className="gallery" >
-          <a href="https://source.unsplash.com/_cvwXhGqG-o/600x600" data-lightbox="gallery-img" data-title="caption">
+        {imageLinks.map( item =>  <a key={item} href={item.url} data-lightbox="gallery-img" data-title="caption">
             <div className="gallery-link">
               <figure className="gallery-thumb">
-                <img src="https://source.unsplash.com/_cvwXhGqG-o/300x300" alt="Portrait by Jessica Felicio" className="gallery-image" />
-                <figcaption className="gallery-caption">About Image</figcaption>
+                <img src={item.url} alt="Portrait by Jessica Felicio" className="gallery-image" />
+                <figcaption className="gallery-caption">{item.title}</figcaption>
               </figure>
             </div>
-          </a>
+          </a> )}
 
           <a href="https://source.unsplash.com/AHBvAIVqk64/600x600" data-lightbox="gallery-img" data-title="caption">
             <div className="gallery-link">
@@ -284,10 +271,10 @@ const Portfolio = () => {
             </div>
           </a>
 
-          <a href="https://source.unsplash.com/NTjSR3zYpsY/600x600" data-lightbox="gallery-img" data-title="caption">
+          <a href="https://drive.google.com/drive/folders/15AeDxrSkHfDY3rtE1FcxxA-oDbRxrb4K" data-lightbox="gallery-img" data-title="caption">
             <div className="gallery-link">
               <figure className="gallery-thumb">
-                <img src="https://source.unsplash.com/NTjSR3zYpsY/300x300" alt="Portrait by Ethan Haddox" className="gallery-image" />
+                <img src="https://drive.google.com/drive/folders/15AeDxrSkHfDY3rtE1FcxxA-oDbRxrb4K" alt="Portrait by Ethan Haddox" className="gallery-image" />
                 <figcaption className="gallery-caption">About Image</figcaption>
               </figure>
             </div>
