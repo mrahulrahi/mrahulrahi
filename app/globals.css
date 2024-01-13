@@ -87,15 +87,6 @@ p:last-child{margin-bottom:0;}
 .itb-skill-box{margin-top: 30px;padding: 40px;border-radius: 20px;}
 .skill-card-list{width: 100%;margin-bottom: -5px;}
 .skill-card-item{width: 12.5%;padding: 0 2.5px;margin-bottom: 5px;}
-.skill-card-box{padding: 10px;background: var(--yellow);border-radius: 10px;text-align: center;font-size: 16px;color: var(--violet);font-weight: 600;border: 2px solid var(--violet);}
-.skill-card-icon{margin-bottom: 10px;font-size: 30px}
-.skill-card-icon img{width: 100%;height: 100%;object-fit: cover;}
-
-.certificate{background-color:var(--violet);padding:40px;border-radius:25px;display:flex;flex-direction:column;justify-content:center}
-.certificate .section-title{font-size:4vw;padding-top:0}
-.certi-box{padding:auto;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:40px}
-.certi-btn{background-color:var(--green);color:#fff;text-decoration:none;border:2px solid transparent;font-weight:700;padding:13px 30px;border-radius:30px;transition:.4s}
-.certi-btn:hover{background-color:transparent;border:2px solid var(--green);cursor:pointer}
 
 .video-logo-box{position: sticky;top: 30px;height: 100vh;}
 .video-logo{width:300px;height:300px;margin:0 auto;background-image:linear-gradient(to right,var(--green) 50%,#e0e0e0 50%);border-radius:50%;overflow:hidden;z-index:9;position:relative}
@@ -111,8 +102,6 @@ p:last-child{margin-bottom:0;}
 =========================================== */
 @media (max-width:1199.98px){
 .container{width: calc(100% - 16px);}
-
-.banner-text h1{font-size:70px;}
 
 .skill-card-item{width: 16.66%;}
 }
@@ -145,8 +134,6 @@ p:last-child{margin-bottom:0;}
 ! Extra small devices (portrait phones, less than 576px)
 ====================================================== */
 @media (max-width:575.98px){
-.banner-text h1{font-size:46px;}
-
 .skill-card-item{width: 33.33%;}
 
 .itb-content-box{padding: 20px;}
@@ -158,12 +145,10 @@ p:last-child{margin-bottom:0;}
 .logo::before{margin-top:25px}
 .logo.zoom{font-size:22px}
 
-.banner-logo{font-size: 32px;}
 .a-img {width: 250px;height: 250px;}
 }
 
 @media (max-width:424.98px){
-.banner-text h1{font-size:34px;}
 .skill-card-item{width: 50%;}
 }
 
@@ -178,133 +163,68 @@ p:last-child{margin-bottom:0;}
 .timeline-content-desc span{position: relative;padding-right: 20px;margin-right: 10px;}
 .timeline-content-desc span:before {content: '';position: absolute;right: 0;top: 50%;transform: translateY(-50%);width: 10px;height: 10px;border-radius: 50%;background: var(--green);}
 
-/* =================  Project-Start  ================= */
-.project-container {background: rgb(251 225 144 / 20%);}
-.project-item {width: 25%;}
-.project-box {padding:20px;}
-.project-icon {width: 80px;height: 80px;}
-.project-icon img {width: 100%;height: 100%;object-fit: contain;}
-.project-text h2 {font-size: 38px;text-align: center;line-height: 1.2;margin-bottom: 10px;font-weight: 600;}
-.project-text {font-size: 20px;line-height: 1.2;font-weight: 600; margin-top: 25px;}
-/* =================  Project-End  ================= */ 
-/* =================  Info-End  ================= */ 
-.info-container {padding:120px 0 !important;}
-.info-left {width: 50%; position: relative;}
-.info-right {width: 50%; padding-left:50px; align-self: center;}
-.info-img {width: 70%;height: 100%;overflow: hidden; border-radius: 10px;}
-.info-img img {width: 100%;height: 100%;object-fit: cover; }
-.info-img.info-img-2 {border: 20px solid #fff;position: absolute;top: -30%;width: 50%;height: 70%;right: 0;}
-.info-text h4 {font-size: 48px;line-height: 1.2;margin-bottom: 15px;font-weight: 600;}
-.info-text {font-size: 18px;line-height: 1.5;font-weight: 500;}
-.info-title {font-size: 20px;font-weight: 600;line-height: 1.2;letter-spacing: 0.023em;width: 120px;}
-.info-item {margin-bottom: 12px;}
-.info-details {width: calc(100% - 120px);font-size: 18px;line-height: 1.5;font-weight: 400;}
-/* =================  Info-End  ================= */ 
 /* =================  work-start  ================= */
-.content-left{width:40%; padding-right:40px;position: sticky; top: 100px;height: 100%;}
-.content-right{ width:60%;}
-.skill-list { height: 100%;padding: 30px;border-radius: 10px;background: rgb(209 209 209 / 20%);}
-.skill-item { width: 100%;padding: 0 10px; margin-bottom: 20px;}
-.skill-img { width: 25px;height: 25px; display: flex; align-items: center; justify-content: center;}
-.skill-img img { width: 100%;height: 100%;object-fit: contain;}
-.skill-box { border-radius: 8px; padding: 10px 50px 10px 10px; width: 100%; height: 100%; position: relative;}
-.skill-box:after {width: 100%;height: 4px;background: #fff;position: absolute;bottom: 0;content: '';}
-.skill-text {display: flex;justify-content: space-between;width: calc(100% - 25px);padding-left: 20px;align-items: center;}
-.skill-text h4 {margin-bottom: 0;font-size: 14px;font-weight: 600;line-height: 1.2;text-transform: uppercase;}
-.skill-per {font-size: 14px;font-weight: 600;line-height: 1.2;position: absolute;right: 10px;}
-.skill-progress {position: absolute;height: 4px;left: 0;bottom: 0;border-radius: 10px; z-index: 1;}
-/* =================  work-start  ================= */
-/* =================  work-start  ================= */
-.wi-content {width: 50%; padding:0 20px;}
-.work-item:nth-child(2n){ width:calc(100% + 40px); margin-left:-20px;}
+.work-list{width: calc(100% + 40px);margin-left: -20px;margin-bottom: -40px;}
+.work-item{ width: 50%;padding: 20px;margin-bottom: 40px;}
+.work-item:nth-child(3n + 1){ width: 100%;}
 .wb-img {width: 55%; align-self: end;}
 .wb-text {width: 40%;}
-.work-item {margin-bottom: 40px;}
-.work-item:first-child .work-box{padding:50px;}
-.work-item:last-child {margin-bottom: 0;}
-.work-box {padding: 50px 50px 0;border-radius: 10px;}
+.work-box {padding: 50px 50px 0;border-radius: 10px;flex-flow: column-reverse;}
 .wb-img img {width: 100%;height: 100%;object-fit: contain;}
 .wi-content .work-box .wb-text {padding: 50px;}
 .wi-content .work-box {padding: 0;}
 .wb-text h3 {font-size: 16px;margin-bottom: 15px;text-transform: uppercase;}
 .wb-text h5 {font-size: 28px;margin-bottom: 15px;}
 .wb-text { font-size: 14px; line-height: 1.6;}
+
+.work-item:nth-child(3n + 1) .work-box{flex-flow: row;}
 /* =================  work-start  ================= */
 
-/* ========================================== 
-! Large devices (desktops, less than 1200px)
-=========================================== */
-@media (max-width: 1199.98px){
-body{padding-top: 80px;} 
-.lg-logo-area{width:112px;margin:0 auto 48px;}
-
-.usp-box{padding:48px 35px 48px 80px;}
-.submenu .link{font-family:'Roboto',sans-serif;font-size:14px;font-weight:400;line-height:44px;text-transform: capitalize;}
-.logout-link{font-size:18px;padding:0;position:relative;font-weight:500;color:var(--primary-color);}
-.info-container h1{font-size:54px;}
-}
 /*==========================================
 ! Medium devices (tablets, less than 992px)
 ========================================== */
 @media (max-width: 991.98px){
-.project-list{margin-bottom:-20px;} 
-.project-item { width: 50%; margin-bottom:20px;}
-.info-img.info-img-2 {top: auto;width: 70%;right: 15%;bottom: -25%; border:10px solid #fff;}
-
-.info-img {width: 100%;}    
-.info-text {font-size: 16px;}
-.info-text h4 { font-size: 38px; margin-bottom: 6px;}
-.info-title {font-size: 18px;}
-.info-details {font-size: 16px;}
-
 .work-item {margin-bottom: 20px;} 
 .work-item:nth-child(2n) {width: calc(100% + 20px);margin-left: -10px;}
 .wi-content {padding: 0 10px;}   
 .wi-content .work-box .wb-text {padding: 30px;}
 .work-item:first-child .work-box {padding: 30px;}
 .work-box {padding: 30px 30px 0;}
-
-.card-box {padding: 10px;}
-.skill-list {padding:20px;}
-.content-left  {padding-right: 20px;}      
 }
 /* =================================================  
  ! Small devices (landscape phones, less than 768px)
  ================================================= */
 @media (max-width: 767.98px){
-
-
 .wb-text h3 {font-size: 14px;margin-bottom: 5px;}
-
-.info-left {width:100%;}
-.info-right {width:100%; padding-left:0; margin-top:50px;}
-.info-text h4 { font-size: 28px; margin-bottom: 6px;}
-.info-img.info-img-2 {top: -22%;width: 60%;height: 60%;right: 0;}
-
-.content-left {width: 100%;padding-right: 0;}
-.content-right {width: 100%;margin-top: 20px;} 
 .wb-text h5 {font-size: 20px;margin-bottom: 10px;} 
 .wb-text p {margin-bottom:0;} 
-.wi-content .work-box .wb-text {padding: 20px;}
-.work-item:nth-child(2n) {width: 100%;margin-left: 0;}
-.wi-content {width:100%; padding:0;}
-.wi-content+.wi-content {padding-top:20px;}
+.work-box .wb-text {padding: 20px;}
 .wb-text {width: 100%; margin-bottom:20px;}
 .wb-img {width: 100%;}
 
-.heading h3 {font-size: 28px;margin-bottom: 10px;}
-.heading-text {width:100%; font-size:14px;}
-.heading-btn {margin-top: 20px;}
-
-.contact-left {width: 100%;padding-right: 0;} 
-.contact-right {width: 100%;padding-left: 0;margin-top: 50px;}
+.work-item:nth-child(3n + 1) .work-box{flex-flow: column-reverse;}
 }
-/* ======================================================
- ! Extra small devices (portrait phones, less than 576px)
- ====================================================== */
-@media (max-width: 575.98px){
-.project-item { width: 100%;}
 
-.card-item { padding: 0;width: 100%;margin-bottom: 10px;}
+
+
+.modal-content{background: rgb(242, 232, 185, 0.8);}
+.modal-head-content{font-size:20px;padding-top:20px;padding-bottom:20px;font-weight:700;color: var(--light-gray);text-align: center;}
+.modal-body{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;padding:10% 5% 5%}
+.modal-body label{width:30%;font-weight:900;color:#45796f;font-size: 24px;font-family: 'Outfit';}
+.modal-body input{width:70%;padding:12px 20px;margin:8px 0;display:inline-block;border:1px solid #ccc;border-radius:4px;box-sizing:border-box}
+.modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:99;width:60%;height: auto; border-radius:22.5px;border:2px solid #629824;box-shadow:0 0 20px 2px #d1e6b9}
+.modal-btn-box{margin-top: 30px;}
+.confirm-btn{background:#36bc65;color: var(--white);}
+.close-btn{background:red;color: var(--white);}
+
+.backdrop{position:fixed;display:none;top:0;left:0;z-index:100;width:100vw;height:100vh;background:rgba(0,0,0,0.5)}
+
+@media screen and (max-width: 767.99px) {
+  .modal {text-align: center;width: 95%;position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 99;}
+  .btn {width: 100%;}
 }
+
+
+
+
 

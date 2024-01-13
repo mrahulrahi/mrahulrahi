@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import 'bootstrap/dist/css/bootstrap.css'
-import './globals.css'
 import ImportBsJS from "./importBsJS";
+import './globals.css'
 import { Josefin_Sans } from 'next/font/google'
 
 import Header from './components/Header/Header'
@@ -16,7 +16,6 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-
   children,
 }: {
   children: React.ReactNode

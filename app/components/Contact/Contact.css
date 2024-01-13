@@ -6,38 +6,26 @@
 .contact-box .button-two:hover{background-color:transparent;border:2px solid var(--green);cursor:pointer}
 .contact-top-content{font-size: 16px;font-weight: 300;line-height: 1.6;width: 50%;}
 .contact-email{border:3px solid var(--green);padding:10px 30px;margin-right:10px;border-radius:30px;height: 50px;width: calc(100% - 180px);}
-.contact-submit{background:#45796F;color:#fff;text-decoration:none;padding:13px 30px;border-radius:30px}
 .contact-email:hover{border:3px solid var(--black)}
-.contact-submit:hover{background-color:var(--black)}  
 .contact-btn{width: 100%;margin-top: 20px;}
 .contact-box h4{margin-bottom: 20px;}
 
 
-/* ========================================== 
-! Large devices (desktops, less than 1200px)
-=========================================== */
 @media (max-width:1199.98px){
 
 
 }
-/*==========================================
-! Medium devices (tablets, less than 992px)
-========================================== */
+
 @media (max-width:991.98px){
 
 }
 
-/* =================================================  
-! Small devices (landscape phones, less than 768px)
-================================================= */
-@media (max-width:767.98px){
 
-    .contact-box,.contact-top-content{width: 100%;}
+@media (max-width:767.98px){
+.contact-box,.contact-top-content{width: 100%;}
 }
 
-/* ======================================================
-! Extra small devices (portrait phones, less than 576px)
-====================================================== */
+
 @media (max-width:575.98px){
 
 }

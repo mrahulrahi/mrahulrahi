@@ -1,4 +1,3 @@
-import './style.css'
 import Banner from './components/Banner/Banner'
 import BlockCard from './components/BlockCard/BlockCard'
 import InnerHero from '../components/InnerHero/InnerHero'
@@ -62,9 +61,9 @@ const Portfolio = () => {
       <ContentContainer background='gold'>
         <div className="itb-content-box bg-green">
           <Heading heading='My Project' />
-          <div className="work-list">
+          <div className="work-list d-flex flex-wrap">
             <div className="work-item">
-              <div className="work-box d-flex flex-wrap align-items-center justify-content-between flex-md-row flex-column-reverse bg-violet">
+              <div className="work-box d-flex flex-wrap align-items-center justify-content-between bg-violet">
                 <div className="wb-img"> <img src="/project-img-3.png" alt="" /> </div>
                 <div className="wb-text">
                   <h3> WEB DESIGN </h3>
@@ -80,52 +79,49 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
-            <li className="work-item d-flex flex-wrap">
-              <div className="wi-content">
-                <div className="work-box d-flex flex-wrap flex-column-reverse"
-                  style={{ background: 'rgb(255 0 0 / 20%)' }}>
-                  <div className="wb-img w-100"> <img src="/project-img-1.png" alt="" />
-                  </div>
-                  <div className="wb-text w-100">
-                    <h3> WEB DESIGN </h3>
-                    <h5> Snowlake Theme </h5>
-                    <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
-                      lobortis.
-                      Scelerisque id ligula porta felis euismod semper. Fusce dapibus
-                      tellus
-                      cursus. </p>
-                    <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                      Projects
-                      <div className="arrow-icon"> <img src="/arrow-icon.svg" />
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="wi-content">
-                <div className="work-box d-flex flex-wrap flex-column-reverse"
-                  style={{ background: 'rgb(10 119 118 / 20%)' }}>
-                  <div className="wb-img w-100"> <img src="/project-img-2.png" alt="" />
-                  </div>
-                  <div className="wb-text w-100">
-                    <h3> WEB DESIGN </h3>
-                    <h5> Snowlake Theme </h5>
-                    <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
-                      lobortis.
-                      Scelerisque id ligula porta felis euismod semper. Fusce dapibus
-                      tellus
-                      cursus. </p>
-                    <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                      Projects
-                      <div className="arrow-icon"> <img src="/arrow-icon.svg" />
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </li>
             <div className="work-item">
-              <div className="work-box d-flex flex-wrap align-items-center justify-content-between flex-md-row flex-column-reverse"
+              <div className="work-box d-flex flex-wrap align-items-center justify-content-between bg-gold">
+                <div className="wb-img w-100"> <img src="/project-img-1.png" alt="" />
+                </div>
+                <div className="wb-text w-100">
+                  <h3> WEB DESIGN </h3>
+                  <h5> Snowlake Theme </h5>
+                  <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
+                    lobortis.
+                    Scelerisque id ligula porta felis euismod semper. Fusce dapibus
+                    tellus
+                    cursus. </p>
+                  <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
+                    Projects
+                    <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="work-item">
+              <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
+                style={{ background: 'rgb(10 119 118 / 20%)' }}>
+                <div className="wb-img w-100"> <img src="/project-img-2.png" alt="" />
+                </div>
+                <div className="wb-text w-100">
+                  <h3> WEB DESIGN </h3>
+                  <h5> Snowlake Theme </h5>
+                  <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
+                    lobortis.
+                    Scelerisque id ligula porta felis euismod semper. Fusce dapibus
+                    tellus
+                    cursus. </p>
+                  <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
+                    Projects
+                    <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="work-item">
+              <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
                 style={{ background: 'rgb(134 109 217 / 20%)' }}>
                 <div className="wb-img"> <img src="/project-img-4.png" alt="" /> </div>
                 <div className="wb-text">
@@ -159,6 +155,23 @@ const Portfolio = () => {
           <BlockCard items={cards} />
         </div>
       </ContentContainer>
+
+      <Banner logo='/rc-logo.png'>
+        <span>RAHI</span>CREATIONS
+      </Banner>
+
+
+      <ContentContainer background='violet'>
+        <Heading heading='Gallery' />
+
+        <div className="gallery" >
+          {imageLinks.map(item =>
+            <div >
+              <PhotoCard item={item} />
+            </div>
+          )}
+        </div>
+      </ContentContainer >
 
       <Banner >
         WHERE <span>IMAGINATION</span><br />MEETS <span>CREATIVITY</span>
@@ -195,27 +208,6 @@ const Portfolio = () => {
           </div>
         </div>
       </ContentContainer>
-
-      <Banner logo='/rc-logo.png'>
-        <span>RAHI</span>CREATIONS
-      </Banner>
-
-
-      <ContentContainer background='violet'>
-        <Heading heading='Gallery' />
-
-        <div className="gallery" >
-          {imageLinks.map(item =>
-            <div >
-              <PhotoCard item={item} />
-            </div>
-          )}
-        </div>
-      </ContentContainer >
-
-
-
-
     </>
   )
 }

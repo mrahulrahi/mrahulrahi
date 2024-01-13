@@ -20,7 +20,7 @@ const Contact = () => {
                     <div className="footer-subscribe-form">
                         <input type="email" className="contact-email" name="" id="" aria-describedby="emailHelpId"
                             placeholder="Enter your email here*" />
-                        <a className="btn contact-submit" href="">Subscribe Now</a>
+                        <a className="btn btn-green" href="">Subscribe Now</a>
                     </div>
                 </div>
             </div>
