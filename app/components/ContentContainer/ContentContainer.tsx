@@ -4,12 +4,13 @@ interface Props {
     children: ReactNode;
     background?: string;
     className? : string;
+    id? : string;
 }
 
-const ContentContainer = ({ children, background, className }: Props) => {
+const ContentContainer = ({ children, background, className, id }: Props) => {
     return (
         <>
-            <div className={`content-container `+ className + ` bg-` + background}>
+            <div id={id} className={`content-container `+ className + ` bg-` + background}>
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">

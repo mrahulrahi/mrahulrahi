@@ -1,4 +1,4 @@
-import React from 'react'
+
 import TextImageBlock from '../components/TextImageBlock/TextImageBlock'
 import ContactForm from '../components/ContactForm/ContactForm'
 import TeamCard from '../components/TeamCard/TeamCard'

@@ -74,7 +74,6 @@ p:last-child{margin-bottom:0;}
 }
 
 
-
 .itb-content-box{border-radius: 20px;padding: 40px;position: relative;z-index: 9;margin-top: -400px;}
 .itb-img-box{width: 40%;position: relative;}
 .itb-img{width: 90%;position: relative;padding-bottom: 90%;border-radius: 50%;overflow: hidden;z-index: 5;}
@@ -98,8 +97,6 @@ p:last-child{margin-bottom:0;}
 .certi-btn{background-color:var(--green);color:#fff;text-decoration:none;border:2px solid transparent;font-weight:700;padding:13px 30px;border-radius:30px;transition:.4s}
 .certi-btn:hover{background-color:transparent;border:2px solid var(--green);cursor:pointer}
 
-
-
 .video-logo-box{position: sticky;top: 30px;height: 100vh;}
 .video-logo{width:300px;height:300px;margin:0 auto;background-image:linear-gradient(to right,var(--green) 50%,#e0e0e0 50%);border-radius:50%;overflow:hidden;z-index:9;position:relative}
 .video-logo::after{content:"";position:absolute;width:100%;height:100%;left:0;border:5px solid #ffff;background-color:transparent;border-radius:50%;border-right-color:var(--green);animation:puterin 2s linear infinite}
@@ -108,10 +105,6 @@ p:last-child{margin-bottom:0;}
 
 .home-video-card-container .video-card-list{width: calc(100% + 20px);margin-left: -10px;margin-bottom: -20px;}
 .home-video-card-container .video-card-item{width: 33.33%;padding: 0 10px;margin-bottom: 20px;}
-
-
-
-
 
 /* ========================================== 
 ! Large devices (desktops, less than 1200px)
@@ -127,8 +120,6 @@ p:last-child{margin-bottom:0;}
 ! Medium devices (tablets, less than 992px)
 ========================================== */
 @media (max-width:991.98px){
-.content-container{padding: 80px 0;}
-
 .skill-card-item{width: 20%;}
 
 .card-item{width: 33.33%;}
@@ -140,10 +131,6 @@ p:last-child{margin-bottom:0;}
 ! Small devices (landscape phones, less than 768px)
 ================================================= */
 @media (max-width:767.98px){
-.heading{font-size: 14px;margin-bottom: 40px;}
-.heading h3{font-size: 48px;}
-.heading h3+p{margin-top: 15px;}
-
 .itb-img-box{width: 100%;}
 .itb-text{width: 100%;margin-top: 60px;padding-left: 0;}
 
@@ -191,18 +178,6 @@ p:last-child{margin-bottom:0;}
 .timeline-content-desc span{position: relative;padding-right: 20px;margin-right: 10px;}
 .timeline-content-desc span:before {content: '';position: absolute;right: 0;top: 50%;transform: translateY(-50%);width: 10px;height: 10px;border-radius: 50%;background: var(--green);}
 
-.gallery { columns: 4 300px; padding: 2px; transition: 0.3s; }
-.gallery:hover .gallery-image { filter: grayscale(1); }
-.gallery-link { margin: 2px; overflow: hidden; }
-.gallery-link:hover { transform: rotate(0) scale(1.3); transition: all 0.5s ease; position: relative; z-index: 100; cursor: pointer; background: #fff; border-radius: 10px; padding: 10px; box-shadow: 2px 2px 15px rgb(0, 0, 0, .5); }
-.gallery-link:hover .gallery-image { filter: grayscale(0); }
-.gallery-link:hover .gallery-caption { opacity: 1; display: block; }
-.gallery-thumb { position: relative; margin-bottom: 0; overflow: hidden; }
-.gallery-image { display: block; width: 100%; transition: 0.3s; }
-.gallery-image:hover {border-radius: 10px }
-.gallery-caption { display: none; bottom: 32px; color: var(--green); font-size: 20px;  overflow: hidden; margin-top: 5px; opacity: 0; text-align: center; }
-.gallery-image:hover { border-radius: 10px }
-
 /* =================  Project-Start  ================= */
 .project-container {background: rgb(251 225 144 / 20%);}
 .project-item {width: 25%;}
@@ -212,7 +187,6 @@ p:last-child{margin-bottom:0;}
 .project-text h2 {font-size: 38px;text-align: center;line-height: 1.2;margin-bottom: 10px;font-weight: 600;}
 .project-text {font-size: 20px;line-height: 1.2;font-weight: 600; margin-top: 25px;}
 /* =================  Project-End  ================= */ 
-
 /* =================  Info-End  ================= */ 
 .info-container {padding:120px 0 !important;}
 .info-left {width: 50%; position: relative;}
@@ -226,7 +200,6 @@ p:last-child{margin-bottom:0;}
 .info-item {margin-bottom: 12px;}
 .info-details {width: calc(100% - 120px);font-size: 18px;line-height: 1.5;font-weight: 400;}
 /* =================  Info-End  ================= */ 
-
 /* =================  work-start  ================= */
 .content-left{width:40%; padding-right:40px;position: sticky; top: 100px;height: 100%;}
 .content-right{ width:60%;}
@@ -241,7 +214,6 @@ p:last-child{margin-bottom:0;}
 .skill-per {font-size: 14px;font-weight: 600;line-height: 1.2;position: absolute;right: 10px;}
 .skill-progress {position: absolute;height: 4px;left: 0;bottom: 0;border-radius: 10px; z-index: 1;}
 /* =================  work-start  ================= */
-
 /* =================  work-start  ================= */
 .wi-content {width: 50%; padding:0 20px;}
 .work-item:nth-child(2n){ width:calc(100% + 40px); margin-left:-20px;}
@@ -270,7 +242,6 @@ body{padding-top: 80px;}
 .submenu .link{font-family:'Roboto',sans-serif;font-size:14px;font-weight:400;line-height:44px;text-transform: capitalize;}
 .logout-link{font-size:18px;padding:0;position:relative;font-weight:500;color:var(--primary-color);}
 .info-container h1{font-size:54px;}
-.content-container{padding: 50px 0;}
 }
 /*==========================================
 ! Medium devices (tablets, less than 992px)
@@ -301,9 +272,7 @@ body{padding-top: 80px;}
  ! Small devices (landscape phones, less than 768px)
  ================================================= */
 @media (max-width: 767.98px){
-.navbar .collapse.show{height: calc(100vh - 60px);}
-.navbar-inside{height: calc(100vh - 60px);}
-.content-container{padding: 40px 0;}
+
 
 .wb-text h3 {font-size: 14px;margin-bottom: 5px;}
 
