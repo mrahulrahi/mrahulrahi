@@ -1,5 +1,5 @@
-import Banner from './components/Banner/Banner'
-import BlockCard from './components/BlockCard/BlockCard'
+import Banner from '../components/Banner/Banner'
+import BlockCard from '../components/BlockCard/BlockCard'
 import InnerHero from '../components/InnerHero/InnerHero'
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import Button from '../components/Button/Button';

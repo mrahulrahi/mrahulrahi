@@ -2,7 +2,7 @@ import './ResCard.css'
 
 const ResCard = () => {
     return (
-        <div>
+        <>
             <div className="content-container bg-green">
                 <div className="container">
                     <div className="row">
@@ -116,7 +116,7 @@ const ResCard = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }
 
