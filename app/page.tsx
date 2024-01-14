@@ -5,7 +5,6 @@ import ContentContainer from "./components/ContentContainer/ContentContainer";
 import Heading from "./components/Heading/Heading";
 import VideoCard from "./components/VideoCard/VideoCard";
 import Button from "./components/Button/Button";
-import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 
 export default function Home() {
@@ -43,9 +42,9 @@ export default function Home() {
           </Heading>
 
           <div className="video-card-list d-flex flex-wrap">
-          {videoCards.map(card => <div key={card.id} className="video-card-item">
-                  <VideoCard item={card} />
-                  </div>)}
+            {videoCards.map(card => <div key={card.id} className="video-card-item">
+              <VideoCard item={card} />
+            </div>)}
           </div>
         </div>
 
@@ -53,11 +52,10 @@ export default function Home() {
 
       <ContentContainer background="green">
         <Heading heading="Photos">
-        <Button title='View All' style='default' />
+          <Button title='View All' style='default' />
         </Heading>
-        
-      </ContentContainer>
 
+      </ContentContainer>
     </main >
   )
 }
