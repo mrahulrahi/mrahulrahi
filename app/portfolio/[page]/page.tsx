@@ -1,6 +1,4 @@
-import TextImageBlock from '../../components/TextImageBlock/TextImageBlock'
 import ContactForm from '../../components/ContactForm/ContactForm'
-import TeamCard from '../../components/TeamCard/TeamCard'
 import TextCard from '../../components/TextCard/TextCard'
 import PlanCard from '../../components/PlanCard/PlanCard'
 import SignupForm from '../../components/SignupForm/SignupForm'
@@ -14,13 +12,8 @@ import ServiceCard from '../../components/ServiceCard/ServiceCard'
 
 const SinglePage = () => {
   return (
-    <div>
-
-      <TextImageBlock />
-
+    <>
       <ContactForm />
-
-      <TeamCard />
 
       <TextCard />
 
@@ -37,8 +30,7 @@ const SinglePage = () => {
       <NftCard />
 
       <ServiceCard />
-      
-    </div>
+    </>
   )
 }
 
