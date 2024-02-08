@@ -68,38 +68,6 @@ const resMenuCard = () => {
                     </div>
                 </div>
             </div>
-
-
-
-            <section className="modal-content-container">
-
-                <div id="resmenuModal" className="modal">
-                    <div className="modal-content">
-                        <div className="modal-head">
-                            <div className="modal-head-content">
-                                <span>Add Responsive Menu</span>
-                            </div>
-                        </div>
-
-                        <div className="modal-body">
-                            <label htmlFor="title">Title</label>
-                            <input id="title" type="text" />
-                            <br />
-
-                            <label htmlFor="content">Content</label>
-                            <input id="content" type="text" />
-                            <div className="modal-btn-box d-flex gap-1 justify-content-center">
-                                <button className="btn btn-default confirm-btn" type="button" name="button">
-                                    Confirm
-                                </button>
-                                <button className="btn btn-default close-btn" type="button" name="button">
-                                    Close
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     )
 }

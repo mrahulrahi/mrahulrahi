@@ -2,7 +2,7 @@ import './NftCard.css'
 
 const nftCard = () => {
     return (
-        <div>
+        <>
 
             <div className="content-container bg-gold">
                 <div className="container">
@@ -115,7 +115,7 @@ const nftCard = () => {
                     </div>
                 </div>
             </section>
-        </div>
+        </>
     )
 }
 

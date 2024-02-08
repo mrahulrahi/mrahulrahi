@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import 'bootstrap/dist/css/bootstrap.css'
 import ImportBsJS from "./importBsJS";
-import './globals.css'
+import './style.css'
 import { Josefin_Sans } from 'next/font/google'
 
 import Header from './components/Header/Header'
