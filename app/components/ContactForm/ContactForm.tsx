@@ -63,7 +63,7 @@ const ContactForm = () => {
                   <br />
                   <input type="text" name="Message" placeholder="Message" id="form-message" />
                   <br />
-                  <input type="button" value="Submit" className="btn btn-default" />
+                  <input type="button" value="SEND MESSAGE" className="btn btn-default" />
                 </div>
               </div>
             </div>
