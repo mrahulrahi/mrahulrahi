@@ -15,18 +15,15 @@ const HeroHeading = () => {
 }
 
 const Portfolio = () => {
-  const cards = [{ id: 1, title: 'Calculator UI', url: '/portfolio/single-page' },
+  const cards = [
+  { id: 1, title: 'Calculator UI', url: '/portfolio/single-page' },
   { id: 2, title: 'Gradient BG', url: '/portfolio/single-page' },
   { id: 3, title: 'Notes App', url: '/portfolio/single-page' },
   { id: 4, title: 'Quiz Game', url: '/portfolio/single-page' },
   { id: 5, title: 'Responsive Menu', url: '/portfolio/single-page' },
-  { id: 6, title: 'Responsive Cards', url: '/portfolio/single-page' },
-  { id: 7, title: 'NFT Card', url: '/portfolio/single-page' },
-  { id: 8, title: 'Service Card', url: '/portfolio/single-page' },
-  { id: 9, title: 'Team Component', url: '/portfolio/single-page' },
-  { id: 10, title: 'Contact Component', url: '/portfolio/single-page' },
-  { id: 11, title: 'Login Component', url: '/portfolio/single-page' },
-  { id: 12, title: 'Service Card', url: '/portfolio/single-page' }]
+  { id: 6, title: 'NFT Card', url: '/portfolio/single-page' },
+
+]
 
   const videoCards = [{ id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
   { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },

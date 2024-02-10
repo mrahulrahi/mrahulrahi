@@ -3,7 +3,6 @@ import './NftCard.css'
 const nftCard = () => {
     return (
         <>
-
             <div className="content-container bg-gold">
                 <div className="container">
                     <div className="row">
