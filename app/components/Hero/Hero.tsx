@@ -8,7 +8,7 @@ const Hero = () => {
       <div className="hero-bg"> <img src="/hero-bg.svg" alt="" /></div>
       <div className="container">
         <div className="row">
-          <div className="col-lg-10 col-12 mx-auto">
+          <div className="col-md-12">
             <div className="hero-content d-flex flex-wrap justify-content-between">
               <div className="hero-left">
                 <div className="hl-content d-flex align-items-center justify-content-center">

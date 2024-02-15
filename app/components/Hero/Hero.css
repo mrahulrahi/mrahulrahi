@@ -2,13 +2,13 @@
 .hero-container {height: 100vh;width: 100%;}
 .hero-bg { width: 100%;height: 100%;position: absolute; top: 0;left: 0;filter: blur(5px);}
 .hero-bg img {width: 100%;height: 100%;object-fit: cover;}
-.hero-left {width: 50%;position: relative;padding-right: 10%;}
+.hero-left {width: 55%;position: relative;padding-right: 5%;}
 .hero-right {width: 45%; z-index: 1;}
 .hero-content {padding: 80px;}
 .hl-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;}
-.hl-content::before{content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); width: 130%;height: 130%;border-radius: 50%;border: 2px dashed var(--gold);}
-.hl-content::after{content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); width: 100%;height: 100%;border-radius: 50%;border: 2px dashed var(--gold );}
-.hero-img {width: 70%;height: 70%;border-radius: 50%;overflow: hidden;position: relative;}
+.hl-content::before{content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); width: 100%;height: 100%;border-radius: 50%;border: 2px dashed var(--gold);}
+.hl-content::after{content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); width: 80%;height: 80%;border-radius: 50%;border: 2px dashed var(--gold );}
+.hero-img {width: 60%;height: 60%;border-radius: 50%;overflow: hidden;position: relative;}
 .hero-img img { width: 100%; height: 100%; object-fit: cover;object-position: top;}
 .hero-icon {position: absolute;width: 60px;height: 60px;padding: 15px;border-radius: 50%; z-index: 9;}
 .hero-icon.hi-1 {top: 17.5%;background: #ff6c39;left: 0%;}

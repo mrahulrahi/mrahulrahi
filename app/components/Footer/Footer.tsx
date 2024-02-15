@@ -39,14 +39,14 @@ const Footer = () => {
                 <div className="footer-contact-box d-flex align-items-center justify-content-between">
                   <div className="footer-heading">Connect with me :</div>
                   <div className="social-links d-flex">
-                    <a className="d-flex align-items-center justify-content-center"
-                      href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></a>
-                    <a className="d-flex align-items-center justify-content-center"
-                      href="https://github.com/mrahulrahi/"><FaGithub /></a>
-                    <a className="d-flex align-items-center justify-content-center"
-                      href="https://www.youtube.com/@fireliquidator"><FaYoutube /></a>
-                    <a className="d-flex align-items-center justify-content-center"
-                      href="https://t.me/mrahulrahi"><FaTelegram /></a>
+                    <Link className="d-flex align-items-center justify-content-center"
+                      href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></Link>
+                    <Link className="d-flex align-items-center justify-content-center"
+                      href="https://github.com/mrahulrahi/"><FaGithub /></Link>
+                    <Link className="d-flex align-items-center justify-content-center"
+                      href="https://www.youtube.com/@fireliquidator"><FaYoutube /></Link>
+                    <Link className="d-flex align-items-center justify-content-center"
+                      href="https://t.me/mrahulrahi"><FaTelegram /></Link>
                   </div>
 
                 </div>

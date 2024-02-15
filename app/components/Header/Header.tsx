@@ -3,6 +3,7 @@ import './Header.css'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
 import Button from '../Button/Button';
+import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
 
 import React, { useState, useEffect } from 'react';
 
@@ -63,22 +64,20 @@ const Header = () => {
                                             <li key={link.path} className={`${link.path === currentPath ? 'active' : ''} nav-item`}><Link className="nav-link" href={link.path}>{link.label}</Link></li>
                                         )}
 
-                                        <div className="nav-item header-btn d-xl-none">
-                                            <a href="#!" className="btn btn-default green">Hire Me</a>
+                                        <div className="nav-item header-btn mx-auto d-xl-none">
+                                        <Button title="Hire Me" style='green' />
                                         </div>
                                     </ul>
                                     <div className="navbar-bottom mt-auto d-xl-none">
                                         <div className="social-links d-flex align-items-center justify-content-center">
-                                            <a className="d-flex align-items-center justify-content-center"
-                                                href="https://linkedin.com/in/mrahulrahi/"><i
-                                                    className="fab fa-linkedin-in"></i></a>
-                                            <a className="d-flex align-items-center justify-content-center"
-                                                href="https://github.com/mrahulrahi/"><i className="fab fa-github"></i></a>
-                                            <a className="d-flex align-items-center justify-content-center"
-                                                href="https://www.youtube.com/@fireliquidator"><i
-                                                    className="fab fa-youtube"></i></a>
-                                            <a className="d-flex align-items-center justify-content-center"
-                                                href="https://t.me/mrahulrahi"><i className="fab fa-telegram-plane"></i></a>
+                                            <Link className="d-flex align-items-center justify-content-center"
+                                                href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></Link>
+                                            <Link className="d-flex align-items-center justify-content-center"
+                                                href="https://github.com/mrahulrahi/"><FaGithub /></Link>
+                                            <Link className="d-flex align-items-center justify-content-center"
+                                                href="https://www.youtube.com/@fireliquidator"><FaYoutube /></Link>
+                                            <Link className="d-flex align-items-center justify-content-center"
+                                                href="https://t.me/mrahulrahi"><FaTelegram /></Link>
                                         </div>
                                     </div>
                                 </div>

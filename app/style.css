@@ -29,7 +29,6 @@ a:focus,input:focus,textarea:focus,*:focus{outline:0!important;}
 body{font-family:"Roboto",sans-serif;font-size:16px;line-height:24px;font-weight:400;}
 body{font-family: "Josefin Sans", sans-serif;font-size:16px;line-height:1.2;font-weight:300;;color: inherit;background: var(--white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; }
 .container{width:100%;max-width:1320px;}
-.content-container{padding: 120px 0;}
 a,input,button{display:inline-block;text-decoration:none;color:inherit;outline:none;transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;}
 a img{border:0px none;}
 a:hover{outline:none;color:var(--green);text-decoration:none;}
