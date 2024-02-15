@@ -22,9 +22,9 @@ const Footer = () => {
                 <a className="footer-logo" href="#!">mrahul<span>rahi</span></a>
 
                 <div className="footer-nav">
-                  <ul className="footer-nav-list d-flex flex-wrap align-items-center justify-content-between">
-                    {links.map(link => <li key={link.path} className="footer-nav-item"><Link href={link.path}>{link.label}</Link></li>)}
-                  </ul>
+                  <div className="footer-nav-list d-flex flex-wrap align-items-center justify-content-sm-between">
+                    {links.map(link => <span key={link.path} className="footer-nav-item"><Link href={link.path}>{link.label}</Link></span>)}
+                  </div>
                 </div>
               </div>
             </div>
@@ -51,7 +51,7 @@ const Footer = () => {
 
                 </div>
                 <div className="footer-contact-box">
-                  <div className="footer-btn">
+                  <div className="footer-btn-row d-flex">
                     <a href="#!" className="btn btn-default">Hire Me</a>
                     <a href="#!" className="btn btn-default">Donate</a>
                   </div>

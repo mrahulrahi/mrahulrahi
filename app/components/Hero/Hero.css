@@ -5,16 +5,18 @@
 .hero-left {width: 55%;position: relative;padding-right: 5%;}
 .hero-right {width: 45%; z-index: 1;}
 .hero-content {padding: 80px;}
-.hl-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;}
-.hl-content::before{content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); width: 100%;height: 100%;border-radius: 50%;border: 2px dashed var(--gold);}
-.hl-content::after{content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); width: 80%;height: 80%;border-radius: 50%;border: 2px dashed var(--gold );}
-.hero-img {width: 60%;height: 60%;border-radius: 50%;overflow: hidden;position: relative;}
+.hl-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;width: 100%;height: 100%;border-radius: 50%;border: 2px dashed var(--gold);}
+.hl-content::before{content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); width: 75%;height: 75%;border-radius: 50%;border: 2px dashed var(--gold );}
+.hl-orbit-1{width: 100%;height: 100%;position: absolute;margin: -50px auto;animation: orbit 15s linear infinite;}
+.hl-orbit-2{ width: 75%;height: 75%;position: absolute;margin: -50px auto;animation: orbit 25s linear infinite;}
+.hero-img {width: 50%;height: 50%;border-radius: 50%;overflow: hidden;position: relative;}
 .hero-img img { width: 100%; height: 100%; object-fit: cover;object-position: top;}
 .hero-icon {position: absolute;width: 60px;height: 60px;padding: 15px;border-radius: 50%; z-index: 9;}
-.hero-icon.hi-1 {top: 17.5%;background: #ff6c39;left: 0%;}
-.hero-icon.hi-2 {bottom: 12.5%;background: #2965f1;left: 80%;}
-.hero-icon.hi-3 {top: -12.5%;background: #ffd814;right: 5%;}
-.hero-icon.hi-4 {bottom: -7.5%;background: #5ed3f3;left: 0%;}
+.hero-icon img{width: 100%;height: 100%;object-fit: cover;}
+.hero-icon.hi-1 {top: 22%;background: #ff6c39;left: 10%;margin: 20px;}
+.hero-icon.hi-2 {bottom: 22%;background: #2965f1;right: 10%;margin: 20px;}
+.hero-icon.hi-3 {top: -15%;background: #ffd814;left: 0;margin: 20px;}
+.hero-icon.hi-4 {bottom: -15%;background: #5ed3f3;right: 0;margin: 20px;}
 .ht-left h3 {font-size: 32px;margin-bottom: 0;line-height: 1.2;font-weight: 500;color: #629bed;}
 .ht-left {position: absolute; left: 18px;}
 .ht-right {font-size: 22px;line-height: 1.2;font-weight: 500;}
@@ -25,6 +27,12 @@
 .hr-content {font-size: 18px;line-height: 1.5;}
 
 /* ================= Hero-End  ================= */
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 
 /* ========================================== 
@@ -42,7 +50,6 @@
 ! Medium devices (tablets, less than 992px)
 ========================================== */
 @media (max-width:991.98px){
-    .hero-icon.hi-1 {left: 0;top: -25%;}
     .hero-img.hero-img-2 {left: 0;bottom: -35%;}    
     .hr-content h1 {font-size: 28px;}
     .hr-content h2 {font-size: 48px;}
@@ -60,12 +67,8 @@
 @media (max-width:767.98px){
     .hero-left {width: 100%;padding-right: 0;}
     .hero-right { width: 100%; margin-top: 50px;}    
-    .hero-img {width: 80%;margin: 0 auto;}
-    .hero-icon.hi-3 { top: -30px; right: 30px;}
-    .hero-icon.hi-2 { bottom: -30px; left: auto; right: 30px;}
-    .hero-icon.hi-1 {left: 30px;top: -30px;}
+   
     .hero-img.hero-img-2 {width: 50%;height: 70%;left: 0;bottom: -20%;}
-    .hero-icon {width: 70px;height: 70px;}
     .hero-left {margin-bottom: 13%;}
     .hr-content h1 {font-size: 24px;}
     .hr-content h2 {font-size: 38px;}
