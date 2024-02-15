@@ -1,5 +1,4 @@
 import Banner from '../components/Banner/Banner'
-import BlockCard from '../components/BlockCard/BlockCard'
 import InnerHero from '../components/InnerHero/InnerHero'
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import Button from '../components/Button/Button';
@@ -136,20 +135,6 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-        </div>
-      </ContentContainer>
-
-      <Banner logo='/logo.png' >
-        Elements
-      </Banner>
-
-      <ContentContainer background='green'>
-        <div className="content-box d-flex flex-wrap">
-          <Heading heading="All Elements">
-            <Button title='View All' style='default' />
-          </Heading>
-
-          <BlockCard items={cards} />
         </div>
       </ContentContainer>
 

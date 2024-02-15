@@ -1,6 +1,8 @@
+import Button from '../Button/Button'
+import './Contact.css'
 import ContentContainer from '../ContentContainer/ContentContainer'
 import Heading from '../Heading/Heading'
-import './Contact.css'
+
 
 const Contact = () => {
     return (
@@ -10,17 +12,16 @@ const Contact = () => {
                 <div
                     className="contact-box">
                     <h4>Get in Touch</h4>
-                    <span>Let Me Get You A Beautiful Website.</span>
+                    <h5>Let Me Get You A Beautiful Website.</h5>
                     <div className="contact-btn">
                         <a className="btn btn-default" href="#">Hire Me</a>
                     </div>
                 </div>
-                <div className="contact-top-content justify-self-end">
-                    <h5>Subscribe to Our Newsletter</h5>
-                    <div className="footer-subscribe-form">
-                        <input type="email" className="contact-email" name="" id="" aria-describedby="emailHelpId"
-                            placeholder="Enter your email here*" />
-                        <a className="btn btn-green" href="">Subscribe Now</a>
+                <div className="contact-subscribe-box justify-self-end">
+                    <div className="form-label">Subscribe to Our Newsletter</div>
+                    <div className="form-group d-flex">
+                        <input type="email" className="form-control" placeholder="Enter your email here*" />
+                        <Button title="Subscribe Now" style="green" />
                     </div>
                 </div>
             </div>

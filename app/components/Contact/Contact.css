@@ -1,14 +1,12 @@
 .contact-container{padding:100px 0;}
 .contact-box{width:50%;}
-.contact-box h4{color:var(--yellow);font-size:40px; margin-bottom: 0;}
-.contact-box {font-size:25px;font-weight:700; margin-bottom: 0;}
-.contact-box .button-two{background-color:var(--yellow);color: var(--violet);}
-.contact-box .button-two:hover{background-color:transparent;border:2px solid var(--green);cursor:pointer}
-.contact-top-content{font-size: 16px;font-weight: 300;line-height: 1.6;width: 50%;}
-.contact-email{border:3px solid var(--green);padding:10px 30px;margin-right:10px;border-radius:30px;height: 50px;width: calc(100% - 180px);}
-.contact-email:hover{border:3px solid var(--black)}
-.contact-btn{width: 100%;margin-top: 20px;}
-.contact-box h4{margin-bottom: 20px;}
+.contact-box h4{color:var(--yellow);font-size:40px;margin-bottom: 20px;}
+.contact-box h5{font-size:25px;font-weight:700;}    
+.contact-subscribe-box{font-size: 16px;font-weight: 300;line-height: 1.6;width: 50%;}
+.form-label{font-size:20px;font-weight: 700;}
+.form-control,.form-control:focus{border:3px solid var(--green);padding:10px 30px;margin-right:10px;border-radius:30px;height: 50px;box-shadow: none;}
+.form-control:focus{border:3px solid var(--black)}
+
 
 
 @media (max-width:1199.98px){
@@ -17,8 +15,8 @@
 }
 
 @media (max-width:991.98px){
-    .contact-box,.contact-top-content{width: 100%;}
-   .contact-top-content{margin-top: 30px;}
+.contact-box,.contact-top-content{width: 100%;}
+.contact-top-content{margin-top: 30px;}
 }
 
 

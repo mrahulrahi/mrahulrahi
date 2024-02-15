@@ -175,6 +175,8 @@ p:last-child{margin-bottom:0;}
 .wb-text h3 {font-size: 16px;margin-bottom: 15px;text-transform: uppercase;}
 .wb-text h5 {font-size: 28px;margin-bottom: 15px;}
 .wb-text { font-size: 14px; line-height: 1.6;}
+.work-item:nth-child(even) .work-box{background-color:#d1e6b9;border:2px solid #629824;}
+.work-item:nth-child(odd) .work-box{background-color:#fff9d7;border:2px solid #e2c822;}
 
 .work-item:nth-child(3n + 1) .work-box{flex-flow: row;}
 /* =================  work-start  ================= */
