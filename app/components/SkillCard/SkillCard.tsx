@@ -13,7 +13,7 @@ interface Skill{
 const SkillCard = ({skill} : Props) => {
     return (
         <>
-            <div className="skill-card-box">
+            <div className="skill-card-box w-100 h-100">
                 <div className="skill-card-icon mx-auto">
                     {skill.logo}
                 </div>

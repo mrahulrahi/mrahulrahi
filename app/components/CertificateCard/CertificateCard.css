@@ -4,3 +4,11 @@
 .card-box:hover{background: var(--violet);color: var(--white);}
 .card-text{font-size: 16px;font-weight: 300;}
 .card-text h4{font-size: 24px;font-weight: 600;margin-bottom: 10px;}
+
+@media (min-width: 991.98px) {
+    .card-item{width: 50%;}
+}
+
+@media (min-width: 575.98px) {
+    .card-item{width: 100%;}
+}
