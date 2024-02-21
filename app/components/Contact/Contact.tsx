@@ -9,8 +9,7 @@ const Contact = () => {
         <ContentContainer background='violet' id='contact'>
             <Heading heading='Contact Me' />
             <div className='d-flex flex-wrap justify-content-between'>
-                <div
-                    className="contact-box">
+                <div className="contact-box">
                     <h4>Get in Touch</h4>
                     <h5>Let Me Get You A Beautiful Website.</h5>
                     <div className="contact-btn">

@@ -129,10 +129,6 @@ const About = () => {
         </div>
       </ContentContainer>
 
-
-
-
-
     </ >
   )
 }

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import 'bootstrap/dist/css/bootstrap.css'
+import './globals.css'
 import ImportBsJS from "./importBsJS";
-import './style.css'
 import { Josefin_Sans } from 'next/font/google'
 
 import Header from './components/Header/Header'
@@ -22,12 +22,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ImportBsJS />
+      
       <body className={josefinSans.className}>
         <Header />
         <main>{children}</main>
         <Contact />
         <Footer />
+        <ImportBsJS />
       </body>
     </html>
   )
