@@ -12,7 +12,9 @@ const Hero = () => {
             <div className="hero-content d-flex flex-wrap justify-content-between">
               <div className="hero-left">
                 <div className="hl-content d-flex align-items-center justify-content-center">
+                  <div className="hero-img-box d-flex align-items-center justify-content-center position-relative">
                   <div className="hero-img"> <img src="/hero-img-1.jpg" alt="" /> </div>
+                  </div>
                   <div className="hl-orbit-1">
                     <div className="hero-icon hi-1"> <img src="/html-5.png" alt="" /> </div>
                     <div className="hero-icon hi-2"> <img src="/css-3.png" alt="" /> </div>
@@ -29,7 +31,7 @@ const Hero = () => {
                   <h4><span>Hello,</span> I'm</h4>
                   <h1>Rahul <span>Maurya</span></h1>
                   <h3>I'm a <span>Web Developer</span> <br /> From <span>India</span> .</h3>
-                  <div className="about-hero-btn mt-5">
+                  <div className="about-hero-btn mt-4">
                     <Button title='About me' style='default' url='/about' icon={<IoIosArrowDroprightCircle />} />
                   </div>
                 </div>

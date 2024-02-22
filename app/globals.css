@@ -5,16 +5,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Short+Stack&display=swap");
 
 :root{--white:#fff;--black:#000;--violet: #4C4C6D;--green: #1B9C85;--yellow: #F2E8B9;
-  --gold:#F2E8B9;
-  --cyan: #00fff7;
-  --card-bg: #14253d;
-  --line: #2f415b;
-  --light-gray: #d6e2f0;
-  --grayish-blue: #7b879d;
-  --dark-blue: #1f3251;
-  --blue: #343e51;
-  --custom-ease:all 0.4s cubic-bezier(0.215,0.61,0.355,1);
-  --shadow:0 0 16px rgba(0,0,0,0.16);
+--cyan: #00fff7;--card-bg: #14253d;--line: #2f415b;--light-gray: #d6e2f0;--grayish-blue: #7b879d;--dark-blue: #1f3251;--blue: #343e51;
+--custom-ease:all 0.4s cubic-bezier(0.215,0.61,0.355,1);
 }
 
 /* =================reset css starts here=================  */
@@ -59,9 +51,9 @@ p:last-child{margin-bottom:0;}
 .btn-violet,.btn-violet:focus { color: var(--white);background-color: var(--violet);border: solid 1px var(--violet); }
 .btn-green,.btn-green:focus { color: var(--white);background-color: var(--green);border: solid 1px var(--green); }
 
-.btn-gold,.btn-gold:focus { color: var(--green);background-color: var(--gold);border: solid 1px var(--gold); }
-.btn-green:hover,.btn-green:active { color: var(--gold)!important;background-color: var(--line)!important;border-color: var(--line)!important;}
-
+.btn-gold,.btn-gold:focus { color: var(--green);background-color: var(--yellow);border: solid 1px var(--yellow); }
+.btn-green:hover,.btn-green:active { color: var(--white)!important;background-color: var(--line)!important;border-color: var(--line)!important;}
+.btn-violet:hover,.btn-violet:active { color: var(--white)!important;background-color: var(--line)!important;border-color: var(--line)!important;}
 .btn-icon{color: inherit;}
 
 .btn.btn-block{min-width: 100%;}
@@ -72,8 +64,8 @@ p:last-child{margin-bottom:0;}
 .bg-violet{background:var(--violet);color: var(--white);}
 .bg-green{background: var(--green);color: var(--white);}
 .bg-yellow{background: var(--yellow);color: var(--violet);}
-.bg-green{background:var(--green);color: var(--gold);}
-.bg-gold{background:var(--gold);color: var(--green);}
+.bg-green{background:var(--green);color: var(--yellow);}
+.bg-gold{background:var(--yellow);color: var(--green);}
 .grey-bg{background: #f5f5f5;}
 .glass-bg{background:rgba(237,237,237,0.3);box-shadow:0 4px 30px rgba(0,0,0,0.1);backdrop-filter:blur(5px);border:1px solid rgba(237,237,237,0.3);border-radius:16px;padding: 40px;}
 /* =================core css ends here================= */

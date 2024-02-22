@@ -66,7 +66,7 @@ const Header = () => {
 
                                         <div className="nav-item header-btn mx-auto d-flex d-xl-none">
                                         <Button title="Hire Me" style='green' />
-                                        <Button title="Donate" style="default" />
+                                        <Button title="Donate" style="violet" />
                                         </div>
                                     </ul>
                                     <div className="navbar-bottom mt-auto d-xl-none">
@@ -85,7 +85,7 @@ const Header = () => {
                             </div>
                             <div className="header-btn d-none d-xl-flex">
                                 <Button title="Hire Me" style='green' />
-                                <Button title="Donate" style="default" />
+                                <Button title="Donate" style="violet" />
                             </div>
                         </div>
                     </div>
