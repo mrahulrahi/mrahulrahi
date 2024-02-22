@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import './about.css'
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { SiAdobexd } from "react-icons/si";

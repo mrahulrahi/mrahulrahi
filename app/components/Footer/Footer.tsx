@@ -35,10 +35,15 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <div className="footer-middle-box d-flex flex-wrap align-items-center justify-content-between">
-                <div className="footer-contact-box d-flex gap-3 align-items-center justify-content-between">
-                  <div className="social-links-label">Connect with me :</div>
-                  <div className="social-links d-flex">
+              <div className="footer-middle-box d-flex flex-wrap align-items-center justify-content-center justify-sm-content-between">
+              <div className="footer-contact-box">
+                  <div className="footer-btn-row d-flex">
+                    <Button title="Hire Me" style="default" />
+                    <Button title="Donate" style="default" />
+                  </div>
+                </div>
+                <div className="footer-contact-box">
+                <div className="social-links d-flex">
                     <Link className="d-flex align-items-center justify-content-center"
                       href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></Link>
                     <Link className="d-flex align-items-center justify-content-center"
@@ -47,13 +52,6 @@ const Footer = () => {
                       href="https://www.youtube.com/@fireliquidator"><FaYoutube /></Link>
                     <Link className="d-flex align-items-center justify-content-center"
                       href="https://t.me/mrahulrahi"><FaTelegram /></Link>
-                  </div>
-
-                </div>
-                <div className="footer-contact-box">
-                  <div className="footer-btn-row d-flex">
-                    <Button title="Hire Me" style="default" />
-                    <Button title="Donate" style="default" />
                   </div>
                 </div>
               </div>

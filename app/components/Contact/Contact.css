@@ -4,7 +4,7 @@
 .contact-box h5{font-size:25px;font-weight:700;}    
 .contact-subscribe-box{font-size: 16px;font-weight: 300;line-height: 1.6;width: 50%;}
 .form-label{font-size:20px;font-weight: 700;}
-.form-control,.form-control:focus{border:3px solid var(--green);padding:10px 30px;margin-right:10px;border-radius:30px;height: 50px;box-shadow: none;}
+.form-control,.form-control:focus{border:3px solid var(--green);padding:10px 30px;border-radius:30px;height: 50px;box-shadow: none;}
 .form-control:focus{border:3px solid var(--black)}
 
 

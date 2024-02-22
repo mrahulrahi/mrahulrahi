@@ -20,7 +20,7 @@ const Contact = () => {
                     <div className="form-label">Subscribe to Our Newsletter</div>
                     <div className="form-group d-flex">
                         <input type="email" className="form-control" placeholder="Enter your email here*" />
-                        <Button title="Subscribe Now" style="green" />
+                        <Button title="Subscribe" style="green" />
                     </div>
                 </div>
             </div>

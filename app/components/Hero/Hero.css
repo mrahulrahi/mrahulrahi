@@ -3,7 +3,6 @@
 .hero-bg { width: 100%;height: 100%;position: absolute; top: 0;left: 0;filter: blur(5px);}
 .hero-bg img {width: 100%;height: 100%;object-fit: cover;}
 .hero-left {width: 55%;position: relative;padding-right: 5%;position: relative;}
-.hero-left::before{content:'';position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:100%;height:100%;background: url(/animate-bg.svg) center / contain no-repeat ;}
 .hero-right {width: 45%; z-index: 1;}
 .hero-content {padding: 80px;}
 .hl-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;width: 100%;height: 100%;border-radius: 50%;border: 2px dashed var(--gold);}
@@ -21,11 +20,13 @@
 .ht-left h3 {font-size: 32px;margin-bottom: 0;line-height: 1.2;font-weight: 500;color: #629bed;}
 .ht-left {position: absolute; left: 18px;}
 .ht-right {font-size: 22px;line-height: 1.2;font-weight: 500;}
+.hero-right{position: relative;}
+.hero-right::before{content:'';position:absolute;top:50%;left:50%;transform: translateY(-50%);width:100%;height:100%;background: url(/animate-bg.svg) center / contain no-repeat ;}
 .hr-content h1{font-size:60px;font-weight:600;line-height:1;color:var(--white);margin-bottom:40px;}
 .hr-content h3{color: var(--white);font-size:32px;}
 .hr-content h4{color:var(--white);letter-spacing:2px;font-size:32px;margin-bottom:40px}
 .hr-content span{color: var(--green);}
-.hr-content {font-size: 18px;line-height: 1.5;}
+.hr-content {font-size: 18px;line-height: 1.5;position: relative;}
 
 /* ================= Hero-End  ================= */
 
