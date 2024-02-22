@@ -64,9 +64,8 @@ const Header = () => {
                                             <li key={link.path} className={`${link.path === currentPath ? 'active' : ''} nav-item`}><Link className="nav-link" href={link.path}>{link.label}</Link></li>
                                         )}
 
-                                        <div className="nav-item header-btn mx-auto d-flex d-xl-none">
+                                        <div className="nav-item header-btn mx-auto d-xl-none">
                                         <Button title="Hire Me" style='green' />
-                                        <Button title="Donate" style="violet" />
                                         </div>
                                     </ul>
                                     <div className="navbar-bottom mt-auto d-xl-none">
@@ -83,9 +82,8 @@ const Header = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="header-btn d-none d-xl-flex">
+                            <div className="header-btn d-none d-xl-block">
                                 <Button title="Hire Me" style='green' />
-                                <Button title="Donate" style="violet" />
                             </div>
                         </div>
                     </div>
