@@ -2,7 +2,7 @@
 import './Header.css'
 import Link from 'next/link';
 import { usePathname } from 'next/navigation'
-import Button from '../Button/Button';
+import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
 
 import React, { useState, useEffect } from 'react';
@@ -64,8 +64,9 @@ const Header = () => {
                                             <li key={link.path} className={`${link.path === currentPath ? 'active' : ''} nav-item`}><Link className="nav-link" href={link.path}>{link.label}</Link></li>
                                         )}
 
-                                        <div className="nav-item header-btn mx-auto d-xl-none">
+                                        <div className="nav-item header-btn mx-auto d-flex d-xl-none">
                                         <Button title="Hire Me" style='green' />
+                                        <Button title="Donate" style="default" />
                                         </div>
                                     </ul>
                                     <div className="navbar-bottom mt-auto d-xl-none">
@@ -82,8 +83,9 @@ const Header = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="header-btn d-none d-xl-block">
+                            <div className="header-btn d-none d-xl-flex">
                                 <Button title="Hire Me" style='green' />
+                                <Button title="Donate" style="default" />
                             </div>
                         </div>
                     </div>

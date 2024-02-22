@@ -1,5 +1,3 @@
-import './Button.css'
-
 interface Button {
   title: string;
   style: string;

@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react'
-import './ContentContainer.css'
 
 interface Props {
     children: ReactNode;
@@ -17,7 +16,6 @@ const ContentContainer = ({ children, background, className, id }: Props) => {
                         <div className="col-lg-12">
 
                             {children}
-
                         </div>
                     </div>
                 </div>

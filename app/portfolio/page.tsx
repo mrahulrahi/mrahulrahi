@@ -1,9 +1,9 @@
 import Banner from '../components/Banner/Banner'
 import InnerHero from '../components/InnerHero/InnerHero'
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import Button from '../components/Button/Button';
+import Button from '../components/Button';
 import Heading from '../components/Heading/Heading';
-import ContentContainer from '../components/ContentContainer/ContentContainer';
+import ContentContainer from '../components/ContentContainer';
 import VideoCard from '../components/VideoCard/VideoCard';
 import PhotoCard from '../components/PhotoCard/PhotoCard';
 

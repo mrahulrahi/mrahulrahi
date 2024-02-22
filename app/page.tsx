@@ -1,10 +1,10 @@
 import React from "react"
 import Hero from "./components/Hero/Hero";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
-import ContentContainer from "./components/ContentContainer/ContentContainer";
+import ContentContainer from "./components/ContentContainer";
 import Heading from "./components/Heading/Heading";
 import VideoCard from "./components/VideoCard/VideoCard";
-import Button from "./components/Button/Button";
+import Button from "./components/Button";
 
 
 export default function Home() {
