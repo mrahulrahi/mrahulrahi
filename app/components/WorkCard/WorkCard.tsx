@@ -23,9 +23,9 @@ const WorkCard = () => {
             </div>
             <div className="work-item">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between bg-gold">
-                <div className="wb-img w-100"> <img src="/project-img-1.png" alt="" />
+                <div className="wb-img"> <img src="/project-img-1.png" alt="" />
                 </div>
-                <div className="wb-text w-100">
+                <div className="wb-text">
                   <h3> WEB DESIGN </h3>
                   <h5> Snowlake Theme </h5>
                   <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
@@ -44,9 +44,9 @@ const WorkCard = () => {
             <div className="work-item">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
                 style={{ background: 'rgb(10 119 118 / 20%)' }}>
-                <div className="wb-img w-100"> <img src="/project-img-2.png" alt="" />
+                <div className="wb-img"> <img src="/project-img-2.png" alt="" />
                 </div>
-                <div className="wb-text w-100">
+                <div className="wb-text">
                   <h3> WEB DESIGN </h3>
                   <h5> Snowlake Theme </h5>
                   <p> Maecenas faucibus mollis interdum sed posuere consectetur est at
