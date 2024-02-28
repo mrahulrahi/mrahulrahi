@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <div className="hero-content d-flex flex-wrap justify-content-between">
+            <div className="hero-content d-flex flex-wrap align-items-center justify-content-between">
               <div className="hero-left">
                 <div className="hl-content d-flex align-items-center justify-content-center">
                   <div className="hero-img-box d-flex align-items-center justify-content-center position-relative">
