@@ -18,6 +18,41 @@ export default function Home() {
 
       <Hero />
 
+      <ContentContainer background="violet">
+
+        <div id="key-features" className="bg-green">
+          <h1 className="section-title text-center">Why choose me ?</h1>
+          <ul className="key-feature-list d-flex flex-wrap">
+            <li className="key-feature-item">
+              <div className="key-feature-box d-flex flex-column align-items-center justify-content-center">
+                <div className="key-feature-image">
+                  <img src="feature-img-1.png" alt="" />
+                </div>
+                <div className="key-feature-description">Receive on time</div>
+              </div>
+            </li>
+
+            <li className="key-feature-item">
+              <div className="key-feature-box d-flex flex-column align-items-center justify-content-center">
+                <div className="key-feature-image">
+                  <img src="feature-img-2.png" alt="" />
+                </div>
+                <div className="key-feature-description">Fixed Price Projects</div>
+              </div>
+            </li>
+
+            <li className="key-feature-item">
+              <div className="key-feature-box d-flex flex-column align-items-center justify-content-center">
+                <div className="key-feature-image">
+                  <img src="feature-img-1.png" alt="" />
+                </div>
+                <div className="key-feature-description">Highly Skilled</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </ContentContainer>
+
       <ContentContainer className="projects-card-container" background="green">
         <Heading heading="Projects">
           <div className="projects-list-arrow-container d-flex justify-content-between">
