@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import './Footer.css'
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
-import Button from '../Button';
 
 const Footer = () => {
 
