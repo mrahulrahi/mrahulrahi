@@ -14,8 +14,6 @@
 
 # 💫 About Me:
 
-<p align="right"> <img src="https://komarev.com/ghpvc/?username=mrahulrahi&theme=dark&label=Profile%20views&color=0e75b6&style=flat" alt="mrahulrahi" /> </p>
-
 - 🔭 I’m currently pursuing **BCA**
   
 - 👨‍💼 I’m currently working as **Frontend Developer**
