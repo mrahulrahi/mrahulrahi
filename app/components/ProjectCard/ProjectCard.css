@@ -1,7 +1,6 @@
 .projects-card-container{overflow: hidden;}
 .projects-card-list-outer{width: 100%;}
 .projects-card-list{overflow: visible;}
-.projects-card-list .swiper-slide{width: 600px;}
 .projects-card-box{padding: 10px;border-radius: 20px;border: 3px solid var(--violet);}
 .projects-card-img{position: relative;border-radius: 10px;overflow: hidden;border: 3px solid var(--violet);width: 100%;padding-bottom: 56%;}
 .projects-card-img::after{content: '';position: absolute;top: 0;left: 0;bottom: 0;right: 0;background: linear-gradient(9deg, #1A1B25 -6.2%, rgba(26, 27, 37, 0.00) 87.9%);}

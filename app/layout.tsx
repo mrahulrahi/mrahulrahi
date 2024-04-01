@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import 'bootstrap/dist/css/bootstrap.css'
-import './globals.css'
 import ImportBsJS from "./importBsJS";
 import { Josefin_Sans } from 'next/font/google'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import './style.css'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Contact from './components/Contact/Contact';
