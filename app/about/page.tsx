@@ -64,7 +64,7 @@ const About = () => {
         <div className="itb-content-box d-flex flex-wrap bg-violet">
           <div className="itb-img-box d-flex align-items-center justify-content-center">
             <div className="itb-img">
-              <Image src="/main-img.jpg" alt="" width={1000} height={1000} />
+              <Image src="/hero-img-1.jpg" alt="" width={1000} height={1000} />
             </div>
           </div>
           <div className="itb-text">

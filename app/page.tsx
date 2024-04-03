@@ -5,6 +5,8 @@ import ContentContainer from "./components/ContentContainer";
 import Heading from "./components/Heading/Heading";
 import VideoCard from "./components/VideoCard/VideoCard";
 import Button from "./components/Button";
+import { FaClock, FaCheck } from "react-icons/fa6";
+import { IoDiamondOutline } from "react-icons/io5";
 
 
 export default function Home() {
@@ -21,12 +23,12 @@ export default function Home() {
       <ContentContainer background="violet">
 
         <div id="key-features" className="bg-green">
-          <h1 className="section-title text-center">Why choose me ?</h1>
+          <h4 className="section-title text-center">Why choose me ?</h4>
           <ul className="key-feature-list d-flex flex-wrap">
             <li className="key-feature-item">
               <div className="key-feature-box d-flex flex-column align-items-center justify-content-center">
-                <div className="key-feature-image">
-                  <img src="feature-img-1.png" alt="" />
+                <div className="key-feature-icon d-flex align-items-center justify-content-center">
+                  <FaClock />
                 </div>
                 <div className="key-feature-description">Receive on time</div>
               </div>
@@ -34,8 +36,8 @@ export default function Home() {
 
             <li className="key-feature-item">
               <div className="key-feature-box d-flex flex-column align-items-center justify-content-center">
-                <div className="key-feature-image">
-                  <img src="feature-img-2.png" alt="" />
+                <div className="key-feature-icon">
+                  <FaCheck />
                 </div>
                 <div className="key-feature-description">Fixed Price Projects</div>
               </div>
@@ -43,8 +45,8 @@ export default function Home() {
 
             <li className="key-feature-item">
               <div className="key-feature-box d-flex flex-column align-items-center justify-content-center">
-                <div className="key-feature-image">
-                  <img src="feature-img-1.png" alt="" />
+                <div className="key-feature-icon">
+                  <IoDiamondOutline />
                 </div>
                 <div className="key-feature-description">Highly Skilled</div>
               </div>
