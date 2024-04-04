@@ -1,4 +1,4 @@
-import React from "react"
+'use client'
 import Hero from "./components/Hero/Hero";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
 import ContentContainer from "./components/ContentContainer";
@@ -7,12 +7,22 @@ import VideoCard from "./components/VideoCard/VideoCard";
 import Button from "./components/Button";
 import { FaClock, FaCheck } from "react-icons/fa6";
 import { IoDiamondOutline } from "react-icons/io5";
+import { Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
 
 
 export default function Home() {
   const videoCards = [{ id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
   { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },
   { id: 3, title: 'Xiaomi Mi 10i | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/vNFb5rk77Pg' }]
+
+  const projectsCards = [
+    { id: 1, title: 'Imagine Group', imgUrl: '/project-img-1.png', gitHubUrl: 'https://github.com/mrahulrahi/Imagine-Group', liveUrl: 'http://imaginegrouptourandtravels.com' },
+    { id: 2, title: 'mrahulrahi', imgUrl: '/project-img-2.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.github.io/mrahulrahi' },
+    { id: 3, title: 'Cafe Shafe', imgUrl: '/project-img-3.png', gitHubUrl: 'https://github.com/mrahulrahi/Cafe-Shafe', liveUrl: 'https://mrahulrahi.github.io/Cafe-Shafe' }
+]
 
 
   return (
@@ -68,7 +78,33 @@ export default function Home() {
             </button>
           </div>
         </Heading>
-        <ProjectCard />
+        <div className="projects-card-list-outer">
+            <Swiper modules={[Autoplay]}
+                loop={true}
+                centeredSlides={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
+                breakpoints={{
+
+                    992: {
+                        slidesPerView: 3,
+                    },
+                }}
+                slidesPerView={1}
+                spaceBetween={30}
+                onSlideChange={() => console.log('slide change')}
+                onSwiper={(swiper) => console.log(swiper)}
+                className="projects-card-list d-flex flex-wrap"
+            >
+
+                {projectsCards.map(card => <SwiperSlide key={card.id} className="projects-card-item">
+                <ProjectCard card={card} />
+                </SwiperSlide>)}
+            </Swiper>
+        </div>
+  
       </ContentContainer>
 
 
