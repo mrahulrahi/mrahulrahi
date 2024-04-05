@@ -7,15 +7,14 @@ import Heading from '../Heading/Heading'
 const Contact = () => {
     return (
         <ContentContainer background='violet' id='contact'>
-            <Heading heading='Contact Me' />
+            <Heading heading='' />
+            <Heading heading="Contact Me">
+          <Button title='Hire Me' style='default' />
+        </Heading>
             <div className='d-flex flex-wrap justify-content-between'>
                 <div className="contact-box">
                     <h4>Get in Touch</h4>
                     <h5>Let Me Get You A Beautiful Website.</h5>
-                    <div className="contact-btn d-flex">
-                        <Button title="Hire Me" style="default" />
-                        <Button title="Donate" style="default" />
-                    </div>
                 </div>
                 <div className="contact-subscribe-box justify-self-end">
                     <div className="form-label">Subscribe to Our Newsletter</div>
