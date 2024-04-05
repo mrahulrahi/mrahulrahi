@@ -64,7 +64,7 @@ const WorkCard = () => {
             </div>
             <div className="work-item">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
-                style={{ background: 'rgb(134 109 217 / 20%)' }}>
+                style={{ background: '#14253d' }}>
                 <div className="wb-img"> <img src="/project-img-4.png" alt="" /> </div>
                 <div className="wb-text">
                   <h3> WEB DESIGN </h3>
@@ -82,7 +82,7 @@ const WorkCard = () => {
             </div>
             <div className="work-item">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
-                style={{ background: '#e2c822' }}>
+                style={{ background: '#1f3251' }}>
                 <div className="wb-img"> <img src="/project-img-4.png" alt="" /> </div>
                 <div className="wb-text">
                   <h3> WEB DESIGN </h3>
@@ -100,7 +100,7 @@ const WorkCard = () => {
             </div>
             <div className="work-item">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
-                style={{ background: '#d1e6b9' }}>
+                style={{ background: '#343e51' }}>
                 <div className="wb-img"> <img src="/project-img-4.png" alt="" /> </div>
                 <div className="wb-text">
                   <h3> WEB DESIGN </h3>
@@ -118,7 +118,7 @@ const WorkCard = () => {
             </div>
             <div className="work-item">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
-                style={{ background: '#629824' }}>
+                style={{ background: '#2f415b' }}>
                 <div className="wb-img"> <img src="/project-img-4.png" alt="" /> </div>
                 <div className="wb-text">
                   <h3> WEB DESIGN </h3>

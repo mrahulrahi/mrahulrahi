@@ -97,8 +97,9 @@ const About = () => {
       <ContentContainer background='violet'>
         <div className="d-flex">
           <div className="video-logo-box">
-            <div className='w-100 h-100 d-flex align-items-center justify-content-center'><img src="/rahi.webp" alt="" /></div>
+          <div className='timeline-img-box d-flex align-items-center justify-content-center'><img src="/rahi.webp" alt="" /></div>
           </div>
+
           <div className="video-content-box">
             <div className="main-container d-flex flex-wrap">
               <Heading heading='What I do' />
