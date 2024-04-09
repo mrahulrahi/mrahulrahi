@@ -16,7 +16,6 @@ a{text-decoration:none;border:0;outline:0;}
 ul{list-style:none;}
 a:focus,input:focus,textarea:focus,*:focus{outline:0!important;}
 /* =================reset css ends here================= */
-
 /* =================core css starts here================= */
 body{font-family:"Roboto",sans-serif;}
 body{font-family: "Josefin Sans", sans-serif;font-size:16px;line-height:1.6;font-weight:300;;color: inherit;background: var(--white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; }
@@ -186,9 +185,6 @@ p:last-child{margin-bottom:0;}
 @media (max-width:424.98px){
 .skill-card-item{width: 50%;}
 }
-
-
-
 
 
 #key-features{width: 100%;border-radius:16px;padding: 40px;}
