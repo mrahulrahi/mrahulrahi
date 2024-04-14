@@ -25,7 +25,7 @@ export default function Home() {
     { id: 4, title: 'Imagine Group', imgUrl: '/project-img-1.png', gitHubUrl: 'https://github.com/mrahulrahi/Imagine-Group', liveUrl: 'http://imaginegrouptourandtravels.com' },
     { id: 5, title: 'mrahulrahi', imgUrl: '/project-img-2.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.github.io/mrahulrahi' },
     { id: 6, title: 'Cafe Shafe', imgUrl: '/project-img-3.png', gitHubUrl: 'https://github.com/mrahulrahi/Cafe-Shafe', liveUrl: 'https://mrahulrahi.github.io/Cafe-Shafe' }
-]
+  ]
 
 
   return (
@@ -71,42 +71,48 @@ export default function Home() {
       <ContentContainer className="projects-card-container" background="green">
         <Heading heading="Projects">
           <div className="projects-list-arrow-container d-flex justify-content-between">
-            <button type="button"
-              className="swiper-arrow-prev projects-arrow-prev arrow-button-box d-flex align-items-center justify-content-center rounded-circle">
+            <button
+              className="swiper-arrow-prev arrow-button-box d-flex align-items-center justify-content-center rounded-circle">
               <img src="chevron-arrow-icon.svg" alt="chevron arrow right" />
             </button>
-            <button type="button"
-              className="swiper-arrow-next projects-arrow-next arrow-button-box d-flex align-items-center justify-content-center rounded-circle">
+            <button
+              className="swiper-arrow-next arrow-button-box d-flex align-items-center justify-content-center rounded-circle">
               <img src="chevron-arrow-icon.svg" alt="chevron arrow right" />
             </button>
           </div>
         </Heading>
         <div className="projects-card-list-outer">
-            <Swiper modules={[Autoplay]}
-                loop={true}
-                centeredSlides={true}
-                autoplay={{
-                    delay: 3000,
-                    disableOnInteraction: false,
-                }}
-                breakpoints={{
-                    992: {
-                        slidesPerView: 3,
-                    },
-                }}
-                slidesPerView={1}
-                spaceBetween={30}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
-                className="projects-card-list d-flex flex-wrap"
-            >
+          <Swiper modules={[Autoplay]}
+            loop={true}
+            centeredSlides={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              992: {
+                slidesPerView: 3,
+              },
+            }}
 
-                {projectsCards.map(card => <SwiperSlide key={card.id} className="projects-card-item">
-                <ProjectCard card={card} />
-                </SwiperSlide>)}
-            </Swiper>
+            navigation={{
+              nextEl: ".swiper-arrow-next",
+              prevEl: ".swiper-arrow-prev",
+              disabledClass: "swiper-button-disabled"
+            }}
+            slidesPerView={1}
+            spaceBetween={30}
+            onSlideChange={() => console.log('slide change')}
+            onSwiper={(swiper) => console.log(swiper)}
+            className="projects-card-list d-flex flex-wrap"
+          >
+
+            {projectsCards.map(card => <SwiperSlide key={card.id} className="projects-card-item">
+              <ProjectCard card={card} />
+            </SwiperSlide>)}
+          </Swiper>
         </div>
-  
+
       </ContentContainer>
 
 
