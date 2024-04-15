@@ -11,6 +11,7 @@ import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import NftCard from "./components/NftCard/NftCard";
 
 
 export default function Home() {
@@ -135,6 +136,8 @@ export default function Home() {
         <Heading heading="Photos">
           <Button title='View All' style='default' />
         </Heading>
+
+        <NftCard />
 
       </ContentContainer>
     </main >

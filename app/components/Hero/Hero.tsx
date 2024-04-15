@@ -18,8 +18,6 @@ const Hero = () => {
                   <div className="hl-orbit-1">
                     <div className="hero-icon hi-1"> <img src="/html-5.png" alt="" /> </div>
                     <div className="hero-icon hi-2"> <img src="/css-3.png" alt="" /> </div>
-                  </div>
-                  <div className="hl-orbit-2">
                     <div className="hero-icon hi-3"> <img src="/java.png" alt="" /> </div>
                     <div className="hero-icon hi-4"> <img src="/react.png" alt="" /> </div>
                   </div>

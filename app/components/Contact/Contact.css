@@ -1,7 +1,7 @@
 .contact-container{padding:100px 0;}
 .contact-box{width:50%;}
 .contact-box h4{color:var(--yellow);font-size:40px;margin-bottom: 20px;}
-.contact-box h5{font-size:25px;font-weight:700;}    
+.contact-box h5{font-size:25px;font-weight:700;margin-bottom: 0;}    
 .contact-subscribe-box{font-size: 16px;font-weight: 300;line-height: 1.6;width: 50%;}
 .form-label{font-size:20px;font-weight: 700;}
 .form-control,.form-control:focus{border:3px solid var(--green);padding:10px 30px;border-radius:30px;height: 50px;box-shadow: none;}

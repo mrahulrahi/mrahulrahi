@@ -8,7 +8,10 @@ import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Contact from './components/Contact/Contact';
 
-const josefinSans = Josefin_Sans({ subsets: ['latin'] })
+const josefinSans = Josefin_Sans({ 
+  subsets: ['latin'],
+  variable: '--font-josefinSans',
+})
 
 const outfit = Outfit({
   weight: ['300', '400', '500','600', '700'],
@@ -29,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${josefinSans.className} ${outfit.className}`}>
+      <body className={`${josefinSans.variable} ${outfit.variable}`}>
         <Header />
         <main>{children}</main>
         <Contact />

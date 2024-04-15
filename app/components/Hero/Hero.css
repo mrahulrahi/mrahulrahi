@@ -4,19 +4,17 @@
 .hero-bg img {width: 100%;height: 100%;object-fit: cover;}
 .hero-left {width: 45%;position: relative;position: relative;}
 .hero-right {width: 50%;padding-left: 5%;z-index: 1;}
-.hl-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;width: 100%;height: 100%;border-radius: 50%;border: 2px dashed var(--yellow);}
-.hl-content::before{content: '';position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%); width: 75%;height: 75%;border-radius: 50%;border: 2px dashed var(--yellow );}
-.hl-orbit-1{width: 100%;height: 100%;position: absolute;margin: -50px auto;animation: orbit 15s linear infinite;}
-.hl-orbit-2{ width: 75%;height: 75%;position: absolute;margin: -50px auto;animation: orbit 25s linear infinite;}
+.hl-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;width: 100%;height: 100%;}
+.hl-orbit-1{width: 50%;height: 50%;position: absolute;margin: -50px auto;animation: orbit 5s linear infinite;}
 .hero-img {width: 45%;height: 50%;border-radius: 50%;overflow: hidden;position: relative;}
 .hero-img img { width: 100%; height: 100%; object-fit: cover;object-position: top;}
 .hero-img-box::before{content:'';position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:120%;height:120%;background: url(/animate-bg.svg) center / contain no-repeat ;}
 .hero-icon {position: absolute;width: 60px;height: 60px;padding: 15px;border-radius: 50%; z-index: 9;}
 .hero-icon img{width: 100%;height: 100%;object-fit: cover;}
-.hero-icon.hi-1 {top: 22%;background: #ff6c39;left: 10%;margin: 20px;}
-.hero-icon.hi-2 {bottom: 22%;background: #2965f1;right: 10%;margin: 20px;}
-.hero-icon.hi-3 {top: -15%;background: #ffd814;left: 0;margin: 20px;}
-.hero-icon.hi-4 {bottom: -15%;background: #5ed3f3;right: 0;margin: 20px;}
+.hero-icon.hi-1 {top: 0%;background: #ff6c39;right: 100%;}
+.hero-icon.hi-2 {bottom: 0%;background: #2965f1;right: 100%;}
+.hero-icon.hi-3 {top: 0%;background: #ffd814;left: 100%;}
+.hero-icon.hi-4 {bottom: 0%;background: #5ed3f3;left: 100%;}
 .hr-content h1{font-size:60px;font-weight:600;line-height:1;color:var(--white);margin-bottom:24px;}
 .hr-content h3{color: var(--white);font-size:32px;}
 .hr-content h4{color:var(--white);letter-spacing:2px;font-size:32px;margin-bottom:24px}
