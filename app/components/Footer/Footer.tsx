@@ -21,7 +21,7 @@ const Footer = () => {
                 <a className="footer-logo" href="#!">mrahul<span>rahi</span></a>
 
                 <div className="footer-nav">
-                  <div className="footer-nav-list d-flex flex-wrap align-items-center justify-content-sm-between">
+                  <div className="footer-nav-list d-flex flex-wrap align-items-center justify-content-between">
                     {links.map(link => <span key={link.path} className="footer-nav-item"><Link href={link.path}>{link.label}</Link></span>)}
                   </div>
                 </div>

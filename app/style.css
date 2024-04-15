@@ -1,6 +1,4 @@
-:root{--white:#fff;--black:#000;--green: #1B9C85;--yellow: #F2E8B9;--card-bg: #14253d;--line: #2f415b;--light-gray: #d6e2f0;--grayish-blue: #7b879d;--dark-blue: #1f3251;--blue: #343e51;
---custom-ease:all 0.4s cubic-bezier(0.215,0.61,0.355,1);
-}
+:root{--white:#fff;--black:#000;--green: #1B9C85;--yellow: #F2E8B9;--card-bg: #14253d;--line: #2f415b;--light-gray: #d6e2f0;--grayish-blue: #7b879d;--dark-blue: #1f3251;--blue: #343e51;}
 
 /* =================reset css starts here=================  */
 *{margin:0;padding:0;}
