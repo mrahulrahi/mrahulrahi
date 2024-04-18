@@ -103,7 +103,7 @@ p:last-child{margin-bottom:0;}
 .timeline { display: flex; margin: 0 auto; flex-wrap: wrap; flex-direction: column; max-width: 800px; position: relative; }
 .timeline-content-title {font-size: 32px;color: var(--gold);margin-bottom: 10px;}
 .timeline-content-desc {font-size: 18px;font-weight: 400; line-height: 1.2;color: var(--white);}
-.timeline:before {position: absolute;left: 2%;top: 50%;transform: translateY(-50%);width: 5px;height: 85%;margin-left: -1px;content: "";border-left: 5px dashed var(--green);opacity: 0.7;}
+.timeline:before {position: absolute;left: 0;top: 50%;transform: translateY(-50%);width: 5px;height: 84%;margin-left: 8px;content: "";border-left: 5px dashed var(--green);opacity: 0.7;}
 .timeline-item { padding: 40px 0; transition: 0.5s; box-sizing: border-box; width: 100%; display: flex; position: relative; padding-left: 40px;}
 .timeline-item { align-self: flex-end;position: relative; }
 .timeline-item:before {content: '';position: absolute;left: 0;top: 50%;transform: translateY(-50%);width: 20px;height: 20px;border-radius: 50%;background: var(--green);}

@@ -16,7 +16,7 @@ const WorkCard = () => {
                     cursus.
                   </p>
                   <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                    Projects <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                    Projects <div className="arrow-icon d-flex align-items-center justify-content-center"> <img src="/arrow-icon.svg" />
                     </div></a>
                 </div>
               </div>
@@ -35,7 +35,7 @@ const WorkCard = () => {
                     cursus. </p>
                   <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
                     Projects
-                    <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                    <div className="arrow-icon d-flex align-items-center justify-content-center"> <img src="/arrow-icon.svg" />
                     </div>
                   </a>
                 </div>
@@ -56,7 +56,7 @@ const WorkCard = () => {
                     cursus. </p>
                   <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
                     Projects
-                    <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                    <div className="arrow-icon d-flex align-items-center justify-content-center"> <img src="/arrow-icon.svg" />
                     </div>
                   </a>
                 </div>
@@ -75,7 +75,7 @@ const WorkCard = () => {
                     cursus.
                   </p>
                   <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                    Projects <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                    Projects <div className="arrow-icon d-flex align-items-center justify-content-center"> <img src="/arrow-icon.svg" />
                     </div></a>
                 </div>
               </div>
@@ -93,7 +93,7 @@ const WorkCard = () => {
                     cursus.
                   </p>
                   <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                    Projects <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                    Projects <div className="arrow-icon d-flex align-items-center justify-content-center"> <img src="/arrow-icon.svg" />
                     </div></a>
                 </div>
               </div>
@@ -111,7 +111,7 @@ const WorkCard = () => {
                     cursus.
                   </p>
                   <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                    Projects <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                    Projects <div className="arrow-icon d-flex align-items-center justify-content-center"> <img src="/arrow-icon.svg" />
                     </div></a>
                 </div>
               </div>
@@ -129,7 +129,7 @@ const WorkCard = () => {
                     cursus.
                   </p>
                   <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
-                    Projects <div className="arrow-icon"> <img src="/arrow-icon.svg" />
+                    Projects <div className="arrow-icon d-flex align-items-center justify-content-center"> <img src="/arrow-icon.svg" />
                     </div></a>
                 </div>
               </div>
