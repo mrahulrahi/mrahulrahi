@@ -157,6 +157,9 @@ p:last-child{margin-bottom:0;}
 
 .card-item{width: 50%;}
 
+.timeline-content-desc span{display: block;padding-right: 0;margin-right: 0;margin-bottom: 5px;}
+.timeline-content-desc span::before{display: none;}
+
 .home-video-card-container .video-card-item{width: 100%;}
 }
 
@@ -176,6 +179,9 @@ p:last-child{margin-bottom:0;}
 .logo.zoom{font-size:22px}
 
 .a-img {width: 250px;height: 250px;}
+
+.timeline-content-title {font-size: 20px;}
+.timeline-content-desc {font-size: 14px;}
 }
 
 @media (max-width:424.98px){

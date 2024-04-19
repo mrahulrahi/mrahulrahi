@@ -8,4 +8,3 @@
 .gallery-image { display: block; width: 100%; transition: 0.3s; }
 .gallery-image:hover {border-radius: 10px }
 .gallery-caption { display: none; bottom: 32px; color: var(--green); font-size: 20px;  overflow: hidden; margin-top: 5px; opacity: 0; text-align: center; }
-.gallery-image:hover { border-radius: 10px }
