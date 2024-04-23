@@ -9,7 +9,6 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 import Button from '../components/Button';
 import ContentContainer from '../components/ContentContainer';
 import Heading from '../components/Heading/Heading';
-import Link from 'next/link';
 import CertificateCard from '../components/CertificateCard/CertificateCard';
 import SkillCard from '../components/SkillCard/SkillCard';
 
@@ -57,10 +56,10 @@ const About = () => {
     <>
 
       <InnerHero heading={<HeroHeading />} >
-        <Button title='Featured Work' style='default' url='/portfolio' icon={<IoIosArrowDroprightCircle />} />
+        <Button title="Featured Work" style="default" url="/portfolio" icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
 
-      <ContentContainer className='image-text-block-container' background='yellow'>
+      <ContentContainer className="image-text-block-container" background="yellow">
         <div className="itb-content-box d-flex flex-wrap bg-violet">
           <div className="itb-img-box d-flex align-items-center justify-content-center">
             <div className="itb-img">
@@ -78,13 +77,13 @@ const About = () => {
               a sub would be massively appreciated! 🙏</p>
             <p>Stack - MERN Stack</p>
 
-            <Button title='Download Resume' style='green' url='https://drive.google.com/file/d/1-4vdQtKGmM2ixaMvL2Wav6KY9ncrglcT/view?usp=sharing' icon={<IoIosArrowDropdownCircle />} />
+            <Button title="Download Resume" style="green" url="https://drive.google.com/file/d/1-4vdQtKGmM2ixaMvL2Wav6KY9ncrglcT/view?usp=sharing" icon={<IoIosArrowDropdownCircle />} />
 
           </div>
         </div>
 
         <div className="itb-skill-box d-flex flex-column bg-violet">
-          <Heading heading='Skills' />
+          <Heading heading="Skills" />
 
           <div className="skill-card-list d-flex flex-wrap">
             {skills.map(skill => <div key={skill.id} className="skill-card-item flex-grow-1">
@@ -94,15 +93,15 @@ const About = () => {
         </div>
       </ContentContainer>
 
-      <ContentContainer background='violet'>
+      <ContentContainer background="violet">
         <div className="d-flex">
           <div className="video-logo-box">
-          <div className='timeline-img-box d-flex align-items-center justify-content-center'><img src="/rahi.webp" alt="" /></div>
+          <div className="timeline-img-box d-flex align-items-center justify-content-center"><img src="/rahi.webp" alt="" /></div>
           </div>
 
           <div className="video-content-box">
             <div className="main-container d-flex flex-wrap">
-              <Heading heading='What I do' />
+              <Heading heading="What I do" />
 
               <div className="timeline-container">
                 <div className="timeline">
@@ -121,8 +120,8 @@ const About = () => {
       </ContentContainer>
 
 
-      <ContentContainer background='green'>
-        <Heading heading='Certificates' />
+      <ContentContainer background="green">
+        <Heading heading="Certificates" />
         <div className="card-list d-flex flex-wrap">
           {certificates.map(item => <div key={item.id} className="card-item">
             <CertificateCard item={item} />

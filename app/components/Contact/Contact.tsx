@@ -6,12 +6,11 @@ import Heading from '../Heading/Heading'
 
 const Contact = () => {
     return (
-        <ContentContainer background='violet' id='contact'>
-            <Heading heading='' />
+        <ContentContainer background="violet" id="contact">
             <Heading heading="Contact Me">
-          <Button title='Hire Me' style='default' />
+          <Button title="Hire Me" style="default" />
         </Heading>
-            <div className='d-flex flex-wrap justify-content-between'>
+            <div className="d-flex flex-wrap justify-content-between">
                 <div className="contact-box">
                     <h4>Get in Touch</h4>
                     <h5>Let Me Get You A Beautiful Website.</h5>
