@@ -1,5 +1,5 @@
 <hr>
-
+<img src="https://miro.medium.com/v2/resize:fit:828/format:webp/1*9CCs5F2GMeJRVraF4Oh2Bw.gif" alt="">
 <hr>
 
 <h1 align="center">Hi 👋, I'm Rahul Maurya</h1>
