@@ -41,28 +41,28 @@ export default function Home() {
           <ul className="key-feature-list d-flex flex-wrap">
             <li className="key-feature-item">
               <div className="key-feature-box d-flex flex-column align-items-center justify-content-center">
-                <div className="key-feature-icon d-flex align-items-center justify-content-center">
-                  <FaClock />
+                <div className="key-feature-count d-flex align-items-center justify-content-center">
+                  1.5+
                 </div>
-                <div className="key-feature-description">Receive on time</div>
+                <div className="key-feature-description">Years of experience</div>
               </div>
             </li>
 
             <li className="key-feature-item">
               <div className="key-feature-box d-flex flex-column align-items-center justify-content-center">
-                <div className="key-feature-icon">
-                  <FaCheck />
+                <div className="key-feature-count d-flex align-items-center justify-content-center">
+                  30+
                 </div>
-                <div className="key-feature-description">Fixed Price Projects</div>
+                <div className="key-feature-description">Projects Completed</div>
               </div>
             </li>
 
             <li className="key-feature-item">
               <div className="key-feature-box d-flex flex-column align-items-center justify-content-center">
-                <div className="key-feature-icon">
-                  <IoDiamondOutline />
+                <div className="key-feature-count d-flex align-items-center justify-content-center">
+                  10+
                 </div>
-                <div className="key-feature-description">Highly Skilled</div>
+                <div className="key-feature-description">Skills in my stack</div>
               </div>
             </li>
           </ul>

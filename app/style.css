@@ -193,8 +193,7 @@ p:last-child{margin-bottom:0;}
 #key-features .section-title{color: var(--yellow);font-size:32px;font-weight: 600; margin-top:0;margin-bottom:50px}
 .key-feature-list{width: calc(100% + 20px);margin: 0 -10px;margin-bottom: -20px;}
 .key-feature-item {width: 33.33%;padding: 0 10px;margin-bottom: 20px;}
-.key-feature-icon{background: var(--blue);width:72px;height:72px;border:5px solid var(--blue);border-radius:50%;margin-bottom:10px;color: var(--yellow);}
-.key-feature-icon svg{width: 100%;height: 100%;object-fit: cover;}
+.key-feature-count{background: var(--yellow);width:72px;height:72px;border:5px solid var(--blue);border-radius:50%;margin-bottom:10px;color: var(--blue);font-size: 24px;font-weight: 700;line-height: 1;}
 .key-feature-description{font-weight:700;color: var(--yellow);font-size:16px;text-align:center}
 
 @media screen and (max-width: 1199.98px) {
