@@ -7,7 +7,7 @@ import VideoCard from "./components/VideoCard/VideoCard";
 import Button from "./components/Button";
 import { FaClock, FaCheck } from "react-icons/fa6";
 import { IoDiamondOutline } from "react-icons/io5";
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -73,19 +73,17 @@ export default function Home() {
         <Heading heading="Projects">
           <div className="projects-list-arrow-container d-flex justify-content-between">
             <button
-              className="swiper-arrow-prev arrow-button-box d-flex align-items-center justify-content-center rounded-circle">
+              className="projects-arrow-prev swiper-arrow-prev arrow-button-box d-flex align-items-center justify-content-center rounded-circle">
               <img src="chevron-arrow-icon.svg" alt="chevron arrow right" />
             </button>
             <button
-              className="swiper-arrow-next arrow-button-box d-flex align-items-center justify-content-center rounded-circle">
+              className="projects-arrow-next swiper-arrow-next arrow-button-box d-flex align-items-center justify-content-center rounded-circle">
               <img src="chevron-arrow-icon.svg" alt="chevron arrow right" />
             </button>
           </div>
         </Heading>
         <div className="projects-card-list-outer">
-          <Swiper modules={[Autoplay]}
-            loop={true}
-            centeredSlides={true}
+          <Swiper 
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
@@ -95,12 +93,12 @@ export default function Home() {
                 slidesPerView: 3,
               },
             }}
-
             navigation={{
-              nextEl: ".swiper-arrow-next",
-              prevEl: ".swiper-arrow-prev",
+              nextEl: ".projects-arrow-next",
+              prevEl: ".projects-arrow-prev",
               disabledClass: "swiper-button-disabled"
             }}
+            modules={[Autoplay, Navigation]}
             slidesPerView={1}
             spaceBetween={30}
             onSlideChange={() => console.log('slide change')}

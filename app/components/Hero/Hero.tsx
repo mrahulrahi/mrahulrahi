@@ -26,9 +26,9 @@ const Hero = () => {
 
               <div className="hero-right d-flex align-items-center justify-content-center">
                 <div className="hr-content">
-                  <h4><span>Hello,</span> I'm</h4>
+                  <h4><span>Hey!</span> ✌️ I'm</h4>
                   <h1>Rahul <span>Maurya</span></h1>
-                  <h3>I'm a <span>Web Developer</span> <br /> From <span>India</span> .</h3>
+                  <h3><span>Front-end Developer</span> From India ❣️</h3>
                   <div className="about-hero-btn mt-4">
                     <Button title='About me' style='default' url='/about' icon={<IoIosArrowDroprightCircle />} />
                   </div>
