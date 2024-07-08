@@ -8,7 +8,7 @@ interface Props {
 const Heading = ({ heading, children }: Props) => {
     return (
         <>
-            <div className="heading d-flex justify-content-between align-items-end">
+            <div className="heading d-flex justify-content-between align-items-end" data-aos="fade-up">
                 <h3>{heading}</h3>
                 <div className="heading-right">
                     {children}

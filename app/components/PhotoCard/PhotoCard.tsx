@@ -12,7 +12,7 @@ interface Item {
 const PhotoCard = ({item} : Props) => {
     return (
         <>
-            <a href={item.url} data-lightbox="gallery-img" data-title="caption">
+            <a href={item.url} data-lightbox="gallery-img" data-title="caption" data-aos="fade-up">
                 <div className="gallery-link">
                     <figure className="gallery-thumb">
                         <img src={item.url} alt={item.title} className="gallery-image" />

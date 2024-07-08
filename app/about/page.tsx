@@ -60,13 +60,13 @@ const About = () => {
       </InnerHero>
 
       <ContentContainer className="image-text-block-container" background="yellow">
-        <div className="itb-content-box d-flex flex-wrap bg-violet">
-          <div className="itb-img-box d-flex align-items-center justify-content-center">
+        <div className="itb-content-box d-flex flex-wrap bg-violet" data-aos="fade-up">
+          <div className="itb-img-box d-flex align-items-center justify-content-center" data-aos="fade-right">
             <div className="itb-img">
               <Image src="/hero-img-1.jpg" alt="" width={1000} height={1000} />
             </div>
           </div>
-          <div className="itb-text">
+          <div className="itb-text" data-aos="fade-left">
             <h4><span>Hello,</span> I'm</h4>
             <h2>Rahul <span>Maurya</span></h2>
             <h5>Web <span>Developer</span></h5>
@@ -82,10 +82,10 @@ const About = () => {
           </div>
         </div>
 
-        <div className="itb-skill-box d-flex flex-column bg-violet">
+        <div className="itb-skill-box d-flex flex-column bg-violet" data-aos="fade-up">
           <Heading heading="Skills" />
 
-          <div className="skill-card-list d-flex flex-wrap">
+          <div className="skill-card-list d-flex flex-wrap" data-aos="fade-up">
             {skills.map(skill => <div key={skill.id} className="skill-card-item flex-grow-1">
               <SkillCard skill={skill} />
             </div>)}
@@ -94,19 +94,19 @@ const About = () => {
       </ContentContainer>
 
       <ContentContainer background="violet">
-        <div className="d-flex">
-          <div className="video-logo-box">
-          <div className="timeline-img-box d-flex align-items-center justify-content-center"><img src="/rahi.webp" alt="" /></div>
+        <div className="d-flex" data-aos="fade-up">
+          <div className="video-logo-box" data-aos="fade-up">
+            <div className="timeline-img-box d-flex align-items-center justify-content-center" data-aos="fade-up"><img src="/rahi.webp" alt="" /></div>
           </div>
 
-          <div className="video-content-box">
+          <div className="video-content-box" data-aos="fade-up">
             <div className="main-container d-flex flex-wrap">
               <Heading heading="What I do" />
 
-              <div className="timeline-container">
-                <div className="timeline">
+              <div className="timeline-container" data-aos="fade-up">
+                <div className="timeline" data-aos="fade-up">
                   {timelineItems.map(item =>
-                    <div className="timeline-item">
+                    <div className="timeline-item" data-aos="fade-up">
                       <div className="timeline-content">
                         <h3 className="timeline-content-title">{item.title}</h3>
                         <p className="timeline-content-desc"><span>{item.role}</span>{item.duration}</p>
@@ -122,7 +122,7 @@ const About = () => {
 
       <ContentContainer background="green">
         <Heading heading="Certificates" />
-        <div className="card-list d-flex flex-wrap">
+        <div className="card-list d-flex flex-wrap" data-aos="fade-up">
           {certificates.map(item => <div key={item.id} className="card-item">
             <CertificateCard item={item} />
           </div>)}

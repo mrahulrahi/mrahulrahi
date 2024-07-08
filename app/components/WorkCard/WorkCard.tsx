@@ -4,7 +4,7 @@ const WorkCard = () => {
   return (
     <>
     <div className="work-list d-flex flex-wrap">
-            <div className="work-item">
+            <div className="work-item" data-aos="fade-up">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between bg-violet">
                 <div className="wb-img"> <img src="/project-img-3.png" alt="" /> </div>
                 <div className="wb-text">
@@ -21,7 +21,7 @@ const WorkCard = () => {
                 </div>
               </div>
             </div>
-            <div className="work-item">
+            <div className="work-item" data-aos="fade-up">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between bg-gold">
                 <div className="wb-img"> <img src="/project-img-1.png" alt="" />
                 </div>
@@ -41,7 +41,7 @@ const WorkCard = () => {
                 </div>
               </div>
             </div>
-            <div className="work-item">
+            <div className="work-item" data-aos="fade-up">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
                 style={{ background: 'rgb(10 119 118 / 20%)' }}>
                 <div className="wb-img"> <img src="/project-img-2.png" alt="" />
@@ -62,7 +62,7 @@ const WorkCard = () => {
                 </div>
               </div>
             </div>
-            <div className="work-item">
+            <div className="work-item" data-aos="fade-up">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
                 style={{ background: '#14253d' }}>
                 <div className="wb-img"> <img src="/project-img-4.png" alt="" /> </div>
@@ -80,7 +80,7 @@ const WorkCard = () => {
                 </div>
               </div>
             </div>
-            <div className="work-item">
+            <div className="work-item" data-aos="fade-up">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
                 style={{ background: '#1f3251' }}>
                 <div className="wb-img"> <img src="/project-img-4.png" alt="" /> </div>
@@ -98,7 +98,7 @@ const WorkCard = () => {
                 </div>
               </div>
             </div>
-            <div className="work-item">
+            <div className="work-item" data-aos="fade-up">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
                 style={{ background: '#343e51' }}>
                 <div className="wb-img"> <img src="/project-img-4.png" alt="" /> </div>
@@ -116,7 +116,7 @@ const WorkCard = () => {
                 </div>
               </div>
             </div>
-            <div className="work-item">
+            <div className="work-item" data-aos="fade-up">
               <div className="work-box d-flex flex-wrap align-items-center justify-content-between"
                 style={{ background: '#2f415b' }}>
                 <div className="wb-img"> <img src="/project-img-4.png" alt="" /> </div>

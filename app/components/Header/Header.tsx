@@ -49,7 +49,7 @@ const Header = () => {
         <section className={`${scrollClass}`}>
             <header id="header" >
                 <nav className="navbar navbar-expand-xl">
-                    <div className="container">
+                    <div className="container" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
                         <div className="nav-inside d-flex align-items-center justify-content-between">
                             <Link className="navbar-logo" href="/">mrahul<span>rahi</span></Link>
                             <button id="navbarToggle" className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"

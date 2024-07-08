@@ -51,12 +51,12 @@ const Portfolio = () => {
   return (
     <>
       <InnerHero heading={<HeroHeading />} >
-        <Button title='FireLiquidator' style='default' url='/about' icon={<IoIosArrowDroprightCircle />} />
-        <Button title='Rahi Creations' style='default' url='/about' icon={<IoIosArrowDroprightCircle />} />
+        <Button title='FireLiquidator' style='default' url='#video' icon={<IoIosArrowDroprightCircle />} />
+        <Button title='Rahi Creations' style='default' url='#gallery' icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
 
       <ContentContainer background='gold'>
-        <div className="itb-content-box bg-green">
+        <div className="itb-content-box bg-green" data-aos="fade-up">
           <Heading heading='My Project' />
           <WorkCard />
         </div>
@@ -67,10 +67,10 @@ const Portfolio = () => {
       </Banner>
 
 
-      <ContentContainer background='violet'>
+      <ContentContainer background='violet' id='gallery'>
         <Heading heading='Gallery' />
 
-        <div className="gallery" >
+        <div className="gallery" data-aos="fade-up">
           {imageLinks.map(item =>
             <div >
               <PhotoCard item={item} />
@@ -83,30 +83,30 @@ const Portfolio = () => {
         WHERE <span>IMAGINATION</span><br />MEETS <span>CREATIVITY</span>
       </Banner>
 
-      <ContentContainer background='green'>
+      <ContentContainer background='green' id='video'>
         <div className="row">
           <div className="col-md-4">
-            <div className="video-logo-box w-100 d-flex flex-column align-items-center justify-content-center">
-              <div className="video-logo">
+            <div className="video-logo-box w-100 d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
+              <div className="video-logo" data-aos="fade-up">
                 <img src="/fl-logo.png" className="img-fluid" />
               </div>
-              <div className="video-title mt-5">
+              <div className="video-title mt-5" data-aos="fade-up">
                 <span style={{ color: '#FAB205' }}>FIRE</span>LIQUIDATOR
               </div>
-              <div className="video-btn">
+              <div className="video-btn" data-aos="fade-up">
                 <a href="https://www.youtube.com/@fireliquidator" className="btn btn-default white">Open Youtube
                 </a>
               </div>
             </div>
           </div>
           <div className="col-md-8">
-            <div className="video-content-box d-flex flex-column">
+            <div className="video-content-box d-flex flex-column" data-aos="fade-up">
               <div className="heading d-flex">
                 <h3>Videos</h3>
               </div>
 
-              <div className="video-card-list">
-                {videoCards.map(card => <div key={card.id} className="video-card-item">
+              <div className="video-card-list" data-aos="fade-up">
+                {videoCards.map(card => <div key={card.id} className="video-card-item" data-aos="fade-up">
                   <VideoCard item={card} />
                 </div>)}
               </div>

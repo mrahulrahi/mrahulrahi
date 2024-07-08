@@ -13,7 +13,7 @@ const Banner = ({children, logo} : Props) => {
     <div className="container">
       <div className="row">
         <div className="col-md-10 mx-auto">
-          <div className="banner-text">
+          <div className="banner-text" data-aos="fade-up">
             <h1>{children}</h1>
           </div>
         </div>
