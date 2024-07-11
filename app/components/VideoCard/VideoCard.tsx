@@ -1,15 +1,15 @@
 import './VideoCard.css'
 interface Props {
-  item : Item;
+  item: Item;
 }
 
 interface Item {
   id: number;
-  url : string;
+  url: string;
   title: string;
 }
 
-const VideoCard = ({item} : Props) => {
+const VideoCard = ({ item }: Props) => {
   return (
     <>
       <div className="video-card-box bg-yellow">

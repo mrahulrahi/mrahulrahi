@@ -49,17 +49,17 @@ const Header = () => {
         <section className={`${scrollClass}`}>
             <header id="header" >
                 <nav className="navbar navbar-expand-xl">
-                    <div className="container" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
+                    <div className="container">
                         <div className="nav-inside d-flex align-items-center justify-content-between">
-                            <Link className="navbar-logo" href="/">mrahul<span>rahi</span></Link>
+                            <Link className="navbar-logo" href="/" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">mrahul<span>rahi</span></Link>
                             <button id="navbarToggle" className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapsable-nav" aria-controls="collapsable-nav" aria-expanded="false"
-                                aria-label="Toggle navigation">
+                                aria-label="Toggle navigation" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse justify-content-center" id="collapsable-nav">
                                 <div className="navbar-inside">
-                                    <ul className="navbar-nav">
+                                    <ul className="navbar-nav" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
                                         {links.map(link =>
                                             <li key={link.path} className={`${link.path === currentPath ? 'active' : ''} nav-item`}><Link className="nav-link" href={link.path}>{link.label}</Link></li>
                                         )}
@@ -82,7 +82,7 @@ const Header = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="header-btn d-none d-xl-block">
+                            <div className="header-btn d-none d-xl-block" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
                                 <Button title="Hire Me" style='green' />
                             </div>
                         </div>

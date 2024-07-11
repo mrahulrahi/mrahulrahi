@@ -94,28 +94,33 @@ const About = () => {
       </ContentContainer>
 
       <ContentContainer background="violet">
-        <div className="d-flex" data-aos="fade-up">
-          <div className="video-logo-box" data-aos="fade-up">
-            <div className="timeline-img-box d-flex align-items-center justify-content-center" data-aos="fade-up"><img src="/rahi.webp" alt="" /></div>
+        <div className="row" data-aos="fade-up">
+          <div className="col-md-6">
+            <div className="sticky-sidebar-box" data-aos="fade-up">
+              <div className="timeline-img-box d-flex align-items-center justify-content-center" data-aos="fade-up"><img src="/rahi.webp" alt="" /></div>
+            </div>
           </div>
 
-          <div className="video-content-box" data-aos="fade-up">
-            <div className="main-container d-flex flex-wrap">
-              <Heading heading="What I do" />
+          <div className="col-md-6">
+            <div className="sticky-content-box" data-aos="fade-up">
+              <div className="main-container d-flex flex-wrap">
+                <Heading heading="What I do" />
 
-              <div className="timeline-container" data-aos="fade-up">
-                <div className="timeline" data-aos="fade-up">
-                  {timelineItems.map(item =>
-                    <div className="timeline-item" data-aos="fade-up">
-                      <div className="timeline-content">
-                        <h3 className="timeline-content-title">{item.title}</h3>
-                        <p className="timeline-content-desc"><span>{item.role}</span>{item.duration}</p>
-                      </div>
-                    </div>)}
+                <div className="timeline-container" data-aos="fade-up">
+                  <div className="timeline" data-aos="fade-up">
+                    {timelineItems.map(item =>
+                      <div className="timeline-item" data-aos="fade-up">
+                        <div className="timeline-content">
+                          <h3 className="timeline-content-title">{item.title}</h3>
+                          <p className="timeline-content-desc"><span>{item.role}</span>{item.duration}</p>
+                        </div>
+                      </div>)}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </ContentContainer>
 

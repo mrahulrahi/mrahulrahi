@@ -4,7 +4,7 @@ import { IoIosArrowDroprightCircle } from "react-icons/io";
 
 const Hero = () => {
   return (
-    <div className="hero-container d-flex flex-wrap align-items-center position-relative bg-violet overflow-hidden">
+    <section className="hero-container d-flex flex-wrap align-items-center position-relative bg-violet overflow-hidden">
       <div className="hero-bg"> <img src="/hero-bg.svg" alt="" /></div>
       <div className="container">
         <div className="row">
@@ -38,7 +38,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

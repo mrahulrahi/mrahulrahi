@@ -12,8 +12,7 @@ const Button = (props: Button) => {
       {props.icon && <i className="btn-icon d-flex align-items-center justify-content-center ms-2">
         {props.icon}
       </i>}
-
-    </a>  
+    </a>
   )
 }
 

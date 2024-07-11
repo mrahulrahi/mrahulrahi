@@ -112,7 +112,7 @@ p:last-child{margin-bottom:0;}
 .timeline-content-desc span{position: relative;padding-right: 20px;margin-right: 10px;}
 .timeline-content-desc span:before {content: '';position: absolute;right: 0;top: 50%;transform: translateY(-50%);width: 10px;height: 10px;border-radius: 50%;background: var(--green);}
 
-.video-logo-box{position: sticky;top: 30px;height: 100vh;}
+.sticky-sidebar-box{position: sticky;top: 30px;height: 100vh;}
 .video-logo{width:300px;height:300px;margin:0 auto;background-image:linear-gradient(to right,var(--green) 50%,#e0e0e0 50%);border-radius:50%;overflow:hidden;z-index:9;position:relative}
 .video-logo::after{content:"";position:absolute;width:100%;height:100%;left:0;border:5px solid #ffff;background-color:transparent;border-radius:50%;border-right-color:var(--green);animation:puterin 2s linear infinite}
 .video-title{text-align:center;font-size:40px;color:#ffff;font-weight:700;}
@@ -171,6 +171,9 @@ p:last-child{margin-bottom:0;}
 .home-video-card-container .video-card-item{width: 50%;}
 
 .photo-card-item {width: 50%;}
+
+.video-logo{width:250px;height:250px;}
+.video-title{font-size:34px;}
 }
 
 /* =================================================  
@@ -200,6 +203,8 @@ p:last-child{margin-bottom:0;}
 ! Extra small devices (portrait phones, less than 576px)
 ====================================================== */
 @media (max-width:575.98px){
+  .btn{min-width: 100%;}
+.btn+.btn {margin-left: 0;margin-top: 20px;}
 .skill-card-item{width: 33.33%;}
 
 .itb-content-box{padding: 20px;}
@@ -213,8 +218,8 @@ p:last-child{margin-bottom:0;}
 
 .a-img {width: 250px;height: 250px;}
 
-.timeline-content-title {font-size: 20px;}
-.timeline-content-desc {font-size: 14px;}
+.timeline-content-title {font-size: 26px;}
+.timeline-content-desc {font-size: 16px;}
 
 .stats-item{width: 100%;}
 }

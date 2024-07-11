@@ -85,8 +85,8 @@ const Portfolio = () => {
 
       <ContentContainer background='green' id='video'>
         <div className="row">
-          <div className="col-md-4">
-            <div className="video-logo-box w-100 d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
+          <div className="col-md-5 col-xl-4">
+            <div className="sticky-sidebar-box w-100 d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
               <div className="video-logo" data-aos="fade-up">
                 <img src="/fl-logo.png" className="img-fluid" />
               </div>
@@ -99,8 +99,8 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-8">
-            <div className="video-content-box d-flex flex-column" data-aos="fade-up">
+          <div className="col-md-7 col-xl-8">
+            <div className="sticky-content-box d-flex flex-column" data-aos="fade-up">
               <div className="heading d-flex">
                 <h3>Videos</h3>
               </div>

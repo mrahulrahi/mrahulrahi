@@ -13,7 +13,7 @@ const ContentContainer = ({ children, background, className, id, column }: Props
 
     return (
         <>
-            <div id={id} className={`content-container ` + className + ` bg-` + background}>
+            <section id={id} className={`content-container ` + className + ` bg-` + background}>
                 <div className="container">
                     <div className="row">
                         <div className={column === undefined ? 'col-lg-12' : column}>
@@ -21,7 +21,7 @@ const ContentContainer = ({ children, background, className, id, column }: Props
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </>
 
     )
