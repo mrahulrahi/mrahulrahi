@@ -16,7 +16,7 @@
 
 @media (max-width:991.98px){
 .contact-box,.contact-subscribe-box{width: 100%;}
-.contact-subscribe-box{margin-top: 30px;}
+.contact-subscribe-box{margin-top: 50px;}
 }
 
 
@@ -26,5 +26,5 @@
 
 
 @media (max-width:575.98px){
-
+    .contact-subscribe-box .btn{min-width: 100%;}
 }

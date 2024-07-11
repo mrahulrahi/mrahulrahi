@@ -50,7 +50,7 @@ const Portfolio = () => {
 
   return (
     <>
-      <InnerHero heading={<HeroHeading />} >
+      <InnerHero heading={<HeroHeading />} bgImage='/inner-hero-img.jpg' >
         <Button title='FireLiquidator' style='default' url='#video' icon={<IoIosArrowDroprightCircle />} />
         <Button title='Rahi Creations' style='default' url='#gallery' icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>

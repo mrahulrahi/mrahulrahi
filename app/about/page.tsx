@@ -55,7 +55,7 @@ const About = () => {
   return (
     <>
 
-      <InnerHero heading={<HeroHeading />} >
+      <InnerHero heading={<HeroHeading />} bgImage='/inner-hero-img.jpg' >
         <Button title="Featured Work" style="default" url="/portfolio" icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
 

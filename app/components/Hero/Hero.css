@@ -1,10 +1,9 @@
 /* =================  Hero-start  ================= */
 .hero-content {min-height: 100vh;width: 100%;padding: 80px 0;}
-.hero-bg { width: 100%;height: 100%;position: absolute; top: 0;left: 0;filter: blur(5px);}
-.hero-bg img {width: 100%;height: 100%;object-fit: cover;}
+.hero-bg { width: 100%;height: 100%;position: absolute; top: 0;left: 0;filter: blur(5px);background-repeat:no-repeat;background-position:center;background-size:cover;background-attachment: fixed;}
 .hero-left {width: 45%;position: relative;position: relative;}
 .hero-right {width: 50%;padding-left: 5%;z-index: 1;}
-.hl-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;width: 100%;height: 100%;}
+.hl-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;}
 .hl-orbit-1{width: 50%;height: 50%;position: absolute;margin: -50px auto;animation: orbit 5s linear infinite;}
 .hero-img {width: 45%;height: 50%;border-radius: 50%;overflow: hidden;position: relative;}
 .hero-img img { width: 100%; height: 100%; object-fit: cover;object-position: top;}
@@ -29,9 +28,9 @@
 ! Large devices (desktops, less than 1200px)
 =========================================== */
 @media (max-width:1199.98px){
+.hero-bg{background-attachment: scroll;}
 .hero-container h1{font-size:54px;}
 .hero-btn{margin-top:45px;}
-
 }
 /*==========================================
 ! Medium devices (tablets, less than 992px)
@@ -47,18 +46,17 @@
 ! Small devices (landscape phones, less than 768px)
 ================================================= */
 @media (max-width:767.98px){
-    .hero-container {height: auto;}
-    .hero-left {width: 100%;padding-right: 0;}
-    .hero-right { width: 100%; margin-top: 50px;padding-left: 0;}    
+    .hero-content {min-height: calc(100vh - 80px);}
+    .hero-left {width: 100%;max-width: 500px;margin: 0 auto;padding-right: 0;}
+    .hero-right { width: 100%; margin-top: 30px;padding-left: 0;}    
     .hr-content{font-size:14px;}
-    .hero-btn-box .btn{margin-top:20px;}
-    .hero-btn-box .btn+.btn{margin-left:0;}
-    .hero-content {padding: 20px;}
 }
 
 /* ======================================================
 ! Extra small devices (portrait phones, less than 576px)
 ====================================================== */
 @media (max-width:575.98px){
-
+    .hr-content{width: 100%;}
+    .hero-btn-box .btn{min-width: 100%;}
+    .hero-btn-box .btn+.btn{margin-left:0;margin-top:20px;}
 }

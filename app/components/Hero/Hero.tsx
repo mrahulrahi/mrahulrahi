@@ -1,11 +1,15 @@
+import { ReactNode } from 'react';
 import './Hero.css'
-import Button from '../Button'
-import { IoIosArrowDroprightCircle } from "react-icons/io";
 
-const Hero = () => {
+interface Props {
+  children: ReactNode;
+  bgImage: string;
+}
+
+const Hero = ({ children, bgImage }: Props) => {
   return (
     <section className="hero-container d-flex flex-wrap align-items-center position-relative bg-violet overflow-hidden">
-      <div className="hero-bg"> <img src="/hero-bg.svg" alt="" /></div>
+      <div className="hero-bg" style={{ backgroundImage: `url(${bgImage})` }}></div>
       <div className="container">
         <div className="row">
           <div className="col-md-12">
@@ -29,8 +33,8 @@ const Hero = () => {
                   <h4><span>Hey!</span> ✌️ I'm</h4>
                   <h1>Rahul <span>Maurya</span></h1>
                   <h3><span>Front-end Developer</span> From India ❣️</h3>
-                  <div className="about-hero-btn mt-4">
-                    <Button title='About me' style='default' url='/about' icon={<IoIosArrowDroprightCircle />} />
+                  <div className="hero-btn-box mt-4">
+                    {children}
                   </div>
                 </div>
               </div>

@@ -5,6 +5,7 @@ import ContentContainer from "./components/ContentContainer";
 import Heading from "./components/Heading/Heading";
 import VideoCard from "./components/VideoCard/VideoCard";
 import Button from "./components/Button";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { FaPlus, FaUserGraduate, FaBriefcase, FaLayerGroup, FaUsers, FaFlag } from "react-icons/fa6";
 import { RiCameraLensLine } from "react-icons/ri";
 import { Autoplay, Navigation } from 'swiper/modules';
@@ -30,9 +31,11 @@ export default function Home() {
   return (
     <main >
 
-      <Hero />
+      <Hero bgImage='/hero-bg.svg'>
+        <Button title='About me' style='default' url='/about' icon={<IoIosArrowDroprightCircle />} />
+      </Hero>
 
-      <ContentContainer background="violet" column="col-lg-10 mx-auto">
+      <ContentContainer background="violet" column="col-xl-10 mx-auto">
         <div className="stats-content-box bg-green" data-aos="fade-up">
           <ul className="stats-list d-flex flex-wrap">
             <li className="stats-item">
@@ -152,7 +155,7 @@ export default function Home() {
       <ContentContainer className="home-video-card-container" background="violet">
         <div className="skill-card-card-content-box d-flex flex-column h-100">
           <Heading heading="Videos">
-            <Button title='View All' style='default' />
+            <Button title='View All' style='default' url="/portfolio" />
           </Heading>
 
           <div className="video-card-list d-flex flex-wrap" data-aos="fade-up">
@@ -166,7 +169,7 @@ export default function Home() {
 
       <ContentContainer background="green">
         <Heading heading="Photos">
-          <Button title='View All' style='default' />
+          <Button title='View All' style='default' url="/portfolio" />
         </Heading>
 
         <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up">
