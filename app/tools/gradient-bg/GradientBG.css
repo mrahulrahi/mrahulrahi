@@ -1,5 +1,5 @@
 .gradient-preview {background: linear-gradient(to right, #43C6AC, #F8FFAE) no-repeat center center fixed;}
-.gradient-generator-container{font-family: "Raleway", sans-serif;color: rgba(0, 0, 0, 0.5);text-align: center;text-transform: uppercase;letter-spacing: 0.5em;}
+.gradient-generator-container{color: rgba(0, 0, 0, 0.5);text-align: center;text-transform: uppercase;letter-spacing: 0.5em;}
 .gradient-generator-container h2 {font-size: 3.5em;font-weight: 700;letter-spacing: 0.5em;margin-bottom: 50px;}
 .gradient-generator-container h3 {font-size: 2em;font-weight: 900;text-transform: uppercase;letter-spacing: 0.5em;}
 .gradient-generator-container h4 {font-size: 1em;font-weight: 900;text-transform: none;letter-spacing: 0.1em;}

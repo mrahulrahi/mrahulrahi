@@ -110,7 +110,7 @@ const WorkCard = () => {
                 Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus
                 cursus.
               </p>
-              <a href="#" className="link-btn d-flex flex-wrap align-items-center">See
+              <a href="/tools" className="link-btn d-flex flex-wrap align-items-center">See
                 Projects <div className="arrow-icon d-flex align-items-center justify-content-center"> <img src="/arrow-icon.svg" />
                 </div></a>
             </div>
