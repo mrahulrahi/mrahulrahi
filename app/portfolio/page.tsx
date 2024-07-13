@@ -62,7 +62,7 @@ const Portfolio = () => {
         </div>
       </ContentContainer>
 
-      <Banner logo='/rc-logo.png'>
+      <Banner logo='./rc-logo.png' bgImage='./banner-bg.jpg'>
         <span>RAHI</span>CREATIONS
       </Banner>
 
@@ -79,7 +79,7 @@ const Portfolio = () => {
         </div>
       </ContentContainer >
 
-      <Banner >
+      <Banner bgImage='./banner-bg.jpg'>
         WHERE <span>IMAGINATION</span><br />MEETS <span>CREATIVITY</span>
       </Banner>
 

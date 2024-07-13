@@ -1,0 +1,27 @@
+.gradient-preview {background: linear-gradient(to right, #43C6AC, #F8FFAE) no-repeat center center fixed;}
+.gradient-generator-container{font-family: "Raleway", sans-serif;color: rgba(0, 0, 0, 0.5);text-align: center;text-transform: uppercase;letter-spacing: 0.5em;}
+.gradient-generator-container h2 {font-size: 3.5em;font-weight: 700;letter-spacing: 0.5em;margin-bottom: 50px;}
+.gradient-generator-container h3 {font-size: 2em;font-weight: 900;text-transform: uppercase;letter-spacing: 0.5em;}
+.gradient-generator-container h4 {font-size: 1em;font-weight: 900;text-transform: none;letter-spacing: 0.1em;}
+.color-pick-group {gap: 50px;margin-bottom: 50px;}
+.color-pick-card {background: rgb(0, 0, 0, 0.25);color: rgba(255, 255, 255, 0.75);box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.1);border-radius: 8px;overflow: hidden;}
+.color-pick-card .info {font-size: 1.25em;padding: 1em;letter-spacing: 0;text-transform: none;}
+input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: none;background: none;border: 0;cursor: pointer;width: 10em;height: 10em;padding: 0;}
+:focus {border-radius: 0;outline: none;}
+::-webkit-color-swatch-wrapper {padding: 0;}
+::-webkit-color-swatch {border: 0;border-radius: 0;}
+::-moz-color-swatch,
+::-moz-focus-inner {border: 0;}
+::-moz-focus-inner {padding: 0;}
+
+  
+@media (max-width: 576px) {
+  .gradient-generator-container h2 {font-size: 2rem;}
+}
+  
+@media (max-width: 450px) {
+  .gradient-generator-container h2 {font-size: 1.5rem;}
+  .color-pick-card .info {font-size: 1em;}
+  input[type="color"] {width: 7.5em;height: 7.5em;}
+}
+  

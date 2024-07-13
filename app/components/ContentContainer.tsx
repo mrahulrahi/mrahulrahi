@@ -9,7 +9,6 @@ interface Props {
 }
 
 const ContentContainer = ({ children, background, className, id, column }: Props) => {
-    console.log(column)
 
     return (
         <>
@@ -23,7 +22,6 @@ const ContentContainer = ({ children, background, className, id, column }: Props
                 </div>
             </section>
         </>
-
     )
 }
 

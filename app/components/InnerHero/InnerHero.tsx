@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import './InnerHero.css'
 
 interface Props {
-    heading: JSX.Element;
+    heading: JSX.Element | string;
     children: ReactNode;
     bgImage: string;
 }
