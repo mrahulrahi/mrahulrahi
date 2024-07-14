@@ -11,8 +11,11 @@ const page = () => {
             </Banner>
 
             <ContentContainer>
-                <Link href="/tools/gradient-bg">Gradient BG</Link>
-                <Link href="/tools/quote-generator">Quote Generator</Link>
+                <div className="d-flex justify-content-between">
+                    <Link href="/tools/gradient-bg" className="btn btn-violet">Gradient BG</Link>
+                    <Link href="/tools/quote-generator" className="btn btn-violet">Quote Generator</Link>
+                    <Link href="/tools/calculator" className="btn btn-violet">Calculator</Link>
+                </div>
             </ContentContainer>
         </>
     )
