@@ -206,6 +206,7 @@ p:last-child{margin-bottom:0;}
 ! Extra small devices (portrait phones, less than 576px)
 ====================================================== */
 @media (max-width:575.98px){
+.btn+.btn{margin-left: 0;}
 .skill-card-item{width: 33.33%;}
 
 .itb-content-box{padding: 20px;}

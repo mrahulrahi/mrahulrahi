@@ -10,11 +10,12 @@ const page = () => {
                 Tools
             </Banner>
 
-            <ContentContainer>
-                <div className="d-flex justify-content-between">
+            <ContentContainer className="quiz-container" background='gold'>
+                <div className="d-flex flex-wrap justify-content-between gap-5">
                     <Link href="/tools/gradient-bg" className="btn btn-violet">Gradient BG</Link>
                     <Link href="/tools/quote-generator" className="btn btn-violet">Quote Generator</Link>
                     <Link href="/tools/calculator" className="btn btn-violet">Calculator</Link>
+                    <Link href="/tools/quiz-game" className="btn btn-violet">Quiz Game</Link>
                 </div>
             </ContentContainer>
         </>
