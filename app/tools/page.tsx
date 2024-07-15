@@ -16,6 +16,7 @@ const page = () => {
                     <Link href="/tools/quote-generator" className="btn btn-violet">Quote Generator</Link>
                     <Link href="/tools/calculator" className="btn btn-violet">Calculator</Link>
                     <Link href="/tools/quiz-game" className="btn btn-violet">Quiz Game</Link>
+                    <Link href="/tools/notes-app" className="btn btn-violet">Notes App</Link>
                 </div>
             </ContentContainer>
         </>

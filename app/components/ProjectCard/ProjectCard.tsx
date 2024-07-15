@@ -17,7 +17,6 @@ interface Item {
 const ProjectCard = ({ card }: Props) => {
 
 
-
     return (
 
         <div className="projects-card-box bg-yellow w-100 h-100">

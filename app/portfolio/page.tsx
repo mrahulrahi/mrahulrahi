@@ -15,15 +15,19 @@ const HeroHeading = () => {
 }
 
 const Portfolio = () => {
-  const cards = [
-  { id: 1, title: 'Calculator UI', url: '/portfolio/single-page' },
-  { id: 2, title: 'Gradient BG', url: '/portfolio/single-page' },
-  { id: 3, title: 'Notes App', url: '/portfolio/single-page' },
-  { id: 4, title: 'Quiz Game', url: '/portfolio/single-page' },
-  { id: 5, title: 'Responsive Menu', url: '/portfolio/single-page' },
-  { id: 6, title: 'NFT Card', url: '/portfolio/single-page' },
+  const WorkCards = [
+    { id: 1, label: 'Portfolio', title: 'mrahulrahi', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: 'https://mrahulrahi.vercel.app/', imgUrl: '/project-img-1.png' },
+    { id: 2, label: 'Business', title: 'Imagine Group', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: 'https://imaginegroup.vercel.app/', imgUrl: '/project-img-2.png' },
+    { id: 3, label: 'App', title: 'Instello', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: 'https://mrahulrahi.vercel.app/', imgUrl: '/project-img-3.png' },
+    { id: 4, label: 'Web Design', title: 'Weather App', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: '/tools/', imgUrl: '/project-img-4.png' },
+    { id: 7, label: 'Web Design', title: 'Notes App', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: '/tools/notes-app', imgUrl: '/project-img-5.png' },
+    { id: 8, label: 'Web Design', title: 'Quiz Game', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: '/tools/quiz-game', imgUrl: '/project-img-6.png' },
+    { id: 5, label: 'Web Design', title: 'Calculator', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: '/tools/calculator', imgUrl: '/project-img-7.png' },
+    { id: 6, label: 'Web Design', title: 'Gradient BG', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: '/tools/gradient-bg', imgUrl: '/project-img-8.png' },
+    { id: 9, label: 'Web Design', title: 'Quote Generator', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: '/tools/quote-generator', imgUrl: '/project-img-9.png' },
 
-]
+
+  ]
 
   const videoCards = [{ id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
   { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },
@@ -58,7 +62,14 @@ const Portfolio = () => {
       <ContentContainer background='gold'>
         <div className="itb-content-box bg-green" data-aos="fade-up">
           <Heading heading='My Project' />
-          <WorkCard />
+
+          <div className="work-list d-flex flex-wrap">
+            {WorkCards.map(card =>
+              <div key={card.id} className="work-item" data-aos="fade-up">
+                <WorkCard card={card} />
+              </div>
+            )}
+          </div>
         </div>
       </ContentContainer>
 
