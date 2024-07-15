@@ -138,7 +138,7 @@ const QuizApp = () => {
                                         <label className="form-label" htmlFor="category">Category:</label>
                                         <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
                                             <option value={0}>Any Category</option>
-                                            {categories.map(category => (
+                                            {categories.map((category: { id: number; name: string; }) => (
                                                 <option key={category.id} value={category.id}>{category.name}</option>
                                             ))}
                                         </select>
@@ -211,7 +211,7 @@ const QuizApp = () => {
                                 <h4>Your Score: {score}</h4>
                                 <div className="d-flex flex-column flex-sm-row gap-3">
                                     <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>
-                                    <button className="btn btn-green" onClick={() => window.location.reload(false)}>Start New Quiz</button>
+                                    <button className="btn btn-green" onClick={() => window.location.reload()}>Start New Quiz</button>
                                 </div>
 
                             </div>
