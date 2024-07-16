@@ -5,7 +5,7 @@ import Banner from '@/app/components/Banner/Banner';
 import ContentContainer from '@/app/components/ContentContainer';
 
 
-const page = () => {
+const GradientBG = () => {
 
     const [color1, setColor1] = useState('#43C6AC');
     const [color2, setColor2] = useState('#F8FFAE');
@@ -53,4 +53,4 @@ const page = () => {
     )
 }
 
-export default page
+export default GradientBG

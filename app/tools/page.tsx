@@ -17,6 +17,7 @@ const page = () => {
                     <Link href="/tools/calculator" className="btn btn-violet">Calculator</Link>
                     <Link href="/tools/quiz-game" className="btn btn-violet">Quiz Game</Link>
                     <Link href="/tools/notes-app" className="btn btn-violet">Notes App</Link>
+                    <Link href="/tools/weather-app" className="btn btn-violet">Weather App</Link>
                 </div>
             </ContentContainer>
         </>
