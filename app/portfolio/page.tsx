@@ -83,7 +83,7 @@ const Portfolio = () => {
 
         <div className="gallery" data-aos="fade-up">
           {imageLinks.map(item =>
-            <div >
+            <div>
               <PhotoCard item={item} />
             </div>
           )}

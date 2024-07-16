@@ -60,7 +60,7 @@ const About = () => {
       </InnerHero>
 
       <ContentContainer className="image-text-block-container" background="yellow">
-        <div className="itb-content-box d-flex flex-wrap bg-violet" data-aos="fade-up">
+        <div className="itb-content-box d-flex flex-wrap bg-violet overflow-hidden" data-aos="fade-up">
           <div className="itb-img-box d-flex align-items-center justify-content-center" data-aos="fade-right">
             <div className="itb-img">
               <Image src="/hero-img-1.jpg" alt="" width={1000} height={1000} />
