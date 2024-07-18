@@ -159,16 +159,16 @@ const NotesApp: React.FC = () => {
                                 <div className="bottom-content">
                                     <span>{note.date}</span>
                                     <div className="settings">
-                                        <button className="menu-button" onClick={() => toggleMenu(note.id)}>
+                                        <button className="menu-btn" onClick={() => toggleMenu(note.id)}>
                                             <FaEllipsis />
                                         </button>
                                         {menuOpen === note.id && (
                                             <ul className="menu">
                                                 <li onClick={() => { updateNote(note.id, note.title, note.description); setMenuOpen(null); }}>
-                                                    <FaPen /> Edit
+                                                   <i><FaPen /></i> Edit
                                                 </li>
                                                 <li onClick={() => { deleteNote(note.id); setMenuOpen(null); }}>
-                                                    <FaTrash /> Delete
+                                                   <i><FaTrash /></i> Delete
                                                 </li>
                                             </ul>
                                         )}

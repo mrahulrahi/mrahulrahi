@@ -1,7 +1,7 @@
 @import "https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap";
 
 .notes-app-container * {font-family: "Poppins", sans-serif;}
-.notes-app-container {background: #faebd7;width: 100;}
+.notes-app-container {background: #faebd7;width: 100%;}
 
 ::selection {background-color: #faebd7;}
 .wrapper {display: grid;gap: 25px;grid-template-columns: repeat(auto-fill, 265px);}
@@ -28,6 +28,7 @@
 .bottom-content .settings i {color: #413627;cursor: pointer;font-size: 15px;}
 .settings .menu {z-index: 1;bottom: 0;right: -5px;padding: 5px 0;background: #dfe0df;position: absolute;border-radius: 4px;transform-origin: bottom right;box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);transition: transform 0.2s ease;}
 .settings .show.menu {transform: scale(1);}
+.menu-btn{border: 0;background: transparent;}
 .settings .menu li {height: 25px;font-size: 16px;margin-bottom: 2px;padding: 17px 15px;cursor: pointer;box-shadow: none;border-radius: 0;justify-content: flex-start;}
 .menu li:last-child {margin-bottom: 0;}
 .menu li:hover {background: #faebd7;}
