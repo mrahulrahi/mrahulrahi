@@ -1,6 +1,20 @@
 'use client'
 
+import Link from "next/link"
 import ContentContainer from "./components/ContentContainer"
+import { Josefin_Sans, Outfit } from 'next/font/google'
+
+const josefinSans = Josefin_Sans({
+  subsets: ['latin'],
+  variable: '--font-josefinSans',
+})
+
+const outfit = Outfit({
+  weight: ['300', '400', '500', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-outfit',
+});
 
 export default function NotFound({
   error,
@@ -11,23 +25,19 @@ export default function NotFound({
 }) {
   return (
     <html>
-      <body>
+      <body className={`${josefinSans.variable} ${outfit.variable}`}>
         <ContentContainer className="page_404" column="col-sm-12">
           <div className="text-center">
-            <div className="four_zero_four_bg">
+            <div className="page_404-bg"></div>
 
-
-
-            </div>
-
-            <div className="contant_box_404">
-              <h3 className="h2">
+            <div className="page_404-content">
+              <h3>
                 Look like you're lost
               </h3>
 
               <p>the page you are looking for not avaible!</p>
 
-              <a href="" className="link_404">Go to Home</a>
+              <Link href="/" className="btn btn-green">Go to Home</Link>
             </div>
           </div>
         </ContentContainer>
