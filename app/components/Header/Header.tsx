@@ -51,7 +51,7 @@ const Header = () => {
                 <nav className="navbar navbar-expand-xl">
                     <div className="container">
                         <div className="nav-inside d-flex align-items-center justify-content-between">
-                            <Link className="navbar-logo" href="/" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">mrahul<span>rahi</span></Link>
+                            <Link className="navbar-logo" href="/" data-aos="fade-zoom-in" data-aos-easing="ease-in-back"><img src="/logo.svg" alt="" /></Link>
                             <button id="navbarToggle" className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#collapsable-nav" aria-controls="collapsable-nav" aria-expanded="false"
                                 aria-label="Toggle navigation" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">

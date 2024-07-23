@@ -13,7 +13,7 @@ const Contact = () => {
             <div className="d-flex flex-wrap justify-content-between" data-aos="fade-up">
                 <div className="contact-box">
                     <h4>Get in Touch</h4>
-                    <h5>Let Me Get You A Beautiful Website.</h5>
+                    <p>Let me get you a beautiful website.</p>
                 </div>
                 <div className="contact-subscribe-box justify-self-end">
                     <div className="form-label">Subscribe to Our Newsletter</div>

@@ -18,7 +18,7 @@ const Footer = () => {
           <div className="row">
             <div className="col-lg-12">
               <div className="footer-upper-box d-flex flex-wrap align-items-center justify-content-between">
-                <a className="footer-logo" href="#!">mrahul<span>rahi</span></a>
+                <a className="footer-logo" href="#!"><img src="/logo.svg" alt="" /></a>
 
                 <div className="footer-nav">
                   <div className="footer-nav-list d-flex flex-wrap align-items-center justify-content-between">
@@ -37,7 +37,7 @@ const Footer = () => {
               <div
                 className="footer-lower-box d-flex flex-wrap-reverse align-items-center justify-content-sm-between">
                 <div className="copyright">2023 mrahulrahi &copy; All rights reserved</div>
-                <div className="made-by">Proudly coded ❤️ by mrahulrahi.</div>
+                <div className="made-by">Design & Developed ❤️ by mrahulrahi.</div>
                 <div className="social-links d-flex align-items-center justify-content-center">
                     <Link className="d-flex align-items-center justify-content-center"
                       href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></Link>
