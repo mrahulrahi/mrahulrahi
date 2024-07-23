@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap');
 
-:root {--gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);}
+:root {--gradient: linear-gradient( 135deg, #43C6AC 10%, #F8FFAE 100%);}
 
 .weather-app-container * {-webkit-box-sizing: border-box;box-sizing: border-box;line-height: 1.25em;}
-
-.clear {clear: both;}
 
 .weather-app-container {font-family: 'Montserrat', sans-serif;background-color: #343d4b;}
 
@@ -28,7 +26,7 @@
 
 .weather-container {position: absolute;bottom: 25px;left: 25px;}
 
-.weather-icon {display: inline-block;height: 80px;width: 80px;filter: brightness(0)invert(1);}
+.weather-icon {display: inline-block;height: 80px;width: 80px;}
 
 .weather-icon img{width: 100%;height: 100%;object-fit: contain;}
 
@@ -54,10 +52,12 @@
 .week-list>li:hover {-webkit-transform: scale(1.1);-ms-transform: scale(1.1);transform: scale(1.1);background: #fff;color: #222831;-webkit-box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2)}
 
 .week-list>li.active {background: #fff;color: #222831;border-radius: 10px;}
+.week-list>li.active img, .week-list>li:hover img{background: #222831;border-radius: 50%;}
 
 .week-list>li .day-name {display: block;margin: 10px 0 0 0;text-align: center;}
 
 .week-list>li .day-icon {display: block;height: 30px;width: auto;margin: 0 auto;}
+.week-list>li .day-icon img{width: 100%;height: 100%;object-fit: contain;}
 
 .week-list>li .day-temp {display: block;text-align: center;margin: 10px 0 0 0;font-weight: 700;}
 

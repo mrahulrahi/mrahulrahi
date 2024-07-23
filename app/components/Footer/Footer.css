@@ -32,8 +32,8 @@
 ! Small devices (landscape phones, less than 768px)
 ================================================= */
 @media (max-width:767.98px){
-.footer-logo{width: 100%;text-align: center;margin-bottom: 30px;}
-.footer-nav{width: 100%;}
+.footer-logo{width: 20%;text-align: center;margin-bottom: 30px;}
+.footer-nav{width: 70%;}
 .social-links{position: relative;left: 0;top: 0;transform: none;width: 100%;margin-bottom: 20px;color: var(--white);}
 }
     
@@ -42,7 +42,7 @@
 ====================================================== */
 @media (max-width:575.98px){
 .footer-nav-list{margin-bottom: -20px;}
-.footer-nav-item{text-align: center;margin-bottom: 20px;}
+.footer-nav-item{text-align: center;margin-bottom: 20px;margin-right: 0;width: 50%;}
 .copyright{margin-top: 20px;width: 100%;text-align: center;}
 .made-by{width: 100%;text-align: center;}
 }

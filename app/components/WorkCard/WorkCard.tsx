@@ -19,7 +19,7 @@ const WorkCard = ({ card }: Props) => {
 
   return (
     <>
-      <div className="work-box d-flex flex-wrap justify-content-between bg-violet">
+      <Link className="work-box d-flex flex-wrap justify-content-between bg-violet" href={card.url}>
         <div className="wb-img-frame">
           <div className="wb-img-head d-flex align-items-center justify-content-end pe-3">
             <ul className="wb-ih-dots d-flex align-items-center justify-content-end gap-1"><li></li><li></li><li></li></ul>
@@ -31,10 +31,10 @@ const WorkCard = ({ card }: Props) => {
           <h3> {card.label} </h3>
           <h5> {card.title} </h5>
           <p> {card.para}</p>
-          <Link href={card.url} className="link-btn d-flex flex-wrap align-items-center mt-auto">See Project
-            <div className="arrow-icon d-flex align-items-center justify-content-center"> <FaArrowRightLong /></div></Link>
+          <span className="link-btn d-flex flex-wrap align-items-center mt-auto">See Project
+            <div className="arrow-icon d-flex align-items-center justify-content-center"> <FaArrowRightLong /></div></span>
         </div>
-      </div>
+      </Link>
     </>
   )
 }

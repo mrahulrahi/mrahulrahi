@@ -6,7 +6,7 @@ import Heading from '../Heading/Heading'
 
 const Contact = () => {
     return (
-        <ContentContainer background="violet" id="contact">
+        <ContentContainer background="violet" id="contact" className="contact-container">
             <Heading heading="Contact Me">
                 <Button title="Hire Me" style="default" />
             </Heading>
