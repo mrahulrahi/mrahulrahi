@@ -77,7 +77,7 @@ const About = () => {
               a sub would be massively appreciated! 🙏</p>
             <p>Stack - MERN Stack</p>
 
-            <Button title="Download Resume" style="green" url="https://drive.google.com/file/d/1-4vdQtKGmM2ixaMvL2Wav6KY9ncrglcT/view?usp=sharing" icon={<IoIosArrowDropdownCircle />} />
+            <Button title="Download Resume" style="green" url="https://flowcv.com/resume/29mh2gwpwu" icon={<IoIosArrowDropdownCircle />} />
 
           </div>
         </div>
