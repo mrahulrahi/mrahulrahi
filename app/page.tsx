@@ -6,12 +6,13 @@ import Heading from "./components/Heading/Heading";
 import VideoCard from "./components/VideoCard/VideoCard";
 import Button from "./components/Button";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import { FaPlus, FaUserGraduate, FaBriefcase, FaLayerGroup, FaUsers, FaFlag } from "react-icons/fa6";
+import { FaUserGraduate, FaBriefcase, FaLayerGroup, FaUsers, FaClock } from "react-icons/fa6";
 import { RiCameraLensLine } from "react-icons/ri";
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import CountUp from 'react-countup';
 
 export default function Home() {
   const videoCards = [{ id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
@@ -49,7 +50,7 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaUserGraduate /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                    1.5 <span><FaPlus /></span>
+                  <CountUp start={0} end={1.5} duration={4} decimal="1" suffix=" +" enableScrollSpy />
                   </div>
                   <div className="stats-description">Years of experience</div>
                 </div>
@@ -61,7 +62,7 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaBriefcase /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                    30 <span><FaPlus /></span>
+                  <CountUp start={0} end={50} duration={4} suffix=" +" enableScrollSpy />
                   </div>
                   <div className="stats-description">Projects Completed</div>
                 </div>
@@ -73,7 +74,7 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaLayerGroup /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                    10 <span><FaPlus /></span>
+                  <CountUp start={0} end={10} duration={4} suffix=" +" enableScrollSpy />
                   </div>
                   <div className="stats-description">Skills in my stack</div>
                 </div>
@@ -82,12 +83,12 @@ export default function Home() {
 
             <li className="stats-item">
               <div className="stats-box d-flex gap-3 align-items-center justify-content-center">
-                <div className="stats-icon d-flex align-items-center justify-content-center"><FaFlag /></div>
+                <div className="stats-icon d-flex align-items-center justify-content-center"><FaClock /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                    4 <span><FaPlus /></span>
+                  <CountUp start={0} end={1000} duration={4} suffix=" +" enableScrollSpy />
                   </div>
-                  <div className="stats-description">Countries Served</div>
+                  <div className="stats-description">Hours of code</div>
                 </div>
               </div>
             </li>
@@ -97,9 +98,10 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaUsers /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                    6 <span><FaPlus /></span>
+                  <CountUp start={0} end={96} duration={4} suffix=" %" enableScrollSpy />
                   </div>
-                  <div className="stats-description">Satisfied Clients</div>
+                  <div className="stats-description">Clients
+                  Satisfaction Rate</div>
                 </div>
               </div>
             </li>
