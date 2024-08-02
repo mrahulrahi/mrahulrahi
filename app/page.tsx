@@ -15,9 +15,10 @@ import 'swiper/css/navigation';
 import CountUp from 'react-countup';
 
 export default function Home() {
-  const videoCards = [{ id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
-  { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },
-  { id: 3, title: 'Xiaomi Mi 10i | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/vNFb5rk77Pg' }]
+  const videoCards = [
+    { id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
+    { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },
+    { id: 3, title: 'Xiaomi Mi 10i | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/vNFb5rk77Pg' }]
 
   const projectsCards = [
     { id: 1, title: 'Imagine Group', imgUrl: '/project-img-2.png', gitHubUrl: 'https://github.com/mrahulrahi/ig-app', liveUrl: 'http://imaginegindia.com' },
@@ -50,7 +51,7 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaUserGraduate /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                  <CountUp start={0} end={1.5} duration={4} decimal="1" suffix=" +" enableScrollSpy />
+                    <CountUp start={0} end={1.5} duration={4} decimal="1" suffix=" +" enableScrollSpy />
                   </div>
                   <div className="stats-description">Years of experience</div>
                 </div>
@@ -62,7 +63,7 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaBriefcase /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                  <CountUp start={0} end={50} duration={4} suffix=" +" enableScrollSpy />
+                    <CountUp start={0} end={50} duration={4} suffix=" +" enableScrollSpy />
                   </div>
                   <div className="stats-description">Projects Completed</div>
                 </div>
@@ -74,7 +75,7 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaLayerGroup /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                  <CountUp start={0} end={10} duration={4} suffix=" +" enableScrollSpy />
+                    <CountUp start={0} end={10} duration={4} suffix=" +" enableScrollSpy />
                   </div>
                   <div className="stats-description">Skills in my stack</div>
                 </div>
@@ -86,7 +87,7 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaClock /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                  <CountUp start={0} end={1000} duration={4} suffix=" +" enableScrollSpy />
+                    <CountUp start={0} end={1000} duration={4} suffix=" +" enableScrollSpy />
                   </div>
                   <div className="stats-description">Hours of code</div>
                 </div>
@@ -98,10 +99,10 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaUsers /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                  <CountUp start={0} end={96} duration={4} suffix=" %" enableScrollSpy />
+                    <CountUp start={0} end={96} duration={4} suffix=" %" enableScrollSpy />
                   </div>
                   <div className="stats-description">Clients
-                  Satisfaction Rate</div>
+                    Satisfaction Rate</div>
                 </div>
               </div>
             </li>
