@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import React, { useState, useEffect } from 'react';
 import './NotesApp.css';
 import Banner from '@/app/components/Banner/Banner';
@@ -10,7 +10,6 @@ interface Note {
     title: string;
     description: string;
     date: string;
-    completed: boolean; // Property to track completion status for to-dos
 }
 
 interface Task {
@@ -26,7 +25,6 @@ interface ToDo {
     date: string;
 }
 
-
 const months = [
     "January", "February", "March", "April", "May", "June",
     "July", "August", "September", "October", "November", "December"
@@ -40,19 +38,22 @@ const NotesApp: React.FC = () => {
     const [description, setDescription] = useState('');
     const [popupVisible, setPopupVisible] = useState(false);
     const [menuOpen, setMenuOpen] = useState<number | null>(null);
-    const [view, setView] = useState<'notes' | 'todos'>('notes'); // New state for managing views
-
+    const [view, setView] = useState<'notes' | 'todos'>('notes');
     const [todos, setTodos] = useState<ToDo[]>([]);
-const [currentToDoId, setCurrentToDoId] = useState<number | null>(null);
-const [taskTitle, setTaskTitle] = useState('');
-const [tasks, setTasks] = useState<Task[]>([]);
-
+    const [currentToDoId, setCurrentToDoId] = useState<number | null>(null);
+    const [taskTitle, setTaskTitle] = useState('');
+    const [tasks, setTasks] = useState<Task[]>([]);
+    const [savedToDoId, setSavedToDoId] = useState<number | null>(null); // Track saved To-Do ID
 
     useEffect(() => {
         const savedNotesJson = localStorage.getItem('notes');
         if (savedNotesJson) {
-            const savedNotes = JSON.parse(savedNotesJson);
-            setNotes(savedNotes);
+            try {
+                const savedNotes: Note[] = JSON.parse(savedNotesJson);
+                setNotes(savedNotes);
+            } catch (error) {
+                console.error('Failed to parse notes from localStorage', error);
+            }
         }
     }, []);
 
@@ -70,19 +71,16 @@ const [tasks, setTasks] = useState<Task[]>([]);
             id: notes.length + 1,
             title,
             description,
-            date: `${month} ${day}, ${year}`,
-            completed: false
+            date: `${month} ${day}, ${year}`
         };
 
         if (!isUpdate) {
             setNotes([...notes, newNote]);
         } else {
-            const updatedNotes = [...notes];
-            const indexToUpdate = updatedNotes.findIndex(note => note.id === updateId);
-            if (indexToUpdate !== -1) {
-                updatedNotes[indexToUpdate] = { ...newNote, id: updateId };
-                setNotes(updatedNotes);
-            }
+            const updatedNotes = notes.map(note =>
+                note.id === updateId ? { ...newNote, id: updateId } : note
+            );
+            setNotes(updatedNotes);
             setIsUpdate(false);
         }
 
@@ -118,6 +116,9 @@ const [tasks, setTasks] = useState<Task[]>([]);
         setIsUpdate(false);
         setTitle('');
         setDescription('');
+        setTasks([]);
+        setTaskTitle('');
+        setSavedToDoId(null); // Reset saved To-Do ID
         setPopupVisible(false);
         document.body.style.overflow = 'auto';
     };
@@ -125,14 +126,6 @@ const [tasks, setTasks] = useState<Task[]>([]);
     const toggleMenu = (noteId: number) => {
         setMenuOpen(menuOpen === noteId ? null : noteId);
     };
-
-    const toggleCompletion = (noteId: number) => {
-        const updatedNotes = notes.map(note =>
-            note.id === noteId ? { ...note, completed: !note.completed } : note
-        );
-        setNotes(updatedNotes);
-    };
-
 
     const addTask = () => {
         if (taskTitle.trim()) {
@@ -145,17 +138,18 @@ const [tasks, setTasks] = useState<Task[]>([]);
             setTaskTitle('');
         }
     };
-    
+
     const removeTask = (taskId: number) => {
         setTasks(tasks.filter(task => task.id !== taskId));
     };
-    
-    const toggleTaskCompletion = (taskId: number) => {
-        setTasks(tasks.map(task =>
-            task.id === taskId ? { ...task, completed: !task.completed } : task
-        ));
-    };
 
+    const toggleTaskCompletion = (taskId: number) => {
+        if (savedToDoId) { // Only allow toggling if To-Do is saved
+            setTasks(tasks.map(task =>
+                task.id === taskId ? { ...task, completed: !task.completed } : task
+            ));
+        }
+    };
 
     const addOrUpdateToDo = () => {
         const newToDo: ToDo = {
@@ -164,16 +158,18 @@ const [tasks, setTasks] = useState<Task[]>([]);
             tasks,
             date: new Date().toLocaleDateString()
         };
-    
+
         if (currentToDoId) {
             setTodos(todos.map(todo => todo.id === currentToDoId ? newToDo : todo));
         } else {
             setTodos([...todos, newToDo]);
         }
-    
+
+        setSavedToDoId(newToDo.id); // Set saved To-Do ID
         resetForm();
+        closePopup();
     };
-    
+
     const resetForm = () => {
         setIsUpdate(false);
         setTitle('');
@@ -186,14 +182,14 @@ const [tasks, setTasks] = useState<Task[]>([]);
     return (
         <>
             <Banner bgImage='../inner-hero-img.jpg'>
-                {view === 'notes' ? 'Notes App' : 'To-Do List App'}
+                Notes App
             </Banner>
             <ContentContainer className={view === 'notes' ? "notes-app-container" : "todos-app-container"}>
-                <div className="view-toggle">
-                    <button onClick={() => setView('notes')} className={view === 'notes' ? 'active' : ''}>Notes</button>
-                    <button onClick={() => setView('todos')} className={view === 'todos' ? 'active' : ''}>To-Do List</button>
+                <div className="view-toggle mb-5 d-flex justify-content-center gap-4">
+                    <button onClick={() => setView('notes')} className={view === 'notes' ? 'active btn btn-violet' : 'btn btn-green'}>Notes</button>
+                    <button onClick={() => setView('todos')} className={view === 'todos' ? 'active btn btn-violet' : 'btn btn-green'}>To-Do List</button>
                 </div>
-    
+
                 {popupVisible && (
                     <div className="popup-box">
                         <div className="popup">
@@ -203,7 +199,7 @@ const [tasks, setTasks] = useState<Task[]>([]);
                                     <i className="close-icon" onClick={closePopup}><FaXmark /></i>
                                 </header>
                                 <form>
-                                    <div className="row title">
+                                    <div className="title">
                                         <label>Title</label>
                                         <input
                                             type="text"
@@ -213,25 +209,29 @@ const [tasks, setTasks] = useState<Task[]>([]);
                                         />
                                     </div>
                                     {view === 'todos' && (
-                                        <div className="row tasks">
+                                        <div className="tasks">
                                             <label>Tasks</label>
                                             <input
                                                 type="text"
                                                 placeholder="Task Title"
                                                 value={taskTitle}
                                                 onChange={(e) => setTaskTitle(e.target.value)}
+                                                className="mb-4"
                                             />
                                             <button type="button" onClick={addTask}>Add Task</button>
-                                            <ul>
+                                            <ul className="task-list my-4">
                                                 {tasks.map(task => (
-                                                    <li key={task.id}>
+                                                    <li key={task.id} className="d-flex align-items-center justify-content-between">
                                                         <input
                                                             type="checkbox"
                                                             checked={task.completed}
                                                             onChange={() => toggleTaskCompletion(task.id)}
+                                                            disabled={savedToDoId === null && !isUpdate} // Disable checkbox if To-Do is not saved
                                                         />
                                                         {task.title}
-                                                        <button onClick={() => removeTask(task.id)}>Remove</button>
+                                                        <button type="button" onClick={() => removeTask(task.id)}>
+                                                            <i className="close-icon"><FaXmark /></i>
+                                                        </button>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -253,7 +253,7 @@ const [tasks, setTasks] = useState<Task[]>([]);
                         </div>
                     </div>
                 )}
-    
+
                 {view === 'notes' && (
                     <div className="notes-app">
                         <ul className="wrapper">
@@ -262,7 +262,7 @@ const [tasks, setTasks] = useState<Task[]>([]);
                                 <p>Add new note</p>
                             </li>
                             {notes.map((note) => (
-                                <li key={note.id} className={`note ${note.completed ? 'completed' : ''}`}>
+                                <li key={note.id} className="note">
                                     <div className="details">
                                         <p>{note.title}</p>
                                         <span>{note.description}</span>
@@ -284,16 +284,13 @@ const [tasks, setTasks] = useState<Task[]>([]);
                                                 </ul>
                                             )}
                                         </div>
-                                        <button onClick={() => toggleCompletion(note.id)}>
-                                            {note.completed ? 'Undo' : 'Complete'}
-                                        </button>
                                     </div>
                                 </li>
                             ))}
                         </ul>
                     </div>
                 )}
-    
+
                 {view === 'todos' && (
                     <div className="todos-app">
                         <ul className="wrapper">
@@ -302,8 +299,8 @@ const [tasks, setTasks] = useState<Task[]>([]);
                                 <p>Add new to-do</p>
                             </li>
                             {todos.map((todo) => (
-                                <li key={todo.id} className="todo">
-                                    <div className="details">
+                                <li key={todo.id} className="todo d-flex flex-column">
+                                    <div className="details flex-grow-1">
                                         <p>{todo.title}</p>
                                         {todo.tasks.map(task => (
                                             <div key={task.id} className="task">
@@ -311,6 +308,7 @@ const [tasks, setTasks] = useState<Task[]>([]);
                                                     type="checkbox"
                                                     checked={task.completed}
                                                     onChange={() => toggleTaskCompletion(task.id)}
+                                                    disabled={todo.id !== savedToDoId} // Disable checkbox if To-Do is not the current saved one
                                                 />
                                                 {task.title}
                                             </div>
@@ -324,17 +322,18 @@ const [tasks, setTasks] = useState<Task[]>([]);
                                             </button>
                                             {menuOpen === todo.id && (
                                                 <ul className="menu">
-                                                    <li onClick={() => { 
+                                                    <li onClick={() => {
                                                         setCurrentToDoId(todo.id);
                                                         setTitle(todo.title);
                                                         setTasks(todo.tasks);
-                                                        openPopup(); 
+                                                        setSavedToDoId(todo.id); // Set saved To-Do ID for editing
+                                                        openPopup();
                                                     }}>
                                                         <i><FaPen /></i> Edit
                                                     </li>
-                                                    <li onClick={() => { 
-                                                        setTodos(todos.filter(td => td.id !== todo.id)); 
-                                                        setMenuOpen(null); 
+                                                    <li onClick={() => {
+                                                        setTodos(todos.filter(td => td.id !== todo.id));
+                                                        setMenuOpen(null);
                                                     }}>
                                                         <i><FaTrash /></i> Delete
                                                     </li>
@@ -350,7 +349,6 @@ const [tasks, setTasks] = useState<Task[]>([]);
             </ContentContainer>
         </>
     );
-    
 };
 
 export default NotesApp;
