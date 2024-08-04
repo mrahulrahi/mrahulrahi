@@ -37,7 +37,7 @@ const Footer = () => {
               <div
                 className="footer-lower-box d-flex flex-wrap-reverse align-items-center justify-content-sm-between">
                 <div className="copyright">2023 mrahulrahi &copy; All rights reserved</div>
-                <div className="made-by">Design & Developed ❤️ by mrahulrahi.</div>
+                <div className="made-by">Made with ❤️ by mrahulrahi.</div>
                 <div className="social-links d-flex align-items-center justify-content-center">
                     <Link className="d-flex align-items-center justify-content-center"
                       href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></Link>

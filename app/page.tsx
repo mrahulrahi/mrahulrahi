@@ -47,7 +47,7 @@ export default function Home() {
               </div>
             </li>
             <li className="stats-item">
-              <div className="stats-box d-flex gap-3 align-items-center justify-content-center">
+              <div className="stats-box d-flex gap-3 align-items-center">
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaUserGraduate /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
@@ -59,7 +59,7 @@ export default function Home() {
             </li>
 
             <li className="stats-item">
-              <div className="stats-box d-flex gap-3 align-items-center justify-content-center">
+              <div className="stats-box d-flex gap-3 align-items-center">
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaBriefcase /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
@@ -71,7 +71,7 @@ export default function Home() {
             </li>
 
             <li className="stats-item">
-              <div className="stats-box d-flex gap-3 align-items-center justify-content-center">
+              <div className="stats-box d-flex gap-3 align-items-center">
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaLayerGroup /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
@@ -83,7 +83,7 @@ export default function Home() {
             </li>
 
             <li className="stats-item">
-              <div className="stats-box d-flex gap-3 align-items-center justify-content-center">
+              <div className="stats-box d-flex gap-3 align-items-center">
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaClock /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
@@ -95,7 +95,7 @@ export default function Home() {
             </li>
 
             <li className="stats-item">
-              <div className="stats-box d-flex gap-3 align-items-center justify-content-center">
+              <div className="stats-box d-flex gap-3 align-items-center">
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaUsers /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
