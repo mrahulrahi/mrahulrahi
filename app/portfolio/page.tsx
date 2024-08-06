@@ -7,6 +7,12 @@ import ContentContainer from '../components/ContentContainer';
 import VideoCard from '../components/VideoCard/VideoCard';
 import PhotoCard from '../components/PhotoCard/PhotoCard';
 import WorkCard from '../components/WorkCard/WorkCard';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'mrahulrahi - portfolio',
+  description: 'portfolio work',
+}
 
 const HeroHeading = () => {
   return (<>

@@ -11,12 +11,19 @@ import ContentContainer from '../components/ContentContainer';
 import Heading from '../components/Heading/Heading';
 import CertificateCard from '../components/CertificateCard/CertificateCard';
 import SkillCard from '../components/SkillCard/SkillCard';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'mrahulrahi - About',
+  description: 'know more about me',
+}
 
 const HeroHeading = () => {
   return (<>
     About <span>me</span>
   </>)
 }
+
 
 const About = () => {
 
