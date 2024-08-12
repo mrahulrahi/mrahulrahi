@@ -44,8 +44,8 @@ const About = () => {
 
   const timelineItems = [
     { title: 'Diploma', role: 'AIMT', duration: 'July 2017 - Nov 2020' },
-    { title: 'BCA', role: 'IGNOU', duration: 'July 2021 - Jun 2024' },
     { title: 'Fireliquidtaor', role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' },
+    { title: 'BCA', role: 'IGNOU', duration: 'July 2021 - Jun 2024' },
     { title: 'CodeClause', role: 'Web Dev Intern', duration: 'Nov 2022' },
     { title: 'Imagine Group', role: 'Freelancer', duration: 'Dec 2022 - Jun 2023' },
     { title: 'SlicemyPage', role: 'Front End Developer', duration: 'Jun 2023 - Now' },
