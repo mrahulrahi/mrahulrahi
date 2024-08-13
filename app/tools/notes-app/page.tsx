@@ -199,7 +199,7 @@ const NotesApp: React.FC = () => {
                                     <i className="close-icon" onClick={closePopup}><FaXmark /></i>
                                 </header>
                                 <form>
-                                    <div className="title">
+                                    <div className="title mb-4">
                                         <label>Title</label>
                                         <input
                                             type="text"
@@ -221,7 +221,7 @@ const NotesApp: React.FC = () => {
                                             <button type="button" onClick={addTask}>Add Task</button>
                                             <ul className="task-list my-4">
                                                 {tasks.map(task => (
-                                                    <li key={task.id} className="d-flex align-items-center justify-content-between">
+                                                    <li key={task.id} className="d-flex mb-2 align-items-center justify-content-between">
                                                         <input
                                                             type="checkbox"
                                                             checked={task.completed}
