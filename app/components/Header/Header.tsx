@@ -1,10 +1,10 @@
 'use client';
 import './Header.css';
 import Link from 'next/link';
+import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
-import { useState, useEffect, useRef } from 'react';
 
 const Header = () => {
     const [scrollClass, setScrollClass] = useState('');
