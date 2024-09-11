@@ -22,7 +22,7 @@ export default function Home() {
 
   const projectsCards = [
     { id: 1, title: 'Imagine Group', imgUrl: '/project-img-2.png', gitHubUrl: 'https://github.com/mrahulrahi/ig-app', liveUrl: 'http://imaginegindia.com' },
-    { id: 2, title: 'Instello', imgUrl: '/project-img-3.png', gitHubUrl: 'https://github.com/mrahulrahi/instello', liveUrl: 'https://mrahulrahi.github.io/mrahulrahi' },
+    { id: 2, title: 'Soul Sync', imgUrl: '/project-img-3.png', gitHubUrl: 'https://github.com/mrahulrahi/soulsync', liveUrl: 'https://soulsyncapp.vercel.app' },
     { id: 3, title: 'Weather App', imgUrl: '/project-img-4.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/weather-app' },
     { id: 4, title: 'Notes App', imgUrl: '/project-img-5.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/notes-app' },
     { id: 5, title: 'Quiz Game', imgUrl: '/project-img-6.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/quiz-game' },

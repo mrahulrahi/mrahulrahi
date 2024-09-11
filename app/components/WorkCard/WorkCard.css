@@ -21,13 +21,11 @@
 .work-item:nth-child(3n + 1) .wb-img-frame{width: 55%;}
 .work-item:nth-child(3n + 1) .wb-text {width: 40%;}
 
+.work-item:nth-child(4n+1) .work-box{background: var(--violet);}
+.work-item:nth-child(4n+2) .work-box{background: #2f415b;}
+.work-item:nth-child(4n+3) .work-box{background: #1f3251;}
+.work-item:nth-child(4n+4) .work-box{background: #14253d;}
 
-
-.work-item:nth-child(5n+1) .work-box{background: var(--blue);}
-.work-item:nth-child(5n+2) .work-box{background: var(--line);}
-.work-item:nth-child(5n+3) .work-box{background: var(--grayish-blue);}
-.work-item:nth-child(5n+4) .work-box{background: var(--card-bg);}
-.work-item:nth-child(5n+5) .work-box{background: var(--dark-blue);}
 /* =================  work-start  ================= */
 
 /* =================================================  

@@ -23,8 +23,8 @@ const HeroHeading = () => {
 const Portfolio = () => {
   const WorkCards = [
     { id: 1, label: 'Portfolio', title: 'mrahulrahi', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: 'https://mrahulrahi.vercel.app/', imgUrl: '/project-img-1.png' },
-    { id: 2, label: 'Business', title: 'Imagine Group', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: 'https://imaginegroup.vercel.app/', imgUrl: '/project-img-2.png' },
-    { id: 3, label: 'App', title: 'Instello', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: 'https://mrahulrahi.vercel.app/', imgUrl: '/project-img-3.png' },
+    { id: 2, label: 'Business', title: 'Imagine Group', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: 'http://imaginegindia.com', imgUrl: '/project-img-2.png' },
+    { id: 3, label: 'App', title: 'Soul Sync', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: 'https://soulsyncapp.vercel.app', imgUrl: '/project-img-3.png' },
     { id: 4, label: 'Web Design', title: 'Weather App', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: '/tools/weather-app', imgUrl: '/project-img-4.png' },
     { id: 7, label: 'Web Design', title: 'Notes App', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: '/tools/notes-app', imgUrl: '/project-img-5.png' },
     { id: 8, label: 'Web Design', title: 'Quiz Game', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', url: '/tools/quiz-game', imgUrl: '/project-img-6.png' },
@@ -65,7 +65,7 @@ const Portfolio = () => {
         <Button title='Rahi Creations' style='default' url='#gallery' icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
 
-      <ContentContainer background='gold'>
+      <ContentContainer background='yellow'>
         <div className="itb-content-box bg-green" data-aos="fade-up">
           <Heading heading='My Project' />
 
