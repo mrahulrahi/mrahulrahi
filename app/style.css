@@ -1,6 +1,6 @@
 :root {
   --white: #fff;
-  --black: #000;
+  --black: #3A3A3A;
   --green: #1B9C85;
   --yellow: #F2E8B9;
   --violet: #26354e;
@@ -43,13 +43,13 @@ p:last-child{margin-bottom:0;}
 
 .btn {min-width: 160px;width: fit-content;border-radius: 80px;padding: 16px 20px;font-family: var(--font-outfit);font-size: 16px;font-weight: 700;line-height: 1;box-shadow: none;position: relative;justify-content: center;}
 .btn-default,.btn-default:focus { color: var(--violet);background-color: var(--white);border: solid 2px var(--white); }
-.btn-default:hover,.btn-default:active { color: var(--white)!important;background-color: var(--violet)!important;border-color: var(--white)!important;}
+.btn-default:hover,.btn-default:active { color: var(--white)!important;background-color: transparent!important;border-color: var(--white)!important;}
 .btn-violet,.btn-violet:focus { color: var(--white);background-color: var(--violet);border: solid 2px var(--violet); }
-.btn-violet:hover,.btn-violet:active { color: var(--violet)!important;background-color: var(--white)!important;border-color: var(--violet)!important;}
+.btn-violet:hover,.btn-violet:active { color: var(--violet)!important;background-color: transparent!important;border-color: var(--violet)!important;}
 .btn-green,.btn-green:focus { color: var(--white);background-color: var(--green);border: solid 2px var(--green); }
-.btn-green:hover,.btn-green:active { color: var(--green)!important;background-color: var(--white)!important;border-color: var(--green)!important;}
+.btn-green:hover,.btn-green:active { color: var(--green)!important;background-color: transparent!important;border-color: var(--green)!important;}
 .btn-yellow,.btn-yellow:focus { color: var(--green);background-color: var(--yellow);border: solid 2px var(--yellow); }
-.btn-yellow:hover,.btn-yellow:active { color: var(--yellow)!important;background-color: var(--green)!important;border-color: var(--yellow)!important;}
+.btn-yellow:hover,.btn-yellow:active { color: var(--yellow)!important;background-color: transparent!important;border-color: var(--yellow)!important;}
 
 .btn-icon{color: inherit;}
 
@@ -62,8 +62,6 @@ p:last-child{margin-bottom:0;}
 .bg-violet{background:var(--violet);color: var(--white);}
 .bg-green{background: var(--green);color: var(--white);}
 .bg-yellow{background: var(--yellow);color: var(--violet);}
-.bg-green{background:var(--green);color: var(--yellow);}
-.bg-yellow{background:var(--yellow);color: var(--green);}
 .grey-bg{background: #f5f5f5;}
 .glass-bg{background:rgba(237,237,237,0.3);box-shadow:0 4px 30px rgba(0,0,0,0.1);backdrop-filter:blur(5px);border:1px solid rgba(237,237,237,0.3);border-radius:16px;padding: 40px;}
 /* =================core css ends here================= */

@@ -7,12 +7,14 @@ import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
 
 const Header = () => {
-    const [isNavbarOpen, setIsNavbarOpen] = useState(false); // State to manage the navbar open/close
+    const [scrollClass, setScrollClass] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
     const navbarRef = useRef(null);
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
         const scrollThreshold = 10;
+
         if (scrollY > scrollThreshold) {
             document.body.classList.add('fixed');
         } else {
@@ -24,10 +26,26 @@ const Header = () => {
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
-            // Clean up the class when component unmounts
-            document.body.classList.remove('fixed');
         };
     }, []);
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.classList.add('open-menu', 'overflow-hidden');
+        } else {
+            document.body.classList.remove('open-menu', 'overflow-hidden');
+        }
+    }, [isOpen]);
+
+    const toggleNavbar = () => {
+        setIsOpen(!isOpen);
+    };
+
+    const handleLinkClick = () => {
+        if (isOpen) {
+            setIsOpen(false);
+        }
+    };
 
     const currentPath = usePathname();
     const links = [
@@ -36,22 +54,6 @@ const Header = () => {
         { path: '/portfolio', label: 'Portfolio' },
         { path: '#contact', label: 'Contact' },
     ];
-
-    const handleLinkClick = () => {
-        // Close the navbar when a link is clicked
-        setIsNavbarOpen(false);
-    };
-
-    const toggleNavbar = () => {
-        // Toggle the navbar open/close state
-        setIsNavbarOpen(!isNavbarOpen);
-        // Add or remove classes on body based on the navbar state
-        if (isNavbarOpen) {
-            document.body.classList.remove('open-menu', 'overflow-hidden');
-        } else {
-            document.body.classList.add('open-menu', 'overflow-hidden');
-        }
-    };
 
     return (
         <header id="header">
@@ -63,10 +65,10 @@ const Header = () => {
                         </Link>
                         <button
                             id="navbarToggle"
-                            className={`navbar-toggler ${isNavbarOpen ? '' : 'collapsed'}`}
+                            className={`navbar-toggler ${isOpen ? '' : 'collapsed'}`}
                             type="button"
                             aria-controls="collapsable-nav"
-                            aria-expanded={isNavbarOpen}
+                            aria-expanded={isOpen}
                             aria-label="Toggle navigation"
                             data-aos="fade-zoom-in"
                             data-aos-easing="ease-in-back"
@@ -75,7 +77,7 @@ const Header = () => {
                             <span className="navbar-toggler-icon"></span>
                         </button>
                         <div
-                            className={`collapse navbar-collapse justify-content-center ${isNavbarOpen ? 'show' : ''}`}
+                            className={`collapse navbar-collapse justify-content-center ${isOpen ? 'show' : ''}`}
                             id="collapsable-nav"
                             ref={navbarRef}
                         >

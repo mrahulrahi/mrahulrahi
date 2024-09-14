@@ -32,6 +32,5 @@
 ====================================================== */
 @media (max-width:575.98px){
     .inner-hero-text h1{font-size:52px;}
-    .inner-hero-btn-box .btn{min-width: 100%;}
     .inner-hero-btn-box .btn+.btn{margin-left:0;margin-top:20px;}
 }
