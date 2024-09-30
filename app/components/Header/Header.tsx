@@ -7,7 +7,6 @@ import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
 
 const Header = () => {
-    const [scrollClass, setScrollClass] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const navbarRef = useRef(null);
 
