@@ -13,21 +13,39 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import CountUp from 'react-countup';
+import { useEffect, useState } from 'react'; // Import useEffect and useState
 
 export default function Home() {
+  const [projects, setProjects] = useState([]); // State to hold projects
+  const [loading, setLoading] = useState(true); // State to manage loading state
+  const [error, setError] = useState(null); // State to manage error
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const response = await fetch('../api/projects'); // Adjust the API endpoint as needed
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setProjects(data); // Set the fetched data to state
+      } catch (error) {
+        setError(error); // Set error if fetch fails
+      } finally {
+        setLoading(false); // Set loading to false after fetch
+      }
+    };
+
+    fetchProjects(); // Call the fetch function
+  }, []); // Empty dependency array to run once on mount
+
+  if (loading) return <div>Loading...</div>; // Loading state
+  if (error) return <div>Error: {error.message}</div>; // Error state
+
   const videoCards = [
     { id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
     { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },
     { id: 3, title: 'Xiaomi Mi 10i | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/vNFb5rk77Pg' }]
-
-  const projectsCards = [
-    { id: 1, title: 'Imagine Group', imgUrl: '/project-img-2.png', gitHubUrl: 'https://github.com/mrahulrahi/ig-app', liveUrl: 'http://imaginegindia.com' },
-    { id: 2, title: 'Soul Sync', imgUrl: '/project-img-3.png', gitHubUrl: 'https://github.com/mrahulrahi/soulsync', liveUrl: 'https://soulsyncapp.vercel.app' },
-    { id: 3, title: 'Weather App', imgUrl: '/project-img-4.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/weather-app' },
-    { id: 4, title: 'Notes App', imgUrl: '/project-img-5.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/notes-app' },
-    { id: 5, title: 'Quiz Game', imgUrl: '/project-img-6.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/quiz-game' },
-    { id: 6, title: 'Calculator', imgUrl: '/project-img-7.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/calculator' }
-  ]
 
 
   return (
@@ -147,10 +165,15 @@ export default function Home() {
             onSwiper={(swiper) => console.log(swiper)}
             className="projects-card-list d-flex flex-wrap"
           >
-
-            {projectsCards.map(card => <SwiperSlide key={card.id} className="projects-card-item">
-              <ProjectCard card={card} />
-            </SwiperSlide>)}
+            {Array.isArray(projects) && projects.length > 0 ? (
+              projects.map((card: any) => (
+                <SwiperSlide key={card.id} className="projects-card-item">
+                  <ProjectCard card={card} />
+                </SwiperSlide>
+              ))
+            ) : (
+              <div>No projects available</div> // Fallback if no projects
+            )}
           </Swiper>
         </div>
       </ContentContainer>

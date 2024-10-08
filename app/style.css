@@ -144,7 +144,7 @@ p:last-child{margin-bottom:0;}
 .photo-card-image img{width: 100%;height: 100%;object-fit: cover;position: absolute;top: 0;left: 0;}
 .photo-card-image::before{content: '';position:absolute;top:0;left: 0;bottom: 0;right: 0;background-image: url(/icon-view.svg);background-position: center;background-repeat: no-repeat;background-size: cover;  background-size: 50px 50px; background-color:hsl(178,100%,50%,50%);width:100%;height: 100%;z-index:9;opacity:0;transition:opacity .3s ease-in-out}
 .photo-card-box:hover .photo-card-image::before{opacity:1;cursor:pointer}
-.photo-card-cta-list{margin-top: 20px;padding-top:20px;border-top:1px solid var(--line)}
+.photo-card-cta-list{margin-top: 20px;padding-top:20px;border-top:1px solid rgba(0,0,0,0.1);}
 .photo-card-text{margin-top: 20px;font-size:16px;font-weight:300}
 .photo-card-text h4{font-size:28px;font-weight:600;color:var(--white);margin-bottom: 0;}
 .photo-card-box:hover h4{color:var(--yellow);cursor:pointer}
