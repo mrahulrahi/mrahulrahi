@@ -12,16 +12,17 @@
 
 <p align="right"> <img src="https://komarev.com/ghpvc/?username=mrahulrahi&theme=dark&label=Profile%20views&color=0e75b6&style=flat" alt="mrahulrahi" /> </p>
 
+```bash
 - 🔭 I’m currently pursuing **BCA**
   
-- 👨‍💼 I’m currently working as **Frontend Developer**
+- 👨‍💼 I’m currently working as **Frontend Developer** with 2 years of experience.
   
 - 🌱 I’m currently learning **Full Stack Development, MERN**
   
 - 👨‍💻 All of my projects are available at [Github - mrahulrahi](https://mrahulrahi.github.io/mrahulrahi)
   
 - 📫 How to reach me [Telegram](https://t.me/mrahulrahi)
-  
+```
 <hr>
 
 ## 🌐 Socials:
@@ -70,22 +71,4 @@
 
 
 
-
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+  
