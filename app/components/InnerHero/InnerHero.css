@@ -4,7 +4,7 @@
 .inner-hero-bg{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;background-repeat:no-repeat;background-position:center;background-size:cover;background-attachment: fixed;z-index:1;}
 .inner-hero-text{margin-top: 80px}
 .inner-hero-text h1{font-size:80px;font-weight:600;line-height:1;color:var(--white);margin-bottom:40px;}
-.inner-hero-text span{color: var(--green);}
+.inner-hero-text span{color: transparent;background: var(--gradient-1);background-clip: text;}
 .inner-hero-btn-box{margin-top: 40px;}
 
 /* ========================================== 

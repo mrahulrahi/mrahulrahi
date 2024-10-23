@@ -17,7 +17,7 @@
 .hr-content h1{font-size:60px;font-weight:600;line-height:1;color:var(--white);margin-bottom:24px;}
 .hr-content h3{color: var(--white);font-size:32px;}
 .hr-content h4{color:var(--white);letter-spacing:2px;font-size:32px;margin-bottom:24px}
-.hr-content span{color: var(--green);}
+.hr-content span{color: transparent;background: var(--gradient-1);background-clip: text;}
 .hr-content {font-size: 18px;line-height: 1.5;position: relative;}
 
 /* ================= Hero-End  ================= */

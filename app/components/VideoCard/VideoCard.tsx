@@ -12,10 +12,10 @@ interface Item {
 const VideoCard = ({ item }: Props) => {
   return (
     <>
-      <div className="video-card-box bg-yellow">
+      <div className="video-card-box">
         <div className="video-card-iframe">
           <iframe width="560" height="315" src={item.url}
-            title="YouTube video player" frameBorder="0"
+            title="YouTube video player" frameBorder={0}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowFullScreen></iframe>
         </div>

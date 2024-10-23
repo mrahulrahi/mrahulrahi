@@ -19,7 +19,7 @@ const ProjectCard = ({ card }: Props) => {
 
     return (
 
-        <div className="projects-card-box bg-yellow w-100 h-100">
+        <div className="projects-card-box w-100 h-100">
             <div className="projects-card-img">
                 <img src={card.imgUrl} alt="" />
             </div>
