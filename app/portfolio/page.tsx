@@ -2,7 +2,7 @@ import Banner from '../components/Banner/Banner'
 import InnerHero from '../components/InnerHero/InnerHero'
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import Button from '../components/Button';
-import Heading from '../components/Heading/Heading';
+import Heading from '../components/Heading';
 import ContentContainer from '../components/ContentContainer';
 import VideoCard from '../components/VideoCard/VideoCard';
 import PhotoCard from '../components/PhotoCard/PhotoCard';
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 const HeroHeading = () => {
   return (<>
-    My <span>Portfolio</span>
+    My <span className="bg-clip-text bg-gradient-1">Portfolio</span>
   </>)
 }
 
@@ -65,8 +65,8 @@ const Portfolio = () => {
         <Button title='Rahi Creations' style='default' url='#gallery' icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
 
-      <ContentContainer background='yellow'>
-        <div className="itb-content-box bg-green" data-aos="fade-up">
+      <ContentContainer background='gradient-2'>
+        <div className="itb-content-box bg-gradient-1" data-aos="fade-up">
           <Heading heading='My Project' />
 
           <div className="work-list d-flex flex-wrap">
@@ -80,11 +80,11 @@ const Portfolio = () => {
       </ContentContainer>
 
       <Banner logo='./rc-logo.png' bgImage='./banner-bg.jpg'>
-        <span>RAHI</span>CREATIONS
+        <span className='bg-clip-text bg-gradient-1'>RAHI</span>CREATIONS
       </Banner>
 
 
-      <ContentContainer background='violet' id='gallery'>
+      <ContentContainer background='dark' id='gallery'>
         <Heading heading='Gallery' />
 
         <div className="gallery" data-aos="fade-up">
@@ -97,10 +97,10 @@ const Portfolio = () => {
       </ContentContainer >
 
       <Banner bgImage='./banner-bg.jpg'>
-        WHERE <span>IMAGINATION</span><br />MEETS <span>CREATIVITY</span>
+        WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span><br />MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span>
       </Banner>
 
-      <ContentContainer background='green' id='video'>
+      <ContentContainer background='gradient-2' id='video'>
         <div className="row">
           <div className="col-md-5 col-xl-4">
             <div className="sticky-sidebar-box w-100 d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
@@ -111,16 +111,13 @@ const Portfolio = () => {
                 <span style={{ color: '#FAB205' }}>FIRE</span>LIQUIDATOR
               </div>
               <div className="video-btn" data-aos="fade-up">
-                <a href="https://www.youtube.com/@fireliquidator" className="btn btn-default white">Open Youtube
-                </a>
+                <Button title='Open Youtube' style='default' url='https://www.youtube.com/@fireliquidator' />
               </div>
             </div>
           </div>
           <div className="col-md-7 col-xl-8">
             <div className="sticky-content-box d-flex flex-column" data-aos="fade-up">
-              <div className="heading d-flex">
-                <h3>Videos</h3>
-              </div>
+              <Heading heading='Videos' />
 
               <div className="video-card-list" data-aos="fade-up">
                 {videoCards.map(card => <div key={card.id} className="video-card-item" data-aos="fade-up">

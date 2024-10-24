@@ -90,7 +90,7 @@ const Header = () => {
                                         </li>
                                     ))}
                                     <div className="nav-item header-btn mx-auto d-xl-none">
-                                        <Button title="Hire Me" style='green' />
+                                        <Button title="Hire Me" style='gradient' />
                                     </div>
                                 </ul>
                                 <div className="navbar-bottom mt-auto d-xl-none">
@@ -112,7 +112,7 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="header-btn d-none d-xl-block" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
-                            <Button title="Hire Me" style='green' />
+                            <Button title="Hire Me" style='gradient' />
                         </div>
                     </div>
                 </div>

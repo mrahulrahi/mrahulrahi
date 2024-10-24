@@ -2,11 +2,11 @@
 import Hero from "./components/Hero/Hero";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
 import ContentContainer from "./components/ContentContainer";
-import Heading from "./components/Heading/Heading";
+import Heading from "./components/Heading";
 import VideoCard from "./components/VideoCard/VideoCard";
 import Button from "./components/Button";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import { FaUserGraduate, FaBriefcase, FaLayerGroup, FaUsers, FaClock } from "react-icons/fa6";
+import { FaUserGraduate, FaBriefcase, FaLayerGroup, FaUsers, FaClock, FaArrowRight } from "react-icons/fa6";
 import { RiCameraLensLine } from "react-icons/ri";
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -37,8 +37,8 @@ export default function Home() {
         <Button title='About me' style='default' url='/about' icon={<IoIosArrowDroprightCircle />} />
       </Hero>
 
-      <ContentContainer background="violet" column="col-xl-10 mx-auto">
-        <div className="stats-content-box bg-green" data-aos="fade-up">
+      <ContentContainer background="dark" column="col-xl-10 mx-auto">
+        <div className="stats-content-box bg-gradient-1" data-aos="fade-up">
           <ul className="stats-list d-flex flex-wrap">
             <li className="stats-item">
               <div className="stats-title text-center">
@@ -110,16 +110,16 @@ export default function Home() {
         </div>
       </ContentContainer>
 
-      <ContentContainer className="projects-card-container" background="green" >
+      <ContentContainer className="projects-card-container" background="gradient-1" >
         <Heading heading="Projects">
-          <div className="projects-list-arrow-container d-flex justify-content-between">
+          <div className="custom-arrow-container d-flex justify-content-between">
             <button
-              className="projects-arrow-prev swiper-arrow-prev arrow-button-box d-flex align-items-center justify-content-center rounded-circle">
-              <img src="chevron-arrow-icon.svg" alt="chevron arrow right" />
+              className="custom-arrow-button custom-arrow-prev projects-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
+              <FaArrowRight />
             </button>
             <button
-              className="projects-arrow-next swiper-arrow-next arrow-button-box d-flex align-items-center justify-content-center rounded-circle">
-              <img src="chevron-arrow-icon.svg" alt="chevron arrow right" />
+              className="custom-arrow-button custom-arrow-next projects-arrow-next bg-glass d-flex align-items-center justify-content-center rounded-circle">
+              <FaArrowRight />
             </button>
           </div>
         </Heading>
@@ -155,7 +155,7 @@ export default function Home() {
         </div>
       </ContentContainer>
 
-      <ContentContainer className="home-video-card-container" background="violet">
+      <ContentContainer className="home-video-card-container" background="dark">
         <div className="skill-card-card-content-box d-flex flex-column h-100">
           <Heading heading="Videos">
             <Button title='View All' style='default' url="/portfolio" />
@@ -170,7 +170,7 @@ export default function Home() {
 
       </ContentContainer>
 
-      <ContentContainer background="green">
+      <ContentContainer background="gradient-1">
         <Heading heading="Photos">
           <Button title='View All' style='default' url="/portfolio" />
         </Heading>

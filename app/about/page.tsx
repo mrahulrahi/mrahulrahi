@@ -8,7 +8,7 @@ import InnerHero from '../components/InnerHero/InnerHero';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import Button from '../components/Button';
 import ContentContainer from '../components/ContentContainer';
-import Heading from '../components/Heading/Heading';
+import Heading from '../components/Heading';
 import CertificateCard from '../components/CertificateCard/CertificateCard';
 import SkillCard from '../components/SkillCard/SkillCard';
 import { Metadata } from 'next';
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const HeroHeading = () => {
   return (<>
-    About <span>me</span>
+    About <span className="bg-clip-text bg-gradient-1">me</span>
   </>)
 }
 
@@ -66,30 +66,30 @@ const About = () => {
         <Button title="Featured Work" style="default" url="/portfolio" icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
 
-      <ContentContainer className="image-text-block-container" background="yellow">
-        <div className="itb-content-box d-flex flex-wrap bg-violet overflow-hidden" data-aos="fade-up">
+      <ContentContainer className="image-text-block-container" background="gradient-2">
+        <div className="itb-content-box d-flex flex-wrap bg-dark overflow-hidden" data-aos="fade-up">
           <div className="itb-img-box d-flex align-items-center justify-content-center" data-aos="fade-right">
             <div className="itb-img">
               <Image src="/hero-img-1.jpg" alt="" width={1000} height={1000} />
             </div>
           </div>
           <div className="itb-text" data-aos="fade-left">
-            <h4><span>Hello,</span> I'm</h4>
-            <h2>Rahul <span>Maurya</span></h2>
-            <h5>Web <span>Developer</span></h5>
+            <h4><span className="bg-clip-text bg-gradient-1">Hello,</span> I'm</h4>
+            <h2>Rahul Maurya</h2>
+            <h5>Web Developer</h5>
             <p>I am a front-end web developer whose life's passion is Technology and I also love to
               click photographs. I can provide clean code and pixel perfect design. I also make the
               website responsive & more interactive with web animations. I try to make videos that are
               to-the-point and as content-packed as possible, so if that sounds like your cup of tea,
               a sub would be massively appreciated! 🙏</p>
-            <p>Stack - MERN Stack</p>
+            <p>Stack - <span className="text-accent fw-bold">MERN</span> Stack</p>
 
-            <Button title="Download Resume" style="green" url="https://flowcv.com/resume/29mh2gwpwu" icon={<IoIosArrowDropdownCircle />} />
+            <Button title="Download Resume" style="gradient" url="https://flowcv.com/resume/29mh2gwpwu" icon={<IoIosArrowDropdownCircle />} />
 
           </div>
         </div>
 
-        <div className="itb-skill-box d-flex flex-column bg-violet" data-aos="fade-up">
+        <div className="itb-skill-box d-flex flex-column bg-dark" data-aos="fade-up">
           <Heading heading="Skills" />
 
           <div className="skill-card-list d-flex flex-wrap" data-aos="fade-up">
@@ -100,7 +100,7 @@ const About = () => {
         </div>
       </ContentContainer>
 
-      <ContentContainer background="violet">
+      <ContentContainer background="dark">
         <div className="row" data-aos="fade-up">
           <div className="col-md-6">
             <div className="sticky-sidebar-box" data-aos="fade-up">
@@ -132,7 +132,7 @@ const About = () => {
       </ContentContainer>
 
 
-      <ContentContainer background="green">
+      <ContentContainer background="gradient-1">
         <Heading heading="Certificates" />
         <div className="card-list d-flex flex-wrap" data-aos="fade-up">
           {certificates.map(item => <div key={item.id} className="card-item">

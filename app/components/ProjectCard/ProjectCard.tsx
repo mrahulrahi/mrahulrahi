@@ -29,25 +29,25 @@ const ProjectCard = ({ card }: Props) => {
                     className="projects-card-text d-flex justify-content-between align-items-center">
                     <h4>{card.title}</h4>
                     <div className="d-flex">
-                        <a className="icon-link-btn d-flex align-items-center justify-content-center"
+                        <a className="icon-link-btn d-flex align-items-center justify-content-center rounded-circle"
                             href={card.liveUrl}><FaGlobe /></a>
-                        <a className="icon-link-btn d-flex align-items-center justify-content-center"
+                        <a className="icon-link-btn d-flex align-items-center justify-content-center rounded-circle"
                             href={card.gitHubUrl}><FaGithub /></a>
                     </div>
                 </div>
                 <div className="tools d-flex justify-content-between align-items-center">
                     <h5>Tools used</h5>
                     <div className="badge-list d-flex">
-                        <div className="badge-item">
+                        <div className="badge-item text-accent">
                             <RiHtml5Fill />
                         </div>
-                        <div className="badge-item">
+                        <div className="badge-item text-accent">
                             <FaCss3Alt />
                         </div>
-                        <div className="badge-item">
+                        <div className="badge-item text-accent">
                             <RiJavascriptFill />
                         </div>
-                        <div className="badge-item">
+                        <div className="badge-item text-accent">
                             <RiBootstrapFill />
                         </div>
                     </div>

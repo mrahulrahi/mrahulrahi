@@ -8,7 +8,7 @@ interface Props {
 
 const Hero = ({ children, bgImage }: Props) => {
   return (
-    <section className="hero-container d-flex flex-wrap align-items-center position-relative bg-violet overflow-hidden">
+    <section className="hero-container d-flex flex-wrap align-items-center position-relative bg-dark overflow-hidden">
       <div className="hero-bg" style={{ backgroundImage: `url(${bgImage})` }}></div>
       <div className="container">
         <div className="row">
@@ -30,9 +30,9 @@ const Hero = ({ children, bgImage }: Props) => {
 
               <div className="hero-right d-flex align-items-center justify-content-center" data-aos="fade-left">
                 <div className="hr-content">
-                  <h4><span>Hey!</span> ✌️ I'm</h4>
-                  <h1>Rahul <span>Maurya</span></h1>
-                  <h3><span>Front-end Developer</span> From India ❣️</h3>
+                  <h4><span className="bg-clip-text bg-gradient-1">Hey!</span> ✌️ I'm</h4>
+                  <h1>Rahul <span className="bg-clip-text bg-gradient-1">Maurya</span></h1>
+                  <h3><span className="bg-clip-text bg-gradient-1">Front-end Developer</span> From India ❣️</h3>
                   <div className="hero-btn-box mt-4">
                     {children}
                   </div>
