@@ -43,20 +43,20 @@ const About = () => {
   ]
 
   const timelineItems = [
-    { title: 'Diploma', role: 'AIMT', duration: 'July 2017 - Nov 2020' },
-    { title: 'Fireliquidtaor', role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' },
-    { title: 'BCA', role: 'IGNOU', duration: 'July 2021 - Jun 2024' },
-    { title: 'CodeClause', role: 'Web Dev Intern', duration: 'Nov 2022' },
-    { title: 'Imagine Group', role: 'Freelancer', duration: 'Dec 2022 - Jun 2023' },
-    { title: 'SlicemyPage', role: 'Front End Developer', duration: 'Jun 2023 - Now' },
+    { id: 1, title: 'Diploma', role: 'AIMT', duration: 'July 2017 - Nov 2020' },
+    { id: 2, title: 'Fireliquidtaor', role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' },
+    { id: 3, title: 'BCA', role: 'IGNOU', duration: 'July 2021 - Jun 2024' },
+    { id: 4, title: 'CodeClause', role: 'Web Dev Intern', duration: 'Nov 2022' },
+    { id: 5, title: 'Imagine Group', role: 'Freelancer', duration: 'Dec 2022 - Jun 2023' },
+    { id: 6, title: 'SlicemyPage', role: 'Front End Developer', duration: 'Jun 2023 - Now' },
   ]
 
   const certificates = [
     { id: 1, url: 'https://www.udemy.com/certificate/UC-4e377dc1-f535-4589-b877-ba5257976fa9/', title: 'Web Development Bootcamp', organization: 'Udemy' },
-    { id: 1, url: 'https://profiles.topcoder.com/mrahulrahi', title: 'Full stack Development', organization: 'Topcoder' },
-    { id: 1, url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Nordics/PxenP4rHNE6Bh4nQz_Accenture%20Nordics_f635M87hfdNWoDbzC_1666336729816_completion_certificate.pdf', title: 'Dev Virtual Exp Program', organization: 'Forage' },
-    { id: 1, url: 'https://codedamn.com/user/mrahulrahi', title: 'Codedamn Certificates', organization: 'Codedamn' },
-    { id: 1, url: 'https://www.hackerrank.com/certificates/62ee41b69fc2', title: 'SQL (Basic)', organization: 'Hacker Rank' },
+    { id: 2, url: 'https://profiles.topcoder.com/mrahulrahi', title: 'Full stack Development', organization: 'Topcoder' },
+    { id: 3, url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Nordics/PxenP4rHNE6Bh4nQz_Accenture%20Nordics_f635M87hfdNWoDbzC_1666336729816_completion_certificate.pdf', title: 'Dev Virtual Exp Program', organization: 'Forage' },
+    { id: 4, url: 'https://codedamn.com/user/mrahulrahi', title: 'Codedamn Certificates', organization: 'Codedamn' },
+    { id: 5, url: 'https://www.hackerrank.com/certificates/62ee41b69fc2', title: 'SQL (Basic)', organization: 'Hacker Rank' },
   ]
 
   return (
@@ -116,7 +116,7 @@ const About = () => {
                 <div className="timeline-container" data-aos="fade-up">
                   <div className="timeline" data-aos="fade-up">
                     {timelineItems.map(item =>
-                      <div className="timeline-item" data-aos="fade-up">
+                      <div key={item.id} className="timeline-item" data-aos="fade-up">
                         <div className="timeline-content">
                           <h3 className="timeline-content-title">{item.title}</h3>
                           <p className="timeline-content-desc"><span>{item.role}</span>{item.duration}</p>

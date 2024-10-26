@@ -200,7 +200,7 @@ const NotesApp: React.FC = () => {
                                 </header>
                                 <form>
                                     <div className="title mb-4">
-                                        <label>Title</label>
+                                        <label className="mb-1">Title</label>
                                         <input
                                             type="text"
                                             placeholder="Title"
@@ -209,16 +209,16 @@ const NotesApp: React.FC = () => {
                                         />
                                     </div>
                                     {view === 'todos' && (
-                                        <div className="tasks">
-                                            <label>Tasks</label>
+                                        <div className="tasks mb-4">
+                                            <label className="mb-1">Tasks</label>
                                             <input
                                                 type="text"
                                                 placeholder="Task Title"
                                                 value={taskTitle}
                                                 onChange={(e) => setTaskTitle(e.target.value)}
-                                                className="mb-4"
+                                                className=""
                                             />
-                                            <button type="button" onClick={addTask}>Add Task</button>
+                                            <button type="button" className="mt-4" onClick={addTask}>Add Task</button>
                                             <ul className="task-list my-4">
                                                 {tasks.map(task => (
                                                     <li key={task.id} className="d-flex mb-2 align-items-center justify-content-between">
@@ -237,8 +237,8 @@ const NotesApp: React.FC = () => {
                                             </ul>
                                         </div>
                                     )}
-                                    <div className="row description">
-                                        <label>Description</label>
+                                    <div className="description mb-4">
+                                        <label className="mb-1">Description</label>
                                         <textarea
                                             placeholder="Description"
                                             value={description}
