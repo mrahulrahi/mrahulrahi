@@ -10,12 +10,12 @@ const Loading = () => {
           <svg className="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="grad1" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#1B9C85" />
-                <stop offset="100%" stop-color="#11D486" />
+                <stop offset="0%" stopColor="#1B9C85" />
+                <stop offset="100%" stopColor="#11D486" />
               </linearGradient>
               <linearGradient id="grad2" x1="1" y1="0" x2="0" y2="0">
-                <stop offset="0%" stop-color="#11D486" />
-                <stop offset="100%" stop-color="#1B9C85" />
+                <stop offset="0%" stopColor="#11D486" />
+                <stop offset="100%" stopColor="#1B9C85" />
               </linearGradient>
             </defs>
             <g fill="none" strokeLinecap="round" strokeWidth="16">
