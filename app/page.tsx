@@ -29,7 +29,6 @@ export default function Home() {
     { id: 6, title: 'Calculator', imgUrl: '/project-img-7.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/calculator' }
   ]
 
-
   return (
     <main >
 
@@ -51,7 +50,7 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaUserGraduate /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                    <CountUp start={0} end={1.5} duration={4} decimal="1" suffix=" +" enableScrollSpy />
+                          <CountUp start={0} end={1.5} duration={4} decimal="1" suffix=" +" enableScrollSpy />
                   </div>
                   <div className="stats-description">Years of experience</div>
                 </div>
