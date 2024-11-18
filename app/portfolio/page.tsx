@@ -68,12 +68,12 @@ const Portfolio = () => {
       </InnerHero>
 
       <ContentContainer background='gradient-2'>
-        <div className="itb-content-box bg-gradient-1" data-aos="fade-up">
+        <div className="itb-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
           <Heading heading='My Project' />
 
           <div className="work-list d-flex flex-wrap">
             {WorkCards.map(card =>
-              <div key={card.id} className="work-item" data-aos="fade-up">
+              <div key={card.id} className="work-item" data-aos="fade-up" suppressHydrationWarning>
                 <WorkCard card={card} />
               </div>
             )}
@@ -89,7 +89,7 @@ const Portfolio = () => {
       <ContentContainer background='dark' id='gallery'>
         <Heading heading='Gallery' />
 
-        <div className="gallery" data-aos="fade-up">
+        <div className="gallery" data-aos="fade-up" suppressHydrationWarning>
           {imageLinks.map(item =>
             <div key={item.id}>
               <PhotoCard item={item} />
@@ -105,24 +105,24 @@ const Portfolio = () => {
       <ContentContainer background='gradient-2' id='video'>
         <div className="row">
           <div className="col-md-5 col-xl-4">
-            <div className="sticky-sidebar-box w-100 d-flex flex-column align-items-center justify-content-center" data-aos="fade-up">
-              <div className="video-logo" data-aos="fade-up">
+            <div className="sticky-sidebar-box w-100 d-flex flex-column align-items-center justify-content-center" data-aos="fade-up" suppressHydrationWarning>
+              <div className="video-logo" data-aos="fade-up" suppressHydrationWarning>
                 <img src="/fl-logo.png" className="img-fluid" />
               </div>
-              <div className="video-title mt-5" data-aos="fade-up">
+              <div className="video-title mt-5" data-aos="fade-up" suppressHydrationWarning>
                 <span style={{ color: '#FAB205' }}>FIRE</span>LIQUIDATOR
               </div>
-              <div className="video-btn" data-aos="fade-up">
+              <div className="video-btn" data-aos="fade-up" suppressHydrationWarning>
                 <Button title='Open Youtube' style='default' url='https://www.youtube.com/@fireliquidator' />
               </div>
             </div>
           </div>
           <div className="col-md-7 col-xl-8">
-            <div className="sticky-content-box d-flex flex-column" data-aos="fade-up">
+            <div className="sticky-content-box d-flex flex-column" data-aos="fade-up" suppressHydrationWarning>
               <Heading heading='Videos' />
 
-              <div className="video-card-list" data-aos="fade-up">
-                {videoCards.map(card => <div key={card.id} className="video-card-item" data-aos="fade-up">
+              <div className="video-card-list" data-aos="fade-up" suppressHydrationWarning>
+                {videoCards.map(card => <div key={card.id} className="video-card-item" data-aos="fade-up" suppressHydrationWarning>
                   <VideoCard item={card} />
                 </div>)}
               </div>

@@ -37,7 +37,7 @@ export default function Home() {
       </Hero>
 
       <ContentContainer background="dark" column="col-xl-10 mx-auto">
-        <div className="stats-content-box bg-gradient-1" data-aos="fade-up">
+        <div className="stats-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
           <ul className="stats-list d-flex flex-wrap">
             <li className="stats-item">
               <div className="stats-title text-center">
@@ -123,7 +123,7 @@ export default function Home() {
           </div>
         </Heading>
 
-        <div className="projects-card-list-outer" data-aos="fade-up">
+        <div className="projects-card-list-outer" data-aos="fade-up" suppressHydrationWarning>
           <Swiper
             autoplay={{
               delay: 3000,
@@ -174,7 +174,7 @@ export default function Home() {
           <Button title='View All' style='default' url="/portfolio" />
         </Heading>
 
-        <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up">
+        <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           <div className="photo-card-item">
             <div className="photo-card-box d-flex flex-column">
               <div className="photo-card-image">

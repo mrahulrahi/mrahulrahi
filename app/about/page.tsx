@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
@@ -67,13 +66,13 @@ const About = () => {
       </InnerHero>
 
       <ContentContainer className="image-text-block-container" background="gradient-2">
-        <div className="itb-content-box d-flex flex-wrap bg-dark overflow-hidden" data-aos="fade-up">
-          <div className="itb-img-box d-flex align-items-center justify-content-center" data-aos="fade-right">
+        <div className="itb-content-box d-flex flex-wrap bg-dark overflow-hidden" data-aos="fade-up" suppressHydrationWarning>
+          <div className="itb-img-box d-flex align-items-center justify-content-center" data-aos="fade-right" suppressHydrationWarning>
             <div className="itb-img">
               <Image src="/hero-img-1.jpg" alt="" width={1000} height={1000} />
             </div>
           </div>
-          <div className="itb-text" data-aos="fade-left">
+          <div className="itb-text" data-aos="fade-left" suppressHydrationWarning>
             <h4><span className="bg-clip-text bg-gradient-1">Hello,</span> I'm</h4>
             <h2>Rahul Maurya</h2>
             <h5>Web Developer</h5>
@@ -89,10 +88,10 @@ const About = () => {
           </div>
         </div>
 
-        <div className="itb-skill-box d-flex flex-column bg-dark" data-aos="fade-up">
+        <div className="itb-skill-box d-flex flex-column bg-dark" data-aos="fade-up" suppressHydrationWarning>
           <Heading heading="Skills" />
 
-          <div className="skill-card-list d-flex flex-wrap" data-aos="fade-up">
+          <div className="skill-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
             {skills.map(skill => <div key={skill.id} className="skill-card-item flex-grow-1">
               <SkillCard skill={skill} />
             </div>)}
@@ -101,22 +100,22 @@ const About = () => {
       </ContentContainer>
 
       <ContentContainer background="dark">
-        <div className="row" data-aos="fade-up">
+        <div className="row" data-aos="fade-up" suppressHydrationWarning>
           <div className="col-md-6">
-            <div className="sticky-sidebar-box" data-aos="fade-up">
-              <div className="timeline-img-box d-flex align-items-center justify-content-center" data-aos="fade-up"><img src="/rahi.webp" alt="" /></div>
+            <div className="sticky-sidebar-box" data-aos="fade-up" suppressHydrationWarning>
+              <div className="timeline-img-box d-flex align-items-center justify-content-center" data-aos="fade-up" suppressHydrationWarning><img src="/rahi.webp" alt="" /></div>
             </div>
           </div>
 
           <div className="col-md-6">
-            <div className="sticky-content-box" data-aos="fade-up">
+            <div className="sticky-content-box" data-aos="fade-up" suppressHydrationWarning>
               <div className="main-container d-flex flex-wrap">
                 <Heading heading="What I do" />
 
-                <div className="timeline-container" data-aos="fade-up">
-                  <div className="timeline" data-aos="fade-up">
+                <div className="timeline-container" data-aos="fade-up" suppressHydrationWarning>
+                  <div className="timeline" data-aos="fade-up" suppressHydrationWarning>
                     {timelineItems.map(item =>
-                      <div key={item.id} className="timeline-item" data-aos="fade-up">
+                      <div key={item.id} className="timeline-item" data-aos="fade-up" suppressHydrationWarning>
                         <div className="timeline-content">
                           <h3 className="timeline-content-title">{item.title}</h3>
                           <p className="timeline-content-desc"><span>{item.role}</span>{item.duration}</p>
@@ -134,7 +133,7 @@ const About = () => {
 
       <ContentContainer background="gradient-1">
         <Heading heading="Certificates" />
-        <div className="card-list d-flex flex-wrap" data-aos="fade-up">
+        <div className="card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           {certificates.map(item => <div key={item.id} className="card-item">
             <CertificateCard item={item} />
           </div>)}

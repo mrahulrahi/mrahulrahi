@@ -13,7 +13,7 @@ const PhotoCard = ({item} : Props) => {
     return (
         <>
             <a href={item.url} data-lightbox="gallery-img" data-title="caption">
-                <div className="gallery-link" data-aos="fade-up">
+                <div className="gallery-link" data-aos="fade-up" suppressHydrationWarning>
                     <figure className="gallery-thumb">
                         <img src={item.url} alt={item.title} className="gallery-image" />
                         <figcaption className="gallery-caption">{item.title}</figcaption>

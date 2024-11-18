@@ -36,18 +36,18 @@ const Footer = () => {
             <div className="col-lg-12">
               <div
                 className="footer-lower-box d-flex flex-wrap-reverse align-items-center justify-content-sm-between">
-                <div className="copyright">2023 mrahulrahi &copy; All rights reserved</div>
+                <div className="copyright">2024 mrahulrahi &copy; All rights reserved</div>
                 <div className="made-by">Made with ❤️ by mrahulrahi.</div>
                 <div className="social-links d-flex align-items-center justify-content-center">
-                    <Link className="d-flex align-items-center justify-content-center"
-                      href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></Link>
-                    <Link className="d-flex align-items-center justify-content-center"
-                      href="https://github.com/mrahulrahi/"><FaGithub /></Link>
-                    <Link className="d-flex align-items-center justify-content-center"
-                      href="https://www.youtube.com/@fireliquidator"><FaYoutube /></Link>
-                    <Link className="d-flex align-items-center justify-content-center"
-                      href="https://t.me/mrahulrahi"><FaTelegram /></Link>
-                  </div>
+                  <Link className="d-flex align-items-center justify-content-center"
+                    href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></Link>
+                  <Link className="d-flex align-items-center justify-content-center"
+                    href="https://github.com/mrahulrahi/"><FaGithub /></Link>
+                  <Link className="d-flex align-items-center justify-content-center"
+                    href="https://www.youtube.com/@fireliquidator"><FaYoutube /></Link>
+                  <Link className="d-flex align-items-center justify-content-center"
+                    href="https://t.me/mrahulrahi"><FaTelegram /></Link>
+                </div>
               </div>
             </div>
           </div>

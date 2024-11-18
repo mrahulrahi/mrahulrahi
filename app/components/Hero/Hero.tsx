@@ -14,7 +14,7 @@ const Hero = ({ children, bgImage }: Props) => {
         <div className="row">
           <div className="col-md-12">
             <div className="hero-content d-flex flex-wrap align-items-center justify-content-between">
-              <div className="hero-left" data-aos="fade-right">
+              <div className="hero-left" data-aos="fade-right" suppressHydrationWarning>
                 <div className="hl-content d-flex align-items-center justify-content-center">
                   <div className="hero-img-box d-flex align-items-center justify-content-center position-relative">
                     <div className="hero-img"> <img src="/hero-img-1.jpg" alt="" /> </div>
@@ -28,7 +28,7 @@ const Hero = ({ children, bgImage }: Props) => {
                 </div>
               </div>
 
-              <div className="hero-right d-flex align-items-center justify-content-center" data-aos="fade-left">
+              <div className="hero-right d-flex align-items-center justify-content-center" data-aos="fade-left" suppressHydrationWarning>
                 <div className="hr-content">
                   <h4><span className="bg-clip-text bg-gradient-1">Hey!</span> ✌️ I'm</h4>
                   <h1>Rahul <span className="bg-clip-text bg-gradient-1">Maurya</span></h1>

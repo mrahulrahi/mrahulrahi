@@ -14,7 +14,7 @@ const Banner = ({ children, logo, bgImage }: Props) => {
       <div className="container">
         <div className="row">
           <div className="col-md-10 mx-auto">
-            <div className="banner-text" data-aos="fade-up">
+            <div className="banner-text" data-aos="fade-up" suppressHydrationWarning>
               <h1>{children}</h1>
             </div>
           </div>

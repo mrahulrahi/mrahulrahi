@@ -10,7 +10,7 @@ const Contact = () => {
             <Heading heading="Contact Me">
                 <Button title="Hire Me" style="default" />
             </Heading>
-            <div className="d-flex flex-wrap justify-content-between" data-aos="fade-up">
+            <div className="d-flex flex-wrap justify-content-between" data-aos="fade-up" suppressHydrationWarning>
                 <div className="contact-box">
                     <h4 className="bg-clip-text bg-gradient-1">Get in Touch</h4>
                     <p>Let me get you a beautiful website.</p>

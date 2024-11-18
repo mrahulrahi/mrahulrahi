@@ -84,6 +84,7 @@ p:last-child{margin-bottom:0;}
 
 .bg-dark .heading-underline::after{background: var(--mrr-gradient-1);}
 .bg-gradient-2 .heading-underline::after{background: var(--mrr-gradient-1);}
+.bg-gradient-1 .heading-underline::after{background: var(--mrr-dark-color);}
 
 .custom-arrow-container .custom-arrow-prev{transform:rotate(180deg);}
 .custom-arrow-container .custom-arrow-next{margin-left: 20px;}

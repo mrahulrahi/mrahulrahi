@@ -54,12 +54,19 @@ const Header = () => {
         { path: '#contact', label: 'Contact' },
     ];
 
+    const socialLinks = [
+        { path: 'https://linkedin.com/in/mrahulrahi/', icon: <FaLinkedinIn /> },
+        { path: 'https://github.com/mrahulrahi/', icon: <FaGithub /> },
+        { path: 'https://www.youtube.com/@fireliquidator', icon: <FaYoutube /> },
+        { path: 'https://t.me/mrahulrahi', icon: <FaTelegram /> },
+    ];
+
     return (
         <header id="header">
             <nav className="navbar navbar-expand-xl">
                 <div className="container">
                     <div className="nav-inside d-flex align-items-center justify-content-between">
-                        <Link className="navbar-logo" href="/" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
+                        <Link className="navbar-logo" href="/" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
                             <img src="/logo.svg" alt="Logo" />
                         </Link>
                         <button
@@ -72,6 +79,7 @@ const Header = () => {
                             data-aos="fade-zoom-in"
                             data-aos-easing="ease-in-back"
                             onClick={toggleNavbar}
+                            suppressHydrationWarning
                         >
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -81,7 +89,7 @@ const Header = () => {
                             ref={navbarRef}
                         >
                             <div className="navbar-inside">
-                                <ul className="navbar-nav" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
+                                <ul className="navbar-nav" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
                                     {links.map(link => (
                                         <li key={link.path} className={`${link.path === currentPath ? 'active' : ''} nav-item`}>
                                             <Link className="nav-link" href={link.path} onClick={handleLinkClick}>
@@ -95,23 +103,16 @@ const Header = () => {
                                 </ul>
                                 <div className="navbar-bottom mt-auto d-xl-none">
                                     <div className="social-links d-flex align-items-center justify-content-center">
-                                        <Link className="d-flex align-items-center justify-content-center" href="https://linkedin.com/in/mrahulrahi/">
-                                            <FaLinkedinIn />
-                                        </Link>
-                                        <Link className="d-flex align-items-center justify-content-center" href="https://github.com/mrahulrahi/">
-                                            <FaGithub />
-                                        </Link>
-                                        <Link className="d-flex align-items-center justify-content-center" href="https://www.youtube.com/@fireliquidator">
-                                            <FaYoutube />
-                                        </Link>
-                                        <Link className="d-flex align-items-center justify-content-center" href="https://t.me/mrahulrahi">
-                                            <FaTelegram />
-                                        </Link>
+                                        {socialLinks.map(link => (
+                                            <Link key={link.path} className="d-flex align-items-center justify-content-center" href={link.path}>
+                                                {link.icon}
+                                            </Link>
+                                        ))}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="header-btn d-none d-xl-block" data-aos="fade-zoom-in" data-aos-easing="ease-in-back">
+                        <div className="header-btn d-none d-xl-block" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
                             <Button title="Hire Me" style='gradient' />
                         </div>
                     </div>

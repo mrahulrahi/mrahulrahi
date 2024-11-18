@@ -28,7 +28,7 @@ const WorkCard = ({ card }: Props) => {
         </div>
 
         <div className="wb-text d-flex flex-column">
-          <h3> {card.label} </h3>
+          <h3 className="bg-clip-text bg-gradient-1 fw-bold"> {card.label} </h3>
           <h5> {card.title} </h5>
           <p> {card.para}</p>
           <span className="link-btn d-flex flex-wrap align-items-center mt-auto">See Project
