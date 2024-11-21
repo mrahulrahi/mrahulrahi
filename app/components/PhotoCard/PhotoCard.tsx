@@ -16,7 +16,8 @@ const PhotoCard = ({item} : Props) => {
                 <div className="gallery-link" data-aos="fade-up" suppressHydrationWarning>
                     <figure className="gallery-thumb">
                         <img src={item.url} alt={item.title} className="gallery-image" />
-                        <figcaption className="gallery-caption">{item.title}</figcaption>
+                        {item.title &&
+                        <figcaption className="gallery-caption">{item.title}</figcaption>}
                     </figure>
                 </div>
             </a>

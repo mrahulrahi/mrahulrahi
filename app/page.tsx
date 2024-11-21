@@ -160,7 +160,7 @@ export default function Home() {
             <Button title='View All' style='default' url="/portfolio" />
           </Heading>
 
-          <div className="video-card-list d-flex flex-wrap" data-aos="fade-up">
+          <div className="video-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
             {videoCards.map(card => <div key={card.id} className="video-card-item">
               <VideoCard item={card} />
             </div>)}
