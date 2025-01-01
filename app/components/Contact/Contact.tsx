@@ -16,10 +16,10 @@ const Contact = () => {
                     <p>Let me get you a beautiful website.</p>
                 </div>
                 <div className="contact-subscribe-box justify-self-end">
-                    <div className="form-label">Subscribe to Our Newsletter</div>
+                    <div className="form-label">Want to Start new project</div>
                     <div className="form-group d-flex flex-column flex-sm-row gap-3">
                         <input type="email" className="form-control" placeholder="Enter your email here*" />
-                        <Button title="Subscribe Now" style="gradient" />
+                        <Button title="Ping Me" style="gradient" />
                     </div>
                 </div>
             </div>
