@@ -1,4 +1,5 @@
 'use client'
+import { useEffect, useState } from "react";
 import Hero from "./components/Hero/Hero";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
 import ContentContainer from "./components/ContentContainer";
@@ -28,6 +29,32 @@ export default function Home() {
     { id: 5, title: 'Quiz Game', imgUrl: '/project-img-6.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/quiz-game' },
     { id: 6, title: 'Calculator', imgUrl: '/project-img-7.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/calculator' }
   ]
+
+  const [videos, setVideos] = useState([]);
+  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchVideos() {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const response = await fetch('/api/youtube');
+        if (!response.ok) {
+          throw new Error(`Failed to fetch data: ${response.statusText}`);
+        }
+        const data = await response.json();
+        setVideos(data.items);
+      } catch (error : any) {
+        console.error('Error fetching videos:', error.message);
+        setError(error.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchVideos();
+  }, []);
 
   return (
     <main >
@@ -243,6 +270,25 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </ContentContainer>
+      <ContentContainer background="dark">
+        <Heading heading="Videos">
+          <Button title='View All' style='default' url="/portfolio" />
+        </Heading>
+
+        {isLoading && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+      {!isLoading && !error && videos.length === 0 && <p>No videos found.</p>}
+      {!isLoading && !error && (
+        <ul>
+          {videos.map((video : any) => (
+            <li key={video.id.videoId}>
+              <h2>{video.snippet.title}</h2>
+              <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
+            </li>
+          ))}
+        </ul>
+      )}
       </ContentContainer>
 
     </main >
