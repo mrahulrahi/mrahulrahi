@@ -3,6 +3,7 @@ import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { SiAdobexd } from "react-icons/si";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
+import { BiLogoTypescript } from "react-icons/bi";
 import InnerHero from '../components/InnerHero/InnerHero';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import Button from '../components/Button';
@@ -30,15 +31,16 @@ const About = () => {
     { id: 1, logo: <FaHtml5 />, title: 'HTML' },
     { id: 2, logo: <FaCss3Alt />, title: 'CSS' },
     { id: 3, logo: <FaJsSquare />, title: 'JavaScript' },
-    { id: 4, logo: <FaBootstrap />, title: 'Bootstrap' },
-    { id: 5, logo: <TbBrandTailwind />, title: 'Tailwind CSS' },
-    { id: 6, logo: <FaReact />, title: 'ReactJS' },
-    { id: 7, logo: <TbBrandNextjs />, title: 'Next Js' },
-    { id: 8, logo: <FaNodeJs />, title: 'Node.js' },
-    { id: 9, logo: <FaGitAlt />, title: 'Git' },
-    { id: 10, logo: <FaGithub />, title: 'GitHub' },
-    { id: 11, logo: <FaFigma />, title: 'Figma' },
-    { id: 12, logo: <SiAdobexd />, title: 'Adobe Xd' },
+    { id: 4, logo: <BiLogoTypescript  />, title: 'TypeScript' },
+    { id: 5, logo: <FaBootstrap />, title: 'Bootstrap' },
+    { id: 6, logo: <TbBrandTailwind />, title: 'Tailwind CSS' },
+    { id: 7, logo: <FaReact />, title: 'ReactJS' },
+    { id: 8, logo: <TbBrandNextjs />, title: 'Next Js' },
+    { id: 9, logo: <FaNodeJs />, title: 'Node.js' },
+    { id: 10, logo: <FaGitAlt />, title: 'Git' },
+    { id: 11, logo: <FaGithub />, title: 'GitHub' },
+    { id: 12, logo: <FaFigma />, title: 'Figma' },
+    { id: 13, logo: <SiAdobexd />, title: 'Adobe Xd' },
   ]
 
   const timelineItems = [
