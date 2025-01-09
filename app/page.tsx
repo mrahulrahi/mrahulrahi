@@ -1,5 +1,4 @@
 'use client'
-import { useEffect, useState } from "react";
 import Hero from "./components/Hero/Hero";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
 import ContentContainer from "./components/ContentContainer";
@@ -15,11 +14,30 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import CountUp from 'react-countup';
 
+type Video = {
+  id: { videoId: string };
+  snippet: { title: string; description: string; thumbnails: { medium: { url: string } } };
+};
+
+const video = async () => {
+  const { YOUTUBE_API_KEY, YOUTUBE_CHANNEL_ID } = process.env;
+
+  const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet&type=video&maxResults=15`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch YouTube videos");
+  }
+
+  const data = await res.json();
+  const videos: Video[] = data.items || [];
+  return videos;
+}
+
 export default function Home() {
-  const videoCards = [
-    { id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
-    { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },
-    { id: 3, title: 'Xiaomi Mi 10i | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/vNFb5rk77Pg' }]
+
+  const videos = video();
 
   const projectsCards = [
     { id: 1, title: 'NTS', imgUrl: '/project-img-2.png', gitHubUrl: 'https://github.com/mrahulrahi/nts-app', liveUrl: 'https://nishanktravels.com/' },
@@ -30,32 +48,6 @@ export default function Home() {
     { id: 6, title: 'Quiz Game', imgUrl: '/project-img-7.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/quiz-game' },
     { id: 7, title: 'Calculator', imgUrl: '/project-img-8.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/tools/calculator' }
   ]
-
-  const [videos, setVideos] = useState([]);
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchVideos() {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const response = await fetch('/api/youtube');
-        if (!response.ok) {
-          throw new Error(`Failed to fetch data: ${response.statusText}`);
-        }
-        const data = await response.json();
-        setVideos(data.items);
-      } catch (error : any) {
-        console.error('Error fetching videos:', error.message);
-        setError(error.message);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchVideos();
-  }, []);
 
   return (
     <main >
@@ -78,7 +70,7 @@ export default function Home() {
                 <div className="stats-icon d-flex align-items-center justify-content-center"><FaUserGraduate /></div>
                 <div className="stats-content">
                   <div className="stats-count d-flex align-items-center">
-                          <CountUp start={0} end={1.5} duration={4} decimal="1" suffix=" +" enableScrollSpy />
+                    <CountUp start={0} end={1.5} duration={4} decimal="1" suffix=" +" enableScrollSpy />
                   </div>
                   <div className="stats-description">Years of experience</div>
                 </div>
@@ -189,8 +181,8 @@ export default function Home() {
           </Heading>
 
           <div className="video-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-            {videoCards.map(card => <div key={card.id} className="video-card-item">
-              <VideoCard item={card} />
+            {Array.isArray(videos) && videos.map(video => <div key={video.id.videoId} className="video-card-item">
+              <VideoCard id={video.id.videoId} title={video.snippet.title} />
             </div>)}
           </div>
         </div>
@@ -272,26 +264,6 @@ export default function Home() {
           </div>
         </div>
       </ContentContainer>
-      <ContentContainer background="dark">
-        <Heading heading="Videos">
-          <Button title='View All' style='default' url="/portfolio" />
-        </Heading>
-
-        {isLoading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      {!isLoading && !error && videos.length === 0 && <p>No videos found.</p>}
-      {!isLoading && !error && (
-        <ul>
-          {videos.map((video : any) => (
-            <li key={video.id.videoId}>
-              <h2>{video.snippet.title}</h2>
-              <img src={video.snippet.thumbnails.medium.url} alt={video.snippet.title} />
-            </li>
-          ))}
-        </ul>
-      )}
-      </ContentContainer>
-
     </main >
   )
 }

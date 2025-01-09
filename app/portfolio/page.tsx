@@ -14,13 +14,18 @@ export const metadata: Metadata = {
   description: 'portfolio work',
 }
 
+type Video = {
+  id: { videoId: string };
+  snippet: { title: string; description: string; thumbnails: { medium: { url: string } } };
+};
+
 const HeroHeading = () => {
   return (<>
     My <span className="bg-clip-text bg-gradient-1">Portfolio</span>
   </>)
 }
 
-const Portfolio = () => {
+const Portfolio = async () => {
   const WorkCards = [
     { id: 1, label: 'Portfolio', title: 'mrahulrahi', para: "The project is a personal portfolio website for front-end developer Rahul Maurya, built with Next.js. It features a modern and responsive design, showcasing various projects, skills, and tools. The site emphasizes user engagement through interactive elements and animations, providing a comprehensive overview of the developer's expertise and work.", url: 'https://mrahulrahi.vercel.app/', imgUrl: '/project-img-1.png' },
     { id: 2, label: 'Business', title: 'NTS', para: "The project is a personal portfolio website for front-end developer Rahul Maurya, built with Next.js. It features a modern and responsive design, showcasing various projects, skills, and tools. The site emphasizes user engagement through interactive elements and animations, providing a comprehensive overview of the developer's expertise and work.", url: 'https://mrahulrahi.vercel.app/', imgUrl: '/project-img-2.png' },
@@ -36,17 +41,6 @@ const Portfolio = () => {
 
   ]
 
-  const videoCards = [
-    { id: 1, title: 'OnePlus 8 | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/O3zRzznPFA4' },
-    { id: 2, title: 'OnePlus NORD | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/KVPr-Q-cloY' },
-    { id: 3, title: 'Xiaomi Mi 10i | B-roll | Cinematic Shots', url: 'https://www.youtube.com/embed/vNFb5rk77Pg' },
-    { id: 4, title: 'OnePlus NORD Vs OnePlus 8 | Camera Comparison', url: 'https://www.youtube.com/embed/1fiuAE0bRDY' },
-    { id: 5, title: '5 OnePlus Benefits | Red Cable Club Membership', url: 'https://www.youtube.com/embed/Kb-tjX9orj0' },
-    { id: 6, title: 'Cinematic B-roll | OnePlus Bullets Wireless Z', url: 'https://www.youtube.com/embed/4OHGr67Xiag' },
-    { id: 7, title: 'Cinematic B-roll | Asus ROG Strix G15 531GT', url: 'https://www.youtube.com/embed/tb1pmAbIlKg' },
-    { id: 8, title: 'Apps Review | YMUSIC | Fire Liquidator', url: 'https://www.youtube.com/embed/xnavnMUQjkE' },
-  ]
-
   const imageLinks = [
     { id: 1,  title: '3 Elements', url: 'https://lh3.googleusercontent.com/pw/ABLVV85b8dsm6nMR88Cw4W6-0VK8NBWdQxAb0SmvAOQOmsj0YfYZYBUEuSH6Bm4qukN-u-yDAy5XJUa5WHKuL83-PZkMgPSCTHGFP_m7I9gsuFNienHiXrbFy8IGsiqJhjNR9jJ-bzaIPybieqr8MP9201KB=w1196-h898-s-no-gm?authuser=0' },
     { id: 2,  title: 'Camellia', url: 'https://lh3.googleusercontent.com/pw/ABLVV86TumQujzkj4fJ8-38Nu5lxnoLi1ot3gWetNGHNNKdbpk71cyBO4RNiy9-EtgT2YkTPU0rDKaXuDl0u3szuGlZdkLTBFRvodkLt-XOKxoskeqpxz068Adz0HN3BS7lhflDu4IDXw2r9HN68p461ndnx=w1196-h898-s-no-gm?authuser=0' },
@@ -59,6 +53,19 @@ const Portfolio = () => {
     { id: 9,  title: 'Water Drops on Leaf', url: 'https://lh3.googleusercontent.com/pw/ABLVV87O6db7fR9QeWciN6Xf0f82jIYZivOr9znLo7maAmY7j3J81MtBiAPkXkZbjqrrD1SrbhlHd_co26bvrxuVvJ9a1jrHKJurucOwX-RJ1aBxNCtH2l8EeXb-wx7LyrZXLC3BbK_quKyz5OCqpZ6RAE1q=w674-h898-s-no-gm?authuser=0' },
     { id: 10,  title: 'Drops on Dark Leaf', url: 'https://lh3.googleusercontent.com/pw/ABLVV86oGswt18u0F_pXSMaXWOoS1O278s0P_7Tkq6-Wik5j1AR_be-7SUxLAFWZUCweEYnz70VDjgZtn7WqIo61-PvV3ODmawR_e5gvpiIGvN5JwpA0chijeHNIlNrolBW3hGV9u1waYCdjQyn0-IyR1Hdd=w1196-h898-s-no-gm?authuser=0' },
   ]
+
+  const { YOUTUBE_API_KEY, YOUTUBE_CHANNEL_ID } = process.env;
+
+  const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet&type=video&maxResults=15`, {
+    cache: "no-store", // Disable caching for dynamic data
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch YouTube videos");
+  }
+
+  const data = await res.json();
+  const videos: Video[] = data.items || [];
 
   return (
     <>
@@ -122,8 +129,8 @@ const Portfolio = () => {
               <Heading heading='Videos' />
 
               <div className="video-card-list" data-aos="fade-up" suppressHydrationWarning>
-                {videoCards.map(card => <div key={card.id} className="video-card-item" data-aos="fade-up" suppressHydrationWarning>
-                  <VideoCard item={card} />
+                {videos.map(video => <div key={video.id.videoId} className="video-card-item" data-aos="fade-up" suppressHydrationWarning>
+                  <VideoCard id={video.id.videoId} title={video.snippet.title} />
                 </div>)}
               </div>
             </div>
