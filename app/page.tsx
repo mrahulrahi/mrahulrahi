@@ -1,5 +1,4 @@
 'use client';
-
 import { useEffect, useState } from "react";
 import Hero from "./components/Hero/Hero";
 import ProjectCard from "./components/ProjectCard/ProjectCard";
@@ -14,7 +13,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import CountUp from 'react-countup';
+import StatCard from './components/StatCard/StatCard';
 import { projectsCards, photos } from "./data/staticData"; // Moved static data here
 
 type Video = {
@@ -38,20 +37,6 @@ const video = async (): Promise<Video[]> => {
   return data.items || [];
 };
 
-// StatCard Component
-const StatCard = ({ icon, countEnd, suffix, description }: { icon: JSX.Element; countEnd: number; suffix: string; description: string }) => (
-  <li className="stats-item">
-    <div className="stats-box d-flex gap-4 align-items-center">
-      <div className="stats-icon d-flex align-items-center justify-content-center">{icon}</div>
-      <div className="stats-content">
-        <div className="stats-count d-flex align-items-center">
-          <CountUp start={0} end={countEnd} duration={4} suffix={suffix} enableScrollSpy />
-        </div>
-        <div className="stats-description">{description}</div>
-      </div>
-    </div>
-  </li>
-);
 
 // PhotoCard Component
 const PhotoCard = ({ photo }: { photo: { title: string; url: string; camera: string; shotBy: string } }) => (
@@ -102,8 +87,14 @@ export default function Home() {
       </Hero>
 
       <ContentContainer background="dark" column="col-xl-10 mx-auto">
-        <div className="stats-content-box bg-gradient-1" data-aos="fade-up">
+        <div className="stats-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
           <ul className="stats-list d-flex flex-wrap">
+            <li className="stats-item">
+              <div className="stats-title text-center">
+                <h4>Why choose me ?</h4>
+                <h3>Stats</h3>
+              </div>
+            </li>
             <StatCard icon={<FaUserGraduate />} countEnd={1.5} suffix=" +" description="Years of experience" />
             <StatCard icon={<FaBriefcase />} countEnd={50} suffix=" +" description="Projects Completed" />
             <StatCard icon={<FaLayerGroup />} countEnd={10} suffix=" +" description="Skills in my stack" />
@@ -132,7 +123,7 @@ export default function Home() {
           modules={[Autoplay, Navigation]}
           slidesPerView={1}
           spaceBetween={30}
-          className="projects-card-list d-flex flex-wrap"
+          className="projects-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning
         >
           {projectsCards.map(card => (
             <SwiperSlide key={card.id} className="projects-card-item">
@@ -146,7 +137,7 @@ export default function Home() {
         <Heading heading="Videos">
           <Button title="View All" style="default" url="/portfolio" />
         </Heading>
-        <div className="video-card-list d-flex flex-wrap" data-aos="fade-up">
+        <div className="video-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           {error ? <p>{error}</p> : videos?.map(video => (
             <div key={video.id.videoId} className="video-card-item">
               <VideoCard id={video.id.videoId} title={video.snippet.title} />
@@ -159,8 +150,8 @@ export default function Home() {
         <Heading heading="Photos">
           <Button title="View All" style="default" url="/portfolio" />
         </Heading>
-        <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up">
-          {photos.map(photo => <PhotoCard key={photo.title} photo={photo} />)}
+        <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
+          {photos.map(photo => <PhotoCard key={photo.id} photo={photo} />)}
         </div>
       </ContentContainer>
     </main>

@@ -1,3 +1,4 @@
+'use client'
 import Banner from '../components/Banner/Banner'
 import InnerHero from '../components/InnerHero/InnerHero'
 import { IoIosArrowDroprightCircle } from "react-icons/io";
@@ -9,15 +10,33 @@ import PhotoCard from '../components/PhotoCard/PhotoCard';
 import WorkCard from '../components/WorkCard/WorkCard';
 import { Metadata } from 'next';
 import { workCards, imageLinks } from "../data/staticData";
+import { useState } from 'react';
+import { useEffect } from 'react';
 
-export const metadata: Metadata = {
-  title: 'mrahulrahi - portfolio',
-  description: 'portfolio work',
-}
+// export const metadata: Metadata = {
+//   title: 'mrahulrahi - portfolio',
+//   description: 'portfolio work',
+// }
 
 type Video = {
   id: { videoId: string };
   snippet: { title: string; description: string; thumbnails: { medium: { url: string } } };
+};
+
+const video = async (): Promise<Video[]> => {
+  const { YOUTUBE_API_KEY, YOUTUBE_CHANNEL_ID } = process.env;
+
+  const res = await fetch(
+    `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet&type=video&maxResults=15`,
+    { cache: "no-store" }
+  );
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch YouTube videos");
+  }
+
+  const data = await res.json();
+  return data.items || [];
 };
 
 const HeroHeading = () => {
@@ -26,20 +45,21 @@ const HeroHeading = () => {
   </>)
 }
 
-const Portfolio = async () => {
+const Portfolio = () => {
+  const [videos, setVideos] = useState<Video[] | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
-  const { YOUTUBE_API_KEY, YOUTUBE_CHANNEL_ID } = process.env;
-
-  const res = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet&type=video&maxResults=15`, {
-    cache: "no-store", // Disable caching for dynamic data
-  });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch YouTube videos");
-  }
-
-  const data = await res.json();
-  const videos: Video[] = data.items || [];
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const fetchedVideos = await video();
+        setVideos(fetchedVideos);
+      } catch (err: any) {
+        setError(err.message);
+      }
+    };
+    fetchVideos();
+  }, []);
 
   return (
     <>
@@ -103,9 +123,11 @@ const Portfolio = async () => {
               <Heading heading='Videos' />
 
               <div className="video-card-list" data-aos="fade-up" suppressHydrationWarning>
-                {videos.map(video => <div key={video.id.videoId} className="video-card-item" data-aos="fade-up" suppressHydrationWarning>
-                  <VideoCard id={video.id.videoId} title={video.snippet.title} />
-                </div>)}
+                {error ? <p>{error}</p> : videos?.map(video => (
+                  <div key={video.id.videoId} className="video-card-item">
+                    <VideoCard id={video.id.videoId} title={video.snippet.title} />
+                  </div>
+                ))}
               </div>
             </div>
           </div>

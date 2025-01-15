@@ -11,10 +11,27 @@ export const projectsCards = [
 ]
 
 export const photos = [
-    { title: "Diya", url: "https://lh3.googleusercontent.com/pw/ABLVV86BkvPqD8HnZ2Ls3ud3Yi3r4E_bgkjrYW3s_qnv-RnOxZALZN4Qppup819MtYW54zqqJWw-BwA5Jgnsgf7EtzXZGhoBd3xJOdTvVasnlMzQiKRib1sSIMaKz-6nREmpLlyES1ovk_QhIFJ9vfsUxIs4=w1196-h898-s-no-gm?authuser=0", camera: "Xiaomi Mi A1", shotBy: "Rahi", },
-    { title: "Camellia Flower", url: "https://lh3.googleusercontent.com/pw/ABLVV86TumQujzkj4fJ8-38Nu5lxnoLi1ot3gWetNGHNNKdbpk71cyBO4RNiy9-EtgT2YkTPU0rDKaXuDl0u3szuGlZdkLTBFRvodkLt-XOKxoskeqpxz068Adz0HN3BS7lhflDu4IDXw2r9HN68p461ndnx=w1196-h898-s-no-gm?authuser=0", camera: "Xiaomi Mi A1", shotBy: "Rahi", },
-    { title: "Camellia Flower", url: "https://lh3.googleusercontent.com/pw/ABLVV85p6KiTwrSlTnEpsc_rN8JVlmaRhL5JQiqtBmt_fxrUe3QZl1dSLZOMrTvqnzp90SAgQmQF5JcSt1vsP2O_djREVxyIctl0z-nFkWgf7QllhX0OH-EA5hOZS8P9sc73os_3p3cNO2ZUBJhDhdcFHRtD=w674-h898-s-no-gm?authuser=0", camera: "Xiaomi Mi A1", shotBy: "Rahi", },
+    { id: 1, title: "Diya", url: "https://lh3.googleusercontent.com/pw/ABLVV86BkvPqD8HnZ2Ls3ud3Yi3r4E_bgkjrYW3s_qnv-RnOxZALZN4Qppup819MtYW54zqqJWw-BwA5Jgnsgf7EtzXZGhoBd3xJOdTvVasnlMzQiKRib1sSIMaKz-6nREmpLlyES1ovk_QhIFJ9vfsUxIs4=w1196-h898-s-no-gm?authuser=0", camera: "Xiaomi Mi A1", shotBy: "Rahi", },
+    { id: 2, title: "Camellia Flower", url: "https://lh3.googleusercontent.com/pw/ABLVV86TumQujzkj4fJ8-38Nu5lxnoLi1ot3gWetNGHNNKdbpk71cyBO4RNiy9-EtgT2YkTPU0rDKaXuDl0u3szuGlZdkLTBFRvodkLt-XOKxoskeqpxz068Adz0HN3BS7lhflDu4IDXw2r9HN68p461ndnx=w1196-h898-s-no-gm?authuser=0", camera: "Xiaomi Mi A1", shotBy: "Rahi", },
+    { id: 3, title: "Nerium Oleander Flower", url: "https://lh3.googleusercontent.com/pw/ABLVV85p6KiTwrSlTnEpsc_rN8JVlmaRhL5JQiqtBmt_fxrUe3QZl1dSLZOMrTvqnzp90SAgQmQF5JcSt1vsP2O_djREVxyIctl0z-nFkWgf7QllhX0OH-EA5hOZS8P9sc73os_3p3cNO2ZUBJhDhdcFHRtD=w674-h898-s-no-gm?authuser=0", camera: "Xiaomi Mi A1", shotBy: "Rahi", },
 ];
+
+export const timelineItems = [
+    { id: 1, title: 'Diploma', role: 'AIMT', duration: 'July 2017 - Nov 2020' },
+    { id: 2, title: 'Fireliquidtaor', role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' },
+    { id: 3, title: 'BCA', role: 'IGNOU', duration: 'July 2021 - Jun 2024' },
+    { id: 4, title: 'CodeClause', role: 'Web Dev Intern', duration: 'Nov 2022' },
+    { id: 5, title: 'Imagine Group', role: 'Freelancer', duration: 'Dec 2022 - Jun 2023' },
+    { id: 6, title: 'SlicemyPage', role: 'Front End Developer', duration: 'Jun 2023 - Now' },
+]
+
+export const certificates = [
+    { id: 1, url: 'https://www.udemy.com/certificate/UC-4e377dc1-f535-4589-b877-ba5257976fa9/', title: 'Web Development Bootcamp', organization: 'Udemy' },
+    { id: 2, url: 'https://profiles.topcoder.com/mrahulrahi', title: 'Full stack Development', organization: 'Topcoder' },
+    { id: 3, url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Nordics/PxenP4rHNE6Bh4nQz_Accenture%20Nordics_f635M87hfdNWoDbzC_1666336729816_completion_certificate.pdf', title: 'Dev Virtual Exp Program', organization: 'Forage' },
+    { id: 4, url: 'https://codedamn.com/user/mrahulrahi', title: 'Codedamn Certificates', organization: 'Codedamn' },
+    { id: 5, url: 'https://www.hackerrank.com/certificates/62ee41b69fc2', title: 'SQL (Basic)', organization: 'Hacker Rank' },
+]
 
 export const workCards = [
     { id: 1, label: 'Portfolio', title: 'mrahulrahi', para: "The project is a personal portfolio website for front-end developer Rahul Maurya, built with Next.js. It features a modern and responsive design, showcasing various projects, skills, and tools. The site emphasizes user engagement through interactive elements and animations, providing a comprehensive overview of the developer's expertise and work.", url: 'https://mrahulrahi.vercel.app/', imgUrl: '/project-img-1.png' },

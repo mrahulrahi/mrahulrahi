@@ -1,9 +1,4 @@
 import Image from 'next/image'
-import { IoIosArrowDropdownCircle } from "react-icons/io";
-import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
-import { SiAdobexd } from "react-icons/si";
-import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
-import { BiLogoTypescript } from "react-icons/bi";
 import InnerHero from '../components/InnerHero/InnerHero';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import Button from '../components/Button';
@@ -11,6 +6,12 @@ import ContentContainer from '../components/ContentContainer';
 import Heading from '../components/Heading';
 import CertificateCard from '../components/CertificateCard/CertificateCard';
 import SkillCard from '../components/SkillCard/SkillCard';
+import { timelineItems, certificates } from '../data/staticData';
+import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
+import { SiAdobexd } from "react-icons/si";
+import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
+import { BiLogoTypescript } from "react-icons/bi";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ const About = () => {
     { id: 1, logo: <FaHtml5 />, title: 'HTML' },
     { id: 2, logo: <FaCss3Alt />, title: 'CSS' },
     { id: 3, logo: <FaJsSquare />, title: 'JavaScript' },
-    { id: 4, logo: <BiLogoTypescript  />, title: 'TypeScript' },
+    { id: 4, logo: <BiLogoTypescript />, title: 'TypeScript' },
     { id: 5, logo: <FaBootstrap />, title: 'Bootstrap' },
     { id: 6, logo: <TbBrandTailwind />, title: 'Tailwind CSS' },
     { id: 7, logo: <FaReact />, title: 'ReactJS' },
@@ -41,23 +42,6 @@ const About = () => {
     { id: 11, logo: <FaGithub />, title: 'GitHub' },
     { id: 12, logo: <FaFigma />, title: 'Figma' },
     { id: 13, logo: <SiAdobexd />, title: 'Adobe Xd' },
-  ]
-
-  const timelineItems = [
-    { id: 1, title: 'Diploma', role: 'AIMT', duration: 'July 2017 - Nov 2020' },
-    { id: 2, title: 'Fireliquidtaor', role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' },
-    { id: 3, title: 'BCA', role: 'IGNOU', duration: 'July 2021 - Jun 2024' },
-    { id: 4, title: 'CodeClause', role: 'Web Dev Intern', duration: 'Nov 2022' },
-    { id: 5, title: 'Imagine Group', role: 'Freelancer', duration: 'Dec 2022 - Jun 2023' },
-    { id: 6, title: 'SlicemyPage', role: 'Front End Developer', duration: 'Jun 2023 - Now' },
-  ]
-
-  const certificates = [
-    { id: 1, url: 'https://www.udemy.com/certificate/UC-4e377dc1-f535-4589-b877-ba5257976fa9/', title: 'Web Development Bootcamp', organization: 'Udemy' },
-    { id: 2, url: 'https://profiles.topcoder.com/mrahulrahi', title: 'Full stack Development', organization: 'Topcoder' },
-    { id: 3, url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Nordics/PxenP4rHNE6Bh4nQz_Accenture%20Nordics_f635M87hfdNWoDbzC_1666336729816_completion_certificate.pdf', title: 'Dev Virtual Exp Program', organization: 'Forage' },
-    { id: 4, url: 'https://codedamn.com/user/mrahulrahi', title: 'Codedamn Certificates', organization: 'Codedamn' },
-    { id: 5, url: 'https://www.hackerrank.com/certificates/62ee41b69fc2', title: 'SQL (Basic)', organization: 'Hacker Rank' },
   ]
 
   return (
