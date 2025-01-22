@@ -15,6 +15,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import StatCard from './components/StatCard/StatCard';
 import { projectsCards, photos } from "./data/staticData"; // Moved static data here
+import QuoteCard from "./components/QuoteCard/QuoteCard";
+import WeatherCard from "./components/WeatherCard/WeatherCard";
 
 type Video = {
   id: { videoId: string };
@@ -62,6 +64,7 @@ const PhotoCard = ({ photo }: { photo: { title: string; url: string; camera: str
 export default function Home() {
   const [videos, setVideos] = useState<Video[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [background, setBackground] = useState<string>(''); // Add background state
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -75,6 +78,10 @@ export default function Home() {
     };
     fetchVideos();
   }, []);
+
+  const handleBackgroundChange = (newBackground: string) => {
+    setBackground(newBackground);
+  };
 
   return (
     <main>
@@ -150,6 +157,19 @@ export default function Home() {
           {photos.map(photo => <PhotoCard key={photo.id} photo={photo} />)}
         </div>
       </ContentContainer>
+
+      <div className="content-container transition" style={{ backgroundColor: background, color: background }}>
+        <div className="container">
+          <div className="row">
+            <div className="col-xl-7">
+              <WeatherCard gradientColor={background} />
+            </div>
+            <div className="col-xl-5">
+              <QuoteCard onBackgroundChange={handleBackgroundChange} />
+            </div>
+          </div>
+        </div>  
+      </div>
     </main>
   );
 }
