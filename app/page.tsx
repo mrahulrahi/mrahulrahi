@@ -22,19 +22,14 @@ type Video = {
 };
 
 const video = async (): Promise<Video[]> => {
-  const { YOUTUBE_API_KEY, YOUTUBE_CHANNEL_ID } = process.env;
-
-  const res = await fetch(
-    `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet&type=video&maxResults=15`,
-    { cache: "no-store" }
-  );
+  const res = await fetch('/api/youtube');
 
   if (!res.ok) {
     throw new Error("Failed to fetch YouTube videos");
   }
 
   const data = await res.json();
-  return data.items || [];
+  return data;
 };
 
 
@@ -74,6 +69,7 @@ export default function Home() {
         const fetchedVideos = await video();
         setVideos(fetchedVideos);
       } catch (err: any) {
+        console.error("Error fetching videos", err.message);
         setError(err.message);
       }
     };
@@ -138,7 +134,7 @@ export default function Home() {
           <Button title="View All" style="default" url="/portfolio" />
         </Heading>
         <div className="video-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-          {error ? <p>{error}</p> : videos?.map(video => (
+          {error ? <p>{error}</p> : videos?.slice(0, 3).map(video => (
             <div key={video.id.videoId} className="video-card-item">
               <VideoCard id={video.id.videoId} title={video.snippet.title} />
             </div>
