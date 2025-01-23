@@ -31,55 +31,39 @@ const WeatherCard = () => {
     };
 
     useEffect(() => {
-        const todayIndex = new Date().getDay();
-        const currentForecastIndex = dailyForecast.findIndex((day: any) => formatDay(day.dt).dayIndex === todayIndex);
-
-        setCurrentDayIndex(currentForecastIndex !== -1 ? currentForecastIndex : 0);
-
-        const fetchWeather = async () => {
+        const fetchWeatherData = async () => {
             try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
-                if (!response.ok) {
+                const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
+                const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`);
+
+                if (!weatherResponse.ok || !forecastResponse.ok) {
                     throw new Error('Weather data not available');
                 }
-                const data = await response.json();
-                setWeather(data);
+
+                const weatherData = await weatherResponse.json();
+                const forecastData = await forecastResponse.json();
+                const dailyForecastData = forecastData.list.filter((reading: any) => reading.dt_txt.includes('12:00:00'));
+
+                setWeather(weatherData);
+                setDailyForecast(dailyForecastData.slice(0, 7));
+                setCurrentDayIndex(dailyForecastData.findIndex((day: any) => formatDay(day.dt).dayIndex === new Date().getDay()));
             } catch (error) {
                 console.error('Error fetching weather data:', error);
             }
         };
 
-        const fetchDailyForecast = async () => {
-            try {
-                const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`);
-                if (!response.ok) {
-                    throw new Error('Forecast data not available');
-                }
-                const data = await response.json();
-                const dailyForecastData = data.list.filter((reading: any) => reading.dt_txt.includes('12:00:00'));
-                setDailyForecast(dailyForecastData.slice(0, 7));
-            } catch (error) {
-                console.error('Error fetching forecast data:', error);
-            }
-        };
-
-        fetchWeather();
-        fetchDailyForecast();
+        fetchWeatherData();
     }, [city, apiKey]);
 
-
-    // Function to format the date
     const formatDay = (timestamp: number) => {
-        const date = new Date(timestamp * 1000); // Convert seconds to milliseconds
+        const date = new Date(timestamp * 1000);
         const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const dayIndex = date.getDay(); // Get day index (0-6)
+        const dayIndex = date.getDay();
         const dayName = days[dayIndex];
         const day = date.getDate();
         const month = date.toLocaleString('default', { month: 'short' });
         return { dayIndex, dayName, date: `${day} ${month}` };
     };
-
-
 
     const getRandomQuote = async () => {
         try {
@@ -151,29 +135,29 @@ const WeatherCard = () => {
     }
 
     return (
-        <div className="weather-app-wrapper d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-xl-start">
-            <div className="weather-app-wrapper d-flex flex-column flex-md-row align-items-center justify-content-center justify-content-xl-start">
-                <div className="weather-side">
-                    <div className="weather-gradient" style={{ backgroundImage: backgroundColor }}></div>
-                    <div className="date-container">
-                        <h2 className="date-dayname">{formatDay(weather.dt).dayName}</h2>
-                        <span className="date-day">{formatDay(weather.dt).date}</span>
-                        <i className="location-icon"><HiOutlineLocationMarker /></i>
-                        <span className="location">{weather.name}</span>
-                    </div>
-                    <div className="weather-container">
-                        <i className="weather-icon">
-                            <img
-                                src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
-                                alt="Weather Icon"
-                            />
-                        </i>
-                        <h1 className="weather-temp">{Math.round(weather.main.temp - 273.15)}°C</h1>
-                        <h3 className="weather-desc">{weather.weather[0].main}</h3>
-                    </div>
+        <div className="weather-app-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-xl-start">
+            <div className="weather-side">
+                <div className="weather-gradient" style={{ backgroundImage: backgroundColor }}></div>
+                <div className="date-container">
+                    <h2 className="date-dayname">{formatDay(weather.dt).dayName}</h2>
+                    <span className="date-day">{formatDay(weather.dt).date}</span>
+                    <i className="location-icon"><HiOutlineLocationMarker /></i>
+                    <span className="location">{weather.name}</span>
                 </div>
-                <div className="info-side d-flex gap-3">
-                    <div>
+                <div className="weather-container">
+                    <i className="weather-icon">
+                        <img
+                            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                            alt="Weather Icon"
+                        />
+                    </i>
+                    <h1 className="weather-temp">{Math.round(weather.main.temp - 273.15)}°C</h1>
+                    <h3 className="weather-desc">{weather.weather[0].main}</h3>
+                </div>
+            </div>
+            <div className="info-side">
+                <div className="info-side-top d-flex flex-column flex-xl-row gap-3">
+                    <div className="ist-weather d-flex flex-column">
                         <div className="today-info-container">
                             <div className="today-info d-flex flex-column">
                                 <div className="precipitation">
@@ -204,45 +188,43 @@ const WeatherCard = () => {
                                 ))}
                             </ul>
                         </div>
-
-                        <div className="location-container d-flex flex-column gap-2">
-                            <input type="text" id="city" className="form-control" value={inputCity} onChange={handleInputChange} />
-                            <button className="location-button" onClick={handleButtonClick}>
-                                <span style={{ backgroundImage: backgroundColor }}>Change location</span>
-                            </button>
-                        </div>
                     </div>
 
 
-                    <div className="quote-generator d-flex align-items-center justify-content-center h-100" >
-                        <div className="quote-box">
-                            <div className="quote-text" style={{ backgroundImage: backgroundColor }}>
-                                <span className="quote-icon"><FaQuoteLeft /></span>
-                                {currentQuote}
-                            </div>
-                            <div className="quote-author" style={{ backgroundImage: backgroundColor }}>- {currentAuthor}</div>
-                            <div className="quote-btn-group d-flex justify-content-between">
-                                <div className="d-flex gap-2">
-                                    <button className="quote-btn share-btn" onClick={shareQuote} title="Share this quote">
-                                        <span><FiShare /></span>
-                                    </button>
-
-                                    <button className="quote-btn share-btn" onClick={copyToClipboard} title="Copy to clipboard">
-                                        <span><FiCopy /></span>
-                                    </button>
-                                </div>
-
-                                <button className="quote-btn" onClick={updateQuote} >
-                                    <span className="quote-btn-text" style={{ backgroundImage: backgroundColor }}>New quote</span>
-                                </button>
-                            </div>
+                    <div className="quote-box">
+                        <div className="quote-text" style={{ backgroundImage: backgroundColor }}>
+                            <span className="quote-icon"><FaQuoteLeft /></span>
+                            {currentQuote}
                         </div>
+                        <div className="quote-author" style={{ backgroundImage: backgroundColor }}>- {currentAuthor}</div>
+                    </div>
+                </div>
+
+                <div className="d-flex flex-column flex-md-row gap-4 gap-md-2">
+                    <div className="location-container d-flex gap-2 flex-grow-1">
+                        <input type="text" id="city" className="form-control" value={inputCity} onChange={handleInputChange} />
+                        <button className="location-button" onClick={handleButtonClick}>
+                            <span style={{ backgroundImage: backgroundColor }}>Change location</span>
+                        </button>
+                    </div>
+
+                    <div className="quote-btn-group d-flex flex-shrink-0 gap-2">
+                        <button className="quote-btn share-btn" onClick={shareQuote} title="Share this quote">
+                            <span><FiShare /></span>
+                        </button>
+
+                        <button className="quote-btn share-btn" onClick={copyToClipboard} title="Copy to clipboard">
+                            <span><FiCopy /></span>
+                        </button>
+
+                        <button className="quote-btn" onClick={updateQuote} >
+                            <span className="quote-btn-text" style={{ backgroundImage: backgroundColor }}>New quote</span>
+                        </button>
                     </div>
                 </div>
 
 
             </div>
-
         </div>
     );
 }
