@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,500");
+
+.quote-weather-wrapper {position: relative;color: var(--mrr-white);}
+
+.qw-today-box {position: relative;flex-shrink: 0;width: 300px;height: 100%;min-height: 478px;padding: 25px;border-radius: 25px;background-image: url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");background-repeat: no-repeat;background-position: center;background-size: cover;box-shadow: 0 0 20px -10px rgba(0, 0, 0, 0.2);transition: transform 300ms ease;transform: translateZ(0) scale(1.02) perspective(1000px);}
+.qw-today-box:hover {-webkit-transform: scale(1.1) perspective(1500px) rotateY(10deg);transform: scale(1.1) perspective(1500px) rotateY(10deg);}
+.qw-gradient-bg {position: absolute;width: 100%;height: 100%;top: 0;left: 0;border-radius: 25px;opacity: 0.8;}
+
+.qw-date-box {position: relative;z-index: 9;}
+.qw-date-box h2 {line-height: 1;margin-bottom: 0;}
+.qw-date-box h6 {line-height: 1;margin-bottom: 0;}
+.qw-location-row span.h6{line-height: 1;}
+.qw-location-icon {width: 25px;height: 25px;font-size: 24px;}
+.qw-weather-box {position: relative;z-index: 9;}
+.qw-weather-icon {display: inline-block;height: 80px;width: 80px;background: rgba(0, 0, 0, 0.2);border-radius: 50%;}
+.qw-weather-icon img{width: 100%;height: 100%;object-fit: contain;}
+.qw-weather-box h1 {margin: 0;font-weight: 700;line-height: 1;font-size: 4em;}
+.qw-weather-box h4 {line-height: 1;margin: 0;}
+
+.qw-info-box {width: auto;height: 100%;margin-left: -10px;padding: 25px;padding-left: 40px;box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);background-color: #222831;border-radius: 25px;}
+.qw-today-info {min-width: 250px;padding: 15px;margin: 0;background-color: rgba(255, 255, 255, 0.1);border-radius: 10px;}
+.qw-info-title {float: left;font-weight: 700;}
+.qw-info-value {float: right;}
+
+.qw-week-row {padding: 0;background-color: rgba(255, 255, 255, 0.1);border-radius: 10px;}
+.qw-week-row>li {padding: 15px;cursor: pointer;-webkit-transition: 200ms ease;-o-transition: 200ms ease;transition: 200ms ease;border-radius: 10px;}
+.qw-week-row>li:hover {-webkit-transform: scale(1.1);-ms-transform: scale(1.1);transform: scale(1.1);background: #fff;color: #222831;-webkit-box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2)}
+.qw-week-row>li.active {background: var(--mrr-white);color: #222831;border-radius: 10px;}
+.qw-week-row>li.active img, .qw-week-row>li:hover img{background: #222831;border-radius: 50%;}
+.qw-week-row>li .day-name {display: block;margin: 10px 0 0 0;text-align: center;}
+.qw-week-row>li .day-icon {display: block;height: 30px;width: auto;margin: 0 auto;}
+.qw-week-row>li .day-icon img{width: 100%;height: 100%;object-fit: contain;}
+.qw-week-row>li .day-temp {display: block;text-align: center;margin: 10px 0 0 0;font-weight: 700;}
+
+.qw-quote-box {font-family: "Raleway", sans-serif;font-weight: 400;border-radius: 16px;position: relative;width: 100%;padding: 30px 40px;background-color: rgba(255, 255, 255, 0.1);}
+.qw-quote-text {background-clip: text;color: transparent;text-align: center;height: auto;clear: both;font-weight: 500;font-size: 28px;margin-bottom: 20px;transition: color .4s ease-in;}
+.qw-quote-icon{position: absolute;top: 20px;left: 20px;font-size: 50px;line-height: 1;color: rgba(255, 255, 255, 0.1);}
+.qw-quote-author {background-clip: text;color: transparent;font-size: 16px;text-align: right;transition: color .4s ease-in;font-weight: 500;}
+
+.qw-location-group .form-control {background: rgba(255, 255, 255, 0.2);box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.25);border-radius: 4px;color: var(--mrr-white);border-color: transparent;}
+.qw-location-group .form-control:focus {border-color: rgba(255, 255, 255, 0.2);}
+.qw-action-btn {padding: 10px 20px;font-size: 14px;font-weight: 700;line-height: 1;text-align: center;border-radius: 4px;opacity: 1;border-radius: 4px;background: rgba(255, 255, 255, 0.2);border: 0;box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);transition: all .2s ease-in;}
+.qw-action-icon{font-size: 20px;}
+.qw-action-text{color: transparent;background-clip: text;}
+.qw-action-btn:hover {opacity: 0.8; }
+.qw-action-btn.lg {min-width: 160px;} 
+
+@media (max-width:1199.98px){
+}
+
+@media (max-width: 991.98px){
+	.qw-today-box{width: 100%;min-height: 250px;}
+	.qw-info-box{width: calc(100% - 20px);padding: 25px;padding-top: 40px;margin-top: -10px;}
+}
+
+@media (max-width: 767.98px){
+	.qw-week-row{justify-content: center;}
+}
+
+@media (max-width: 767.98px){
+	.qw-today-box{min-height: 478px;}
+}

@@ -15,7 +15,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import StatCard from './components/StatCard/StatCard';
 import { projectsCards, photos } from "./data/staticData"; // Moved static data here
-import WeatherCard from "./components/WeatherCard/WeatherCard";
+import QuoteWeatherCard from "./components/QuoteWeatherCard/QuoteWeatherCard";
 
 type Video = {
   id: { videoId: string };
@@ -153,7 +153,7 @@ export default function Home() {
       </ContentContainer>
 
       <ContentContainer background="dark">
-        <WeatherCard />
+        <QuoteWeatherCard />
       </ContentContainer>
     </main>
   );

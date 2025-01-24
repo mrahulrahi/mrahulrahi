@@ -1,11 +1,11 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import './WeatherCard.css';
+import './QuoteWeatherCard.css';
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { FaQuoteLeft } from 'react-icons/fa';
 import { FiShare, FiCopy } from "react-icons/fi";
 
-const WeatherCard = () => {
+const QuoteWeatherCard = () => {
     const [weather, setWeather] = useState<any>(null);
     const [dailyForecast, setDailyForecast] = useState<any>([]);
     const [city, setCity] = useState('Lucknow');
@@ -117,7 +117,9 @@ const WeatherCard = () => {
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(`"${currentQuote}" - ${currentAuthor}`);
+        alert('Quote copied to clipboard!!!');
     };
+
 
     const shareQuote = () => {
         if (navigator.share) {
@@ -135,101 +137,95 @@ const WeatherCard = () => {
     }
 
     return (
-        <div className="weather-app-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-xl-start">
-            <div className="weather-side">
-                <div className="weather-gradient" style={{ backgroundImage: backgroundColor }}></div>
-                <div className="date-container">
-                    <h2 className="date-dayname">{formatDay(weather.dt).dayName}</h2>
-                    <span className="date-day">{formatDay(weather.dt).date}</span>
-                    <i className="location-icon"><HiOutlineLocationMarker /></i>
-                    <span className="location">{weather.name}</span>
+        <div className="quote-weather-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-xl-start">
+            <div className="qw-today-box d-flex flex-column flex-sm-row flex-lg-column justify-content-between gap-2">
+                <div className="qw-gradient-bg" style={{ backgroundImage: backgroundColor }}></div>
+                <div className="qw-date-box d-flex flex-column gap-2">
+                    <h2>{formatDay(weather.dt).dayName}</h2>
+                    <h6>{formatDay(weather.dt).date}</h6>
+                    <div className="qw-location-row d-flex align-items-center gap-1">
+                        <i className="qw-location-icon d-flex align-items-center justify-content-center"><HiOutlineLocationMarker /></i>
+                        <h6 className="mb-0">{weather.name}</h6>
+                    </div>
                 </div>
-                <div className="weather-container">
-                    <i className="weather-icon">
-                        <img
-                            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
-                            alt="Weather Icon"
-                        />
+                <div className="qw-weather-box d-flex flex-column gap-2">
+                    <i className="qw-weather-icon">
+                        <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                            alt="Weather Icon" />
                     </i>
-                    <h1 className="weather-temp">{Math.round(weather.main.temp - 273.15)}°C</h1>
-                    <h3 className="weather-desc">{weather.weather[0].main}</h3>
+                    <h1>{Math.round(weather.main.temp - 273.15)}°C</h1>
+                    <h4>{weather.weather[0].main}</h4>
                 </div>
             </div>
-            <div className="info-side">
-                <div className="info-side-top d-flex flex-column flex-xl-row gap-3">
-                    <div className="ist-weather d-flex flex-column">
-                        <div className="today-info-container">
-                            <div className="today-info d-flex flex-column">
-                                <div className="precipitation">
-                                    <span className="title">PRECIPITATION</span>
-                                    <span className="value">{dailyForecast[0].clouds.all} %</span>
-                                </div>
-                                <div className="humidity">
-                                    <span className="title">HUMIDITY</span>
-                                    <span className="value">{weather.main.humidity}%</span>
-                                </div>
-                                <div className="wind">
-                                    <span className="title">WIND</span>
-                                    <span className="value">{Math.round(weather.wind.speed * 1.60934)} km/h</span>
-                                </div>
+            <div className="qw-info-box d-flex flex-column gap-2">
+                <div className="qw-info-top d-flex flex-column flex-xl-row gap-2">
+                    <div className="qw-other-info d-flex flex-column flex-md-row flex-xl-column gap-2">
+                        <div className="qw-today-info d-flex flex-column gap-2 flex-grow-1">
+                            <div className="qw-info-row">
+                                <span className="qw-info-title">PRECIPITATION</span>
+                                <span className="qw-info-value">{dailyForecast[0].clouds.all} %</span>
+                            </div>
+                            <div className="qw-info-row">
+                                <span className="qw-info-title">HUMIDITY</span>
+                                <span className="qw-info-value">{weather.main.humidity}%</span>
+                            </div>
+                            <div className="qw-info-row">
+                                <span className="qw-info-title">WIND</span>
+                                <span className="qw-info-value">{Math.round(weather.wind.speed * 1.60934)} km/h</span>
                             </div>
                         </div>
-                        <div className="week-container">
-                            <ul className="week-list d-flex">
-                                {dailyForecast.map((day: any, index: number) => (
-                                    <li key={day.dt} className={index === currentDayIndex ? 'active' : ''} onClick={() => handleWeekItemClick(index)}>
-                                        <img
-                                            src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
-                                            alt="Day Icon"
-                                        />
-                                        <span className="day-name">{formatDay(day.dt).dayName.slice(0, 3)}</span>
-                                        <span className="day-temp">{Math.round(day.main.temp - 273.15)}°C</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+
+                        <ul className="qw-week-row d-flex">
+                            {dailyForecast.map((day: any, index: number) => (
+                                <li key={day.dt} className={index === currentDayIndex ? 'active' : ''} onClick={() => handleWeekItemClick(index)}>
+                                    <img
+                                        src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
+                                        alt="Day Icon"
+                                    />
+                                    <span className="day-name">{formatDay(day.dt).dayName.slice(0, 3)}</span>
+                                    <span className="day-temp">{Math.round(day.main.temp - 273.15)}°C</span>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
 
-
-                    <div className="quote-box">
-                        <div className="quote-text" style={{ backgroundImage: backgroundColor }}>
-                            <span className="quote-icon"><FaQuoteLeft /></span>
+                    <div className="qw-quote-box d-flex flex-column">
+                        <span className="qw-quote-icon"><FaQuoteLeft /></span>
+                        <div className="qw-quote-text" style={{ backgroundImage: backgroundColor }}>
                             {currentQuote}
                         </div>
-                        <div className="quote-author" style={{ backgroundImage: backgroundColor }}>- {currentAuthor}</div>
+                        <div className="qw-quote-author mt-auto" style={{ backgroundImage: backgroundColor }}>- {currentAuthor}</div>
                     </div>
                 </div>
 
-                <div className="d-flex flex-column flex-md-row gap-4 gap-md-2">
-                    <div className="location-container d-flex gap-2 flex-grow-1">
+                <div className="qw-action-row d-flex flex-column flex-md-row gap-2">
+                    <div className="qw-location-group d-flex flex-column flex-sm-row gap-2 flex-grow-1">
                         <input type="text" id="city" className="form-control" value={inputCity} onChange={handleInputChange} />
-                        <button className="location-button" onClick={handleButtonClick}>
-                            <span style={{ backgroundImage: backgroundColor }}>Change location</span>
+                        <button className="qw-action-btn lg" onClick={handleButtonClick}>
+                            <span className="qw-action-text" style={{ backgroundImage: backgroundColor }}>Change location</span>
                         </button>
                     </div>
 
                     <div className="quote-btn-group d-flex flex-shrink-0 gap-2">
-                        <button className="quote-btn share-btn" onClick={shareQuote} title="Share this quote">
-                            <span><FiShare /></span>
+                        <button className="qw-action-btn" onClick={shareQuote} title="Share this quote">
+                            <span className="qw-action-icon"><FiShare /></span>
                         </button>
 
-                        <button className="quote-btn share-btn" onClick={copyToClipboard} title="Copy to clipboard">
-                            <span><FiCopy /></span>
+                        <button className="qw-action-btn" onClick={copyToClipboard} title="Copy to clipboard">
+                            <span className="qw-action-icon"><FiCopy /></span>
                         </button>
 
-                        <button className="quote-btn" onClick={updateQuote} >
-                            <span className="quote-btn-text" style={{ backgroundImage: backgroundColor }}>New quote</span>
+                        <button className="qw-action-btn lg" onClick={updateQuote} >
+                            <span className="qw-action-text" style={{ backgroundImage: backgroundColor }}>New quote</span>
                         </button>
                     </div>
                 </div>
-
-
             </div>
         </div>
     );
 }
 
-export default WeatherCard;
+export default QuoteWeatherCard;
 
 
 
