@@ -37,9 +37,10 @@
 .qw-quote-icon{position: absolute;top: 20px;left: 20px;font-size: 50px;line-height: 1;color: rgba(255, 255, 255, 0.1);}
 .qw-quote-author {background-clip: text;color: transparent;font-size: 16px;text-align: right;transition: color .4s ease-in;font-weight: 500;}
 
-.qw-location-group .form-control {background: rgba(255, 255, 255, 0.2);box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.25);border-radius: 4px;color: var(--mrr-white);border-color: transparent;}
+.qw-location-group .form-control {padding: 10px 20px;background: rgba(255, 255, 255, 0.2);box-shadow: 0 0 50px 5px rgba(0, 0, 0, 0.25);border-radius: 4px;color: var(--mrr-white);border-color: transparent;}
+.qw-location-group .form-control::placeholder {color: var(--mrr-white);opacity: 0.6;}
 .qw-location-group .form-control:focus {border-color: rgba(255, 255, 255, 0.2);}
-.qw-action-btn {padding: 10px 20px;font-size: 14px;font-weight: 700;line-height: 1;text-align: center;border-radius: 4px;opacity: 1;border-radius: 4px;background: rgba(255, 255, 255, 0.2);border: 0;box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);transition: all .2s ease-in;}
+.qw-action-btn {padding: 10px 20px;font-size: 14px;font-weight: 700;line-height: 1;text-align: center;border-radius: 8px;opacity: 1;background: rgba(255, 255, 255, 0.2);border: 0;box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);transition: all .2s ease-in;}
 .qw-action-icon{font-size: 20px;}
 .qw-action-text{color: transparent;background-clip: text;}
 .qw-action-btn:hover {opacity: 0.8; }
@@ -55,8 +56,10 @@
 
 @media (max-width: 767.98px){
 	.qw-week-row{justify-content: center;}
+	.qw-quote-text{font-size: 24px;}
 }
 
-@media (max-width: 767.98px){
+@media (max-width: 575.98px){
 	.qw-today-box{min-height: 478px;}
+	.quote-btn-group .qw-action-btn.lg{flex-grow: 1;}
 }

@@ -15,7 +15,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import StatCard from './components/StatCard/StatCard';
 import { projectsCards, photos } from "./data/staticData"; // Moved static data here
-import QuoteWeatherCard from "./components/QuoteWeatherCard/QuoteWeatherCard";
 
 type Video = {
   id: { videoId: string };
@@ -150,10 +149,6 @@ export default function Home() {
         <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           {photos.map(photo => <PhotoCard key={photo.id} photo={photo} />)}
         </div>
-      </ContentContainer>
-
-      <ContentContainer background="dark">
-        <QuoteWeatherCard />
       </ContentContainer>
     </main>
   );

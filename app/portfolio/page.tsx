@@ -1,4 +1,5 @@
 'use client'
+import { useState, useEffect } from 'react';
 import Banner from '../components/Banner/Banner'
 import InnerHero from '../components/InnerHero/InnerHero'
 import { IoIosArrowDroprightCircle } from "react-icons/io";
@@ -9,9 +10,8 @@ import VideoCard from '../components/VideoCard/VideoCard';
 import PhotoCard from '../components/PhotoCard/PhotoCard';
 import WorkCard from '../components/WorkCard/WorkCard';
 import { Metadata } from 'next';
-import { workCards, imageLinks } from "../data/staticData";
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { projectsCards, photos } from "../data/staticData";
+
 
 // export const metadata: Metadata = {
 //   title: 'mrahulrahi - portfolio',
@@ -71,7 +71,7 @@ const Portfolio = () => {
           <Heading heading='My Project' />
 
           <div className="work-list d-flex flex-wrap">
-            {workCards.map(card =>
+            {projectsCards.map(card =>
               <div key={card.id} className="work-item" data-aos="fade-up" suppressHydrationWarning>
                 <WorkCard card={card} />
               </div>
@@ -89,7 +89,7 @@ const Portfolio = () => {
         <Heading heading='Gallery' />
 
         <div className="gallery" data-aos="fade-up" suppressHydrationWarning>
-          {imageLinks.map(item =>
+          {photos.map(item =>
             <div key={item.id}>
               <PhotoCard item={item} />
             </div>
