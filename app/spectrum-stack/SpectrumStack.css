@@ -62,7 +62,7 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 
 ::selection {background-color: #faebd7;}
 .wrapper {display: grid;gap: 25px;grid-template-columns: repeat(auto-fill, 265px);}
-.wrapper > li {height: 250px;list-style: none;border-radius: 5px;padding: 15px 20px 20px;background: #dfe0df;box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);}
+.wrapper > li {height: 250px;list-style: none;border-radius: 5px;padding: 15px 20px 20px;background: rgba(255, 255, 255, 0.2);box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);}
 .add-box,.icon,.bottom-content,.popup,header,.settings .menu li {display: flex;align-items: center;justify-content: space-between;}
 .add-box {cursor: pointer;flex-direction: column;justify-content: center;}
 .add-box .icon {height: 78px;width: 78px;color: var(--mrr-dark-color);font-size: 40px;border-radius: 50%;justify-content: center;border: 2px dashed var(--mrr-dark-color);}
@@ -79,7 +79,7 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 .popup textarea:hover::-webkit-scrollbar-thumb {background: #e6e6e6;border-radius: 25px;}
 .note p {font-size: 22px;font-weight: 500;color: var(--mrr-main-color);}
 .note span {display: block;color: var(--mrr-dark-color);font-size: 16px;margin-top: 5px;}
-.note .bottom-content {padding-top: 10px;border-top: 1px solid #ccc;}
+.note .bottom-content {padding-top: 10px;border-top: 1px solid rgb(0, 0, 0, 0.25);}
 .bottom-content span {font-size: 14px;}
 .bottom-content .settings {position: relative;}
 .bottom-content .settings i {color: var(--mrr-dark-color);cursor: pointer;font-size: 15px;}

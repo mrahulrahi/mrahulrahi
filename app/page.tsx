@@ -147,7 +147,7 @@ export default function Home() {
           <Button title="View All" style="default" url="/portfolio" />
         </Heading>
         <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-          {photos.map(photo => <PhotoCard key={photo.id} photo={photo} />)}
+          {photos?.slice(0,3).map(photo => <PhotoCard key={photo.id} photo={photo} />)}
         </div>
       </ContentContainer>
     </main>

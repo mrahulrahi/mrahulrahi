@@ -451,9 +451,113 @@ const SpectrumStack = () => {
                         </div>
                         {gradient ? <h4> Current CSS BG : {gradient}</h4> : ''}
                     </div>
+
                     <div className="main-class d-flex flex-column flex-md-row" id="main-container">
 
+                        <div className="quiz-container">
+                            {!showQuiz ? (
+                                <>
+                                    <div className="select-menu mx-auto">
+                                        <div className="row g-3">
+                                            <div className="col-sm-6 ">
+                                                <div className="form-group">
+                                                    <label className="form-label" htmlFor="amount">Amount:</label>
+                                                    <select className="form-select" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
+                                                        <option value={5}>5</option>
+                                                        <option value={10}>10</option>
+                                                        <option value={15}>15</option>
+                                                        <option value={20}>20</option>
+                                                        <option value={25}>25</option>
+                                                        <option value={30}>30</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <div className="form-group">
+                                                    <label className="form-label" htmlFor="category">Category:</label>
+                                                    <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
+                                                        <option value={0}>Any Category</option>
+                                                        {categories.map((category: { id: number; name: string; }) => (
+                                                            <option key={category.id} value={category.id}>{category.name}</option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <div className="form-group">
+                                                    <label className="form-label" htmlFor="difficulty">Difficulty:</label>
+                                                    <select className="form-select" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                                                        <option value={0}>Any Difficulty</option>
+                                                        <option value="easy">Easy</option>
+                                                        <option value="medium">Medium</option>
+                                                        <option value="hard">Hard</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div className="col-sm-6">
+                                                <div className="form-group">
+                                                    <label className="form-label" htmlFor="type">Type:</label>
+                                                    <select className="form-select" id="type" value={type} onChange={(e) => setType(e.target.value)}>
+                                                        <option value={0}>Any Type</option>
+                                                        <option value="multiple">Multiple Choice</option>
+                                                        <option value="boolean">True / False</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="start-quiz-wrapper mx-auto">
+                                        <h2>Test your <br /> knowledge</h2>
+                                        <button className="btn btn-green" onClick={() => { startQuiz(); fetchTriviaQuestions(); }}>Start Quiz</button>
+                                    </div>
+                                </>
 
+                            ) : (
+                                <>
+                                    {questionNumber < questions.length ? (
+                                        showFeedback ? (
+                                            <>
+                                                <div className="quiz-stats-head d-flex justify-content-between">
+                                                    <p className="questions mb-0">Questions: <span>{showQuiz ? questionNumber + 1 : questionNumber}/{questions.length}</span></p>
+                                                    <p className="score mb-0">Score: <span>{score}</span></p>
+                                                </div>
+                                                <div className="feedback-wrapper mx-auto">
+                                                    {selectedAnswer === questions[questionNumber].correct_answer ? (
+                                                        <div className="correct-feedback">
+                                                            <h3 className="text-success">CORRECT!</h3>
+                                                            <h4 className="correct-answer-alert">
+                                                                Correct answer is: {questions[questionNumber].correct_answer}
+                                                            </h4>
+                                                        </div>
+                                                    ) : (
+                                                        <div className="wrong-feedback">
+                                                            <h3 className="text-danger">WRONG!</h3>
+                                                            <h4 className="correct-answer-alert">
+                                                                Correct answer is: {questions[questionNumber].correct_answer}
+                                                            </h4>
+                                                        </div>
+                                                    )}
+                                                    <button className="btn btn-green" onClick={nextQuestion}>{questionNumber < questions.length - 1 ? 'Next Question' : 'End Quiz'}</button>
+                                                </div>
+                                            </>
+
+                                        ) : (
+                                            getQuestionAndAnswers()
+                                        )
+                                    ) : (
+                                        <div className="feedback-wrapper mx-auto">
+                                            <h3>Quiz Completed!</h3>
+                                            <h4>Your Score: {score}</h4>
+                                            <div className="d-flex flex-column flex-sm-row gap-3">
+                                                <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>
+                                                <button className="btn btn-green" onClick={() => window.location.reload()}>Start New Quiz</button>
+                                            </div>
+
+                                        </div>
+                                    )}
+                                </>
+                            )}
+                        </div>
 
                         <div className="android-frame">
                             <div className="output-operation-class" id="output-operation">
@@ -654,110 +758,7 @@ const SpectrumStack = () => {
                     </div>
                 </ContentContainer>
 
-                <ContentContainer className="quiz-container">
-                    {!showQuiz ? (
-                        <>
-                            <div className="select-menu mx-auto">
-                                <div className="row g-3">
-                                    <div className="col-sm-6 col-lg-3">
-                                        <div className="form-group">
-                                            <label className="form-label" htmlFor="amount">Amount:</label>
-                                            <select className="form-select" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
-                                                <option value={5}>5</option>
-                                                <option value={10}>10</option>
-                                                <option value={15}>15</option>
-                                                <option value={20}>20</option>
-                                                <option value={25}>25</option>
-                                                <option value={30}>30</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3">
-                                        <div className="form-group">
-                                            <label className="form-label" htmlFor="category">Category:</label>
-                                            <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
-                                                <option value={0}>Any Category</option>
-                                                {categories.map((category: { id: number; name: string; }) => (
-                                                    <option key={category.id} value={category.id}>{category.name}</option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3">
-                                        <div className="form-group">
-                                            <label className="form-label" htmlFor="difficulty">Difficulty:</label>
-                                            <select className="form-select" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
-                                                <option value={0}>Any Difficulty</option>
-                                                <option value="easy">Easy</option>
-                                                <option value="medium">Medium</option>
-                                                <option value="hard">Hard</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div className="col-sm-6 col-lg-3">
-                                        <div className="form-group">
-                                            <label className="form-label" htmlFor="type">Type:</label>
-                                            <select className="form-select" id="type" value={type} onChange={(e) => setType(e.target.value)}>
-                                                <option value={0}>Any Type</option>
-                                                <option value="multiple">Multiple Choice</option>
-                                                <option value="boolean">True / False</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="start-quiz-wrapper mx-auto">
-                                <h2>Test your <br /> knowledge</h2>
-                                <button className="btn btn-green" onClick={() => { startQuiz(); fetchTriviaQuestions(); }}>Start Quiz</button>
-                            </div>
-                        </>
 
-                    ) : (
-                        <>
-                            {questionNumber < questions.length ? (
-                                showFeedback ? (
-                                    <>
-                                        <div className="quiz-stats-head d-flex justify-content-between">
-                                            <p className="questions mb-0">Questions: <span>{showQuiz ? questionNumber + 1 : questionNumber}/{questions.length}</span></p>
-                                            <p className="score mb-0">Score: <span>{score}</span></p>
-                                        </div>
-                                        <div className="feedback-wrapper mx-auto">
-                                            {selectedAnswer === questions[questionNumber].correct_answer ? (
-                                                <div className="correct-feedback">
-                                                    <h3 className="text-success">CORRECT!</h3>
-                                                    <h4 className="correct-answer-alert">
-                                                        Correct answer is: {questions[questionNumber].correct_answer}
-                                                    </h4>
-                                                </div>
-                                            ) : (
-                                                <div className="wrong-feedback">
-                                                    <h3 className="text-danger">WRONG!</h3>
-                                                    <h4 className="correct-answer-alert">
-                                                        Correct answer is: {questions[questionNumber].correct_answer}
-                                                    </h4>
-                                                </div>
-                                            )}
-                                            <button className="btn btn-green" onClick={nextQuestion}>{questionNumber < questions.length - 1 ? 'Next Question' : 'End Quiz'}</button>
-                                        </div>
-                                    </>
-
-                                ) : (
-                                    getQuestionAndAnswers()
-                                )
-                            ) : (
-                                <div className="feedback-wrapper mx-auto">
-                                    <h3>Quiz Completed!</h3>
-                                    <h4>Your Score: {score}</h4>
-                                    <div className="d-flex flex-column flex-sm-row gap-3">
-                                        <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>
-                                        <button className="btn btn-green" onClick={() => window.location.reload()}>Start New Quiz</button>
-                                    </div>
-
-                                </div>
-                            )}
-                        </>
-                    )}
-                </ContentContainer>
             </div >
 
         </>
