@@ -32,7 +32,9 @@ const months = [
 
 
 const SpectrumStack = () => {
+    const [openSideBox, setOpenSideBox] = useState(false);
     const [displayValue, setDisplayValue] = useState('');
+    const [gradientDirection, setGradientDirection] = useState('to right');
 
     const handleButtonClick = (buttonText: any) => {
         const buttonValue = buttonText.target.innerHTML;
@@ -144,8 +146,14 @@ const SpectrumStack = () => {
         updateGradient(newColor, color2);
     };
 
-    const updateGradient = (c1: string, c2: string) => {
-        const gradientStyle = `linear-gradient(to right, ${c1}, ${c2})`;
+    const handleDirectionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const newDirection = e.target.value;
+        setGradientDirection(newDirection);
+        updateGradient(color1, color2, newDirection);
+    };
+
+    const updateGradient = (c1: string, c2: string, direction: string = gradientDirection) => {
+        const gradientStyle = `linear-gradient(${direction}, ${c1}, ${c2})`;
         setGradient(gradientStyle);
     };
 
@@ -429,28 +437,49 @@ const SpectrumStack = () => {
     return (
         <>
 
-            <div className="gradient-preview" style={{ background: gradient }}>
+            <div className="gradient-bg" style={{ background: gradient }}>
 
-                <ContentContainer className="gradient-generator-container">
-                    <h2>Spectrum <br /> Stack App</h2>
-                    <div>
-                        <h3 className="text-center">Choose Gradient Colors</h3>
+                <div className={`gradient-selector-box d-flex align-items-center ${openSideBox ? 'open' : null}`}>
+                    <div className="gs-inner d-flex flex-column align-items-center">
+                        <h3>Choose <br /> Colors</h3>
                         <div className="color-pick-group d-inline-flex">
                             <div className="color-pick-card d-flex flex-column">
                                 <input className="color1" type="color" value={color1} onChange={(e) => handleColorChange(e, setColor1)} />
-                                <div className="info">
-                                    <h4 className="mb-0">Color : 1</h4>
+                                <div className="color-pick-info">
+                                    <p>Color : 1</p>
                                 </div>
                             </div>
                             <div className="color-pick-card d-flex flex-column">
                                 <input className="color2" type="color" value={color2} onChange={(e) => handleColorChange(e, setColor2)} />
-                                <div className="info">
-                                    <h4 className="mb-0">Color : 2</h4>
+                                <div className="color-pick-info">
+                                    <p>Color : 2</p>
                                 </div>
                             </div>
                         </div>
-                        {gradient ? <h4> Current CSS BG : {gradient}</h4> : ''}
+                        <div className="direction-select mt-3">
+                            <label className="form-label" htmlFor="direction">Direction:</label>
+                            <select id="direction" className='form-select' value={gradientDirection} onChange={handleDirectionChange}>
+                                <option value="to right">To Right</option>
+                                <option value="to left">To Left</option>
+                                <option value="to top">To Top</option>
+                                <option value="to bottom">To Bottom</option>
+                                <option value="to top right">To Top Right</option>
+                                <option value="to top left">To Top Left</option>
+                                <option value="to bottom right">To Bottom Right</option>
+                                <option value="to bottom left">To Bottom Left</option>
+                            </select>
+                        </div>
                     </div>
+
+
+                    <button className="gs-btn" onClick={() => setOpenSideBox(prev => !prev)} style={{ background: gradient }}>Gradient Bg</button>
+
+                </div>
+
+                <ContentContainer className="gradient-generator-container">
+                    <h2>Spectrum <br /> Stack App</h2>
+
+                    {gradient ? <p className="text-center mt-3"> Current CSS BG : {gradient}</p> : ''}
 
                     <div className="main-class d-flex flex-column flex-md-row" id="main-container">
 
