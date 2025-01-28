@@ -3,14 +3,7 @@ import React, { useState, useEffect } from 'react';
 import ContentContainer from '../components/ContentContainer'
 import './SpectrumStack.css'
 import { FaPlus, FaXmark, FaEllipsis, FaPen, FaTrash } from 'react-icons/fa6';
-
-interface Note {
-    id: number;
-    title: string;
-    description: string;
-    date: string;
-    type: string;
-}
+import { FiCopy } from "react-icons/fi";
 
 interface Task {
     id: number;
@@ -18,11 +11,13 @@ interface Task {
     completed: boolean;
 }
 
-interface ToDo {
+interface Item {
     id: number;
     title: string;
-    tasks: Task[];
+    description?: string;
+    tasks?: Task[];
     date: string;
+    type: 'note' | 'todo';
 }
 
 const months = [
@@ -158,7 +153,7 @@ const SpectrumStack = () => {
     };
 
 
-    const [notes, setNotes] = useState<Note[]>([]);
+    const [items, setItems] = useState<Item[]>([]);
     const [isUpdate, setIsUpdate] = useState(false);
     const [updateId, setUpdateId] = useState<number | null>(null);
     const [title, setTitle] = useState('');
@@ -166,7 +161,6 @@ const SpectrumStack = () => {
     const [popupVisible, setPopupVisible] = useState(false);
     const [menuOpen, setMenuOpen] = useState<number | null>(null);
     const [view, setView] = useState<'notes' | 'todos'>('notes');
-    const [todos, setTodos] = useState<ToDo[]>([]);
     const [currentToDoId, setCurrentToDoId] = useState<number | null>(null);
     const [taskTitle, setTaskTitle] = useState('');
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -174,82 +168,66 @@ const SpectrumStack = () => {
     const [itemType, setItemType] = useState<'note' | 'todo'>('note');
 
     useEffect(() => {
-        const savedNotesJson = localStorage.getItem('notes');
-        if (savedNotesJson) {
+        const savedItemsJson = localStorage.getItem('items');
+        if (savedItemsJson) {
             try {
-                const savedNotes: Note[] = JSON.parse(savedNotesJson);
-                setNotes(savedNotes);
+                const savedItems: Item[] = JSON.parse(savedItemsJson);
+                setItems(savedItems);
             } catch (error) {
-                console.error('Failed to parse notes from localStorage', error);
+                console.error('Failed to parse items from localStorage', error);
             }
         }
     }, []);
 
     useEffect(() => {
-        localStorage.setItem('notes', JSON.stringify(notes));
-    }, [notes]);
+        localStorage.setItem('items', JSON.stringify(items));
+    }, [items]);
 
-    const addNoteOrToDo = () => {
+    const addItem = () => {
         const currentDate = new Date();
         const month = months[currentDate.getMonth()];
         const day = currentDate.getDate();
         const year = currentDate.getFullYear();
 
-        if (itemType === 'note') {
-            const newNote: Note = {
-                id: notes.length + 1,
-                title,
-                description,
-                date: `${month} ${day}, ${year}`,
-                type: 'note'
-            };
+        const newItem: Item = {
+            id: currentToDoId || Date.now(),
+            title,
+            date: `${month} ${day}, ${year}`,
+            type: itemType,
+            ...(itemType === 'note' ? { description } : { tasks })
+        };
 
-            if (!isUpdate) {
-                setNotes([...notes, newNote]);
-            } else {
-                const updatedNotes = notes.map(note =>
-                    note.id === updateId ? { ...newNote, id: updateId } : note
-                );
-                setNotes(updatedNotes);
-                setIsUpdate(false);
-            }
+        if (isUpdate) {
+            const updatedItems = items.map(item =>
+                item.id === updateId ? { ...newItem, id: updateId } : item
+            );
+            setItems(updatedItems);
+            setIsUpdate(false);
         } else {
-            const newToDo: ToDo = {
-                id: currentToDoId || Date.now(),
-                title,
-                tasks,
-                date: `${month} ${day}, ${year}`
-            };
-
-            if (currentToDoId) {
-                setTodos(todos.map(todo => todo.id === currentToDoId ? newToDo : todo));
-            } else {
-                setTodos([...todos, newToDo]);
-            }
-
-            setSavedToDoId(newToDo.id); // Set saved To-Do ID
+            setItems([...items, newItem]);
         }
 
         resetForm();
         closePopup();
     };
 
-
-    const deleteNote = (noteId: number) => {
-        if (window.confirm("Are you sure you want to delete this note?")) {
-            const updatedNotes = notes.filter(note => note.id !== noteId);
-            setNotes(updatedNotes);
-            if (updateId === noteId) {
+    const deleteItem = (itemId: number) => {
+        if (window.confirm("Are you sure you want to delete this item?")) {
+            const updatedItems = items.filter(item => item.id !== itemId);
+            setItems(updatedItems);
+            if (updateId === itemId) {
                 setIsUpdate(false);
             }
         }
     };
 
-    const updateNote = (noteId: number, title: string, description: string) => {
+    const updateItem = (item: Item) => {
         setIsUpdate(true);
-        setUpdateId(noteId);
-        setTitle(title);
-        setDescription(description);
+        setUpdateId(item.id);
+        setTitle(item.title);
+        setDescription(item.description || '');
+        setTasks(item.tasks || []);
+        setItemType(item.type);
         openPopup();
     };
 
@@ -269,8 +247,8 @@ const SpectrumStack = () => {
         document.body.style.overflow = 'auto';
     };
 
-    const toggleMenu = (noteId: number) => {
-        setMenuOpen(menuOpen === noteId ? null : noteId);
+    const toggleMenu = (itemId: number) => {
+        setMenuOpen(menuOpen === itemId ? null : itemId);
     };
 
     const addTask = () => {
@@ -290,30 +268,9 @@ const SpectrumStack = () => {
     };
 
     const toggleTaskCompletion = (taskId: number) => {
-        if (savedToDoId) { // Only allow toggling if To-Do is saved
-            setTasks(tasks.map(task =>
-                task.id === taskId ? { ...task, completed: !task.completed } : task
-            ));
-        }
-    };
-
-    const addOrUpdateToDo = () => {
-        const newToDo: ToDo = {
-            id: currentToDoId || Date.now(),
-            title,
-            tasks,
-            date: new Date().toLocaleDateString()
-        };
-
-        if (currentToDoId) {
-            setTodos(todos.map(todo => todo.id === currentToDoId ? newToDo : todo));
-        } else {
-            setTodos([...todos, newToDo]);
-        }
-
-        setSavedToDoId(newToDo.id); // Set saved To-Do ID
-        resetForm();
-        closePopup();
+        setTasks(tasks.map(task =>
+            task.id === taskId ? { ...task, completed: !task.completed } : task
+        ));
     };
 
     const resetForm = () => {
@@ -438,6 +395,9 @@ const SpectrumStack = () => {
         <>
 
             <div className="gradient-bg" style={{ background: gradient }}>
+                <ContentContainer className="inner-banner-container">
+                    <h1>Spectrum <br /> Stack App</h1>
+                </ContentContainer>
 
                 <div className={`gradient-selector-box d-flex align-items-center ${openSideBox ? 'open' : null}`}>
                     <div className="gs-inner d-flex flex-column align-items-center">
@@ -476,10 +436,12 @@ const SpectrumStack = () => {
 
                 </div>
 
-                <ContentContainer className="gradient-generator-container">
-                    <h2>Spectrum <br /> Stack App</h2>
+                <ContentContainer className="gradient-generator-container pt-0">
 
-                    {gradient ? <p className="text-center mt-3"> Current CSS BG : {gradient}</p> : ''}
+                    {gradient && <div className="d-flex g-2">
+                        <p className="text-center mt-3"> Current CSS BG : {gradient}</p>
+                        <button onClick={() => navigator.clipboard.writeText(gradient)} className="btn btn-green ratio-1x1"><FiCopy /></button>
+                    </div>}
 
                     <div className="main-class d-flex flex-column flex-md-row" id="main-container">
 
@@ -592,33 +554,35 @@ const SpectrumStack = () => {
                             <div className="output-operation-class" id="output-operation">
                                 <input type="text" className="output-screen" id="output-id" placeholder='0' value={displayValue} readOnly />
                             </div>
-                            <div className="mini-algo-function">
-                                <button onClick={handleButtonClick} className="button mini-function">x²</button>
-                                <button onClick={handleButtonClick} className="button mini-function">√</button>
-                                <button onClick={handleButtonClick} className="button mini-function">^</button>
-                                <button onClick={handleButtonClick} className="button mini-function">!</button>
-                            </div>
-                            <div className="input-class">
-                                <button onClick={handleButtonClick} className="button AC-btn">AC</button>
-                                <button onClick={handleButtonClick} className="button function-btn">π</button>
-                                <button onClick={handleButtonClick} className="button function-btn">%</button>
-                                <button onClick={handleButtonClick} className="button function-btn">÷</button>
-                                <button onClick={handleButtonClick} className="button number-btn">7</button>
-                                <button onClick={handleButtonClick} className="button number-btn">8</button>
-                                <button onClick={handleButtonClick} className="button number-btn">9</button>
-                                <button onClick={handleButtonClick} className="button function-btn">x</button>
-                                <button onClick={handleButtonClick} className="button number-btn">4</button>
-                                <button onClick={handleButtonClick} className="button number-btn">5</button>
-                                <button onClick={handleButtonClick} className="button number-btn">6</button>
-                                <button onClick={handleButtonClick} className="button function-btn">-</button>
-                                <button onClick={handleButtonClick} className="button number-btn">1</button>
-                                <button onClick={handleButtonClick} className="button number-btn">2</button>
-                                <button onClick={handleButtonClick} className="button number-btn">3</button>
-                                <button onClick={handleButtonClick} className="button function-btn">+</button>
-                                <button onClick={handleButtonClick} className="button number-btn">0</button>
-                                <button onClick={handleButtonClick} className="button number-btn">.</button>
-                                <button onClick={handleButtonClick} className="button C-btn">C</button>
-                                <button onClick={handleButtonClick} className="button equal-btn">=</button>
+                            <div className="input-btn-wrapper">
+                                <div className="mini-algo-function">
+                                    <button onClick={handleButtonClick} className="button mini-function">x²</button>
+                                    <button onClick={handleButtonClick} className="button mini-function">√</button>
+                                    <button onClick={handleButtonClick} className="button mini-function">^</button>
+                                    <button onClick={handleButtonClick} className="button mini-function">!</button>
+                                </div>
+                                <div className="input-class">
+                                    <button onClick={handleButtonClick} className="button AC-btn">AC</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">π</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">%</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">÷</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">7</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">8</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">9</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">x</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">4</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">5</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">6</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">-</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">1</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">2</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">3</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">+</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">0</button>
+                                    <button onClick={handleButtonClick} className="button number-btn">.</button>
+                                    <button onClick={handleButtonClick} className="button C-btn">C</button>
+                                    <button onClick={handleButtonClick} className="button equal-btn">=</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -673,9 +637,8 @@ const SpectrumStack = () => {
                                                                 type="checkbox"
                                                                 checked={task.completed}
                                                                 onChange={() => toggleTaskCompletion(task.id)}
-                                                                disabled={savedToDoId === null && !isUpdate} // Disable checkbox if To-Do is not saved
                                                             />
-                                                            {task.title}
+                                                            <span className={task.completed ? 'completed-task' : ''}>{task.title}</span>
                                                             <button type="button" onClick={() => removeTask(task.id)}>
                                                                 <i className="close-icon"><FaXmark /></i>
                                                             </button>
@@ -694,7 +657,7 @@ const SpectrumStack = () => {
                                                 />
                                             </div>
                                         )}
-                                        <button type="button" onClick={addNoteOrToDo}>
+                                        <button type="button" onClick={addItem}>
                                             {isUpdate ? (itemType === 'note' ? 'Update Note' : 'Update To-Do') : (itemType === 'note' ? 'Add Note' : 'Add To-Do')}
                                         </button>
                                     </form>
@@ -711,69 +674,45 @@ const SpectrumStack = () => {
                                     <div className="icon"><FaPlus /></div>
                                     <p>Add new</p>
                                 </li>
-                                {notes.map((note) => (
-                                    <li key={note.id} className="note">
+                                {items.map((item) => (
+                                    <li key={item.id} className="note">
                                         <div className="details">
-                                            <p>{note.title}</p>
-                                            <span>{note.description}</span>
+                                            <p>{item.title}</p>
+                                            {item.type === 'note' ? (
+                                                <span>{item.description}</span>
+                                            ) : (
+                                                item.tasks?.map(task => (
+                                                    <div key={task.id} className="task d-flex align-items-center gap-1">
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={task.completed}
+                                                            onChange={() => {
+                                                                const updatedTasks = item.tasks?.map(t =>
+                                                                    t.id === task.id ? { ...t, completed: !t.completed } : t
+                                                                );
+                                                                const updatedItems = items.map(i =>
+                                                                    i.id === item.id ? { ...i, tasks: updatedTasks } : i
+                                                                );
+                                                                setItems(updatedItems);
+                                                            }}
+                                                        />
+                                                        <span className={task.completed ? 'completed-task' : ''}>{task.title}</span>
+                                                    </div>
+                                                ))
+                                            )}
                                         </div>
                                         <div className="bottom-content">
-                                            <span>{note.date}</span>
+                                            <span>{item.date}</span>
                                             <div className="settings">
-                                                <button className="menu-btn" onClick={() => toggleMenu(note.id)}>
+                                                <button className="menu-btn" onClick={() => toggleMenu(item.id)}>
                                                     <FaEllipsis />
                                                 </button>
-                                                {menuOpen === note.id && (
+                                                {menuOpen === item.id && (
                                                     <ul className="menu">
-                                                        <li onClick={() => { updateNote(note.id, note.title, note.description); setMenuOpen(null); }}>
+                                                        <li onClick={() => { updateItem(item); setMenuOpen(null); }}>
                                                             <i><FaPen /></i> Edit
                                                         </li>
-                                                        <li onClick={() => { deleteNote(note.id); setMenuOpen(null); }}>
-                                                            <i><FaTrash /></i> Delete
-                                                        </li>
-                                                    </ul>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </li>
-                                ))}
-                                {todos.map((todo) => (
-                                    <li key={todo.id} className="todo d-flex flex-column">
-                                        <div className="details flex-grow-1">
-                                            <p>{todo.title}</p>
-                                            {todo.tasks.map(task => (
-                                                <div key={task.id} className="task">
-                                                    <input
-                                                        type="checkbox"
-                                                        checked={task.completed}
-                                                        onChange={() => toggleTaskCompletion(task.id)}
-                                                        disabled={todo.id !== savedToDoId} // Disable checkbox if To-Do is not the current saved one
-                                                    />
-                                                    {task.title}
-                                                </div>
-                                            ))}
-                                        </div>
-                                        <div className="bottom-content">
-                                            <span>{todo.date}</span>
-                                            <div className="settings">
-                                                <button className="menu-btn" onClick={() => toggleMenu(todo.id)}>
-                                                    <FaEllipsis />
-                                                </button>
-                                                {menuOpen === todo.id && (
-                                                    <ul className="menu">
-                                                        <li onClick={() => {
-                                                            setCurrentToDoId(todo.id);
-                                                            setTitle(todo.title);
-                                                            setTasks(todo.tasks);
-                                                            setSavedToDoId(todo.id); // Set saved To-Do ID for editing
-                                                            openPopup();
-                                                        }}>
-                                                            <i><FaPen /></i> Edit
-                                                        </li>
-                                                        <li onClick={() => {
-                                                            setTodos(todos.filter(td => td.id !== todo.id));
-                                                            setMenuOpen(null);
-                                                        }}>
+                                                        <li onClick={() => { deleteItem(item.id); setMenuOpen(null); }}>
                                                             <i><FaTrash /></i> Delete
                                                         </li>
                                                     </ul>
