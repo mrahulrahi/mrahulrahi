@@ -7,7 +7,7 @@
 .projects-card-img img{width: 100%;height: 100%;object-fit: contain;position: absolute;top: 0;left: 0;}
 .projects-card-text-box{margin-top: 30px;padding: 10px;}
 .projects-card-text{font-size: 16px;font-weight: 300;line-height: 1.6;padding-bottom: 10px;border-bottom: 1px solid rgba(255,255,255,0.1);}
-.projects-card-text h4{font-size: 36px;font-weight: 600;line-height: 1.6;margin-bottom: 0;} 
+.projects-card-text h4{font-size: 36px;font-weight: 600;line-height: 1.6;margin-bottom: 0;line-clamp: 1;-webkit-line-clamp: 1;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;} 
 
 .icon-link-btn{width: 45px;height: 45px;font-size: 22px;color: var(--mrr-dark-color);background: var(--mrr-accent-color);}
 .icon-link-btn:hover{color: var(--mrr-accent-color);background-color: rgba(255,255,255,0.1);}

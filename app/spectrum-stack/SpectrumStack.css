@@ -35,15 +35,15 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 .main-class {display: flex;justify-content: center;align-items: center;width: 100%;}
 .android-frame {display: flex;flex-direction: column;width: 400px;border: 0.425rem solid #000;border-radius: 1.875rem;background: #151715;}
 .output-operation-class {width: 100%;}
-.output-screen {width: 100%;height: 9rem;text-align: right;border: #000;border-radius: 1.4rem 1.4rem 1.2rem 1.2rem;font-size: 3rem;background: #37303c;padding: 0.8rem 0.5rem;color: #eddbf3;}
+.output-screen {width: 100%;height: 6rem;text-align: right;border: #000;border-radius: 1.4rem 1.4rem 1.2rem 1.2rem;font-size: 1.5rem;background: #37303c;padding: 0.8rem 0.5rem;color: #eddbf3;}
 .output-screen:focus {outline: none;}
 .output-screen::placeholder{color: #eddbf3;}
 .input-btn-wrapper{padding: 30px 10px 20px;}
 .mini-algo-function {display: flex;justify-content: space-evenly;font-size: auto;width: 100%;color: #dfcee5;margin-bottom: 12px;gap: 10px;}
 .mini-function {border: #000;width: 25%;color: #dfcee5;background-color: #4f4256;border-radius: 31.25rem;transition: var(--transition-time);font-size: 1.2rem;font-weight: 600;height: 2rem;}
 .mini-function:active {border-radius: 10%;transition: 0.08s cubic-bezier(0, 0.01, 1, 1);}
-.input-class {display: grid;gap: 10px;width: 100%;border-radius: 0 0 1.49rem 1.49rem;grid-template-columns: repeat(4, 1fr);grid-template-rows: repeat(5, 1fr);align-items: center;align-self: center;justify-items: center;color: #eddbf3;}
-.number-btn,.C-btn,.AC-btn,.function-btn,.equal-btn {width: 100%;aspect-ratio: 1;border-radius: 60%;color: #eddbf3;background: #262229;border: #000;text-align: center;font-size: 1.5rem;}
+.input-class {display: grid;gap: 10px;width: 100%;border-radius: 0 0 1.49rem 1.49rem;grid-template-columns: repeat(5, 1fr);grid-template-rows: repeat(4, 1fr);align-items: center;align-self: center;justify-items: center;color: #eddbf3;}
+.number-btn,.C-btn,.AC-btn,.function-btn,.equal-btn {width: 100%;aspect-ratio: 1;border-radius: 60%;color: #eddbf3;background: #262229;border: #000;text-align: center;font-size: 1rem;}
 .number-btn:active,.C-btn:active {transition: var(--transition-time);border-radius: 20%;background-color: #262229;}
 .AC-btn {color: #fcd7da;background: #6e353b;}
 .AC-btn:active {border-radius: 20%;transition: var(--transition-time);}
@@ -62,7 +62,7 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 .quiz-stats-head p span{font-weight: 400;}
 .select-menu{width: 100%;max-width: 990px;margin-bottom: 50px;}
 .select-menu .form-select, .select-menu .form-select:focus{padding: 14px 20px;font-size: 20px;font-weight: 600;background-color: #e3e7ea;color: var(--mrr-main-color);border-color: var(--mrr-dark-color);box-shadow: none;}
-.start-quiz-wrapper{background-color: #faebd7;width: 100%;max-width: 660px;padding: 50px;border-radius: 25px;text-align: center;}
+.start-quiz-wrapper{background-color: rgba(255, 255, 255, 0.2);width: 100%;padding: 50px;border-radius: 25px;text-align: center;}
 
 .question-answer-wrapper{font-size: 24px;width: 100%;max-width: 1160px;margin-top: 50px;background: #f0f8ff;border-radius: 25px;padding: 50px;}
 .answers-list{width: calc(100% + 30px);margin-left: -15px;margin-bottom: 20px;margin-top: 50px;}
@@ -74,7 +74,7 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 .answer-choice input[type="radio"] + label::before{content: '';width: 25px;height: 25px;background: var(--mrr-white);display: inline-block;border: 4px solid var(--mrr-main-color);border-radius: 50%;flex-shrink: 0;}
 .answer-choice input[type="radio"]:checked + label::before{border-color: var(--mrr-white);background: var(--mrr-main-color);}
 
-.feedback-wrapper{background-color: #faebd7;width:100%;max-width: 650px;padding: 50px;border-radius: 25px;}
+.feedback-wrapper{background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));width:100%;max-width: 650px;padding: 50px;border-radius: 25px;}
 
 .quiz-container .btn{font-size: 20px;padding: 19px 24px;}
 

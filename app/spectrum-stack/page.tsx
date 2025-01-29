@@ -29,6 +29,8 @@ const months = [
 const SpectrumStack = () => {
     const [openSideBox, setOpenSideBox] = useState(false);
     const [displayValue, setDisplayValue] = useState('');
+    const [expression, setExpression] = useState('');
+    const [bracketOpen, setBracketOpen] = useState(true);
     const [gradientDirection, setGradientDirection] = useState('to right');
 
     const handleButtonClick = (buttonText: any) => {
@@ -40,30 +42,34 @@ const SpectrumStack = () => {
         } else if (buttonValue === 'C') {
             backSpace();
         } else if (buttonValue === 'x') {
-            multiply();
+            setExpression((prevValue) => prevValue + '*');
         } else if (buttonValue === '÷') {
-            divide();
+            setExpression((prevValue) => prevValue + '/');
         } else if (buttonValue === 'π') {
-            pi();
+            setExpression((prevValue) => prevValue + Math.PI);
         } else if (buttonValue === '%') {
-            percent();
+            setExpression((prevValue) => prevValue + '/100');
         } else if (buttonValue === 'x²') {
-            square();
+            setExpression((prevValue) => `Math.pow(${prevValue}, 2)`);
         } else if (buttonValue === '√') {
-            squareRoot();
+            setExpression((prevValue) => `Math.sqrt(${prevValue})`);
         } else if (buttonValue === '^') {
-            power();
+            setExpression((prevValue) => prevValue + '**');
         } else if (buttonValue === '!') {
-            factorial();
+            setExpression((prevValue) => `factorial(${prevValue})`);
+        } else if (buttonValue === '()') {
+            setExpression((prevValue) => prevValue + (bracketOpen ? '(' : ')'));
+            setBracketOpen(!bracketOpen);
         } else {
-            setDisplayValue((prevValue) => prevValue + buttonValue);
+            setExpression((prevValue) => prevValue + buttonValue);
         }
     };
 
     const evaluateExpression = () => {
         try {
-            const result = eval(displayValue);
+            const result = eval(expression.replace(/Math\.pow\(([^,]+), 2\)/g, '($1)**2').replace(/Math\.sqrt\(([^)]+)\)/g, 'Math.sqrt($1)').replace(/factorial\(([^)]+)\)/g, 'factorial($1)'));
             setDisplayValue(result.toString());
+            setExpression(result.toString());
         } catch (error) {
             setDisplayValue('Syntax Error');
         }
@@ -71,71 +77,23 @@ const SpectrumStack = () => {
 
     const clear = () => {
         setDisplayValue('');
+        setExpression('');
     };
 
     const backSpace = () => {
-        setDisplayValue((prevValue) => prevValue.substring(0, prevValue.length - 1));
+        setExpression((prevValue) => prevValue.slice(0, -1));
     };
 
-    const multiply = () => {
-        setDisplayValue((prevValue) => prevValue += "*");
-    }
-
-    const divide = () => {
-        setDisplayValue((prevValue) => prevValue += "/");
-    }
-
-    const pi = () => {
-        setDisplayValue((prevValue) => prevValue + Math.PI);
-    }
-
-    const percent = () => {
-        setDisplayValue((prevValue) => prevValue += '/' + 100);
-
-    }
-
-    const square = () => {
-        setDisplayValue((prevValue) => String(Math.pow(parseFloat(prevValue), 2)));
-    }
-
-    const squareRoot = () => {
-        setDisplayValue((prevValue) => String(Math.sqrt(parseFloat(prevValue))));
-    }
-
-    const power = () => {
-        setDisplayValue((prevValue) => {
-            const base = parseFloat(prevValue);
-            const exponent = parseFloat('3');
-
-            const result = Math.pow(base, exponent);
-            return String(result);
-        });
-    };
-
-    const factorial = () => {
-        setDisplayValue((prevValue) => {
-            const value = parseFloat(prevValue);
-            let result = 1;
-
-            if (value === 0) {
-                result = 1;
-            } else if (value < 0) {
-                result = 0;
-            } else {
-                for (let i = value; i > 0; i--) {
-                    result *= i;
-                }
-            }
-
-            return result.toString();
-        });
+    const factorial = (n: number): number => {
+        if (n === 0) return 1;
+        return n * factorial(n - 1);
     };
 
     const [color1, setColor1] = useState('#43C6AC');
     const [color2, setColor2] = useState('#F8FFAE');
     const [gradient, setGradient] = useState('');
 
-    const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>, colorSetter: { (value: React.SetStateAction<string>): void; (value: React.SetStateAction<string>): void; (arg0: any): void; }) => {
+    const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>, colorSetter: React.Dispatch<React.SetStateAction<string>>) => {
         const newColor = e.target.value;
         colorSetter(newColor);
         updateGradient(newColor, color2);
@@ -345,7 +303,7 @@ const SpectrumStack = () => {
                     <p className="score mb-0">Score: <span>{score}</span></p>
                 </div>
                 <div className="question-answer-wrapper mx-auto">
-                    <h3>{questions[questionNumber].question}</h3>
+                    <h3 dangerouslySetInnerHTML={{ __html: questions[questionNumber].question }}></h3>
                     <div className="answers-list d-flex flex-wrap">
                         {[...questions[questionNumber].incorrect_answers, questions[questionNumber].correct_answer].map((answer, index) => (
                             <div key={index} className="answers-item">
@@ -357,7 +315,7 @@ const SpectrumStack = () => {
                                         value={answer}
                                         onChange={() => setSelectedAnswer(answer)}
                                         checked={selectedAnswer === answer} />
-                                    <label htmlFor={`${index}`} className="d-flex align-items-center gap-4">{answer}</label>
+                                    <label htmlFor={`${index}`} className="d-flex align-items-center gap-4" dangerouslySetInnerHTML={{ __html: answer }}></label>
                                 </div>
                             </div>
                         ))}
@@ -448,57 +406,58 @@ const SpectrumStack = () => {
                         <div className="quiz-container">
                             {!showQuiz ? (
                                 <>
-                                    <div className="select-menu mx-auto">
-                                        <div className="row g-3">
-                                            <div className="col-sm-6 ">
-                                                <div className="form-group">
-                                                    <label className="form-label" htmlFor="amount">Amount:</label>
-                                                    <select className="form-select" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
-                                                        <option value={5}>5</option>
-                                                        <option value={10}>10</option>
-                                                        <option value={15}>15</option>
-                                                        <option value={20}>20</option>
-                                                        <option value={25}>25</option>
-                                                        <option value={30}>30</option>
-                                                    </select>
+
+                                    <div className="start-quiz-wrapper mx-auto">
+                                        <h2>Test your <br /> knowledge</h2>
+                                        <div className="select-menu mx-auto">
+                                            <div className="row g-3">
+                                                <div className="col-sm-6 ">
+                                                    <div className="form-group">
+                                                        <label className="form-label" htmlFor="amount">Amount:</label>
+                                                        <select className="form-select" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
+                                                            <option value={5}>5</option>
+                                                            <option value={10}>10</option>
+                                                            <option value={15}>15</option>
+                                                            <option value={20}>20</option>
+                                                            <option value={25}>25</option>
+                                                            <option value={30}>30</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="col-sm-6">
-                                                <div className="form-group">
-                                                    <label className="form-label" htmlFor="category">Category:</label>
-                                                    <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
-                                                        <option value={0}>Any Category</option>
-                                                        {categories.map((category: { id: number; name: string; }) => (
-                                                            <option key={category.id} value={category.id}>{category.name}</option>
-                                                        ))}
-                                                    </select>
+                                                <div className="col-sm-6">
+                                                    <div className="form-group">
+                                                        <label className="form-label" htmlFor="category">Category:</label>
+                                                        <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
+                                                            <option value={0}>Any Category</option>
+                                                            {categories.map((category: { id: number; name: string; }) => (
+                                                                <option key={category.id} value={category.id}>{category.name}</option>
+                                                            ))}
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="col-sm-6">
-                                                <div className="form-group">
-                                                    <label className="form-label" htmlFor="difficulty">Difficulty:</label>
-                                                    <select className="form-select" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
-                                                        <option value={0}>Any Difficulty</option>
-                                                        <option value="easy">Easy</option>
-                                                        <option value="medium">Medium</option>
-                                                        <option value="hard">Hard</option>
-                                                    </select>
+                                                <div className="col-sm-6">
+                                                    <div className="form-group">
+                                                        <label className="form-label" htmlFor="difficulty">Difficulty:</label>
+                                                        <select className="form-select" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                                                            <option value={0}>Any Difficulty</option>
+                                                            <option value="easy">Easy</option>
+                                                            <option value="medium">Medium</option>
+                                                            <option value="hard">Hard</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div className="col-sm-6">
-                                                <div className="form-group">
-                                                    <label className="form-label" htmlFor="type">Type:</label>
-                                                    <select className="form-select" id="type" value={type} onChange={(e) => setType(e.target.value)}>
-                                                        <option value={0}>Any Type</option>
-                                                        <option value="multiple">Multiple Choice</option>
-                                                        <option value="boolean">True / False</option>
-                                                    </select>
+                                                <div className="col-sm-6">
+                                                    <div className="form-group">
+                                                        <label className="form-label" htmlFor="type">Type:</label>
+                                                        <select className="form-select" id="type" value={type} onChange={(e) => setType(e.target.value)}>
+                                                            <option value={0}>Any Type</option>
+                                                            <option value="multiple">Multiple Choice</option>
+                                                            <option value="boolean">True / False</option>
+                                                        </select>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div className="start-quiz-wrapper mx-auto">
-                                        <h2>Test your <br /> knowledge</h2>
                                         <button className="btn btn-green" onClick={() => { startQuiz(); fetchTriviaQuestions(); }}>Start Quiz</button>
                                     </div>
                                 </>
@@ -552,35 +511,36 @@ const SpectrumStack = () => {
 
                         <div className="android-frame">
                             <div className="output-operation-class" id="output-operation">
-                                <input type="text" className="output-screen" id="output-id" placeholder='0' value={displayValue} readOnly />
+                                <input type="text" className="output-screen" id="output-id" placeholder='0' value={expression} readOnly />
                             </div>
                             <div className="input-btn-wrapper">
                                 <div className="mini-algo-function">
                                     <button onClick={handleButtonClick} className="button mini-function">x²</button>
                                     <button onClick={handleButtonClick} className="button mini-function">√</button>
+                                    <button onClick={handleButtonClick} className="button mini-function">π</button>
                                     <button onClick={handleButtonClick} className="button mini-function">^</button>
                                     <button onClick={handleButtonClick} className="button mini-function">!</button>
                                 </div>
                                 <div className="input-class">
-                                    <button onClick={handleButtonClick} className="button AC-btn">AC</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">π</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">%</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">÷</button>
                                     <button onClick={handleButtonClick} className="button number-btn">7</button>
                                     <button onClick={handleButtonClick} className="button number-btn">8</button>
                                     <button onClick={handleButtonClick} className="button number-btn">9</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">x</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">%</button>
+                                    <button onClick={handleButtonClick} className="button AC-btn">AC</button>
                                     <button onClick={handleButtonClick} className="button number-btn">4</button>
                                     <button onClick={handleButtonClick} className="button number-btn">5</button>
                                     <button onClick={handleButtonClick} className="button number-btn">6</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">-</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">x</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">÷</button>
                                     <button onClick={handleButtonClick} className="button number-btn">1</button>
                                     <button onClick={handleButtonClick} className="button number-btn">2</button>
                                     <button onClick={handleButtonClick} className="button number-btn">3</button>
                                     <button onClick={handleButtonClick} className="button function-btn">+</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">-</button>
                                     <button onClick={handleButtonClick} className="button number-btn">0</button>
                                     <button onClick={handleButtonClick} className="button number-btn">.</button>
                                     <button onClick={handleButtonClick} className="button C-btn">C</button>
+                                    <button onClick={handleButtonClick} className="button function-btn">()</button>
                                     <button onClick={handleButtonClick} className="button equal-btn">=</button>
                                 </div>
                             </div>
@@ -592,7 +552,7 @@ const SpectrumStack = () => {
                 </ContentContainer>
 
 
-                <ContentContainer className="notes-todos-app-container">
+                <ContentContainer className="notes-todos-app-container pt-0">
 
 
                     {popupVisible && (

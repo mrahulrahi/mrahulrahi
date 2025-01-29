@@ -26,7 +26,7 @@ const ProjectCard = ({ card }: Props) => {
 
             <div className="projects-card-text-box">
                 <div
-                    className="projects-card-text d-flex justify-content-between align-items-center">
+                    className="projects-card-text d-flex justify-content-between align-items-center gap-2">
                     <h4>{card.title}</h4>
                     <div className="d-flex">
                         <a className="icon-link-btn d-flex align-items-center justify-content-center rounded-circle"

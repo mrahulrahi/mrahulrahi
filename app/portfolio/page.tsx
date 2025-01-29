@@ -12,12 +12,6 @@ import WorkCard from '../components/WorkCard/WorkCard';
 import { Metadata } from 'next';
 import { projectsCards, photos } from "../data/staticData";
 
-
-// export const metadata: Metadata = {
-//   title: 'mrahulrahi - portfolio',
-//   description: 'portfolio work',
-// }
-
 type Video = {
   id: { videoId: string };
   snippet: { title: string; description: string; thumbnails: { medium: { url: string } } };
