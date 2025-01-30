@@ -11,7 +11,7 @@ import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { SiAdobexd } from "react-icons/si";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
-import { BiLogoTypescript } from "react-icons/bi";
+import { BiLogoTypescript, BiLogoVisualStudio } from "react-icons/bi";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -42,6 +42,7 @@ const About = () => {
     { id: 11, logo: <FaGithub />, title: 'GitHub' },
     { id: 12, logo: <FaFigma />, title: 'Figma' },
     { id: 13, logo: <SiAdobexd />, title: 'Adobe Xd' },
+    { id: 14, logo: <BiLogoVisualStudio />, title: 'VS Code' },
   ]
 
   return (

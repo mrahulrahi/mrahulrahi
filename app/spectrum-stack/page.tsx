@@ -401,7 +401,7 @@ const SpectrumStack = () => {
                         <button onClick={() => navigator.clipboard.writeText(gradient)} className="btn btn-green ratio-1x1"><FiCopy /></button>
                     </div>}
 
-                    <div className="main-class d-flex flex-column flex-md-row" id="main-container">
+                    <div className="main-class d-flex flex-column flex-lg-row gap-5" id="main-container">
 
                         <div className="quiz-container">
                             {!showQuiz ? (
@@ -566,8 +566,8 @@ const SpectrumStack = () => {
                                         <i className="close-icon" onClick={closePopup}><FaXmark /></i>
                                     </header>
                                     <div className="view-toggle mb-5 d-flex justify-content-center">
-                                        <button onClick={() => setItemType('note')} className={`w-50 ${itemType === 'note' ? 'active btn-violet' : 'btn-green'}`}>Note</button>
-                                        <button onClick={() => setItemType('todo')} className={`w-50 ${itemType === 'todo' ? 'active btn-violet' : 'btn-green'}`}>To-Do List</button>
+                                        <button onClick={() => setItemType('note')} className={`w-50 btn-toggle ${itemType === 'note' ? 'active' : null}`}>Note</button>
+                                        <button onClick={() => setItemType('todo')} className={`w-50 btn-toggle ${itemType === 'todo' ? 'active' : null}`}>To-Do List</button>
                                     </div>
                                     <form>
                                         <div className="title mb-4">
@@ -592,13 +592,22 @@ const SpectrumStack = () => {
                                                 <button type="button" className="mt-4" onClick={addTask}>Add Task</button>
                                                 <ul className="task-list my-4">
                                                     {tasks.map(task => (
+
                                                         <li key={task.id} className="d-flex mb-2 align-items-center justify-content-between">
-                                                            <input
-                                                                type="checkbox"
-                                                                checked={task.completed}
-                                                                onChange={() => toggleTaskCompletion(task.id)}
-                                                            />
-                                                            <span className={task.completed ? 'completed-task' : ''}>{task.title}</span>
+                                                            <div className="custom-checkbox-wrapper">
+                                                                <label htmlFor={`${task.id}`} className="item">
+                                                                    <input type="checkbox" id={`${task.id}`} className="hidden" checked={task.completed}
+                                                                        onChange={() => toggleTaskCompletion(task.id)} />
+                                                                    <label htmlFor={`${task.id}`} className="cbx">
+                                                                        <svg width="14px" height="12px" viewBox="0 0 14 12">
+                                                                            <polyline points="1 7.6 5 11 13 1"></polyline>
+                                                                        </svg>
+                                                                    </label>
+                                                                    <label htmlFor={`${task.id}`} className={`cbx-lbl ${task.completed ? 'completed-task' : ''}`} >{task.title}</label>
+                                                                </label>
+                                                            </div>
+
+
                                                             <button type="button" onClick={() => removeTask(task.id)}>
                                                                 <i className="close-icon"><FaXmark /></i>
                                                             </button>
@@ -643,20 +652,28 @@ const SpectrumStack = () => {
                                             ) : (
                                                 item.tasks?.map(task => (
                                                     <div key={task.id} className="task d-flex align-items-center gap-1">
-                                                        <input
-                                                            type="checkbox"
-                                                            checked={task.completed}
-                                                            onChange={() => {
-                                                                const updatedTasks = item.tasks?.map(t =>
-                                                                    t.id === task.id ? { ...t, completed: !t.completed } : t
-                                                                );
-                                                                const updatedItems = items.map(i =>
-                                                                    i.id === item.id ? { ...i, tasks: updatedTasks } : i
-                                                                );
-                                                                setItems(updatedItems);
-                                                            }}
-                                                        />
-                                                        <span className={task.completed ? 'completed-task' : ''}>{task.title}</span>
+                                                          <div className="custom-checkbox-wrapper">
+                                                        <label htmlFor={`${task.id}`} className="item">
+                                                            <input type="checkbox" id={`${task.id}`} className="hidden"
+                                                                checked={task.completed}
+                                                                onChange={() => {
+                                                                    const updatedTasks = item.tasks?.map(t =>
+                                                                        t.id === task.id ? { ...t, completed: !t.completed } : t
+                                                                    );
+                                                                    const updatedItems = items.map(i =>
+                                                                        i.id === item.id ? { ...i, tasks: updatedTasks } : i
+                                                                    );
+                                                                    setItems(updatedItems);
+                                                                }} />
+                                                            <label htmlFor={`${task.id}`} className="cbx">
+                                                                <svg width="14px" height="12px" viewBox="0 0 14 12">
+                                                                    <polyline points="1 7.6 5 11 13 1"></polyline>
+                                                                </svg>
+                                                            </label>
+
+                                                            <label htmlFor={`${task.id}`} className={`cbx-lbl ${task.completed ? 'completed-task' : ''}`} >{task.title}</label>
+                                                        </label>
+                                                        </div>
                                                     </div>
                                                 ))
                                             )}
