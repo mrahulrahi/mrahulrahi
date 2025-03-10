@@ -4,4 +4,4 @@
 .video-card-iframe{width:100%;height:auto;aspect-ratio:16/9;border-radius: 10px;overflow: hidden;}
 .video-card-iframe iframe{width:100%;height:100%;}
 .video-card-text{padding:20px 10px 0}
-.video-card-text h5{font-weight:600;margin-bottom:0;}
+.video-card-text h5{font-weight:600;margin-bottom:0;  display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;  overflow: hidden;}

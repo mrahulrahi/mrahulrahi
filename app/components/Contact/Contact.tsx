@@ -19,7 +19,7 @@ const Contact = () => {
                     <div className="form-label">Want to Start new project</div>
                     <div className="form-group d-flex flex-column flex-sm-row gap-3">
                         <input type="email" className="form-control" placeholder="Enter your email here*" />
-                        <Button title="Ping Me" style="gradient" />
+                        <Button title="Ping Me" style="gradient"  url="https://t.me/mrahulrahi"/>
                     </div>
                 </div>
             </div>
