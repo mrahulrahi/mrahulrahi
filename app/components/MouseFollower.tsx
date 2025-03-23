@@ -2,17 +2,17 @@
 import { useState, useEffect } from "react";
 
 export default function MouseDrop() {
-  const [circles, setCircles] = useState([]);
+  const [circles, setCircles] = useState<{ id: number; x: number; y: number }[]>([]);
 
   // Handle mouse movement and create circles
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: { clientX: any; clientY: any; } ) => {
     const newCircle = {
       id: Date.now(),
       x: e.clientX,
       y: e.clientY,
     };
 
-    setCircles((prevCircles) => [...prevCircles, newCircle]);
+    setCircles((prevCircles ) => [...prevCircles, newCircle]);
 
     // Remove circles after animation ends (3 seconds)
     setTimeout(() => {
