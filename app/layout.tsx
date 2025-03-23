@@ -9,6 +9,7 @@ import './style.css'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import Contact from './components/Contact/Contact'
+import MouseFollower from './components/MouseFollower';
 
 const josefinSans = Josefin_Sans({
   subsets: ['latin'],
@@ -42,6 +43,7 @@ export default function RootLayout({
         <ImportBsJS />
         <ImportAOS />
         <SpeedInsights />
+        <MouseFollower />
       </body>
     </html>
   )
