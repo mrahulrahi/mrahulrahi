@@ -15,6 +15,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import StatCard from './components/StatCard/StatCard';
 import { projectsCards, photos } from "./data/staticData"; // Moved static data here
+import MouseFollower from './components/MouseFollower';
 
 type Video = {
   id: { videoId: string };
@@ -147,9 +148,10 @@ export default function Home() {
           <Button title="View All" style="default" url="/portfolio" />
         </Heading>
         <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-          {photos?.slice(0,3).map(photo => <PhotoCard key={photo.id} photo={photo} />)}
+          {photos?.slice(0, 3).map(photo => <PhotoCard key={photo.id} photo={photo} />)}
         </div>
       </ContentContainer>
+      <MouseFollower />
     </main>
   );
 }

@@ -1,18 +1,28 @@
 "use client";
 import { useState, useEffect } from "react";
 
-export default function MouseDrop() {
-  const [circles, setCircles] = useState<{ id: number; x: number; y: number }[]>([]);
+interface Circle {
+  id: number;
+  x: number;
+  y: number;
+}
 
-  // Handle mouse movement and create circles
-  const handleMouseMove = (e: { clientX: any; clientY: any; } ) => {
+export default function MouseFollower() {
+  const [circles, setCircles] = useState<Circle[]>([]);
+  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+
+  // Handle mouse movement: update cursor and create falling circles
+  const handleMouseMove = (e: MouseEvent) => {
+    // Update custom cursor position
+    setCursorPosition({ x: e.clientX, y: e.clientY });
+
+    // Create new falling circle
     const newCircle = {
       id: Date.now(),
       x: e.clientX,
       y: e.clientY,
     };
-
-    setCircles((prevCircles ) => [...prevCircles, newCircle]);
+    setCircles((prevCircles) => [...prevCircles, newCircle]);
 
     // Remove circles after animation ends (3 seconds)
     setTimeout(() => {
@@ -28,7 +38,17 @@ export default function MouseDrop() {
   }, []);
 
   return (
-    <div className="container-fluid position-relative vh-100 bg-dark overflow-hidden">
+    <>
+      {/* Custom Cursor */}
+      <div
+        className="custom-cursor"
+        style={{
+          left: `${cursorPosition.x}px`,
+          top: `${cursorPosition.y}px`,
+        }}
+      ></div>
+
+      {/* Falling Circles */}
       {circles.map((circle) => (
         <div
           key={circle.id}
@@ -39,7 +59,6 @@ export default function MouseDrop() {
           }}
         ></div>
       ))}
-      <h1 className="text-white text-center pt-5">Mouse Drop Animation</h1>
-    </div>
+    </>
   );
 }

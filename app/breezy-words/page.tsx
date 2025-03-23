@@ -6,6 +6,7 @@ import ContentContainer from '../components/ContentContainer'
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { FaQuoteLeft } from 'react-icons/fa';
 import { FiShare, FiCopy } from "react-icons/fi";
+import MouseFollower from '../components/MouseFollower';
 
 const BreezyWords = () => {
     const [weather, setWeather] = useState<any>(null);
@@ -230,6 +231,7 @@ const BreezyWords = () => {
                     </div>
                 </div>
             </ContentContainer>
+            <MouseFollower />
         </>
     );
 }

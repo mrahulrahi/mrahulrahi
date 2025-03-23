@@ -13,6 +13,7 @@ import { SiAdobexd } from "react-icons/si";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
 import { BiLogoTypescript, BiLogoVisualStudio } from "react-icons/bi";
 import { Metadata } from 'next';
+import MouseFollower from '../components/MouseFollower';
 
 export const metadata: Metadata = {
   title: 'mrahulrahi - About',
@@ -117,7 +118,6 @@ const About = () => {
         </div>
       </ContentContainer>
 
-
       <ContentContainer background="gradient-1">
         <Heading heading="Certificates" />
         <div className="card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
@@ -126,7 +126,7 @@ const About = () => {
           </div>)}
         </div>
       </ContentContainer>
-
+      <MouseFollower />
     </ >
   )
 }

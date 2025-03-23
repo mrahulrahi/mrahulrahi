@@ -190,16 +190,40 @@ p:last-child{margin-bottom:0;}
 .page_404-bg{background-image: url(https://cdn.dribbble.com/users/722246/screenshots/3066818/404-page.gif);height: 400px;background-position: center;background-repeat: no-repeat;background-size: contain;}			 
 
 
+/* Hide the default cursor */
+body {
+  cursor: none;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+  position: fixed;
+  width: 15px;
+  height: 30px;
+  background-image: url(/cursor-icon.svg);/* Cursor color */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  pointer-events: none; /* Ensure it doesn't block interactions */
+  z-index: 9999; /* Keep cursor on top */
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease-out; /* Smooth movement */
+  mix-blend-mode: difference;
+}
+
 /* Falling Circle Animation */
 .falling-circle {
   position: fixed;
-  width: 20px;
-  height: 20px;
-  background: var(--mrr-gradient-1); /* Bootstrap Primary Blue */
-  border-radius: 50%;
+  width: 15px;
+  height: 30px;
+  background-image: url(/cursor-icon.svg);/* Cursor color */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
   pointer-events: none; /* Don't block mouse events */
   animation: fallAnimation 3s ease-out forwards;
   opacity: 0.9;
+  z-index: 9999;
 }
 
 /* Falling and fading animation */

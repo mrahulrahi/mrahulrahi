@@ -11,6 +11,7 @@ import PhotoCard from '../components/PhotoCard/PhotoCard';
 import WorkCard from '../components/WorkCard/WorkCard';
 import { Metadata } from 'next';
 import { projectsCards, photos } from "../data/staticData";
+import MouseFollower from '../components/MouseFollower';
 
 type Video = {
   id: { videoId: string };
@@ -125,6 +126,7 @@ const Portfolio = () => {
           </div>
         </div>
       </ContentContainer>
+      <MouseFollower />
     </>
   )
 }
