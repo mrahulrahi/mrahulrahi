@@ -66,13 +66,14 @@ p:last-child{margin-bottom:0;}
 .text-main{ color: var(--mrr-main-color)!important;}
 .text-accent{ color: var(--mrr-accent-color)!important;}
 
-.bg-dark{background:var(--mrr-dark-color)!important;color: var(--mrr-white);}
-.bg-main{background: var(--mrr-main-color)!important;color: var(--mrr-white);}
-.bg-accent{background: var(--mrr-accent-color)!important;color: var(--mrr-white);}
+.bg-dark{background-color:var(--mrr-dark-color)!important;color: var(--mrr-white);}
+.bg-main{background-color: var(--mrr-main-color)!important;color: var(--mrr-white);}
+.bg-accent{background-color: var(--mrr-accent-color)!important;color: var(--mrr-white);}
 .bg-gradient-1{background: var(--mrr-gradient-1)!important;color: var(--mrr-white);}
 .bg-gradient-2{background: var(--mrr-gradient-2)!important;color: var(--mrr-white);}
-.bg-grey{background: #f5f5f5;}
-.bg-glass{background:rgba(255,255,255,0.3);box-shadow:0 4px 30px rgba(0,0,0,0.1);backdrop-filter:blur(5px);border:2px solid rgba(255,255,255,0.3);}
+.bg-grey{background-color: #f5f5f5;}
+.bg-glass{background-color:rgba(255,255,255,0.3);box-shadow:0 4px 30px rgba(0,0,0,0.1);backdrop-filter:blur(5px);border:2px solid rgba(255,255,255,0.3);}
+.bg-graphic{background-image: url(/logo-outline.svg);background-size: 30px 30px;background-position: center;}
 
 .bg-clip-text{background-clip: text!important;color: transparent!important;}
 
@@ -190,43 +191,12 @@ p:last-child{margin-bottom:0;}
 .page_404-bg{background-image: url(https://cdn.dribbble.com/users/722246/screenshots/3066818/404-page.gif);height: 400px;background-position: center;background-repeat: no-repeat;background-size: contain;}			 
 
 
-/* Hide the default cursor */
-body {
-  cursor: none;
-}
 
-/* Custom Cursor */
-.custom-cursor {
-  position: fixed;
-  width: 15px;
-  height: 30px;
-  background-image: url(/cursor-icon.svg);/* Cursor color */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  pointer-events: none; /* Ensure it doesn't block interactions */
-  z-index: 9999; /* Keep cursor on top */
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease-out; /* Smooth movement */
-  mix-blend-mode: difference;
-}
+body {cursor: none;}
+.custom-cursor {position: fixed;width: 15px;height: 30px;background-image: url(/cursor-icon.svg);background-position: center;background-repeat: no-repeat;background-size: contain;pointer-events: none;z-index: 9999;transform: translate(-50%, -50%);transition: transform 0.1s ease-out;mix-blend-mode: difference;}
+.falling-circle {position: fixed;width: 15px;height: 30px;background-image: url(/cursor-icon.svg);background-position: center;background-repeat: no-repeat;background-size: contain;pointer-events: none;animation: fallAnimation 3s ease-out forwards;opacity: 0.9;z-index: 9999;}
 
-/* Falling Circle Animation */
-.falling-circle {
-  position: fixed;
-  width: 15px;
-  height: 30px;
-  background-image: url(/cursor-icon.svg);/* Cursor color */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  pointer-events: none; /* Don't block mouse events */
-  animation: fallAnimation 3s ease-out forwards;
-  opacity: 0.9;
-  z-index: 9999;
-}
 
-/* Falling and fading animation */
 @keyframes fallAnimation {
   0% {
     transform: translateY(0) scale(1);

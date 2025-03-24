@@ -87,7 +87,7 @@ const About = () => {
         </div>
       </ContentContainer>
 
-      <ContentContainer background="dark">
+      <ContentContainer background="dark bg-graphic">
         <div className="row" data-aos="fade-up" suppressHydrationWarning>
           <div className="col-md-6">
             <div className="sticky-sidebar-box" data-aos="fade-up" suppressHydrationWarning>

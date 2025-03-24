@@ -83,7 +83,7 @@ export default function Home() {
         <Button title="About me" style="default" url="/about" icon={<IoIosArrowDroprightCircle />} />
       </Hero>
 
-      <ContentContainer background="dark" column="col-xl-10 mx-auto">
+      <ContentContainer background="dark bg-graphic" column="col-xl-10 mx-auto">
         <div className="stats-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
           <ul className="stats-list d-flex flex-wrap">
             <li className="stats-item">

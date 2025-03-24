@@ -80,7 +80,7 @@ const Portfolio = () => {
       </Banner>
 
 
-      <ContentContainer background='dark' id='gallery'>
+      <ContentContainer background='dark bg-graphic' id='gallery'>
         <Heading heading='Gallery' />
 
         <div className="gallery" data-aos="fade-up" suppressHydrationWarning>
