@@ -1,27 +1,38 @@
-import './VideoCard.css'
-
+import './VideoCard.css';
+import Plyr from 'plyr-react';
+import 'plyr-react/plyr.css';
 
 interface Item {
   id: string;
   title: string;
+  controls?: boolean;
+  loop?: boolean;
+  playing?: boolean;
 }
 
-const VideoCard = ({ id, title }: Item) => {
+const VideoCard = ({ id, title, controls = true, loop = false, playing = false }: Item) => {
+  const videoOptions = {
+    type: 'video',
+    sources: [
+      {
+        src: id,
+        provider: 'youtube',
+      },
+    ],
+    autoplay: playing,
+    loop: { active: loop },
+  };
+
   return (
-    <>
-      <div className="video-card-box">
-        <div className="video-card-iframe">
-          <iframe width="560" height="315" src={`https://www.youtube.com/embed/${id}`}
-            title="YouTube video player" frameBorder={0}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen></iframe>
-        </div>
-        <div className="video-card-text">
-          <h5>{title}</h5>
-        </div>
+    <div className="video-card-box">
+      <div className="video-card-iframe">
+        <Plyr source={videoOptions} options={{ controls: controls ? undefined : [] }} />
       </div>
-    </>
-  )
-}
+      <div className="video-card-text">
+        <h5>{title}</h5>
+      </div>
+    </div>
+  );
+};
 
-export default VideoCard
+export default VideoCard;
