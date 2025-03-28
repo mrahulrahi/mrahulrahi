@@ -9,7 +9,6 @@ import ContentContainer from '../components/ContentContainer';
 import VideoCard from '../components/VideoCard/VideoCard';
 import PhotoCard from '../components/PhotoCard/PhotoCard';
 import WorkCard from '../components/WorkCard/WorkCard';
-import { Metadata } from 'next';
 import { projectsCards, photos } from "../data/staticData";
 import MouseFollower from '../components/MouseFollower';
 
@@ -18,15 +17,14 @@ type Video = {
   snippet: { title: string; description: string; thumbnails: { medium: { url: string } } };
 };
 
-const video = async (): Promise<Video[]> => {
+const fetchVideos = async (): Promise<Video[]> => {
   const res = await fetch('/api/youtube');
 
   if (!res.ok) {
     throw new Error("Failed to fetch YouTube videos");
   }
 
-  const data = await res.json();
-  return data;
+  return res.json();
 };
 
 const HeroHeading = () => {
@@ -36,27 +34,34 @@ const HeroHeading = () => {
 }
 
 const Portfolio = () => {
-  const [videos, setVideos] = useState<Video[] | null>(null);
+  const [videos, setVideos] = useState<Video[]>([]);
+  const [visibleVideos, setVisibleVideos] = useState<Video[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const [loadedCount, setLoadedCount] = useState(5);
 
   useEffect(() => {
-    const fetchVideos = async () => {
+    const getVideos = async () => {
       try {
-        const fetchedVideos = await video();
+        const fetchedVideos = await fetchVideos();
         setVideos(fetchedVideos);
+        setVisibleVideos(fetchedVideos.slice(0, 5));
       } catch (err: any) {
         console.error("Error fetching videos", err.message);
         setError(err.message);
       }
     };
-    fetchVideos();
+    getVideos();
   }, []);
 
-  console.log(videos);
+  const loadMoreVideos = () => {
+    const newCount = loadedCount + 5;
+    setVisibleVideos(videos.slice(0, newCount));
+    setLoadedCount(newCount);
+  };
 
   return (
     <>
-      <InnerHero heading={<HeroHeading />} bgImage='/inner-hero-img.jpg' >
+      <InnerHero heading={<HeroHeading />} bgImage='/inner-hero-img.jpg'>
         <Button title='FireLiquidator' style='default' url='#video' icon={<IoIosArrowDroprightCircle />} />
         <Button title='Rahi Creations' style='default' url='#gallery' icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
@@ -66,11 +71,11 @@ const Portfolio = () => {
           <Heading heading='My Project' />
 
           <div className="work-list d-flex flex-wrap">
-            {projectsCards.map(card =>
+            {projectsCards.map(card => (
               <div key={card.id} className="work-item" data-aos="fade-up" suppressHydrationWarning>
                 <WorkCard card={card} />
               </div>
-            )}
+            ))}
           </div>
         </div>
       </ContentContainer>
@@ -79,18 +84,17 @@ const Portfolio = () => {
         <span className='bg-clip-text bg-gradient-1'>RAHI</span>CREATIONS
       </Banner>
 
-
       <ContentContainer background='dark bg-graphic' id='gallery'>
         <Heading heading='Gallery' />
 
         <div className="gallery" data-aos="fade-up" suppressHydrationWarning>
-          {photos.map(item =>
+          {photos.map(item => (
             <div key={item.id}>
               <PhotoCard item={item} />
             </div>
-          )}
+          ))}
         </div>
-      </ContentContainer >
+      </ContentContainer>
 
       <Banner bgImage='./banner-bg.jpg'>
         WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span><br />MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span>
@@ -101,7 +105,7 @@ const Portfolio = () => {
           <div className="col-md-5 col-xl-4">
             <div className="sticky-sidebar-box w-100 d-flex flex-column align-items-center justify-content-center" data-aos="fade-up" suppressHydrationWarning>
               <div className="video-logo" data-aos="fade-up" suppressHydrationWarning>
-                <img src="/fl-logo.png" className="img-fluid" />
+                <img src="/fl-logo.png" className="img-fluid" alt="Fire Liquidator Logo" />
               </div>
               <div className="video-title mt-5" data-aos="fade-up" suppressHydrationWarning>
                 <span style={{ color: '#FAB205' }}>FIRE</span>LIQUIDATOR
@@ -116,12 +120,18 @@ const Portfolio = () => {
               <Heading heading='Videos' />
 
               <div className="video-card-list" data-aos="fade-up" suppressHydrationWarning>
-                {error ? <p>{error}</p> : videos?.map(video => (
+                {error ? <p>{error}</p> : visibleVideos.map(video => (
                   <div key={video.id.videoId} className="video-card-item">
                     <VideoCard id={video.id.videoId} title={video.snippet.title} />
                   </div>
                 ))}
               </div>
+
+              {loadedCount < videos.length && (
+                <div className="load-more-btn mt-4 text-center">
+                  <button className="btn btn-default" onClick={loadMoreVideos}>Load More</button>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -131,4 +141,4 @@ const Portfolio = () => {
   )
 }
 
-export default Portfolio
+export default Portfolio;
