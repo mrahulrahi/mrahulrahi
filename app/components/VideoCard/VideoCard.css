@@ -9,3 +9,16 @@
 .custom-play-button{position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);background-color: rgba(255, 255, 255, 0.1);border: 2px solid rgba(255, 255, 255, 0.5);font-size: 40px;border-radius: 50%;width: 80px;height: 80px;display: flex;align-items: center;justify-content: center;z-index: 99;}
 
 .plyr__poster{object-fit: cover;}
+
+.video-placeholder {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.video-card-list{ --plyr-color-main: var(--mrr-accent-color); --plyr-color-main-contrast: #000; --plyr-color-main-focus: #fff; --plyr-color-main-light: #fff; --plyr-color-main-light-hover: #fff; --plyr-color-main-light-focus: #fff; --plyr-color-main-light-active: #fff; --plyr-color-main-dark: #000; --plyr-color-main-dark-hover: #000; --plyr-color-main-dark-focus: #000; --plyr-color-main-dark-active: #000;}
