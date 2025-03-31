@@ -5,7 +5,7 @@
 .hero-right {width: 50%;padding-left: 5%;z-index: 1;}
 .hl-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;}
 .hl-orbit-1{width: 50%;height: 50%;position: absolute;margin: -50px auto;animation: orbit 5s linear infinite;}
-.hero-img {width: 45%;height: 50%;border-radius: 50%;overflow: hidden;position: relative;}
+.hero-img {width: 50%;height: 50%;aspect-ratio: 1;border: 5px solid var(--mrr-white);border-radius: 50%;overflow: hidden;position: relative;}
 .hero-img img { width: 100%; height: 100%; object-fit: cover;object-position: top;}
 .hero-img-box::before{content:'';position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:120%;height:120%;background: url(/animate-bg.svg) center / contain no-repeat ;}
 .hero-icon {position: absolute;width: 60px;height: 60px;padding: 15px;border-radius: 50%; z-index: 9;}

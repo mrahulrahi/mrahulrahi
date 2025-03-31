@@ -11,6 +11,7 @@ import PhotoCard from '../components/PhotoCard/PhotoCard';
 import WorkCard from '../components/WorkCard/WorkCard';
 import { projectsCards, photos } from "../data/staticData";
 import MouseFollower from '../components/MouseFollower';
+import VideoModal from '../components/VideoModal';
 
 type Video = {
   id: { videoId: string };
@@ -38,6 +39,10 @@ const Portfolio = () => {
   const [visibleVideos, setVisibleVideos] = useState<Video[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [loadedCount, setLoadedCount] = useState(5);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [selectedVideoTitle, setSelectedVideoTitle] = useState<string | null>(null);
 
   useEffect(() => {
     const getVideos = async () => {
@@ -115,14 +120,20 @@ const Portfolio = () => {
               </div>
             </div>
           </div>
-          <div className="col-md-7 col-xl-8">
+          <div className="col-md-6 col-xl-7 offset-md-1">
             <div className="sticky-content-box d-flex flex-column" data-aos="fade-up" suppressHydrationWarning>
               <Heading heading='Videos' />
 
               <div className="video-card-list" data-aos="fade-up" suppressHydrationWarning>
                 {error ? <p>{error}</p> : visibleVideos.map(video => (
                   <div key={video.id.videoId} className="video-card-item">
-                    <VideoCard id={video.id.videoId} title={video.snippet.title} />
+                    <VideoCard
+                      id={video.id.videoId}
+                      title={video.snippet.title}
+                      onVideoSelect={setSelectedVideo}
+                      onVideoTitle={setSelectedVideoTitle} 
+                      onModalOpen={setModalOpen}
+                    />
                   </div>
                 ))}
               </div>
@@ -136,6 +147,16 @@ const Portfolio = () => {
           </div>
         </div>
       </ContentContainer>
+
+      {modalOpen && selectedVideo && (
+        <VideoModal
+          videoId={selectedVideo}
+          title={selectedVideoTitle ?? ''}
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
+
       <MouseFollower />
     </>
   )

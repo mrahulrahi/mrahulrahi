@@ -57,7 +57,7 @@ const About = () => {
         <div className="itb-content-box d-flex flex-wrap bg-dark overflow-hidden" data-aos="fade-up" suppressHydrationWarning>
           <div className="itb-img-box d-flex align-items-center justify-content-center" data-aos="fade-right" suppressHydrationWarning>
             <div className="itb-img">
-              <Image src="/hero-img-1.jpg" alt="" width={1000} height={1000} />
+              <Image src="/hero-img.png" alt="" width={1000} height={1000} />
             </div>
           </div>
           <div className="itb-text" data-aos="fade-left" suppressHydrationWarning>

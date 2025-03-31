@@ -16,6 +16,7 @@ import 'swiper/css/navigation';
 import StatCard from './components/StatCard/StatCard';
 import { projectsCards, photos } from "./data/staticData"; // Moved static data here
 import MouseFollower from './components/MouseFollower';
+import VideoModal from './components/VideoModal';
 
 type Video = {
   id: { videoId: string };
@@ -63,6 +64,10 @@ const PhotoCard = ({ photo }: { photo: { title: string; url: string; camera: str
 export default function Home() {
   const [videos, setVideos] = useState<Video[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+  const [selectedVideoTitle, setSelectedVideoTitle] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -137,7 +142,13 @@ export default function Home() {
         <div className="video-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           {error ? <p>{error}</p> : videos?.slice(0, 3).map(video => (
             <div key={video.id.videoId} className="video-card-item">
-              <VideoCard id={video.id.videoId} title={video.snippet.title} />
+              <VideoCard
+                id={video.id.videoId}
+                title={video.snippet.title}
+                onVideoSelect={setSelectedVideo}
+                onVideoTitle={setSelectedVideoTitle} 
+                onModalOpen={setModalOpen}
+              />
             </div>
           ))}
         </div>
@@ -151,6 +162,15 @@ export default function Home() {
           {photos?.slice(0, 3).map(photo => <PhotoCard key={photo.id} photo={photo} />)}
         </div>
       </ContentContainer>
+
+      {modalOpen && selectedVideo && (
+        <VideoModal
+          videoId={selectedVideo}
+          title={selectedVideoTitle ?? ''}
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
       <MouseFollower />
     </main>
   );
