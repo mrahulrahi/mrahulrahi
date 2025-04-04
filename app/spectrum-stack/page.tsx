@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import ContentContainer from '../components/ContentContainer'
 import './SpectrumStack.css'
-import { FaPlus, FaXmark, FaEllipsis, FaPen, FaTrash } from 'react-icons/fa6';
+import { FaPlus, FaXmark, FaEllipsis, FaPen, FaTrash, FaCarOn, FaCalculator, FaNoteSticky } from 'react-icons/fa6';
+import { MdQuiz } from "react-icons/md";
 import { FiCopy } from "react-icons/fi";
 import MouseFollower from '../components/MouseFollower';
 
@@ -349,6 +350,8 @@ const SpectrumStack = () => {
         setShowQuiz(true);
     };
 
+    const [activeTab, setActiveTab] = useState(1);
+
 
     return (
         <>
@@ -356,6 +359,325 @@ const SpectrumStack = () => {
             <div className="gradient-bg" style={{ background: gradient }}>
                 <ContentContainer className="inner-banner-container">
                     <h1>Spectrum <br /> Stack App</h1>
+                </ContentContainer>
+
+                <ContentContainer className="inner-banner-container gradient-generator-container pt-0" column='col-lg-6 mx-auto'>
+                    <div className="device-frame position-relative">
+
+                        <div className="tab">
+                            <div className={`tab-pane ${activeTab === 1 ? "position-relative" : "position-absolute d-none"}`}>
+                                <div className="main-class d-flex flex-column gap-4" id="main-container">
+                                    <div className="quiz-container">
+                                        {!showQuiz ? (
+                                            <>
+                                                <div className="start-quiz-wrapper mx-auto">
+                                                    <h2>Test your <br /> knowledge</h2>
+                                                    <div className="select-menu mx-auto">
+                                                        <div className="row g-3">
+                                                            <div className="col-sm-6 ">
+                                                                <div className="form-group">
+                                                                    <label className="form-label" htmlFor="amount">Amount:</label>
+                                                                    <select className="form-select" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
+                                                                        <option value={5}>5</option>
+                                                                        <option value={10}>10</option>
+                                                                        <option value={15}>15</option>
+                                                                        <option value={20}>20</option>
+                                                                        <option value={25}>25</option>
+                                                                        <option value={30}>30</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-sm-6">
+                                                                <div className="form-group">
+                                                                    <label className="form-label" htmlFor="category">Category:</label>
+                                                                    <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
+                                                                        <option value={0}>Any Category</option>
+                                                                        {categories.map((category: { id: number; name: string; }) => (
+                                                                            <option key={category.id} value={category.id}>{category.name}</option>
+                                                                        ))}
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-sm-6">
+                                                                <div className="form-group">
+                                                                    <label className="form-label" htmlFor="difficulty">Difficulty:</label>
+                                                                    <select className="form-select" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                                                                        <option value={0}>Any Difficulty</option>
+                                                                        <option value="easy">Easy</option>
+                                                                        <option value="medium">Medium</option>
+                                                                        <option value="hard">Hard</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div className="col-sm-6">
+                                                                <div className="form-group">
+                                                                    <label className="form-label" htmlFor="type">Type:</label>
+                                                                    <select className="form-select" id="type" value={type} onChange={(e) => setType(e.target.value)}>
+                                                                        <option value={0}>Any Type</option>
+                                                                        <option value="multiple">Multiple Choice</option>
+                                                                        <option value="boolean">True / False</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button className="btn btn-green" onClick={() => { startQuiz(); fetchTriviaQuestions(); }}>Start Quiz</button>
+                                                </div>
+                                            </>
+
+                                        ) : (
+                                            <>
+                                                {questionNumber < questions.length ? (
+                                                    showFeedback ? (
+                                                        <>
+                                                            <div className="quiz-stats-head d-flex justify-content-between">
+                                                                <p className="questions mb-0">Questions: <span>{showQuiz ? questionNumber + 1 : questionNumber}/{questions.length}</span></p>
+                                                                <p className="score mb-0">Score: <span>{score}</span></p>
+                                                            </div>
+                                                            <div className="feedback-wrapper mx-auto">
+                                                                {selectedAnswer === questions[questionNumber].correct_answer ? (
+                                                                    <div className="correct-feedback">
+                                                                        <h3 className="text-success">CORRECT!</h3>
+                                                                        <h4 className="correct-answer-alert">
+                                                                            Correct answer is: {questions[questionNumber].correct_answer}
+                                                                        </h4>
+                                                                    </div>
+                                                                ) : (
+                                                                    <div className="wrong-feedback">
+                                                                        <h3 className="text-danger">WRONG!</h3>
+                                                                        <h4 className="correct-answer-alert">
+                                                                            Correct answer is: {questions[questionNumber].correct_answer}
+                                                                        </h4>
+                                                                    </div>
+                                                                )}
+                                                                <button className="btn btn-green" onClick={nextQuestion}>{questionNumber < questions.length - 1 ? 'Next Question' : 'End Quiz'}</button>
+                                                            </div>
+                                                        </>
+
+                                                    ) : (
+                                                        getQuestionAndAnswers()
+                                                    )
+                                                ) : (
+                                                    <div className="feedback-wrapper mx-auto">
+                                                        <h3>Quiz Completed!</h3>
+                                                        <h4>Your Score: {score}</h4>
+                                                        <div className="d-flex flex-column flex-sm-row gap-3">
+                                                            <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>
+                                                            <button className="btn btn-green" onClick={() => window.location.reload()}>Start New Quiz</button>
+                                                        </div>
+
+                                                    </div>
+                                                )}
+                                            </>
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`tab-pane ${activeTab === 2 ? "position-relative" : "position-absolute d-none"}`}>
+                                <div className="android-frame">
+                                    <div className="output-operation-class" id="output-operation">
+                                        <input type="text" className="output-screen" id="output-id" placeholder='0' value={expression} readOnly />
+                                    </div>
+                                    <div className="input-btn-wrapper">
+                                        <div className="mini-algo-function">
+                                            <button onClick={handleButtonClick} className="button mini-function">x²</button>
+                                            <button onClick={handleButtonClick} className="button mini-function">√</button>
+                                            <button onClick={handleButtonClick} className="button mini-function">π</button>
+                                            <button onClick={handleButtonClick} className="button mini-function">^</button>
+                                            <button onClick={handleButtonClick} className="button mini-function">!</button>
+                                        </div>
+                                        <div className="input-class">
+                                            <button onClick={handleButtonClick} className="button number-btn">7</button>
+                                            <button onClick={handleButtonClick} className="button number-btn">8</button>
+                                            <button onClick={handleButtonClick} className="button number-btn">9</button>
+                                            <button onClick={handleButtonClick} className="button function-btn">%</button>
+                                            <button onClick={handleButtonClick} className="button AC-btn">AC</button>
+                                            <button onClick={handleButtonClick} className="button number-btn">4</button>
+                                            <button onClick={handleButtonClick} className="button number-btn">5</button>
+                                            <button onClick={handleButtonClick} className="button number-btn">6</button>
+                                            <button onClick={handleButtonClick} className="button function-btn">x</button>
+                                            <button onClick={handleButtonClick} className="button function-btn">÷</button>
+                                            <button onClick={handleButtonClick} className="button number-btn">1</button>
+                                            <button onClick={handleButtonClick} className="button number-btn">2</button>
+                                            <button onClick={handleButtonClick} className="button number-btn">3</button>
+                                            <button onClick={handleButtonClick} className="button function-btn">+</button>
+                                            <button onClick={handleButtonClick} className="button function-btn">-</button>
+                                            <button onClick={handleButtonClick} className="button number-btn">0</button>
+                                            <button onClick={handleButtonClick} className="button number-btn">.</button>
+                                            <button onClick={handleButtonClick} className="button C-btn">C</button>
+                                            <button onClick={handleButtonClick} className="button function-btn">()</button>
+                                            <button onClick={handleButtonClick} className="button equal-btn">=</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`tab-pane ${activeTab === 3 ? "position-relative" : "position-absolute d-none"}`}>
+                                <ContentContainer className="notes-todos-app-container pt-0">
+
+
+                                    {popupVisible && (
+                                        <div className="popup-box">
+                                            <div className="popup">
+
+                                                <div className="content">
+
+                                                    <header>
+                                                        <p>{isUpdate ? (itemType === 'note' ? 'Update a Note' : 'Update a To-Do') : (itemType === 'note' ? 'Add a new Note' : 'Add a new To-Do')}</p>
+                                                        <i className="close-icon" onClick={closePopup}><FaXmark /></i>
+                                                    </header>
+                                                    <div className="view-toggle mb-5 d-flex justify-content-center">
+                                                        <button onClick={() => setItemType('note')} className={`w-50 btn-toggle ${itemType === 'note' ? 'active' : null}`}>Note</button>
+                                                        <button onClick={() => setItemType('todo')} className={`w-50 btn-toggle ${itemType === 'todo' ? 'active' : null}`}>To-Do List</button>
+                                                    </div>
+                                                    <form>
+                                                        <div className="title mb-4">
+                                                            <label className="mb-1">Title</label>
+                                                            <input
+                                                                type="text"
+                                                                placeholder="Title"
+                                                                value={title}
+                                                                onChange={(e) => setTitle(e.target.value)}
+                                                            />
+                                                        </div>
+                                                        {itemType === 'todo' && (
+                                                            <div className="tasks mb-4">
+                                                                <label className="mb-1">Tasks</label>
+                                                                <input
+                                                                    type="text"
+                                                                    placeholder="Task Title"
+                                                                    value={taskTitle}
+                                                                    onChange={(e) => setTaskTitle(e.target.value)}
+                                                                    className=""
+                                                                />
+                                                                <button type="button" className="mt-4" onClick={addTask}>Add Task</button>
+                                                                <ul className="task-list my-4">
+                                                                    {tasks.map(task => (
+
+                                                                        <li key={task.id} className="d-flex mb-2 align-items-center justify-content-between">
+                                                                            <div className="custom-checkbox-wrapper">
+                                                                                <label htmlFor={`${task.id}`} className="item">
+                                                                                    <input type="checkbox" id={`${task.id}`} className="hidden" checked={task.completed}
+                                                                                        onChange={() => toggleTaskCompletion(task.id)} />
+                                                                                    <label htmlFor={`${task.id}`} className="cbx">
+                                                                                        <svg width="14px" height="12px" viewBox="0 0 14 12">
+                                                                                            <polyline points="1 7.6 5 11 13 1"></polyline>
+                                                                                        </svg>
+                                                                                    </label>
+                                                                                    <label htmlFor={`${task.id}`} className={`cbx-lbl ${task.completed ? 'completed-task' : ''}`} >{task.title}</label>
+                                                                                </label>
+                                                                            </div>
+
+
+                                                                            <button type="button" onClick={() => removeTask(task.id)}>
+                                                                                <i className="close-icon"><FaXmark /></i>
+                                                                            </button>
+                                                                        </li>
+                                                                    ))}
+                                                                </ul>
+                                                            </div>
+                                                        )}
+                                                        {itemType === 'note' && (
+                                                            <div className="description mb-4">
+                                                                <label className="mb-1">Description</label>
+                                                                <textarea
+                                                                    placeholder="Description"
+                                                                    value={description}
+                                                                    onChange={(e) => setDescription(e.target.value)}
+                                                                />
+                                                            </div>
+                                                        )}
+                                                        <button type="button" onClick={addItem}>
+                                                            {isUpdate ? (itemType === 'note' ? 'Update Note' : 'Update To-Do') : (itemType === 'note' ? 'Add Note' : 'Add To-Do')}
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    <div className="notes-todos-app">
+                                        <div className="items-section">
+                                            <h2>Notes and To-Do List</h2>
+                                            <ul className="wrapper">
+                                                <li className="add-box" onClick={openPopup}>
+                                                    <div className="icon"><FaPlus /></div>
+                                                    <p>Add new</p>
+                                                </li>
+                                                {items.map((item) => (
+                                                    <li key={item.id} className="note">
+                                                        <div className="details">
+                                                            <p>{item.title}</p>
+                                                            {item.type === 'note' ? (
+                                                                <span>{item.description}</span>
+                                                            ) : (
+                                                                item.tasks?.map(task => (
+                                                                    <div key={task.id} className="task d-flex align-items-center gap-1">
+                                                                        <div className="custom-checkbox-wrapper">
+                                                                            <label htmlFor={`${task.id}`} className="item">
+                                                                                <input type="checkbox" id={`${task.id}`} className="hidden"
+                                                                                    checked={task.completed}
+                                                                                    onChange={() => {
+                                                                                        const updatedTasks = item.tasks?.map(t =>
+                                                                                            t.id === task.id ? { ...t, completed: !t.completed } : t
+                                                                                        );
+                                                                                        const updatedItems = items.map(i =>
+                                                                                            i.id === item.id ? { ...i, tasks: updatedTasks } : i
+                                                                                        );
+                                                                                        setItems(updatedItems);
+                                                                                    }} />
+                                                                                <label htmlFor={`${task.id}`} className="cbx">
+                                                                                    <svg width="14px" height="12px" viewBox="0 0 14 12">
+                                                                                        <polyline points="1 7.6 5 11 13 1"></polyline>
+                                                                                    </svg>
+                                                                                </label>
+
+                                                                                <label htmlFor={`${task.id}`} className={`cbx-lbl ${task.completed ? 'completed-task' : ''}`} >{task.title}</label>
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                ))
+                                                            )}
+                                                        </div>
+                                                        <div className="bottom-content">
+                                                            <span>{item.date}</span>
+                                                            <div className="settings">
+                                                                <button className="menu-btn" onClick={() => toggleMenu(item.id)}>
+                                                                    <FaEllipsis />
+                                                                </button>
+                                                                {menuOpen === item.id && (
+                                                                    <ul className="menu">
+                                                                        <li onClick={() => { updateItem(item); setMenuOpen(null); }}>
+                                                                            <i><FaPen /></i> Edit
+                                                                        </li>
+                                                                        <li onClick={() => { deleteItem(item.id); setMenuOpen(null); }}>
+                                                                            <i><FaTrash /></i> Delete
+                                                                        </li>
+                                                                    </ul>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </ContentContainer>
+                            </div>
+                        </div>
+
+
+                        <div className="device-bottom-bar position-absolute start-0 bottom-0">
+                            <div className="d-flex gap-2">
+                                <button onClick={() => setActiveTab(1)} className={`db-btn ${activeTab === 1 ? "active" : ""}`}><MdQuiz /></button>
+                                <button onClick={() => setActiveTab(2)} className={`db-btn ${activeTab === 2 ? "active" : ""}`}><FaCalculator /></button>
+                                <button onClick={() => setActiveTab(3)} className={`db-btn ${activeTab === 3 ? "active" : ""}`}><FaNoteSticky /></button>
+                                <button onClick={() => setActiveTab(4)} className={`db-btn ${activeTab === 4 ? "active" : ""}`}><FaNoteSticky /></button>
+                                <button onClick={() => setActiveTab(5)} className={`db-btn ${activeTab === 5 ? "active" : ""}`}><FaNoteSticky /></button>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </ContentContainer>
 
                 <div className={`gradient-selector-box d-flex align-items-center ${openSideBox ? 'open' : null}`}>
@@ -391,322 +713,17 @@ const SpectrumStack = () => {
                     </div>
 
 
-                    <button className="gs-btn" onClick={() => setOpenSideBox(prev => !prev)} style={{ background: gradient }}>Gradient Bg</button>
+                    <button className="gs-btn" onClick={() => setOpenSideBox(prev => !prev)}>Gradient Bg</button>
 
                 </div>
-
-                <ContentContainer className="gradient-generator-container pt-0">
-
-                    {gradient && <div className="d-flex g-2">
-                        <p className="text-center mt-3"> Current CSS BG : {gradient}</p>
-                        <button onClick={() => navigator.clipboard.writeText(gradient)} className="btn btn-green ratio-1x1"><FiCopy /></button>
-                    </div>}
-
-                    <div className="main-class d-flex flex-column flex-lg-row gap-5" id="main-container">
-
-                        <div className="quiz-container">
-                            {!showQuiz ? (
-                                <>
-
-                                    <div className="start-quiz-wrapper mx-auto">
-                                        <h2>Test your <br /> knowledge</h2>
-                                        <div className="select-menu mx-auto">
-                                            <div className="row g-3">
-                                                <div className="col-sm-6 ">
-                                                    <div className="form-group">
-                                                        <label className="form-label" htmlFor="amount">Amount:</label>
-                                                        <select className="form-select" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
-                                                            <option value={5}>5</option>
-                                                            <option value={10}>10</option>
-                                                            <option value={15}>15</option>
-                                                            <option value={20}>20</option>
-                                                            <option value={25}>25</option>
-                                                            <option value={30}>30</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div className="col-sm-6">
-                                                    <div className="form-group">
-                                                        <label className="form-label" htmlFor="category">Category:</label>
-                                                        <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
-                                                            <option value={0}>Any Category</option>
-                                                            {categories.map((category: { id: number; name: string; }) => (
-                                                                <option key={category.id} value={category.id}>{category.name}</option>
-                                                            ))}
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div className="col-sm-6">
-                                                    <div className="form-group">
-                                                        <label className="form-label" htmlFor="difficulty">Difficulty:</label>
-                                                        <select className="form-select" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
-                                                            <option value={0}>Any Difficulty</option>
-                                                            <option value="easy">Easy</option>
-                                                            <option value="medium">Medium</option>
-                                                            <option value="hard">Hard</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                                <div className="col-sm-6">
-                                                    <div className="form-group">
-                                                        <label className="form-label" htmlFor="type">Type:</label>
-                                                        <select className="form-select" id="type" value={type} onChange={(e) => setType(e.target.value)}>
-                                                            <option value={0}>Any Type</option>
-                                                            <option value="multiple">Multiple Choice</option>
-                                                            <option value="boolean">True / False</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button className="btn btn-green" onClick={() => { startQuiz(); fetchTriviaQuestions(); }}>Start Quiz</button>
-                                    </div>
-                                </>
-
-                            ) : (
-                                <>
-                                    {questionNumber < questions.length ? (
-                                        showFeedback ? (
-                                            <>
-                                                <div className="quiz-stats-head d-flex justify-content-between">
-                                                    <p className="questions mb-0">Questions: <span>{showQuiz ? questionNumber + 1 : questionNumber}/{questions.length}</span></p>
-                                                    <p className="score mb-0">Score: <span>{score}</span></p>
-                                                </div>
-                                                <div className="feedback-wrapper mx-auto">
-                                                    {selectedAnswer === questions[questionNumber].correct_answer ? (
-                                                        <div className="correct-feedback">
-                                                            <h3 className="text-success">CORRECT!</h3>
-                                                            <h4 className="correct-answer-alert">
-                                                                Correct answer is: {questions[questionNumber].correct_answer}
-                                                            </h4>
-                                                        </div>
-                                                    ) : (
-                                                        <div className="wrong-feedback">
-                                                            <h3 className="text-danger">WRONG!</h3>
-                                                            <h4 className="correct-answer-alert">
-                                                                Correct answer is: {questions[questionNumber].correct_answer}
-                                                            </h4>
-                                                        </div>
-                                                    )}
-                                                    <button className="btn btn-green" onClick={nextQuestion}>{questionNumber < questions.length - 1 ? 'Next Question' : 'End Quiz'}</button>
-                                                </div>
-                                            </>
-
-                                        ) : (
-                                            getQuestionAndAnswers()
-                                        )
-                                    ) : (
-                                        <div className="feedback-wrapper mx-auto">
-                                            <h3>Quiz Completed!</h3>
-                                            <h4>Your Score: {score}</h4>
-                                            <div className="d-flex flex-column flex-sm-row gap-3">
-                                                <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>
-                                                <button className="btn btn-green" onClick={() => window.location.reload()}>Start New Quiz</button>
-                                            </div>
-
-                                        </div>
-                                    )}
-                                </>
-                            )}
-                        </div>
-
-                        <div className="android-frame">
-                            <div className="output-operation-class" id="output-operation">
-                                <input type="text" className="output-screen" id="output-id" placeholder='0' value={expression} readOnly />
-                            </div>
-                            <div className="input-btn-wrapper">
-                                <div className="mini-algo-function">
-                                    <button onClick={handleButtonClick} className="button mini-function">x²</button>
-                                    <button onClick={handleButtonClick} className="button mini-function">√</button>
-                                    <button onClick={handleButtonClick} className="button mini-function">π</button>
-                                    <button onClick={handleButtonClick} className="button mini-function">^</button>
-                                    <button onClick={handleButtonClick} className="button mini-function">!</button>
-                                </div>
-                                <div className="input-class">
-                                    <button onClick={handleButtonClick} className="button number-btn">7</button>
-                                    <button onClick={handleButtonClick} className="button number-btn">8</button>
-                                    <button onClick={handleButtonClick} className="button number-btn">9</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">%</button>
-                                    <button onClick={handleButtonClick} className="button AC-btn">AC</button>
-                                    <button onClick={handleButtonClick} className="button number-btn">4</button>
-                                    <button onClick={handleButtonClick} className="button number-btn">5</button>
-                                    <button onClick={handleButtonClick} className="button number-btn">6</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">x</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">÷</button>
-                                    <button onClick={handleButtonClick} className="button number-btn">1</button>
-                                    <button onClick={handleButtonClick} className="button number-btn">2</button>
-                                    <button onClick={handleButtonClick} className="button number-btn">3</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">+</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">-</button>
-                                    <button onClick={handleButtonClick} className="button number-btn">0</button>
-                                    <button onClick={handleButtonClick} className="button number-btn">.</button>
-                                    <button onClick={handleButtonClick} className="button C-btn">C</button>
-                                    <button onClick={handleButtonClick} className="button function-btn">()</button>
-                                    <button onClick={handleButtonClick} className="button equal-btn">=</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </ContentContainer>
-
-
-                <ContentContainer className="notes-todos-app-container pt-0">
-
-
-                    {popupVisible && (
-                        <div className="popup-box">
-                            <div className="popup">
-
-                                <div className="content">
-
-                                    <header>
-                                        <p>{isUpdate ? (itemType === 'note' ? 'Update a Note' : 'Update a To-Do') : (itemType === 'note' ? 'Add a new Note' : 'Add a new To-Do')}</p>
-                                        <i className="close-icon" onClick={closePopup}><FaXmark /></i>
-                                    </header>
-                                    <div className="view-toggle mb-5 d-flex justify-content-center">
-                                        <button onClick={() => setItemType('note')} className={`w-50 btn-toggle ${itemType === 'note' ? 'active' : null}`}>Note</button>
-                                        <button onClick={() => setItemType('todo')} className={`w-50 btn-toggle ${itemType === 'todo' ? 'active' : null}`}>To-Do List</button>
-                                    </div>
-                                    <form>
-                                        <div className="title mb-4">
-                                            <label className="mb-1">Title</label>
-                                            <input
-                                                type="text"
-                                                placeholder="Title"
-                                                value={title}
-                                                onChange={(e) => setTitle(e.target.value)}
-                                            />
-                                        </div>
-                                        {itemType === 'todo' && (
-                                            <div className="tasks mb-4">
-                                                <label className="mb-1">Tasks</label>
-                                                <input
-                                                    type="text"
-                                                    placeholder="Task Title"
-                                                    value={taskTitle}
-                                                    onChange={(e) => setTaskTitle(e.target.value)}
-                                                    className=""
-                                                />
-                                                <button type="button" className="mt-4" onClick={addTask}>Add Task</button>
-                                                <ul className="task-list my-4">
-                                                    {tasks.map(task => (
-
-                                                        <li key={task.id} className="d-flex mb-2 align-items-center justify-content-between">
-                                                            <div className="custom-checkbox-wrapper">
-                                                                <label htmlFor={`${task.id}`} className="item">
-                                                                    <input type="checkbox" id={`${task.id}`} className="hidden" checked={task.completed}
-                                                                        onChange={() => toggleTaskCompletion(task.id)} />
-                                                                    <label htmlFor={`${task.id}`} className="cbx">
-                                                                        <svg width="14px" height="12px" viewBox="0 0 14 12">
-                                                                            <polyline points="1 7.6 5 11 13 1"></polyline>
-                                                                        </svg>
-                                                                    </label>
-                                                                    <label htmlFor={`${task.id}`} className={`cbx-lbl ${task.completed ? 'completed-task' : ''}`} >{task.title}</label>
-                                                                </label>
-                                                            </div>
-
-
-                                                            <button type="button" onClick={() => removeTask(task.id)}>
-                                                                <i className="close-icon"><FaXmark /></i>
-                                                            </button>
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
-                                        {itemType === 'note' && (
-                                            <div className="description mb-4">
-                                                <label className="mb-1">Description</label>
-                                                <textarea
-                                                    placeholder="Description"
-                                                    value={description}
-                                                    onChange={(e) => setDescription(e.target.value)}
-                                                />
-                                            </div>
-                                        )}
-                                        <button type="button" onClick={addItem}>
-                                            {isUpdate ? (itemType === 'note' ? 'Update Note' : 'Update To-Do') : (itemType === 'note' ? 'Add Note' : 'Add To-Do')}
-                                        </button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    )}
-
-                    <div className="notes-todos-app">
-                        <div className="items-section">
-                            <h2>Notes and To-Do List</h2>
-                            <ul className="wrapper">
-                                <li className="add-box" onClick={openPopup}>
-                                    <div className="icon"><FaPlus /></div>
-                                    <p>Add new</p>
-                                </li>
-                                {items.map((item) => (
-                                    <li key={item.id} className="note">
-                                        <div className="details">
-                                            <p>{item.title}</p>
-                                            {item.type === 'note' ? (
-                                                <span>{item.description}</span>
-                                            ) : (
-                                                item.tasks?.map(task => (
-                                                    <div key={task.id} className="task d-flex align-items-center gap-1">
-                                                        <div className="custom-checkbox-wrapper">
-                                                            <label htmlFor={`${task.id}`} className="item">
-                                                                <input type="checkbox" id={`${task.id}`} className="hidden"
-                                                                    checked={task.completed}
-                                                                    onChange={() => {
-                                                                        const updatedTasks = item.tasks?.map(t =>
-                                                                            t.id === task.id ? { ...t, completed: !t.completed } : t
-                                                                        );
-                                                                        const updatedItems = items.map(i =>
-                                                                            i.id === item.id ? { ...i, tasks: updatedTasks } : i
-                                                                        );
-                                                                        setItems(updatedItems);
-                                                                    }} />
-                                                                <label htmlFor={`${task.id}`} className="cbx">
-                                                                    <svg width="14px" height="12px" viewBox="0 0 14 12">
-                                                                        <polyline points="1 7.6 5 11 13 1"></polyline>
-                                                                    </svg>
-                                                                </label>
-
-                                                                <label htmlFor={`${task.id}`} className={`cbx-lbl ${task.completed ? 'completed-task' : ''}`} >{task.title}</label>
-                                                            </label>
-                                                        </div>
-                                                    </div>
-                                                ))
-                                            )}
-                                        </div>
-                                        <div className="bottom-content">
-                                            <span>{item.date}</span>
-                                            <div className="settings">
-                                                <button className="menu-btn" onClick={() => toggleMenu(item.id)}>
-                                                    <FaEllipsis />
-                                                </button>
-                                                {menuOpen === item.id && (
-                                                    <ul className="menu">
-                                                        <li onClick={() => { updateItem(item); setMenuOpen(null); }}>
-                                                            <i><FaPen /></i> Edit
-                                                        </li>
-                                                        <li onClick={() => { deleteItem(item.id); setMenuOpen(null); }}>
-                                                            <i><FaTrash /></i> Delete
-                                                        </li>
-                                                    </ul>
-                                                )}
-                                            </div>
-                                        </div>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </ContentContainer>
 
 
             </div >
 
+            {gradient && <div className="gradient-generator-css d-flex align-items-center justify-content-between gap-2 my-2 mx-2 py-1 px-2">
+                            <p className="text-center m-0 fw-medium"> Current CSS BG : {gradient}</p>
+                            <button onClick={() => navigator.clipboard.writeText(gradient)} className="btn btn-green btn-min"><FiCopy /></button>
+                        </div>}
             <MouseFollower />
         </>
     )
