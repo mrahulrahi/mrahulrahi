@@ -1,6 +1,13 @@
 :root {--transition-time: 0.2s cubic-bezier(0, 0.01, 1, 1)}
 
-.device-frame{border: 10px solid #000;border-radius: 34px;overflow: hidden;padding-bottom: 50px;}
+.gradient-generator-container{height: calc(100dvh - 70px);}
+.gradient-generator-container .container,.gradient-generator-container .row {height: 100%;}
+
+.device-frame{width: 100%;background: rgba(0, 0, 0, 0.5);border: 5px solid rgba(0, 0, 0, 0.5);border-radius: 20px 20px 0 0;border-bottom: 0;overflow: hidden;padding-bottom: 80px;height: 100%;}
+.device-head{height: 25px;background: rgba(0, 0, 0, 0.5);padding-bottom: 5px;}
+.device-head-dots li{width: 8px;height: 8px;border-radius: 50%;background: rgba(255, 255, 255, 0.5);flex-shrink: 0;}
+
+.tab{height: 100%;overflow-y: auto;background: #222831;}
 
 .btn-min {min-width: auto;padding: 4px 5px;}
 .gradient-generator-css{background: rgba(255, 255, 255, 0.1);border: 1px solid rgba(255, 255, 255, 0.5);border-radius: 20px;line-height: 1;position: fixed;bottom: 10px;}
