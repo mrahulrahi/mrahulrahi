@@ -493,14 +493,14 @@ const SpectrumStack = () => {
 
             <div className="gradient-bg" style={{ background: gradient }}>
                 <Banner bgImage='../inner-hero-img.jpg'>
-                    Breezy Words App
+                    Spectrum Stack App
                 </Banner>
-                <ContentContainer className="inner-banner-container">
-                    <h1>Spectrum <br /> Stack App</h1>
+                <ContentContainer className="inner-banner-container pb-0">
+                    <h2>Quiz App</h2>
                 </ContentContainer>
 
                 <ContentContainer className="gradient-generator-container py-4" column='col-lg-8 h-100 mx-auto'>
-                    <div className="device-frame position-relative">
+                    <div className="device-frame position-relative d-flex flex-column justify-content-between">
                         <div className="device-head d-flex align-items-center justify-content-end pe-3">
                             <ul className="device-head-dots d-flex align-items-center justify-content-end gap-1"><li></li><li></li><li></li></ul>
                         </div>
@@ -512,7 +512,7 @@ const SpectrumStack = () => {
                                         {!showQuiz ? (
                                             <>
                                                 <div className="start-quiz-wrapper mx-auto">
-                                                    <h2>Test your <br /> knowledge</h2>
+                                                    <h2>Test your knowledge</h2>
                                                     <div className="select-menu mx-auto">
                                                         <div className="row g-3">
                                                             <div className="col-sm-6 ">

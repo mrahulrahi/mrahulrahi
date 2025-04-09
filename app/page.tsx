@@ -7,7 +7,8 @@ import Heading from "./components/Heading";
 import VideoCard from "./components/VideoCard/VideoCard";
 import Button from "./components/Button";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import { FaUserGraduate, FaBriefcase, FaLayerGroup, FaUsers, FaClock, FaArrowRight } from "react-icons/fa6";
+import { MdWeb } from "react-icons/md";
+import { FaUserGraduate, FaLayerGroup, FaGitAlt, FaClock, FaArrowRight } from "react-icons/fa6";
 import { RiCameraLensLine } from "react-icons/ri";
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -98,10 +99,10 @@ export default function Home() {
               </div>
             </li>
             <StatCard icon={<FaUserGraduate />} countEnd={2} suffix=" +" description="Years of experience" />
-            <StatCard icon={<FaBriefcase />} countEnd={80} suffix=" +" description="Projects Completed" />
+            <StatCard icon={<MdWeb />} countEnd={80} suffix=" +" description="Projects Completed" />
             <StatCard icon={<FaLayerGroup />} countEnd={12} suffix=" +" description="Skills in my stack" />
             <StatCard icon={<FaClock />} countEnd={1500} suffix=" +" description="Hours of code" />
-            <StatCard icon={<FaUsers />} countEnd={96} suffix=" %" description="Client Satisfaction Rate" />
+            <StatCard icon={<FaGitAlt />} countEnd={1900} suffix=" +" description="Total Github Contributions" />
           </ul>
         </div>
       </ContentContainer>
