@@ -5,8 +5,8 @@ export const projectsCards = [
     { id: 2, label: 'Business', title: 'NTS', imgUrl: '/project-img-2.png', gitHubUrl: 'https://github.com/mrahulrahi/nts-app', liveUrl: 'https://nishanktravels.com/', para: "The project is a personal portfolio website for front-end developer Rahul Maurya, built with Next.js. It features a modern and responsive design, showcasing various projects, skills, and tools. The site emphasizes user engagement through interactive elements and animations, providing a comprehensive overview of the developer's expertise and work.", },
     { id: 3, label: 'Business', title: 'Imagine Group', imgUrl: '/project-img-3.png', gitHubUrl: 'https://github.com/mrahulrahi/ig-app', liveUrl: 'http://imaginegindia.com', para: "Welcome to Imagine Group, where your property dreams become reality. Our team of experienced professionals offers personalized service and innovative solutions to make your real estate journey seamless. Discover a world of possibilities with Imagine Group.", },
     { id: 4, label: 'App & Web Design', title: 'SoulVerse', imgUrl: '/project-img-4.png', gitHubUrl: 'https://github.com/mrahulrahi/soulsync', liveUrl: 'https://soulsyncapp.vercel.app', para: 'Maecenas faucibus mollis interdum sed posuere consectetur est at lobortis. Scelerisque id ligula porta felis euismod semper. Fusce dapibus tellus cursus.', },
-    { id: 5, label: 'Tools', title: 'SpectrumStack App', imgUrl: '/project-img-6.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: '/spectrum-stack', para: 'Spectrum Stack is a versatile React-based app that combines multiple features into one seamless experience. It allows users to create and manage notes and to-do lists, test their knowledge with a trivia quiz game, perform basic and advanced calculations, and generate custom gradient backgrounds. With a user-friendly interface and local data storage, Spectrum Stack offers a complete solution for productivity, learning, and creativity.', },
-    { id: 6, label: 'SliceMyPage', title: '80+ Projects Done', imgUrl: '/project-img-5.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: '/breezy-words', para: 'Breezy Words is a React app that delivers daily inspiration through quotes, paired with real-time weather updates. It provides a refreshing and uplifting experience, offering users thoughtful quotes based on the current weather, all within a simple, user-friendly interface.', },
+    { id: 5, label: 'Tools', title: 'SpectrumStack App', imgUrl: '/project-img-5.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: '/spectrum-stack', para: 'Spectrum Stack is a streamlined React-based app focused on personal productivity. It allows users to effortlessly create and manage notes and to-do lists, all within a clean, user-friendly interface. With local data storage for quick access and reliability, Spectrum Stack helps you stay organized and on top of your daily tasks without distractions. Perfect for capturing ideas and planning your day with ease.', },
+    { id: 6, label: 'SliceMyPage', title: '80+ Projects Done', imgUrl: '/project-img-6.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://www.slicemypage.com/', para: 'Delivered 50+ diverse projects on time and within budget. Proven expertise in HTML, CSS, JavaScript, and web frameworks to create visually appealing and functional websites. Ensured project success through rigorous testing and quality assurance. Delivered high-quality, bug-free projects with optimal user experience and client satisfaction.', },
 ]
 
 export const photos = [
@@ -21,14 +21,12 @@ export const photos = [
     { id: 9, title: 'Water Drops on Leaf', url: 'https://lh3.googleusercontent.com/pw/ABLVV87O6db7fR9QeWciN6Xf0f82jIYZivOr9znLo7maAmY7j3J81MtBiAPkXkZbjqrrD1SrbhlHd_co26bvrxuVvJ9a1jrHKJurucOwX-RJ1aBxNCtH2l8EeXb-wx7LyrZXLC3BbK_quKyz5OCqpZ6RAE1q=w674-h898-s-no-gm?authuser=0', camera: "", shotBy: "" },
     { id: 10, title: 'Drops on Dark Leaf', url: 'https://lh3.googleusercontent.com/pw/ABLVV86oGswt18u0F_pXSMaXWOoS1O278s0P_7Tkq6-Wik5j1AR_be-7SUxLAFWZUCweEYnz70VDjgZtn7WqIo61-PvV3ODmawR_e5gvpiIGvN5JwpA0chijeHNIlNrolBW3hGV9u1waYCdjQyn0-IyR1Hdd=w1196-h898-s-no-gm?authuser=0', camera: "", shotBy: "" },
 ];
-
 export const timelineItems = [
-    { id: 1, title: 'Diploma', role: 'AIMT', duration: 'July 2017 - Nov 2020' },
-    { id: 2, title: 'Fireliquidtaor', role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' },
-    { id: 3, title: 'BCA', role: 'IGNOU', duration: 'July 2021 - Jun 2024' },
-    { id: 4, title: 'CodeClause', role: 'Web Dev Intern', duration: 'Nov 2022' },
-    { id: 5, title: 'Imagine Group', role: 'Freelancer', duration: 'Dec 2022 - Jun 2023' },
-    { id: 6, title: 'SlicemyPage', role: 'Front End Developer', duration: 'Jun 2023 - Now' },
+    { id: 1, title: 'Diploma', roles: [{ role: 'AIMT', duration: 'July 2017 - Nov 2020' }] },
+    { id: 2, title: 'Fireliquidtaor', roles: [{ role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' }] },
+    { id: 3, title: 'BCA', roles: [{ role: 'IGNOU', duration: 'July 2021 - Jun 2024' }] },
+    { id: 4, title: 'CodeClause', roles: [{ role: 'Web Dev Intern', duration: 'Nov 2022' }] },
+    { id: 5, title: 'SlicemyPage', roles: [{ role: 'Front End Trainee', duration: 'Dec 2022 - Jun 2023' }, { role: 'Front End Developer', duration: 'Jun 2023 - Now' }] }
 ]
 
 export const certificates = [

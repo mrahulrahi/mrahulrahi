@@ -97,17 +97,17 @@ export default function Home() {
                 <h3>Stats</h3>
               </div>
             </li>
-            <StatCard icon={<FaUserGraduate />} countEnd={1.5} suffix=" +" description="Years of experience" />
-            <StatCard icon={<FaBriefcase />} countEnd={50} suffix=" +" description="Projects Completed" />
-            <StatCard icon={<FaLayerGroup />} countEnd={10} suffix=" +" description="Skills in my stack" />
-            <StatCard icon={<FaClock />} countEnd={1000} suffix=" +" description="Hours of code" />
+            <StatCard icon={<FaUserGraduate />} countEnd={2} suffix=" +" description="Years of experience" />
+            <StatCard icon={<FaBriefcase />} countEnd={80} suffix=" +" description="Projects Completed" />
+            <StatCard icon={<FaLayerGroup />} countEnd={12} suffix=" +" description="Skills in my stack" />
+            <StatCard icon={<FaClock />} countEnd={1500} suffix=" +" description="Hours of code" />
             <StatCard icon={<FaUsers />} countEnd={96} suffix=" %" description="Client Satisfaction Rate" />
           </ul>
         </div>
       </ContentContainer>
 
       <ContentContainer className="projects-card-container" background="gradient-1">
-        <Heading heading="Projects">
+        <Heading heading="My Work">
           <div className="custom-arrow-container d-flex justify-content-between">
             <button className="custom-arrow-button custom-arrow-prev projects-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
               <FaArrowRight />

@@ -73,7 +73,7 @@ const Portfolio = () => {
 
       <ContentContainer background='gradient-2'>
         <div className="itb-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
-          <Heading heading='My Project' />
+          <Heading heading='My Work' />
 
           <div className="work-list d-flex flex-wrap">
             {projectsCards.map(card => (

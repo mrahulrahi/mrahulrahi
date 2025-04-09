@@ -106,7 +106,9 @@ const About = () => {
                       <div key={item.id} className="timeline-item" data-aos="fade-up" suppressHydrationWarning>
                         <div className="timeline-content">
                           <h3 className="timeline-content-title">{item.title}</h3>
-                          <p className="timeline-content-desc"><span>{item.role}</span>{item.duration}</p>
+                          <ul className="timeline-content-desc">
+                            {item.roles && item.roles.map((role) => <li><span>{role.role}</span>{role.duration}</li> )}
+                          </ul>
                         </div>
                       </div>)}
                   </div>
