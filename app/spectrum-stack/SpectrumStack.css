@@ -3,8 +3,9 @@
 .gradient-generator-container{height: calc(100dvh - 70px);}
 .gradient-generator-container .container,.gradient-generator-container .row {height: 100%;}
 
-.device-frame{width: 100%;background: #222831;border: 5px solid rgba(0, 0, 0, 0.5);border-radius: 20px 20px;border-bottom: 0;overflow: hidden;padding-bottom: 70px;height: 100%;}
+.device-frame{width: 100%;background: #222831;border: 5px solid rgba(0, 0, 0, 0.5);border-radius: 25px;border-bottom: 0;overflow: hidden;padding-bottom: 70px;height: 100%;}
 .device-head{height: 25px;background: rgba(0, 0, 0, 0.5);padding-bottom: 5px;}
+.device-head h4 {font-size: 1em;font-weight: 700;letter-spacing: 0.4em;margin-bottom: 0;text-transform: uppercase;color: rgba(255, 255, 255, 0.5);text-align: center;}
 .device-head-dots li{width: 8px;height: 8px;border-radius: 50%;background: rgba(255, 255, 255, 0.5);flex-shrink: 0;}
 
 .tab{height: 100%;overflow-y: auto;}
@@ -16,7 +17,7 @@
 .db-btn{background: var(--mrr-white);color: var(--mrr-main-color);border: 0;padding: 6px 12px; flex-grow: 1;flex-shrink: 0;border-radius: 10px;}
 .db-btn.active{background: var(--mrr-main-color);color: var(--mrr-white);border-radius: 10px;}
  
-.inner-banner-container h2 {font-size: 3.5em;font-weight: 700;letter-spacing: 0.5em;margin-bottom: 0;text-transform: uppercase;color: rgba(0, 0, 0, 0.5);text-align: center;}
+
 
 .gradient-bg {background: linear-gradient(to right, #43C6AC, #e3ef66);}
 
@@ -68,9 +69,9 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 
 
 .quiz-container{color: var(--mrr-white);width: calc(100% - 30px);}
-.quiz-container h2{font-size: 40px;font-weight: 700;margin-bottom: 30px;color: var(--mrr-dark-color);}
+.quiz-container h2{font-size: 40px;font-weight: 700;margin-bottom: 30px;color: rgba(0, 0, 0, 0.5);}
 .quiz-container h3{font-size: 30px;font-weight: 700;color: var(--mrr-dark-color);}
-.quiz-container h4{font-size: 25px;font-weight: 600;color: var(--mrr-dark-color);}
+.quiz-container h4{font-size: 25px;font-weight: 600;color: rgba(0, 0, 0, 0.5);}
 
 .quiz-stats-head{padding: 10px 20px;text-align: center;border: 4px solid var(--mrr-dark-color);border-inline: 0;font-size: 20px;font-weight: 600;margin-bottom: 30px;}
 .quiz-stats-head p span{font-weight: 400;}
@@ -124,8 +125,8 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 .wrapper > li {height: 250px;list-style: none;border-radius: 5px;padding: 15px 20px 20px;background: rgba(255, 255, 255, 0.2);box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);}
 .add-box,.icon,.bottom-content,.popup,header,.settings .menu li {display: flex;align-items: center;justify-content: space-between;}
 .add-box {cursor: pointer;flex-direction: column;justify-content: center;}
-.add-box .icon {height: 78px;width: 78px;color: var(--mrr-dark-color);font-size: 40px;border-radius: 50%;justify-content: center;border: 2px dashed var(--mrr-dark-color);}
-.add-box p {color: var(--mrr-dark-color);font-weight: 500;margin-top: 20px;}
+.add-box .icon {height: 78px;width: 78px;color: rgba(0, 0, 0, 0.5);font-size: 40px;border-radius: 50%;justify-content: center;border: 2px dashed rgba(0, 0, 0, 0.5);}
+.add-box p {color: rgba(0, 0, 0, 0.5);font-weight: 500;margin-top: 20px;}
 .note {display: flex;flex-direction: column;justify-content: space-between;}
 .note .details {max-height: 165px;overflow-y: auto;}
 .note .details::-webkit-scrollbar,
@@ -137,8 +138,8 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 .note .details:hover::-webkit-scrollbar-thumb,
 .popup textarea:hover::-webkit-scrollbar-thumb {background: #e6e6e6;border-radius: 25px;}
 .note p {font-size: 22px;font-weight: 500;color: var(--mrr-main-color);}
-.note span {display: block;color: var(--mrr-dark-color);font-size: 16px;}
-.note .bottom-content {padding-top: 10px;border-top: 1px solid rgb(0, 0, 0, 0.25);}
+.note span {display: block;color: rgba(255, 255, 255, 0.5);font-size: 16px;}
+.note .bottom-content {padding-top: 10px;border-top: 1px solid rgb(0, 0, 0, 0.25);color: rgba(255, 255, 255, 0.5);}
 .bottom-content span {font-size: 14px;}
 .bottom-content .settings {position: relative;}
 .bottom-content .settings i {color: var(--mrr-dark-color);cursor: pointer;font-size: 15px;}
@@ -157,12 +158,12 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 .content header {padding: 15px 25px;background-color: var(--mrr-dark-color);color: #faebd7;border-top-left-radius: 4px;border-top-right-radius: 4px;}
 .content header p {font-size: 20px;font-weight: 500;margin-bottom: 0;}
 .content header i {color: #8b8989;cursor: pointer;font-size: 23px;}
-.content form {margin: 15px 25px 35px;}
+.content form {margin: 15px 25px 25px;}
 .content form .row {margin-bottom: 20px;}
 form .row label {font-size: 18px;display: block;margin-bottom: 6px;}
 form :where(input, textarea) {background-color: #dfe0df;height: 50px;width: 100%;outline: none;font-size: 17px;padding: 0 15px;border-radius: 4px;border: 1px solid #999;}
 form :where(input, textarea):focus {box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);}
-form .row textarea {height: 150px;resize: none;padding: 8px 15px;}
+form textarea {height: 150px;resize: none;padding: 8px 15px;}
 form button {width: 100%;height: 50px;color: #faebd7;outline: none;border: none;cursor: pointer;font-size: 17px;border-radius: 4px;background: var(--mrr-dark-color);}
 .btn-toggle{padding: 10px 16px;border: 0;background: var(--mrr-dark-color);color: var(--mrr-white);}
 .btn-toggle.active{background: #faebd7;color: var(--mrr-dark-color);color: var(--mrr-dark-color);}

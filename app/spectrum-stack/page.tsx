@@ -2,8 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import ContentContainer from '../components/ContentContainer'
 import './SpectrumStack.css'
-import { FaPlus, FaXmark, FaEllipsis, FaPen, FaTrash, FaCalculator, FaNoteSticky, FaCloudSun, FaQuoteRight } from 'react-icons/fa6';
-import { MdQuiz } from "react-icons/md";
+import { FaPlus, FaXmark, FaEllipsis, FaPen, FaTrash, FaDiceFour, FaCalculator, FaNoteSticky, FaCloudSun, FaQuoteRight } from 'react-icons/fa6';
 import { FiShare, FiCopy } from "react-icons/fi";
 import MouseFollower from '../components/MouseFollower';
 
@@ -495,13 +494,17 @@ const SpectrumStack = () => {
                 <Banner bgImage='../inner-hero-img.jpg'>
                     Spectrum Stack App
                 </Banner>
-                <ContentContainer className="inner-banner-container pb-0">
-                    <h2>Quiz App</h2>
-                </ContentContainer>
+
 
                 <ContentContainer className="gradient-generator-container py-4" column='col-lg-8 h-100 mx-auto'>
                     <div className="device-frame position-relative d-flex flex-column justify-content-between">
-                        <div className="device-head d-flex align-items-center justify-content-end pe-3">
+                        <div className="device-head d-flex align-items-center justify-content-between px-3">
+                            {activeTab === 1 && <h4>Quiz App</h4>}
+                            {activeTab === 2 && <h4>Calculator App</h4>}
+                            {activeTab === 3 && <h4>Notes & To-Do App</h4>}
+                            {activeTab === 4 && <h4>Weather App</h4>}
+                            {activeTab === 5 && <h4>Quote App</h4>}
+
                             <ul className="device-head-dots d-flex align-items-center justify-content-end gap-1"><li></li><li></li><li></li></ul>
                         </div>
 
@@ -606,7 +609,6 @@ const SpectrumStack = () => {
                                                             <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>
                                                             <button className="btn btn-green" onClick={() => window.location.reload()}>Start New Quiz</button>
                                                         </div>
-
                                                     </div>
                                                 )}
                                             </>
@@ -657,9 +659,7 @@ const SpectrumStack = () => {
                                     {popupVisible && (
                                         <div className="popup-box">
                                             <div className="popup">
-
                                                 <div className="content">
-
                                                     <header>
                                                         <p>{isUpdate ? (itemType === 'note' ? 'Update a Note' : 'Update a To-Do') : (itemType === 'note' ? 'Add a new Note' : 'Add a new To-Do')}</p>
                                                         <i className="close-icon" onClick={closePopup}><FaXmark /></i>
@@ -688,7 +688,7 @@ const SpectrumStack = () => {
                                                                     onChange={(e) => setTaskTitle(e.target.value)}
                                                                     className=""
                                                                 />
-                                                                <button type="button" className="mt-4" onClick={addTask}>Add Task</button>
+
                                                                 <ul className="task-list my-4">
                                                                     {tasks.map(task => (
 
@@ -725,9 +725,13 @@ const SpectrumStack = () => {
                                                                 />
                                                             </div>
                                                         )}
-                                                        <button type="button" onClick={addItem}>
-                                                            {isUpdate ? (itemType === 'note' ? 'Update Note' : 'Update To-Do') : (itemType === 'note' ? 'Add Note' : 'Add To-Do')}
-                                                        </button>
+                                                        <div className="d-flex gap-2 mt-4">
+                                                            {itemType === 'todo' && (
+                                                                <button type="button" onClick={addTask}>Add Task</button>)}
+                                                            <button type="button" onClick={addItem}>
+                                                                {isUpdate ? (itemType === 'note' ? 'Update Note' : 'Update To-Do') : (itemType === 'note' ? 'Add Note' : 'Add To-Do')}
+                                                            </button>
+                                                        </div>
                                                     </form>
                                                 </div>
                                             </div>
@@ -904,7 +908,7 @@ const SpectrumStack = () => {
 
                         <div className="device-bottom-bar position-absolute start-0 bottom-0">
                             <div className="d-flex gap-2">
-                                <button onClick={() => setActiveTab(1)} className={`db-btn ${activeTab === 1 ? "active" : ""}`}><MdQuiz /></button>
+                                <button onClick={() => setActiveTab(1)} className={`db-btn ${activeTab === 1 ? "active" : ""}`}><FaDiceFour /></button>
                                 <button onClick={() => setActiveTab(2)} className={`db-btn ${activeTab === 2 ? "active" : ""}`}><FaCalculator /></button>
                                 <button onClick={() => setActiveTab(3)} className={`db-btn ${activeTab === 3 ? "active" : ""}`}><FaNoteSticky /></button>
                                 <button onClick={() => setActiveTab(4)} className={`db-btn ${activeTab === 4 ? "active" : ""}`}><FaCloudSun /></button>
