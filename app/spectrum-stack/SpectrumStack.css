@@ -5,7 +5,7 @@
 
 .device-frame{width: 100%;background: #222831;border: 5px solid rgba(0, 0, 0, 0.5);border-radius: 25px;border-bottom: 0;overflow: hidden;padding-bottom: 70px;height: 100%;}
 .device-head{height: 25px;background: rgba(0, 0, 0, 0.5);padding-bottom: 5px;}
-.device-head h4 {font-size: 1em;font-weight: 700;letter-spacing: 0.4em;margin-bottom: 0;text-transform: uppercase;color: rgba(255, 255, 255, 0.5);text-align: center;}
+.device-head h4 {font-size: 18px;font-weight: 700;letter-spacing: 0.4em;margin-bottom: 0;text-transform: uppercase;color: rgba(255, 255, 255, 0.5);text-align: center;}
 .device-head-dots li{width: 8px;height: 8px;border-radius: 50%;background: rgba(255, 255, 255, 0.5);flex-shrink: 0;}
 
 .tab{height: 100%;overflow-y: auto;}
@@ -68,7 +68,7 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 .equal-btn:active {border-radius: 20%;transition: var(--transition-time);}
 
 
-.quiz-container{color: var(--mrr-white);width: calc(100% - 30px);}
+.quiz-container,.notes-todos-app-container{color: var(--mrr-white);width: calc(100% - 30px);}
 .quiz-container h2{font-size: 40px;font-weight: 700;margin-bottom: 30px;color: rgba(0, 0, 0, 0.5);}
 .quiz-container h3{font-size: 30px;font-weight: 700;color: var(--mrr-dark-color);}
 .quiz-container h4{font-size: 25px;font-weight: 600;color: rgba(0, 0, 0, 0.5);}
@@ -104,7 +104,6 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 }
 
 @media (max-width: 767.98px){
-    .inner-banner-container h1{font-size: 3rem;}
     .quiz-container h2{font-size: 34px;}
     .quiz-container h3{font-size: 28px;}
     .quiz-container h4{font-size: 24px;}
@@ -116,12 +115,10 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 }
 
 
-@media (max-width: 575.98px){
-    .inner-banner-container h1{font-size: 2rem;}
-}  
 
 
-.wrapper {display: grid;gap: 25px;grid-template-columns: repeat(auto-fill, 265px);}
+
+.wrapper {display: grid;gap: 25px;grid-template-columns: repeat(auto-fill, 250px);}
 .wrapper > li {height: 250px;list-style: none;border-radius: 5px;padding: 15px 20px 20px;background: rgba(255, 255, 255, 0.2);box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);}
 .add-box,.icon,.bottom-content,.popup,header,.settings .menu li {display: flex;align-items: center;justify-content: space-between;}
 .add-box {cursor: pointer;flex-direction: column;justify-content: center;}
@@ -311,7 +308,7 @@ form button {width: 100%;height: 50px;color: #faebd7;outline: none;border: none;
 .qw-weather-box h1 {margin: 0;font-weight: 700;line-height: 1;font-size: 4em;}
 .qw-weather-box h4 {line-height: 1;margin: 0;}
 
-.qw-info-box {width: auto;height: 100%;margin-left: -10px;padding: 25px;padding-left: 40px;box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);background-color: #222831;border-radius: 25px;}
+.qw-info-box {width: auto;margin-left: -10px;padding: 25px;padding-left: 40px;box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);background-color: #222831;border-radius: 25px;}
 .qw-today-info {min-width: 250px;padding: 15px;margin: 0;background-color: rgba(255, 255, 255, 0.1);border-radius: 10px;}
 .qw-info-title {float: left;font-weight: 700;}
 .qw-info-value {float: right;}

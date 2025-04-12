@@ -501,122 +501,120 @@ const SpectrumStack = () => {
                         <div className="device-head d-flex align-items-center justify-content-between px-3">
                             {activeTab === 1 && <h4>Quiz App</h4>}
                             {activeTab === 2 && <h4>Calculator App</h4>}
-                            {activeTab === 3 && <h4>Notes & To-Do App</h4>}
+                            {activeTab === 3 && <h4>Notes App</h4>}
                             {activeTab === 4 && <h4>Weather App</h4>}
                             {activeTab === 5 && <h4>Quote App</h4>}
 
                             <ul className="device-head-dots d-flex align-items-center justify-content-end gap-1"><li></li><li></li><li></li></ul>
                         </div>
-
                         <div className="tab pt-2">
-                            <div className={`tab-pane ${activeTab === 1 ? "position-relative" : "position-absolute d-none"}`}>
-                                <div className="main-class d-flex flex-column gap-4" id="main-container">
-                                    <div className="quiz-container">
-                                        {!showQuiz ? (
-                                            <>
-                                                <div className="start-quiz-wrapper mx-auto">
-                                                    <h2>Test your knowledge</h2>
-                                                    <div className="select-menu mx-auto">
-                                                        <div className="row g-3">
-                                                            <div className="col-sm-6 ">
-                                                                <div className="form-group">
-                                                                    <label className="form-label" htmlFor="amount">Amount:</label>
-                                                                    <select className="form-select" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
-                                                                        <option value={5}>5</option>
-                                                                        <option value={10}>10</option>
-                                                                        <option value={15}>15</option>
-                                                                        <option value={20}>20</option>
-                                                                        <option value={25}>25</option>
-                                                                        <option value={30}>30</option>
-                                                                    </select>
-                                                                </div>
+                            <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 1 ? "position-relative" : "position-absolute d-none"}`}>
+                                <div className="quiz-container">
+                                    {!showQuiz ? (
+                                        <>
+                                            <div className="start-quiz-wrapper mx-auto">
+                                                <h2>Test your knowledge</h2>
+                                                <div className="select-menu mx-auto">
+                                                    <div className="row g-3">
+                                                        <div className="col-sm-6 ">
+                                                            <div className="form-group">
+                                                                <label className="form-label" htmlFor="amount">Amount:</label>
+                                                                <select className="form-select" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
+                                                                    <option value={5}>5</option>
+                                                                    <option value={10}>10</option>
+                                                                    <option value={15}>15</option>
+                                                                    <option value={20}>20</option>
+                                                                    <option value={25}>25</option>
+                                                                    <option value={30}>30</option>
+                                                                </select>
                                                             </div>
-                                                            <div className="col-sm-6">
-                                                                <div className="form-group">
-                                                                    <label className="form-label" htmlFor="category">Category:</label>
-                                                                    <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
-                                                                        <option value={0}>Any Category</option>
-                                                                        {categories.map((category: { id: number; name: string; }) => (
-                                                                            <option key={category.id} value={category.id}>{category.name}</option>
-                                                                        ))}
-                                                                    </select>
-                                                                </div>
+                                                        </div>
+                                                        <div className="col-sm-6">
+                                                            <div className="form-group">
+                                                                <label className="form-label" htmlFor="category">Category:</label>
+                                                                <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
+                                                                    <option value={0}>Any Category</option>
+                                                                    {categories.map((category: { id: number; name: string; }) => (
+                                                                        <option key={category.id} value={category.id}>{category.name}</option>
+                                                                    ))}
+                                                                </select>
                                                             </div>
-                                                            <div className="col-sm-6">
-                                                                <div className="form-group">
-                                                                    <label className="form-label" htmlFor="difficulty">Difficulty:</label>
-                                                                    <select className="form-select" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
-                                                                        <option value={0}>Any Difficulty</option>
-                                                                        <option value="easy">Easy</option>
-                                                                        <option value="medium">Medium</option>
-                                                                        <option value="hard">Hard</option>
-                                                                    </select>
-                                                                </div>
+                                                        </div>
+                                                        <div className="col-sm-6">
+                                                            <div className="form-group">
+                                                                <label className="form-label" htmlFor="difficulty">Difficulty:</label>
+                                                                <select className="form-select" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                                                                    <option value={0}>Any Difficulty</option>
+                                                                    <option value="easy">Easy</option>
+                                                                    <option value="medium">Medium</option>
+                                                                    <option value="hard">Hard</option>
+                                                                </select>
                                                             </div>
-                                                            <div className="col-sm-6">
-                                                                <div className="form-group">
-                                                                    <label className="form-label" htmlFor="type">Type:</label>
-                                                                    <select className="form-select" id="type" value={type} onChange={(e) => setType(e.target.value)}>
-                                                                        <option value={0}>Any Type</option>
-                                                                        <option value="multiple">Multiple Choice</option>
-                                                                        <option value="boolean">True / False</option>
-                                                                    </select>
-                                                                </div>
+                                                        </div>
+                                                        <div className="col-sm-6">
+                                                            <div className="form-group">
+                                                                <label className="form-label" htmlFor="type">Type:</label>
+                                                                <select className="form-select" id="type" value={type} onChange={(e) => setType(e.target.value)}>
+                                                                    <option value={0}>Any Type</option>
+                                                                    <option value="multiple">Multiple Choice</option>
+                                                                    <option value="boolean">True / False</option>
+                                                                </select>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <button className="btn btn-green" onClick={() => { startQuiz(); fetchTriviaQuestions(); }}>Start Quiz</button>
                                                 </div>
-                                            </>
+                                                <button className="btn btn-green" onClick={() => { startQuiz(); fetchTriviaQuestions(); }}>Start Quiz</button>
+                                            </div>
+                                        </>
 
-                                        ) : (
-                                            <>
-                                                {questionNumber < questions.length ? (
-                                                    showFeedback ? (
-                                                        <>
-                                                            <div className="quiz-stats-head d-flex justify-content-between">
-                                                                <p className="questions mb-0">Questions: <span>{showQuiz ? questionNumber + 1 : questionNumber}/{questions.length}</span></p>
-                                                                <p className="score mb-0">Score: <span>{score}</span></p>
-                                                            </div>
-                                                            <div className="feedback-wrapper mx-auto">
-                                                                {selectedAnswer === questions[questionNumber].correct_answer ? (
-                                                                    <div className="correct-feedback">
-                                                                        <h3 className="text-success">CORRECT!</h3>
-                                                                        <h4 className="correct-answer-alert">
-                                                                            Correct answer is: {questions[questionNumber].correct_answer}
-                                                                        </h4>
-                                                                    </div>
-                                                                ) : (
-                                                                    <div className="wrong-feedback">
-                                                                        <h3 className="text-danger">WRONG!</h3>
-                                                                        <h4 className="correct-answer-alert">
-                                                                            Correct answer is: {questions[questionNumber].correct_answer}
-                                                                        </h4>
-                                                                    </div>
-                                                                )}
-                                                                <button className="btn btn-green" onClick={nextQuestion}>{questionNumber < questions.length - 1 ? 'Next Question' : 'End Quiz'}</button>
-                                                            </div>
-                                                        </>
-
-                                                    ) : (
-                                                        getQuestionAndAnswers()
-                                                    )
-                                                ) : (
-                                                    <div className="feedback-wrapper mx-auto">
-                                                        <h3>Quiz Completed!</h3>
-                                                        <h4>Your Score: {score}</h4>
-                                                        <div className="d-flex flex-column flex-sm-row gap-3">
-                                                            <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>
-                                                            <button className="btn btn-green" onClick={() => window.location.reload()}>Start New Quiz</button>
+                                    ) : (
+                                        <>
+                                            {questionNumber < questions.length ? (
+                                                showFeedback ? (
+                                                    <>
+                                                        <div className="quiz-stats-head d-flex justify-content-between">
+                                                            <p className="questions mb-0">Questions: <span>{showQuiz ? questionNumber + 1 : questionNumber}/{questions.length}</span></p>
+                                                            <p className="score mb-0">Score: <span>{score}</span></p>
                                                         </div>
+                                                        <div className="feedback-wrapper mx-auto">
+                                                            {selectedAnswer === questions[questionNumber].correct_answer ? (
+                                                                <div className="correct-feedback">
+                                                                    <h3 className="text-success">CORRECT!</h3>
+                                                                    <h4 className="correct-answer-alert">
+                                                                        Correct answer is: {questions[questionNumber].correct_answer}
+                                                                    </h4>
+                                                                </div>
+                                                            ) : (
+                                                                <div className="wrong-feedback">
+                                                                    <h3 className="text-danger">WRONG!</h3>
+                                                                    <h4 className="correct-answer-alert">
+                                                                        Correct answer is: {questions[questionNumber].correct_answer}
+                                                                    </h4>
+                                                                </div>
+                                                            )}
+                                                            <button className="btn btn-green" onClick={nextQuestion}>{questionNumber < questions.length - 1 ? 'Next Question' : 'End Quiz'}</button>
+                                                        </div>
+                                                    </>
+
+                                                ) : (
+                                                    getQuestionAndAnswers()
+                                                )
+                                            ) : (
+                                                <div className="feedback-wrapper mx-auto">
+                                                    <h3>Quiz Completed!</h3>
+                                                    <h4>Your Score: {score}</h4>
+                                                    <div className="d-flex flex-column flex-sm-row gap-3">
+                                                        <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>
+                                                        <button className="btn btn-green" onClick={() => window.location.reload()}>Start New Quiz</button>
                                                     </div>
-                                                )}
-                                            </>
-                                        )}
-                                    </div>
+                                                </div>
+                                            )}
+                                        </>
+                                    )}
                                 </div>
                             </div>
-                            <div className={`tab-pane ${activeTab === 2 ? "position-relative" : "position-absolute d-none"}`}>
+
+                            <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 2 ? "position-relative" : "position-absolute d-none"}`}>
                                 <div className="android-frame">
                                     <div className="output-operation-class" id="output-operation">
                                         <input type="text" className="output-screen" id="output-id" placeholder='0' value={expression} readOnly />
@@ -654,8 +652,9 @@ const SpectrumStack = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className={`tab-pane ${activeTab === 3 ? "position-relative" : "position-absolute d-none"}`}>
-                                <ContentContainer className="notes-todos-app-container pt-0">
+
+                            <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 3 ? "position-relative" : "position-absolute d-none"}`}>
+                                <div className="notes-todos-app-container">
                                     {popupVisible && (
                                         <div className="popup-box">
                                             <div className="popup">
@@ -803,11 +802,10 @@ const SpectrumStack = () => {
                                             </ul>
                                         </div>
                                     </div>
-                                </ContentContainer>
+                                </div>
                             </div>
 
-                            <div className={`tab-pane ${activeTab === 4 ? "position-relative" : "position-absolute d-none"}`}>
-
+                            <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 4 ? "position-relative" : "position-absolute d-none"}`}>
                                 <div className="quote-weather-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-xl-start">
                                     <div className="qw-today-box d-flex flex-column flex-sm-row flex-lg-column justify-content-between gap-2">
                                         <div className="qw-gradient-bg" style={{ backgroundImage: backgroundColor }}></div>
@@ -859,8 +857,6 @@ const SpectrumStack = () => {
                                                     ))}
                                                 </ul>
                                             </div>
-
-
                                         </div>
 
                                         <div className="qw-action-row d-flex flex-column flex-md-row gap-2">
@@ -870,15 +866,12 @@ const SpectrumStack = () => {
                                                     <span className="qw-action-text" style={{ backgroundImage: backgroundColor }}>Change location</span>
                                                 </button>
                                             </div>
-
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className={`tab-pane ${activeTab === 5 ? "position-relative" : "position-absolute d-none"}`}>
-
+                            <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 5 ? "position-relative" : "position-absolute d-none"}`}>
                                 <div className="qw-info-box">
                                     <div className="qw-quote-box d-flex flex-column mb-3">
                                         <span className="qw-quote-icon"><FaQuoteLeft /></span>
@@ -916,8 +909,6 @@ const SpectrumStack = () => {
                             </div>
                         </div>
                     </div>
-
-
                 </ContentContainer>
 
                 <div className={`gradient-selector-box d-flex align-items-center ${openSideBox ? 'open' : null}`}>
