@@ -9,6 +9,7 @@ import MouseFollower from '../components/MouseFollower';
 import Banner from '../components/Banner/Banner'
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { FaQuoteLeft } from 'react-icons/fa';
+import SimpleHero from '../components/SimpleHero/SimpleHero';
 
 
 
@@ -491,11 +492,8 @@ const SpectrumStack = () => {
         <>
 
             <div className="gradient-bg" style={{ background: gradient }}>
-                <Banner bgImage='../inner-hero-img.jpg'>
-                    Spectrum Stack App
-                </Banner>
-
-
+                <SimpleHero title="Spectrum Stack App" subTitle="Tools" bgGradient={backgroundColor} />
+                    
                 <ContentContainer className="gradient-generator-container py-4" column='col-lg-8 h-100 mx-auto'>
                     <div className="device-frame position-relative d-flex flex-column justify-content-between">
                         <div className="device-head d-flex align-items-center justify-content-between px-3">
