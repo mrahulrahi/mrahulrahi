@@ -22,11 +22,13 @@ export const photos = [
     { id: 10, title: 'Drops on Dark Leaf', url: 'https://lh3.googleusercontent.com/pw/ABLVV86oGswt18u0F_pXSMaXWOoS1O278s0P_7Tkq6-Wik5j1AR_be-7SUxLAFWZUCweEYnz70VDjgZtn7WqIo61-PvV3ODmawR_e5gvpiIGvN5JwpA0chijeHNIlNrolBW3hGV9u1waYCdjQyn0-IyR1Hdd=w1196-h898-s-no-gm?authuser=0', camera: "", shotBy: "" },
 ];
 export const timelineItems = [
-    { id: 1, title: 'Diploma', roles: [{ role: 'AIMT', duration: 'July 2017 - Nov 2020' }] },
-    { id: 2, title: 'Fireliquidtaor', roles: [{ role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' }] },
-    { id: 3, title: 'BCA', roles: [{ role: 'IGNOU', duration: 'July 2021 - Jun 2024' }] },
-    { id: 4, title: 'CodeClause', roles: [{ role: 'Web Dev Intern', duration: 'Nov 2022' }] },
-    { id: 5, title: 'SlicemyPage', roles: [{ role: 'Front End Trainee', duration: 'Dec 2022 - Jun 2023' }, { role: 'Front End Developer', duration: 'Jun 2023 - Now' }] }
+    { id: 1, title: 'Schooling', roles: [{ role: '10th', duration: 'July 2012 - Nov 2014' },{ role: '12th', duration: 'July 2014 - Nov 2016' }] },
+    { id: 2, title: 'Diploma', roles: [{ role: 'AIMT', duration: 'July 2017 - Nov 2020' }] },
+    { id: 3, title: 'Fireliquidtaor', roles: [{ role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' }] },
+    { id: 4, title: 'BCA', roles: [{ role: 'IGNOU', duration: 'July 2021 - Jun 2024' }] },
+    { id: 5, title: 'CodeClause', roles: [{ role: 'Web Dev Intern', duration: 'Nov 2022' }] },
+    { id: 6, title: 'SlicemyPage', roles: [{ role: 'Front End Trainee', duration: 'Dec 2022 - Jun 2023' }, { role: 'Front End Developer', duration: 'Jun 2023 - Now' }] },
+    { id: 7, title: 'MCA', roles: [{ role: 'Chandigarh University', duration: 'July 2025 - Now' }] },
 ]
 
 export const certificates = [

@@ -143,7 +143,7 @@ p:last-child{margin-bottom:0;}
 .timeline { display: flex; margin: 0 auto; flex-wrap: wrap; flex-direction: column; max-width: 800px; position: relative; }
 .timeline-content-title {font-size: 32px;color: var(--mrr-accent-color);margin-bottom: 10px;}
 .timeline-content-desc {font-size: 18px;font-weight: 400; line-height: 1.2;color: var(--mrr-white);}
-.timeline:before {position: absolute;left: 0;top: 30px;width: 5px;height: calc(100% - 90px);margin-left: 8px;content: "";border-left: 5px dashed var(--mrr-white);opacity: 0.7;}
+.timeline:before {position: absolute;left: 0;top: 50px;width: 5px;height: calc(100% - 90px);margin-left: 8px;content: "";border-left: 5px dashed var(--mrr-white);opacity: 0.7;}
 .timeline-content-desc li + li {margin-top: 10px;}
 .timeline-item + .timeline-item {margin-top: 80px;}
 .timeline-item { padding-left: 40px; transition: 0.5s; box-sizing: border-box; width: 100%; display: flex; align-self: flex-end; position: relative;}
