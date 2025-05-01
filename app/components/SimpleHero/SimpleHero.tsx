@@ -9,12 +9,12 @@ interface Props {
 
 const SimpleHero = ({ title, subTitle, bgGradient }: Props) => {
     return (
-        <div className={`simple-hero-container d-flex align-items-center`} style={{ background: bgGradient }}>
+        <div className={`simple-hero-container d-flex align-items-center`} >
             <main className="container">
                 <div className="row">
                     <div className="col-lg-12">
-                        <h4 className="mb-2">{subTitle}</h4>
-                        <h1 className="mb-0">{title}</h1>
+                        <h4 className="mb-2" style={{ backgroundImage: bgGradient }}>{subTitle}</h4>
+                        <h1 className="mb-0" style={{ backgroundImage: bgGradient }}>{title}</h1>
                     </div>
                 </div>
             </main>

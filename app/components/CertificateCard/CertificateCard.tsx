@@ -19,6 +19,7 @@ const CertificateCard = ({item} : Prpos) => {
                 <div className="card-text mt-auto">
                     <h4>{item.title}</h4>
                     <p>{item.organization}</p>
+                    <div className="card-big-text">{item.organization}</div>
                 </div>
             </Link>
         </>
