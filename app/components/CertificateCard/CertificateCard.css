@@ -1,16 +1,16 @@
-.card-list{width: calc(100% + 20px);margin-left: -10px; margin-bottom: -20px;}
-.card-item{width: 33.33%;padding: 0 10px;margin-bottom: 20px;flex-grow: 1;}
-.card-box{position: relative;padding: 20px;min-height: 150px;background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));border-radius: 10px;height: 100%;overflow: hidden;}
-.card-box:hover{background: var(--mrr-dark-color);color: var(--mrr-white);}
-.card-text{font-size: 16px;font-weight: 300;}
-.card-text h4{font-size: 24px;font-weight: 600;margin-bottom: 10px;}
-.card-big-text{position: absolute;bottom: -13px;right: 0;font-size: 50px;font-weight: 700;line-height: 1;background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
-.card-box:hover .card-big-text{background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 0, 0.1));background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+.certificate-card-list{width: calc(100% + 20px);margin-left: -10px; margin-bottom: -20px;}
+.certificate-card-item{width: 33.33%;padding: 0 10px;margin-bottom: 20px;flex-grow: 1;}
+.certificate-card-box{position: relative;padding: 40px 20px;min-height: 150px;background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));border-radius: 10px;height: 100%;overflow: hidden;}
+.certificate-card-box:hover{background: var(--mrr-dark-color);color: var(--mrr-white);}
+.certificate-card-text{font-size: 16px;font-weight: 300;}
+.certificate-card-text h4{font-size: 24px;font-weight: 600;margin-bottom: 10px;}
+.certificate-card-big-text{position: absolute;bottom: -13px;right: 0;font-size: 50px;font-weight: 700;line-height: 1;background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+.certificate-card-box:hover .certificate-card-big-text{background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 0, 0.1));background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
 
 @media (max-width: 991.98px) {
-    .card-item{width: 50%;}
+    .certificate-card-item{width: 50%;}
 }
 
 @media (max-width: 575.98px) {
-    .card-item{width: 100%;}
+    .certificate-card-item{width: 100%;}
 }

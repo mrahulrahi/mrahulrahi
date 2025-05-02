@@ -15,11 +15,11 @@ interface Item{
 const CertificateCard = ({item} : Prpos) => {
     return (
         <>
-            <Link className="card-box d-flex" href={item.url}>
-                <div className="card-text mt-auto">
+            <Link className="certificate-card-box d-flex" href={item.url}>
+                <div className="certificate-card-text">
                     <h4>{item.title}</h4>
                     <p>{item.organization}</p>
-                    <div className="card-big-text">{item.organization}</div>
+                    <div className="certificate-card-big-text">{item.organization}</div>
                 </div>
             </Link>
         </>

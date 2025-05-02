@@ -116,14 +116,13 @@ const About = () => {
               </div>
             </div>
           </div>
-
         </div>
       </ContentContainer>
 
       <ContentContainer background="gradient-1">
         <Heading heading="Certificates" />
-        <div className="card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-          {certificates.map(item => <div key={item.id} className="card-item">
+        <div className="certificate-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
+          {certificates.map(item => <div key={item.id} className="certificate-card-item">
             <CertificateCard item={item} />
           </div>)}
         </div>
