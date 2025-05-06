@@ -22,11 +22,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: process.env.EMAIL_TO,
-      subject: "New Ping from Your Portfolio",
-      text: `You've received a new ping from: ${email}`,
+      subject: "New Message from Your Portfolio",
+      text: `You've received a new message from: ${email}`,
     });
 
-    res.status(200).json({ message: "Ping sent successfully!" });
+    res.status(200).json({ message: "Message sent successfully!" });
   } catch (error) {
     console.error("Error sending email:", error);
     res.status(500).json({ message: "Error sending email." });

@@ -1,15 +1,15 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import ContentContainer from '../components/ContentContainer'
+import ContentContainer from '../../components/ContentContainer'
 import './SpectrumStack.css'
 import { FaPlus, FaXmark, FaEllipsis, FaPen, FaTrash, FaDiceFour, FaCalculator, FaNoteSticky, FaCloudSun, FaQuoteRight } from 'react-icons/fa6';
 import { FiShare, FiCopy } from "react-icons/fi";
-import MouseFollower from '../components/MouseFollower';
+import MouseFollower from '../../components/MouseFollower';
 
-import Banner from '../components/Banner/Banner'
+import Banner from '../../components/Banner/Banner'
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { FaQuoteLeft } from 'react-icons/fa';
-import SimpleHero from '../components/SimpleHero/SimpleHero';
+import SimpleHero from '../../components/SimpleHero/SimpleHero';
 
 
 

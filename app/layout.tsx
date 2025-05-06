@@ -1,15 +1,18 @@
+// app/layout.tsx
 import type { Metadata } from 'next'
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import 'bootstrap/dist/css/bootstrap.css'
-import 'aos/dist/aos.css';
-import ImportBsJS from "./importBsJS"
-import ImportAOS from './importAOS';
-import { Josefin_Sans, Outfit } from 'next/font/google'
-import './style.css'
-import Header from './components/Header/Header'
-import Footer from './components/Footer/Footer'
-import Contact from './components/Contact/Contact'
+import { Analytics } from "@vercel/analytics/react"
 
+import 'bootstrap/dist/css/bootstrap.css'
+import 'aos/dist/aos.css'
+import './globals.css'
+
+import ImportBsJS from './importBsJS'
+import ImportAOS from './importAOS'
+
+import { Josefin_Sans, Outfit } from 'next/font/google'
+
+// Google Fonts setup
 const josefinSans = Josefin_Sans({
   subsets: ['latin'],
   variable: '--font-josefinSans',
@@ -20,7 +23,7 @@ const outfit = Outfit({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-outfit',
-});
+})
 
 export const metadata: Metadata = {
   title: 'mrahulrahi',
@@ -33,15 +36,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${josefinSans.variable} ${outfit.variable}`}>
-        <Header />
-        <main>{children}</main>
-        <Contact />
-        <Footer />
+    <html lang="en" className={`${josefinSans.variable} ${outfit.variable}`}>
+      <body>
+        {children}
         <ImportBsJS />
         <ImportAOS />
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )

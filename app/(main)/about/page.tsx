@@ -1,19 +1,19 @@
 import Image from 'next/image'
-import InnerHero from '../components/InnerHero/InnerHero';
+import InnerHero from '../../components/InnerHero/InnerHero';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import Button from '../components/Button';
-import ContentContainer from '../components/ContentContainer';
-import Heading from '../components/Heading';
-import CertificateCard from '../components/CertificateCard/CertificateCard';
-import SkillCard from '../components/SkillCard/SkillCard';
-import { timelineItems, certificates } from '../data/staticData';
+import Button from '../../components/Button';
+import ContentContainer from '../../components/ContentContainer';
+import Heading from '../../components/Heading';
+import CertificateCard from '../../components/CertificateCard/CertificateCard';
+import SkillCard from '../../components/SkillCard/SkillCard';
+import { timelineItems, certificates } from '../../data/staticData';
 import { IoIosArrowDropdownCircle } from "react-icons/io";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { SiAdobexd } from "react-icons/si";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
 import { BiLogoTypescript, BiLogoVisualStudio } from "react-icons/bi";
 import { Metadata } from 'next';
-import MouseFollower from '../components/MouseFollower';
+import MouseFollower from '../../components/MouseFollower';
 
 export const metadata: Metadata = {
   title: 'mrahulrahi - About',

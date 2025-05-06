@@ -1,17 +1,17 @@
 'use client'
 import { useState, useEffect } from 'react';
-import Banner from '../components/Banner/Banner'
-import InnerHero from '../components/InnerHero/InnerHero'
+import Banner from '../../components/Banner/Banner'
+import InnerHero from '../../components/InnerHero/InnerHero'
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import Button from '../components/Button';
-import Heading from '../components/Heading';
-import ContentContainer from '../components/ContentContainer';
-import VideoCard from '../components/VideoCard/VideoCard';
-import PhotoCard from '../components/PhotoCard/PhotoCard';
-import WorkCard from '../components/WorkCard/WorkCard';
-import { projectsCards, photos } from "../data/staticData";
-import MouseFollower from '../components/MouseFollower';
-import VideoModal from '../components/VideoModal';
+import Button from '../../components/Button';
+import Heading from '../../components/Heading';
+import ContentContainer from '../../components/ContentContainer';
+import VideoCard from '../../components/VideoCard/VideoCard';
+import PhotoCard from '../../components/PhotoCard/PhotoCard';
+import WorkCard from '../../components/WorkCard/WorkCard';
+import { projectsCards, photos } from "../../data/staticData";
+import MouseFollower from '../../components/MouseFollower';
+import VideoModal from '../../components/VideoModal';
 
 type Video = {
   id: { videoId: string };

@@ -1,11 +1,11 @@
 'use client';
 import { useEffect, useState } from "react";
-import Hero from "./components/Hero/Hero";
-import ProjectCard from "./components/ProjectCard/ProjectCard";
-import ContentContainer from "./components/ContentContainer";
-import Heading from "./components/Heading";
-import VideoCard from "./components/VideoCard/VideoCard";
-import Button from "./components/Button";
+import Hero from "../components/Hero/Hero";
+import ProjectCard from "../components/ProjectCard/ProjectCard";
+import ContentContainer from "../components/ContentContainer";
+import Heading from "../components/Heading";
+import VideoCard from "../components/VideoCard/VideoCard";
+import Button from "../components/Button";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { MdWeb } from "react-icons/md";
 import { FaUserGraduate, FaLayerGroup, FaGitAlt, FaClock, FaArrowRight } from "react-icons/fa6";
@@ -14,10 +14,10 @@ import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import StatCard from './components/StatCard/StatCard';
-import { projectsCards, photos } from "./data/staticData"; // Moved static data here
-import MouseFollower from './components/MouseFollower';
-import VideoModal from './components/VideoModal';
+import StatCard from '../components/StatCard/StatCard';
+import { projectsCards, photos } from "../data/staticData"; // Moved static data here
+import MouseFollower from '../components/MouseFollower';
+import VideoModal from '../components/VideoModal';
 
 type Video = {
   id: { videoId: string };
@@ -53,7 +53,7 @@ const PhotoCard = ({ photo }: { photo: { title: string; url: string; camera: str
             {photo.camera}
           </li>
           <li className="photo-card-avatar d-flex align-items-center">
-            <img src="/image-avatar.jpg" alt="Avatar" loading="lazy" />
+            <img src="/hero-img.png" alt="Avatar" loading="lazy" />
             <p>Shot by <span>{photo.shotBy}</span></p>
           </li>
         </ul>

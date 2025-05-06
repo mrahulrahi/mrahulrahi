@@ -1,5 +1,3 @@
-// staticData.ts
-
 export const projectsCards = [
     { id: 1, label: 'Portfolio', title: 'mrahulrahi', imgUrl: '/project-img-1.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/', para: "The project is a personal portfolio website for front-end developer Rahul Maurya, built with Next.js. It features a modern and responsive design, showcasing various projects, skills, and tools. The site emphasizes user engagement through interactive elements and animations, providing a comprehensive overview of the developer's expertise and work.", },
     { id: 2, label: 'Business', title: 'NTS', imgUrl: '/project-img-2.png', gitHubUrl: 'https://github.com/mrahulrahi/nts-app', liveUrl: 'https://nishanktravels.com/', para: "The project is a personal portfolio website for front-end developer Rahul Maurya, built with Next.js. It features a modern and responsive design, showcasing various projects, skills, and tools. The site emphasizes user engagement through interactive elements and animations, providing a comprehensive overview of the developer's expertise and work.", },
@@ -20,7 +18,8 @@ export const photos = [
     { id: 8, title: 'Drops on Rose Leaf', url: 'https://lh3.googleusercontent.com/pw/ABLVV85FZmC3vKPWy-XNj0XBfH03lueRYp50XifNJ07asn7tTCyyjYlBkXvAIxj4yFq51Jk1JYhxF73Kf552gho3pvcRg2WScvol5vDDggIzVGiUSczTIUiK5SLFv4wM3FlfHr3JJOqfMTq2tlhwOv4ja82J=w674-h898-s-no-gm?authuser=0', camera: "", shotBy: "" },
     { id: 9, title: 'Water Drops on Leaf', url: 'https://lh3.googleusercontent.com/pw/ABLVV87O6db7fR9QeWciN6Xf0f82jIYZivOr9znLo7maAmY7j3J81MtBiAPkXkZbjqrrD1SrbhlHd_co26bvrxuVvJ9a1jrHKJurucOwX-RJ1aBxNCtH2l8EeXb-wx7LyrZXLC3BbK_quKyz5OCqpZ6RAE1q=w674-h898-s-no-gm?authuser=0', camera: "", shotBy: "" },
     { id: 10, title: 'Drops on Dark Leaf', url: 'https://lh3.googleusercontent.com/pw/ABLVV86oGswt18u0F_pXSMaXWOoS1O278s0P_7Tkq6-Wik5j1AR_be-7SUxLAFWZUCweEYnz70VDjgZtn7WqIo61-PvV3ODmawR_e5gvpiIGvN5JwpA0chijeHNIlNrolBW3hGV9u1waYCdjQyn0-IyR1Hdd=w1196-h898-s-no-gm?authuser=0', camera: "", shotBy: "" },
-];
+]
+
 export const timelineItems = [
     { id: 1, title: 'Schooling', roles: [{ role: '10th', duration: 'July 2012 - Nov 2014' },{ role: '12th', duration: 'July 2014 - Nov 2016' }] },
     { id: 2, title: 'Diploma', roles: [{ role: 'AIMT', duration: 'July 2017 - Nov 2020' }] },
