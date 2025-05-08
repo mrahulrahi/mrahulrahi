@@ -9,7 +9,7 @@ interface Props {
 
 const SimpleHero = ({ title, subTitle, bgGradient }: Props) => {
     return (
-        <div className={`simple-hero-container d-flex align-items-center`} >
+        <div className={`simple-hero-container d-flex align-items-end`} >
             <main className="container">
                 <div className="row">
                     <div className="col-lg-12">

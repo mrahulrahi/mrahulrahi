@@ -29,7 +29,7 @@ const VideoModal = ({ videoId, title, isOpen, onClose }: { videoId: string | nul
 
     return (
         <div className={`modal fade show`} style={{ display: 'block' }} tabIndex={-1} role="dialog">
-            <div className="modal-dialog">
+            <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content video-card-box">
 
                     <button type="button" className="btn-close-modal d-flex align-items-center justify-content-center" onClick={onClose} aria-label="Close">

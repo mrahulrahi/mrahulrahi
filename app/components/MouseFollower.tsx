@@ -1,33 +1,33 @@
 "use client";
 import { useState, useEffect } from "react";
 
-interface Circle {
+interface shape {
   id: number;
   x: number;
   y: number;
 }
 
 export default function MouseFollower() {
-  const [circles, setCircles] = useState<Circle[]>([]);
+  const [shapes, setShapes] = useState<shape[]>([]);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
-  // Handle mouse movement: update cursor and create falling circles
+  // Handle mouse movement: update cursor and create falling shapes
   const handleMouseMove = (e: MouseEvent) => {
     // Update custom cursor position
     setCursorPosition({ x: e.clientX, y: e.clientY });
 
-    // Create new falling circle
-    const newCircle = {
+    // Create new falling shape
+    const newShape = {
       id: Date.now(),
       x: e.clientX,
       y: e.clientY,
     };
-    setCircles((prevCircles) => [...prevCircles, newCircle]);
+    setShapes((prevShapes) => [...prevShapes, newShape]);
 
-    // Remove circles after animation ends (3 seconds)
+    // Remove shapes after animation ends (3 seconds)
     setTimeout(() => {
-      setCircles((prevCircles) =>
-        prevCircles.filter((circle) => circle.id !== newCircle.id)
+      setShapes((prevShapes) =>
+        prevShapes.filter((shape) => shape.id !== newShape.id)
       );
     }, 3000);
   };
@@ -48,14 +48,14 @@ export default function MouseFollower() {
         }}
       ></div>
 
-      {/* Falling Circles */}
-      {circles.map((circle) => (
+      {/* Falling shapes */}
+      {shapes.map((shape) => (
         <div
-          key={circle.id}
-          className="falling-circle"
+          key={shape.id}
+          className="falling-shape"
           style={{
-            left: `${circle.x}px`,
-            top: `${circle.y}px`,
+            left: `${shape.x}px`,
+            top: `${shape.y}px`,
           }}
         ></div>
       ))}

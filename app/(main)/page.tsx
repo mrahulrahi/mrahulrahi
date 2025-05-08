@@ -46,13 +46,14 @@ const PhotoCard = ({ photo }: { photo: { title: string; url: string; camera: str
       <div className="photo-card-text">
         <h4>{photo.title}</h4>
       </div>
+
       <div className="photo-card-cta mt-auto">
-        <ul className="photo-card-cta-list d-flex align-items-center justify-content-between">
-          <li className="photo-card-cta-item d-flex gap-2 align-items-center">
-            <RiCameraLensLine />
-            {photo.camera}
-          </li>
-          <li className="photo-card-avatar d-flex align-items-center">
+        <li className="photo-card-cta-item d-flex gap-2 align-items-center justify-content-between">
+          <RiCameraLensLine />
+          {photo.camera}
+        </li>
+        <ul className="photo-card-cta-list">
+          <li className="photo-card-avatar d-flex align-items-center justify-content-between">
             <img src="/hero-img.png" alt="Avatar" loading="lazy" />
             <p>Shot by <span>{photo.shotBy}</span></p>
           </li>
@@ -138,7 +139,7 @@ export default function Home() {
 
       <ContentContainer className="home-video-card-container" background="dark">
         <Heading heading="Videos">
-          <Button title="View All" style="default" url="/portfolio" />
+          <Button title="View All" style="default" url="/portfolio#video" />
         </Heading>
         <div className="video-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           {error ? <p>{error}</p> : videos?.slice(0, 3).map(video => (
@@ -147,7 +148,7 @@ export default function Home() {
                 id={video.id.videoId}
                 title={video.snippet.title}
                 onVideoSelect={setSelectedVideo}
-                onVideoTitle={setSelectedVideoTitle} 
+                onVideoTitle={setSelectedVideoTitle}
                 onModalOpen={setModalOpen}
               />
             </div>
@@ -157,10 +158,10 @@ export default function Home() {
 
       <ContentContainer background="gradient-1">
         <Heading heading="Photos">
-          <Button title="View All" style="default" url="/portfolio" />
+          <Button title="View All" style="default" url="/portfolio#gallery" />
         </Heading>
         <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-          {photos?.slice(0, 3).map(photo => <PhotoCard key={photo.id} photo={photo} />)}
+          {photos?.slice(0, 4).map(photo => <PhotoCard key={photo.id} photo={photo} />)}
         </div>
       </ContentContainer>
 

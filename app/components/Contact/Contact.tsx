@@ -3,6 +3,8 @@ import './Contact.css'
 import ContentContainer from '../ContentContainer'
 import Heading from '../Heading'
 import MessageForm from './MessageForm' // 👈 import the new component
+import Link from 'next/link'
+import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
 
 const Contact = () => {
   return (
@@ -14,6 +16,17 @@ const Contact = () => {
         <div className="contact-box">
           <h4 className="bg-clip-text bg-gradient-1">Get in Touch</h4>
           <p>Let me get you a beautiful website.</p>
+          <div className="social-links d-flex align-items-center position-static" style={{ transform: 'translate(0)' }}>
+            <Link className="d-flex align-items-center justify-content-center"
+              href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></Link>
+            <Link className="d-flex align-items-center justify-content-center"
+              href="https://github.com/mrahulrahi/"><FaGithub /></Link>
+            <Link className="d-flex align-items-center justify-content-center"
+              href="https://www.youtube.com/@fireliquidator"><FaYoutube /></Link>
+            <Link className="d-flex align-items-center justify-content-center"
+              href="https://t.me/mrahulrahi"><FaTelegram /></Link>
+          </div>
+
         </div>
         <div className="contact-subscribe-box d-flex flex-column justify-self-end">
           <div className="form-label">Want to Start new project</div>
