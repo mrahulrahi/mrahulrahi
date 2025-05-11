@@ -107,7 +107,7 @@ const About = () => {
                         <div className="timeline-content">
                           <h3 className="timeline-content-title">{item.title}</h3>
                           <ul className="timeline-content-desc">
-                            {item.roles && item.roles.map((role) => <li><span>{role.role}</span>{role.duration}</li> )}
+                            {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li> )}
                           </ul>
                         </div>
                       </div>)}

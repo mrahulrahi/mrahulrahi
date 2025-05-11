@@ -185,7 +185,7 @@ p:last-child{margin-bottom:0;}
 .photo-card-text{margin: 20px 0 10px;font-size:16px;font-weight:300;}
 .photo-card-text h4{font-size:24px;font-weight:600;color:var(--mrr-white);margin-bottom: 0;}
 .photo-card-box:hover h4{color:var(--mrr-white);cursor:pointer}
-.photo-card-cta-item{font-size:18px;color: var(--mrr-white);}
+.photo-card-cta-item{font-size:16px;color: var(--mrr-white);}
 .photo-card-cta-item svg{color:var(--mrr-accent-color)}
 .photo-card-cta-item img{margin-right:10px;}
 .photo-card-avatar{gap: 10px;}

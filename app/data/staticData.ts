@@ -21,7 +21,7 @@ export const photos = [
 ]
 
 export const timelineItems = [
-    { id: 1, title: 'Schooling', roles: [{ role: '10th', duration: 'July 2012 - Nov 2014' },{ role: '12th', duration: 'July 2014 - Nov 2016' }] },
+    { id: 1, title: 'Schooling', roles: [{ role: '10th', duration: 'July 2012 - Jun 2014' },{ role: '12th', duration: 'July 2014 - Jun 2016' }] },
     { id: 2, title: 'Diploma', roles: [{ role: 'AIMT', duration: 'July 2017 - Nov 2020' }] },
     { id: 3, title: 'Fireliquidtaor', roles: [{ role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' }] },
     { id: 4, title: 'BCA', roles: [{ role: 'IGNOU', duration: 'July 2021 - Jun 2024' }] },
