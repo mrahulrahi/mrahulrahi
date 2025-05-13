@@ -37,7 +37,51 @@ const SpectrumStack = () => {
     const [displayValue, setDisplayValue] = useState('');
     const [expression, setExpression] = useState('');
     const [bracketOpen, setBracketOpen] = useState(true);
+
     const [gradientDirection, setGradientDirection] = useState('to right');
+    const [color1, setColor1] = useState('#43C6AC');
+    const [color2, setColor2] = useState('#F8FFAE');
+    const [gradientColor, setGradientColor] = useState('');
+
+       const getRandomHexColor = () => {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    };
+
+    const getRandomGradient = () => {
+        const color1 = getRandomHexColor();
+        const color2 = getRandomHexColor();
+        const directions = ['to right', 'to left', 'to top', 'to bottom', 'to top right', 'to top left', 'to bottom right', 'to bottom left'];
+        const randomIndex = Math.floor(Math.random() * directions.length);
+        const direction = directions[randomIndex];
+        return `linear-gradient(${direction}, ${color1} 10%, ${color2} 100%)`;
+    };
+
+    const changeGradientColor = () => {
+        const gradient = getRandomGradient();
+        setGradientColor(gradient);
+    };
+
+    const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>, colorSetter: React.Dispatch<React.SetStateAction<string>>) => {
+        const newColor = e.target.value;
+        colorSetter(newColor);
+        updateGradient(newColor, color2);
+    };
+
+    const handleDirectionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+        const newDirection = e.target.value;
+        setGradientDirection(newDirection);
+        updateGradient(color1, color2, newDirection);
+    };
+
+    const updateGradient = (c1: string, c2: string, direction: string = gradientDirection) => {
+        const gradientStyle = `linear-gradient(${direction}, ${c1}, ${c2})`;
+        setGradientColor(gradientStyle);
+    };
 
     const handleButtonClick = (buttonText: any) => {
         const buttonValue = buttonText.target.innerHTML;
@@ -95,26 +139,7 @@ const SpectrumStack = () => {
         return n * factorial(n - 1);
     };
 
-    const [color1, setColor1] = useState('#43C6AC');
-    const [color2, setColor2] = useState('#F8FFAE');
-    const [gradient, setGradient] = useState('');
 
-    const handleColorChange = (e: React.ChangeEvent<HTMLInputElement>, colorSetter: React.Dispatch<React.SetStateAction<string>>) => {
-        const newColor = e.target.value;
-        colorSetter(newColor);
-        updateGradient(newColor, color2);
-    };
-
-    const handleDirectionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const newDirection = e.target.value;
-        setGradientDirection(newDirection);
-        updateGradient(color1, color2, newDirection);
-    };
-
-    const updateGradient = (c1: string, c2: string, direction: string = gradientDirection) => {
-        const gradientStyle = `linear-gradient(${direction}, ${c1}, ${c2})`;
-        setGradient(gradientStyle);
-    };
 
 
     const [items, setItems] = useState<Item[]>([]);
@@ -365,7 +390,7 @@ const SpectrumStack = () => {
 
     const [currentQuote, setCurrentQuote] = useState('');
     const [currentAuthor, setCurrentAuthor] = useState('');
-    const [backgroundColor, setBackgroundColor] = useState('');
+
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setInputCity(event.target.value);
@@ -438,32 +463,14 @@ const SpectrumStack = () => {
         const { quote, author } = await getRandomQuote();
         setCurrentQuote(quote);
         setCurrentAuthor(author);
-        changeBackgroundColor();
+        changeGradientColor();
     };
 
     useEffect(() => {
         updateQuote();
     }, []);
 
-    const getRandomHexColor = () => {
-        const letters = '0123456789ABCDEF';
-        let color = '#';
-        for (let i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-    };
-
-    const getRandomGradient = () => {
-        const color1 = getRandomHexColor();
-        const color2 = getRandomHexColor();
-        return `linear-gradient(135deg, ${color1} 10%, ${color2} 100%)`;
-    };
-
-    const changeBackgroundColor = () => {
-        const gradient = getRandomGradient();
-        setBackgroundColor(gradient);
-    };
+ 
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(`"${currentQuote}" - ${currentAuthor}`);
@@ -489,8 +496,8 @@ const SpectrumStack = () => {
     return (
         <>
 
-            <div className="gradient-bg" style={{ background: gradient }}>
-                <SimpleHero title="Spectrum Stack App" subTitle="Tools" bgGradient={backgroundColor} />
+            <div className="gradient-bg" style={{ background: gradientColor }}>
+                <SimpleHero title="Spectrum Stack App" subTitle="Tools" bgGradient={gradientColor} />
 
                 <ContentContainer className="gradient-generator-container py-4" column='col-lg-8 h-100 mx-auto'>
                     <div className="device-frame position-relative d-flex flex-column justify-content-between">
@@ -804,7 +811,7 @@ const SpectrumStack = () => {
                             <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 4 ? "position-relative" : "position-absolute d-none"}`}>
                                 <div className="quote-weather-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-xl-start">
                                     <div className="qw-today-box d-flex flex-column flex-sm-row flex-lg-column justify-content-between gap-2">
-                                        <div className="qw-gradient-bg" style={{ backgroundImage: backgroundColor }}></div>
+                                        <div className="qw-gradient-bg" style={{ backgroundImage: gradientColor }}></div>
                                         <div className="qw-date-box d-flex flex-column gap-2">
                                             <h2>{formatDay(weather.dt).dayName}</h2>
                                             <h6>{formatDay(weather.dt).date}</h6>
@@ -859,7 +866,7 @@ const SpectrumStack = () => {
                                             <div className="qw-location-group d-flex flex-column flex-sm-row gap-2 flex-grow-1">
                                                 <input type="text" id="city" className="form-control" placeholder="Enter city name" value={inputCity} onChange={handleInputChange} />
                                                 <button className="qw-action-btn lg" onClick={handleButtonClick2}>
-                                                    <span className="qw-action-text" style={{ backgroundImage: backgroundColor }}>Change location</span>
+                                                    <span className="qw-action-text" style={{ backgroundImage: gradientColor }}>Change location</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -871,10 +878,10 @@ const SpectrumStack = () => {
                                 <div className="qw-info-box">
                                     <div className="qw-quote-box d-flex flex-column mb-3">
                                         <span className="qw-quote-icon"><FaQuoteLeft /></span>
-                                        <div className="qw-quote-text" style={{ backgroundImage: backgroundColor }}>
+                                        <div className="qw-quote-text" style={{ backgroundImage: gradientColor }}>
                                             {currentQuote}
                                         </div>
-                                        <div className="qw-quote-author mt-auto" style={{ backgroundImage: backgroundColor }}>- {currentAuthor}</div>
+                                        <div className="qw-quote-author mt-auto" style={{ backgroundImage: gradientColor }}>- {currentAuthor}</div>
                                     </div>
 
                                     <div className="quote-btn-group d-flex flex-shrink-0 gap-2">
@@ -887,7 +894,7 @@ const SpectrumStack = () => {
                                         </button>
 
                                         <button className="qw-action-btn lg" onClick={updateQuote} >
-                                            <span className="qw-action-text" style={{ backgroundImage: backgroundColor }}>New quote</span>
+                                            <span className="qw-action-text" style={{ backgroundImage: gradientColor }}>New quote</span>
                                         </button>
                                     </div>
                                 </div>
@@ -947,9 +954,9 @@ const SpectrumStack = () => {
 
             </div >
 
-            {gradient && <div className="gradient-generator-css d-flex align-items-center justify-content-between gap-2 my-2 mx-2 py-1 px-2">
-                <p className="text-center m-0 fw-medium"> Current CSS BG : {gradient}</p>
-                <button onClick={() => navigator.clipboard.writeText(gradient)} className="btn btn-green btn-min"><FiCopy /></button>
+            {gradientColor && <div className="gradient-generator-css d-flex align-items-center justify-content-between gap-2 my-2 mx-2 py-1 px-2">
+                <p className="text-center m-0 fw-medium"> Current CSS BG : {gradientColor}</p>
+                <button onClick={() => navigator.clipboard.writeText(gradientColor)} className="btn btn-green btn-min"><FiCopy /></button>
             </div>}
             <MouseFollower />
         </>
