@@ -13,14 +13,12 @@
 .tab{height: 100%;overflow-y: auto;}
 
 .btn-min {min-width: auto;padding: 4px 5px;}
-.gradient-generator-css{background: rgba(255, 255, 255, 0.1);border: 1px solid rgba(255, 255, 255, 0.5);border-radius: 20px;line-height: 1;position: fixed;bottom: 10px;}
+.gradient-generator-css{background: rgba(255, 255, 255, 0.2);border: 1px solid rgba(255, 255, 255, 0.5);border-radius: 20px;line-height: 1;position: fixed;bottom: 10px;backdrop-filter: blur(4px);z-index: 99;}
 
 .device-bottom-bar{width: 100%;background: rgba(255, 255, 255, 0.2);padding: 10px;border-radius: 20px;margin-bottom: 5px;}
 .db-btn{background: var(--mrr-white);color: var(--mrr-main-color);border: 0;padding: 6px 12px; flex-grow: 1;flex-shrink: 0;border-radius: 10px;}
 .db-btn.active{background: var(--mrr-main-color);color: var(--mrr-white);border-radius: 10px;}
  
-
-.gradient-bg {background: linear-gradient(to right, #43C6AC, #e3ef66);}
 
 .gradient-selector-box{height: 360px;;position: fixed;top: 50%;left: 0;transform: translateY(-50%) translatex(-262px);background: rgba(255, 255, 255, 0.2);z-index: 9;border-radius: 0 20px 20px 0;overflow: hidden;transition: all .2s ease-in;backdrop-filter: blur(4px);}
 .gradient-selector-box.open{transform: translateX(0) translateY(-50%);}
@@ -117,14 +115,14 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 
 
 
-
+.background-clip-text{background-clip: text; color: transparent!important;}
 
 .wrapper {display: grid;gap: 25px;grid-template-columns: repeat(auto-fill, 250px);}
 .wrapper > li {height: 250px;list-style: none;border-radius: 5px;padding: 15px 20px 20px;background: rgba(255, 255, 255, 0.2);box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);}
 .add-box,.icon,.bottom-content,.popup,header,.settings .menu li {display: flex;align-items: center;justify-content: space-between;}
 .add-box {cursor: pointer;flex-direction: column;justify-content: center;}
-.add-box .icon {height: 78px;width: 78px;color: rgba(0, 0, 0, 0.5);font-size: 40px;border-radius: 50%;justify-content: center;border: 2px dashed rgba(0, 0, 0, 0.5);}
-.add-box p {color: rgba(0, 0, 0, 0.5);font-weight: 500;margin-top: 20px;}
+.add-box .icon {height: 78px;width: 78px;color: rgba(255, 255, 255, 0.5);font-size: 40px;border-radius: 50%;justify-content: center;border: 2px dashed rgba(255, 255, 255, 0.5);}
+.add-box p {color: rgba(255, 255, 255, 0.5);font-weight: 500;margin-top: 20px;}
 .note {display: flex;flex-direction: column;justify-content: space-between;}
 .note .details {max-height: 165px;overflow-y: auto;}
 .note .details::-webkit-scrollbar,

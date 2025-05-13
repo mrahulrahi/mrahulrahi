@@ -40,7 +40,7 @@ const SpectrumStack = () => {
 
     const [gradientDirection, setGradientDirection] = useState('to right');
     const [color1, setColor1] = useState('#43C6AC');
-    const [color2, setColor2] = useState('#F8FFAE');
+    const [color2, setColor2] = useState('#E3EF66');
     const [gradientColor, setGradientColor] = useState('');
 
        const getRandomHexColor = () => {
@@ -496,7 +496,7 @@ const SpectrumStack = () => {
     return (
         <>
 
-            <div className="gradient-bg" style={{ background: gradientColor }}>
+            <div className="bg-gradient-2">
                 <SimpleHero title="Spectrum Stack App" subTitle="Tools" bgGradient={gradientColor} />
 
                 <ContentContainer className="gradient-generator-container py-4" column='col-lg-8 h-100 mx-auto'>
@@ -516,7 +516,7 @@ const SpectrumStack = () => {
                                     {!showQuiz ? (
                                         <>
                                             <div className="start-quiz-wrapper mx-auto">
-                                                <h2>Test your knowledge</h2>
+                                                <h2 className="background-clip-text" style={{ backgroundImage: gradientColor }}>Test your knowledge</h2>
                                                 <div className="select-menu mx-auto">
                                                     <div className="row g-3">
                                                         <div className="col-sm-6 ">
@@ -955,7 +955,7 @@ const SpectrumStack = () => {
             </div >
 
             {gradientColor && <div className="gradient-generator-css d-flex align-items-center justify-content-between gap-2 my-2 mx-2 py-1 px-2">
-                <p className="text-center m-0 fw-medium"> Current CSS BG : {gradientColor}</p>
+                <p className="text-center m-0 fw-medium text-white"> Current CSS BG : {gradientColor}</p>
                 <button onClick={() => navigator.clipboard.writeText(gradientColor)} className="btn btn-green btn-min"><FiCopy /></button>
             </div>}
             <MouseFollower />
