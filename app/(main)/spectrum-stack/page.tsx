@@ -496,7 +496,7 @@ const SpectrumStack = () => {
     return (
         <>
 
-            <div className="bg-gradient-2">
+            <div className="spectrum-stack-page-wrapper bg-gradient-2">
                 <SimpleHero title="Spectrum Stack App" subTitle="Tools" bgGradient={gradientColor} />
 
                 <ContentContainer className="gradient-generator-container py-4" column='col-lg-8 h-100 mx-auto'>
@@ -865,7 +865,7 @@ const SpectrumStack = () => {
                                         <div className="qw-action-row d-flex flex-column flex-md-row gap-2">
                                             <div className="qw-location-group d-flex flex-column flex-sm-row gap-2 flex-grow-1">
                                                 <input type="text" id="city" className="form-control" placeholder="Enter city name" value={inputCity} onChange={handleInputChange} />
-                                                <button className="qw-action-btn lg" onClick={handleButtonClick2}>
+                                                <button className="btn-transparent lg" onClick={handleButtonClick2}>
                                                     <span className="qw-action-text" style={{ backgroundImage: gradientColor }}>Change location</span>
                                                 </button>
                                             </div>
@@ -875,25 +875,25 @@ const SpectrumStack = () => {
                             </div>
 
                             <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 5 ? "position-relative" : "position-absolute d-none"}`}>
-                                <div className="qw-info-box">
-                                    <div className="qw-quote-box d-flex flex-column mb-3">
-                                        <span className="qw-quote-icon"><FaQuoteLeft /></span>
-                                        <div className="qw-quote-text" style={{ backgroundImage: gradientColor }}>
+                                <div className="quote-wrapper p-4">
+                                    <div className="quote-box d-flex flex-column mb-3">
+                                        <span className="quote-icon"><FaQuoteLeft /></span>
+                                        <div className="quote-text" style={{ backgroundImage: gradientColor }}>
                                             {currentQuote}
                                         </div>
-                                        <div className="qw-quote-author mt-auto" style={{ backgroundImage: gradientColor }}>- {currentAuthor}</div>
+                                        <div className="quote-author mt-auto" style={{ backgroundImage: gradientColor }}>- {currentAuthor}</div>
                                     </div>
 
                                     <div className="quote-btn-group d-flex flex-shrink-0 gap-2">
-                                        <button className="qw-action-btn" onClick={shareQuote} title="Share this quote">
+                                        <button className="btn-transparent" onClick={shareQuote} title="Share this quote">
                                             <span className="qw-action-icon"><FiShare /></span>
                                         </button>
 
-                                        <button className="qw-action-btn" onClick={copyToClipboard} title="Copy to clipboard">
+                                        <button className="btn-transparent" onClick={copyToClipboard} title="Copy to clipboard">
                                             <span className="qw-action-icon"><FiCopy /></span>
                                         </button>
 
-                                        <button className="qw-action-btn lg" onClick={updateQuote} >
+                                        <button className="btn-transparent lg" onClick={updateQuote} >
                                             <span className="qw-action-text" style={{ backgroundImage: gradientColor }}>New quote</span>
                                         </button>
                                     </div>
@@ -931,7 +931,7 @@ const SpectrumStack = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="direction-select mt-3">
+                        <div className="direction-select w-100 mt-3">
                             <label className="form-label" htmlFor="direction">Direction:</label>
                             <select id="direction" className='form-select' value={gradientDirection} onChange={handleDirectionChange}>
                                 <option value="to right">To Right</option>
