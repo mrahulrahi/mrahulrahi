@@ -329,7 +329,7 @@ const SpectrumStack = () => {
         }
         return (
             <>
-                <div className="quiz-stats-head d-flex justify-content-between">
+                <div className="quiz-stats-head w-100 d-flex justify-content-between">
                     <p className="questions mb-0">Questions: <span>{showQuiz ? questionNumber + 1 : questionNumber}/{questions.length}</span></p>
                     <p className="score mb-0">Score: <span>{score}</span></p>
                 </div>
@@ -346,7 +346,7 @@ const SpectrumStack = () => {
                                         value={answer}
                                         onChange={() => setSelectedAnswer(answer)}
                                         checked={selectedAnswer === answer} />
-                                    <label htmlFor={`${index}`} className="d-flex align-items-center gap-4" dangerouslySetInnerHTML={{ __html: answer }}></label>
+                                    <label htmlFor={`${index}`} className="d-flex align-items-center gap-3" dangerouslySetInnerHTML={{ __html: answer }}></label>
                                 </div>
                             </div>
                         ))}
@@ -512,16 +512,16 @@ const SpectrumStack = () => {
                         </div>
                         <div className="tab pt-2">
                             <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 1 ? "position-relative" : "position-absolute d-none"}`}>
-                                <div className="quiz-container">
+                                <div className="quiz-container d-flex flex-wrap h-100">
                                     {!showQuiz ? (
                                         <>
-                                            <div className="start-quiz-wrapper mx-auto">
+                                            <div className="start-quiz-wrapper align-self-center mx-auto">
                                                 <h2 className="background-clip-text" style={{ backgroundImage: gradientColor }}>Test your knowledge</h2>
                                                 <div className="select-menu mx-auto">
                                                     <div className="row g-3">
                                                         <div className="col-sm-6 ">
                                                             <div className="form-group">
-                                                                <label className="form-label" htmlFor="amount">Amount:</label>
+                                                                <label className="form-label" htmlFor="amount">Amount :</label>
                                                                 <select className="form-select" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
                                                                     <option value={5}>5</option>
                                                                     <option value={10}>10</option>
@@ -534,7 +534,7 @@ const SpectrumStack = () => {
                                                         </div>
                                                         <div className="col-sm-6">
                                                             <div className="form-group">
-                                                                <label className="form-label" htmlFor="category">Category:</label>
+                                                                <label className="form-label" htmlFor="category">Category :</label>
                                                                 <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
                                                                     <option value={0}>Any Category</option>
                                                                     {categories.map((category: { id: number; name: string; }) => (
@@ -545,7 +545,7 @@ const SpectrumStack = () => {
                                                         </div>
                                                         <div className="col-sm-6">
                                                             <div className="form-group">
-                                                                <label className="form-label" htmlFor="difficulty">Difficulty:</label>
+                                                                <label className="form-label" htmlFor="difficulty">Difficulty :</label>
                                                                 <select className="form-select" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
                                                                     <option value={0}>Any Difficulty</option>
                                                                     <option value="easy">Easy</option>
@@ -556,7 +556,7 @@ const SpectrumStack = () => {
                                                         </div>
                                                         <div className="col-sm-6">
                                                             <div className="form-group">
-                                                                <label className="form-label" htmlFor="type">Type:</label>
+                                                                <label className="form-label" htmlFor="type">Type :</label>
                                                                 <select className="form-select" id="type" value={type} onChange={(e) => setType(e.target.value)}>
                                                                     <option value={0}>Any Type</option>
                                                                     <option value="multiple">Multiple Choice</option>
@@ -575,22 +575,22 @@ const SpectrumStack = () => {
                                             {questionNumber < questions.length ? (
                                                 showFeedback ? (
                                                     <>
-                                                        <div className="quiz-stats-head d-flex justify-content-between">
+                                                        <div className="quiz-stats-head w-100 d-flex justify-content-between">
                                                             <p className="questions mb-0">Questions: <span>{showQuiz ? questionNumber + 1 : questionNumber}/{questions.length}</span></p>
                                                             <p className="score mb-0">Score: <span>{score}</span></p>
                                                         </div>
-                                                        <div className="feedback-wrapper mx-auto">
+                                                        <div className="feedback-wrapper align-self-center mx-auto">
                                                             {selectedAnswer === questions[questionNumber].correct_answer ? (
                                                                 <div className="correct-feedback">
                                                                     <h3 className="text-success">CORRECT!</h3>
-                                                                    <h4 className="correct-answer-alert">
+                                                                    <h4 className="correct-answer-alert text-accent">
                                                                         Correct answer is: {questions[questionNumber].correct_answer}
                                                                     </h4>
                                                                 </div>
                                                             ) : (
                                                                 <div className="wrong-feedback">
                                                                     <h3 className="text-danger">WRONG!</h3>
-                                                                    <h4 className="correct-answer-alert">
+                                                                    <h4 className="correct-answer-alert text-accent">
                                                                         Correct answer is: {questions[questionNumber].correct_answer}
                                                                     </h4>
                                                                 </div>
@@ -603,9 +603,9 @@ const SpectrumStack = () => {
                                                     getQuestionAndAnswers()
                                                 )
                                             ) : (
-                                                <div className="feedback-wrapper mx-auto">
-                                                    <h3>Quiz Completed!</h3>
-                                                    <h4>Your Score: {score}</h4>
+                                                <div className="feedback-wrapper align-self-center mx-auto">
+                                                    <h3 className="bg-clip-text" style={{ backgroundImage: gradientColor }}>Quiz Completed!</h3>
+                                                    <h4 className="text-accent">Your Score: {score}</h4>
                                                     <div className="d-flex flex-column flex-sm-row gap-3">
                                                         <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>
                                                         <button className="btn btn-green" onClick={() => window.location.reload()}>Start New Quiz</button>
@@ -809,19 +809,19 @@ const SpectrumStack = () => {
                             </div>
 
                             <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 4 ? "position-relative" : "position-absolute d-none"}`}>
-                                <div className="quote-weather-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-xl-start">
-                                    <div className="qw-today-box d-flex flex-column flex-sm-row flex-lg-column justify-content-between gap-2">
-                                        <div className="qw-gradient-bg" style={{ backgroundImage: gradientColor }}></div>
-                                        <div className="qw-date-box d-flex flex-column gap-2">
+                                <div className="weather-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-xl-start">
+                                    <div className="weather-today-box d-flex flex-column flex-sm-row flex-lg-column justify-content-between gap-2">
+                                        <div className="weather-gradient-bg" style={{ backgroundImage: gradientColor }}></div>
+                                        <div className="weather-date-box d-flex flex-column gap-2">
                                             <h2>{formatDay(weather.dt).dayName}</h2>
                                             <h6>{formatDay(weather.dt).date}</h6>
-                                            <div className="qw-location-row d-flex align-items-center gap-1">
-                                                <i className="qw-location-icon d-flex align-items-center justify-content-center"><HiOutlineLocationMarker /></i>
+                                            <div className="weather-location-row d-flex align-items-center gap-1">
+                                                <i className="weather-location-icon d-flex align-items-center justify-content-center"><HiOutlineLocationMarker /></i>
                                                 <h6 className="mb-0">{weather.name}</h6>
                                             </div>
                                         </div>
-                                        <div className="qw-weather-box d-flex flex-column gap-2">
-                                            <i className="qw-weather-icon">
+                                        <div className="weather-weather-box d-flex flex-column gap-2">
+                                            <i className="weather-weather-icon">
                                                 <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
                                                     alt="Weather Icon" />
                                             </i>
@@ -829,27 +829,27 @@ const SpectrumStack = () => {
                                             <h4>{weather.weather[0].main}</h4>
                                         </div>
                                     </div>
-                                    <div className="qw-info-box d-flex flex-column gap-2">
-                                        <div className="qw-info-top d-flex flex-column flex-xl-row gap-2">
-                                            <div className="qw-other-info d-flex flex-column flex-md-row flex-xl-column gap-2">
-                                                <div className="qw-today-info d-flex flex-column gap-2 flex-grow-1">
-                                                    <div className="qw-info-row">
-                                                        <span className="qw-info-title">PRECIPITATION</span>
-                                                        <span className="qw-info-value">{dailyForecast[0].clouds.all} %</span>
+                                    <div className="weather-info-box d-flex flex-column gap-2">
+                                        <div className="weather-info-top d-flex flex-column flex-xl-row gap-2">
+                                            <div className="weather-other-info d-flex flex-column flex-md-row flex-xl-column gap-2">
+                                                <div className="weather-today-info d-flex flex-column gap-1 flex-grow-1">
+                                                    <div className="weather-info-row">
+                                                        <span className="weather-info-title">PRECIPITATION</span>
+                                                        <span className="weather-info-value">{dailyForecast[0].clouds.all} %</span>
                                                     </div>
-                                                    <div className="qw-info-row">
-                                                        <span className="qw-info-title">HUMIDITY</span>
-                                                        <span className="qw-info-value">{weather.main.humidity}%</span>
+                                                    <div className="weather-info-row">
+                                                        <span className="weather-info-title">HUMIDITY</span>
+                                                        <span className="weather-info-value">{weather.main.humidity}%</span>
                                                     </div>
-                                                    <div className="qw-info-row">
-                                                        <span className="qw-info-title">WIND</span>
-                                                        <span className="qw-info-value">{Math.round(weather.wind.speed * 1.60934)} km/h</span>
+                                                    <div className="weather-info-row">
+                                                        <span className="weather-info-title">WIND</span>
+                                                        <span className="weather-info-value">{Math.round(weather.wind.speed * 1.60934)} km/h</span>
                                                     </div>
                                                 </div>
 
-                                                <ul className="qw-week-row d-flex">
+                                                <ul className="weather-week-row d-flex">
                                                     {dailyForecast.map((day: any, index: number) => (
-                                                        <li key={day.dt} className={index === currentDayIndex ? 'active' : ''} onClick={() => handleWeekItemClick(index)}>
+                                                        <li key={day.dt} className={`d-flex flex-column gap-1 ${index === currentDayIndex ? 'active' : ''}`} onClick={() => handleWeekItemClick(index)}>
                                                             <img
                                                                 src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
                                                                 alt="Day Icon"
@@ -862,11 +862,11 @@ const SpectrumStack = () => {
                                             </div>
                                         </div>
 
-                                        <div className="qw-action-row d-flex flex-column flex-md-row gap-2">
-                                            <div className="qw-location-group d-flex flex-column flex-sm-row gap-2 flex-grow-1">
+                                        <div className="weather-action-row d-flex flex-column flex-md-row gap-2">
+                                            <div className="weather-location-group d-flex flex-column flex-sm-row gap-2 flex-grow-1">
                                                 <input type="text" id="city" className="form-control" placeholder="Enter city name" value={inputCity} onChange={handleInputChange} />
                                                 <button className="btn-transparent lg" onClick={handleButtonClick2}>
-                                                    <span className="qw-action-text" style={{ backgroundImage: gradientColor }}>Change location</span>
+                                                    <span className="btn-transparent-text" style={{ backgroundImage: gradientColor }}>Change location</span>
                                                 </button>
                                             </div>
                                         </div>
@@ -886,15 +886,15 @@ const SpectrumStack = () => {
 
                                     <div className="quote-btn-group d-flex flex-shrink-0 gap-2">
                                         <button className="btn-transparent" onClick={shareQuote} title="Share this quote">
-                                            <span className="qw-action-icon"><FiShare /></span>
+                                            <span className="btn-transparent-icon"><FiShare /></span>
                                         </button>
 
                                         <button className="btn-transparent" onClick={copyToClipboard} title="Copy to clipboard">
-                                            <span className="qw-action-icon"><FiCopy /></span>
+                                            <span className="btn-transparent-icon"><FiCopy /></span>
                                         </button>
 
                                         <button className="btn-transparent lg" onClick={updateQuote} >
-                                            <span className="qw-action-text" style={{ backgroundImage: gradientColor }}>New quote</span>
+                                            <span className="btn-transparent-text" style={{ backgroundImage: gradientColor }}>New quote</span>
                                         </button>
                                     </div>
                                 </div>
@@ -932,7 +932,7 @@ const SpectrumStack = () => {
                             </div>
                         </div>
                         <div className="direction-select w-100 mt-3">
-                            <label className="form-label" htmlFor="direction">Direction:</label>
+                            <label className="form-label" htmlFor="direction">Direction :</label>
                             <select id="direction" className='form-select' value={gradientDirection} onChange={handleDirectionChange}>
                                 <option value="to right">To Right</option>
                                 <option value="to left">To Left</option>
