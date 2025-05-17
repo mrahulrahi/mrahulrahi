@@ -42,8 +42,9 @@ const SpectrumStack = () => {
     const [color1, setColor1] = useState('#43C6AC');
     const [color2, setColor2] = useState('#E3EF66');
     const [gradientColor, setGradientColor] = useState('');
+    const [showGradient, setShowGradient] = useState(false);
 
-       const getRandomHexColor = () => {
+    const getRandomHexColor = () => {
         const letters = '0123456789ABCDEF';
         let color = '#';
         for (let i = 0; i < 6; i++) {
@@ -81,6 +82,13 @@ const SpectrumStack = () => {
     const updateGradient = (c1: string, c2: string, direction: string = gradientDirection) => {
         const gradientStyle = `linear-gradient(${direction}, ${c1}, ${c2})`;
         setGradientColor(gradientStyle);
+        setShowGradient(true);
+
+        // Hide gradient after 2 seconds
+        setTimeout(() => {
+            setShowGradient(false);
+        }, 5000);
+
     };
 
     const handleButtonClick = (buttonText: any) => {
@@ -470,7 +478,7 @@ const SpectrumStack = () => {
         updateQuote();
     }, []);
 
- 
+
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(`"${currentQuote}" - ${currentAuthor}`);
@@ -657,7 +665,7 @@ const SpectrumStack = () => {
                             </div>
 
                             <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 3 ? "position-relative" : "position-absolute d-none"}`}>
-                                <div className="notes-todos-app-container">
+                                <div className="notes-todos-app-container h-100">
                                     {popupVisible && (
                                         <div className="popup-box">
                                             <div className="popup">
@@ -954,7 +962,7 @@ const SpectrumStack = () => {
 
             </div >
 
-            {gradientColor && <div className="gradient-generator-css d-flex align-items-center justify-content-between gap-2 my-2 mx-2 py-1 px-2">
+            {showGradient && <div className="gradient-generator-css d-flex align-items-center justify-content-between gap-2 my-2 mx-2 py-1 px-2">
                 <p className="text-center m-0 fw-medium text-white"> Current CSS BG : {gradientColor}</p>
                 <button onClick={() => navigator.clipboard.writeText(gradientColor)} className="btn btn-green btn-min"><FiCopy /></button>
             </div>}
