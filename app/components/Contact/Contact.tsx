@@ -29,7 +29,7 @@ const Contact = () => {
 
         </div>
         <div className="contact-subscribe-box d-flex flex-column justify-self-end">
-          <div className="form-label">Want to Start new project</div>
+          <div className="form-label">Have a Project in Mind? Let's Build It.</div>
           <MessageForm />
         </div>
       </div>

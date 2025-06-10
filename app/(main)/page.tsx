@@ -87,7 +87,8 @@ export default function Home() {
   return (
     <main>
       <Hero bgImage="/hero-bg.svg">
-        <Button title="About me" style="default" url="/about" icon={<IoIosArrowDroprightCircle />} />
+        <Button title="🔍 About Me" style="default" url="/about" icon={<IoIosArrowDroprightCircle />} />
+        <Button title="💼 Portfolio" style="default" url="/portfolio" icon={<IoIosArrowDroprightCircle />} />
       </Hero>
 
       <ContentContainer background="dark bg-graphic" column="col-xl-10 mx-auto">

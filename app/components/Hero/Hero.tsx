@@ -32,8 +32,11 @@ const Hero = ({ children, bgImage }: Props) => {
                 <div className="hr-content">
                   <h4><span className="bg-clip-text bg-gradient-1">Hey!</span> ✌️ I'm</h4>
                   <h1>Rahul <span className="bg-clip-text bg-gradient-1">Maurya</span></h1>
-                  <h3><span className="bg-clip-text bg-gradient-1">Front-end Developer</span> From India ❣️</h3>
-                  <div className="hero-btn-box mt-4">
+                  <h5>🧠 Turning ideas into interactive interfaces.</h5>
+                  <h5>💻 <span className="bg-clip-text bg-gradient-1">Front-end Developer</span> from India 🇮🇳 ❣️</h5>
+                  <p>I craft beautiful and functional websites using HTML, CSS, JavaScript, and React — blending design precision with code clarity to build seamless user experiences.</p>
+                  <h6>🎯 Let’s create something amazing together.</h6>
+                  <div className="hero-btn-box d-flex mt-4">
                     {children}
                   </div>
                 </div>

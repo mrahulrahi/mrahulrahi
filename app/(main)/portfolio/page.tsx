@@ -71,7 +71,7 @@ const Portfolio = () => {
         <Button title='Rahi Creations' style='default' url='#gallery' icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
 
-      <ContentContainer background='gradient-2'>
+      <ContentContainer background='gradient-2' id='work'>
         <div className="itb-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
           <Heading heading='My Work' />
 
