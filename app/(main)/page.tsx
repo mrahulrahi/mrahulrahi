@@ -110,7 +110,7 @@ export default function Home() {
       </ContentContainer>
 
       <ContentContainer className="projects-card-container" background="gradient-1">
-        <Heading heading="My Work">
+        <Heading heading="Crafted With Code">
           <div className="custom-arrow-container d-flex justify-content-between">
             <button className="custom-arrow-button custom-arrow-prev projects-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
               <FaArrowRight />
@@ -139,7 +139,7 @@ export default function Home() {
       </ContentContainer>
 
       <ContentContainer className="home-video-card-container" background="dark">
-        <Heading heading="Videos">
+        <Heading heading="Visual Bytes ">
           <Button title="View All" style="default" url="/portfolio#video" />
         </Heading>
         <div className="video-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
@@ -158,7 +158,7 @@ export default function Home() {
       </ContentContainer>
 
       <ContentContainer background="gradient-1">
-        <Heading heading="Photos">
+        <Heading heading="Captured Essence">
           <Button title="View All" style="default" url="/portfolio#gallery" />
         </Heading>
         <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>

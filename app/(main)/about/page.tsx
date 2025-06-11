@@ -64,12 +64,14 @@ const About = () => {
             <h4><span className="bg-clip-text bg-gradient-1">Hello,</span> I'm</h4>
             <h2>Rahul Maurya</h2>
             <h5>Web Developer</h5>
+              <h5>🧠 Turning ideas into interactive interfaces.</h5>
             <p>I am a front-end web developer whose life's passion is Technology and I also love to
               click photographs. I can provide clean code and pixel perfect design. I also make the
               website responsive & more interactive with web animations. I try to make videos that are
               to-the-point and as content-packed as possible, so if that sounds like your cup of tea,
               a sub would be massively appreciated! 🙏</p>
             <p>Stack - <span className="text-accent fw-bold">MERN</span> Stack</p>
+                <h6>🎯 Let’s create something amazing together.</h6>
 
             <Button title="Download Resume" style="gradient" url="https://flowcv.com/resume/29mh2gwpwu" icon={<IoIosArrowDropdownCircle />} />
 
