@@ -19,7 +19,7 @@ const InnerHero = ({ heading, children, bgImage }: Props) => {
                             <div className="inner-hero-box d-flex align-items-center justify-content-center" data-aos="fade-up" suppressHydrationWarning>
                                 <div className="inner-hero-text text-center">
                                     <h1>{heading}</h1>
-                                    <div className="inner-hero-btn-box d-flex flex-column flex-sm-row align-items-center justify-content-center">
+                                    <div className="inner-hero-btn-box d-flex flex-column flex-sm-row align-items-center justify-content-center gap-3">
                                         {children}
                                     </div>
                                 </div>

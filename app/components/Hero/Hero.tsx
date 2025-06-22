@@ -30,11 +30,11 @@ const Hero = ({ children, bgImage }: Props) => {
 
               <div className="hero-right d-flex align-items-center justify-content-center" data-aos="fade-left" suppressHydrationWarning>
                 <div className="hr-content">
-                  <h4><span className="bg-clip-text bg-gradient-1">Hey!</span> ✌️ I'm</h4>
-                  <h1>Rahul <span className="bg-clip-text bg-gradient-1">Maurya</span></h1>
-                  <h4>💻 <span className="bg-clip-text bg-gradient-1">Front-end Developer</span> from India ❣️</h5>
+                  <h3><span className="bg-clip-text bg-gradient-1">Hey!</span> ✌️ I'm</h3>
+                  <h1>❣️ Rahul <span className="bg-clip-text bg-gradient-1">Maurya</span></h1>
+                  <h4>💻 <span className="bg-clip-text bg-gradient-1">Front-end Developer</span> from India</h4>
                   <p>I craft beautiful and functional websites using HTML, CSS, JavaScript, and React — blending design precision with code clarity to build seamless user experiences.</p>
-                  <div className="hero-btn-box d-flex mt-4">
+                  <div className="hero-btn-box d-flex flex-wrap gap-3 mt-4">
                     {children}
                   </div>
                 </div>
