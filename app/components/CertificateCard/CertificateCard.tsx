@@ -10,6 +10,7 @@ interface Item{
     title : string;
     url :string;
     organization : string;
+    icon: JSX.Element;
 }
 
 const CertificateCard = ({item} : Prpos) => {
@@ -19,7 +20,7 @@ const CertificateCard = ({item} : Prpos) => {
                 <div className="certificate-card-text">
                     <h4>{item.title}</h4>
                     <p>{item.organization}</p>
-                    <div className="certificate-card-big-text">{item.organization}</div>
+                    <div className="certificate-card-big-text">{item.icon}</div>
                 </div>
             </Link>
         </>
