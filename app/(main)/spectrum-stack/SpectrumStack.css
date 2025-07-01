@@ -34,12 +34,12 @@
 .color-pick-card {background: rgb(0, 0, 0, 0.25);color: rgba(255, 255, 255, 0.75);box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.1);border-radius: 8px;overflow: hidden;}
 .color-pick-info {font-size: 16px;font-weight: 900;padding: 10px;letter-spacing: 0;text-align: center;}
 input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: none;background: none;border: 0;cursor: pointer;width: 6em;height: 6em;padding: 0;}
-:focus {border-radius: 0;outline: none;}
-::-webkit-color-swatch-wrapper {padding: 0;}
-::-webkit-color-swatch {border: 0;border-radius: 0;}
-::-moz-color-swatch,
-::-moz-focus-inner {border: 0;}
-::-moz-focus-inner {padding: 0;}
+input[type="color"]:focus {border-radius: 0;outline: none;}
+input[type="color"]::-webkit-color-swatch-wrapper {padding: 0;}
+input[type="color"]::-webkit-color-swatch {border: 0;border-radius: 0;}
+input[type="color"]::-moz-color-swatch,
+input[type="color"]::-moz-focus-inner {border: 0;}
+input[type="color"]::-moz-focus-inner {padding: 0;}
 
 
 
@@ -125,47 +125,40 @@ input[type="color"] {appearance: none;-moz-appearance: none;-webkit-appearance: 
 .add-box p {color: rgba(255, 255, 255, 0.5);font-weight: 500;margin-top: 20px;}
 .note {display: flex;flex-direction: column;justify-content: space-between;}
 .note .details {max-height: 165px;overflow-y: auto;}
-.note .details::-webkit-scrollbar,
-.popup textarea::-webkit-scrollbar {width: 0;}
-.note .details:hover::-webkit-scrollbar,
-.popup textarea:hover::-webkit-scrollbar {width: 5px;}
-.note .details:hover::-webkit-scrollbar-track,
-.popup textarea:hover::-webkit-scrollbar-track {background: #f1f1f1;border-radius: 25px;}
-.note .details:hover::-webkit-scrollbar-thumb,
-.popup textarea:hover::-webkit-scrollbar-thumb {background: #e6e6e6;border-radius: 25px;}
+
 .note p {font-size: 22px;font-weight: 500;color: var(--mrr-main-color);}
 .note span {display: block;color: rgba(255, 255, 255, 0.5);font-size: 16px;}
-.note .bottom-content {padding-top: 10px;border-top: 1px solid rgb(0, 0, 0, 0.25);color: rgba(255, 255, 255, 0.5);}
+.note .bottom-content {padding-top: 10px;border-top: 1px solid rgb(0, 0, 0, 0.25);color: var(--mrr-white);}
 .bottom-content span {font-size: 14px;}
 .bottom-content .settings {position: relative;}
-.bottom-content .settings i {color: var(--mrr-dark-color);cursor: pointer;font-size: 15px;}
-.settings .menu {z-index: 1;bottom: 0;right: -5px;padding: 5px 0;background: #dfe0df;position: absolute;border-radius: 4px;transform-origin: bottom right;box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);transition: transform 0.2s ease;}
+.bottom-content .settings i {color: var(--mrr-white);cursor: pointer;font-size: 15px;}
+.settings .menu {z-index: 1;bottom: 0;right: -5px;padding: 5px 0;background: rgba(255, 255, 255, 0.25);position: absolute;border-radius: 4px;transform-origin: bottom right;box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);transition: transform 0.2s ease;backdrop-filter: blur(2px);}
 .settings .show.menu {transform: scale(1);}
 .menu-btn{border: 0;background: transparent;}
-.settings .menu li {height: 25px;font-size: 16px;margin-bottom: 2px;padding: 17px 15px;cursor: pointer;box-shadow: none;border-radius: 0;justify-content: flex-start;}
+.settings .menu li {height: 25px;font-size: 16px;font-weight: 500;margin-bottom: 2px;padding: 17px 15px;cursor: pointer;box-shadow: none;border-radius: 0;justify-content: flex-start;}
 .menu li:last-child {margin-bottom: 0;}
-.menu li:hover {background: #faebd7;}
+.menu li:hover {background: var(--mrr-gradient-1);}
 .menu li i {padding-right: 8px;}
 .popup-box {position: fixed;top: 0;left: 0;z-index: 2;height: 100%;width: 100%;background: rgba(0, 0, 0, 0.4);z-index: 9999;backdrop-filter: blur(10px);}
 .popup-box .popup {position: absolute;top: 50%;left: 50%;z-index: 3;width: 100%;max-width: 400px;justify-content: center;transform: translate(-50%, -50%) scale(0.95);z-index: 999;}
 
 .popup-box.show .popup {transform: translate(-50%, -50%) scale(1);}
 .popup .content {border-radius: 5px;background: rgba(255, 255, 255, 0.25);width: calc(100% - 15px);box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);overflow-y: auto;}
-.content header {padding: 15px 25px;background-color: var(--mrr-dark-color);color: #faebd7;border-top-left-radius: 4px;border-top-right-radius: 4px;}
+.content header {padding: 15px 25px;background-color: var(--mrr-black);color: var(--mrr-accent-color);border-top-left-radius: 4px;border-top-right-radius: 4px;}
 .content header p {font-size: 20px;font-weight: 500;margin-bottom: 0;}
-.content header i {color: #8b8989;cursor: pointer;font-size: 23px;}
+.content header i {color: var(--mrr-white);cursor: pointer;font-size: 23px;}
 .content form {margin: 15px 25px 25px;}
 .content form .row {margin-bottom: 20px;}
-form .row label {font-size: 18px;display: block;margin-bottom: 6px;}
-form :where(input, textarea) {background-color: #dfe0df;height: 50px;width: 100%;outline: none;font-size: 17px;padding: 0 15px;border-radius: 4px;border: 1px solid #999;}
-form :where(input, textarea):focus {box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);}
-form textarea {height: 150px;resize: none;padding: 8px 15px;}
-form button {width: 100%;height: 50px;color: #faebd7;outline: none;border: none;cursor: pointer;font-size: 17px;border-radius: 4px;background: var(--mrr-dark-color);}
-.btn-toggle{padding: 10px 16px;border: 0;background: var(--mrr-dark-color);color: var(--mrr-white);}
-.btn-toggle.active{background: #faebd7;color: var(--mrr-dark-color);color: var(--mrr-dark-color);}
 
+form :where(input.form-control, textarea.form-control) {background-color: #dfe0df;height: 50px;width: 100%;outline: none;font-size: 17px;padding: 0 15px;border-radius: 4px;border: 1px solid #999;}
+form :where(input.form-control, textarea.form-control):focus {box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);}
+form textarea.form-control {min-height: 150px;}
+.btn-toggle{padding: 10px 16px;border: 0;background: transparent;color: var(--mrr-white);}
+.btn-toggle.active{background: var(--mrr-gradient-1);color: var(--mrr-white);}
+
+.task-list {max-height: calc(100vh - 500px);overflow-y: auto;}
 .task-list input[type="checkbox"]{width: 20px;height: 20px;border-radius: 50%;overflow: hidden;}
-.task-list button{width: auto;height: auto;padding: 6px 10px;}
+.btn-remove {width: 30px;height: 30px;color: var(--mrr-white);outline: none;border: none;cursor: pointer;font-size: 16px;border-radius: 50%;background: red;}
 .task-list li:has(input:checked){text-decoration: line-through;}
 .task li:has(input:checked){text-decoration: line-through;}
 
