@@ -717,7 +717,7 @@ const SpectrumStack = () => {
                                                                             </div>
 
 
-                                                                            <button type="button" onClick={() => removeTask(task.id)}>
+                                                                            <button type="button" className="btn btn-danger" onClick={() => removeTask(task.id)}>
                                                                                 <i className="close-icon"><FaXmark /></i>
                                                                             </button>
                                                                         </li>
@@ -727,8 +727,9 @@ const SpectrumStack = () => {
                                                         )}
                                                         {itemType === 'note' && (
                                                             <div className="description mb-4">
-                                                                <label className="mb-1">Description</label>
+                                                                <label className="form-label mb-1">Description</label>
                                                                 <textarea
+                                                                className="form-control"
                                                                     placeholder="Description"
                                                                     value={description}
                                                                     onChange={(e) => setDescription(e.target.value)}
@@ -737,8 +738,8 @@ const SpectrumStack = () => {
                                                         )}
                                                         <div className="d-flex gap-2 mt-4">
                                                             {itemType === 'todo' && (
-                                                                <button type="button" onClick={addTask}>Add Task</button>)}
-                                                            <button type="button" onClick={addItem}>
+                                                                <button type="button" className="btn btn-gradient" onClick={addTask}>Add Task</button>)}
+                                                            <button type="button" className="btn btn-violet" onClick={addItem}>
                                                                 {isUpdate ? (itemType === 'note' ? 'Update Note' : 'Update To-Do') : (itemType === 'note' ? 'Add Note' : 'Add To-Do')}
                                                             </button>
                                                         </div>

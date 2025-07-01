@@ -23,7 +23,7 @@ export const photos = [
 ]
 
 export const timelineItems = [
-    { id: 1, title: 'Schooling', roles: [{ role: '10th', duration: 'July 2012 - Jun 2014' },{ role: '12th', duration: 'July 2014 - Jun 2016' }] },
+    { id: 1, title: 'Schooling', roles: [{ role: '10th', duration: 'July 2012 - Jun 2014' }, { role: '12th', duration: 'July 2014 - Jun 2016' }] },
     { id: 2, title: 'Diploma', roles: [{ role: 'AIMT', duration: 'July 2017 - Nov 2020' }] },
     { id: 3, title: 'Fireliquidtaor', roles: [{ role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' }] },
     { id: 4, title: 'BCA', roles: [{ role: 'IGNOU', duration: 'July 2021 - Jun 2024' }] },
@@ -33,11 +33,11 @@ export const timelineItems = [
 ]
 
 export const certificates = [
-    { id: 1, url: 'https://www.udemy.com/certificate/UC-4e377dc1-f535-4589-b877-ba5257976fa9/', title: 'Web Development Bootcamp', organization: 'Udemy', icon: <SiUdemy /> },
-    { id: 2, url: 'https://profiles.topcoder.com/mrahulrahi', title: 'Full stack Development', organization: 'Topcoder' },
-    { id: 3, url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Nordics/PxenP4rHNE6Bh4nQz_Accenture%20Nordics_f635M87hfdNWoDbzC_1666336729816_completion_certificate.pdf', title: 'Dev Virtual Exp Program', organization: 'Forage' },
-    { id: 4, url: 'https://codedamn.com/user/mrahulrahi', title: 'Codedamn Certificates', organization: 'Codedamn' },
-    { id: 5, url: 'https://www.hackerrank.com/certificates/62ee41b69fc2', title: 'SQL (Basic)', organization: 'Hacker Rank' },
+    { id: 1, url: 'https://www.udemy.com/certificate/UC-4e377dc1-f535-4589-b877-ba5257976fa9/', title: 'Web Development Bootcamp', organization: 'Udemy', icon: 'SiUdemy', },
+    { id: 2, url: 'https://profiles.topcoder.com/mrahulrahi', title: 'Full stack Development', organization: 'Topcoder', icon: 'SiTopcoder', },
+    { id: 3, url: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20Nordics/PxenP4rHNE6Bh4nQz_Accenture%20Nordics_f635M87hfdNWoDbzC_1666336729816_completion_certificate.pdf', title: 'Dev Virtual Exp Program', organization: 'Forage', icon: 'SiAccenture', },
+    { id: 4, url: 'https://codedamn.com/user/mrahulrahi', title: 'Codedamn Certificates', organization: 'Codedamn', icon: 'SiC', },
+    { id: 5, url: 'https://www.hackerrank.com/certificates/62ee41b69fc2', title: 'SQL (Basic)', organization: 'Hacker Rank', icon: 'SiHackerrank', },
 ]
 
 

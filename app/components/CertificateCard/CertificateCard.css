@@ -4,8 +4,8 @@
 .certificate-card-box:hover{background: var(--mrr-dark-color);color: var(--mrr-white);}
 .certificate-card-text{font-size: 16px;font-weight: 300;}
 .certificate-card-text h4{font-size: 24px;font-weight: 600;margin-bottom: 10px;}
-.certificate-card-big-text{position: absolute;bottom: -13px;right: 0;font-size: 50px;font-weight: 700;line-height: 1;background: linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.1));background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
-.certificate-card-box:hover .certificate-card-big-text{background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 0, 0.1));background-clip: text;-webkit-background-clip: text;-webkit-text-fill-color: transparent;}
+.certificate-card-icon{position: absolute;bottom: 0;right: 0;transition: all .2s ease-in;}
+.certificate-card-box:hover .certificate-card-icon{filter: invert(1);}
 
 @media (max-width: 991.98px) {
     .certificate-card-item{width: 50%;}
