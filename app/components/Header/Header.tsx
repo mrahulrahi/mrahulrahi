@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
+import { motion } from "motion/react"
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -63,10 +64,11 @@ const Header = () => {
 
     return (
         <header id="header">
-            <nav className="navbar navbar-expand-xl">
+            <motion.nav  initial={{  opacity: 0, y: -10 }}
+  whileInView={{  opacity: 1, y: 0 }} transition={{duration: 0.5, delay: 0.3, ease: 'easeOut'}}  className="navbar navbar-expand-xl">
                 <div className="container">
                     <div className="nav-inside d-flex align-items-center justify-content-between">
-                        <Link className="navbar-logo" href="/" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
+                        <Link className="navbar-logo" href="/">
                             <img src="/logo.svg" alt="Logo" />
                         </Link>
                         <button
@@ -89,7 +91,7 @@ const Header = () => {
                             ref={navbarRef}
                         >
                             <div className="navbar-inside">
-                                <ul className="navbar-nav" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
+                                <ul className="navbar-nav">
                                     {links.map(link => (
                                         <li key={link.path} className={`${link.path === currentPath ? 'active' : ''} nav-item`}>
                                             <Link className="nav-link" href={link.path} onClick={handleLinkClick}>
@@ -112,12 +114,12 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="header-btn d-none d-xl-block" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
+                        <div className="header-btn d-none d-xl-block">
                             <Button title="Hire Me" style='gradient' url="https://t.me/mrahulrahi" />
                         </div>
                     </div>
                 </div>
-            </nav>
+            </motion.nav>
         </header>
     );
 };
