@@ -1,7 +1,8 @@
 import './PhotoCard.css'
+import { motion } from "framer-motion"
 
 interface Props {
-    item : Item;
+    item: Item;
 }
 
 interface Item {
@@ -9,17 +10,21 @@ interface Item {
     url: string;
 }
 
-const PhotoCard = ({item} : Props) => {
+const PhotoCard = ({ item }: Props) => {
     return (
         <>
             <a href={item.url} data-lightbox="gallery-img" data-title="caption">
-                <div className="gallery-link" data-aos="fade-up" suppressHydrationWarning>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
+                    className="gallery-link">
                     <figure className="gallery-thumb">
                         <img src={item.url} alt={item.title} className="gallery-image" />
                         {item.title &&
-                        <figcaption className="gallery-caption">{item.title}</figcaption>}
+                            <figcaption className="gallery-caption">{item.title}</figcaption>}
                     </figure>
-                </div>
+                </motion.div>
             </a>
         </>
     )
