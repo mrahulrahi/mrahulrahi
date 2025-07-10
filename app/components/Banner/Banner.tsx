@@ -1,3 +1,4 @@
+'use client';
 import { ReactNode } from 'react';
 import './Banner.css'
 import { motion } from "framer-motion"

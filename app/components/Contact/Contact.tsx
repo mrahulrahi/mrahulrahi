@@ -1,3 +1,4 @@
+'use client';
 import Button from '../Button'
 import './Contact.css'
 import ContentContainer from '../ContentContainer'

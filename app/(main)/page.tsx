@@ -131,7 +131,6 @@ export default function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}>
 
-
           <Swiper
             autoplay={{ delay: 3000, disableOnInteraction: false }}
             breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}

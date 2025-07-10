@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
-import { motion } from "motion/react"
+import { motion } from "framer-motion"
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);

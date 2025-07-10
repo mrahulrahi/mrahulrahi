@@ -1,3 +1,4 @@
+'use client';
 import './PhotoCard.css'
 import { motion } from "framer-motion"
 
