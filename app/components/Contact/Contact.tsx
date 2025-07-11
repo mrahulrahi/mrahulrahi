@@ -1,5 +1,4 @@
 'use client';
-import { motion } from "framer-motion"
 import Button from '../Button'
 import './Contact.css'
 import ContentContainer from '../ContentContainer'
@@ -7,7 +6,7 @@ import Heading from '../Heading'
 import MessageForm from './MessageForm' // 👈 import the new component
 import Link from 'next/link'
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
-
+import { motion } from "framer-motion"
 
 const Contact = () => {
   return (

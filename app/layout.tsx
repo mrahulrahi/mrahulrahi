@@ -1,13 +1,14 @@
 // app/layout.tsx
-import React from 'react'
 import type { Metadata } from 'next'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 
 import 'bootstrap/dist/css/bootstrap.css'
+import 'aos/dist/aos.css'
 import './globals.css'
 
 import ImportBsJS from './importBsJS'
+import ImportAOS from './importAOS'
 
 import { Josefin_Sans, Outfit } from 'next/font/google'
 
@@ -35,17 +36,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <React.StrictMode>
-
-      <html lang="en" className={`${josefinSans.variable} ${outfit.variable}`}>
-        <body>
-          {children}
-          <ImportBsJS />
-          <SpeedInsights />
-          <Analytics />
-        </body>
-      </html>
-    </React.StrictMode>
-
+    <html lang="en" className={`${josefinSans.variable} ${outfit.variable}`}>
+      <body>
+        {children}
+        <ImportBsJS />
+        <ImportAOS />
+        <SpeedInsights />
+        <Analytics />
+      </body>
+    </html>
   )
 }

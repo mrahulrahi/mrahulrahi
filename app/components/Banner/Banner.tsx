@@ -1,6 +1,7 @@
+'use client';
 import { ReactNode } from 'react';
-import { motion } from "framer-motion"
 import './Banner.css'
+import { motion } from "framer-motion"
 
 interface Props {
   children: ReactNode | string;
