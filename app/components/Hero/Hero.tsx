@@ -1,7 +1,7 @@
-'use client';
 import { ReactNode } from 'react';
-import './Hero.css'
 import { motion } from "framer-motion"
+import './Hero.css'
+
 
 interface Props {
   children: ReactNode;

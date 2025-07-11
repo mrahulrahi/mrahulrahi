@@ -1,11 +1,12 @@
 'use client';
+import { motion } from "framer-motion"
 import './Header.css';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
-import { motion } from "framer-motion"
+
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);

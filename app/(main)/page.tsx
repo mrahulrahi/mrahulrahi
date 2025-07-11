@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion"
 import Hero from "../components/Hero/Hero";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import ContentContainer from "../components/ContentContainer";
@@ -18,7 +19,7 @@ import StatCard from '../components/StatCard/StatCard';
 import { projectsCards, photos } from "../data/staticData"; // Moved static data here
 import MouseFollower from '../components/MouseFollower';
 import VideoModal from '../components/VideoModal';
-import { motion } from "framer-motion"
+
 
 type Video = {
   id: { videoId: string };

@@ -1,4 +1,3 @@
-'use client';
 import { ReactNode } from 'react';
 import './InnerHero.css'
 import { motion } from "framer-motion"
