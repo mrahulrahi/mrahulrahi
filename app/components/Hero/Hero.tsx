@@ -1,7 +1,10 @@
 'use client';
 import { ReactNode } from 'react';
 import './Hero.css'
+<<<<<<< HEAD
 import { motion } from "framer-motion"
+=======
+>>>>>>> parent of 4bc2b93 (`Added motion library and used it for animations in Header and Hero components`)
 
 interface Props {
   children: ReactNode;
@@ -16,11 +19,15 @@ const Hero = ({ children, bgImage }: Props) => {
         <div className="row">
           <div className="col-md-12">
             <div className="hero-content d-flex flex-wrap align-items-center justify-content-between">
+<<<<<<< HEAD
               <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
                 className="hero-left" >
+=======
+              <div className="hero-left" data-aos="fade-right" suppressHydrationWarning>
+>>>>>>> parent of 4bc2b93 (`Added motion library and used it for animations in Header and Hero components`)
                 <div className="hl-content d-flex align-items-center justify-content-center">
                   <div className="hero-img-box d-flex align-items-center justify-content-center position-relative">
                     <div className="hero-img"> <img src="/hero-img.png" alt="" /> </div>
@@ -32,13 +39,17 @@ const Hero = ({ children, bgImage }: Props) => {
                     <div className="hero-icon hi-4"> <img src="/react.png" alt="" /> </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
+<<<<<<< HEAD
               <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
                 className="hero-right d-flex align-items-center justify-content-center">
+=======
+              <div className="hero-right d-flex align-items-center justify-content-center" data-aos="fade-left" suppressHydrationWarning>
+>>>>>>> parent of 4bc2b93 (`Added motion library and used it for animations in Header and Hero components`)
                 <div className="hr-content">
                   <h3><span className="bg-clip-text bg-gradient-1">Hey!</span> ✌️ I'm</h3>
                   <h1>❣️ Rahul <span className="bg-clip-text bg-gradient-1">Maurya</span></h1>
@@ -48,7 +59,7 @@ const Hero = ({ children, bgImage }: Props) => {
                     {children}
                   </div>
                 </div>
-              </motion.div>
+              </div>
             </div>
           </div>
         </div>

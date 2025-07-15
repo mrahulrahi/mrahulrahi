@@ -5,7 +5,10 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
+<<<<<<< HEAD
 import { motion } from "framer-motion"
+=======
+>>>>>>> parent of 4bc2b93 (`Added motion library and used it for animations in Header and Hero components`)
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -64,14 +67,18 @@ const Header = () => {
 
     return (
         <header id="header">
+<<<<<<< HEAD
             <motion.nav
                 initial={{ opacity: 0, y: -10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
                 className="navbar navbar-expand-xl">
+=======
+            <nav className="navbar navbar-expand-xl">
+>>>>>>> parent of 4bc2b93 (`Added motion library and used it for animations in Header and Hero components`)
                 <div className="container">
                     <div className="nav-inside d-flex align-items-center justify-content-between">
-                        <Link className="navbar-logo" href="/">
+                        <Link className="navbar-logo" href="/" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
                             <img src="/logo.svg" alt="Logo" />
                         </Link>
                         <button
@@ -94,7 +101,7 @@ const Header = () => {
                             ref={navbarRef}
                         >
                             <div className="navbar-inside">
-                                <ul className="navbar-nav">
+                                <ul className="navbar-nav" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
                                     {links.map(link => (
                                         <li key={link.path} className={`${link.path === currentPath ? 'active' : ''} nav-item`}>
                                             <Link className="nav-link" href={link.path} onClick={handleLinkClick}>
@@ -117,12 +124,12 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="header-btn d-none d-xl-block">
+                        <div className="header-btn d-none d-xl-block" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
                             <Button title="Hire Me" style='gradient' url="https://t.me/mrahulrahi" />
                         </div>
                     </div>
                 </div>
-            </motion.nav>
+            </nav>
         </header>
     );
 };
