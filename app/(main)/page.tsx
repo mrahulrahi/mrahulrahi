@@ -18,7 +18,6 @@ import StatCard from '../components/StatCard/StatCard';
 import { projectsCards, photos } from "../data/staticData"; // Moved static data here
 import MouseFollower from '../components/MouseFollower';
 import VideoModal from '../components/VideoModal';
-import { motion } from "framer-motion"
 
 type Video = {
   id: { videoId: string };
@@ -93,11 +92,7 @@ export default function Home() {
       </Hero>
 
       <ContentContainer background="dark bg-graphic" column="col-xl-10 mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}
-          className="stats-content-box bg-gradient-1">
+        <div className="stats-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
           <ul className="stats-list d-flex flex-wrap">
             <li className="stats-item">
               <div className="stats-title text-center">
@@ -111,7 +106,7 @@ export default function Home() {
             <StatCard icon={<FaClock />} countEnd={1500} suffix=" +" description="Hours of code" />
             <StatCard icon={<FaGitAlt />} countEnd={1900} suffix=" +" description="Total Github Contributions" />
           </ul>
-        </motion.div>
+        </div>
       </ContentContainer>
 
       <ContentContainer className="projects-card-container" background="gradient-1">
@@ -126,27 +121,21 @@ export default function Home() {
           </div>
         </Heading>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5, ease: 'easeOut' }}>
-
-          <Swiper
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
-            breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
-            navigation={{ nextEl: ".projects-arrow-next", prevEl: ".projects-arrow-prev", disabledClass: "swiper-button-disabled" }}
-            modules={[Autoplay, Navigation]}
-            slidesPerView={1}
-            spaceBetween={30}
-            className="projects-card-list d-flex flex-wrap"
-          >
-            {projectsCards.map(card => (
-              <SwiperSlide key={card.id} className="projects-card-item">
-                <ProjectCard card={card} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </motion.div>
+        <Swiper
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
+          navigation={{ nextEl: ".projects-arrow-next", prevEl: ".projects-arrow-prev", disabledClass: "swiper-button-disabled" }}
+          modules={[Autoplay, Navigation]}
+          slidesPerView={1}
+          spaceBetween={30}
+          className="projects-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning
+        >
+          {projectsCards.map(card => (
+            <SwiperSlide key={card.id} className="projects-card-item">
+              <ProjectCard card={card} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </ContentContainer>
 
       <ContentContainer className="home-video-card-container" background="dark">

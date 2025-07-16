@@ -5,10 +5,6 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
-<<<<<<< HEAD
-import { motion } from "framer-motion"
-=======
->>>>>>> parent of 4bc2b93 (`Added motion library and used it for animations in Header and Hero components`)
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -67,15 +63,7 @@ const Header = () => {
 
     return (
         <header id="header">
-<<<<<<< HEAD
-            <motion.nav
-                initial={{ opacity: 0, y: -10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.3, ease: 'easeOut' }}
-                className="navbar navbar-expand-xl">
-=======
             <nav className="navbar navbar-expand-xl">
->>>>>>> parent of 4bc2b93 (`Added motion library and used it for animations in Header and Hero components`)
                 <div className="container">
                     <div className="nav-inside d-flex align-items-center justify-content-between">
                         <Link className="navbar-logo" href="/" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
