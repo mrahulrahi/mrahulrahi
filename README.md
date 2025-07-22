@@ -13,7 +13,7 @@
 <p align="right"> <img src="https://komarev.com/ghpvc/?username=mrahulrahi&theme=dark&label=Profile%20views&color=0e75b6&style=flat" alt="mrahulrahi" /> </p>
 
 ```bash
-- 🔭 I’m currently pursuing **MCA**
+- 🔭 I’m currently pursuing **MCA** From Chandigarh University 
   
 - 👨‍💼 I’m currently working as **Frontend Developer** with 2.5 years of experience.
   
