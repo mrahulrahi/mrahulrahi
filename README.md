@@ -15,7 +15,7 @@
 ```bash
 - 🔭 I’m currently pursuing **MCA** From Chandigarh University 
   
-- 👨‍💼 I’m currently working as **Frontend Developer** with 2.5 years of experience.
+- 👨‍💼 I’m currently working as **Frontend Developer** with 3 years of experience.
   
 - 🌱 I’m currently learning **Full Stack Development, MERN**
   
