@@ -18,6 +18,7 @@ import StatCard from '../components/StatCard/StatCard';
 import { projectsCards, photos } from "../data/staticData"; // Moved static data here
 import MouseFollower from '../components/MouseFollower';
 import VideoModal from '../components/VideoModal';
+import Banner from '../components/Banner/Banner'
 
 type Video = {
   id: { videoId: string };
@@ -45,6 +46,7 @@ const PhotoCard = ({ photo }: { photo: { title: string; url: string; camera: str
       </div>
       <div className="photo-card-text">
         <h4>{photo.title}</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque repellendus maiores tenetur labore quis, totam repellat, nisi, odit magni dignissimos distinctio provident ea laboriosam veritatis aspernatur exercitationem magnam excepturi ullam.</p>
       </div>
 
       <div className="photo-card-cta mt-auto">
@@ -108,6 +110,10 @@ export default function Home() {
           </ul>
         </div>
       </ContentContainer>
+
+         <Banner bgImage='./banner-bg.jpg'>
+        WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span><br />MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span>
+      </Banner>
 
       <ContentContainer className="projects-card-container" background="gradient-1">
         <Heading heading="Crafted With Code">

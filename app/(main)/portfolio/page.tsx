@@ -7,9 +7,8 @@ import Button from '../../components/Button';
 import Heading from '../../components/Heading';
 import ContentContainer from '../../components/ContentContainer';
 import VideoCard from '../../components/VideoCard/VideoCard';
-import PhotoCard from '../../components/PhotoCard/PhotoCard';
 import WorkCard from '../../components/WorkCard/WorkCard';
-import { projectsCards, photos } from "../../data/staticData";
+import { projectsCards } from "../../data/staticData";
 import MouseFollower from '../../components/MouseFollower';
 import VideoModal from '../../components/VideoModal';
 
@@ -92,18 +91,10 @@ const Portfolio = () => {
       <ContentContainer background='dark bg-graphic' id='gallery'>
         <Heading heading='Gallery' />
 
-        <div className="gallery" data-aos="fade-up" suppressHydrationWarning>
-          {photos.map(item => (
-            <div key={item.id}>
-              <PhotoCard item={item} />
-            </div>
-          ))}
-        </div>
+
       </ContentContainer>
 
-      <Banner bgImage='./banner-bg.jpg'>
-        WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span><br />MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span>
-      </Banner>
+   
 
       <ContentContainer background='gradient-2' id='video'>
         <div className="row">

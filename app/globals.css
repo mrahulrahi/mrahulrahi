@@ -188,9 +188,9 @@ p:last-child{margin-bottom:0;}
 .stats-description{font-weight:600;color: var(--mrr-white);font-size:16px;}
 
 .photo-card-list{font-family:var(--font-outfit);width: calc(100% + 30px);margin: 0 -15px;margin-bottom: -30px;}
-.photo-card-item{width: 25%;padding: 0 15px;margin-bottom: 30px;}
+.photo-card-item{width: 50%;padding: 0 15px;margin-bottom: 30px;}
 .photo-card-box{padding:16px;background-color:var(--mrr-dark-color);border-radius:10px;width:100%;height:100%}
-.photo-card-image{position:relative;width: 100%;padding-bottom: 100%;border-radius: 10px;overflow: hidden;}
+.photo-card-image{position:relative;width: 100%;padding-bottom: 60%;border-radius: 10px;overflow: hidden;}
 .photo-card-image img{width: 100%;height: 100%;object-fit: cover;position: absolute;top: 0;left: 0;}
 .photo-card-image::before{content: '';position:absolute;top:0;left: 0;bottom: 0;right: 0;background-image: url(/icon-view.svg);background-position: center;background-repeat: no-repeat;background-size: cover;  background-size: 50px 50px; background-color:hsl(178,100%,50%,50%);width:100%;height: 100%;z-index:9;opacity:0;transition:opacity .3s ease-in-out}
 .photo-card-box:hover .photo-card-image::before{opacity:1;cursor:pointer}
