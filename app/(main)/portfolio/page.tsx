@@ -66,8 +66,8 @@ const Portfolio = () => {
   return (
     <>
       <InnerHero heading={<HeroHeading />} bgImage='/inner-hero-img.jpg'>
-        <Button title='📽️ FireLiquidator' style='default' url='#video' icon={<IoIosArrowDroprightCircle />} />
-        <Button title='📷 Rahi Creations' style='default' url='#gallery' icon={<IoIosArrowDroprightCircle />} />
+        <Button title='📽️ FireLiquidator' style='default' target='_blank' url='https://www.youtube.com/@fireliquidator' icon={<IoIosArrowDroprightCircle />} />
+        <Button title='📷 Rahi Creations' style='default' target='_blank' url='https://gurushots.com/rahicreations' icon={<IoIosArrowDroprightCircle />} />
       </InnerHero>
 
       <ContentContainer background='gradient-2' id='work'>
@@ -84,18 +84,6 @@ const Portfolio = () => {
         </div>
       </ContentContainer>
 
-      <Banner logo='./rc-logo.png' bgImage='./banner-bg.jpg'>
-        <span className='bg-clip-text bg-gradient-1'>RAHI</span>CREATIONS
-      </Banner>
-
-      <ContentContainer background='dark bg-graphic' id='gallery'>
-        <Heading heading='Gallery' />
-
-
-      </ContentContainer>
-
-   
-
       <ContentContainer background='gradient-2' id='video'>
         <div className="row">
           <div className="col-md-5 col-xl-4">
@@ -106,9 +94,7 @@ const Portfolio = () => {
               <div className="video-title mt-5" data-aos="fade-up" suppressHydrationWarning>
                 <span style={{ color: '#FAB205' }}>FIRE</span>LIQUIDATOR
               </div>
-              <div className="video-btn" data-aos="fade-up" suppressHydrationWarning>
-                <Button title='Open Youtube' style='default' url='https://www.youtube.com/@fireliquidator' />
-              </div>
+       
             </div>
           </div>
           <div className="col-md-6 col-xl-7 offset-md-1">

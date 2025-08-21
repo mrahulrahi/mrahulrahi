@@ -10,8 +10,8 @@ export const projectsCards = [
 ]
 
 export const photos = [
-    { id: 1, title: "Diya", url: "https://lh3.googleusercontent.com/pw/ABLVV86BkvPqD8HnZ2Ls3ud3Yi3r4E_bgkjrYW3s_qnv-RnOxZALZN4Qppup819MtYW54zqqJWw-BwA5Jgnsgf7EtzXZGhoBd3xJOdTvVasnlMzQiKRib1sSIMaKz-6nREmpLlyES1ovk_QhIFJ9vfsUxIs4=w1196-h898-s-no-gm?authuser=0", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
-    { id: 2, title: "Camellia Flower", url: "https://lh3.googleusercontent.com/pw/ABLVV86TumQujzkj4fJ8-38Nu5lxnoLi1ot3gWetNGHNNKdbpk71cyBO4RNiy9-EtgT2YkTPU0rDKaXuDl0u3szuGlZdkLTBFRvodkLt-XOKxoskeqpxz068Adz0HN3BS7lhflDu4IDXw2r9HN68p461ndnx=w1196-h898-s-no-gm?authuser=0", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
+    { id: 1, title: "Rahi Creations", url: "/rc-logo.png", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
+    { id: 2, title: "FireLiquidator", url: "/fl-logo.png", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
 ]
 
 export const timelineItems = [

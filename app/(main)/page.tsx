@@ -20,21 +20,7 @@ import MouseFollower from '../components/MouseFollower';
 import VideoModal from '../components/VideoModal';
 import Banner from '../components/Banner/Banner'
 
-type Video = {
-  id: { videoId: string };
-  snippet: { title: string; description: string; thumbnails: { medium: { url: string } } };
-};
 
-const video = async (): Promise<Video[]> => {
-  const res = await fetch('/api/youtube');
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch YouTube videos");
-  }
-
-  const data = await res.json();
-  return data;
-};
 
 
 // PhotoCard Component
@@ -66,25 +52,6 @@ const PhotoCard = ({ photo }: { photo: { title: string; url: string; camera: str
 );
 
 export default function Home() {
-  const [videos, setVideos] = useState<Video[] | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
-  const [selectedVideoTitle, setSelectedVideoTitle] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const fetchedVideos = await video();
-        setVideos(fetchedVideos);
-      } catch (err: any) {
-        console.error("Error fetching videos", err.message);
-        setError(err.message);
-      }
-    };
-    fetchVideos();
-  }, []);
 
   return (
     <main>
@@ -144,27 +111,8 @@ export default function Home() {
         </Swiper>
       </ContentContainer>
 
-      <ContentContainer className="home-video-card-container" background="dark">
-        <Heading heading="Visual Bytes ">
-          <Button title="View All" style="default" url="/portfolio#video" />
-        </Heading>
-        <div className="video-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-          {error ? <p>{error}</p> : videos?.slice(0, 3).map(video => (
-            <div key={video.id.videoId} className="video-card-item">
-              <VideoCard
-                id={video.id.videoId}
-                title={video.snippet.title}
-                onVideoSelect={setSelectedVideo}
-                onVideoTitle={setSelectedVideoTitle}
-                onModalOpen={setModalOpen}
-              />
-            </div>
-          ))}
-        </div>
-      </ContentContainer>
-
       <ContentContainer background="gradient-1">
-        <Heading heading="Captured Essence">
+        <Heading heading="Other Interests">
           <Button title="View All" style="default" url="/portfolio#gallery" />
         </Heading>
         <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
@@ -172,14 +120,6 @@ export default function Home() {
         </div>
       </ContentContainer>
 
-      {modalOpen && selectedVideo && (
-        <VideoModal
-          videoId={selectedVideo}
-          title={selectedVideoTitle ?? ''}
-          isOpen={modalOpen}
-          onClose={() => setModalOpen(false)}
-        />
-      )}
       <MouseFollower />
     </main>
   );
