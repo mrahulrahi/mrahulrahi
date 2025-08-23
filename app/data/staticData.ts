@@ -10,8 +10,9 @@ export const projectsCards = [
 ]
 
 export const photos = [
-    { id: 1, title: "Rahi Creations", url: "/rc-logo.png", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
-    { id: 2, title: "FireLiquidator", url: "/fl-logo.png", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
+    { id: 1, title: "Rahi Creations", desc:"Rahicreations — my photography portfolio on GuruShots, where I share a curated selection of my finest visual explorations." , url: "https://gurushots.com/rahicreations", imgUrl: "/rc-logo.png", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
+    { id: 2, title: "FireLiquidator", desc:"FireLiquidator — a tech channel by Rahul Maurya sharing crisp unboxings, reviews, and insights on the latest gadgets." , url: "https://www.youtube.com/@fireliquidator", imgUrl: "/fl-logo.png", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
+    { id: 3, title: "Github", desc:"Rahul Maurya (mrahulrahi) — Frontend Developer and MCA student from Lucknow with 2.5 years of experience and a growing MERN stack portfolio." , url: "https://github.com/mrahulrahi", imgUrl: "/logo.svg", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
 ]
 
 export const timelineItems = [

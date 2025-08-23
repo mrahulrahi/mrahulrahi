@@ -1,10 +1,8 @@
 'use client';
-import { useEffect, useState } from "react";
 import Hero from "../components/Hero/Hero";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import ContentContainer from "../components/ContentContainer";
 import Heading from "../components/Heading";
-import VideoCard from "../components/VideoCard/VideoCard";
 import Button from "../components/Button";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { MdWeb } from "react-icons/md";
@@ -17,29 +15,35 @@ import 'swiper/css/navigation';
 import StatCard from '../components/StatCard/StatCard';
 import { projectsCards, photos } from "../data/staticData"; // Moved static data here
 import MouseFollower from '../components/MouseFollower';
-import VideoModal from '../components/VideoModal';
 import Banner from '../components/Banner/Banner'
 
 
 
 
 // PhotoCard Component
-const PhotoCard = ({ photo }: { photo: { title: string; url: string; camera: string; shotBy: string } }) => (
+const PhotoCard = ({ photo }: { photo: { title: string; desc: string; url: string; imgUrl: string; camera: string; shotBy: string } }) => (
   <div className="photo-card-item">
-    <div className="photo-card-box d-flex flex-column">
+    <a href={photo.url} className="photo-card-box d-flex flex-column">
       <div className="photo-card-image">
-        <img src={photo.url} alt={photo.title} loading="lazy" />
+        <img src={photo.imgUrl} alt={photo.title} loading="lazy" />
       </div>
       <div className="photo-card-text">
         <h4>{photo.title}</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque repellendus maiores tenetur labore quis, totam repellat, nisi, odit magni dignissimos distinctio provident ea laboriosam veritatis aspernatur exercitationem magnam excepturi ullam.</p>
+        <p>{photo.desc}</p>
       </div>
 
       <div className="photo-card-cta mt-auto">
-        <li className="photo-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-          <RiCameraLensLine />
-          {photo.camera}
-        </li>
+        <ul className="d-flex align-items-center justify-content-between">
+          <li className="photo-card-cta-item d-flex gap-2 align-items-center justify-content-between">
+            <RiCameraLensLine />
+            {photo.camera}
+          </li>
+          <li className="photo-card-cta-item d-flex gap-2 align-items-center justify-content-between">
+            <RiCameraLensLine />
+            {photo.camera}
+          </li>
+        </ul>
+
         <ul className="photo-card-cta-list">
           <li className="photo-card-avatar d-flex align-items-center justify-content-between">
             <img src="/hero-img.png" alt="Avatar" loading="lazy" />
@@ -47,7 +51,7 @@ const PhotoCard = ({ photo }: { photo: { title: string; url: string; camera: str
           </li>
         </ul>
       </div>
-    </div>
+    </a>
   </div>
 );
 
@@ -78,7 +82,7 @@ export default function Home() {
         </div>
       </ContentContainer>
 
-         <Banner bgImage='./banner-bg.jpg'>
+      <Banner bgImage='./banner-bg.jpg'>
         WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span><br />MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span>
       </Banner>
 
