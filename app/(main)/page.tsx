@@ -115,6 +115,10 @@ export default function Home() {
         </Swiper>
       </ContentContainer>
 
+      <Banner bgImage='./banner-bg.jpg'>
+        <span className='bg-clip-text bg-gradient-1'>Design</span> the user's experience.<br /><span className='bg-clip-text bg-gradient-1'>Code</span> the beautiful, seamless reality.
+      </Banner>
+
       <ContentContainer background="gradient-1">
         <Heading heading="Other Interests">
           <Button title="View All" style="default" url="/portfolio#gallery" />
