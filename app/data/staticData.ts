@@ -1,5 +1,3 @@
-import { SiUdemy } from 'react-icons/si';
-
 export const projectsCards = [
     { id: 1, label: 'Portfolio', title: 'mrahulrahi', imgUrl: '/project-img-1.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://mrahulrahi.vercel.app/', para: "The project is a personal portfolio website for front-end developer Rahul Maurya, built with Next.js. It features a modern and responsive design, showcasing various projects, skills, and tools. The site emphasizes user engagement through interactive elements and animations, providing a comprehensive overview of the developer's expertise and work.", },
     { id: 2, label: 'Business', title: 'NTS', imgUrl: '/project-img-2.png', gitHubUrl: 'https://github.com/mrahulrahi/nts-app', liveUrl: 'https://nishanktravels.com/', para: "The project is a personal portfolio website for front-end developer Rahul Maurya, built with Next.js. It features a modern and responsive design, showcasing various projects, skills, and tools. The site emphasizes user engagement through interactive elements and animations, providing a comprehensive overview of the developer's expertise and work.", },
@@ -10,9 +8,13 @@ export const projectsCards = [
 ]
 
 export const photos = [
-    { id: 1, title: "Rahi Creations", desc:"Rahicreations — my photography portfolio on GuruShots, where I share a curated selection of my finest visual explorations." , url: "https://gurushots.com/rahicreations", imgUrl: "/rc-logo.png", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
-    { id: 2, title: "FireLiquidator", desc:"FireLiquidator — a tech channel by Rahul Maurya sharing crisp unboxings, reviews, and insights on the latest gadgets." , url: "https://www.youtube.com/@fireliquidator", imgUrl: "/fl-logo.png", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
-    { id: 3, title: "Github", desc:"Rahul Maurya (mrahulrahi) — Frontend Developer and MCA student from Lucknow with 2.5 years of experience and a growing MERN stack portfolio." , url: "https://github.com/mrahulrahi", imgUrl: "/logo.svg", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
+    { id: 1, title: "Rahi Creations", desc:"My photography portfolio on GuruShots, where I share a curated selection of my finest visual explorations." , url: "https://gurushots.com/rahicreations", imgUrl: "/rc-logo.png",     items: [
+      { label: "Portfolio", icon: Camera },
+      { label: "GuruShots", icon: Globe },
+      { label: "Xiaomi Mi A1", icon: Smartphone },
+    ], shotBy: "Rahi" },
+    { id: 2, title: "FireLiquidator", desc:"A tech channel sharing unboxings, reviews, and insights on the latest gadgets." , url: "https://www.youtube.com/@fireliquidator", imgUrl: "/fl-logo.png", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
+    { id: 3, title: "Github", desc:"Rahul Maurya (mrahulrahi) — Frontend developer and MCA student building MERN stack projects." , url: "https://github.com/mrahulrahi", imgUrl: "/logo.svg", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
 ]
 
 export const timelineItems = [
