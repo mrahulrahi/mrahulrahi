@@ -7,7 +7,6 @@ import Button from "../components/Button";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { MdWeb } from "react-icons/md";
 import { FaUserGraduate, FaLayerGroup, FaGitAlt, FaClock, FaArrowRight } from "react-icons/fa6";
-import * as LuIcons from "react-icons/lu";
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -16,55 +15,13 @@ import StatCard from '../components/StatCard/StatCard';
 import { projectsCards, interest } from "../data/staticData"; // Moved static data here
 import MouseFollower from '../components/MouseFollower';
 import Banner from '../components/Banner/Banner'
+import InterestCard from "../components/InterestCard/InterestCard";
 
-interface InterestCard {
-  title: string;
-  desc: string;
-  url: string;
-  imgUrl: string;
-  items: { label: string; icon: string }[];
-  createdBy: string
-}
+
 
 
 // InterestCard Component
-const InterestCard = (interest: InterestCard) => {
-   const IconOneComponent = LuIcons[interest.items[0].icon as keyof typeof LuIcons];
-   const IconTwoComponent = LuIcons[interest.items[1].icon as keyof typeof LuIcons];
 
-  return (
-    <>
-      <div className="interest-card-item">
-        <a href={interest.url} className="interest-card-box d-flex flex-column">
-          <div className="interest-card-image">
-            <img src={interest.imgUrl} alt={interest.title} loading="lazy" />
-          </div>
-          <div className="interest-card-text">
-            <h4>{interest.title}</h4>
-            <p>{interest.desc}</p>
-          </div>
-
-          <div className="interest-card-cta mt-auto">
-            <ul className="d-flex align-items-center justify-content-between">
-              <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-                <IconOneComponent /> {interest.items[0].label}
-              </li>
-              <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-                <IconTwoComponent />{interest.items[1].label}
-              </li>
-            </ul>
-
-            <ul className="interest-card-cta-list">
-              <li className="interest-card-avatar d-flex align-items-center justify-content-between">
-                <img src="/hero-img.png" alt="Avatar" loading="lazy" />
-                <p>Shot by <span>{interest.createdBy}</span></p>
-              </li>
-            </ul>
-          </div>
-        </a>
-      </div>
-    </>)
-};
 
 export default function Home() {
 
