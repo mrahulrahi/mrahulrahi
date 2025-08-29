@@ -7,14 +7,10 @@ export const projectsCards = [
     { id: 6, label: 'SliceMyPage', title: '80+ Projects Done', imgUrl: '/project-img-6.png', gitHubUrl: 'https://github.com/mrahulrahi/mrahulrahi', liveUrl: 'https://www.slicemypage.com/', para: 'Delivered 50+ diverse projects on time and within budget. Proven expertise in HTML, CSS, JavaScript, and web frameworks to create visually appealing and functional websites. Ensured project success through rigorous testing and quality assurance. Delivered high-quality, bug-free projects with optimal user experience and client satisfaction.', },
 ]
 
-export const photos = [
-    { id: 1, title: "Rahi Creations", desc:"My photography portfolio on GuruShots, where I share a curated selection of my finest visual explorations." , url: "https://gurushots.com/rahicreations", imgUrl: "/rc-logo.png",     items: [
-      { label: "Portfolio", icon: Camera },
-      { label: "GuruShots", icon: Globe },
-      { label: "Xiaomi Mi A1", icon: Smartphone },
-    ], shotBy: "Rahi" },
-    { id: 2, title: "FireLiquidator", desc:"A tech channel sharing unboxings, reviews, and insights on the latest gadgets." , url: "https://www.youtube.com/@fireliquidator", imgUrl: "/fl-logo.png", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
-    { id: 3, title: "Github", desc:"Rahul Maurya (mrahulrahi) — Frontend developer and MCA student building MERN stack projects." , url: "https://github.com/mrahulrahi", imgUrl: "/logo.svg", camera: "Xiaomi Mi A1", shotBy: "Rahi" },
+export const interest = [
+    { id: 1, title: "Rahi Creations", desc:"My photography portfolio on GuruShots, where I share a curated selection of my finest visual explorations." , url: "https://gurushots.com/rahicreations", imgUrl: "/rc-logo.png", items: [{ label: "Portfolio", icon: 'LuCamera'  },{ label: "GuruShots", icon: 'LuGlobe'  }], createdBy: "Rahi" },
+    { id: 2, title: "FireLiquidator", desc:"A tech channel sharing unboxings, reviews, and insights on the latest gadgets." , url: "https://www.youtube.com/@fireliquidator", imgUrl: "/fl-logo.png", items: [{ label: "Portfolio", icon: 'LuCamera'  },{ label: "GuruShots", icon: 'LuGlobe'  }], createdBy: "Rahi" },
+    { id: 3, title: "Github", desc:"Rahul Maurya (mrahulrahi) — Frontend developer and MCA student building MERN stack projects." , url: "https://github.com/mrahulrahi", imgUrl: "/logo.svg", items: [{ label: "Portfolio", icon: 'LuCamera'  },{ label: "GuruShots", icon: 'LuGlobe'  }], createdBy: "Rahi" },
 ]
 
 export const timelineItems = [

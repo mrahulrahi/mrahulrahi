@@ -7,53 +7,64 @@ import Button from "../components/Button";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { MdWeb } from "react-icons/md";
 import { FaUserGraduate, FaLayerGroup, FaGitAlt, FaClock, FaArrowRight } from "react-icons/fa6";
-import { RiCameraLensLine } from "react-icons/ri";
+import * as LuIcons from "react-icons/lu";
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import StatCard from '../components/StatCard/StatCard';
-import { projectsCards, photos } from "../data/staticData"; // Moved static data here
+import { projectsCards, interest } from "../data/staticData"; // Moved static data here
 import MouseFollower from '../components/MouseFollower';
 import Banner from '../components/Banner/Banner'
 
+interface InterestCard {
+  title: string;
+  desc: string;
+  url: string;
+  imgUrl: string;
+  items: { label: string; icon: string }[];
+  createdBy: string
+}
 
 
+// InterestCard Component
+const InterestCard = (interest: InterestCard) => {
+   const IconOneComponent = LuIcons[interest.items[0].icon as keyof typeof LuIcons];
+   const IconTwoComponent = LuIcons[interest.items[1].icon as keyof typeof LuIcons];
 
-// PhotoCard Component
-const PhotoCard = ({ photo }: { photo: { title: string; desc: string; url: string; imgUrl: string; camera: string; shotBy: string } }) => (
-  <div className="photo-card-item">
-    <a href={photo.url} className="photo-card-box d-flex flex-column">
-      <div className="photo-card-image">
-        <img src={photo.imgUrl} alt={photo.title} loading="lazy" />
+  return (
+    <>
+      <div className="interest-card-item">
+        <a href={interest.url} className="interest-card-box d-flex flex-column">
+          <div className="interest-card-image">
+            <img src={interest.imgUrl} alt={interest.title} loading="lazy" />
+          </div>
+          <div className="interest-card-text">
+            <h4>{interest.title}</h4>
+            <p>{interest.desc}</p>
+          </div>
+
+          <div className="interest-card-cta mt-auto">
+            <ul className="d-flex align-items-center justify-content-between">
+              <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
+                <IconOneComponent /> {interest.items[0].label}
+              </li>
+              <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
+                <IconTwoComponent />{interest.items[1].label}
+              </li>
+            </ul>
+
+            <ul className="interest-card-cta-list">
+              <li className="interest-card-avatar d-flex align-items-center justify-content-between">
+                <img src="/hero-img.png" alt="Avatar" loading="lazy" />
+                <p>Shot by <span>{interest.createdBy}</span></p>
+              </li>
+            </ul>
+          </div>
+        </a>
       </div>
-      <div className="photo-card-text">
-        <h4>{photo.title}</h4>
-        <p>{photo.desc}</p>
-      </div>
-
-      <div className="photo-card-cta mt-auto">
-        <ul className="d-flex align-items-center justify-content-between">
-          <li className="photo-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-            <RiCameraLensLine />
-            {photo.camera}
-          </li>
-          <li className="photo-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-            <RiCameraLensLine />
-            {photo.camera}
-          </li>
-        </ul>
-
-        <ul className="photo-card-cta-list">
-          <li className="photo-card-avatar d-flex align-items-center justify-content-between">
-            <img src="/hero-img.png" alt="Avatar" loading="lazy" />
-            <p>Shot by <span>{photo.shotBy}</span></p>
-          </li>
-        </ul>
-      </div>
-    </a>
-  </div>
-);
+    </>)
+};
 
 export default function Home() {
 
@@ -124,7 +135,7 @@ export default function Home() {
           <Button title="View All" style="default" url="/portfolio#gallery" />
         </Heading>
         <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-          {photos?.slice(0, 4).map(photo => <PhotoCard key={photo.id} photo={photo} />)}
+          {interest?.slice(0, 4).map(interest => <InterestCard key={interest.id} {...interest} />)}
         </div>
       </ContentContainer>
 
