@@ -9,8 +9,7 @@ export const projectsCards = [
 
 export const interest = [
     { id: 1, title: "Rahi Creations", desc: "My photography portfolio on GuruShots, where I share a curated selection of my finest visual explorations.", url: "https://gurushots.com/rahicreations", imgUrl: "/rc-logo.png", items: [{ label: "Portfolio", icon: 'LuCamera' }, { label: "GuruShots", icon: 'LuGlobe' }], createdBy: "Rahi" },
-    { id: 2, title: "FireLiquidator", desc: "A tech channel sharing unboxings, reviews, and insights on the latest gadgets.", url: "https://www.youtube.com/@fireliquidator", imgUrl: "/fl-logo.png", items: [{ label: "Gadgets", icon: 'LuSmartphone' }, { label: "Reviews", icon: 'LuCamera' }], createdBy: "Rahi" },
-    { id: 3, title: "Github", desc: "Rahul Maurya (mrahulrahi) — Frontend developer and MCA student building MERN stack projects.", url: "https://github.com/mrahulrahi", imgUrl: "/logo.svg", items: [{ label: "mrahulrahi", icon: 'LuGithub' }, { label: "Open Source", icon: 'LuGlobe' }], createdBy: "Rahi" },
+    { id: 2, title: "FireLiquidator", desc: "A tech channel sharing unboxings, reviews, and insights on the latest gadgets.", url: "https://www.youtube.com/@fireliquidator", imgUrl: "/fl-logo.png", items: [{ label: "Youtube ", icon: 'LuYoutube' }, { label: "Reviews", icon: 'LuCamera' }], createdBy: "Rahi" },
 ]
 
 export const timelineItems = [

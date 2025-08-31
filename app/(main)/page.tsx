@@ -87,12 +87,10 @@ export default function Home() {
         <span className='bg-clip-text bg-gradient-1'>Design</span> the user's experience.<br /><span className='bg-clip-text bg-gradient-1'>Code</span> the beautiful, seamless reality.
       </Banner>
 
-      <ContentContainer background="gradient-1">
-        <Heading heading="Other Interests">
-          <Button title="View All" style="default" url="/portfolio#gallery" />
-        </Heading>
+      <ContentContainer column="col-lg-10 mx-auto" background="gradient-1">
+        <Heading heading="Side Hustle" />
         <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-          {interest?.slice(0, 4).map(interest => <InterestCard key={interest.id} {...interest} />)}
+          {interest.map(interest => <InterestCard key={interest.id} {...interest} />)}
         </div>
       </ContentContainer>
 
