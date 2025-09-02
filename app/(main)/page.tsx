@@ -94,7 +94,7 @@ export default async function Home() {
       <ContentContainer background="gradient-1 bg-graphic">
         <Heading heading="Articles from Dev.to" />
         <div className="blog-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-            {articles.slice(0, 5).map((article: any) => <BlogCard key={article.id} {...article} />)}
+            {articles.slice(0, 6).map((article: any) => <BlogCard key={article.id} {...article} />)}
         </div>
       </ContentContainer>
 

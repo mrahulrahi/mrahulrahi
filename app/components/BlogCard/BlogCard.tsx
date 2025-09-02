@@ -1,4 +1,4 @@
-import './blogCard.css'
+import './BlogCard.css'
 import * as LuIcons from "react-icons/lu";
 
 interface BlogCard {
