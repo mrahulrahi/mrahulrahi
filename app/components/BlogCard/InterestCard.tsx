@@ -27,12 +27,19 @@ const InterestCard = (interest: InterestCard) => {
           </div>
 
           <div className="interest-card-cta mt-auto">
-            <ul className="interest-card-cta-list d-flex align-items-center justify-content-between">
+            <ul className="d-flex align-items-center justify-content-between">
               <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
                 <IconOneComponent /> {interest.items[0].label}
               </li>
               <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
                 <IconTwoComponent />{interest.items[1].label}
+              </li>
+            </ul>
+
+            <ul className="interest-card-cta-list">
+              <li className="interest-card-avatar d-flex align-items-center justify-content-between">
+                <img src="/hero-img.jpg" alt="Avatar" loading="lazy" />
+                <p>Created by <span>{interest.createdBy}</span></p>
               </li>
             </ul>
           </div>

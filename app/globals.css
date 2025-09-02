@@ -165,7 +165,7 @@ p:last-child{margin-bottom:0;}
 .timeline-container { width: 100%; position: relative; padding: 40px 0; transition: 0.3s ease 0s; background-attachment: fixed; background-size: cover; background-position: center; }
 .timeline-content-desc span{position: relative;padding-right: 20px;margin-right: 10px;}
 .timeline-content-desc span:before {content: '';position: absolute;right: 0;top: 50%;transform: translateY(-50%);width: 10px;height: 10px;border-radius: 50%;background: var(--mrr-main-color);}
-.timeline-content-desc li{position: relative;padding-left: 24px;}
+.timeline-content-desc li{position: relative;padding-left: 30px;}
 .timeline-content-desc li::before{content: '';width: 12px;height: 4px;position: absolute;top: 50%;left: 0;transform: translateY(-50%);border-radius: 8px;background: var(--mrr-accent-color);}
 .timeline-content-desc li::after{content: '';width: 4px;height: 4px;position: absolute;top: 50%;left: 16px;transform: translateY(-50%);border-radius: 50%;background: var(--mrr-accent-color);}
 
@@ -184,8 +184,6 @@ p:last-child{margin-bottom:0;}
 .stats-count span{color: var(--mrr-dark-color);font-size: 40px;font-weight: 700;line-height: 1;margin-bottom: 10px;}
 .stats-description{font-weight:600;color: var(--mrr-white);font-size:16px;}
 
-.interest-card-list{font-family:var(--font-outfit);width: calc(100% + 30px);margin: 0 -15px;margin-bottom: -30px;}
-.interest-card-item{width: 50%;padding: 0 15px;margin-bottom: 30px;}
 
 
 .page_404{padding: 60px 0;min-height: 100vh;font-family: var(--font-josefinSans);}
@@ -228,11 +226,6 @@ body {cursor: none;}
 
 .skill-card-item{width: 20%;}
 
-.certificate-card-item{width: 33.33%;}
-
-
-.interest-card-item {width: 50%;}
-
 .video-logo{width:250px;height:250px;}
 .video-title{font-size:34px;}
 
@@ -254,12 +247,8 @@ body {cursor: none;}
 
 .skill-card-item{width: 25%;}
 
-.certificate-card-item{width: 50%;}
-
 .stats-content-box{padding: 30px 20px;}
 .stats-item{width: 50%;}
-
-.interest-card-item {width: 100%;}
 }
 
 /* ======================================================
@@ -272,8 +261,6 @@ body {cursor: none;}
 
 .itb-content-box{padding: 20px;}
 .itb-skill-box{padding: 20px;}
-
-.certificate-card-item{width: 100%;}
 
 .logo{font-size:20px}
 .logo::before{margin-top:25px}

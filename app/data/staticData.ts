@@ -18,8 +18,9 @@ export const timelineItems = [
     { id: 3, title: 'Fireliquidtaor', roles: [{ role: 'Youtuber', duration: 'Oct 2018 - Sep 2022' }] },
     { id: 4, title: 'BCA', roles: [{ role: 'IGNOU', duration: 'July 2021 - Jun 2024' }] },
     { id: 5, title: 'CodeClause', roles: [{ role: 'Web Dev Intern', duration: 'Nov 2022' }] },
-    { id: 6, title: 'SlicemyPage', roles: [{ role: 'Front End Trainee', duration: 'Dec 2022 - Jun 2023' }, { role: 'Front End Developer', duration: 'Jun 2023 - Now' }] },
-    { id: 7, title: 'MCA', roles: [{ role: 'Chandigarh University', duration: 'July 2025 - Now' }] },
+    { id: 6, title: 'Freelancer', roles: [{ role: 'Frontend Developer', duration: 'Dec 2022 - Jun 2023' }] },
+    { id: 7, title: 'SlicemyPage', roles: [{ role: 'Frontend Developer', duration: 'Jun 2023 - Now' }] },
+    { id: 8, title: 'MCA', roles: [{ role: 'Chandigarh University', duration: 'July 2025 - Now' }] },
 ]
 
 export const certificates = [

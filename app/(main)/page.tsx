@@ -83,13 +83,9 @@ export default function Home() {
         </Swiper>
       </ContentContainer>
 
-      <Banner bgImage='./banner-bg.jpg'>
-        <span className='bg-clip-text bg-gradient-1'>Design</span> the user's experience.<br /><span className='bg-clip-text bg-gradient-1'>Code</span> the beautiful, seamless reality.
-      </Banner>
-
-      <ContentContainer column="col-lg-10 mx-auto" background="gradient-1">
+      <ContentContainer column="col-lg-10 mx-auto" background="dark bg-graphic">
         <Heading heading="Side Hustle" />
-        <div className="photo-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
+        <div className="interest-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           {interest.map(interest => <InterestCard key={interest.id} {...interest} />)}
         </div>
       </ContentContainer>
