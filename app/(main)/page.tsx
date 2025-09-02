@@ -16,14 +16,15 @@ import { projectsCards, interest } from "../data/staticData"; // Moved static da
 import MouseFollower from '../components/MouseFollower';
 import Banner from '../components/Banner/Banner'
 import InterestCard from "../components/InterestCard/InterestCard";
+import BlogCard from "../components/BlogCard/BlogCard";
 
 
+export default async function Home() {
 
-
-// InterestCard Component
-
-
-export default function Home() {
+  const res = await fetch("https://dev.to/api/articles", {
+    cache: "no-store", // avoid caching if you want fresh data
+  });
+  const articles = await res.json();
 
   return (
     <main>
@@ -87,6 +88,13 @@ export default function Home() {
         <Heading heading="Side Hustle" />
         <div className="interest-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           {interest.map(interest => <InterestCard key={interest.id} {...interest} />)}
+        </div>
+      </ContentContainer>
+
+      <ContentContainer background="gradient-1 bg-graphic">
+        <Heading heading="Articles from Dev.to" />
+        <div className="blog-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
+            {articles.slice(0, 5).map((article: any) => <BlogCard key={article.id} {...article} />)}
         </div>
       </ContentContainer>
 
