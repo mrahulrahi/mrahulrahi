@@ -18,7 +18,6 @@ const BlogCard = (blog: BlogCard) => {
 
   return (
     <>
-      <div className="blog-card-item">
         <a href={blog.url} className="blog-card-box d-flex flex-column">
           <div className="blog-card-image">
             <img src={blog.cover_image} alt={blog.title} loading="lazy" />
@@ -46,7 +45,6 @@ const BlogCard = (blog: BlogCard) => {
             </ul>
           </div>
         </a>
-      </div>
     </>)
 };
 

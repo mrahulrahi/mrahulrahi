@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useState } from "react";
 import Hero from "../components/Hero/Hero";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import ContentContainer from "../components/ContentContainer";
@@ -19,12 +20,38 @@ import InterestCard from "../components/InterestCard/InterestCard";
 import BlogCard from "../components/BlogCard/BlogCard";
 
 
-export default async function Home() {
+export default function Home() {
 
-  const res = await fetch("https://dev.to/api/articles", {
-    cache: "no-store", // avoid caching if you want fresh data
-  });
-  const articles = await res.json();
+  const [articles, setArticles] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchArticles() {
+      try {
+        const res = await fetch("https://dev.to/api/articles", {
+          cache: "no-store", // avoid caching
+        });
+
+        if (!res.ok) {
+          throw new Error("Failed to fetch articles");
+        }
+
+        const data = await res.json();
+        setArticles(data);
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchArticles();
+  }, []);
+
+  if (loading) return <p>Loading articles...</p>;
+  if (error) return <p className="text-red-500">Error: {error}</p>;
+
 
   return (
     <main>
@@ -92,10 +119,30 @@ export default async function Home() {
       </ContentContainer>
 
       <ContentContainer background="gradient-1 bg-graphic">
-        <Heading heading="Articles from Dev.to" />
-        <div className="blog-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-            {articles.slice(0, 6).map((article: any) => <BlogCard key={article.id} {...article} />)}
-        </div>
+        <Heading heading="Articles from Dev.to" >
+          <div className="custom-arrow-container d-flex justify-content-between">
+            <button className="custom-arrow-button custom-arrow-prev blog-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
+              <FaArrowRight />
+            </button>
+            <button className="custom-arrow-button custom-arrow-next blog-arrow-next bg-glass d-flex align-items-center justify-content-center rounded-circle">
+              <FaArrowRight />
+            </button>
+          </div>
+        </Heading>
+        <Swiper
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
+          navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
+          modules={[Autoplay, Navigation]}
+          slidesPerView={1}
+          spaceBetween={30}
+          className="blog-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
+          {articles.slice(0, 6).map((article: any) => (
+            <SwiperSlide className="blog-card-item h-auto" key={article.id}>
+              <BlogCard {...article} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </ContentContainer>
 
       <MouseFollower />
