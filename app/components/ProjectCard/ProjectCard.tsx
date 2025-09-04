@@ -10,6 +10,7 @@ interface Item {
     id: number;
     imgUrl: string;
     title: string;
+    para: string;
     gitHubUrl: string;
     liveUrl: string;
 }
@@ -20,14 +21,18 @@ const ProjectCard = ({ card }: Props) => {
     return (
 
         <div className="projects-card-box w-100 h-100">
-            <div className="projects-card-img">
+            <div className="projects-card-img-box">
+                 <div className="projects-card-img">
                 <img src={card.imgUrl} alt="" />
             </div>
+            </div>
+           
 
             <div className="projects-card-text-box">
                 <div
                     className="projects-card-text d-flex justify-content-between align-items-center gap-2">
                     <h4>{card.title}</h4>
+                    
                     <div className="d-flex">
                         <a className="icon-link-btn d-flex align-items-center justify-content-center rounded-circle"
                             href={card.liveUrl}><FaGlobe /></a>
@@ -35,6 +40,7 @@ const ProjectCard = ({ card }: Props) => {
                             href={card.gitHubUrl}><FaGithub /></a>
                     </div>
                 </div>
+                <p>{card.para}</p>
                 <div className="tools d-flex justify-content-between align-items-center">
                     <h5>Tools used</h5>
                     <div className="badge-list d-flex">

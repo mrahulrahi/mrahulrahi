@@ -33,7 +33,7 @@ const BlogCard = (blog: BlogCard) => {
                 <LuIcons.LuHeart /> {blog.public_reactions_count}
               </li>
               <li className="blog-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-                <LuIcons.LuCalendarDays />{blog.published_at.slice(0, 10)}
+                <LuIcons.LuCalendarDays />{blog.published_at.slice(0, 10).split('-').reverse().join('/')}
               </li>
             </ul>
 

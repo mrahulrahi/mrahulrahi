@@ -49,8 +49,7 @@ export default function Home() {
     fetchArticles();
   }, []);
 
-  if (loading) return <p>Loading articles...</p>;
-  if (error) return <p className="text-red-500">Error: {error}</p>;
+
 
 
   return (
@@ -84,31 +83,16 @@ export default function Home() {
 
       <ContentContainer className="projects-card-container" background="gradient-1">
         <Heading heading="Crafted With Code">
-          <div className="custom-arrow-container d-flex justify-content-between">
-            <button className="custom-arrow-button custom-arrow-prev projects-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
-              <FaArrowRight />
-            </button>
-            <button className="custom-arrow-button custom-arrow-next projects-arrow-next bg-glass d-flex align-items-center justify-content-center rounded-circle">
-              <FaArrowRight />
-            </button>
-          </div>
+          <a href="/portfolio" className="btn btn-default">View All</a>
         </Heading>
 
-        <Swiper
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
-          navigation={{ nextEl: ".projects-arrow-next", prevEl: ".projects-arrow-prev", disabledClass: "swiper-button-disabled" }}
-          modules={[Autoplay, Navigation]}
-          slidesPerView={1}
-          spaceBetween={30}
-          className="projects-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning
-        >
-          {projectsCards.map(card => (
-            <SwiperSlide key={card.id} className="projects-card-item">
+        <div className="projects-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning >
+          {projectsCards.slice(1, 4).map(card => (
+            <div key={card.id} className="projects-card-item">
               <ProjectCard card={card} />
-            </SwiperSlide>
+            </div>
           ))}
-        </Swiper>
+        </div>
       </ContentContainer>
 
       <ContentContainer column="col-lg-10 mx-auto" background="dark bg-graphic">
@@ -118,7 +102,7 @@ export default function Home() {
         </div>
       </ContentContainer>
 
-      <ContentContainer background="gradient-1 bg-graphic">
+      <ContentContainer background="gradient-1 bg-graphic overflow-hidden">
         <Heading heading="Articles from Dev.to" >
           <div className="custom-arrow-container d-flex justify-content-between">
             <button className="custom-arrow-button custom-arrow-prev blog-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
@@ -129,20 +113,24 @@ export default function Home() {
             </button>
           </div>
         </Heading>
-        <Swiper
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
-          navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
-          modules={[Autoplay, Navigation]}
-          slidesPerView={1}
-          spaceBetween={30}
-          className="blog-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
-          {articles.slice(0, 6).map((article: any) => (
-            <SwiperSlide className="blog-card-item h-auto" key={article.id}>
-              <BlogCard {...article} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+        {loading && <p>Loading articles...</p>}
+        {error && <p className="text-red-500">Error: {error}</p>}
+        {!loading && !error && (
+
+          <Swiper
+            breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
+            navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
+            modules={[Autoplay, Navigation]}
+            slidesPerView={1}
+            spaceBetween={30}
+            className="blog-card-list d-flex flex-wrap overflow-visible" data-aos="fade-up" suppressHydrationWarning>
+            {articles.slice(0, 10).map((article: any) => (
+              <SwiperSlide className="blog-card-item h-auto" key={article.id}>
+                <BlogCard {...article} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        )}
       </ContentContainer>
 
       <MouseFollower />
