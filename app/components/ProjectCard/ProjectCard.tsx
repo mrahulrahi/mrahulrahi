@@ -1,6 +1,6 @@
 import './ProjectCard.css'
-import { RiHtml5Fill, RiJavascriptFill, RiBootstrapFill } from "react-icons/ri";
-import { FaCss3Alt, FaGlobe, FaGithub } from "react-icons/fa";
+import { FaGlobe, FaGithub } from "react-icons/fa";
+import * as RiIcons from "react-icons/ri";
 
 interface Props {
     card: Item;
@@ -13,26 +13,39 @@ interface Item {
     para: string;
     gitHubUrl: string;
     liveUrl: string;
+    technologies?: string[];
 }
 
 const ProjectCard = ({ card }: Props) => {
+    const IconOneComponent = card.technologies && card.technologies[0]
+        ? RiIcons[card.technologies[0] as keyof typeof RiIcons]
+        : null;
+    const IconTwoComponent = card.technologies && card.technologies[1]
+        ? RiIcons[card.technologies[1] as keyof typeof RiIcons]
+        : null;
+    const IconThreeComponent = card.technologies && card.technologies[2]
+        ? RiIcons[card.technologies[2] as keyof typeof RiIcons]
+        : null;
+    const IconFourComponent = card.technologies && card.technologies[3]
+        ? RiIcons[card.technologies[3] as keyof typeof RiIcons]
+        : null;
 
 
     return (
 
         <div className="projects-card-box w-100 h-100">
             <div className="projects-card-img-box">
-                 <div className="projects-card-img">
-                <img src={card.imgUrl} alt="" />
+                <div className="projects-card-img">
+                    <img src={card.imgUrl} alt="" />
+                </div>
             </div>
-            </div>
-           
+
 
             <div className="projects-card-text-box">
                 <div
                     className="projects-card-text d-flex justify-content-between align-items-center gap-2">
                     <h4>{card.title}</h4>
-                    
+
                     <div className="d-flex">
                         <a className="icon-link-btn d-flex align-items-center justify-content-center rounded-circle"
                             href={card.liveUrl}><FaGlobe /></a>
@@ -45,16 +58,16 @@ const ProjectCard = ({ card }: Props) => {
                     <h5>Tools used</h5>
                     <div className="badge-list d-flex">
                         <div className="badge-item text-accent">
-                            <RiHtml5Fill />
+                            {IconOneComponent && <IconOneComponent />}
                         </div>
                         <div className="badge-item text-accent">
-                            <FaCss3Alt />
+                            {IconTwoComponent && <IconTwoComponent />}
                         </div>
                         <div className="badge-item text-accent">
-                            <RiJavascriptFill />
+                            {IconThreeComponent && <IconThreeComponent />}
                         </div>
                         <div className="badge-item text-accent">
-                            <RiBootstrapFill />
+                            {IconFourComponent && <IconFourComponent />}
                         </div>
                     </div>
                 </div>
