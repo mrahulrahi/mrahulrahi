@@ -8,6 +8,7 @@
   --mrr-gradient-2: linear-gradient(45deg, rgba(27,156,133,1) 0%, rgba(38, 53, 78,1) 100%);
 }
 
+
 /* =================reset css starts here=================  */
 *{margin:0;padding:0;}
 html{scroll-behavior: smooth;scroll-padding-top: 70px;}
@@ -207,6 +208,46 @@ body {cursor: none;}
     opacity: 0;
   }
 }
+
+
+@keyframes boxAnimate {
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-1500px) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.box-animated-bg {width: 100%;height: 100%;position: absolute; top: 0;left: 0;overflow: hidden;}
+.box-animated-bg li {position: absolute;display: block;list-style: none;width: 20px;height: 20px;background: rgba(255, 255, 255, 0.2);border-radius: 20%;animation: boxAnimate 14s linear infinite;}
+
+.box-animated-bg li:nth-child(0) {left: 26%;width: 38px;height: 38px;bottom: -38px;animation-delay: 1s;}
+.box-animated-bg li:nth-child(1) {left: 59%;width: 215px;height: 215px;bottom: -215px;animation-delay: 1s;}
+.box-animated-bg li:nth-child(2) {left: 26%;width: 167px;height: 167px;bottom: -167px;animation-delay: 1s;}
+.box-animated-bg li:nth-child(3) {left: 77%;width: 232px;height: 232px;bottom: -232px;animation-delay: 1s;}
+.box-animated-bg li:nth-child(4) {left: 31%;width: 223px;height: 223px;bottom: -223px;animation-delay: 11s;}
+.box-animated-bg li:nth-child(5) {left: 25%;width: 270px;height: 270px;bottom: -270px;animation-delay: 21s;}
+.box-animated-bg li:nth-child(6) {left: 49%;width: 124px;height: 124px;bottom: -124px;animation-delay: 16s;}
+.box-animated-bg li:nth-child(7) {left: 58%;width: 60px;height: 60px;bottom: -60px;animation-delay: 25s;}
+.box-animated-bg li:nth-child(8) {left: 72%;width: 267px;height: 267px;bottom: -267px;animation-delay: 11s;}
+.box-animated-bg li:nth-child(9) {left: 5%;width: 127px;height: 127px;bottom: -127px;animation-delay: 25s;}
+.box-animated-bg li:nth-child(10) {left: 28%;width: 188px;height: 188px;bottom: -188px;animation-delay: 49s;}
+.box-animated-bg li:nth-child(11) {left: 84%;width: 249px;height: 249px;bottom: -249px;animation-delay: 16s;}
+.box-animated-bg li:nth-child(12) {left: 51%;width: 255px;height: 255px;bottom: -255px;animation-delay: 44s;}
+.box-animated-bg li:nth-child(13) {left: 40%;width: 54px;height: 54px;bottom: -54px;animation-delay: 31s;}
+.box-animated-bg li:nth-child(14) {left: 80%;width: 56px;height: 56px;bottom: -56px;animation-delay: 33s;}
+.box-animated-bg li:nth-child(15) {left: 73%;width: 189px;height: 189px;bottom: -189px;animation-delay: 18s;}
+.box-animated-bg li:nth-child(16) {left: 43%;width: 186px;height: 186px;bottom: -186px;animation-delay: 11s;}
+.box-animated-bg li:nth-child(17) {left: 78%;width: 120px;height: 120px;bottom: -120px;animation-delay: 7s;}
+.box-animated-bg li:nth-child(18) {left: 27%;width: 284px;height: 284px;bottom: -284px;animation-delay: 58s;}
+.box-animated-bg li:nth-child(19) {left: 72%;width: 265px;height: 265px;bottom: -265px;animation-delay: 46s;}
+.box-animated-bg li:nth-child(20) {left: 58%;width: 241px;height: 241px;bottom: -241px;animation-delay: 62s;}
+.box-animated-bg li:nth-child(21) {left: 22%;width: 155px;height: 155px;bottom: -155px;animation-delay: 97s;}
+
+
 
 /* ========================================== 
 ! Large devices (desktops, less than 1200px)

@@ -54,28 +54,56 @@ export default function Home() {
 
   return (
     <main>
-      <Hero bgImage="/hero-bg.svg">
-        <Button title="🔍 About Me" style="default" url="/about" icon={<IoIosArrowDroprightCircle />} />
-        <Button title="💼 Portfolio" style="default" url="/portfolio" icon={<IoIosArrowDroprightCircle />} />
-      </Hero>
+      <div className="bg-dark bg-graphic position-relative">
+        <ul className="box-animated-bg">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
 
-      <ContentContainer background="dark bg-graphic" column="col-xl-10 mx-auto">
-        <div className="stats-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
-          <ul className="stats-list d-flex flex-wrap">
-            <li className="stats-item">
-              <div className="stats-title text-center">
-                <h4>Why choose me ?</h4>
-                <h3>Stats</h3>
-              </div>
-            </li>
-            <StatCard icon={<FaUserGraduate />} countEnd={2} suffix=" +" description="Years of experience" />
-            <StatCard icon={<MdWeb />} countEnd={80} suffix=" +" description="Projects Completed" />
-            <StatCard icon={<FaLayerGroup />} countEnd={12} suffix=" +" description="Skills in my stack" />
-            <StatCard icon={<FaClock />} countEnd={1500} suffix=" +" description="Hours of code" />
-            <StatCard icon={<FaGitAlt />} countEnd={1900} suffix=" +" description="Total Github Contributions" />
-          </ul>
-        </div>
-      </ContentContainer>
+        <Hero>
+          <Button title="🔍 About Me" style="default" url="/about" icon={<IoIosArrowDroprightCircle />} />
+          <Button title="💼 Portfolio" style="default" url="/portfolio" icon={<IoIosArrowDroprightCircle />} />
+        </Hero>
+
+        <ContentContainer className="pt-0" column="col-xl-10 mx-auto">
+          <div className="stats-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
+            <ul className="stats-list d-flex flex-wrap">
+              <li className="stats-item">
+                <div className="stats-title text-center">
+                  <h4>Why choose me ?</h4>
+                  <h3>Stats</h3>
+                </div>
+              </li>
+              <StatCard icon={<FaUserGraduate />} countEnd={2} suffix=" +" description="Years of experience" />
+              <StatCard icon={<MdWeb />} countEnd={80} suffix=" +" description="Projects Completed" />
+              <StatCard icon={<FaLayerGroup />} countEnd={12} suffix=" +" description="Skills in my stack" />
+              <StatCard icon={<FaClock />} countEnd={1500} suffix=" +" description="Hours of code" />
+              <StatCard icon={<FaGitAlt />} countEnd={1900} suffix=" +" description="Total Github Contributions" />
+            </ul>
+          </div>
+        </ContentContainer>
+      </div>
+
 
       <Banner bgImage='./banner-bg.jpg'>
         WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span><br />MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span>
