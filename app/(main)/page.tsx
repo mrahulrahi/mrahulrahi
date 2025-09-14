@@ -54,7 +54,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className="bg-dark bg-graphic position-relative">
+      <div className="bg-dark bg-graphic position-relative overflow-hidden">
         <ul className="box-animated-bg">
           <li></li>
           <li></li>
