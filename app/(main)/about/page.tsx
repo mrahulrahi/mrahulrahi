@@ -2,8 +2,8 @@ import Image from 'next/image'
 import InnerHero from '../../components/InnerHero/InnerHero';
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import Button from '../../components/Button';
-import ContentContainer from '../../components/ContentContainer';
 import Heading from '../../components/Heading';
+import ContentContainer from '../../components/ContentContainer';
 import CertificateCard from '../../components/CertificateCard/CertificateCard';
 import SkillCard from '../../components/SkillCard/SkillCard';
 import { timelineItems, certificates } from '../../data/staticData';
@@ -145,8 +145,7 @@ const About = () => {
         </div>
       </ContentContainer>
 
-      <ContentContainer background="gradient-1">
-        <Heading heading="Certificates" />
+      <ContentContainer background="gradient-1" heading="Certificates" >
         <div className="certificate-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           {certificates.map(item => <div key={item.id} className="certificate-card-item">
             <CertificateCard item={item} />

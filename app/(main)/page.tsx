@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Hero from "../components/Hero/Hero";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import ContentContainer from "../components/ContentContainer";
-import Heading from "../components/Heading";
 import Button from "../components/Button";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { MdWeb } from "react-icons/md";
@@ -109,11 +108,7 @@ export default function Home() {
         WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span><br />MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span>
       </Banner>
 
-      <ContentContainer className="projects-card-container" background="gradient-1">
-        <Heading heading="Crafted With Code">
-          <a href="/portfolio" className="btn btn-default">View All</a>
-        </Heading>
-
+      <ContentContainer className="projects-card-container" background="gradient-1" heading="Crafted With Code" rightHeading={<a href="/portfolio" className="btn btn-default">View All</a>} mobileRightHeading={true} >
         <div className="projects-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning >
           {projectsCards.slice(1, 4).map(card => (
             <div key={card.id} className="projects-card-item">
@@ -123,15 +118,14 @@ export default function Home() {
         </div>
       </ContentContainer>
 
-      <ContentContainer column="col-lg-10 mx-auto" background="dark bg-graphic">
-        <Heading heading="Side Hustle" />
+      <ContentContainer column="col-lg-10 mx-auto" background="dark bg-graphic" heading="Side Hustle" >
         <div className="interest-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           {interest.map(interest => <InterestCard key={interest.id} {...interest} />)}
         </div>
       </ContentContainer>
 
-      <ContentContainer background="gradient-1 bg-graphic overflow-hidden">
-        <Heading heading="Articles from Dev.to" >
+      <ContentContainer background="gradient-1 bg-graphic overflow-hidden" heading="Articles from Dev.to"
+        rightHeading={
           <div className="custom-arrow-container d-flex justify-content-between">
             <button className="custom-arrow-button custom-arrow-prev blog-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
               <FaArrowRight />
@@ -140,7 +134,9 @@ export default function Home() {
               <FaArrowRight />
             </button>
           </div>
-        </Heading>
+        } 
+        mobileRightHeading={true} >
+
         {loading && <p>Loading articles...</p>}
         {error && <p className="text-red-500">Error: {error}</p>}
         {!loading && !error && (
