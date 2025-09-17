@@ -76,7 +76,7 @@ const SpectrumStack = () => {
             <div className="spectrum-stack-page-wrapper bg-gradient-2">
                 <SimpleHero title="Spectrum Stack App" subTitle="Tools" bgGradient={gradientColor} />
 
-                <ContentContainer className="gradient-generator-container py-4" column='col-lg-8 h-100 mx-auto'>
+                <ContentContainer className="gradient-generator-container d-flex align-items-center py-5" column='col-lg-8 h-100 mx-auto'>
                     <div className="device-frame position-relative d-flex flex-column justify-content-between">
                         <div className="device-head d-flex align-items-center justify-content-between px-3">
                             {activeTab === 1 && <h4>Quiz App</h4>}

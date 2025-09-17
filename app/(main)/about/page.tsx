@@ -113,6 +113,31 @@ const About = () => {
         </div>
       </ContentContainer>
 
+    <div className="position-relative overflow-hidden">
+        <ul className="box-animated-bg">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       <ContentContainer background="dark bg-graphic">
         <div className="row" data-aos="fade-up" suppressHydrationWarning>
           <div className="col-md-6">
@@ -144,6 +169,7 @@ const About = () => {
           </div>
         </div>
       </ContentContainer>
+      </div>
 
       <ContentContainer background="gradient-1" heading="Certificates" >
         <div className="certificate-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>

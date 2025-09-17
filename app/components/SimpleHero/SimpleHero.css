@@ -1,6 +1,6 @@
 .simple-hero-container{min-height: 350px;padding: 80px 0;
-    --dot-bg: black;
-    --dot-color: white;
+    --dot-bg: var(--mrr-dark-color);
+    --dot-color: var(--mrr-accent-color);
     --dot-size: 1px;
     --dot-space: 22px;
       background:

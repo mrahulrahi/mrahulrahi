@@ -2,7 +2,7 @@
 
 :root {--transition-time: 0.2s cubic-bezier(0, 0.01, 1, 1)}
 
-.gradient-generator-container{height: calc(100dvh - 70px);}
+.gradient-generator-container{height: 100%;min-height: calc(100dvh - 70px);}
 .gradient-generator-container .container,.gradient-generator-container .row {height: 100%;}
 
 .device-frame{width: 100%;background: #222831;border: 5px solid rgba(0, 0, 0, 0.5);border-radius: 25px;border-bottom: 0;overflow: hidden;padding-bottom: 70px;height: 100%;}

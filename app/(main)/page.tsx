@@ -97,7 +97,7 @@ export default function Home() {
               <StatCard icon={<MdWeb />} countEnd={80} suffix=" +" description="Projects Completed" />
               <StatCard icon={<FaLayerGroup />} countEnd={12} suffix=" +" description="Skills in my stack" />
               <StatCard icon={<FaClock />} countEnd={1500} suffix=" +" description="Hours of code" />
-              <StatCard icon={<FaGitAlt />} countEnd={1900} suffix=" +" description="Total Github Contributions" />
+              <StatCard icon={<FaGitAlt />} countEnd={2000} suffix=" +" description="Total Github Contributions" />
             </ul>
           </div>
         </ContentContainer>

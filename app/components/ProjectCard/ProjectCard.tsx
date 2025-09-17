@@ -53,7 +53,7 @@ const ProjectCard = ({ card }: Props) => {
                             href={card.gitHubUrl}><FaGithub /></a>
                     </div>
                 </div>
-                <p>{card.para}</p>
+                <p className="mt-auto">{card.para}</p>
                 <div className="tools d-flex justify-content-between align-items-center">
                     <h5>Tools used</h5>
                     <div className="badge-list d-flex">

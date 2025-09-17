@@ -23,7 +23,6 @@
     .projects-card-item:first-child .projects-card-img-box{width: 50%;}
     .projects-card-item:first-child .projects-card-text-box{width: 50%;margin-top: 0;padding-left: 30px;display: flex;flex-flow: column;}
     .projects-card-item:first-child .projects-card-text-box  p{ display: -webkit-box; line-clamp: 4;-webkit-line-clamp: 4;-webkit-box-orient: vertical;overflow: hidden;}
-    .projects-card-item:first-child .tools{margin-top: auto;}
 }
 
 @media (max-width:767.98px){
