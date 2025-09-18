@@ -20,7 +20,7 @@ const BlogCard = (blog: BlogCard) => {
     <>
         <a href={blog.url} className="blog-card-box d-flex flex-column">
           <div className="blog-card-image">
-            <img src={blog.cover_image} alt={blog.title} loading="lazy" />
+            <img src={blog.cover_image ? blog.cover_image : `https://placehold.co/800/1B9C85/white?text=${blog.title}&font=poppins`} alt={blog.title} loading="lazy" />
           </div>
           <div className="blog-card-text">
             <h4>{blog.title}</h4>
@@ -40,7 +40,7 @@ const BlogCard = (blog: BlogCard) => {
             <ul className="blog-card-cta-list">
               <li className="blog-card-avatar d-flex align-items-center justify-content-between">
                 <img src={blog.user.profile_image} alt={blog.user.name} loading="lazy" />
-                <p>Written by <span>{blog.user.name}</span></p>
+                <p>Article by <span>{blog.user.name}</span></p>
               </li>
             </ul>
           </div>

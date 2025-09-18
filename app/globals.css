@@ -138,7 +138,7 @@ p:last-child{margin-bottom:0;}
 .skill-card-list{width: 100%;margin-bottom: -5px;}
 .skill-card-item{width: 12.5%;padding: 0 2.5px;margin-bottom: 5px;}
 
-.text-scroll-wrapper {display: flex;overflow: hidden;position: relative;white-space: nowrap;width: calc(100% + 80px);margin: 0 -40px;mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);}
+.text-scroll-wrapper {display: flex;overflow: hidden;position: relative;white-space: nowrap;width: calc(100% + 40px);margin: 0 -20px;mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);}
 .text-scroll-list {display: flex;animation: scroll-horizontal 15s linear infinite;}
 .text-scroll-item {flex: 0 0 auto;padding: 0 2rem;}
 .text-scroll-box h5{margin-bottom: 0;}
@@ -301,11 +301,12 @@ body {cursor: none;}
 ! Extra small devices (portrait phones, less than 576px)
 ====================================================== */
 @media (max-width:575.98px){
-  .heading h3{font-size: 38px;}
+.heading h3{font-size: 38px;}
 
 .skill-card-item{width: 33.33%;}
 
 .itb-content-box{padding: 20px;}
+.text-scroll-wrapper{width: calc(100% + 20px);margin: 0 -10px;}
 .itb-skill-box{padding: 20px;}
 
 .logo{font-size:20px}

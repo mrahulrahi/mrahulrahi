@@ -124,7 +124,7 @@ export default function Home() {
         </div>
       </ContentContainer>
 
-      <ContentContainer background="gradient-1 bg-graphic overflow-hidden" heading="Articles from Dev.to"
+      <ContentContainer background="gradient-1 bg-graphic overflow-hidden" heading="Dev.to's latest articles"
         rightHeading={
           <div className="custom-arrow-container d-flex justify-content-between">
             <button className="custom-arrow-button custom-arrow-prev blog-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">

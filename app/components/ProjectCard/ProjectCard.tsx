@@ -57,18 +57,10 @@ const ProjectCard = ({ card }: Props) => {
                 <div className="tools d-flex justify-content-between align-items-center">
                     <h5>Tools used</h5>
                     <div className="badge-list d-flex">
-                        <div className="badge-item text-accent">
-                            {IconOneComponent && <IconOneComponent />}
-                        </div>
-                        <div className="badge-item text-accent">
-                            {IconTwoComponent && <IconTwoComponent />}
-                        </div>
-                        <div className="badge-item text-accent">
-                            {IconThreeComponent && <IconThreeComponent />}
-                        </div>
-                        <div className="badge-item text-accent">
-                            {IconFourComponent && <IconFourComponent />}
-                        </div>
+                        {IconOneComponent && <div className="badge-item text-accent"><IconOneComponent /></div>}
+                        {IconTwoComponent && <div className="badge-item text-accent"><IconTwoComponent /></div>}
+                        {IconThreeComponent && <div className="badge-item text-accent"><IconThreeComponent /></div>}
+                        {IconFourComponent && <div className="badge-item text-accent"><IconFourComponent /></div>}
                     </div>
                 </div>
             </div>

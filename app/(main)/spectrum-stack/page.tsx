@@ -72,7 +72,6 @@ const SpectrumStack = () => {
 
     return (
         <>
-
             <div className="spectrum-stack-page-wrapper bg-gradient-2">
                 <SimpleHero title="Spectrum Stack App" subTitle="Tools" bgGradient={gradientColor} />
 
@@ -87,7 +86,7 @@ const SpectrumStack = () => {
 
                             <ul className="device-head-dots d-flex align-items-center justify-content-end gap-1"><li></li><li></li><li></li></ul>
                         </div>
-                        <div className="tab pt-2">
+                        <div className="tab pt-2 px-2 px-md-4 mb-2">
                             <div className={`tab-pane d-flex align-items-center justify-content-center h-100 ${activeTab === 1 ? "position-relative" : "position-absolute d-none"}`}>
                                 <QuizApp gradientColor={gradientColor} />
                             </div>

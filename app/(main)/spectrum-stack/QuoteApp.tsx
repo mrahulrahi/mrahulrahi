@@ -61,7 +61,7 @@ const QuoteApp = ({ gradientColor, onClick }: QuoteAppProps) => {
     };
 
     return (
-        <div className="quote-wrapper p-4">
+        <div className="quote-wrapper">
             <div className="quote-box d-flex flex-column mb-3">
                 <span className="quote-icon"><FaQuoteLeft /></span>
                 <div className="quote-text" style={{ backgroundImage: gradientColor }}>
