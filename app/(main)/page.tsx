@@ -88,7 +88,7 @@ export default function Home() {
           <div className="stats-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
             <ul className="stats-list d-flex flex-wrap">
               <li className="stats-item">
-                <div className="stats-title text-center">
+                <div className="stats-title">
                   <h4>Why choose me ?</h4>
                   <h3>Stats</h3>
                 </div>

@@ -74,7 +74,7 @@ const About = () => {
             <Button title="Download Resume" style="gradient" url="https://flowcv.com/resume/29mh2gwpwu" icon={<IoIosArrowDropdownCircle />} />
           </div>
 
-          <div className="text-scroll-wrapper mt-4">
+          <div className="text-scroll-wrapper mt-5">
             <div className="text-scroll-list">
               <div className="text-scroll-item">
                 <div className="text-scroll-box">

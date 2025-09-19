@@ -13,9 +13,7 @@
 .icon-link-btn:hover{color: var(--mrr-accent-color);background-color: rgba(255,255,255,0.1);}
 .icon-link-btn+.icon-link-btn{margin-left: 15px;}
 .tools{margin-top: 10px;padding-top: 10px;border-top: 1px solid rgba(255,255,255,0.1);}
-.badge-item{font-size: 25px;margin-right: 10px;}
 .tools h5{margin-bottom: 0;}
-.badge-item:last-child{margin-right: 0;}
 
 @media (min-width:768px){
     .projects-card-item:first-child {width: 100%;}

@@ -4,7 +4,7 @@ import './loading.css'
 
 const Loading = () => {
   return (
-    <ContentContainer className="position-relative min-vh-100" background="dark">
+    <ContentContainer className="loading-container position-relative min-vh-100" background="dark">
       <div className="position-absolute top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center loading-body">
         <main className="loading-main">
           <svg className="ip" viewBox="0 0 256 128" width="256px" height="128px" xmlns="http://www.w3.org/2000/svg">

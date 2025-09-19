@@ -56,7 +56,7 @@ const ProjectCard = ({ card }: Props) => {
                 <p className="mt-auto">{card.para}</p>
                 <div className="tools d-flex justify-content-between align-items-center">
                     <h5>Tools used</h5>
-                    <div className="badge-list d-flex">
+                    <div className="badge-list d-flex gap-2 fs-4">
                         {IconOneComponent && <div className="badge-item text-accent"><IconOneComponent /></div>}
                         {IconTwoComponent && <div className="badge-item text-accent"><IconTwoComponent /></div>}
                         {IconThreeComponent && <div className="badge-item text-accent"><IconThreeComponent /></div>}
