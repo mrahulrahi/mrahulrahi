@@ -34,6 +34,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           </div>
           <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
           <p style="font-size: 12px; color: #999;">This message was sent via your portfolio contact form.</p>
+               <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
+               <a style="color: #555; font-size: 24px;font-weight: 700;line-height: 1;display: flex; align-items: center;" href="https://mrahulrahi.vercel.app/portfolio"><img style="width: 40px; height: 40px; margin-right: 5px;" src="/logo.svg" alt="Logo" /> mrahulrahi</a>
         </div>
       </div>
     `;

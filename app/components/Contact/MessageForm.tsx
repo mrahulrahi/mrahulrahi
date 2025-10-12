@@ -89,7 +89,7 @@ const MessageForm = () => {
           </div>
         </div>
         <div className="d-flex">
-          {showMessage && <p className="mt-1 text-white" role="alert">{message}</p>}
+          {showMessage && <p className="mt-1 text-accent" role="alert">{message}</p>}
           <div className="ms-auto">
             <button type="submit" className="btn btn-gradient" disabled={isSubmitting}>
               {isSubmitting ? 'Sending...' : 'Message Me'}

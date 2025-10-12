@@ -113,7 +113,7 @@ const Header = () => {
                             </div>
                         </div>
                         <div className="header-btn d-none d-xl-block" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
-                            <Button title="Hire Me" style='gradient' url="https://t.me/mrahulrahi" />
+                            <Button title="Hire Me" style='gradient' target='_blank' url="https://t.me/mrahulrahi" />
                         </div>
                     </div>
                 </div>
