@@ -23,20 +23,51 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const htmlContent = `
       <div style="font-family: Arial, sans-serif; background-color: #f7f7f7; padding: 30px;">
-        <div style="max-width: 600px; margin: auto; background: #fff; border-radius: 8px; padding: 20px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
-          <h2 style="color: #333; border-bottom: 2px solid #eee; padding-bottom: 10px;">
-            New Message from ${name}
-          </h2>
-          <p style="color: #555; font-size: 15px;"><strong>Email:</strong> ${email}</p>
-          <p style="color: #555; font-size: 15px;"><strong>Subject:</strong> ${subject}</p>
-          <div style="margin-top: 20px;">
-            <p style="color: #444; line-height: 1.6;">${message.replace(/\n/g, "<br>")}</p>
-          </div>
-          <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
-          <p style="font-size: 12px; color: #999;">This message was sent via your portfolio contact form.</p>
-               <hr style="margin: 30px 0; border: none; border-top: 1px solid #eee;">
-               <a style="color: #555; font-size: 24px;font-weight: 700;line-height: 1;display: flex; align-items: center;" href="https://mrahulrahi.vercel.app/portfolio"><img style="width: 40px; height: 40px; margin-right: 5px;" src="/logo.svg" alt="Logo" /> mrahulrahi</a>
+        <div style="max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);">
+    
+    <!-- Header -->
+    <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px 32px; text-align: center;">
+      <h2 style="margin: 0; color: #ffffff; font-size: 24px; font-weight: 600; letter-spacing: -0.5px;">New Message</h2>
+    </div>
+    
+    <!-- Content -->
+    <div style="padding: 40px 32px;">
+      
+      <!-- Sender Info -->
+      <div style="margin-bottom: 32px;">
+        <div style="display: inline-block; background: #f8f9fa; padding: 20px 24px; border-radius: 12px; width: 100%; box-sizing: border-box;">
+          <p style="margin: 0 0 12px 0; color: #6b7280; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px;">From</p>
+          <p style="margin: 0 0 8px 0; color: #111827; font-size: 18px; font-weight: 600;">${name}</p>
+          <p style="margin: 0; color: #6b7280; font-size: 14px;">${email}</p>
         </div>
+      </div>
+      
+      <!-- Subject -->
+      <div style="margin-bottom: 28px;">
+        <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Subject</p>
+        <p style="margin: 0; color: #111827; font-size: 16px; font-weight: 500;">${subject}</p>
+      </div>
+      
+      <!-- Message -->
+      <div style="margin-bottom: 0;">
+        <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">Message</p>
+        <div style="color: #374151; font-size: 15px; line-height: 1.7;">${message.replace(/\n/g, "<br>")}</div>
+      </div>
+      
+    </div>
+    
+    <!-- Footer -->
+    <div style="background: #f8f9fa; padding: 24px 32px; border-top: 1px solid #e5e7eb;">
+      <div style="display: flex; align-items: center; justify-content: space-between;">
+        <a href="https://mrahulrahi.vercel.app/" style="display: flex; align-items: center; text-decoration: none; color: #111827;">
+          <img src="https://mrahulrahi.vercel.app/logo.svg" alt="Logo" style="width: 32px; height: 32px; margin-right: 10px; border-radius: 6px;" />
+          <span style="font-size: 18px; font-weight: 700; letter-spacing: -0.3px;">mrahulrahi</span>
+        </a>
+      </div>
+      <p style="margin: 16px 0 0 0; color: #9ca3af; font-size: 12px; line-height: 1.5;">Sent via portfolio contact form</p>
+    </div>
+    
+  </div>
       </div>
     `;
 
