@@ -2,9 +2,6 @@
 import type { Metadata } from 'next'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
-
-import 'bootstrap/dist/css/bootstrap.css'
-import 'aos/dist/aos.css'
 import './globals.css'
 
 import ImportBsJS from './importBsJS'

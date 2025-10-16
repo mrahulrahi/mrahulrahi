@@ -1,64 +1,94 @@
-"use client";
+'use client';
 import { useState, useEffect } from "react";
-
-interface shape {
-  id: number;
-  x: number;
-  y: number;
-}
+import { motion } from "framer-motion";
 
 export default function MouseFollower() {
-  const [shapes, setShapes] = useState<shape[]>([]);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [isDesktop, setIsDesktop] = useState(false);
 
-  // Handle mouse movement: update cursor and create falling shapes
-  const handleMouseMove = (e: MouseEvent) => {
-    // Update custom cursor position
+  const handleMouseMove = (e:any) => {
     setCursorPosition({ x: e.clientX, y: e.clientY });
-
-    // Create new falling shape
-    const newShape = {
-      id: Date.now(),
-      x: e.clientX,
-      y: e.clientY,
-    };
-    setShapes((prevShapes) => [...prevShapes, newShape]);
-
-    // Remove shapes after animation ends (3 seconds)
-    setTimeout(() => {
-      setShapes((prevShapes) =>
-        prevShapes.filter((shape) => shape.id !== newShape.id)
-      );
-    }, 3000);
   };
 
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
+    // Check if device has mouse/pointer capability
+    const hasPointer = window.matchMedia('(pointer: fine)').matches;
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    setIsDesktop(hasPointer && !isTouch);
+
+    if (hasPointer && !isTouch) {
+      document.body.style.cursor = 'none';
+      window.addEventListener("mousemove", handleMouseMove);
+    }
+
+    return () => {
+      document.body.style.cursor = 'auto';
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   return (
     <>
-      {/* Custom Cursor */}
-      <div
-        className="custom-cursor"
-        style={{
-          left: `${cursorPosition.x}px`,
-          top: `${cursorPosition.y}px`,
+      {/* Ring 1 - Outermost (slowest) */}
+      <motion.div
+        className="cursor-element ring-outer"
+        animate={{
+          x: cursorPosition.x - 40,
+          y: cursorPosition.y - 40,
         }}
-      ></div>
+        transition={{
+          type: "spring",
+          damping: 35,
+          stiffness: 150,
+          mass: 1.2,
+        }}
+      />
 
-      {/* Falling shapes */}
-      {shapes.map((shape) => (
-        <div
-          key={shape.id}
-          className="falling-shape"
-          style={{
-            left: `${shape.x}px`,
-            top: `${shape.y}px`,
-          }}
-        ></div>
-      ))}
+      {/* Ring 2 - Middle */}
+      <motion.div
+        className="cursor-element ring-middle"
+        animate={{
+          x: cursorPosition.x - 28,
+          y: cursorPosition.y - 28,
+        }}
+        transition={{
+          type: "spring",
+          damping: 30,
+          stiffness: 200,
+          mass: 0.9,
+        }}
+      />
+
+      {/* Ring 3 - Innermost (fastest) */}
+      <motion.div
+        className="cursor-element ring-inner"
+        animate={{
+          x: cursorPosition.x - 16,
+          y: cursorPosition.y - 16,
+        }}
+        transition={{
+          type: "spring",
+          damping: 25,
+          stiffness: 250,
+          mass: 0.6,
+        }}
+      />
+
+      {/* Center Dot - Instant follow */}
+      <motion.div
+        className="cursor-element cursor-dot"
+        animate={{
+          x: cursorPosition.x - 8,
+          y: cursorPosition.y - 8,
+        }}
+        transition={{
+          type: "spring",
+          damping: 20,
+          stiffness: 400,
+          mass: 0.3,
+        }}
+      />
     </>
   );
 }
