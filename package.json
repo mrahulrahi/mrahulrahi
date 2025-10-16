@@ -16,6 +16,7 @@
     "motion": "^12.23.24",
     "next": "^15.5.5",
     "nodemailer": "^7.0.9",
+    "prop-types": "^15.8.1",
     "react": "^19.2.0",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.0",
@@ -28,8 +29,6 @@
     "@types/bootstrap": "^5.2.10",
     "@types/node": "^24",
     "@types/nodemailer": "^7.0.2",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "typescript": "^5"
+    "@types/react-dom": "^19"
   }
 }
