@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, JSX } from "react";
 import dynamic from "next/dynamic";
 
 const CountUp = dynamic(() => import("react-countup"), { ssr: false });
