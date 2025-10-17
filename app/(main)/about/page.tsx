@@ -1,6 +1,5 @@
 import Image from 'next/image'
-import InnerHero from '../../components/InnerHero/InnerHero';
-import { IoIosArrowDroprightCircle } from "react-icons/io";
+import Banner from '../../components/Banner/Banner';
 import Button from '../../components/Button';
 import Heading from '../../components/Heading';
 import ContentContainer from '../../components/ContentContainer';
@@ -26,6 +25,35 @@ const HeroHeading = () => {
   </>)
 }
 
+const BackgroundFixedElement = () => {
+  return (<>
+    <ul className="box-animated-bg">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </>)
+}
+
 
 const About = () => {
 
@@ -48,10 +76,9 @@ const About = () => {
 
   return (
     <>
-
-      <InnerHero heading={<HeroHeading />} bgImage='/inner-hero-img.jpg' >
-        <Button title="Featured Work" style="default" url="/portfolio" icon={<IoIosArrowDroprightCircle />} />
-      </InnerHero>
+      <Banner heading={<HeroHeading />} bgImage='/inner-hero-img.jpg' >
+        <Button title="What I do ?" style="default" url="#timelineSection" icon={<IoIosArrowDropdownCircle />} />
+      </Banner>
 
       <ContentContainer className="image-text-block-container" background="gradient-2">
         <div className="itb-content-box d-flex flex-wrap bg-dark overflow-hidden" data-aos="fade-up" suppressHydrationWarning>
@@ -113,32 +140,7 @@ const About = () => {
         </div>
       </ContentContainer>
 
-    <div className="position-relative overflow-hidden">
-        <ul className="box-animated-bg">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-      <ContentContainer background="dark bg-graphic">
+      <ContentContainer background="dark bg-graphic position-relative oveflow-hidden" id="timelineSection" backgroundFixedElement={<BackgroundFixedElement />}>
         <div className="row" data-aos="fade-up" suppressHydrationWarning>
           <div className="col-md-6">
             <div className="sticky-sidebar-box" data-aos="fade-up" suppressHydrationWarning>
@@ -169,7 +171,6 @@ const About = () => {
           </div>
         </div>
       </ContentContainer>
-      </div>
 
       <ContentContainer background="gradient-1" heading="Certificates" >
         <div className="certificate-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>

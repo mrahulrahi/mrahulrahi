@@ -9,14 +9,16 @@ interface Props {
     heading?: string;
     rightHeading?: ReactNode;
     mobileRightHeading?: boolean;
+    backgroundFixedElement?: ReactNode;
 
 }
 
-const ContentContainer = ({ children, background, className, id, column, heading, rightHeading, mobileRightHeading }: Props) => {
+const ContentContainer = ({ children, background, className, id, column, heading, rightHeading, mobileRightHeading, backgroundFixedElement }: Props) => {
 
     return (
         <>
             <section id={id} className={`content-container ` + className + ` bg-` + background}>
+                {backgroundFixedElement}
                 <div className="container">
                     <div className="row">
                         <div className={column === undefined ? 'col-lg-12' : column}>

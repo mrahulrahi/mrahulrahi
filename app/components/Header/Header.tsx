@@ -50,7 +50,7 @@ const Header = () => {
     const links = [
         { path: '/', label: 'Home' },
         { path: '/about', label: 'About' },
-        { path: '/portfolio', label: 'Portfolio' },
+        { path: '/#portfolio', label: 'Portfolio' },
         { path: '#contact', label: 'Contact' },
     ];
 

@@ -4,7 +4,7 @@ import Hero from "../components/Hero/Hero";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import ContentContainer from "../components/ContentContainer";
 import Button from "../components/Button";
-import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { IoIosArrowDroprightCircle, IoIosArrowDropdownCircle } from "react-icons/io";
 import { MdWeb } from "react-icons/md";
 import { FaUserGraduate, FaLayerGroup, FaGitAlt, FaClock, FaArrowRight } from "react-icons/fa6";
 import { Autoplay, Navigation } from 'swiper/modules';
@@ -17,7 +17,20 @@ import MouseFollower from '../components/MouseFollower';
 import Banner from '../components/Banner/Banner'
 import InterestCard from "../components/InterestCard/InterestCard";
 import BlogCard from "../components/BlogCard/BlogCard";
+import Heading from '../components/Heading';
 
+
+const BannerHeadingOne = () => {
+  return (<>
+    My <span className="bg-clip-text bg-gradient-1">Portfolio</span>
+  </>)
+}
+
+const BannerHeadingTwo = () => {
+  return (<>
+    WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span><br />MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span>
+  </>)
+}
 
 export default function Home() {
 
@@ -103,22 +116,30 @@ export default function Home() {
         </ContentContainer>
       </div>
 
+      <div id='portfolio'>
+        <Banner heading={<BannerHeadingOne />} bgImage='/inner-hero-img.jpg'>
+          <Button title='Side Hustle' style='default' url='#sideHustle' icon={<IoIosArrowDropdownCircle />} />
+        </Banner>
 
-      <Banner bgImage='./banner-bg.jpg'>
-        WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span><br />MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span>
-      </Banner>
 
-      <ContentContainer className="projects-card-container" background="gradient-1" heading="Crafted With Code" rightHeading={<a href="/portfolio" className="btn btn-default">View All</a>} mobileRightHeading={true} >
-        <div className="projects-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning >
-          {projectsCards.slice(1, 4).map(card => (
-            <div key={card.id} className="projects-card-item">
-              <ProjectCard card={card} />
+        <ContentContainer className="portfolio-container" background='gradient-2'>
+          <div className="itb-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
+            <Heading heading='Crafted With Code' />
+
+            <div className="work-list d-flex flex-wrap">
+              {projectsCards.map(card => (
+                <div key={card.id} className="work-item" data-aos="fade-up" suppressHydrationWarning>
+                  <ProjectCard card={card} />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </ContentContainer>
+          </div>
+        </ContentContainer>
+      </div>
 
-      <ContentContainer column="col-lg-10 mx-auto" background="dark bg-graphic" heading="Side Hustle" >
+      <Banner heading={<BannerHeadingTwo />} bgImage='./banner-bg.jpg'></Banner>
+
+      <ContentContainer column="col-lg-10 mx-auto" background="dark bg-graphic" heading="Side Hustle" id="sideHustle" >
         <div className="interest-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
           {interest.map(interest => <InterestCard key={interest.id} {...interest} />)}
         </div>
@@ -134,7 +155,7 @@ export default function Home() {
               <FaArrowRight />
             </button>
           </div>
-        } 
+        }
         mobileRightHeading={true} >
 
         {loading && <p>Loading articles...</p>}

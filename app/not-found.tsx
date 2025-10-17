@@ -1,8 +1,8 @@
 'use client'
-
 import Link from "next/link"
-import ContentContainer from "./components/ContentContainer"
 import { Josefin_Sans, Outfit } from 'next/font/google'
+import ContentContainer from "./components/ContentContainer"
+import MouseFollower from './components/MouseFollower';
 
 const josefinSans = Josefin_Sans({
   subsets: ['latin'],
@@ -41,6 +41,7 @@ export default function NotFound({
             </div>
           </div>
         </ContentContainer>
+           <MouseFollower />
       </body>
     </html>
   )
