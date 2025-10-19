@@ -126,9 +126,9 @@ export default function Home() {
           <div className="itb-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
             <Heading heading='Crafted With Code' />
 
-            <div className="work-list d-flex flex-wrap">
+            <div className="project-card-list d-flex flex-wrap">
               {projectsCards.map(card => (
-                <div key={card.id} className="work-item" data-aos="fade-up" suppressHydrationWarning>
+                <div key={card.id} className="project-card-item" data-aos="fade-up" suppressHydrationWarning>
                   <ProjectCard card={card} />
                 </div>
               ))}

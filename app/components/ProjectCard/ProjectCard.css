@@ -1,35 +1,37 @@
-.work-list{width: calc(100% + 40px);margin-left: -20px;margin-bottom: -40px;}
-.work-item{ width: 50%;padding: 0 20px;margin-bottom: 40px;}
-.work-box {padding: 50px 50px 0;border-radius: 10px;flex-flow: column-reverse;overflow: hidden;position: relative;}
-.wb-img-frame{width: 100%;background: rgba(0, 0, 0, 0.25);border: 5px solid rgba(0, 0, 0, 0.25);border-radius: 20px 20px 0 0;border-bottom: 0;overflow: hidden;transform: translateY(10px);transition: all .2s ease-in;}
-.wb-img-head{height: 25px;background: rgba(0, 0, 0, 0.25);padding-bottom: 5px;}
-.wb-ih-dots li{width: 8px;height: 8px;border-radius: 50%;background: rgba(255, 255, 255, 0.25);flex-shrink: 0;}
-.wb-img {width: 100%; align-self: end;aspect-ratio: 16/9;background: rgba(0, 0, 0, 0.25);}
-.wb-img img {width: 100%;height: 100%;object-fit: contain;border-radius: 12px 12px 0 0;}
-.wb-text {width: 100%;font-size: 14px; line-height: 1.6;margin-bottom: 30px;}
-.wb-text h3 {font-size: 16px;margin-bottom: 15px;text-transform: uppercase;}
-.wb-text h5 {font-size: 28px;margin-bottom: 15px;}
-.arrow-icon{margin-left: 10px;width: 20px;height: 20px;transform: translateX(-5px);transition: all .2s ease-in;}
+.project-card-list{width: calc(100% + 40px);margin-left: -20px;margin-bottom: -40px;}
+.project-card-item{ width: 50%;padding: 0 20px;margin-bottom: 40px;}
+.project-card-box {padding: 50px 50px 0;border-radius: 10px;flex-flow: column-reverse;overflow: hidden;position: relative;}
+.pcb-img-frame{width: 100%;background: rgba(0, 0, 0, 0.25);border: 5px solid rgba(0, 0, 0, 0.25);border-radius: 20px 20px 0 0;border-bottom: 0;overflow: hidden;transform: translateY(10px);transition: all .2s ease-in;}
+.pcb-img-head{height: 25px;background: rgba(0, 0, 0, 0.25);padding-bottom: 5px;}
+.pcb-ih-dots li{width: 8px;height: 8px;border-radius: 50%;background: rgba(255, 255, 255, 0.25);flex-shrink: 0;}
+.pcb-img {width: 100%; align-self: end;aspect-ratio: 16/9;background: rgba(0, 0, 0, 0.25);}
+.pcb-img img {width: 100%;height: 100%;object-fit: contain;border-radius: 12px 12px 0 0;}
+.pcb-text {width: 100%;font-size: 14px; line-height: 1.6;margin-bottom: 20px;}
+.pcb-text h3 {font-size: 16px;margin-bottom: 15px;text-transform: uppercase;}
+.pcb-text h5 {font-size: 30px;margin-bottom: 15px;}
 
-.work-box:hover{color: var(--mrr-white);}
-.work-box:hover .wb-img-frame{transform: translateY(0);}
-.work-box:hover .link-btn .arrow-icon{transform: translateX(0);}
 
-.work-item:nth-child(3n + 1){ width: 100%;}
-.work-item:nth-child(3n + 1) .work-box{flex-flow: row;}
-.work-item:nth-child(3n + 1) .wb-img-frame{width: 55%;}
-.work-item:nth-child(3n + 1) .wb-text {width: 40%;}
+.project-card-box:hover{color: var(--mrr-white);}
+.project-card-box:hover .pcb-img-frame{transform: translateY(0);}
+.link-btn{color: var(--mrr-white);font-size: 14px;font-weight: 400;line-height: 1;}
+.link-icon{width: 40px;height: 40px;font-size: 20px;color: var(--mrr-dark-color);background: var(--mrr-accent-color);transition: all .2s ease-in;}
+.link-arrow{width: 20px;height: 20px;margin-left: 4px;transform: translateX(0);transition: all .2s ease-in;}
+.link-btn:hover{color: var(--mrr-white);}
+.link-btn:hover .link-icon{color: var(--mrr-accent-color);background-color: rgba(255,255,255,0.1);}
+.link-btn:hover .link-arrow{transform: translateX(10px);}
 
-.work-item:nth-child(4n+1) .work-box{background: var(--mrr-dark-color);}
-.work-item:nth-child(4n+2) .work-box{background: #2f415b;}
-.work-item:nth-child(4n+3) .work-box{background: #1f3251;}
-.work-item:nth-child(4n+4) .work-box{background: #14253d;}
+.project-card-item:nth-child(3n + 1){ width: 100%;}
+.project-card-item:nth-child(3n + 1) .project-card-box{flex-flow: row;}
+.project-card-item:nth-child(3n + 1) .pcb-img-frame{width: 55%;}
+.project-card-item:nth-child(3n + 1) .pcb-text {width: 40%;}
 
-.icon-link-btn{width: 45px;height: 45px;font-size: 22px;color: var(--mrr-dark-color);background: var(--mrr-accent-color);}
-.icon-link-btn:hover{color: var(--mrr-accent-color);background-color: rgba(255,255,255,0.1);}
-.icon-link-btn+.icon-link-btn{margin-left: 15px;}
-.tools{margin-top: 10px;padding-top: 10px;border-top: 1px solid rgba(255,255,255,0.1);}
-.tools h5{font-size: 24px;margin-bottom: 0;}
+.project-card-item:nth-child(4n+1) .project-card-box{background: var(--mrr-dark-color);}
+.project-card-item:nth-child(4n+2) .project-card-box{background: #2f415b;}
+.project-card-item:nth-child(4n+3) .project-card-box{background: #1f3251;}
+.project-card-item:nth-child(4n+4) .project-card-box{background: #14253d;}
+
+.tools{margin-top: 10px;padding: 5px 0;border-top: 1px solid rgba(255,255,255,0.1);border-bottom: 1px solid rgba(255,255,255,0.1);}
+.tools h5{font-size: 20px;margin-bottom: 0;}
 
 
 /* =================================================  
@@ -37,31 +39,31 @@
  ================================================= */
 @media (max-width: 991.98px){
 .wi-content {padding: 0 10px;}   
-.wi-content .work-box .wb-text {padding: 30px;}
-.work-box {padding: 30px 30px 0;}
+.wi-content .project-card-box .pcb-text {padding: 30px;}
+.project-card-box {padding: 30px 30px 0;}
 
-.wb-text h3 {font-size: 14px;margin-bottom: 5px;}
-.wb-text h5 {font-size: 20px;margin-bottom: 10px;} 
-.wb-text {width: 100%; margin-bottom:20px;}
-.wb-img {width: 100%;}
+.pcb-text h3 {font-size: 14px;margin-bottom: 5px;}
+.pcb-text h5 {font-size: 20px;margin-bottom: 10px;} 
+.pcb-text {width: 100%;}
+.pcb-img {width: 100%;}
 
-.work-item {width: 100%;}
-.work-item .wb-img-frame {width: 55%;}
-.work-item .wb-text {width: 40%;}
-.work-item .work-box{flex-flow: row;}
+.project-card-item {width: 100%;}
+.project-card-item .pcb-img-frame {width: 55%;}
+.project-card-item .pcb-text {width: 40%;}
+.project-card-item .project-card-box{flex-flow: row;}
 
 }
 
 @media (max-width: 767.98px){
 
-    .work-item .wb-text {width: 100%; margin-bottom:20px;}
-    .work-item .wb-img-frame {width: 100%;}
+    .project-card-item .pcb-text {width: 100%; margin-bottom:20px;}
+    .project-card-item .pcb-img-frame {width: 100%;}
     
-    .work-item {width: 100%;}
-    .work-item .work-box{flex-flow: column-reverse;}
+    .project-card-item {width: 100%;}
+    .project-card-item .project-card-box{flex-flow: column-reverse;}
 
-    .work-item:nth-child(3n + 1){ width: 100%;}
-    .work-item:nth-child(3n + 1) .work-box{flex-flow: column-reverse;}
-    .work-item:nth-child(3n + 1) .wb-img-frame {width: 100%;}
-    .work-item:nth-child(3n + 1) .wb-text {width: 100%;}
+    .project-card-item:nth-child(3n + 1){ width: 100%;}
+    .project-card-item:nth-child(3n + 1) .project-card-box{flex-flow: column-reverse;}
+    .project-card-item:nth-child(3n + 1) .pcb-img-frame {width: 100%;}
+    .project-card-item:nth-child(3n + 1) .pcb-text {width: 100%;}
 }

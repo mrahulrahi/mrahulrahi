@@ -39,15 +39,15 @@ const ProjectCard = ({ card }: Props) => {
     return (
 
         <>
-            <div className="work-box d-flex flex-wrap justify-content-between bg-violet w-100 h-100">
-                <div className="wb-img-frame">
-                    <div className="wb-img-head d-flex align-items-center justify-content-end pe-3">
-                        <ul className="wb-ih-dots d-flex align-items-center justify-content-end gap-1"><li></li><li></li><li></li></ul>
+            <div className="project-card-box d-flex flex-wrap justify-content-between bg-violet w-100 h-100">
+                <div className="pcb-img-frame">
+                    <div className="pcb-img-head d-flex align-items-center justify-content-end pe-3">
+                        <ul className="pcb-ih-dots d-flex align-items-center justify-content-end gap-1"><li></li><li></li><li></li></ul>
                     </div>
-                    <div className="wb-img"> <img src={card.imgUrl} alt="" /> </div>
+                    <div className="pcb-img"> <img src={card.imgUrl} alt="" /> </div>
                 </div>
 
-                <div className="wb-text d-flex flex-column">
+                <div className="pcb-text d-flex flex-column">
                     <h3 className="bg-clip-text bg-gradient-1 fw-bold"> {card.label} </h3>
                     <h5> {card.title} </h5>
                     <p className="mb-2"> {card.para}</p>
@@ -60,14 +60,16 @@ const ProjectCard = ({ card }: Props) => {
                             {IconFourComponent && <div className="badge-item text-accent"><IconFourComponent /></div>}
                         </div>
                     </div>
-                    <span className="link-btn d-flex flex-wrap align-items-center mt-auto d-none">See Project
-                        <div className="arrow-icon d-flex align-items-center justify-content-center"> <FaArrowRightLong /></div></span>
+                    <div className="d-flex align-items-center gap-3 mt-auto">
+                        <a className="link-btn d-flex flex-wrap align-items-center" href={card.liveUrl}>
+                            <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"
+                            ><FaGlobe /></span>See Project
+                            <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div></a>
 
-                    <div className="d-flex position-absolute top-0 end-0 p-4">
-                        <a className="icon-link-btn d-flex align-items-center justify-content-center rounded-circle"
-                            href={card.liveUrl}><FaGlobe /></a>
-                        <a className="icon-link-btn d-flex align-items-center justify-content-center rounded-circle"
-                            href={card.gitHubUrl}><FaGithub /></a>
+                        <a className="link-btn d-flex flex-wrap align-items-center" href={card.gitHubUrl}>
+                            <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"
+                            ><FaGithub /></span>See Github
+                            <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div></a>
                     </div>
                 </div>
             </div>
