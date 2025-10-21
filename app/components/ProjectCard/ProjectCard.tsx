@@ -60,7 +60,7 @@ const ProjectCard = ({ card }: Props) => {
                             {IconFourComponent && <div className="badge-item text-accent"><IconFourComponent /></div>}
                         </div>
                     </div>
-                    <div className="d-flex align-items-center gap-3 mt-auto">
+                    <div className="d-flex flex-wrap align-items-center gap-x-4 gap-y-2 mt-auto">
                         <a className="link-btn d-flex flex-wrap align-items-center" href={card.liveUrl}>
                             <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"
                             ><FaGlobe /></span>See Project

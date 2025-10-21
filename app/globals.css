@@ -32,8 +32,6 @@ a:focus{outline:none;outline-offset:0px;text-decoration:none;color:inherit;}
 ::-moz-placeholder{color:var(--mrr-dark-color);opacity:0.5;}
 :-moz-placeholder{color:var(--mrr-dark-color);opacity:0.5;}
 :-ms-input-placeholder{color:var(--mrr-dark-color);opacity:0.5;}
-.os-animation{opacity:0;}
-.os-animation.animated{opacity:1;}
 img{max-width:100%;border:0;height:auto;}
 h1,h2,h3,h4,h5,h6{margin:0px;padding:0px;margin-bottom:20px;font-family: var(--font-outfit);line-height:1.2;font-weight:600;color:inherit;}
 h1{font-size:58px;}
@@ -196,10 +194,10 @@ p:last-child{margin-bottom:0;}
 
 
 .cursor-element {position: fixed;pointer-events: none; top: 0;left: 0;}        
-.ring-outer {width: 60px;height: 60px;border: 2px solid rgba(17, 212, 134, 0.4);border-radius: 50%;z-index: 9998;}        
-.ring-middle {width: 40px;height: 40px;border: 2px solid rgba(255, 255, 255, 0.6);border-radius: 50%;z-index: 9998;}        
-.ring-inner {width: 20px;height: 20px;border: 2px solid rgba(17, 212, 134, 0.8);border-radius: 50%;z-index: 9998;}        
-.cursor-dot {width: 4px;height: 4px;background-color: var(--mrr-white);border-radius: 50%;box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);z-index: 9999;}
+.ring-outer {width: 60px;height: 60px;border: 2px solid rgba(17, 212, 134, 0.4);border-radius: 50%;z-index: 9999;}        
+.ring-middle {width: 40px;height: 40px;border: 2px solid rgba(255, 255, 255, 0.6);border-radius: 50%;z-index: 9999;}        
+.ring-inner {width: 20px;height: 20px;border: 2px solid rgba(17, 212, 134, 0.8);border-radius: 50%;z-index: 9999;}        
+.cursor-dot {width: 4px;height: 4px;background-color: var(--mrr-white);border-radius: 50%;box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);z-index: 10000 ;}
 
 
 @keyframes boxAnimate {

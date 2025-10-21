@@ -21,8 +21,8 @@
 .link-btn:hover .link-arrow{transform: translateX(10px);}
 
 .project-card-item:nth-child(3n + 1){ width: 100%;}
-.project-card-item:nth-child(3n + 1) .project-card-box{flex-flow: row;}
-.project-card-item:nth-child(3n + 1) .pcb-img-frame{width: 55%;}
+.project-card-item:nth-child(3n + 1) .project-card-box{flex-flow: row;align-items: end;}
+.project-card-item:nth-child(3n + 1) .pcb-img-frame{width: 55%;display: flex;flex-flow: column;justify-content: end;}
 .project-card-item:nth-child(3n + 1) .pcb-text {width: 40%;}
 
 .project-card-item:nth-child(4n+1) .project-card-box{background: var(--mrr-dark-color);}

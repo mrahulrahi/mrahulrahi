@@ -5,11 +5,11 @@ import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
 const Footer = () => {
 
   const links = [
-    { 'path': '/', 'label': 'Home' },
-    { 'path': '/about', 'label': 'About' },
-    { 'path': '/portfolio', 'label': 'Portfolio' },
-    { 'path': '#contact', 'label': 'Contact' },
-  ]
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'About' },
+    { path: '/#portfolio', label: 'Portfolio' },
+    { path: '#contact', label: 'Contact' },
+  ];
 
   return (
     <footer id="footer" className="footer bg-dark">

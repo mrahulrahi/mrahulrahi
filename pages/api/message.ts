@@ -69,7 +69,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           <div style="display: flex; align-items: center; justify-content: space-between;">
             <a href="https://mrahulrahi.vercel.app/"
               style="display: flex; align-items: center; text-decoration: none; color: #111827;">
-              <img src="https://drive.google.com/file/d/1KhQOoliENvWbfatOnQLSk5XbF1znCS_f/view?usp=drive_link" alt="Logo"
+              <img src="https://drive.google.com/file/d/1KhQOoliENvWbfatOnQLSk5XbF1znCS_f/view?usp=sharing" alt="Logo"
                 style="width: 32px; height: 32px; margin-right: 10px; border-radius: 6px;" />
               <span style="font-size: 18px; font-weight: 700; letter-spacing: -0.3px;">mrahulrahi</span>
             </a>
