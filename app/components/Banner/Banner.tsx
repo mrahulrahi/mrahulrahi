@@ -1,4 +1,5 @@
 import { ReactNode, JSX } from 'react';
+import * as motion from "motion/react-client"
 import './Banner.css'
 
 interface Props {
@@ -16,7 +17,10 @@ const Banner = ({ children, heading, logo, bgImage }: Props) => {
       <div className="container">
         <div className="row">
           <div className="col-md-10 mx-auto">
-            <div className="banner-box d-flex flex-column align-items-center justify-content-center text-center" data-aos="fade-up" suppressHydrationWarning>
+            <motion.div className="banner-box d-flex flex-column align-items-center justify-content-center text-center" initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}>
               {logo && <div className="banner-logo"><img src={logo} alt="Banner Logo" /></div>}
               {heading && <h1>{heading}</h1>}
               {children &&
@@ -24,7 +28,7 @@ const Banner = ({ children, heading, logo, bgImage }: Props) => {
                   {children}
                 </div>
               }
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

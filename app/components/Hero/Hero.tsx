@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import * as motion from "motion/react-client"
 import './Hero.css'
 
 interface Props {
@@ -12,7 +13,10 @@ const Hero = ({ children }: Props) => {
         <div className="row">
           <div className="col-md-12">
             <div className="hero-content d-flex flex-wrap align-items-center justify-content-between">
-              <div className="hero-left" data-aos="fade-right" suppressHydrationWarning>
+              <motion.div className="hero-left" initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}>
                 <div className="hl-content d-flex align-items-center justify-content-center">
                   <div className="hero-img-box d-flex align-items-center justify-content-center position-relative">
                     <div className="hero-img"> <img src="/hero-img.jpg" alt="" /> </div>
@@ -24,9 +28,12 @@ const Hero = ({ children }: Props) => {
                     <div className="hero-icon hi-4"> <img src="/react.png" alt="" /> </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              <div className="hero-right d-flex align-items-center justify-content-center" data-aos="fade-left" suppressHydrationWarning>
+              <motion.div className="hero-right d-flex align-items-center justify-content-center" initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}>
                 <div className="hr-content">
                   <h3><span className="bg-clip-text bg-gradient-1">Hey!</span> ✌️ I'm</h3>
                   <h1>Rahul <span className="bg-clip-text bg-gradient-1">Maurya</span>❣️</h1>
@@ -36,7 +43,7 @@ const Hero = ({ children }: Props) => {
                     {children}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>

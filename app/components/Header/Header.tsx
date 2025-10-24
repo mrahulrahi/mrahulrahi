@@ -1,4 +1,5 @@
 'use client';
+import * as motion from "motion/react-client"
 import './Header.css';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
@@ -66,30 +67,37 @@ const Header = () => {
             <nav className="navbar navbar-expand-xl">
                 <div className="container">
                     <div className="nav-inside d-flex align-items-center justify-content-between">
-                        <Link className="navbar-logo" href="/" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
+                        <motion.a className="navbar-logo" href="/" initial={{ opacity: 0, filter: 'blur(10px)' }}
+                            whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            viewport={{ once: true, amount: 0.2 }}>
                             <img src="/logo.svg" alt="Logo" />
-                        </Link>
-                        <button
+                        </motion.a>
+                        <motion.button
                             id="navbarToggle"
                             className={`navbar-toggler ${isOpen ? '' : 'collapsed'}`}
                             type="button"
                             aria-controls="collapsable-nav"
                             aria-expanded={isOpen}
                             aria-label="Toggle navigation"
-                            data-aos="fade-zoom-in"
-                            data-aos-easing="ease-in-back"
                             onClick={toggleNavbar}
-                            suppressHydrationWarning
+                            initial={{ opacity: 0, filter: 'blur(10px)' }}
+                            whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            viewport={{ once: true, amount: 0.2 }}
                         >
                             <span className="navbar-toggler-icon"></span>
-                        </button>
+                        </motion.button>
                         <div
                             className={`collapse navbar-collapse justify-content-center ${isOpen ? 'show' : ''}`}
                             id="collapsable-nav"
                             ref={navbarRef}
                         >
                             <div className="navbar-inside">
-                                <ul className="navbar-nav" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
+                                <motion.ul className="navbar-nav" initial={{ opacity: 0, filter: 'blur(10px)' }}
+                                    whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                    viewport={{ once: true, amount: 0.2 }}>
                                     {links.map(link => (
                                         <li key={link.path} className={`${link.path === currentPath ? 'active' : ''} nav-item`}>
                                             <Link className="nav-link" href={link.path} onClick={handleLinkClick}>
@@ -100,7 +108,7 @@ const Header = () => {
                                     <div className="nav-item header-btn mx-auto d-xl-none">
                                         <Button title="Hire Me" style='gradient' />
                                     </div>
-                                </ul>
+                                </motion.ul>
                                 <div className="navbar-bottom mt-auto d-xl-none">
                                     <div className="social-links d-flex align-items-center justify-content-center">
                                         {socialLinks.map(link => (
@@ -112,9 +120,12 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="header-btn d-none d-xl-block" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" suppressHydrationWarning>
+                        <motion.div className="header-btn d-none d-xl-block" initial={{ opacity: 0, filter: 'blur(10px)' }}
+                            whileInView={{ opacity: 1, filter: 'blur(0px)' }}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
+                            viewport={{ once: true, amount: 0.2 }}>
                             <Button title="Hire Me" style='gradient' target='_blank' url="https://t.me/mrahulrahi" />
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </nav>

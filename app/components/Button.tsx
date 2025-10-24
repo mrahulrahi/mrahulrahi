@@ -11,10 +11,9 @@ interface Button {
 const Button = (props: Button) => {
   return (
     <a href={props.url} target={props.target} className={`btn btn-${props.style} d-flex align-items-center`}>
+      {props.icon && <span className="btn-icon left">{props.icon}</span>}
       {props.title}
-      {props.icon && <i className="btn-icon d-flex align-items-center justify-content-center ms-2">
-        {props.icon}
-      </i>}
+      {props.icon && <span className="btn-icon right">{props.icon}</span>}
     </a>
   )
 }

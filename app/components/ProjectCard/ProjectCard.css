@@ -13,6 +13,7 @@
 
 .project-card-box:hover{color: var(--mrr-white);}
 .project-card-box:hover .pcb-img-frame{transform: translateY(0);}
+.pcb-cta{gap: 8px 24px;}
 .link-btn{color: var(--mrr-white);font-size: 14px;font-weight: 400;line-height: 1;}
 .link-icon{width: 40px;height: 40px;font-size: 20px;color: var(--mrr-dark-color);background: var(--mrr-accent-color);transition: all .2s ease-in;}
 .link-arrow{width: 20px;height: 20px;margin-left: 4px;transform: translateX(0);transition: all .2s ease-in;}
@@ -30,8 +31,8 @@
 .project-card-item:nth-child(4n+3) .project-card-box{background: #1f3251;}
 .project-card-item:nth-child(4n+4) .project-card-box{background: #14253d;}
 
-.tools{margin-top: 10px;padding: 5px 0;border-top: 1px solid rgba(255,255,255,0.1);border-bottom: 1px solid rgba(255,255,255,0.1);}
-.tools h5{font-size: 20px;margin-bottom: 0;}
+.pcb-tools{margin-top: 10px;padding: 5px 0;border-top: 1px solid rgba(255,255,255,0.1);border-bottom: 1px solid rgba(255,255,255,0.1);}
+.pcb-tools h5{font-size: 20px;margin-bottom: 0;}
 
 
 /* =================================================  
@@ -50,7 +51,7 @@
 .project-card-item {width: 100%;}
 .project-card-item .pcb-img-frame {width: 55%;}
 .project-card-item .pcb-text {width: 40%;}
-.project-card-item .project-card-box{flex-flow: row;}
+.project-card-item .project-card-box{flex-flow: row;align-items: end;}
 
 }
 

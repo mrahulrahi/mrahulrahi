@@ -51,7 +51,7 @@ const ProjectCard = ({ card }: Props) => {
                     <h3 className="bg-clip-text bg-gradient-1 fw-bold"> {card.label} </h3>
                     <h5> {card.title} </h5>
                     <p className="mb-2"> {card.para}</p>
-                    <div className="tools d-flex justify-content-between align-items-center mb-3">
+                    <div className="pcb-tools d-flex justify-content-between align-items-center mb-3">
                         <h5>Tools used</h5>
                         <div className="badge-list d-flex gap-2 fs-4">
                             {IconOneComponent && <div className="badge-item text-accent"><IconOneComponent /></div>}
@@ -60,7 +60,7 @@ const ProjectCard = ({ card }: Props) => {
                             {IconFourComponent && <div className="badge-item text-accent"><IconFourComponent /></div>}
                         </div>
                     </div>
-                    <div className="d-flex flex-wrap align-items-center gap-x-4 gap-y-2 mt-auto">
+                    <div className="pcb-cta d-flex flex-wrap align-items-center mt-auto">
                         <a className="link-btn d-flex flex-wrap align-items-center" href={card.liveUrl}>
                             <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"
                             ><FaGlobe /></span>See Project

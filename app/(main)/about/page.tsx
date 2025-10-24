@@ -1,3 +1,4 @@
+import * as motion from "motion/react-client"
 import Image from 'next/image'
 import Banner from '../../components/Banner/Banner';
 import Button from '../../components/Button';
@@ -6,7 +7,7 @@ import ContentContainer from '../../components/ContentContainer';
 import CertificateCard from '../../components/CertificateCard/CertificateCard';
 import SkillCard from '../../components/SkillCard/SkillCard';
 import { timelineItems, certificates } from '../../data/staticData';
-import { IoIosArrowDropdownCircle } from "react-icons/io";
+import { TiArrowDownOutline } from "react-icons/ti";
 import { TbBrandNextjs, TbBrandTailwind } from "react-icons/tb";
 import { SiAdobexd } from "react-icons/si";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
@@ -77,17 +78,26 @@ const About = () => {
   return (
     <>
       <Banner heading={<HeroHeading />} bgImage='/inner-hero-img.jpg' >
-        <Button title="What I do ?" style="default" url="#timelineSection" icon={<IoIosArrowDropdownCircle />} />
+        <Button title="What I do ?" style="default" url="#timelineSection" icon={<TiArrowDownOutline />} />
       </Banner>
 
       <ContentContainer className="image-text-block-container" background="gradient-2">
-        <div className="itb-content-box d-flex flex-wrap bg-dark overflow-hidden" data-aos="fade-up" suppressHydrationWarning>
-          <div className="itb-img-box d-flex align-items-center justify-content-center" data-aos="fade-right" suppressHydrationWarning>
+        <motion.div className="itb-content-box d-flex flex-wrap bg-dark overflow-hidden" initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}>
+          <motion.div className="itb-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}>
             <div className="itb-img">
               <Image src="/hero-img.jpg" alt="" width={1000} height={1000} />
             </div>
-          </div>
-          <div className="itb-text" data-aos="fade-left" suppressHydrationWarning>
+          </motion.div>
+          <motion.div className="itb-text" initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}>
             <h4><span className="bg-clip-text bg-gradient-1">Hello,</span> I'm</h4>
             <h2>Rahul Maurya</h2>
             <h5>Web Developer</h5>
@@ -98,8 +108,8 @@ const About = () => {
               to-the-point and as content-packed as possible, so if that sounds like your cup of tea,
               a sub would be massively appreciated! 🙏</p>
             <p>Stack - <span className="text-accent fw-bold">MERN</span> Stack</p>
-            <Button title="Download Resume" style="gradient" url="https://flowcv.com/resume/29mh2gwpwu" icon={<IoIosArrowDropdownCircle />} />
-          </div>
+            <Button title="Download Resume" style="gradient" url="https://flowcv.com/resume/29mh2gwpwu" icon={<TiArrowDownOutline />} />
+          </motion.div>
 
           <div className="text-scroll-wrapper mt-5">
             <div className="text-scroll-list">
@@ -127,57 +137,85 @@ const About = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="itb-skill-box d-flex flex-column bg-dark" data-aos="fade-up" suppressHydrationWarning>
+        <motion.div className="itb-skill-box d-flex flex-column bg-dark" initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}>
           <Heading heading="Skills" />
 
-          <div className="skill-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
+          <motion.div className="skill-card-list d-flex flex-wrap" initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}>
             {skills.map(skill => <div key={skill.id} className="skill-card-item flex-grow-1">
               <SkillCard skill={skill} />
             </div>)}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </ContentContainer>
 
       <ContentContainer background="dark bg-graphic position-relative oveflow-hidden" id="timelineSection" backgroundFixedElement={<BackgroundFixedElement />}>
-        <div className="row" data-aos="fade-up" suppressHydrationWarning>
+        <motion.div className="row" initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}>
           <div className="col-md-6">
-            <div className="sticky-sidebar-box" data-aos="fade-up" suppressHydrationWarning>
-              <div className="timeline-img-box d-flex align-items-center justify-content-center" data-aos="fade-up" suppressHydrationWarning><img src="/rahi.webp" alt="" /></div>
-            </div>
+            <Heading heading="What I do" className="d-md-none" />
+            <motion.div className="sticky-sidebar-box" initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}>
+              <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}><img src="/rahi.webp" alt="" /></motion.div >
+            </motion.div>
           </div>
 
           <div className="col-md-6">
-            <div className="sticky-content-box" data-aos="fade-up" suppressHydrationWarning>
+            <motion.div className="sticky-content-box" initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}>
               <div className="main-container d-flex flex-wrap">
-                <Heading heading="What I do" />
+                <Heading heading="What I do" className="d-none d-md-flex" />
 
-                <div className="timeline-container" data-aos="fade-up" suppressHydrationWarning>
-                  <div className="timeline" data-aos="fade-up" suppressHydrationWarning>
+                <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.2 }}>
+                  <motion.div className="timeline" initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}>
                     {timelineItems.map(item =>
-                      <div key={item.id} className="timeline-item" data-aos="fade-up" suppressHydrationWarning>
+                      <motion.div key={item.id} className="timeline-item" >
                         <div className="timeline-content">
                           <h3 className="timeline-content-title">{item.title}</h3>
                           <ul className="timeline-content-desc">
                             {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
                           </ul>
                         </div>
-                      </div>)}
-                  </div>
-                </div>
+                      </motion.div>)}
+                  </motion.div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </ContentContainer>
 
       <ContentContainer background="gradient-1" heading="Certificates" >
-        <div className="certificate-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
+        <motion.div className="certificate-card-list d-flex flex-wrap" initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}>
           {certificates.map(item => <div key={item.id} className="certificate-card-item">
             <CertificateCard item={item} />
           </div>)}
-        </div>
+        </motion.div>
       </ContentContainer>
       <MouseFollower />
     </ >

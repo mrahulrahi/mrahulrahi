@@ -1,5 +1,4 @@
 @import url('bootstrap/dist/css/bootstrap.css');
-@import url('aos/dist/aos.css');
 
 :root {
   --mrr-white: #FFF;
@@ -46,8 +45,21 @@ b{font-weight:400;}
 p:last-child{margin-bottom:0;}
 
 .btn {min-width: 160px;width: fit-content;border-radius: 80px;padding: 16px 20px;font-family: var(--font-outfit);font-size: 16px;font-weight: 700;line-height: 1;box-shadow: none;position: relative;justify-content: center;}
+
+
+.btn:has(.btn-icon) {position: relative;display: inline-flex;align-items: center;min-height: 50px;padding: 6px 25px;padding-right: 60px;font-size: 18px;font-weight: 600;line-height:1;letter-spacing: 0.02em;text-align: left;border-radius: 25px;box-shadow:none;border: 0;overflow: hidden;transition: all 0.3s ease-in-out;}
+.btn-icon{width: 40px;height: 40px;position: absolute;top: 50%;display: flex;align-items: center;justify-content: center;transition: all 0.3s ease-in-out;background: rgba(255,255,255, 0.25);}
+.btn-icon i{transition: all 0.3s ease-in-out;}
+.btn:has(.btn-icon):hover {padding-left: 60px;padding-right: 25px;}
+.btn:has(.btn-icon):hover .btn-icon{will-change: transform;transform-origin: 50% 50% 0px;}
+.btn-icon.left{left: 6px;transform: translateY(-50%) translateX( -60px) scale(0.1);filter: blur(7px);opacity: 0;border-radius: 0;}
+.btn:has(.btn-icon):hover .btn-icon.left{transform: translatey(-50%) translateX(0) scale(1);filter: blur(0px);opacity: 1;border-radius: 50%;}
+.btn-icon.right{right: 6px;transform: translateY(-50%) translateX(0) scale(1);filter: blur(0px);opacity: 1;border-radius: 50%;}
+.btn:has(.btn-icon):hover .btn-icon.right{transform: translateY(-50%) translateX(60px) scale(0.1);filter: blur(7px);opacity: 0;border-radius: 0;}
+
 .btn-default,.btn-default:focus { color: var(--mrr-dark-color);background-color: var(--mrr-white);border: solid 2px var(--mrr-white); }
-.btn-default:hover,.btn-default:active { color: var(--mrr-white)!important;background-color: transparent!important;border-color: var(--mrr-white)!important;}
+.btn-default:hover,.btn-default:active { color: var(--mrr-dark-color)!important;background-color: var(--mrr-white)!important;border-color: var(--mrr-white)!important;}
+.btn-default .btn-icon { background-color: var(--mrr-dark-color);color: var(--mrr-white);}
 .btn-violet,.btn-violet:focus { color: var(--mrr-white);background-color: var(--mrr-dark-color);border: solid 2px var(--mrr-dark-color); }
 .btn-violet:hover,.btn-violet:active { color: var(--mrr-dark-color)!important;background-color: transparent!important;border-color: var(--mrr-dark-color)!important;}
 .btn-green,.btn-green:focus { color: var(--mrr-white);background-color: var(--mrr-main-color);border: solid 2px var(--mrr-main-color); }
@@ -56,10 +68,6 @@ p:last-child{margin-bottom:0;}
 .btn-gradient:hover,.btn-gradient:active { background-position: right center;color: var(--mrr-white);text-decoration: none;transform: scale(0.95);}
 .btn-gradient-dark,.btn-gradient-dark:focus { transition: 0.5s;background-size: 200% auto;color: var(--mrr-white);display: block;box-shadow: 0px 0px 14px -7px #1B9C85;background-image: linear-gradient(45deg, #26354E 0%, #1B9C85  51%, #26354E  100%);user-select: none;-webkit-user-select: none;touch-action: manipulation;}
 .btn-gradient-dark:hover,.btn-gradient-dark:active { background-position: right center;color: var(--mrr-white);text-decoration: none;transform: scale(0.95);}
-
-.btn-icon{color: inherit;transition: all .2s ease-in-out;}
-.btn:hover .btn-icon{transform: rotate(-45deg);}
-.btn:has(.btn-icon){justify-content: space-between;}
 .btn.btn-block{min-width: 100%;}
 .bottom-btn-box{margin-top: 40px;}
 
@@ -211,7 +219,7 @@ p:last-child{margin-bottom:0;}
     }
 }
 
-.box-animated-bg {width: 100%;height: 100%;position: absolute; top: 0;left: 0;overflow: hidden;}
+.box-animated-bg {width: 100%;height: 100%;position: absolute; top: 0;left: 0;overflow: hidden;filter: blur(10px);}
 .box-animated-bg li {position: absolute;display: block;list-style: none;width: 20px;height: 20px;background: rgba(255, 255, 255);border-radius: 20%;animation: boxAnimate 14s linear infinite;opacity: 0.2;}
 
 

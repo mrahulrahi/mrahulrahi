@@ -1,12 +1,13 @@
 'use client';
 import { useEffect, useState } from "react";
+import * as motion from "motion/react-client"
 import Hero from "../components/Hero/Hero";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import ContentContainer from "../components/ContentContainer";
 import Button from "../components/Button";
-import { IoIosArrowDroprightCircle, IoIosArrowDropdownCircle } from "react-icons/io";
+import { TiArrowRightOutline, TiArrowDownOutline } from "react-icons/ti";
 import { MdWeb } from "react-icons/md";
-import { FaUserGraduate, FaLayerGroup, FaGitAlt, FaClock, FaArrowRight } from "react-icons/fa6";
+import { FaUserGraduate, FaLayerGroup, FaGitAlt, FaClock } from "react-icons/fa6";
 import { Autoplay, Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -93,12 +94,15 @@ export default function Home() {
         </ul>
 
         <Hero>
-          <Button title="🔍 About Me" style="default" url="/about" icon={<IoIosArrowDroprightCircle />} />
-          <Button title="💼 Portfolio" style="default" url="/portfolio" icon={<IoIosArrowDroprightCircle />} />
+          <Button title="🔍 About Me" style="default" url="/about" icon={<TiArrowRightOutline />} />
+          <Button title="💼 Portfolio" style="default" url="#portfolio" icon={<TiArrowDownOutline />} />
         </Hero>
 
         <ContentContainer className="pt-0" column="col-xl-10 mx-auto">
-          <div className="stats-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
+          <motion.div className="stats-content-box bg-gradient-1 position-relative z-3" initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}>
             <ul className="stats-list d-flex flex-wrap">
               <li className="stats-item">
                 <div className="stats-title">
@@ -112,47 +116,56 @@ export default function Home() {
               <StatCard icon={<FaClock />} countEnd={1500} suffix=" +" description="Hours of code" />
               <StatCard icon={<FaGitAlt />} countEnd={2000} suffix=" +" description="Total Github Contributions" />
             </ul>
-          </div>
+          </motion.div>
         </ContentContainer>
       </div>
 
       <div id='portfolio'>
         <Banner heading={<BannerHeadingOne />} bgImage='/inner-hero-img.jpg'>
-          <Button title='Side Hustle' style='default' url='#sideHustle' icon={<IoIosArrowDropdownCircle />} />
+          <Button title='Side Hustle' style='default' url='#sideHustle' icon={<TiArrowDownOutline />} />
         </Banner>
 
 
         <ContentContainer className="portfolio-container" background='gradient-2'>
-          <div className="itb-content-box bg-gradient-1" data-aos="fade-up" suppressHydrationWarning>
+          <motion.div className="itb-content-box bg-gradient-1" initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}>
             <Heading heading='Crafted With Code' />
 
             <div className="project-card-list d-flex flex-wrap">
               {projectsCards.map(card => (
-                <div key={card.id} className="project-card-item" data-aos="fade-up" suppressHydrationWarning>
+                <motion.div key={card.id} className="project-card-item" initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.2 }}>
                   <ProjectCard card={card} />
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         </ContentContainer>
       </div>
 
       <Banner heading={<BannerHeadingTwo />} bgImage='./banner-bg.jpg'></Banner>
 
       <ContentContainer column="col-lg-10 mx-auto" background="dark bg-graphic" heading="Side Hustle" id="sideHustle" >
-        <div className="interest-card-list d-flex flex-wrap" data-aos="fade-up" suppressHydrationWarning>
+        <motion.div className="interest-card-list d-flex flex-wrap" initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}>
           {interest.map(interest => <InterestCard key={interest.id} {...interest} />)}
-        </div>
+        </motion.div>
       </ContentContainer>
 
       <ContentContainer background="gradient-1 bg-graphic overflow-hidden" heading="Dev.to's latest articles"
         rightHeading={
           <div className="custom-arrow-container d-flex justify-content-between">
             <button className="custom-arrow-button custom-arrow-prev blog-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
-              <FaArrowRight />
+              <TiArrowRightOutline />
             </button>
             <button className="custom-arrow-button custom-arrow-next blog-arrow-next bg-glass d-flex align-items-center justify-content-center rounded-circle">
-              <FaArrowRight />
+              <TiArrowRightOutline />
             </button>
           </div>
         }
@@ -161,20 +174,25 @@ export default function Home() {
         {loading && <p>Loading articles...</p>}
         {error && <p className="text-red-500">Error: {error}</p>}
         {!loading && !error && (
+          <motion.div initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}>
+            <Swiper
+              breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
+              navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
+              modules={[Autoplay, Navigation]}
+              slidesPerView={1}
+              spaceBetween={30}
+              className="blog-card-list d-flex flex-wrap overflow-visible">
+              {articles.slice(0, 10).map((article: any) => (
+                <SwiperSlide className="blog-card-item h-auto" key={article.id}>
+                  <BlogCard {...article} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </motion.div>
 
-          <Swiper
-            breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
-            navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
-            modules={[Autoplay, Navigation]}
-            slidesPerView={1}
-            spaceBetween={30}
-            className="blog-card-list d-flex flex-wrap overflow-visible" data-aos="fade-up" suppressHydrationWarning>
-            {articles.slice(0, 10).map((article: any) => (
-              <SwiperSlide className="blog-card-item h-auto" key={article.id}>
-                <BlogCard {...article} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
         )}
       </ContentContainer>
 

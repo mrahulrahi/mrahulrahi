@@ -4,7 +4,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import './globals.css'
 import ImportBsJS from './importBsJS'
-import ImportAOS from './importAOS'
 
 import { Josefin_Sans, Outfit } from 'next/font/google'
 
@@ -36,7 +35,6 @@ export default function RootLayout({
       <body>
         {children}
         <ImportBsJS />
-        <ImportAOS />
         <SpeedInsights />
         <Analytics />
       </body>

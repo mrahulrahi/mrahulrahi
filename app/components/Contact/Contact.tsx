@@ -1,3 +1,4 @@
+import * as motion from "motion/react-client"
 import Button from '../Button'
 import './Contact.css'
 import ContentContainer from '../ContentContainer'
@@ -8,7 +9,10 @@ import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
 const Contact = () => {
   return (
     <ContentContainer background="dark" id="contact" className="contact-container" heading="Contact Me" rightHeading={<Button title="Hire Me" style="default" target='_blank' url="https://t.me/mrahulrahi" />} mobileRightHeading={false}>
-      <div className="d-flex flex-wrap justify-content-between" data-aos="fade-up" suppressHydrationWarning>
+      <motion.div className="d-flex flex-wrap justify-content-between"    initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}>
         <div className="contact-box">
           <h4 className="bg-clip-text bg-gradient-1">Get in Touch</h4>
           <p>Let me get you a beautiful website.</p>
@@ -28,7 +32,7 @@ const Contact = () => {
           <div className="form-label">Have a Project in Mind? Let's Build It.</div>
           <MessageForm />
         </div>
-      </div>
+      </motion.div>
     </ContentContainer>
   );
 };
