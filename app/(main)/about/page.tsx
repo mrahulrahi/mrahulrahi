@@ -81,20 +81,20 @@ const About = () => {
         <Button title="What I do ?" style="default" url="#timelineSection" icon={<TiArrowDownOutline />} />
       </Banner>
 
-      <ContentContainer className="image-text-block-container" background="gradient-2">
-        <motion.div className="itb-content-box d-flex flex-wrap bg-dark overflow-hidden" initial={{ opacity: 0, y: 50 }}
+      <ContentContainer className="about-intro-container" background="gradient-2">
+        <motion.div className="ai-content-box d-flex flex-wrap bg-dark overflow-hidden" initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}>
-          <motion.div className="itb-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, x: -50 }}
+          <motion.div className="ai-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
-            <div className="itb-img">
+            <div className="ai-img">
               <Image src="/hero-img.jpg" alt="" width={1000} height={1000} />
             </div>
           </motion.div>
-          <motion.div className="itb-text" initial={{ opacity: 0, x: 50 }}
+          <motion.div className="ai-text" initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
@@ -139,7 +139,7 @@ const About = () => {
           </div>
         </motion.div>
 
-        <motion.div className="itb-skill-box d-flex flex-column bg-dark" initial={{ opacity: 0, y: 50 }}
+        <motion.div className="ai-skill-box d-flex flex-column bg-dark" initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}>

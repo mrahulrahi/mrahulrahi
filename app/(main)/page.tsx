@@ -127,7 +127,7 @@ export default function Home() {
 
 
         <ContentContainer className="portfolio-container" background='gradient-2'>
-          <motion.div className="itb-content-box bg-gradient-1" initial={{ opacity: 0, y: 50 }}
+          <motion.div className="ai-content-box bg-gradient-1" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
