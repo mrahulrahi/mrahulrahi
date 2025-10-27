@@ -1,0 +1,52 @@
+@import "tailwindcss";
+@plugin '@tailwindcss/forms';
+@plugin "daisyui";
+  
+@theme {
+  --color-black: #18181b;
+  --color-white: #fff;
+  --color-grey: #afafaf;
+  --color-first: #242c2e;
+  --color-second: #d9eddf;
+  --color-third: #2ecc71;
+  --color-fourth: #7edca4;
+  --font-oswald: 'Oswald', sans-serif;
+  --font-varelaRound: 'Varela Round', sans-serif;
+}
+  
+@layer base {
+  /* =================reset css starts here=================  */
+  *{@apply m-0 p-0}
+  html{scroll-behavior: smooth;scroll-padding-top: 70px;}
+  h1,h2,h3,h4,h5,h6,p,ul,li,body,html,form,fieldset{@apply m-0 p-0 outline-0 border-0}
+  a{@apply no-underline border-0 outline-0}
+  ul{@apply list-none}
+  a:focus,input:focus,textarea:focus,*:focus{@apply outline-none}
+  img {-webkit-user-drag: none;}
+  /* =================reset css ends here================= */
+  /* =================core css starts here================= */
+  body{@apply min-h-screen font-varelaRound text-sm font-normal leading-normal text-white bg-gradient-to-b from-[#111827] to-[#1F2937] antialiased}
+  a,input,button{@apply inline-block no-underline text-inherit outline-0 transition-all duration-200 ease-in;}
+  a img{@apply border-0}
+  a:hover{@apply outline-0 text-first no-underline}
+  a:active{@apply outline-0 no-underline}
+  a:focus{@apply outline-0 outline-offset-0 no-underline text-inherit}
+  ::-webkit-input-placeholder{@apply text-first/50}
+  ::-moz-placeholder{@apply text-first/50}
+  :-moz-placeholder{@apply text-first/50}
+  :-ms-input-placeholder{@apply text-first/50}
+  img{@apply max-w-full border-0 h-auto}
+  h1,h2,h3,h4,h5,h6{@apply m-0 p-0 mb-6 font-oswald leading-[1.2] font-semibold text-inherit}
+  h1{@apply text-[58px] font-extrabold}
+  h2{@apply text-5xl}
+  h3{@apply text-[40px]}
+  h4{@apply text-3xl}
+  h5{@apply text-2xl}
+  h6{@apply text-xl}
+  p{@apply m-0 p-0 mb-6 text-grey}
+  strong{@apply font-bold}
+  b{@apply font-normal}
+  p:last-child{@apply mb-0}
+    /* =================core css ends here================= */
+}
+  
