@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import './SpectrumStack.css'
-import SimpleHero from '../../components/SimpleHero/SimpleHero.js';
+import SimpleHero from '../../components/SimpleHero.js';
 import { FaDiceFour, FaCalculator, FaNoteSticky, FaCloudSun, FaQuoteRight } from 'react-icons/fa6';
 import { FiCopy } from "react-icons/fi";
 import QuizApp from './QuizApp.jsx';
