@@ -5,7 +5,7 @@ const Header = () => {
     const links = [
         { label: 'Home', href: '/' },
         { label: 'Blog', href: '/blog' },
-        { label: 'Code Stack', href: '/code-stack' }
+        { label: 'Code Stack', href: '/code-stack' },
     ]
 
     return (
@@ -14,7 +14,7 @@ const Header = () => {
                 <div className="navbar h-[80px] flex items-center justify-between gap-2">
                     <a href="/" className="navbar-brand flex items-center gap-2">
                         <div className="navbar-logo w-14"><img className="w-full h-full object-contain" src="/react.svg" alt="logo" /></div>
-                        <span className="text-4xl font-semibold leading-1 text-white">Reactify</span>
+                        <span className="text-4xl font-semibold leading-1 text-white">SpectrumStack</span>
                     </a>
                     <ul className="nav-menu flex gap-4">
                         {links.map(link =>

@@ -60,10 +60,10 @@ const QuoteApp = ( gradientColor, onClick ) => {
         <div className="quote-wrapper">
             <div className="quote-box d-flex flex-column mb-3">
                 <span className="quote-icon"><FaQuoteLeft /></span>
-                <div className="quote-text" style={{ backgroundImage: gradientColor }}>
+                <div className={`quote-text bg-clip-text text-transparent ${gradientColor}`}>
                     {currentQuote}
                 </div>
-                <div className="quote-author mt-auto" style={{ backgroundImage: gradientColor }}>- {currentAuthor}</div>
+                <div className={`quote-author mt-auto bg-clip-text text-transparent ${gradientColor}`}>- {currentAuthor}</div>
             </div>
 
             <div className="quote-btn-group d-flex flex-shrink-0 gap-2">
@@ -76,7 +76,7 @@ const QuoteApp = ( gradientColor, onClick ) => {
                 </button>
 
                 <button className="btn-transparent lg" onClick={updateQuote} >
-                    <span className="btn-transparent-text" style={{ backgroundImage: gradientColor }}>New quote</span>
+                    <span className={`btn-transparent-text bg-clip-text text-transparent ${gradientColor}`}>New quote</span>
                 </button>
             </div>
         </div>

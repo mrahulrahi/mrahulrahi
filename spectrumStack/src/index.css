@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css?family=Raleway:400,500");
-
 @plugin "@tailwindcss/forms";
 @plugin "daisyui";
 
@@ -19,7 +17,7 @@
 @layer base {
   /* =================reset css starts here=================  */
   *{@apply m-0 p-0}
-  html{scroll-behavior: smooth;scroll-padding-top: 70px;}
+  html{@apply scroll-smooth scroll-pt-[70px]}
   h1,h2,h3,h4,h5,h6,p,ul,li,body,html,form,fieldset{@apply m-0 p-0 outline-0 border-0}
   a{@apply no-underline border-0 outline-0}
   ul{@apply list-none}
@@ -28,7 +26,7 @@
   /* =================reset css ends here================= */
   /* =================core css starts here================= */
   body{@apply min-h-screen font-varelaRound text-sm font-normal leading-normal text-white bg-gradient-to-b from-[#111827] to-[#1F2937] antialiased}
-  a,input,button{@apply inline-block no-underline text-inherit outline-0 transition-all duration-200 ease-in;}
+  a,input,button{@apply inline-block no-underline text-inherit outline-0 transition-all duration-200 ease-in}
   a img{@apply border-0}
   a:hover{@apply outline-0 text-first no-underline}
   a:active{@apply outline-0 no-underline}
@@ -49,12 +47,11 @@
   strong{@apply font-bold}
   b{@apply font-normal}
   p:last-child{@apply mb-0}
-    /* =================core css ends here================= */
+  /* =================core css ends here================= */
 }
 
+@layer components {
 
-.gradient-generator-container{height: calc(100vh - 70px);}
-.gradient-generator-container .container,.gradient-generator-container .row {height: 100%;}
 
 .device-frame{width: 100%;background: #222831;border: 5px solid rgba(0, 0, 0, 0.5);border-radius: 25px;overflow: hidden;padding-bottom: 60px;height: 100%;}
 .device-head{height: 25px;background: rgba(0, 0, 0, 0.5);padding-bottom: 5px;}
@@ -315,4 +312,5 @@ form textarea.form-control {min-height: 150px;}
           linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
           linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
           var(--dot-color);
+}
 }

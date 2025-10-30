@@ -15,7 +15,7 @@ import CodeStack from './pages/code-stack/codeStack.jsx';
 import JsStack from './pages/code-stack/jsStack.jsx';
 import PhpStack from './pages/code-stack/phpStack.jsx';
 import CodeStackLayout from "./layouts/CodeStackLayout.jsx";
-import SpectrumStack from './pages/spectrum-stack/spectrumStack.jsx';
+import Tools from './pages/tools/tools.jsx';
 
 
 // Create a client
@@ -46,9 +46,7 @@ createRoot(document.getElementById('root')).render(
               <Route index element={<CodeStack />} />
               <Route path="js-stack" element={<JsStack />} />
               <Route path="php-stack" element={<PhpStack />} />
-            </Route>
-            <Route path="spectru-stack">
-              <Route index element={<SpectrumStack />} />
+              <Route path="tools" element={<Tools />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />

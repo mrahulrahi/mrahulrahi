@@ -10,6 +10,7 @@ const active = location.pathname;
   const links = [
     { title: 'Js Stack', href: '/code-stack/js-stack' },
     { title: 'Php Stack', href: '/code-stack/php-stack' },
+    { title: 'Tools', href: '/code-stack/tools' },
   ];
 
   return (
