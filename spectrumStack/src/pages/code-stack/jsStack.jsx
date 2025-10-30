@@ -41,7 +41,7 @@ const JsStack = () => {
         <>
             <Hero bgImg="https://picsum.photos/1920/1000?random=6" title="" subTitle="JS Stack" lessHeight={true} />
 
-            <div className="container my-20 mx-auto">
+            <div className="container my-20 mx-auto px-5">
                 <div className="grid grid-cols-2 grid-rows-auto gap-4">
                     {/* Palindrome Checker */}
                     <div className="w-full">

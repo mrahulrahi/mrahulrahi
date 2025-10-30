@@ -39,7 +39,7 @@ const active = location.pathname;
               Open drawer
             </label>
           </div>
-          <div className="container mb-10 mx-auto px-5">
+          <div className="w-full mb-10">
          
               <Outlet />
        

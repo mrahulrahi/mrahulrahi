@@ -1,3 +1,4 @@
+/* eslint-disable*/
 import { useState, useEffect } from 'react';
 import { FaPlus, FaXmark, FaEllipsis, FaPen, FaTrash } from 'react-icons/fa6';
 
@@ -147,12 +148,12 @@ const NotesApp = () => {
                                 <p>{isUpdate ? (itemType === 'note' ? 'Update a Note' : 'Update a To-Do') : (itemType === 'note' ? 'Add a new Note' : 'Add a new To-Do')}</p>
                                 <i className="close-icon" onClick={closePopup}><FaXmark /></i>
                             </header>
-                            <div className="view-toggle mb-4 d-flex justify-content-center">
-                                <button onClick={() => setItemType('note')} className={`w-50 btn-toggle ${itemType === 'note' ? 'active' : null}`}>Note</button>
-                                <button onClick={() => setItemType('todo')} className={`w-50 btn-toggle ${itemType === 'todo' ? 'active' : null}`}>To-Do List</button>
+                            <div className="view-toggle mb-6 flex justify-center">
+                                <button onClick={() => setItemType('note')} className={`w-1/2 btn-toggle ${itemType === 'note' ? 'active' : null}`}>Note</button>
+                                <button onClick={() => setItemType('todo')} className={`w-1/2 btn-toggle ${itemType === 'todo' ? 'active' : null}`}>To-Do List</button>
                             </div>
                             <form>
-                                <div className="title mb-4">
+                                <div className="title mb-6">
                                     <label className="form-label mb-1">Title</label>
                                     <input
                                         className="form-control"
@@ -163,7 +164,7 @@ const NotesApp = () => {
                                     />
                                 </div>
                                 {itemType === 'todo' && (
-                                    <div className="tasks mb-4">
+                                    <div className="tasks mb-6">
                                         <label className="form-label mb-1">Tasks</label>
                                         <input
                                             type="text"
@@ -173,10 +174,10 @@ const NotesApp = () => {
                                             className="form-control"
                                         />
 
-                                        <ul className="task-list my-4">
+                                        <ul className="task-list my-6">
                                             {tasks.map(task => (
 
-                                                <li key={task.id} className="d-flex mb-2 align-items-center justify-content-between">
+                                                <li key={task.id} className="flex mb-2 items-center justify-content-between">
                                                     <div className="custom-checkbox-wrapper">
                                                         <label htmlFor={`${task.id}`} className="item">
                                                             <input type="checkbox" id={`${task.id}`} className="hidden" checked={task.completed}
@@ -191,7 +192,7 @@ const NotesApp = () => {
                                                     </div>
 
 
-                                                    <button type="button" className="btn-remove d-flex align-items-center justify-content-center" onClick={() => removeTask(task.id)}>
+                                                    <button type="button" className="btn-remove flex items-center justify-center" onClick={() => removeTask(task.id)}>
                                                         <i className="close-icon"><FaXmark /></i>
                                                     </button>
                                                 </li>
@@ -200,7 +201,7 @@ const NotesApp = () => {
                                     </div>
                                 )}
                                 {itemType === 'note' && (
-                                    <div className="description mb-4">
+                                    <div className="description mb-6">
                                         <label className="form-label mb-1">Description</label>
                                         <textarea
                                             className="form-control"
@@ -210,7 +211,7 @@ const NotesApp = () => {
                                         />
                                     </div>
                                 )}
-                                <div className="d-flex gap-2 mt-4">
+                                <div className="flex gap-2 mt-6">
                                     {itemType === 'todo' && (
                                         <button type="button" className="btn btn-gradient" onClick={addTask}>Add Task</button>)}
                                     <button type="button" className="btn btn-violet" onClick={addItem}>
@@ -238,7 +239,7 @@ const NotesApp = () => {
                                         <span>{item.description}</span>
                                     ) : (
                                         item.tasks?.map(task => (
-                                            <div key={task.id} className="task d-flex align-items-center gap-1">
+                                            <div key={task.id} className="task flex items-center gap-1">
                                                 <div className="custom-checkbox-wrapper">
                                                     <label htmlFor={`${task.id}`} className="item">
                                                         <input type="checkbox" id={`${task.id}`} className="hidden"

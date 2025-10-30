@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
 const WeatherApp = (gradientColor ) => {
+
     const [weather, setWeather] = useState(null);
     const [dailyForecast, setDailyForecast] = useState([]);
     const [city, setCity] = useState('Lucknow');
@@ -62,18 +63,18 @@ const WeatherApp = (gradientColor ) => {
     }
 
     return (
-        <div className="weather-wrapper d-flex flex-column flex-lg-row align-items-center justify-content-center justify-content-xl-start">
-            <div className="weather-today-box d-flex flex-column flex-sm-row flex-lg-column justify-content-between gap-2">
-                <div className={`weather-gradient-bg ${gradientColor}`}></div>
-                <div className="weather-date-box d-flex flex-column gap-2">
+        <div className="weather-wrapper flex flex-col flex-lg-row items-center justify-center xl:justify-start">
+            <div className="weather-today-box flex flex-col sm:flex-row lg:flex-column justify-between gap-2">
+                <div className="weather-gradient-bg" style={gradientColor}></div>
+                <div className="weather-date-box flex flex-col gap-2">
                     <h2>{formatDay(weather.dt).dayName}</h2>
                     <h6>{formatDay(weather.dt).date}</h6>
-                    <div className="weather-location-row d-flex align-items-center gap-1">
-                        <i className="weather-location-icon d-flex align-items-center justify-content-center"><HiOutlineLocationMarker /></i>
+                    <div className="weather-location-row flex items-center gap-1">
+                        <i className="weather-location-icon flex items-center justify-center"><HiOutlineLocationMarker /></i>
                         <h6 className="mb-0">{weather.name}</h6>
                     </div>
                 </div>
-                <div className="weather-weather-box d-flex flex-column gap-2">
+                <div className="weather-weather-box flex flex-col gap-2">
                     <i className="weather-weather-icon">
                         <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
                             alt="Weather Icon" />
@@ -82,10 +83,10 @@ const WeatherApp = (gradientColor ) => {
                     <h4>{weather.weather[0].main}</h4>
                 </div>
             </div>
-            <div className="weather-info-box d-flex flex-column gap-2">
-                <div className="weather-info-top d-flex flex-column flex-xl-row gap-2">
-                    <div className="weather-other-info d-flex flex-column flex-md-row flex-xl-column gap-2">
-                        <div className="weather-today-info d-flex flex-column gap-1 flex-grow-1">
+            <div className="weather-info-box flex flex-col gap-2">
+                <div className="weather-info-top flex flex-col xl:flex-row gap-2">
+                    <div className="weather-other-info flex flex-col md:flex-row xl:flex-column gap-2">
+                        <div className="weather-today-info flex flex-col gap-1 grow">
                             <div className="weather-info-row">
                                 <span className="weather-info-title">PRECIPITATION</span>
                                 <span className="weather-info-value">{dailyForecast[0].clouds.all} %</span>
@@ -100,9 +101,9 @@ const WeatherApp = (gradientColor ) => {
                             </div>
                         </div>
 
-                        <ul className="weather-week-row d-flex">
+                        <ul className="weather-week-row flex">
                             {dailyForecast.map((day, index) => (
-                                <li key={day.dt} className={`d-flex flex-column gap-1 ${index === currentDayIndex ? 'active' : ''}`} onClick={() => handleWeekItemClick(index)}>
+                                <li key={day.dt} className={`flex flex-col gap-1 ${index === currentDayIndex ? 'active' : ''}`} onClick={() => handleWeekItemClick(index)}>
                                     <img
                                         src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
                                         alt="Day Icon"
@@ -115,11 +116,11 @@ const WeatherApp = (gradientColor ) => {
                     </div>
                 </div>
 
-                <div className="weather-action-row d-flex flex-column flex-md-row gap-2">
-                    <div className="weather-location-group d-flex flex-column flex-sm-row gap-2 flex-grow-1">
+                <div className="weather-action-row flex flex-col md:flex-row gap-2">
+                    <div className="weather-location-group flex flex-col sm:flex-row gap-2 grow">
                         <input type="text" id="city" className="form-control" placeholder="Enter city name" value={inputCity} onChange={handleInputChange} />
                         <button className="btn-transparent lg" onClick={handleButtonClick2}>
-                            <span className={`btn-transparent-text bg-clip-text text-transparent ${gradientColor}`}>Change location</span>
+                            <span className="btn-transparent-text bg-clip-text text-transparent" style={gradientColor}>Change location</span>
                         </button>
                     </div>
                 </div>
