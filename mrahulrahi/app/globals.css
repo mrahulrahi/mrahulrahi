@@ -283,8 +283,8 @@ p:last-child{margin-bottom:0;}
 .heading h3{font-size: 48px;}
 .heading h3+p{margin-top: 15px;}
 
-.itb-img-box{width: 100%;}
-.itb-text{width: 100%;margin-top: 60px;padding-left: 0;}
+.ai-img-box{width: 100%;}
+.ai-text{width: 100%;margin-top: 60px;padding-left: 0;}
 
 .skill-card-item{width: 25%;}
 
@@ -300,9 +300,9 @@ p:last-child{margin-bottom:0;}
 
 .skill-card-item{width: 33.33%;}
 
-.itb-content-box{padding: 20px;}
+.ai-content-box{padding: 20px;}
 .text-scroll-wrapper{width: calc(100% + 20px);margin: 0 -10px;}
-.itb-skill-box{padding: 20px;}
+.ai-skill-box{padding: 20px;}
 
 .logo{font-size:20px}
 .logo::before{margin-top:25px}
