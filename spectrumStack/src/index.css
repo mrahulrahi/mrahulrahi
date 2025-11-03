@@ -53,32 +53,8 @@
 
 @layer components{
 
-.device-frame{@apply w-full h-full bg-[#222831] border-5 border-[rgba(0,0,0,0.5)] rounded-[25px] overflow-hidden pb-[60px] }
-.device-head{@apply h-[25px] bg-[rgba(0,0,0,0.5)] pb-[5px]}
-.device-head h4 {@apply text-lg font-semibold tracking-[0.1em] mb-0 text-[rgba(255,255,255,0.5)] text-center}
-.device-head-dots li{@apply w-2 h-2 rounded-full bg-[rgba(255,255,255,0.5)] shrink-0}
-
-.btn-min {@apply min-w-auto pt-1 px-[5px]}
-.gradient-generator-css{@apply bg-[rgba(255,255,255,0.2)] border border-[rgba(255,255,255,0.5)] rounded-[20px] leading-none fixed bottom-2.5 backdrop-blur-xs z-[99]}
-
-.device-bottom-bar{@apply w-full bg-[rgba(255,255,255,0.2)] p-2.5 rounded-[20px]}
-.db-btn{@apply bg-white text-accent border-0 py-1.5 px-3 h-10 shrink-0 grow rounded-[10px]}
-.db-btn.active{@apply bg-accent text-white rounded-[10px]}
- 
-
-.gradient-selector-box{@apply h-[360px] fixed top-1/2 left-0 -translate-y-1/2 -translate-x-[calc(100%-32px)] bg-[rgba(255,255,255,0.2)] z-[9] rounded-[0_20px_20px_0] overflow-hidden backdrop-blur-xs;transition: all .2s ease-in;}
-.gradient-selector-box.open{@apply -translate-y-1/2 -translate-x-0}
-
-.gs-inner{@apply p-5}
-.gs-inner h3{@apply text-2xl font-black uppercase tracking-[0.5em] text-white}
-.gs-inner {@apply text-base font-black normal-case tracking-[0.1em]}
-.gradient-bg-container{@apply text-[rgba(0,0,0,0.5)] text-center uppercase tracking-[0.5em]}
-.gs-btn {@apply h-full text-2xl font-black uppercase tracking-[0.4em] text-black bg-[rgba(255,255,255,0.5)] [writing-mode:vertical-rl] rotate-180 border-0}
 
 
-.color-pick-group {@apply gap-[30px]}
-.color-pick-card {@apply bg-[rgb(0,0,0,0.25)] text-[rgba(255,255,255,0.75)] shadow-[1em_1em_1em_rgba(0,0,0,0.1)] rounded-lg overflow-hidden}
-.color-pick-info {@apply text-base font-black p-2.5 tracking-normal text-center}
 input[type="color"] {@apply appearance-none [-moz-appearance:none] [-webkit-appearance:none] bg-none border-0 cursor-pointer w-[6em] h-[6em] p-0}
 input[type="color"]:focus {@apply rounded-none outline-none}
 input[type="color"]::-webkit-color-swatch-wrapper {@apply p-0}
@@ -89,13 +65,9 @@ input[type="color"]::-moz-focus-inner {@apply p-0}
 
 
 .main-class {@apply w-full flex items-center justify-center}
-.android-frame {display: flex;flex-direction: column;border: 0.425rem solid #000;border-radius: 1.875rem;background: #151715;max-width: 400px;margin: 0 auto;}
-.output-operation-class {width: 100%;}
-.output-screen {width: 100%;height: 4rem;text-align: right;border: #000;border-radius: 1.4rem 1.4rem 1.2rem 1.2rem;font-size: 1.25rem;background: #37303c;padding: 0.8rem 0.5rem;color: #eddbf3;}
-.output-screen:focus {outline: none;}
-.output-screen::placeholder{color: #eddbf3;}
-.input-btn-wrapper{padding: 30px 10px 20px;}
-.mini-algo-function {display: flex;justify-content: space-evenly;font-size: auto;width: 100%;color: #dfcee5;margin-bottom: 12px;gap: 10px;}
+
+.input-btn-wrapper{@apply pt-[30px] px-[10px] pb-[20px]}
+.mini-algo-function {@apply flex justify-evenly text-auto w-full text-[#dfcee5] mb-3 gap-2.5}
 .mini-function {border: #000;width: 25%;color: #dfcee5;background-color: #4f4256;border-radius: 31.25rem;transition: var(--transition-time);font-size: 1  rem;font-weight: 600;height: 2rem;}
 .mini-function:active {border-radius: 10%;transition: 0.08s cubic-bezier(0, 0.01, 1, 1);}
 .input-class {display: grid;gap: 10px;width: 100%;border-radius: 0 0 1.49rem 1.49rem;grid-template-columns: repeat(5, 1fr);grid-template-rows: repeat(4, 1fr);align-items: center;align-self: center;justify-items: center;color: #eddbf3;}

@@ -63,9 +63,9 @@ const CalculatorApp = () => {
     };
 
     return (
-        <div className="android-frame">
-            <div className="output-operation-class" id="output-operation">
-                <input type="text" className="output-screen" id="output-id" placeholder='0' value={expression} readOnly />
+        <div className="android-frame flex flex-col border-[0.425em] border-black rounded-[1.875rem] bg-[#151715] max-w-[400px] mx-auto">
+            <div className="output-operation-class w-full" id="output-operation">
+                <input type="text" className="output-screen w-full h-[4rem] text-end border-black rounded-[1.4rem_1.4rem_1.2rem_1.2rem] text-[1.25rem] bg-[#37303c] py-[0.8rem] px-[0.5rem] text-[#eddbf3] focus:outline-none placeholder:text-[#eddbf3]" id="output-id" placeholder='0' value={expression} readOnly />
             </div>
             <div className="input-btn-wrapper">
                 <div className="mini-algo-function">
