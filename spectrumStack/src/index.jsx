@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router'; // Make sure to imp
 import 'highlight.js/styles/atom-one-dark.css'; // Highlight.js CSS
 import './index.css';
 import App from './App.jsx';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from './components/Header.jsx';
+import Footer from './components/Footer.jsx';
 import Product from './pages/home/productSingle.jsx';
 import Blog from './pages/blog/blogs.jsx';
 import BlogPost from './pages/blog/blogSingle.jsx';

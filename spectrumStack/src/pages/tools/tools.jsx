@@ -161,7 +161,7 @@ const Tools = () => {
                         </div>
                         <div className="direction-select w-full mt-4">
                             <label className="form-label" htmlFor="direction">Direction :</label>
-                            <select id="direction" className='form-select' value={gradientDirection} onChange={handleDirectionChange}>
+                            <select id="direction" className='form-select mt-1 block w-full rounded-md bg-white/25 border-transparent focus:border-accent focus:bg-white/25 focus:ring-0 text-white/50 placeholder:text-white/50' value={gradientDirection} onChange={handleDirectionChange}>
                                 <option value="to-r">To Right</option>
                                 <option value="to-l">To Left</option>
                                 <option value="to-t">To Top</option>

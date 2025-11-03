@@ -118,11 +118,11 @@ const QuizApp = (gradientColor) => {
                     <div className="start-quiz-wrapper self-center mx-auto">
                         <h2 className="bg-clip-text text-transparent" style={gradientColor}>Test your knowledge</h2>
                         <div className="select-menu mx-auto">
-                            <div className="flex flex-wrap gap-4">
-                                <div className="w-full sm:w-1/2">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="w-full">
                                     <div className="form-group">
                                         <label className="form-label" htmlFor="amount">Amount :</label>
-                                        <select className="form-select" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
+                                        <select className="form-select mt-1 block w-full rounded-md bg-white/25 border-transparent focus:border-accent focus:bg-white/25 focus:ring-0 text-white/50 placeholder:text-white/50" id="amount" value={amount} onChange={(e) => setAmount(Number(e.target.value))}>
                                             <option value={5}>5</option>
                                             <option value={10}>10</option>
                                             <option value={15}>15</option>
@@ -132,10 +132,10 @@ const QuizApp = (gradientColor) => {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="w-full sm:w-1/2">
+                                <div className="w-full">
                                     <div className="form-group">
                                         <label className="form-label" htmlFor="category">Category :</label>
-                                        <select className="form-select" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
+                                        <select className="form-select mt-1 block w-full rounded-md bg-white/25 border-transparent focus:border-accent focus:bg-white/25 focus:ring-0 text-white/50 placeholder:text-white/50" id="category" value={category} onChange={(e) => setCategory(Number(e.target.value))}>
                                             <option value={0}>Any Category</option>
                                             {categories.map((category) => (
                                                 <option key={category.id} value={category.id}>{category.name}</option>
@@ -143,10 +143,10 @@ const QuizApp = (gradientColor) => {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="w-full sm:w-1/2">
+                                <div className="w-full">
                                     <div className="form-group">
                                         <label className="form-label" htmlFor="difficulty">Difficulty :</label>
-                                        <select className="form-select" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
+                                        <select className="form-select mt-1 block w-full rounded-md bg-white/25 border-transparent focus:border-accent focus:bg-white/25 focus:ring-0 text-white/50 placeholder:text-white/50" id="difficulty" value={difficulty} onChange={(e) => setDifficulty(e.target.value)}>
                                             <option value={0}>Any Difficulty</option>
                                             <option value="easy">Easy</option>
                                             <option value="medium">Medium</option>
@@ -154,10 +154,10 @@ const QuizApp = (gradientColor) => {
                                         </select>
                                     </div>
                                 </div>
-                                <div className="w-full sm:w-1/2">
+                                <div className="w-full">
                                     <div className="form-group">
                                         <label className="form-label" htmlFor="type">Type :</label>
-                                        <select className="form-select" id="type" value={type} onChange={(e) => setType(e.target.value)}>
+                                        <select className="form-select mt-1 block w-full rounded-md bg-white/25 border-transparent focus:border-accent focus:bg-white/25 focus:ring-0 text-white/50 placeholder:text-white/50" id="type" value={type} onChange={(e) => setType(e.target.value)}>
                                             <option value={0}>Any Type</option>
                                             <option value="multiple">Multiple Choice</option>
                                             <option value="boolean">True / False</option>
