@@ -25,7 +25,7 @@
   img {@apply [-webkit-user-drag:none]}
   /* =================reset css ends here================= */
   /* =================core css starts here================= */
-  body{@apply min-h-screen font-varelaRound text-sm font-normal leading-normal text-white bg-gradient-to-b from-[#111827] to-[#1F2937] antialiased}
+  body{@apply min-h-screen font-varelaRound text-sm font-normal leading-normal text-white bg-linear-to-b from-[#111827] to-[#1F2937] antialiased}
   a,input,button{@apply inline-block no-underline text-inherit outline-0 transition-all duration-200 ease-in}
   a img{@apply border-0}
   a:hover{@apply outline-0 text-first no-underline}
