@@ -1,11 +1,14 @@
 // src/layouts/CodeStackLayout.jsx
+import { useState } from 'react';
 import { Outlet, useLocation } from "react-router";
 import { Link } from 'react-router';
 import Hero from "../components/Hero";
 
 const CodeStackLayout = () => {
-const location = useLocation();
-const active = location.pathname;
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
+  const location = useLocation();
+  const active = location.pathname;
 
   const links = [
     { title: 'Js Stack', href: '/code-stack/js-stack' },
@@ -17,9 +20,9 @@ const active = location.pathname;
     <>
       <Hero bgImg="https://picsum.photos/1920/1000?random=5" title="Start Coding" subTitle="Code Stack" />
 
-      <div className="flex">
-        <div className="sticky top-20 h-screen w-80 shrink-0">
-          <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
+      <div className="flex items-start overflow-x-clip">
+        <div className={`fixed left-0 z-99 lg:sticky top-20 lg:left-auto h-screen w-80 shrink-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} transition-transform duration-300 ease-in-out`}>
+          <button type="button" className=" absolute left-full top-0 btn btn-primary lg:hidden" onClick={() => setSidebarOpen(!sidebarOpen)} >Toogle drawer</button>
           <ul className="d-flex flex-col h-full bg-base-200 text-base-content w-full min-h-full p-4 overflow-auto">
             {/* Sidebar content here */}
             {links.map((card, index) => (
@@ -32,17 +35,13 @@ const active = location.pathname;
           </ul>
         </div>
         <div className="grow">
-          <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-          <div className=" flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center">
+
             {/* Page content here */}
-            <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
-              Open drawer
-            </label>
           </div>
+
           <div className="w-full mb-10">
-         
-              <Outlet />
-       
+            <Outlet />
           </div>
         </div>
       </div>

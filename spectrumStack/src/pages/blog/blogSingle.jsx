@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
-import Hero from "../../components/Hero"; // Assuming you have a Hero component
+import Hero from "../../components/Hero";
 
 
 const BlogPage = () => {
@@ -28,18 +28,13 @@ const BlogPage = () => {
     <>
       <Hero bgImg="https://picsum.photos/1920/1000?random=4" title={post.title} subTitle={`Blog ${post.id}`} />
 
-
-      <div className="py-20">
-        <div className="container mx-auto">
-          <div className="row">
-            <div className="col-12">
-              <div className="card w-full p-8 bg-white/10 border border-[#ccc] rounded-xl">
-                <div className="card-body">
-                  <div className='badge badge-primary badge-lg'>{post.id}</div>
-                  <h2 className="card-title">{post.title}</h2>
-                  <p>{post.body}</p>
-                </div>
-              </div>
+      <div className="py-10 lg:py-20">
+        <div className="container-fluid">
+          <div className="max-w-4xl mx-auto">
+            <div className="card w-full p-6 lg:p-14 bg-white/10 border border-[#ccc] rounded-xl">
+              <div className='badge badge-primary badge-lg mb-2'>{post.id}</div>
+              <h2 className="card-title">{post.title}</h2>
+              <p>{post.body}</p>
             </div>
           </div>
         </div>
