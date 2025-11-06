@@ -5,7 +5,7 @@ const Footer = () => {
                 <div className="container mx-auto">
                     <div className="w-full">
                         <div className="px-3">
-                            <h1>SpectrumStack App</h1>
+                            <h1 className="text-3xl md:text-5xl">SpectrumStack App</h1>
                             <p className="fw-bold">Providing reliable tech since 1992</p>
                             <p>Copyright &#9400; 2024 - SpectrumStack App All rights reserved</p>
                         </div>

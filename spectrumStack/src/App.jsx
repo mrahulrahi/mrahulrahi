@@ -67,11 +67,11 @@ function App() {
     <>
       <Hero bgImg="https://picsum.photos/1920/1000" title="Welcome to Reactify App" subTitle=" Home Page" content=" This is a React application with Tailwind CSS" />
 
-      <div className="py-20">
-        <div className="container mb-20 mx-auto">
-          <div className="flex flex-wrap">
+      <div className="py-10 lg:py-20">
+        <div className="container-fluid">
+          <div className="grid grid-col-2 md:grid-cols-4 gap-5">
             {cards.map((card, index) => (
-              <div className="w-1/4 px-3" key={index}>
+              <div className="w-full" key={index}>
                 <Link className="card w-full p-8 bg-white/10 border border-[#ccc] rounded-xl" to={card.href} >
                   <h2 className="card-title text-white mb-0">{card.title}</h2>
                 </Link>
@@ -79,10 +79,12 @@ function App() {
             ))}
           </div>
         </div>
- 
-        <div className="container mb-20 mx-auto">
-          <div className="flex flex-wrap">
-            <div className="w-8/12 px-3">
+      </div>
+
+      <div className="pb-10 lg:pb-20">
+        <div className="container-fluid">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 flex-wrap">
+            <div className="lg:col-span-8">
               <div className="bg-white/10 p-8 rounded-xl h-full">
                 <div className="font-oswald text-[32px] font-bold leading-none mb-6">All Button Type</div>
                 <div className="flex flex-wrap gap-5">
@@ -102,7 +104,7 @@ function App() {
               </div>
             </div>
 
-            <div className="w-4/12 px-3">
+            <div className="lg:col-span-4">
               <div className="flex flex-col gap-5">
                 <div className="bg-white/10 p-8 rounded-xl">
                   <div className="font-oswald text-[32px] font-bold leading-none mb-6">Like Button</div>
@@ -121,14 +123,14 @@ function App() {
               </div>
             </div>
 
-            <div className="w-full px-3 mt-10">
+            <div className="lg:col-span-12">
               <div className="bg-white/10 p-8 rounded-xl">
                 <div className="font-oswald text-[32px] font-bold leading-none mb-6">List Group</div>
                 <div className="flex flex-wrap gap-5">
                   <div className="w-full">
                     <ListGroup items={users || []} heading="Users" onSelectItem={handleSelectUser} />
                   </div>
-                  <div className="w-full mt-10">
+                  <div className="w-full">
                     <div className="text-2xl font-bold mb-2">User Table</div>
                     <ListItemTable data={user} />
                   </div>
@@ -137,14 +139,16 @@ function App() {
             </div>
           </div>
         </div>
+      </div>
 
-        <div className="container mx-auto">
-          <div className="px-4">
-            <h2>Product Page</h2>
-          </div>
-          <div className="flex flex-wrap -mb-6">
+      <div className="pb-10 lg:pb-20">
+        <div className="container-fluid">
+
+          <h2>Product Page</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6 flex-wrap">
             {products.map((product) => (
-              <div className="w-3/12 px-3 mb-6" key={product.id}>
+              <div className="w-full" key={product.id}>
                 <Link className="card flex flex-col h-full bg-white/10 border border-[#ccc] rounded-xl overflow-hidden" to={`/products/${product.id}`} >
                   <div className="w-full h-[300px] aspect-square bg-white p-6">
                     <img className="w-full h-full object-contain" src={product.image} alt="Product" />
@@ -166,6 +170,7 @@ function App() {
           </div>
         </div>
       </div>
+
     </>
   )
 }

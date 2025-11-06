@@ -44,12 +44,12 @@ const BlogPage = () => {
     <>
       <Hero bgImg="https://picsum.photos/1920/1000?random=3" title="From the blog" subTitle="Blog" />
 
-      <div className="py-20">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap -mb-6">
+      <div className="py-10 lg:py-20">
+        <div className="container-fluid">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {blogs.map((blog) => (
-              <div className="w-1/2 px-3 mb-6" key={blog.id}>
-                <Link className="card flex flex-col h-full p-8 bg-white/10 border border-[#ccc] rounded-xl group"  to={`/blog/${blog.id}`} >
+              <div className="w-full" key={blog.id}>
+                <Link className="card flex flex-col h-full p-8 bg-white/10 border border-[#ccc] rounded-xl group" to={`/blog/${blog.id}`} >
                   <div className="badge badge-primary mb-2">{blog.id}</div>
                   <h3 className="card-title text-white capitalize line-clamp-2">{blog.title}</h3>
                   <p className="card-text line-clamp-3">{blog.body}</p>
@@ -67,7 +67,7 @@ const BlogPage = () => {
           marginPagesDisplayed={2}
           pageRangeDisplayed={2}
           onPageChange={handlePageClick}
-          containerClassName={"join flex items-center justify-center my-10"}
+          containerClassName={"join flex items-center justify-center mt-5 lg:mt-10"}
           pageClassName={"join-item btn flex items-center h-10 py-2 px-4 text-white cursor-pointer hover:bg-second hover:text-first"}
           pageLinkClassName={""}
           previousClassName={"join-item btn flex items-center h-10 py-2 px-4 text-white cursor-pointer hover:bg-second hover:text-first"}

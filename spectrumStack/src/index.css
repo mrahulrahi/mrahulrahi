@@ -25,7 +25,7 @@
   img {@apply [-webkit-user-drag:none]}
   /* =================reset css ends here================= */
   /* =================core css starts here================= */
-  body{@apply min-h-screen font-varelaRound text-sm font-normal leading-normal text-white bg-linear-to-b from-[#111827] to-[#1F2937] antialiased}
+  body{@apply pt-20 min-h-screen font-varelaRound text-sm font-normal leading-normal text-white bg-linear-to-b from-[#111827] to-[#1F2937] antialiased}
   a,input,button{@apply inline-block no-underline text-inherit outline-0 transition-all duration-200 ease-in}
   a img{@apply border-0}
   a:hover{@apply outline-0 text-first no-underline}
@@ -53,7 +53,7 @@
 
 @layer components{
 
-
+.container-fluid{@apply max-w-480 w-full px-5 mx-auto}
 
 input[type="color"] {@apply appearance-none [-moz-appearance:none] [-webkit-appearance:none] bg-none border-0 cursor-pointer w-[6em] h-[6em] p-0}
 input[type="color"]:focus {@apply rounded-none outline-none}

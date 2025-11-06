@@ -1,6 +1,10 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router'
+import { IoMenu, IoClose } from "react-icons/io5";
 
 const Header = () => {
+
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const links = [
         { label: 'Home', href: '/' },
@@ -9,14 +13,14 @@ const Header = () => {
     ]
 
     return (
-        <header className="w-full fixed font-oswald bg-first z-[99]">
-            <div className="container w-full mx-auto">
-                <div className="navbar h-[80px] flex items-center justify-between gap-2">
+        <header className="w-full fixed top-0 font-oswald bg-first z-999">
+            <div className="container-fluid">
+                <div className="navbar h-20 flex items-center justify-between gap-2 p-0">
                     <a href="/" className="navbar-brand flex items-center gap-2">
-                        <div className="navbar-logo w-14"><img className="w-full h-full object-contain" src="/react.svg" alt="logo" /></div>
-                        <span className="text-4xl font-semibold leading-1 text-white">SpectrumStack</span>
+                        <div className="navbar-logo w-12"><img className="w-full h-full object-contain" src="/logo.png" alt="logo" /></div>
+                        <span className="text-2xl md:text-4xl font-semibold leading-none text-white">Spectrum <br className="md:hidden" /> Stack</span>
                     </a>
-                    <ul className="nav-menu flex gap-4">
+                    <ul className={`nav-menu flex flex-col gap-5 px-5 w-[calc(100%+40px)] -ml-5 md:flex md:flex-row md:static absolute top-full left-0 md:w-auto bg-first md:bg-transparent transition-all duration-300 ease-in ${menuOpen ? 'block py-5 md:py-0' : 'hidden md:block'}`}>
                         {links.map(link =>
                             <li key={link.href} className="nav-item">
                                 <NavLink
@@ -28,9 +32,10 @@ const Header = () => {
                             </li>
                         )}
                     </ul>
-                    <div className="flex gap-4">
-                        <span className="h-10"><img className="w-auto h-full object-contain" src="/vite.svg" alt="" /></span>
-                    </div>
+
+                    <button className="navbar-toggler text-5xl md:hidden" type="button" onClick={() => setMenuOpen(!menuOpen)}>
+                        {menuOpen ? <IoClose /> : <IoMenu />}
+                    </button>
                 </div>
             </div>
         </header>

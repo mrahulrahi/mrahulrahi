@@ -1,9 +1,9 @@
-/* eslint-disable react/prop-types */
+
 
 const Hero = ({ bgImg, title, subTitle, content, lessHeight }) => {
     return (
         <>
-            <div className={`hero place-self-center place-items-start ${lessHeight ? 'min-h-[200px]' : 'min-h-[500px]'}`} style={{ backgroundImage: `url(${bgImg})`, }}>
+            <div className={`hero place-self-center place-items-start ${lessHeight ? 'min-h-[200px]' : 'min-h-[400px]'}`} style={{ backgroundImage: `url(${bgImg})`, }}>
                 <div className="hero-overlay"></div>
                 <div className="hero-content w-full max-w-3xl h-full text-neutral-content py-20 mx-auto">
                     <div className="w-full">
