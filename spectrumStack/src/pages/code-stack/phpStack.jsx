@@ -10,7 +10,7 @@ const phpStack = () => {
       <Hero bgImg="https://picsum.photos/1920/1000?random=7" title="Start Coding" subTitle="Php Stack" lessHeight={true} />
 
       <div className="container my-20 mx-auto px-5">
-        <div className="grid grid-cols-3 grid-rows-auto gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-auto gap-4">
           <div className="w-full">
             <div className="bg-white/10 p-5 rounded-xl h-full">
               <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">

@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */
+
 
 const ListItemTable = ({ data }) => {
     if (!data || Object.keys(data).length === 0) {

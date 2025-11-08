@@ -1,7 +1,7 @@
 /* eslint-disable*/
 
 import { useState } from 'react';
-import SimpleHero from '../../components/SimpleHero.jsx';
+import Hero from '../../components/Hero.jsx';
 import { FaDiceFour, FaCalculator, FaNoteSticky, FaCloudSun, FaQuoteRight } from 'react-icons/fa6';
 import { FiCopy } from "react-icons/fi";
 import QuizApp from './QuizApp.jsx';
@@ -85,7 +85,7 @@ const Tools = () => {
 
     return (
         <>
-            <SimpleHero title="Spectrum Stack" subTitle="Free Online Coding Tools" gradientColor={gradientStyle} />
+            <Hero title="Spectrum Stack" subTitle="Free Online Coding Tools" gradientColor={gradientStyle} />
             <div className="spectrum-stack-page-wrapper bg-gradient-2 px-5">
                 <div className="content-container">
                     <div className="container">

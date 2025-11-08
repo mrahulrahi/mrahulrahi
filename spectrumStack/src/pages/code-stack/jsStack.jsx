@@ -41,8 +41,8 @@ const JsStack = () => {
         <>
             <Hero bgImg="https://picsum.photos/1920/1000?random=6" title="" subTitle="JS Stack" lessHeight={true} />
 
-            <div className="container my-20 mx-auto px-5">
-                <div className="grid grid-cols-2 grid-rows-auto gap-4">
+            <div className="container-fluid my-20 mx-auto px-5">
+                <div className="grid grid-cols-1 lg:grid-cols-2 grid-rows-auto gap-4">
                     {/* Palindrome Checker */}
                     <div className="w-full">
                         <div className="bg-white/10 p-8 rounded-xl">
@@ -350,7 +350,7 @@ const JsStack = () => {
                         </div>
                     </div>
 
-                    <div className="w-full col-span-2">
+                    <div className="w-full lg:col-span-2">
                         <div className="bg-white/10 p-8 rounded-xl">
                             <StudentList />
                         </div>
