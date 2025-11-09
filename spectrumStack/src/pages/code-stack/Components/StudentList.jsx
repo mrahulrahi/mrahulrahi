@@ -25,7 +25,7 @@ const StudentList = () => {
       </div>
 
       {!submitted ? (
-        <form className="grid grid-cols-5 gap-2" onSubmit={handleSubmit}>
+        <form className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2" onSubmit={handleSubmit}>
           {students.map((student, index) => (
             <div key={index} className="p-4 border rounded space-y-2">
               <label className="block font-semibold">

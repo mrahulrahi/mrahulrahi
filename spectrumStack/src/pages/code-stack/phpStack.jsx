@@ -1,41 +1,36 @@
 import Highlight from 'react-highlight';
 
-import Hero from "../../components/Hero";
-
 
 const phpStack = () => {
 
   return (
     <>
-      <Hero bgImg="https://picsum.photos/1920/1000?random=7" title="Start Coding" subTitle="Php Stack" lessHeight={true} />
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-rows-auto gap-4">
+        <div className="w-full">
+          <div className="bg-white/10 p-5 rounded-xl h-full">
+            <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
+              First Lines
+            </h2>
 
-      <div className="container my-20 mx-auto px-5">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-auto gap-4">
-          <div className="w-full">
-            <div className="bg-white/10 p-5 rounded-xl h-full">
-              <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
-                First Lines
-              </h2>
-
-              <Highlight className="php rounded-2xl overflow-hidden">
-                {`<?php
+            <Highlight className="php rounded-2xl overflow-hidden">
+              {`<?php
 
 echo "hello world! My first php script"."<br>";
 echo 15 ."<br>";
 
 ?>`}
-              </Highlight>
-            </div>
+            </Highlight>
           </div>
+        </div>
 
-          <div className="w-full">
-            <div className="bg-white/10 p-5 rounded-xl h-full">
-              <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
-                Variables
-              </h2>
+        <div className="w-full">
+          <div className="bg-white/10 p-5 rounded-xl h-full">
+            <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
+              Variables
+            </h2>
 
-              <Highlight className="php rounded-2xl overflow-hidden">
-                {`<?php 
+            <Highlight className="php rounded-2xl overflow-hidden">
+              {`<?php 
 
 $myName ="Rahi";
 echo $myName ."<br>";
@@ -47,19 +42,19 @@ echo $result ."<br>";
 
 ?>
   `}
-              </Highlight>
-            </div>
+            </Highlight>
           </div>
+        </div>
 
-          <div className="w-full">
-            <div className="bg-white/10 p-5 rounded-xl h-full">
-              <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
-                Variables Scope
-              </h2>
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Global & Local Variables</h3>
+        <div className="w-full">
+          <div className="bg-white/10 p-5 rounded-xl h-full">
+            <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
+              Variables Scope
+            </h2>
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Global & Local Variables</h3>
 
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`  <?php 
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`  <?php 
 
 $global = "I am a global variable";
 $local = "I am actually golbal";
@@ -76,11 +71,11 @@ function printTxt(){
 
 ?>
   `}
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Static Variable</h3>
-              <Highlight className="php rounded-2xl overflow-hidden">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Static Variable</h3>
+            <Highlight className="php rounded-2xl overflow-hidden">
+              {`<?php
 
  function trackNumber(){
      STATIC $number = 0;
@@ -97,19 +92,19 @@ function printTxt(){
 
 ?>`}
 
-              </Highlight>
-            </div>
+            </Highlight>
           </div>
+        </div>
 
-          <div className="w-full">
-            <div className="bg-white/10 p-5 rounded-xl h-full">
-              <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
-                Data Types
-              </h2>
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">String</h3>
+        <div className="w-full">
+          <div className="bg-white/10 p-5 rounded-xl h-full">
+            <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
+              Data Types
+            </h2>
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">String</h3>
 
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php 
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php 
 
 $x = "Hello world!";
 
@@ -119,11 +114,11 @@ var_dump($x);
 
 ?>
   `}
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Integer</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Integer</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $x = 5985;
 
@@ -133,11 +128,11 @@ var_dump($x);
 
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Float</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Float</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $x = 10.365;
 
@@ -147,11 +142,11 @@ var_dump($x);
 
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Boolean</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Boolean</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $x = true;
 $y = false;
@@ -164,30 +159,30 @@ var_dump($y);
 
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Array</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Array</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $cars = array("Volvo","BMW","Toyota");
 var_dump($cars);
 
 ?>`}
 
-              </Highlight>
-            </div>
+            </Highlight>
           </div>
+        </div>
 
-          <div className="w-full">
-            <div className="bg-white/10 p-5 rounded-xl h-full">
-              <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
-                Conditional Statements
-              </h2>
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">If Statement</h3>
+        <div className="w-full">
+          <div className="bg-white/10 p-5 rounded-xl h-full">
+            <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
+              Conditional Statements
+            </h2>
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">If Statement</h3>
 
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $t = date("H");
 
@@ -196,11 +191,11 @@ if ($t < "20") {
 }
 
 ?>`}
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">If...else Statement</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">If...else Statement</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $t = date("H");
 
@@ -212,11 +207,11 @@ if ($t < "20") {
 
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">If...elseif...else Statement</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">If...elseif...else Statement</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $t = date("H");
 
@@ -230,11 +225,11 @@ if ($t < "10") {
 
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Switch Statement</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Switch Statement</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $favcolor = "red";
 
@@ -254,30 +249,30 @@ switch ($favcolor) {
 
 ?>`}
 
-              </Highlight>
-            </div>
+            </Highlight>
           </div>
+        </div>
 
-          <div className="w-full">
-            <div className="bg-white/10 p-5 rounded-xl h-full">
-              <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
-                Loops
-              </h2>
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">For Loop</h3>
+        <div className="w-full">
+          <div className="bg-white/10 p-5 rounded-xl h-full">
+            <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
+              Loops
+            </h2>
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">For Loop</h3>
 
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 for ($x = 0; $x <= 10; $x++) {
   echo "The number is: $x <br>";
 }
 
 ?>`}
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Foreach Loop</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Foreach Loop</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $colors = array("red", "green", "blue", "yellow");
 
@@ -287,11 +282,11 @@ foreach ($colors as $value) {
 
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">While Loop</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">While Loop</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $x = 1;
 
@@ -302,11 +297,11 @@ while($x <= 5) {
 
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Do...while Loop</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">Do...while Loop</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $x = 1;
 
@@ -317,11 +312,11 @@ do {
 
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP Break</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP Break</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 for ($x = 0; $x < 10; $x++) {
   if ($x == 4) {
@@ -332,11 +327,11 @@ for ($x = 0; $x < 10; $x++) {
 
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP Continue</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP Continue</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 for ($x = 0; $x < 10; $x++) {
   if ($x == 4) {
@@ -347,18 +342,18 @@ for ($x = 0; $x < 10; $x++) {
 
 ?>`}
 
-              </Highlight>
-            </div>
+            </Highlight>
           </div>
+        </div>
 
-          <div className="w-full">
-            <div className="bg-white/10 p-5 rounded-xl h-full">
-              <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
-                PHP Functions
-              </h2>
+        <div className="w-full">
+          <div className="bg-white/10 p-5 rounded-xl h-full">
+            <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
+              PHP Functions
+            </h2>
 
-              <Highlight className="php rounded-2xl overflow-hidden">
-                {`<?php
+            <Highlight className="php rounded-2xl overflow-hidden">
+              {`<?php
 
 function familyName($fname, $year) {
   echo "$fname Refsnes. Born in $year <br>";
@@ -369,19 +364,19 @@ familyName("Stale", "1978");
 familyName("Kai Jim", "1983");
 
 ?>`}
-              </Highlight>
-            </div>
+            </Highlight>
           </div>
+        </div>
 
-          <div className="w-full">
-            <div className="bg-white/10 p-5 rounded-xl h-full">
-              <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
-                PHP Superglobals
-              </h2>
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP $GLOBALS</h3>
+        <div className="w-full">
+          <div className="bg-white/10 p-5 rounded-xl h-full">
+            <h2 className="font-oswald text-[24px] font-bold leading-none mb-4">
+              PHP Superglobals
+            </h2>
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP $GLOBALS</h3>
 
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 $x = 75;
 $y = 25;
@@ -394,21 +389,21 @@ addition();
 echo $z;
 
 ?>`}
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP $_GET</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP $_GET</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 
 echo "Study " . $_GET['subject'] . " at " . $_GET['web'];
 
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP $_POST</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP $_POST</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
   Name: <input type="text" name="fname">
   <input type="submit">
 </form>
@@ -425,11 +420,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP $_SERVER</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<?php
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP $_SERVER</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<?php
 echo $_SERVER['PHP_SELF'];
 echo "<br>";
 echo $_SERVER['SERVER_NAME'];
@@ -443,11 +438,11 @@ echo "<br>";
 echo $_SERVER['SCRIPT_NAME'];
 ?>`}
 
-              </Highlight>
+            </Highlight>
 
-              <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP $_REQUEST</h3>
-              <Highlight className="php rounded-2xl overflow-hidden mb-2">
-                {`<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+            <h3 className="font-oswald text-[18px] font-semibold leading-none mb-4">PHP $_REQUEST</h3>
+            <Highlight className="php rounded-2xl overflow-hidden mb-2">
+              {`<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
   Name: <input type="text" name="fname">
   <input type="submit">
 </form>
@@ -464,8 +459,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>`}
 
-              </Highlight>
-            </div>
+            </Highlight>
           </div>
         </div>
       </div>

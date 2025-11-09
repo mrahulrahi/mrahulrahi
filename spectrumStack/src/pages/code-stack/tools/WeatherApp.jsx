@@ -65,7 +65,7 @@ const WeatherApp = (gradientColor ) => {
     return (
         <div className="weather-wrapper flex flex-col flex-lg-row items-center justify-center xl:justify-start">
             <div className="weather-today-box flex flex-col sm:flex-row lg:flex-column justify-between gap-2">
-                <div className="weather-gradient-bg" style={gradientColor}></div>
+                <div className="weather-gradient-bg" style={gradientColor.gradientColor}></div>
                 <div className="weather-date-box flex flex-col gap-2">
                     <h2>{formatDay(weather.dt).dayName}</h2>
                     <h6>{formatDay(weather.dt).date}</h6>
@@ -120,7 +120,7 @@ const WeatherApp = (gradientColor ) => {
                     <div className="weather-location-group flex flex-col sm:flex-row gap-2 grow">
                         <input type="text" id="city" className="form-control" placeholder="Enter city name" value={inputCity} onChange={handleInputChange} />
                         <button className="btn-transparent lg" onClick={handleButtonClick2}>
-                            <span className="btn-transparent-text bg-clip-text text-transparent" style={gradientColor}>Change location</span>
+                            <span className="btn-transparent-text bg-clip-text text-transparent" style={gradientColor.gradientColor}>Change location</span>
                         </button>
                     </div>
                 </div>

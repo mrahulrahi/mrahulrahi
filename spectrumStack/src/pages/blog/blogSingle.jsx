@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import Hero from "../../components/Hero";
+import { useGradient } from "../../context/GradientContext.jsx";
 
 
 const BlogPage = () => {
+  const { gradientStyle } = useGradient();
   const { blogId } = useParams();  // Get the blogId from the URL
   const [post, setPost] = useState(null);  // State to store the post data
   const [loading, setLoading] = useState(true);  // Loading state
@@ -26,7 +28,7 @@ const BlogPage = () => {
 
   return (
     <>
-      <Hero bgImg="https://picsum.photos/1920/1000?random=4" title={post.title} subTitle={`Blog ${post.id}`} />
+      <Hero title={post.title} subTitle={`Blog ${post.id}`} gradientColor={gradientStyle} />
 
       <div className="py-10 lg:py-20">
         <div className="container-fluid">

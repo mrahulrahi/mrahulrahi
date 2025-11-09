@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router'; // If you're using react-router
+import { Link } from 'react-router'; 
 import Hero from "./components/Hero";
 import ListGroup from "./components/ListGroup";
 import Counter from "./components/Counter";
@@ -65,7 +65,7 @@ function App() {
 
   return (
     <>
-      <Hero bgImg="https://picsum.photos/1920/1000" title="Welcome to Reactify App" subTitle=" Home Page" content=" This is a React application with Tailwind CSS" />
+      <Hero bgImg="https://picsum.photos/1920/1000" title="Welcome to SpectrumStack App" subTitle="Home Page" content=" This is a React application with Tailwind CSS" />
 
       <div className="py-10 lg:py-20">
         <div className="container-fluid">
@@ -170,7 +170,6 @@ function App() {
           </div>
         </div>
       </div>
-
     </>
   )
 }

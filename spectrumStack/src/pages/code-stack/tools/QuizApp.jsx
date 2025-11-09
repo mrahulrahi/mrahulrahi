@@ -116,7 +116,7 @@ const QuizApp = (gradientColor) => {
             {!showQuiz ? (
                 <>
                     <div className="start-quiz-wrapper self-center mx-auto">
-                        <h2 className="bg-clip-text text-transparent" style={gradientColor}>Test your knowledge</h2>
+                        <h2 className="bg-clip-text text-transparent" style={gradientColor.gradientColor}>Test your knowledge</h2>
                         <div className="select-menu mx-auto">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="w-full">
@@ -204,7 +204,7 @@ const QuizApp = (gradientColor) => {
                         )
                     ) : (
                         <div className="feedback-wrapper self-center mx-auto">
-                            <h3 className="bg-clip-text text-transparent" style={gradientColor}>Quiz Completed!</h3>
+                            <h3 className="bg-clip-text text-transparent" style={gradientColor.gradientColor}>Quiz Completed!</h3>
                             <h4 className="text-accent">Your Score: {score}</h4>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>

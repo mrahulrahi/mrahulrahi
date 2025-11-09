@@ -1,33 +1,20 @@
 
 
-const Hero = ({ bgImg, title, subTitle, content, lessHeight, gradientColor }) => {
+const Hero = ({ bgImg, title, subTitle, content, gradientColor }) => {
     return (
         <>
-            {bgImg &&
-                <div className={`hero place-self-center place-items-start ${lessHeight ? 'min-h-[200px]' : 'min-h-[400px]'}`} style={{ backgroundImage: `url(${bgImg})`, }}>
-                    <div className="hero-overlay"></div>
-                    <div className="hero-content w-full max-w-3xl h-full text-neutral-content py-20 mx-auto">
-                        <div className="w-full">
-                            <h6 className="mb-5">{subTitle}</h6>
-                            <h1 className="mb-5 text-5xl font-bold">{title}</h1>
-                            <p>{content}</p>
-                        </div>
+            <div className={`hero-container flex items-end relative ${!bgImg ? 'hero-bg-pattern min-h-[250px]' : 'min-h-[300px] lg:min-h-[400px]' }`} >
+                {bgImg &&
+                    <div className="absolute top-0 left-0 bottom-0 right-0 bg-black/80 bg-center bg-cover bg-no-repeat z-1 after:absolute after:top-0 after:left-0 after:bottom-0 after:right-0 after:bg-black/50" style={{ backgroundImage: `url(${bgImg})`, }}></div>
+                }
+                <div className={`hero-content w-full max-w-7xl h-full text-neutral-content mx-auto relative z-9 ${!bgImg ? "pt-20 pb-10" : 'py-20'}`}>
+                    <div className="w-full">
+                        <h6 className={`mb-2 font-extrabold ${!bgImg && "bg-clip-text text-transparent"}`} style={gradientColor}>{subTitle}</h6>
+                        <h1 className={`mb-0 text-5xl ${!bgImg && "bg-clip-text text-transparent"}`} style={gradientColor}>{title}</h1>
+                        <p className="mt-2">{content}</p>
                     </div>
                 </div>
-            }
-
-            {!bgImg &&
-                <div className="simple-hero-container flex items-end min-h-[350px] py-20">
-                    <main className="container">
-                        <div className="px-3">
-                            <div className="w-full">
-                                <h4 className="mb-2 bg-clip-text text-transparent" style={gradientColor}>{subTitle}</h4>
-                                <h1 className="mb-0 bg-clip-text text-transparent" style={gradientColor}>{title}</h1>
-                            </div>
-                        </div>
-                    </main>
-                </div>
-            }
+            </div>
         </>
     )
 }
