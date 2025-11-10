@@ -69,28 +69,9 @@ export default function Home() {
     <main>
       <div className="bg-dark bg-graphic position-relative overflow-hidden">
         <ul className="box-animated-bg">
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
+          {Array.from({ length: 22 }).map((_, index) => (
+            <li key={index}></li>
+          ))}
         </ul>
 
         <Hero>

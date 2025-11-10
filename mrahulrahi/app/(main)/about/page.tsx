@@ -29,28 +29,11 @@ const HeroHeading = () => {
 const BackgroundFixedElement = () => {
   return (<>
     <ul className="box-animated-bg">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+      <ul className="box-animated-bg">
+        {Array.from({ length: 22 }).map((_, index) => (
+          <li key={index}></li>
+        ))}
+      </ul>
     </ul>
   </>)
 }
