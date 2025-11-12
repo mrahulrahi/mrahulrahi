@@ -6,9 +6,46 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
+import { LuSun, LuMoon } from "react-icons/lu";
+
+// Custom hook for dark mode
+function useDarkMode() {
+ const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    // Check if user has a saved preference
+    const saved = localStorage.getItem('darkMode');
+    if (saved !== null) {
+      setIsDark(JSON.parse(saved));
+    } else {
+      // Otherwise check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setIsDark(prefersDark);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Save preference to localStorage
+    localStorage.setItem('darkMode', JSON.stringify(isDark));
+    
+    // Apply dark class to html element
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }, [isDark]);
+
+  const toggle = () => setIsDark(prev => !prev);
+
+  return { isDark, toggle };
+}
+
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { isDark, toggle } = useDarkMode();
+
     const navbarRef = useRef(null);
 
     const handleScroll = () => {
@@ -46,6 +83,10 @@ const Header = () => {
             setIsOpen(false);
         }
     };
+
+
+
+
 
     const currentPath = usePathname();
     const links = [
@@ -105,9 +146,6 @@ const Header = () => {
                                             </Link>
                                         </li>
                                     ))}
-                                    <div className="nav-item header-btn mx-auto d-xl-none">
-                                        <Button title="Hire Me" style='gradient' />
-                                    </div>
                                 </motion.ul>
                                 <div className="navbar-bottom mt-auto d-xl-none">
                                     <div className="social-links d-flex align-items-center justify-content-center">
@@ -120,11 +158,20 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <motion.div className="header-btn d-none d-xl-block" initial={{ opacity: 0, filter: 'blur(10px)' }}
+                        <motion.div className="header-btn" initial={{ opacity: 0, filter: 'blur(10px)' }}
                             whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                             viewport={{ once: true, amount: 0.2 }}>
-                            <Button title="Hire Me" style='gradient' target='_blank' url="https://t.me/mrahulrahi" />
+                            <button
+                                onClick={toggle}
+                                className={`dark-mode-toggler d-flex align-items-center justify-content-center p-2 ${isDark
+                                        ? 'active'
+                                        : ''
+                                    }`}
+                                aria-label="Toggle dark mode"
+                            >
+                                {isDark ? <LuSun size={24} /> : <LuMoon size={24} />}
+                            </button>
                         </motion.div>
                     </div>
                 </div>

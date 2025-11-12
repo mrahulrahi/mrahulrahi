@@ -32,7 +32,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${josefinSans.variable} ${outfit.variable}`}>
-      <body>
+      <body className="overlay">
         {children}
         <ImportBsJS />
         <SpeedInsights />
