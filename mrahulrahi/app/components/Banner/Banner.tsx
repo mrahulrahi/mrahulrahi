@@ -6,12 +6,13 @@ interface Props {
   children?: ReactNode | string;
   heading?: JSX.Element | string;
   logo?: string;
-  bgImage: string;
+  bgImage?: string;
+  className?: string;
 }
 
-const Banner = ({ children, heading, logo, bgImage }: Props) => {
+const Banner = ({ children, heading, logo, bgImage, className }: Props) => {
   return (
-    <section className="banner-container d-flex align-items-center position-relative">
+    <section className={`banner-container d-flex align-items-center position-relative ${className}`}>
       {bgImage && <div className="banner-bg" style={{ backgroundImage: `url(${bgImage})` }}></div>}
 
       <div className="container">

@@ -12,8 +12,10 @@ export default function MainLayout({
     <>
       <Header />
       <main>{children}</main>
-      <Contact />
-      <Footer />
+      <div className="bg-gradient-2">
+        <Contact />
+        <Footer />
+      </div>
     </>
   )
 }

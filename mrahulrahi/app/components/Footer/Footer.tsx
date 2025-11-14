@@ -12,7 +12,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="footer" className="footer bg-dark">
+    <footer id="footer" className="footer">
       <div className="footer-upper">
         <div className="container">
           <div className="row">

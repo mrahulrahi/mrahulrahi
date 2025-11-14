@@ -8,7 +8,7 @@ import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <ContentContainer background="dark" id="contact" className="contact-container" heading="Contact Me" rightHeading={<Button title="Hire Me" style="default" target='_blank' url="https://t.me/mrahulrahi" />} mobileRightHeading={false}>
+    <ContentContainer background="" id="contact" className="contact-container" heading="Contact Me" rightHeading={<Button title="Hire Me" style="default" target='_blank' url="https://t.me/mrahulrahi" />} mobileRightHeading={false}>
       <motion.div className="d-flex flex-wrap justify-content-between"    initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}

@@ -58,12 +58,18 @@ const About = () => {
 
   return (
     <>
+       <div className="bg-dark bg-graphic position-relative overflow-hidden">
+        <ul className="box-animated-bg">
+          {Array.from({ length: 22 }).map((_, index) => (
+            <li key={index}></li>
+          ))}
+        </ul>
       <Banner heading={<HeroHeading />} bgImage='/inner-hero-img.jpg' >
         <Button title="What I do ?" style="default" url="#timelineSection" icon={<TiArrowDownOutline />} />
       </Banner>
 
-      <ContentContainer className="about-intro-container" background="gradient-2">
-        <motion.div className="ai-content-box d-flex flex-wrap bg-dark overflow-hidden" initial={{ opacity: 0, y: 50 }}
+      <ContentContainer className="about-intro-container">
+        <motion.div className="ai-content-box d-flex flex-wrap bg-gradient-1 overflow-hidden" initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}>
@@ -120,7 +126,7 @@ const About = () => {
           </div>
         </motion.div>
 
-        <motion.div className="ai-skill-box d-flex flex-column bg-dark" initial={{ opacity: 0, y: 50 }}
+        <motion.div className="ai-skill-box d-flex flex-column bg-gradient-1" initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
           viewport={{ once: true, amount: 0.2 }}>
@@ -137,7 +143,7 @@ const About = () => {
         </motion.div>
       </ContentContainer>
 
-      <ContentContainer background="dark bg-graphic position-relative oveflow-hidden" id="timelineSection" backgroundFixedElement={<BackgroundFixedElement />}>
+      <ContentContainer className="position-relative oveflow-hidden pt-0" id="timelineSection">
         <motion.div className="row" initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -188,7 +194,7 @@ const About = () => {
         </motion.div>
       </ContentContainer>
 
-      <ContentContainer background="gradient-2" heading="Certificates" >
+      <ContentContainer heading="Certificates" className="pt-0" >
         <motion.div className="certificate-card-list d-flex flex-wrap" initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
@@ -198,6 +204,7 @@ const About = () => {
           </div>)}
         </motion.div>
       </ContentContainer>
+      </div>
       <MouseFollower />
     </ >
   )
