@@ -139,7 +139,7 @@ export default function Home() {
         </motion.div>
       </ContentContainer>
 
-      <ContentContainer background="gradient-1 bg-graphic overflow-hidden" heading="Dev.to's latest articles"
+      <ContentContainer background="gradient-1 overflow-hidden" heading="Dev.to's latest articles"
         rightHeading={
           <div className="custom-arrow-container d-flex justify-content-between">
             <button className="custom-arrow-button custom-arrow-prev blog-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
