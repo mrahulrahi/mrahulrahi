@@ -1,4 +1,6 @@
 /* ========================== footer Start ============================ */
+.bg-glow{background-color: var(--mrr-dark-color);color: var(--mrr-white);position: relative;overflow: hidden;background-image: url(/bg-dots.svg);background-repeat: no-repeat;background-position: top right;background-size: 100px 100px;}
+
 .footer a{text-decoration: none;}
 .footer-upper {border-top: 1px solid rgba(0,0,0,0.25);padding: 40px 0;}
 .footer-upper-box{width: 100%;height: 100%;text-align: center;font-size: 16px;font-weight: 300;line-height: 1.6;}
@@ -49,3 +51,36 @@
     
 
     
+
+
+.contact-container{padding:100px 0;}
+.contact-box{width:40%;}
+.contact-box h4{font-size:40px;margin-bottom: 20px;}
+.contact-box{font-size:20px;font-weight:500;margin-bottom: 0;}    
+.contact-subscribe-box{font-size: 16px;font-weight: 300;line-height: 1.6;width: 60%;}
+.form-label{font-size:20px;font-weight: 700;line-height: 1.2;margin-bottom: 6px;}
+.form-control,.form-control:focus{border:3px solid rgba(255, 255, 255, 0.25);font-size: 14px; padding:10px 20px;border-radius:30px;height: 50px;color: var(--mrr-white);background: rgba(255, 255, 255, 0.1);box-shadow: none;}
+.form-control::placeholder{color: var(--mrr-white)}
+.form-control:focus{border:3px solid var(--mrr-main-color)}
+textarea.form-control,textarea.form-control:focus{resize: none;height: 100%; padding: 14px 20px;}
+
+
+@media (max-width:1199.98px){
+
+
+}
+
+@media (max-width:991.98px){
+.contact-box,.contact-subscribe-box{width: 100%;}
+.contact-subscribe-box{margin-top: 50px;}
+}
+
+
+@media (max-width:767.98px){
+
+}
+
+
+@media (max-width:575.98px){
+    .contact-subscribe-box .btn{min-width: 100%;}
+}

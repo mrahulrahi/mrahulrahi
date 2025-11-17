@@ -1,3 +1,3 @@
-.skill-card-box{padding: 10px;background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));border-radius: 10px;text-align: center;font-size: 16px;color: var(--mrr-accent-color);font-weight: 600;}
+.skill-card-box{padding: 10px;background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));border-radius: 10px;text-align: center;font-size: 16px;color: var(--mrr-white-color);font-weight: 600;}
 .skill-card-icon{margin-bottom: 10px;font-size: 30px}
 .skill-card-icon img{width: 100%;height: 100%;object-fit: cover;}

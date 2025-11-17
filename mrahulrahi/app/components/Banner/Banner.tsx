@@ -8,11 +8,12 @@ interface Props {
   logo?: string;
   bgImage?: string;
   className?: string;
+  id?: string;
 }
 
-const Banner = ({ children, heading, logo, bgImage, className }: Props) => {
+const Banner = ({ children, heading, logo, bgImage, className, id }: Props) => {
   return (
-    <section className={`banner-container d-flex align-items-center position-relative ${className}`}>
+    <section className={`banner-container d-flex align-items-center position-relative ${className}`} id={id}>
       {bgImage && <div className="banner-bg" style={{ backgroundImage: `url(${bgImage})` }}></div>}
 
       <div className="container">

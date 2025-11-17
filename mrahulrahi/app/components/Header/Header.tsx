@@ -44,6 +44,7 @@ function useDarkMode() {
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('');
     const { isDark, toggle } = useDarkMode();
 
     const navbarRef = useRef(null);
@@ -57,9 +58,38 @@ const Header = () => {
         } else {
             document.body.classList.remove('fixed');
         }
+
+        // Detect active section
+        const sections = ['about', 'portfolio', 'contact'];
+        const headerHeight = 80; // Adjust based on your header height
+        
+        // Check if we're at the top of the page
+        if (scrollY < 100) {
+            setActiveSection('/');
+            return;
+        }
+
+        // Find which section is currently in view
+        for (const sectionId of sections) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                const rect = element.getBoundingClientRect();
+                const elementTop = rect.top + scrollY;
+                const elementBottom = elementTop + rect.height;
+                
+                // Check if section is in viewport
+                if (scrollY + headerHeight >= elementTop && scrollY + headerHeight < elementBottom) {
+                    setActiveSection(`/#${sectionId}`);
+                    return;
+                }
+            }
+        }
     };
 
     useEffect(() => {
+        // Initial check
+        handleScroll();
+        
         window.addEventListener('scroll', handleScroll);
         return () => {
             window.removeEventListener('scroll', handleScroll);
@@ -78,20 +108,42 @@ const Header = () => {
         setIsOpen(!isOpen);
     };
 
-    const handleLinkClick = () => {
+    const handleLinkClick = (e : any, path : any) => {
         if (isOpen) {
             setIsOpen(false);
         }
+
+        // Handle smooth scrolling for hash links
+        if (path.includes('#')) {
+            e.preventDefault();
+            const hash = path.split('#')[1];
+            
+            if (hash) {
+                const element = document.getElementById(hash);
+                if (element) {
+                    const headerHeight = 80; // Adjust based on your header height
+                    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                    const offsetPosition = elementPosition - headerHeight;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            } else {
+                // Scroll to top for home
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        }
     };
-
-
-
-
 
     const currentPath = usePathname();
     const links = [
         { path: '/', label: 'Home' },
-        { path: '/about', label: 'About' },
+        { path: '/#about', label: 'About' },
         { path: '/#portfolio', label: 'Portfolio' },
         { path: '#contact', label: 'Contact' },
     ];
@@ -140,8 +192,17 @@ const Header = () => {
                                     transition={{ duration: 0.6, ease: "easeOut" }}
                                     viewport={{ once: true, amount: 0.2 }}>
                                     {links.map(link => (
-                                        <li key={link.path} className={`${link.path === currentPath ? 'active' : ''} nav-item`}>
-                                            <Link className="nav-link" href={link.path} onClick={handleLinkClick}>
+                                        <li key={link.path} className={`${
+                                            link.path === activeSection || 
+                                            (link.path === '#contact' && activeSection === '/#contact')
+                                                ? 'active' 
+                                                : ''
+                                        } nav-item`}>
+                                            <Link 
+                                                className="nav-link" 
+                                                href={link.path} 
+                                                onClick={(e) => handleLinkClick(e, link.path)}
+                                            >
                                                 {link.label}
                                             </Link>
                                         </li>
