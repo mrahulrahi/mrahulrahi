@@ -57,6 +57,63 @@ const Hero = ({ children }: Props) => {
           </div>
         </div>
       </div>
+
+      <div className="text-scroll-wrapper">
+        <div className="text-scroll-list">
+          <div className="text-scroll-item">
+            <div className="text-scroll-box">
+              <h3>HTML</h3>
+            </div>
+          </div>
+          <div className="text-scroll-item">
+            <div className="text-scroll-box">
+              <h3> . CSS</h3>
+            </div>
+          </div>
+          <div className="text-scroll-item">
+            <div className="text-scroll-box">
+              <h3> . JS</h3>
+            </div>
+          </div>
+          <div className="text-scroll-item">
+            <div className="text-scroll-box">
+              <h3> . React</h3>
+            </div>
+          </div>
+            <div className="text-scroll-item">
+            <div className="text-scroll-box">
+              <h3> .  NEXT JS</h3>
+            </div>
+          </div>
+        </div>
+        <div className="text-scroll-list">
+          <div className="text-scroll-item">
+            <div className="text-scroll-box">
+              <h3>HTML</h3>
+            </div>
+          </div>
+          <div className="text-scroll-item">
+            <div className="text-scroll-box">
+              <h3> . CSS</h3>
+            </div>
+          </div>
+          <div className="text-scroll-item">
+            <div className="text-scroll-box">
+              <h3> . JS</h3>
+            </div>
+          </div>
+          <div className="text-scroll-item">
+            <div className="text-scroll-box">
+              <h3> . React</h3>
+            </div>
+          </div>
+            <div className="text-scroll-item">
+            <div className="text-scroll-box">
+              <h3> .  NEXT JS</h3>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   )
 }

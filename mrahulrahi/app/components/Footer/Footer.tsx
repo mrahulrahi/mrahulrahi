@@ -18,7 +18,7 @@ const Contact = () => {
         <div className="contact-box">
           <h4 className="bg-clip-text bg-gradient-1">Get in Touch</h4>
           <p>Let me get you a beautiful website.</p>
-          <div className="social-links d-flex align-items-center position-static" style={{ transform: 'translate(0)' }}>
+          <div className="social-links d-flex align-items-center position-static mt-3" style={{ transform: 'translate(0)' }}>
             <Link className="d-flex align-items-center justify-content-center"
               href="https://linkedin.com/in/mrahulrahi/"><FaLinkedinIn /></Link>
             <Link className="d-flex align-items-center justify-content-center"
