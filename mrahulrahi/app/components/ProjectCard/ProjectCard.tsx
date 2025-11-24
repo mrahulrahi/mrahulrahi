@@ -48,7 +48,7 @@ const ProjectCard = ({ card }: Props) => {
                 </div>
 
                 <div className="pcb-text d-flex flex-column">
-                    <h3 className="bg-clip-text bg-gradient-1 fw-bold"> {card.label} </h3>
+                    <h3 className="bg-clip-text bg-gradient-text fw-bold"> {card.label} </h3>
                     <h5> {card.title} </h5>
                     <p className="mb-2"> {card.para}</p>
                     <div className="pcb-tools d-flex justify-content-between align-items-center mb-3">

@@ -1,61 +1,59 @@
-.hero-content {min-height: 100vh;width: 100%;padding: 80px 0;}
-.hero-container .text-scroll-wrapper{width: max-content;position: absolute;bottom: 0;left: 50%;transform: translateX(-50%);z-index: 0;}
-.hero-container .text-scroll-wrapper h3{background: var(--mrr-gradient-1);color: transparent;background-clip: text;font-size: 5.5vw;font-weight: 700;line-height: 1;letter-spacing: 0.02em;opacity: 0.25;}
-.hero-left {width: 33.33%;position: relative;position: relative;}
-.hero-center {width: 33.33%;position: relative;position: relative;}
-.hero-right {width: 33.33%;padding-left: 5%;z-index: 1;}
-.hl-content h1{font-size:60px;font-weight:600;line-height:1;color:var(--mrr-white);margin-bottom:24px;}
-.hl-content h3{color: var(--mrr-white);font-size:36px;}
-.hl-content h4{color:var(--mrr-white);font-size:24px;margin-bottom:0;}
-.hc-content {width: 100%;height: 100%;position: relative;aspect-ratio: 1;}
-.hc-orbit-1{width: 50%;height: 50%;position: absolute;margin: -50px auto;animation: orbit 5s linear infinite;}
-.hero-img {width: 50%;height: 50%;aspect-ratio: 1;border: 5px solid var(--mrr-white);border-radius: 50%;overflow: hidden;position: relative;}
-.hero-img img { width: 100%; height: 100%; object-fit: cover;object-position: top;}
-.hero-img-box::before{content:'';position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:120%;height:120%;background: url(/animate-bg.svg) center / contain no-repeat ;}
-.hero-icon {position: absolute;width: 60px;height: 60px;padding: 15px;border-radius: 50%; z-index: 9;}
+
+.hero-icons {position: absolute;top: 20%;left: 50%;bottom: 0;transform: translateX(-50%);width: 100%;max-width: 1000px;height: 40%;}
+.hero-icon {position: absolute;width: 60px;height: 60px;padding: 15px;border-radius: 50%; z-index: 9;animation: orbit 5s linear infinite;}
 .hero-icon img{width: 100%;height: 100%;object-fit: cover;}
-.hero-icon.hi-1 {top: 0%;background: #ff6c39;right: 100%;}
-.hero-icon.hi-2 {bottom: 0%;background: #2965f1;right: 100%;}
-.hero-icon.hi-3 {top: 0%;background: #ffd814;left: 100%;}
-.hero-icon.hi-4 {bottom: 0%;background: #5ed3f3;left: 100%;}
-.hr-content {font-size: 18px;line-height: 1.5;position: relative;}
+.hero-icon.hi-1 {top: 0%;background: #ff6c39;right: 90%;}
+.hero-icon.hi-2 {bottom: 0%;background: #2965f1;right: 95%; animation-delay: .2s;}
+.hero-icon.hi-3 {top: 0%;background: #ffd814;left: 90%; animation-delay: .4s;}
+.hero-icon.hi-4 {bottom: 0%;background: #5ed3f3;left: 95%; animation-delay: .6s;}
+
+.hero-container .text-scroll-wrapper{width: max-content;position: absolute;bottom: 0;left: 50%;transform: translateX(-50%);z-index: 0;}
+.hero-container .text-scroll-list{animation: 25s linear infinite scroll-horizontal;}
+.hero-container .text-scroll-item{padding: 0 4rem;}
+.hero-container .text-scroll-wrapper h3{background: var(--mrr-gradient-1);color: transparent;background-clip: text;font-size: 8vw;font-weight: 700;line-height: 1;letter-spacing: 0.02em;opacity: 0.25;}
+.hero-container .text-scroll-box{position: relative;}
+.hero-container .text-scroll-box::after{content: '.';position: absolute;left: calc(100% + 4rem);top: 0;bottom: 0;background: var(--mrr-gradient-1);color: transparent;background-clip: text;font-size: 8vw;font-weight: 700;line-height: 1.25;opacity: 0.25;}
+
+.hero-content {min-height: 100vh;width: 100%;padding: 80px 0;position: relative;z-index: 9;}
+.hero-inner {max-width: 650px;}
+.hero-text {font-size: 18px;line-height: 1.5;}
+.hero-text h1{font-size:90px;font-weight:600;line-height:1;color:var(--mrr-text-color);margin-bottom:10px;}
+.hero-text h3{color: var(--mrr-text-color);font-size:30px;margin-bottom: 10px;}
+.hero-text h4{color:var(--mrr-text-color);font-size:46px;margin-bottom: 20px;}
 
 
 /* ========================================== 
 ! Large devices (desktops, less than 1200px)
 =========================================== */
 @media (max-width:1199.98px){
-.hero-container h1{font-size:54px;}
-.hero-btn{margin-top:45px;}
+    .hero-text h1{font-size:54px;}
 }
 
 /*==========================================
 ! Medium devices (tablets, less than 992px)
 ========================================== */
 @media (max-width:991.98px){
-    .hl-content h1 {font-size: 48px;}
-    .hl-content h3 {font-size: 30px;}
-
-    .hr-content{font-size:16px;}
-    .hero-left { width: 100%; margin-top: 30px;padding-left: 0;} 
-    .hero-center {width: 100%;max-width: 500px;margin: 0 auto;order: -1;}
-    .hero-right { width: 100%; margin-top: 24px;padding-left: 0;}    
+    .hero-text{font-size:16px;}
+    .hero-text h1 {font-size: 48px;}
+    .hero-text h3 {font-size: 30px;}
 }
 
 /* =================================================  
 ! Small devices (landscape phones, less than 768px)
 ================================================= */
 @media (max-width:767.98px){
+    .hero-container .text-scroll-wrapper h3{font-size: 12vw;}
+    .hero-container .text-scroll-box::after{font-size: 12vw;}
+
     .hero-content {min-height: calc(100vh - 80px);}
-    .hl-content h1 {font-size: 44px;}
-    .hl-content h4 {font-size: 20px; margin-bottom: 15px;}
-    .hr-content{font-size:14px;}
+    .hero-text{font-size:14px;}
+    .hero-text h1 {font-size: 44px;}
+    .hero-text h4 {font-size: 20px; margin-bottom: 15px;}   
 }
 
 /* ======================================================
 ! Extra small devices (portrait phones, less than 576px)
 ====================================================== */
 @media (max-width:575.98px){
-    .hl-content h1 {font-size: 40px;}
-    .hr-content{width: 100%;}
+    .hero-text h1 {font-size: 40px;}
 }

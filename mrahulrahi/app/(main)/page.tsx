@@ -30,13 +30,13 @@ import { BiLogoTypescript, BiLogoVisualStudio } from "react-icons/bi";
 
 const BannerHeadingOne = () => {
   return (<>
-    My <span className="bg-clip-text bg-gradient-1">Portfolio</span>
+    My <span className="bg-clip-text bg-gradient">Portfolio</span>
   </>)
 }
 
 const HeroHeading = () => {
   return (<>
-    About <span className="bg-clip-text bg-gradient-1">me</span>
+    About <span className="bg-clip-text bg-gradient">me</span>
   </>)
 }
 
@@ -100,7 +100,7 @@ export default function Home() {
 
 
   return (
-    <main>
+    <>
       <div className="bg-dark bg-graphic position-relative overflow-hidden">
         <ul className="box-animated-bg">
           {Array.from({ length: 22 }).map((_, index) => (
@@ -112,8 +112,8 @@ export default function Home() {
           <Button title="🔍 About Me" style="default" url="#about" icon={<TiArrowDownOutline />} />
         </Hero>
 
-        <ContentContainer className="pt-0" column="col-xl-10 mx-auto">
-          <motion.div className="stats-content-box bg-gradient-1 position-relative z-3" initial={{ opacity: 0, y: 50 }}
+        <ContentContainer column="col-xl-10 mx-auto">
+          <motion.div className="stats-content-box bg-gradient position-relative z-3" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
@@ -133,16 +133,16 @@ export default function Home() {
           </motion.div>
         </ContentContainer>
 
-        <Banner heading={<HeroHeading />} className="pt-0" id="about" >
+        <Banner heading={<HeroHeading />} className="bg-dark bg-mask" id="about" >
           <Button title="What I do ?" style="default" url="#timelineSection" icon={<TiArrowDownOutline />} />
         </Banner>
 
         <ContentContainer className="about-intro-container">
-          <motion.div className="ai-content-box d-flex flex-wrap bg-gradient-1 overflow-hidden" initial={{ opacity: 0, y: 50 }}
+          <motion.div className="ai-content-box d-flex flex-wrap bg-gradient overflow-hidden" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
-            <motion.div className="ai-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, x: -50 }}
+            <motion.div className="ai-img-box d-flex align-items-center justify-content-center position-relative" initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
@@ -154,10 +154,9 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
-              <h4><span className="bg-clip-text bg-gradient-1">Hello,</span> I'm</h4>
+              <h4><span className="bg-clip-text bg-gradient-reverse">Hello,</span> I'm</h4>
               <h2>Rahul Maurya</h2>
               <h5>Web Developer</h5>
-
               <p>I am a front-end web developer whose life's passion is Technology and I also love to
                 click photographs. I can provide clean code and pixel perfect design. I also make the
                 website responsive & more interactive with web animations. I try to make videos that are
@@ -195,7 +194,7 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <motion.div className="ai-skill-box d-flex flex-column bg-gradient-1" initial={{ opacity: 0, y: 50 }}
+          <motion.div className="ai-skill-box d-flex flex-column bg-gradient" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
@@ -213,52 +212,42 @@ export default function Home() {
         </ContentContainer>
 
         <ContentContainer className="position-relative oveflow-hidden pt-0" id="timelineSection">
-          <motion.div className="row" initial={{ opacity: 0, y: 50 }}
+          <motion.div className="row align-items-center" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
-            <div className="col-md-6">
-              <Heading heading="What I do" className="d-md-none" />
-              <motion.div className="sticky-sidebar-box" initial={{ opacity: 0, y: 50 }}
+            <div className="col-md-3">
+              <Heading heading="What I do" />
+              <motion.div className="timeline-img-box d-flex align-items-center justify-content-center bg-dark bg-mask" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}>
-                <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.2 }}><img src="/rahi.webp" alt="" /></motion.div >
-              </motion.div>
+                viewport={{ once: true, amount: 0.2 }}><img src="/rahi.webp" alt="" /></motion.div >
             </div>
 
-            <div className="col-md-6">
-              <motion.div className="sticky-content-box" initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}>
-                <div className="main-container d-flex flex-wrap">
-                  <Heading heading="What I do" className="d-none d-md-flex" />
-
-                  <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}>
-                    <motion.div className="timeline" initial={{ opacity: 0, y: 50 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      viewport={{ once: true, amount: 0.2 }}>
-                      {timelineItems.map(item =>
-                        <motion.div key={item.id} className="timeline-item" >
-                          <div className="timeline-content">
-                            <h3 className="timeline-content-title">{item.title}</h3>
-                            <ul className="timeline-content-desc">
-                              {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
-                            </ul>
-                          </div>
-                        </motion.div>)}
-                    </motion.div>
-                  </motion.div>
-                </div>
-              </motion.div>
+            <div className="col-md-9">
+              <div className="main-container d-flex flex-wrap">
+                <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.2 }}>
+                  <Swiper breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 } }}
+                    navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
+                    modules={[Autoplay, Navigation]}
+                    slidesPerView={1}
+                    spaceBetween={30}
+                    className="timeline overflow-visible">
+                    {timelineItems.map(item =>
+                      <SwiperSlide key={item.id} className="timeline-item" >
+                        <div className="timeline-content">
+                          <h3 className="timeline-content-title">{item.title}</h3>
+                          <ul className="timeline-content-desc">
+                            {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
+                          </ul>
+                        </div>
+                      </SwiperSlide>)}
+                  </Swiper>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </ContentContainer>
@@ -274,13 +263,13 @@ export default function Home() {
           </motion.div>
         </ContentContainer>
 
-        <Banner heading={<BannerHeadingOne />} className="pt-0" id="portfolio">
+        <Banner heading={<BannerHeadingOne />} className="bg-dark bg-mask" id="portfolio">
           <Button title='Side Hustle' style='default' url='#sideHustle' icon={<TiArrowDownOutline />} />
         </Banner>
 
 
         <ContentContainer className="portfolio-container">
-          <motion.div className="ai-content-box bg-gradient-1" initial={{ opacity: 0, y: 50 }}
+          <motion.div className="ai-content-box bg-gradient" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
@@ -304,44 +293,44 @@ export default function Home() {
           <div className="text-scroll-list">
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span></h2>
+                <h2>WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span></h2>
+                <h2>MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span></h2>
+                <h2>WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span></h2>
+                <h2>MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
               </div>
             </div>
           </div>
           <div className="text-scroll-list">
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span></h2>
+                <h2>WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span></h2>
+                <h2>MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>WHERE <span className='bg-clip-text bg-gradient-1'>IMAGINATION</span></h2>
+                <h2>WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>MEETS <span className='bg-clip-text bg-gradient-1'>CREATIVITY</span></h2>
+                <h2>MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
               </div>
             </div>
           </div>
@@ -396,6 +385,6 @@ export default function Home() {
       </div>
 
       <MouseFollower />
-    </main>
+    </>
   );
 }
