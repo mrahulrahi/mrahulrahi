@@ -218,7 +218,7 @@ export default function Home() {
             viewport={{ once: true, amount: 0.2 }}>
             <div className="col-md-3">
               <Heading heading="What I do" />
-              <motion.div className="timeline-img-box d-flex align-items-center justify-content-center bg-dark bg-mask" initial={{ opacity: 0, y: 50 }}
+              <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}><img src="/rahi.webp" alt="" /></motion.div >
@@ -230,11 +230,11 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: "easeOut" }}
                   viewport={{ once: true, amount: 0.2 }}>
-                  <Swiper breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 } }}
+                  <Swiper 
                     navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
                     modules={[Autoplay, Navigation]}
-                    slidesPerView={1}
-                    spaceBetween={30}
+                    slidesPerView={"auto"}
+                    spaceBetween={80}
                     className="timeline overflow-visible">
                     {timelineItems.map(item =>
                       <SwiperSlide key={item.id} className="timeline-item" >

@@ -4,8 +4,10 @@
 .certificate-card-box:hover{background: var(--mrr-dark-color);color: var(--mrr-white);}
 .certificate-card-text{font-size: 16px;font-weight: 300;}
 .certificate-card-text h4{font-size: 24px;font-weight: 600;margin-bottom: 10px;}
-.certificate-card-icon{position: absolute;bottom: 0;right: 0;filter: invert(1);transition: all .2s ease-in;}
-.certificate-card-box:hover .certificate-card-icon{transform: translateY(20px);}
+.certificate-card-icon{position: absolute;bottom: 0;right: 0;filter: none;transition: all .2s ease-in;}
+.certificate-card-box:hover .certificate-card-icon{transform: translateY(20px);filter: invert(1);}
+
+.dark .certificate-card-icon{filter: invert(1);}
 
 @media (max-width: 991.98px) {
     .certificate-card-item{width: 50%;}
