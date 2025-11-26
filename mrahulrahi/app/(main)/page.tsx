@@ -211,13 +211,12 @@ export default function Home() {
           </motion.div>
         </ContentContainer>
 
-        <ContentContainer className="position-relative oveflow-hidden pt-0" id="timelineSection">
+        <ContentContainer className="position-relative oveflow-hidden pt-0"  heading="What I do" id="timelineSection">
           <motion.div className="row align-items-center" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
             <div className="col-md-3">
-              <Heading heading="What I do" />
               <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
