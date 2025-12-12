@@ -1,20 +1,7 @@
 'use client'
 import Link from "next/link"
-import { Josefin_Sans, Outfit } from 'next/font/google'
 import ContentContainer from "./components/ContentContainer"
 import MouseFollower from './components/MouseFollower';
-
-const josefinSans = Josefin_Sans({
-  subsets: ['latin'],
-  variable: '--font-josefinSans',
-})
-
-const outfit = Outfit({
-  weight: ['300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-outfit',
-});
 
 export default function NotFound({
   error,
@@ -24,12 +11,11 @@ export default function NotFound({
   reset: () => void
 }) {
   return (
-    <html>
-      <body className={`${josefinSans.variable} ${outfit.variable}`}>
-        <ContentContainer className="page_404" column="col-sm-12">
+      <>
+        <ContentContainer className=" page_404 bg-dark" column="col-sm-12">
           <div className="text-center">
             <div className="page_404-bg"></div>
-
+ 
             <div className="page_404-content">
               <h3>
                 Look like you're lost
@@ -37,12 +23,12 @@ export default function NotFound({
 
               <p>the page you are looking for not avaible!</p>
 
-              <Link href="/" className="btn btn-green">Go to Home</Link>
+              <Link href="/" className="btn btn-gradient">Go to Home</Link>
             </div>
           </div>
         </ContentContainer>
-           <MouseFollower />
-      </body>
-    </html>
+
+        <MouseFollower />
+      </>
   )
 }

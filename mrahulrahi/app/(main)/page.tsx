@@ -2,10 +2,8 @@
 import { useEffect, useState } from "react";
 import Image from 'next/image'
 import * as motion from "motion/react-client";
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
 import Hero from "../components/Hero/Hero";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
 import ContentContainer from "../components/ContentContainer";
@@ -27,16 +25,15 @@ import { SiAdobexd } from "react-icons/si";
 import { FaHtml5, FaCss3Alt, FaJsSquare, FaBootstrap, FaReact, FaNodeJs, FaGitAlt, FaGithub, FaFigma } from "react-icons/fa";
 import { BiLogoTypescript, BiLogoVisualStudio } from "react-icons/bi";
 
+const HeroHeading = () => {
+  return (<>
+    About <span className="bg-clip-text bg-gradient">me</span>
+  </>)
+}
 
 const BannerHeadingOne = () => {
   return (<>
     My <span className="bg-clip-text bg-gradient">Portfolio</span>
-  </>)
-}
-
-const HeroHeading = () => {
-  return (<>
-    About <span className="bg-clip-text bg-gradient">me</span>
   </>)
 }
 
@@ -97,16 +94,10 @@ export default function Home() {
   }, []);
 
 
-
-
   return (
     <>
       <div className="bg-dark bg-graphic position-relative overflow-hidden">
-        <ul className="box-animated-bg">
-          {Array.from({ length: 22 }).map((_, index) => (
-            <li key={index}></li>
-          ))}
-        </ul>
+        <BackgroundFixedElement />
 
         <Hero>
           <Button title="🔍 About Me" style="default" url="#about" icon={<TiArrowDownOutline />} />
@@ -211,42 +202,52 @@ export default function Home() {
           </motion.div>
         </ContentContainer>
 
-        <ContentContainer className="position-relative oveflow-hidden pt-0"  heading="What I do" id="timelineSection">
+        <ContentContainer className="position-relative oveflow-hidden pt-0" heading="What I do" id="timelineSection"
+          rightHeading={
+            <div className="custom-arrow-container d-flex justify-content-between">
+              <button className="custom-arrow-button custom-arrow-prev timeline-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
+                <TiArrowRightOutline />
+              </button>
+              <button className="custom-arrow-button custom-arrow-next timeline-arrow-next bg-glass d-flex align-items-center justify-content-center rounded-circle">
+                <TiArrowRightOutline />
+              </button>
+            </div>
+          }
+          mobileRightHeading={true}>
           <motion.div className="row align-items-center" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
-            <div className="col-md-3">
+            <div className="col-md-2">
               <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}><img src="/rahi.webp" alt="" /></motion.div >
             </div>
 
-            <div className="col-md-9">
-              <div className="main-container d-flex flex-wrap">
-                <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.2 }}>
-                  <Swiper 
-                    navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
-                    modules={[Autoplay, Navigation]}
-                    slidesPerView={"auto"}
-                    spaceBetween={80}
-                    className="timeline overflow-visible">
-                    {timelineItems.map(item =>
-                      <SwiperSlide key={item.id} className="timeline-item" >
-                        <div className="timeline-content">
-                          <h3 className="timeline-content-title">{item.title}</h3>
-                          <ul className="timeline-content-desc">
-                            {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
-                          </ul>
-                        </div>
-                      </SwiperSlide>)}
-                  </Swiper>
-                </motion.div>
-              </div>
+            <div className="col-md-10">
+              <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}>
+                <Swiper
+                  modules={[Navigation]}
+                  slidesPerView={1}
+                  spaceBetween={80}
+                  breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 'auto' } }}
+                  navigation={{ nextEl: ".timeline-arrow-next", prevEl: ".timeline-arrow-prev", disabledClass: "swiper-button-disabled" }}
+                  className="timeline overflow-visible">
+                  {timelineItems.map(item =>
+                    <SwiperSlide key={item.id} className="timeline-item" >
+                      <div className="timeline-content">
+                        <h3 className="timeline-content-title">{item.title}</h3>
+                        <ul className="timeline-content-desc">
+                          {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
+                        </ul>
+                      </div>
+                    </SwiperSlide>)}
+                </Swiper>
+              </motion.div>
             </div>
           </motion.div>
         </ContentContainer>
@@ -268,10 +269,7 @@ export default function Home() {
 
 
         <ContentContainer className="portfolio-container">
-          <motion.div className="ai-content-box bg-gradient" initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.2 }}>
+          <motion.div className="ai-content-box bg-gradient">
             <Heading heading='Crafted With Code' />
 
             <div className="project-card-list d-flex flex-wrap">
@@ -288,48 +286,48 @@ export default function Home() {
         </ContentContainer>
 
 
-        <div className="text-scroll-wrapper mt-5">
+        <div className="text-scroll-wrapper m-0">
           <div className="text-scroll-list">
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
+                <h2 className="mb-0">WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
+                <h2 className="mb-0">MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
+                <h2 className="mb-0">WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
+                <h2 className="mb-0">MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
               </div>
             </div>
           </div>
           <div className="text-scroll-list">
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
+                <h2 className="mb-0">WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
+                <h2 className="mb-0">MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
+                <h2 className="mb-0">WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
               </div>
             </div>
             <div className="text-scroll-item">
               <div className="text-scroll-box">
-                <h2>MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
+                <h2 className="mb-0">MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
               </div>
             </div>
           </div>
@@ -365,11 +363,11 @@ export default function Home() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
               <Swiper
-                breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
-                navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
-                modules={[Autoplay, Navigation]}
+                modules={[Navigation]}
                 slidesPerView={1}
                 spaceBetween={30}
+                breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
+                navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
                 className="blog-card-list d-flex flex-wrap overflow-visible">
                 {articles.slice(0, 10).map((article: any) => (
                   <SwiperSlide className="blog-card-item h-auto" key={article.id}>

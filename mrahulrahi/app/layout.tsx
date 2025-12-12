@@ -4,7 +4,6 @@ import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import './globals.css'
 import ImportBsJS from './importBsJS'
-
 import { Josefin_Sans, Outfit } from 'next/font/google'
 
 // Google Fonts setup
