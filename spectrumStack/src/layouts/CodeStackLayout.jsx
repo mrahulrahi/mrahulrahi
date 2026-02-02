@@ -25,7 +25,8 @@ const CodeStackLayout = () => {
     { title: 'Notes App', href: '/code-stack/notes-app', icon: <FaNoteSticky /> },
     { title: 'Weather App', href: '/code-stack/weather-app', icon: <FaCloudSun /> },
     { title: 'Quote App', href: '/code-stack/quote-app', icon: <FaQuoteRight /> },
-
+    { title: 'Salary Calculator', href: '/code-stack/salary-calculator', icon: <FaCalculator /> },
+    { title: 'Smart EMI Planner', href: '/code-stack/smart-emi-planner', icon: <FaCalculator /> },
   ];
 
   // Hero configuration based on current route
