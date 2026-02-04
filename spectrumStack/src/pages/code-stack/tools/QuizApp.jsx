@@ -112,7 +112,7 @@ const QuizApp = (gradientColor) => {
     };
 
     return (
-        <div className="quiz-container flex flex-wrap h-full">
+        <div className="quiz-container flex flex-wrap h-full py-3 px-3 md:py-5 md:px-5">
             {!showQuiz ? (
                 <>
                     <div className="start-quiz-wrapper self-center mx-auto">

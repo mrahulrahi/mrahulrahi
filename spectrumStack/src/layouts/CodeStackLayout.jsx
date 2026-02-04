@@ -90,7 +90,7 @@ const CodeStackLayout = () => {
                   <h4 className="text-lg font-bold tracking-widest bg-clip-text text-transparent mb-0 text-center" style={gradientStyle}>{links.find(link => link.href === active)?.title}</h4>
                   <ul className="device-head-dots flex items-center justify-end gap-1"><li className="w-2 h-2 rounded-full bg-white/50 shrink-0"></li><li className="w-2 h-2 rounded-full bg-[rgba(255,255,255,0.5)] shrink-0"></li><li className="w-2 h-2 rounded-full bg-[rgba(255,255,255,0.5)] shrink-0"></li></ul>
                 </div>
-                <div className="tab py-3 px-3 md:py-5 md:px-5 h-full overflow-y-auto">
+                <div className="w-full h-full overflow-y-auto">
                   <Outlet />
                 </div>
               </div>

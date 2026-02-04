@@ -139,7 +139,7 @@ const NotesApp = () => {
 
 
     return (
-        <div className="notes-todos-app-container h-100">
+        <div className="notes-todos-app-container py-3 px-3 md:py-5 md:px-5 h-100">
             {popupVisible && (
                 <div className="popup-box">
                     <div className="popup">

@@ -58,7 +58,7 @@ const QuoteApp = ( gradientColor, onClick ) => {
     };
 
     return (
-        <div className="quote-wrapper">
+        <div className="quote-wrapper py-3 px-3 md:py-5 md:px-5">
             <div className="quote-box flex flex-col mb-4">
                 <span className="quote-icon"><FaQuoteLeft /></span>
                 <div className="quote-text bg-clip-text text-transparent" style={gradientColor.gradientColor}>
