@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap');
+.appWrapper { min-height: 100vh; background: #fffafa; padding: 4rem 2rem; font-family: 'Quicksand', sans-serif; overflow-x: hidden; position: relative; z-index: 1; }
+.bgBlob { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255, 192, 203, 0.2) 0%, transparent 70%); filter: blur(60px); z-index: -1; border-radius: 50%; }
+.heartContainer { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.floatingHeart { position: absolute; font-size: 1.5rem; }
+.header { text-align: center; margin-bottom: 4rem; }
+.title { color: #ff758f; font-size: 3.5rem; font-weight: 700; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; perspective: 1000px; }
+.card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border-radius: 35px; padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 10px 30px rgba(255, 117, 143, 0.05); cursor: pointer; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; transform-style: preserve-3d; }
+.cardSvg { position: absolute; bottom: -20px; right: -20px; width: 120px; height: 120px; color: #ffb3c1; opacity: 0.1; transition: transform 0.5s ease; transform: translateZ(20px); }
+.unlocked .cardSvg { opacity: 0.2; animation: slowFloat 6s infinite ease-in-out; }
+.locked { filter: grayscale(1); opacity: 0.6; cursor: not-allowed; }
+.cardDate { font-size: 0.85rem; font-weight: 700; color: #ff8fa3; text-transform: uppercase; letter-spacing: 1px; }
+.cardTitle { font-size: 1.6rem; margin: 0.5rem 0; color: #4a3a3d; }
+.tapText { color: #ff758f; font-weight: 700; margin-top: 1rem; }
+.countdownText { font-family: monospace; font-weight: bold; color: #a38d91; margin-top: 1rem; }
+.cardContent { transform: translateZ(50px); z-index: 3; }
+/* Modal Styling */
+.modalOverlay { position: fixed; inset: 0; background: rgba(255, 245, 247, 0.6); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; z-index: 100; padding: 20px; }
+.modal { background: white; width: 100%; max-width: 480px; padding: 4rem 2rem; border-radius: 50px; text-align: center; box-shadow: 0 40px 100px rgba(255, 117, 143, 0.2); position: relative; overflow: hidden; }
+.modalEmoji { font-size: 5rem; display: block; margin-bottom: 1rem; animation: slowFloatHorizontal 6s infinite ease-in-out; }
+.modalTitle { color: #ff758f; font-size: 2.2rem; }
+.divider { height: 2px; width: 50px; background: #ffe3e8; margin: 1.5rem auto; }
+.modalText { font-size: 1.1rem; line-height: 1.8; color: #5d4a4d; }
+.closeBtn { background: #ff758f; color: white; border: none; padding: 1.2rem 3rem; border-radius: 40px; font-weight: 700; margin-top: 2rem; cursor: pointer; box-shadow: 0 10px 20px rgba(255, 117, 143, 0.2); transition: transform 0.2s; }
+.closeBtn:hover { transform: scale(1.05); }
+.modalSvg1 { position: absolute; bottom: -20px; right: -20px; width: 120px; height: 120px; color: #ffb3c1; opacity: 0.2; transition: transform 0.5s ease; animation: slowFloat 6s infinite ease-in-out; }
+.modalSvg2 { position: absolute; top: -20px; left: -20px; width: 120px; height: 120px; color: #ffb3c1; opacity: 0.2; transition: transform 0.5s ease; animation: slowFloat 6s infinite ease-in-out; }
+@keyframes slowFloat {
+0%, 100% { transform: translateY(0) rotate(0); }
+50% { transform: translateY(-15px) rotate(10deg); }
+}
+@keyframes slowFloatHorizontal {
+0%, 100% { transform: translateX(0) translateY(0) rotate(0); }
+50% { transform: translateX(-20px) translateY(-20px) rotate(10deg); }
+}
