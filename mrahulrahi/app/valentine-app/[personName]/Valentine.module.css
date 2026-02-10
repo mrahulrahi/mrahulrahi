@@ -5,6 +5,7 @@
 .floatingHeart { position: absolute; font-size: 1.5rem; }
 .header { text-align: center; margin-bottom: 4rem; }
 .title { color: #ff758f; font-size: 3.5rem; font-weight: 700; }
+.name { color: #ff758f; font-weight: 700; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto; perspective: 1000px; }
 .card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border-radius: 35px; padding: 2.5rem; border: 1px solid rgba(255, 255, 255, 0.5); box-shadow: 0 10px 30px rgba(255, 117, 143, 0.05); cursor: pointer; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; transform-style: preserve-3d; }
 .cardSvg { position: absolute; bottom: -20px; right: -20px; width: 120px; height: 120px; color: #ffb3c1; opacity: 0.1; transition: transform 0.5s ease; transform: translateZ(20px); }
