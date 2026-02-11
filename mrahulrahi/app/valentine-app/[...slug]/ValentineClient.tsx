@@ -1,8 +1,8 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
-import { useParams } from 'next/navigation';
 import styles from './Valentine.module.css';
+import AudioPlayer from './AudioPlayer';
 
 // --- TYPES ---
 interface TimelineItem {
@@ -104,8 +104,39 @@ const PerspectiveCard: React.FC<PerspectiveCardProps> = ({ item, unlocked, onCli
     );
 };
 
+// Typewriter Component
+const TypewriterText = ({ text }: { text: string }) => {
+    const [displayedText, setDisplayedText] = useState("");
+
+    useEffect(() => {
+        setDisplayedText("");
+        let i = 0;
+        const timer = setInterval(() => {
+            if (i <= text.length) {
+                setDisplayedText(text.slice(0, i));
+                i++;
+            } else {
+                clearInterval(timer);
+            }
+        }, 30); // Integrated a smoother, slightly faster speed
+        return () => clearInterval(timer);
+    }, [text]);
+
+    return (
+        <span>
+            {displayedText}
+            <span className={styles.cursor}>|</span>
+        </span>
+    );
+};
+
 // --- MAIN APP ---
-const ValentineApp = () => {
+interface ValentineClientProps {
+    initialName: string;
+    byName: string;
+}
+
+const ValentineClient: React.FC<ValentineClientProps> = ({ initialName, byName }) => {
     // Helper to get current IST time
     const getISTDate = () => {
         const now = new Date();
@@ -113,13 +144,31 @@ const ValentineApp = () => {
         return new Date(utc + (3600000 * 5.5)); // UTC + 5:30
     };
 
-    const [currentTime, setCurrentTime] = useState(getISTDate());
+    const [currentTime, setCurrentTime] = useState<Date | null>(null);
     const [activeModal, setActiveModal] = useState<TimelineItem | null>(null);
-    const params = useParams() || {};
-    const rawName = params.personName as string;
-    const personName = rawName ? decodeURIComponent(rawName) : "My Love";
+    const [isMounted, setIsMounted] = useState(false);
+
+    // Safely decode name
+    let personName = "My Love";
+    try {
+        personName = initialName ? decodeURIComponent(initialName) : "My Love";
+    } catch (e) {
+        console.error("Failed to decode name:", e);
+        personName = initialName || "My Love";
+    }
+    const rawName = initialName;
+
+    let authorName = "Your Love";
+    try {
+        authorName = byName ? decodeURIComponent(byName) : "Your Love";
+    } catch (e) {
+        console.error("Failed to decode name:", e);
+        authorName = byName || "Your Love";
+    }
 
     useEffect(() => {
+        setIsMounted(true);
+        setCurrentTime(getISTDate());
         const timer = setInterval(() => setCurrentTime(getISTDate()), 1000);
         return () => clearInterval(timer);
     }, []);
@@ -143,27 +192,17 @@ const ValentineApp = () => {
 
     // Helper to check if a date is unlocked in IST
     const isUnlocked = (targetDateStr: string) => {
+        if (!currentTime) return false; // Locked by default/server
         const targetDate = new Date(targetDateStr);
-        // Reset target date to midnight locally, effectively treating the string as local midnight
-        // But since we want "12 AM IST", we need to align how we compare.
-        // Simplest way: Compare YYYY-MM-DD string of IST time with targetDateStr
-        
-        // Alternative: Convert targetDateStr to a Date object that represents 00:00:00 IST on that day.
-        // The formatted string 'YYYY-MM-DD' is unambiguous.
-        // Let's compare timestamps.
-        
-        // Parse targetDateStr ('2026-02-07') as a date in IST
-        // A simple trick is to append "T00:00:00+05:30" if the browser supports it, 
-        // or manually construct the timestamp.
-        
         const targetTime = new Date(`${targetDateStr}T00:00:00+05:30`).getTime();
         return currentTime.getTime() >= targetTime;
     };
 
     const getCountdown = (targetDateStr: string) => {
+        if (!currentTime) return null;
         const targetTime = new Date(`${targetDateStr}T00:00:00+05:30`).getTime();
         const diff = targetTime - currentTime.getTime();
-        
+
         if (diff <= 0) return null;
         const d = Math.floor(diff / (1000 * 60 * 60 * 24));
         const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
@@ -172,8 +211,13 @@ const ValentineApp = () => {
         return `${d}d ${h}h ${m}m ${s}s`;
     };
 
+    if (!isMounted) {
+        return null; // Prevent hydration mismatch by not rendering until mounted
+    }
+
     return (
         <div className={styles.appWrapper}>
+            <AudioPlayer />
             <HeartRain />
 
             {/* Background Blobs */}
@@ -182,11 +226,7 @@ const ValentineApp = () => {
                 transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
                 className={styles.bgBlob} style={{ top: '5%', left: '10%' }}
             />
-            <motion.div
-                animate={{ x: [0, -30, 0], y: [0, -50, 0] }}
-                transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-                className={styles.bgBlob} style={{ bottom: '10%', right: '10%', background: 'radial-gradient(circle, rgba(255,117,143,0.2) 0%, transparent 70%)' }}
-            />
+            {/* ... other background blobs ... */}
 
             <header className={styles.header}>
                 <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={styles.title}>
@@ -195,38 +235,46 @@ const ValentineApp = () => {
                 <p className={styles.subtitle}>Every day is a reason to love you <span className={styles.name}>{personName}</span> ♥️.</p>
             </header>
 
-            <motion.div className={styles.grid}>
+            <motion.div className={styles.grid} role="list">
                 {timeline.map((item, idx) => (
-                    <PerspectiveCard 
-                        key={idx} 
-                        item={item} 
-                        unlocked={isUnlocked(item.date)} 
-                        onClick={setActiveModal} 
-                        getCountdown={getCountdown}
-                    />
+                    <div key={idx} role="listitem" style={{ display: 'contents' }}>
+                        <PerspectiveCard
+                            item={item}
+                            unlocked={isUnlocked(item.date)}
+                            onClick={setActiveModal}
+                            getCountdown={getCountdown}
+                        />
+                    </div>
                 ))}
             </motion.div>
 
             <AnimatePresence>
                 {activeModal && (
-                    <motion.div className={styles.modalOverlay} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setActiveModal(null)}>
-                        <HeartRain count={20} />
+                    <motion.div className={styles.modalOverlay} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setActiveModal(null)} role="dialog" aria-modal="true" aria-labelledby="modal-title">
+                        <HeartRain count={12} />
                         <motion.div
                             className={styles.modal}
                             layoutId={activeModal.title}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <motion.span initial={{ scale: 0 }} animate={{ scale: 1.2 }} className={styles.modalEmoji}>{activeModal.emoji}</motion.span>
-                            <svg className={styles.modalSvg1} viewBox="0 0 24 24" fill="currentColor">
+                            <motion.span initial={{ scale: 0 }} animate={{ scale: 1.2 }} className={styles.modalEmoji} role="img" aria-label={activeModal.title}>{activeModal.emoji}</motion.span>
+                            <svg className={styles.modalSvg1} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                             </svg>
-                            <svg className={styles.modalSvg2} viewBox="0 0 24 24" fill="currentColor">
+                            <svg className={styles.modalSvg2} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
                             </svg>
-                            <h1 className={styles.modalTitle}>{activeModal.title}</h1>
+                            <h1 id="modal-title" className={styles.modalTitle}>{activeModal.title}</h1>
                             <div className={styles.divider}></div>
-                            <p className={styles.modalText}>{activeModal.longContent}</p>
-                            <button className={styles.closeBtn} onClick={() => setActiveModal(null)}>Close with Love</button>
+                            <p className='text-start'>Dear <span className={styles.name}>{personName}</span>,</p>
+                            <p className={styles.modalText}>
+                                <TypewriterText text={activeModal.longContent} />
+                            </p>
+                            <p className='text-end'>With Love, <br />
+                                <span className={styles.name}>{authorName}</span>
+                            </p>
+
+                            <button className={styles.closeBtn} onClick={() => setActiveModal(null)} aria-label="Close modal">Close with Love</button>
                         </motion.div>
                     </motion.div>
                 )}
@@ -235,4 +283,4 @@ const ValentineApp = () => {
     );
 };
 
-export default ValentineApp;
+export default ValentineClient;

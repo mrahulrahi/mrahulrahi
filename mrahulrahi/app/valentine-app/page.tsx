@@ -46,12 +46,13 @@ export default function ValentineLanding() {
                 <h1 style={{ color: '#ff758f', marginBottom: '1rem' }}>Welcome! 🌹</h1>
                 <p style={{ color: '#5d4a4d', marginBottom: '2rem' }}>Please enter your name to see your special Valentine's message.</p>
                 
-                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} role="form" aria-label="Name entry form">
                     <input
                         type="text"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Enter your name..."
+                        aria-label="Enter your name"
                         style={{
                             padding: '1rem',
                             borderRadius: '15px',
@@ -63,6 +64,7 @@ export default function ValentineLanding() {
                     <button
                         type="submit"
                         disabled={!name.trim()}
+                        aria-label="See your valentine surprise"
                         style={{
                             padding: '1rem',
                             background: '#ff758f',
@@ -80,7 +82,8 @@ export default function ValentineLanding() {
                     </button>
                     <button
                          type="button"
-                         onClick={() => router.push('/valentine-app/MyLove')}
+                         onClick={() => router.push('/valentine-app/My%20Love')}
+                         aria-label="Skip to default message"
                          style={{
                              background: 'transparent',
                              border: 'none',
