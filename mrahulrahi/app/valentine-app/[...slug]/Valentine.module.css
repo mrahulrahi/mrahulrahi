@@ -16,9 +16,11 @@
 .tapText { color: #ff758f; font-weight: 700; margin-top: 1rem; }
 .countdownText { font-family: monospace; font-weight: bold; color: #a38d91; margin-top: 1rem; }
 .cardContent { transform: translateZ(50px); z-index: 3; }
+.lockedContent { display: flex; flex-direction: column; align-items: center; margin-top: 1rem; }
+.lockIcon { font-size: 2rem; margin-bottom: 0.5rem; opacity: 0.6; filter: grayscale(1); position: absolute; top: -20px; right:  -20px;   }
 /* Modal Styling */
 .modalOverlay { position: fixed; inset: 0; background: rgba(255, 245, 247, 0.6); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; z-index: 100; padding: 20px; }
-.modal { background: white; width: 100%; max-width: 480px; padding: 4rem 2rem; border-radius: 50px; text-align: center; box-shadow: 0 40px 100px rgba(255, 117, 143, 0.2); position: relative; overflow: hidden; }
+.modal { background: white; width: 100%; max-width: 480px; padding: 2rem; border-radius: 50px; text-align: center; box-shadow: 0 40px 100px rgba(255, 117, 143, 0.2); position: relative; overflow: hidden; }
 .modalEmoji { font-size: 5rem; display: block; margin-bottom: 1rem; animation: slowFloatHorizontal 6s infinite ease-in-out; }
 .modalTitle { color: #ff758f; font-size: 2.2rem; }
 .divider { height: 2px; width: 50px; background: #ffe3e8; margin: 1.5rem auto; }
@@ -59,6 +61,160 @@
  
 }
 
+
+/* Generator Button */
+.generatorBtn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #ff758f;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(255, 117, 143, 0.4);
+    z-index: 900;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: floatBtn 3s infinite ease-in-out;
+}
+
+.generatorBtn:hover {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 117, 143, 0.6);
+}
+
+@keyframes floatBtn {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Reason Modal Special Styling */
+.reasonModal {
+    background: #fff;
+    padding: 3rem;
+    border-radius: 40px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(255, 117, 143, 0.3);
+    border: 4px solid #fff0f3;
+}
+
+.reasonModal h3 {
+    color: #ff8fa3;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.reasonText {
+    font-size: 1.8rem;
+    color: #5d4a4d;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 2.5rem;
+    font-style: italic;
+}
+
+/* Share Button */
+.shareBtn {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    border: 2px solid #ffb3c1;
+    color: #ff758f;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+
+/* Dark Mode Styles */
+.darkMode.appWrapper {
+    background: #1a0f14;
+    color: #ffe3e8;
+}
+
+.darkMode .title, .darkMode .name {
+    color: #ffb3c1;
+    text-shadow: 0 0 10px rgba(255, 117, 143, 0.4);
+}
+
+.darkMode .subtitle {
+    color: #dcb0ba;
+}
+
+.darkMode .card {
+    background: rgba(40, 20, 30, 0.6);
+    border: 1px solid rgba(255, 117, 143, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.darkMode .cardTitle {
+    color: #fff0f3;
+}
+
+.darkMode .cardDate {
+    color: #ff758f;
+}
+
+.darkMode .countdownText {
+    color: #a39ea0;
+}
+
+.darkMode .modalOverlay {
+    background: rgba(20, 10, 15, 0.85);
+}
+
+.darkMode .modal {
+    background: #2a1b20;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    border: 2px solid #5d2a35;
+}
+
+.darkMode .modalTitle {
+    color: #ffb3c1;
+}
+
+.darkMode .modalText {
+    color: #ffe3e8;
+}
+
+.darkMode .reasonModal {
+    background: #2a1b20;
+    border-color: #5d2a35;
+}
+
+.darkMode .reasonText {
+    color: #ffe3e8;
+}
+
+.darkMode .shareBtn, .darkMode .toggleBtn {
+    background: rgba(40, 20, 30, 0.8);
+    border-color: #ff758f;
+    color: #ffb3c1;
+}
+
+.darkMode .shareBtn:hover, .darkMode .toggleBtn:hover {
+    background: #ff758f;
+    color: #1a0f14;
+}
+
+.darkMode .audioButton {
+    background: rgba(40, 20, 30, 0.9);
+    border: 1px solid rgba(255, 117, 143, 0.2);
+}
+
+.darkMode .songTitle {
+    color: #dcb0ba;
+}
+
+
 .audioPlayer { position: fixed; bottom: 20px; left: 20px; z-index: 1000; }
-.audioButton { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); border: none; font-size: 1.5rem; padding: 10px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s; }
+.audioButton { width: 60px;height: 60px; background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(5px); border: none; font-size: 1.5rem; padding: 10px; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s; }
 .audioButton:hover { transform: scale(1.1); }

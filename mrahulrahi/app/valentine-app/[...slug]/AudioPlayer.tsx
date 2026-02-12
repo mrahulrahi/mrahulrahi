@@ -19,7 +19,7 @@ const AudioPlayer = () => {
 
     return (
         <div className={styles.audioPlayer}>
-            <audio ref={audioRef} loop src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" />
+            <audio ref={audioRef} loop src="/Perfect by Ed Sheeran.mp3" />
             <button onClick={togglePlay} className={styles.audioButton} aria-label={isPlaying ? "Pause Music" : "Play Music"}>
                 {isPlaying ? "🔇" : "🎵"}
             </button>

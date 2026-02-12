@@ -97,7 +97,10 @@ const PerspectiveCard: React.FC<PerspectiveCardProps> = ({ item, unlocked, onCli
                 {unlocked ? (
                     <motion.p animate={{ opacity: [0.5, 1, 0.5] }} transition={{ repeat: Infinity, duration: 2 }} className={styles.tapText}>Open Letter ✨</motion.p>
                 ) : (
-                    <p className={styles.countdownText}>{getCountdown(item.date)}</p>
+                    <div className={styles.lockedContent}>
+                        <span className={styles.lockIcon}>🔒</span>
+                        <p className={styles.countdownText}>{getCountdown(item.date)}</p>
+                    </div>
                 )}
             </div>
         </motion.div>
@@ -127,6 +130,23 @@ const TypewriterText = ({ text }: { text: string }) => {
             {displayedText}
             <span className={styles.cursor}>|</span>
         </span>
+    );
+};
+
+const ShareButton = () => {
+    const [copied, setCopied] = useState(false);
+
+    const handleShare = () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        });
+    };
+
+    return (
+        <button onClick={handleShare} className={styles.shareBtn} aria-label="Share this page">
+            {copied ? "Link Copied! ✨" : "Share Love 🔗"}
+        </button>
     );
 };
 
@@ -211,14 +231,79 @@ const ValentineClient: React.FC<ValentineClientProps> = ({ initialName, byName }
         return `${d}d ${h}h ${m}m ${s}s`;
     };
 
+    // --- LOVE REASONS GENERATOR ---
+    const loveReasons = [
+        "Your smile lights up my entire world.",
+        "The way you laugh makes my heart melt.",
+        "You always know how to make me feel better.",
+        "Your kindness to everyone around you inspires me.",
+        "You make the best coffee/tea (even if you don't, I love that you try!).",
+        "I love how passionate you are about your dreams.",
+        "You are my safe space.",
+        "The way you look at me makes me feel invincible.",
+        "You have the cutest sneeze.",
+        "I love our late-night conversations.",
+        "You challenge me to be a better person.",
+        "Your hugs are the best medicine.",
+        "I love how we can sit in silence and it feels comfortable.",
+        "You have a beautiful heart.",
+        "Imperfectly perfect, just for me."
+    ];
+
+    const [showReason, setShowReason] = useState(false);
+    const [currentReason, setCurrentReason] = useState("");
+
+    const generateReason = () => {
+        const random = loveReasons[Math.floor(Math.random() * loveReasons.length)];
+        setCurrentReason(random);
+        setShowReason(true);
+    };
+
+    const [darkMode, setDarkMode] = useState(false);
+
+    const toggleTheme = () => {
+        setDarkMode(!darkMode);
+    };
+
     if (!isMounted) {
         return null; // Prevent hydration mismatch by not rendering until mounted
     }
 
     return (
-        <div className={styles.appWrapper}>
+        <div className={`${styles.appWrapper} ${darkMode ? styles.darkMode : ''}`}>
             <AudioPlayer />
             <HeartRain />
+
+            {/* Generator Button */}
+            <button onClick={generateReason} className={styles.generatorBtn} aria-label="Why I Love You">
+                Why I Love You 💌
+            </button>
+
+            {/* Reason Modal */}
+            <AnimatePresence>
+                {showReason && (
+                    <motion.div 
+                        className={styles.modalOverlay} 
+                        initial={{ opacity: 0 }} 
+                        animate={{ opacity: 1 }} 
+                        exit={{ opacity: 0 }} 
+                        onClick={() => setShowReason(false)}
+                        style={{ zIndex: 1100 }} // Higher than other modals
+                    >
+                        <motion.div
+                            className={styles.reasonModal}
+                            initial={{ scale: 0.8, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.8, opacity: 0 }}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <h3>One of the many reasons...</h3>
+                            <p className={styles.reasonText}>"{currentReason}"</p>
+                            <button className={styles.closeBtn} onClick={() => setShowReason(false)}>I Know! 🥰</button>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
 
             {/* Background Blobs */}
             <motion.div
@@ -229,6 +314,12 @@ const ValentineClient: React.FC<ValentineClientProps> = ({ initialName, byName }
             {/* ... other background blobs ... */}
 
             <header className={styles.header}>
+                <div style={{ position: 'absolute', top: '20px', right: '20px', display: 'flex', gap: '10px' }}>
+                    <button onClick={toggleTheme} className={styles.shareBtn} aria-label="Toggle Theme">
+                        {darkMode ? "☀️ Light" : "🌙 Dark"}
+                    </button>
+                    <ShareButton />
+                </div>
                 <motion.h1 initial={{ opacity: 0 }} animate={{ opacity: 1 }} className={styles.title}>
                     Our Love Story
                 </motion.h1>
