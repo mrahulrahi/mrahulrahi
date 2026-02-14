@@ -19,6 +19,7 @@ import WeatherApp from '../pages/code-stack/tools/WeatherApp.jsx';
 import QuoteApp from '../pages/code-stack/tools/QuoteApp.jsx';
 import SalaryCalculator from '../pages/code-stack/tools/SalaryCalculator.jsx';
 import SmartEMIPlanner from '../pages/code-stack/tools/SmartEMIPlanner.jsx';
+import SalaryCalcTwo from '../pages/code-stack/tools/SalaryCalcTwo.jsx';
 
 
 const AppRoutes = () => {
@@ -53,6 +54,7 @@ const AppRoutes = () => {
                     <Route path="quote-app" element={<QuoteApp gradientColor={gradientStyle} onClick={changeGradientColor} />} />
                     <Route path="salary-calculator" element={<SalaryCalculator />} />
                     <Route path="smart-emi-planner" element={<SmartEMIPlanner />} />
+                    <Route path="salary-calculator-two" element={<SalaryCalcTwo />} />
                 </Route>
 
                 <Route path="*" element={<NotFound />} />

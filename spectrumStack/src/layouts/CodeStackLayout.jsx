@@ -27,6 +27,7 @@ const CodeStackLayout = () => {
     { title: 'Quote App', href: '/code-stack/quote-app', icon: <FaQuoteRight /> },
     { title: 'Salary Calculator', href: '/code-stack/salary-calculator', icon: <FaCalculator /> },
     { title: 'Smart EMI Planner', href: '/code-stack/smart-emi-planner', icon: <FaCalculator /> },
+    { title: 'Salary Calculator', href: '/code-stack/salary-calculator-two', icon: <FaCalculator /> },
   ];
 
   // Hero configuration based on current route
@@ -56,7 +57,7 @@ const CodeStackLayout = () => {
     return childHeroConfigs[active] || {
       title: links.find(link => link.href === active)?.title || "Code Stack",
       subTitle: "Essential Tools & Resources",
-      gradientColor: gradientStyle 
+      gradientColor: gradientStyle
     };
   };
 
@@ -71,7 +72,7 @@ const CodeStackLayout = () => {
           <div className=" absolute top-2 left-2 bottom-2 right-0 rounded-2xl opacity-50" style={gradientStyle}></div>
           <button type="button" className="text-2xl px-3 py-3 rounded-none rounded-r-md absolute left-full top-10 btn btn-lg btn-primary lg:hidden" onClick={() => setSidebarOpen(!sidebarOpen)} >{sidebarOpen ? <TbLayoutSidebarLeftExpandFilled /> : <TbLayoutSidebarLeftCollapseFilled />}</button>
           <ul className="relative d-flex flex-col w-full h-full text-base-content min-h-full overflow-auto bg-white/20 p-2.5 rounded-2xl">
-          
+
             {/* Sidebar content here */}
             {links.map((card, index) => (
               <li className="not-last:mb-2" key={index}>

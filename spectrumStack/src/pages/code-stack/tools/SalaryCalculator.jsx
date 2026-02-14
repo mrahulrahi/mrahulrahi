@@ -50,7 +50,7 @@ const SalaryCalculator = () => {
     const formatCurrency = (val) => {
         return new Intl.NumberFormat('en-US', {
             style: 'currency',
-            currency: 'USD',
+            currency: 'INR',
             maximumFractionDigits: 0
         }).format(val);
     };
@@ -86,7 +86,7 @@ const SalaryCalculator = () => {
                                 <div>
                                     <label className="block text-sm font-medium text-slate-700 mb-1">Starting Salary</label>
                                     <div className="relative">
-                                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">$</span>
+                                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">₹</span>
                                         <input
                                             type="number"
                                             className="w-full pl-8 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none"
@@ -185,8 +185,8 @@ const SalaryCalculator = () => {
                                                         <input
                                                             type="number"
                                                             className={`w-full py-1 px-2 rounded-md border text-sm focus:ring-1 focus:ring-indigo-500 outline-none transition-all ${customRates[row.year] !== undefined
-                                                                    ? 'border-indigo-300 bg-indigo-50 text-indigo-700 font-bold'
-                                                                    : 'border-transparent bg-slate-100 text-slate-500 group-hover:bg-white group-hover:border-slate-300'
+                                                                ? 'border-indigo-300 bg-indigo-50 text-indigo-700 font-bold'
+                                                                : 'border-transparent bg-slate-100 text-slate-500 group-hover:bg-white group-hover:border-slate-300'
                                                                 }`}
                                                             value={row.rate}
                                                             onChange={(e) => handleRateChange(row.year, e.target.value)}
