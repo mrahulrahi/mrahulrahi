@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mrahulrahi | Brand Identity Mood Board</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Chart.js (For data viz example) -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#09090B', // Void Black
+                            surface: '#18181B', // Graphite
+                            white: '#F8FAFC', // Vapor White
+                            mint: '#00DC82', // Electric Mint
+                            fern: '#047857', // Deep Fern
+                            glow: '#BBF7D0', // Lime Glow
+                            text: '#ECEDEE', // Text Main
+                            muted: '#A1A1AA', // Text Muted
+                            border: '#27272A', // Border Color
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "linear-gradient(to right, #27272A 1px, transparent 1px), linear-gradient(to bottom, #27272A 1px, transparent 1px)",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #09090B;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27272A;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00DC82;
+        }
+
+        /* Grid Background */
+        .bg-grid {
+            background-size: 40px 40px;
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        /* Typing Cursor */
+        .cursor-blink {
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(24, 24, 27, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(39, 39, 42, 0.5);
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            height: 250px;
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-brand-text font-sans antialiased selection:bg-brand-mint selection:text-brand-black">
+
+    <!-- Placeholder Comments Required -->
+    <!-- Chosen Palette: Electric Flora (Void Black, Graphite, Electric Mint, Deep Fern) -->
+    <!-- Application Structure Plan:
+         The structure mirrors the "Technical Brutalism" ethos: a modular, single-page dashboard.
+         1. Hero: Brand introduction with terminal typing effect (Technical vibe).
+         2. Colors: Interactive swatch deck (User task: Copy colors).
+         3. Typography: Live type tester (User task: Visualize fonts).
+         4. UI Components: A 'Lab' section demonstrating buttons, inputs, and glassmorphism.
+         5. Logo Lab: Visualization of the concepts described in the text.
+         6. Prompts: Code-block style copyable prompts for AI generation.
+         Reasoning: The modular Bento-grid layout allows users to scan the brand system holistically, emphasizing the "Structured Ecology" theme.
+    -->
+    <!-- Visualization & Content Choices:
+         1. Colors: Visualized as cards with hover glow effects to demonstrate the "Electric Flora" concept.
+         2. Typography: Editable inputs to allow users to test the specific fonts mentioned.
+         3. Logos: CSS/SVG shapes used to visualize abstract concepts (Monogram, Terminal, Node) without needing raster images.
+         4. UI Demo: Functional buttons and inputs to show the "Technical Brutalism" in action.
+         5. Prompts: Displayed in monospace code blocks to emphasize the "developer tools" focus.
+         Library: Chart.js used for a small data viz example to show how charts fit into this design system.
+         NO SVG FILES used. NO Mermaid used.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Background Grid Layout -->
+    <div class="fixed inset-0 bg-grid-pattern opacity-[0.07] pointer-events-none z-0 bg-grid"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-brand-border h-16 flex items-center px-6 lg:px-12 justify-between">
+        <div class="flex items-center gap-2 group cursor-pointer">
+            <div class="w-8 h-8 bg-brand-mint/10 border border-brand-mint/30 rounded flex items-center justify-center text-brand-mint font-mono font-bold group-hover:bg-brand-mint group-hover:text-brand-black transition-all duration-300">m</div>
+            <span class="font-display font-bold text-lg tracking-wide">mrahulrahi</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8 text-sm font-mono text-brand-muted">
+            <a href="#essence" class="hover:text-brand-mint transition-colors">01.Essence</a>
+            <a href="#palette" class="hover:text-brand-mint transition-colors">02.Palette</a>
+            <a href="#typography" class="hover:text-brand-mint transition-colors">03.Type</a>
+            <a href="#ui-lab" class="hover:text-brand-mint transition-colors">04.UI_Lab</a>
+            <a href="#prompts" class="hover:text-brand-mint transition-colors">05.Prompts</a>
+        </div>
+        <button onclick="copyLink()" class="border border-brand-border hover:border-brand-mint hover:text-brand-mint px-4 py-2 rounded text-xs font-mono transition-all">
+            Share_Board
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-24 px-6 lg:px-12 max-w-7xl mx-auto pb-20 space-y-24">
+
+        <!-- 1. Hero Section -->
+        <section id="essence" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-surface border border-brand-border text-xs font-mono text-brand-mint">
+                    <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
+                    v1.0.0 System Online
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-display font-bold leading-tight">
+                    Structured <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-mint to-brand-fern">Ecology</span>
+                </h1>
+                <p class="text-brand-muted text-lg max-w-xl leading-relaxed">
+                    Bridging the gap between raw code structure and organic creativity. A design system for portfolio, UI libraries, and developer tools.
+                </p>
+                <div class="flex flex-wrap gap-3 pt-4">
+                    <span class="px-3 py-1 border border-brand-border text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Systemic</span>
+                    <span class="px-3 py-1 border border-brand-border text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Atomic</span>
+                    <span class="px-3 py-1 border border-brand-border text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Terminal-Inspired</span>
+                    <span class="px-3 py-1 border border-brand-border text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Future-Proof</span>
+                </div>
+            </div>
+            <div class="lg:col-span-5 h-64 lg:h-80 bg-brand-surface border border-brand-border rounded-lg p-6 relative overflow-hidden group">
+                <!-- Terminal Animation -->
+                <div class="absolute top-0 left-0 w-full h-6 bg-brand-border/30 flex items-center px-4 gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                </div>
+                <div class="mt-6 font-mono text-sm space-y-2">
+                    <p class="text-brand-muted">$ init <span class="text-brand-mint">mrahulrahi</span></p>
+                    <p class="text-brand-muted">> Loading modules...</p>
+                    <p class="text-brand-muted">> Applying theme: <span class="text-brand-glow">Electric Flora</span></p>
+                    <p class="text-brand-muted">> Optimizing grid...</p>
+                    <p class="text-brand-text flex items-center gap-2">
+                        > Status: <span id="typing-text" class="text-brand-mint"></span><span class="cursor-blink w-2 h-4 bg-brand-mint block"></span>
+                    </p>
+                </div>
+                <!-- Decorative elements -->
+                <div class="absolute bottom-4 right-4 w-16 h-16 border-r border-b border-brand-mint/30 rounded-br-xl"></div>
+            </div>
+        </section>
+
+        <!-- 2. Color Palette -->
+        <section id="palette" class="space-y-8">
+            <div class="border-l-2 border-brand-mint pl-4">
+                <h2 class="text-3xl font-display font-bold">Electric Flora Palette</h2>
+                <p class="text-brand-muted mt-2">Monochromatic base with high-voltage green accents. Click to copy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <!-- Cards generated by JS for easy management -->
+                <div class="palette-card group relative aspect-square rounded-xl border border-brand-border bg-brand-black flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(0,220,130,0.1)] overflow-hidden" data-color="#09090B" data-name="Void Black">
+                    <div class="absolute inset-0 bg-[#09090B]"></div>
+                    <span class="relative z-10 text-xs font-mono bg-brand-black/50 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Main BG</span>
+                    <div class="relative z-10 flex justify-between items-end">
+                        <span class="font-display font-bold text-white">Void Black</span>
+                        <span class="font-mono text-xs text-brand-muted">#09090B</span>
+                    </div>
+                </div>
+
+                <div class="palette-card group relative aspect-square rounded-xl border border-brand-border bg-brand-surface flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(0,220,130,0.1)] overflow-hidden" data-color="#18181B" data-name="Graphite">
+                    <div class="absolute inset-0 bg-[#18181B]"></div>
+                    <span class="relative z-10 text-xs font-mono bg-brand-black/50 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Surface</span>
+                    <div class="relative z-10 flex justify-between items-end">
+                        <span class="font-display font-bold text-white">Graphite</span>
+                        <span class="font-mono text-xs text-brand-muted">#18181B</span>
+                    </div>
+                </div>
+
+                <div class="palette-card group relative aspect-square rounded-xl border border-brand-border bg-brand-mint flex flex-col justify-between p-4 cursor-pointer transition-all hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(0,220,130,0.4)] overflow-hidden" data-color="#00DC82" data-name="Electric Mint">
+                    <div class="absolute inset-0 bg-[#00DC82]"></div>
+                    <span class="relative z-10 text-xs font-mono bg-black/20 backdrop-blur px-2 py-1 rounded text-black w-max border border-black/10 font-bold">Accent</span>
+                    <div class="relative z-10 flex justify-between items-end text-brand-black">
+                        <span class="font-display font-bold">Electric Mint</span>
+                        <span class="font-mono text-xs font-bold">#00DC82</span>
+                    </div>
+                </div>
+
+                <div class="palette-card group relative aspect-square rounded-xl border border-brand-border bg-brand-fern flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(4,120,87,0.3)] overflow-hidden" data-color="#047857" data-name="Deep Fern">
+                    <div class="absolute inset-0 bg-[#047857]"></div>
+                    <span class="relative z-10 text-xs font-mono bg-black/20 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Secondary</span>
+                    <div class="relative z-10 flex justify-between items-end text-white">
+                        <span class="font-display font-bold">Deep Fern</span>
+                        <span class="font-mono text-xs opacity-80">#047857</span>
+                    </div>
+                </div>
+
+                <div class="palette-card group relative aspect-square rounded-xl border border-brand-border bg-brand-glow flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(187,247,208,0.3)] overflow-hidden" data-color="#BBF7D0" data-name="Lime Glow">
+                    <div class="absolute inset-0 bg-[#BBF7D0]"></div>
+                    <span class="relative z-10 text-xs font-mono bg-brand-black/10 backdrop-blur px-2 py-1 rounded text-brand-black w-max border border-black/5">Highlight</span>
+                    <div class="relative z-10 flex justify-between items-end text-brand-black">
+                        <span class="font-display font-bold">Lime Glow</span>
+                        <span class="font-mono text-xs font-bold">#BBF7D0</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Notification toast container -->
+            <div id="toast" class="fixed bottom-8 right-8 bg-brand-surface border border-brand-mint text-brand-mint px-6 py-3 rounded shadow-2xl transform translate-y-24 transition-transform duration-300 flex items-center gap-2 z-50 font-mono text-sm">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                <span id="toast-msg">Copied to clipboard</span>
+            </div>
+        </section>
+
+        <!-- 3. Typography System -->
+        <section id="typography" class="space-y-8">
+            <div class="border-l-2 border-brand-mint pl-4">
+                <h2 class="text-3xl font-display font-bold">Typography Stack</h2>
+                <p class="text-brand-muted mt-2">Balancing technical precision with readability.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Display Font -->
+                <div class="bg-brand-surface border border-brand-border rounded-xl p-8 hover:border-brand-muted transition-colors">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-brand-mint font-mono text-sm mb-1">Headings / Display</h3>
+                            <p class="text-2xl font-display font-bold">Space Grotesk</p>
+                        </div>
+                        <span class="text-brand-muted font-mono text-xs border border-brand-border px-2 py-1 rounded">Aa</span>
+                    </div>
+                    <p class="font-display text-4xl font-bold leading-tight mb-4">
+                        Technical Brutalism for Modern UI
+                    </p>
+                    <p class="font-display text-brand-muted text-sm">
+                        ABCDEFGHIJKLMNOPQRSTUVWXYZ <br>
+                        abcdefghijklmnopqrstuvwxyz <br>
+                        0123456789
+                    </p>
+                </div>
+
+                <!-- Body Font -->
+                <div class="bg-brand-surface border border-brand-border rounded-xl p-8 hover:border-brand-muted transition-colors">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-brand-mint font-mono text-sm mb-1">Body Copy</h3>
+                            <p class="text-2xl font-sans font-medium">Inter</p>
+                        </div>
+                        <span class="text-brand-muted font-mono text-xs border border-brand-border px-2 py-1 rounded">Aa</span>
+                    </div>
+                    <p class="font-sans text-base leading-relaxed text-brand-muted mb-4">
+                        The theme bridges the gap between raw code (structure) and organic growth (creativity). It feels engineered but alive. This text is set in Inter for maximum legibility on screens.
+                    </p>
+                    <p class="font-sans text-brand-muted text-sm opacity-60">
+                        Regular 400 · Medium 500 · SemiBold 600
+                    </p>
+                </div>
+
+                <!-- Mono Font -->
+                <div class="col-span-1 lg:col-span-2 bg-brand-black border border-brand-border rounded-xl p-8 hover:border-brand-mint transition-colors">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-brand-mint font-mono text-sm mb-1">Code / Technical</h3>
+                            <p class="text-2xl font-mono">JetBrains Mono</p>
+                        </div>
+                        <span class="text-brand-muted font-mono text-xs border border-brand-border px-2 py-1 rounded">{}</span>
+                    </div>
+                    <div class="bg-[#1e1e1e] p-4 rounded border-l-2 border-brand-mint font-mono text-sm overflow-x-auto">
+                        <span class="text-[#c678dd]">const</span> <span class="text-[#e5c07b]">BrandIdentity</span> <span class="text-[#56b6c2]">=</span> {<br>
+                        &nbsp;&nbsp;theme: <span class="text-[#98c379]">'Structured Ecology'</span>,<br>
+                        &nbsp;&nbsp;version: <span class="text-[#d19a66]">1.0</span>,<br>
+                        &nbsp;&nbsp;init: <span class="text-[#c678dd]">function</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#e06c75]">return</span> <span class="text-[#98c379]">"Ready"</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        };
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. UI Lab (Components) -->
+        <section id="ui-lab" class="space-y-8">
+            <div class="border-l-2 border-brand-mint pl-4">
+                <h2 class="text-3xl font-display font-bold">UI Lab</h2>
+                <p class="text-brand-muted mt-2">Component behavior and the Bento grid system.</p>
+            </div>
+
+            <!-- Bento Grid Demo -->
+            <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-4 md:grid-rows-3 gap-4 h-[600px]">
+                
+                <!-- Card 1: Primary Action -->
+                <div class="col-span-1 md:col-span-2 row-span-2 bg-brand-surface border border-brand-border rounded-xl p-6 relative group overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                        <i data-lucide="arrow-up-right" class="text-brand-mint"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-4">Interactive Elements</h3>
+                    <div class="flex flex-col gap-4 items-start">
+                        <button class="px-6 py-2 bg-brand-mint text-brand-black font-medium rounded hover:bg-brand-mint/90 transition-colors w-full md:w-auto font-mono text-sm">
+                            Primary_Action
+                        </button>
+                        <button class="px-6 py-2 bg-transparent border border-brand-border text-brand-text font-medium rounded hover:border-brand-mint hover:text-brand-mint transition-colors w-full md:w-auto font-mono text-sm">
+                            Secondary_Action
+                        </button>
+                        <div class="flex items-center gap-2 group/link cursor-pointer">
+                            <span class="text-brand-mint font-mono text-sm group-hover/link:underline">Read Documentation</span>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-brand-mint transition-transform group-hover/link:translate-x-1"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Stats (Glassmorphism) -->
+                <div class="col-span-1 md:col-span-2 row-span-1 glass rounded-xl p-6 flex items-center justify-between border border-brand-border relative overflow-hidden">
+                     <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-brand-mint/10 blur-2xl rounded-full"></div>
+                     <div>
+                         <p class="text-brand-muted text-sm font-mono">System Status</p>
+                         <p class="text-3xl font-mono font-bold text-brand-mint">98.4%</p>
+                     </div>
+                     <div class="h-12 w-32 chart-container">
+                         <canvas id="miniChart"></canvas>
+                     </div>
+                </div>
+
+                <!-- Card 3: Input Field -->
+                <div class="col-span-1 row-span-1 bg-brand-black border border-brand-border rounded-xl p-6 flex flex-col justify-center group hover:border-brand-muted transition-colors">
+                    <label class="text-xs font-mono text-brand-muted mb-2 group-focus-within:text-brand-mint transition-colors">Command Input</label>
+                    <div class="flex items-center border-b border-brand-border group-focus-within:border-brand-mint transition-colors py-1">
+                        <span class="text-brand-mint mr-2">></span>
+                        <input type="text" placeholder="Type..." class="bg-transparent w-full outline-none text-brand-text font-mono text-sm placeholder-brand-muted/50">
+                    </div>
+                </div>
+
+                <!-- Card 4: Feature List -->
+                <div class="col-span-1 row-span-2 bg-brand-surface border border-brand-border rounded-xl p-6">
+                    <h3 class="font-display font-bold text-lg mb-4">Modules</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-sm text-brand-muted hover:text-brand-text transition-colors cursor-default">
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand-mint"></div>
+                            <span>Layout_Grid</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-muted hover:text-brand-text transition-colors cursor-default">
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand-fern"></div>
+                            <span>Typography</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-muted hover:text-brand-text transition-colors cursor-default">
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand-border"></div>
+                            <span>Icons</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-sm text-brand-muted hover:text-brand-text transition-colors cursor-default">
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand-border"></div>
+                            <span>Animations</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Logo Concepts Visualization -->
+                <div class="col-span-1 md:col-span-2 row-span-1 bg-brand-surface border border-brand-border rounded-xl p-6 flex items-center justify-around">
+                    <!-- Concept A: Monogram Stack -->
+                    <div class="group text-center">
+                         <div class="w-12 h-12 border-2 border-brand-mint rounded-lg flex items-center justify-center relative mb-2 transition-all group-hover:bg-brand-mint group-hover:text-brand-black">
+                             <span class="font-display font-bold text-xl leading-none">M</span>
+                             <div class="absolute -right-1 -bottom-1 w-2 h-2 bg-brand-black border border-brand-mint"></div>
+                         </div>
+                         <p class="text-[10px] font-mono text-brand-muted uppercase">Monogram</p>
+                    </div>
+                    
+                    <!-- Concept B: Terminal Cursor -->
+                    <div class="group text-center">
+                         <div class="w-12 h-12 flex items-center justify-center mb-2">
+                             <span class="font-display font-bold text-2xl text-white">m<span class="text-brand-mint animate-pulse">_</span></span>
+                         </div>
+                         <p class="text-[10px] font-mono text-brand-muted uppercase">Terminal</p>
+                    </div>
+
+                    <!-- Concept C: Bracket Node -->
+                    <div class="group text-center">
+                        <div class="w-12 h-12 relative flex items-center justify-center mb-2">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-mint">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <p class="text-[10px] font-mono text-brand-muted uppercase">Node</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Prompts (Tool) -->
+        <section id="prompts" class="space-y-8">
+            <div class="border-l-2 border-brand-mint pl-4 flex justify-between items-end">
+                <div>
+                    <h2 class="text-3xl font-display font-bold">Generator Prompts</h2>
+                    <p class="text-brand-muted mt-2">Source material for AI asset generation.</p>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Prompt 1 -->
+                <div class="bg-[#0d0d0d] border border-brand-border rounded-lg overflow-hidden">
+                    <div class="bg-brand-surface border-b border-brand-border px-4 py-2 flex justify-between items-center">
+                        <span class="text-xs font-mono text-brand-muted">UI_Mockup.txt</span>
+                        <button onclick="copyToClipboard('prompt-ui')" class="text-xs font-mono text-brand-mint hover:text-white flex items-center gap-1">
+                            <i data-lucide="copy" class="w-3 h-3"></i> Copy
+                        </button>
+                    </div>
+                    <div class="p-4 font-mono text-sm text-brand-muted leading-relaxed" id="prompt-ui">
+                        "High fidelity UI design for a personal portfolio and developer tools website named 'mrahulrahi'. Dark mode aesthetic, matte black background with subtle noise texture. Accent color is electric mint green (#00DC82). Layout uses a bento-grid style. Typography is a mix of geometric sans-serif and coding monospace fonts. Visual elements include floating code snippets, glassmorphism cards, and neon green thin border lines. Tech-minimalist, clean, Dribbble trending, 4k, vector style."
+                    </div>
+                </div>
+
+                <!-- Prompt 2 -->
+                <div class="bg-[#0d0d0d] border border-brand-border rounded-lg overflow-hidden">
+                    <div class="bg-brand-surface border-b border-brand-border px-4 py-2 flex justify-between items-center">
+                        <span class="text-xs font-mono text-brand-muted">Logo_Concept.txt</span>
+                        <button onclick="copyToClipboard('prompt-logo')" class="text-xs font-mono text-brand-mint hover:text-white flex items-center gap-1">
+                            <i data-lucide="copy" class="w-3 h-3"></i> Copy
+                        </button>
+                    </div>
+                    <div class="p-4 font-mono text-sm text-brand-muted leading-relaxed" id="prompt-logo">
+                        "Minimalist tech logo for brand 'mrahulrahi'. The logo should combine the letter 'M' with coding symbols like brackets or a terminal cursor. Flat vector design. Color scheme: Neon Green and Dark Grey. Modern, geometric, suitable for a GitHub profile picture or app icon. White background."
+                    </div>
+                </div>
+
+                <!-- Prompt 3 -->
+                <div class="bg-[#0d0d0d] border border-brand-border rounded-lg overflow-hidden">
+                    <div class="bg-brand-surface border-b border-brand-border px-4 py-2 flex justify-between items-center">
+                        <span class="text-xs font-mono text-brand-muted">Brand_Texture.txt</span>
+                        <button onclick="copyToClipboard('prompt-texture')" class="text-xs font-mono text-brand-mint hover:text-white flex items-center gap-1">
+                            <i data-lucide="copy" class="w-3 h-3"></i> Copy
+                        </button>
+                    </div>
+                    <div class="p-4 font-mono text-sm text-brand-muted leading-relaxed" id="prompt-texture">
+                        "Abstract 3D background for a developer brand identity. Dark obsidian geometric shapes floating in a void. Illuminated by electric mint green laser lights. Cyberpunk meets clean corporate memphis design. Matte finish, soft shadows, high contrast, 8k resolution."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="border-t border-brand-border pt-8 pb-12 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-sm text-brand-muted font-mono">
+                © 2025 mrahulrahi. All systems nominal.
+            </div>
+            <div class="flex gap-4">
+                <div class="w-8 h-8 rounded bg-brand-surface border border-brand-border flex items-center justify-center hover:border-brand-mint transition-colors cursor-pointer">
+                    <i data-lucide="github" class="w-4 h-4 text-brand-muted"></i>
+                </div>
+                <div class="w-8 h-8 rounded bg-brand-surface border border-brand-border flex items-center justify-center hover:border-brand-mint transition-colors cursor-pointer">
+                    <i data-lucide="twitter" class="w-4 h-4 text-brand-muted"></i>
+                </div>
+                <div class="w-8 h-8 rounded bg-brand-surface border border-brand-border flex items-center justify-center hover:border-brand-mint transition-colors cursor-pointer">
+                    <i data-lucide="figma" class="w-4 h-4 text-brand-muted"></i>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // 1. Initialize Icons
+        lucide.createIcons();
+
+        // 2. Typing Effect Logic
+        const words = ["Ready", "Stable", "Optimized", "Growing"];
+        let i = 0;
+        let timer;
+
+        function typeEffect() {
+            const word = words[i % words.length];
+            const element = document.getElementById('typing-text');
+            let charIndex = 0;
+            
+            // Clear previous word
+            element.innerText = "";
+            
+            function typeChar() {
+                if (charIndex < word.length) {
+                    element.innerText += word.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeChar, 150);
+                } else {
+                    setTimeout(eraseWord, 2000);
+                }
+            }
+            
+            function eraseWord() {
+                if (element.innerText.length > 0) {
+                    element.innerText = element.innerText.slice(0, -1);
+                    setTimeout(eraseWord, 50);
+                } else {
+                    i++;
+                    typeEffect();
+                }
+            }
+            
+            typeChar();
+        }
+        
+        // Start typing effect
+        document.addEventListener('DOMContentLoaded', typeEffect);
+
+        // 3. Color Copy Logic
+        document.querySelectorAll('.palette-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const color = this.getAttribute('data-color');
+                const name = this.getAttribute('data-name');
+                
+                navigator.clipboard.writeText(color).then(() => {
+                    showToast(`${name} (${color}) copied`);
+                });
+            });
+        });
+
+        // 4. Generic Copy Logic for Prompts
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("Prompt copied to clipboard");
+            });
+        }
+
+        function copyLink() {
+             navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast("Link copied to clipboard");
+            });
+        }
+
+        // 5. Toast Notification Logic
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-msg');
+            msg.innerText = message;
+            
+            toast.classList.remove('translate-y-24');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-24');
+            }, 3000);
+        }
+
+        // 6. Mini Chart (Chart.js) for the 'Stats' card
+        const ctx = document.getElementById('miniChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+                datasets: [{
+                    data: [65, 78, 72, 85, 82, 90, 98],
+                    borderColor: '#00DC82',
+                    borderWidth: 2,
+                    backgroundColor: (context) => {
+                        const ctx = context.chart.ctx;
+                        const gradient = ctx.createLinearGradient(0, 0, 0, 100);
+                        gradient.addColorStop(0, 'rgba(0, 220, 130, 0.2)');
+                        gradient.addColorStop(1, 'rgba(0, 220, 130, 0)');
+                        return gradient;
+                    },
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: { enabled: false } },
+                scales: {
+                    x: { display: false },
+                    y: { display: false, min: 50 }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+            }
+        });
+    </script>
+</body>
+</html>

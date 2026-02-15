@@ -1,14 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import {
-    TrendingUp,
-    Plus,
-    Trash2,
-    DollarSign,
-    Percent,
-    Calendar,
-    ChevronRight,
-    Info
-} from 'lucide-react';
+import { useState, useMemo } from 'react';
+import { TrendingUp, Trash2, Calendar, Info } from 'lucide-react';
 
 const SalaryCalculator = () => {
     const [baseSalary, setBaseSalary] = useState(50000);
@@ -215,7 +206,6 @@ const SalaryCalculator = () => {
                             )}
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
