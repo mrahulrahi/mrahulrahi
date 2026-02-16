@@ -3,15 +3,11 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import styles from './Valentine.module.css';
 import AudioPlayer from './AudioPlayer';
+import ProposalModal from './ProposalModal';
+import CursorTrail from './CursorTrail';
+import { timeline, loveReasons, TimelineItem } from './constants';
 
 // --- TYPES ---
-interface TimelineItem {
-    date: string;
-    title: string;
-    content: string;
-    longContent: string;
-    emoji: string;
-}
 
 interface HeartRainProps {
     count?: number;
@@ -21,7 +17,7 @@ interface PerspectiveCardProps {
     item: TimelineItem;
     unlocked: boolean;
     onClick: (item: TimelineItem) => void;
-    getCountdown: (targetDate: string) => string | null;
+    getCountdown: (targetDate: string) => React.ReactNode;
 }
 
 // --- HEART RAIN COMPONENT (No changes) ---
@@ -99,7 +95,7 @@ const PerspectiveCard: React.FC<PerspectiveCardProps> = ({ item, unlocked, onCli
                 ) : (
                     <div className={styles.lockedContent}>
                         <span className={styles.lockIcon}>🔒</span>
-                        <p className={styles.countdownText}>{getCountdown(item.date)}</p>
+                        {getCountdown(item.date)}
                     </div>
                 )}
             </div>
@@ -167,6 +163,7 @@ const ValentineClient: React.FC<ValentineClientProps> = ({ initialName, byName }
     const [currentTime, setCurrentTime] = useState<Date | null>(null);
     const [activeModal, setActiveModal] = useState<TimelineItem | null>(null);
     const [isMounted, setIsMounted] = useState(false);
+    const [showProposal, setShowProposal] = useState(false);
 
     // Safely decode name
     let personName = "My Love";
@@ -199,28 +196,25 @@ const ValentineClient: React.FC<ValentineClientProps> = ({ initialName, byName }
         }
     }, [rawName]);
 
-    const timeline: TimelineItem[] = [
-        { date: '2026-02-07', title: "Rose Day", content: "A rose for my rose.", longContent: "Like a rose, your presence adds color and fragrance to my life every single day. I'm so lucky to have you.", emoji: "🌹" },
-        { date: '2026-02-08', title: "Propose Day", content: "Choosing you, always.", longContent: "I don't just want you for a day; I want you for every tomorrow we can dream of. Will you be mine forever?", emoji: "💍" },
-        { date: '2026-02-09', title: "Chocolate Day", content: "Sweetest of all.", longContent: "Life is like a box of chocolates, but you are the sweetest part of the whole box. Love you tons!", emoji: "🍫" },
-        { date: '2026-02-10', title: "Teddy Day", content: "A virtual hug.", longContent: "Something soft and warm to remind you of my hugs whenever I'm not around. You're my favorite cuddle partner.", emoji: "🧸" },
-        { date: '2026-02-11', title: "Promise Day", content: "My word to you.", longContent: "I promise to be your biggest fan, your strongest support, and your best friend through everything.", emoji: "🤝" },
-        { date: '2026-02-12', title: "Hug Day", content: "Tight squeeze!", longContent: "There is no place in the world safer than inside a hug from you. Sending you a huge squeeze today!", emoji: "🫂" },
-        { date: '2026-02-13', title: "Kiss Day", content: "Sending love.", longContent: "A kiss is a lovely trick designed by nature to stop speech when words become superfluous. *Mwah!*", emoji: "💋" },
-        { date: '2026-02-14', title: "Valentine's Day", content: "My Forever.", longContent: "Happy Valentine's Day! You make every ordinary moment feel extraordinary. I love you to the moon and back.", emoji: "❤️" },
-    ];
+    // Helper to parse DD-MM-YYYY to Date object
+    const parseDate = (dateStr: string) => {
+        const [day, month, year] = dateStr.split('-').map(Number);
+        // Create date object for that specific day at 00:00:00 IST
+        // constructing ISO string: YYYY-MM-DDTHH:mm:ss+05:30
+        const isoDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}T00:00:00+05:30`;
+        return new Date(isoDate);
+    };
 
     // Helper to check if a date is unlocked in IST
     const isUnlocked = (targetDateStr: string) => {
         if (!currentTime) return false; // Locked by default/server
-        const targetDate = new Date(targetDateStr);
-        const targetTime = new Date(`${targetDateStr}T00:00:00+05:30`).getTime();
+        const targetTime = parseDate(targetDateStr).getTime();
         return currentTime.getTime() >= targetTime;
     };
 
     const getCountdown = (targetDateStr: string) => {
         if (!currentTime) return null;
-        const targetTime = new Date(`${targetDateStr}T00:00:00+05:30`).getTime();
+        const targetTime = parseDate(targetDateStr).getTime();
         const diff = targetTime - currentTime.getTime();
 
         if (diff <= 0) return null;
@@ -228,28 +222,38 @@ const ValentineClient: React.FC<ValentineClientProps> = ({ initialName, byName }
         const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
         const m = Math.floor((diff / 1000 / 60) % 60);
         const s = Math.floor((diff / 1000) % 60);
-        return `${d}d ${h}h ${m}m ${s}s`;
+        
+        // Return object for new UI
+        return { d, h, m, s };
+    };
+
+     // Wrapper for new countdown UI
+    const getCountdownNode = (targetDateStr: string) => {
+        const t = getCountdown(targetDateStr);
+        if (!t) return null;
+        return (
+             <div className={styles.countdownText}>
+                <div className={styles.timeBox}>
+                    <span className={styles.timeVal}>{t.d}</span>
+                    <span className={styles.timeLabel}>Day</span>
+                </div>
+                <div className={styles.timeBox}>
+                    <span className={styles.timeVal}>{t.h}</span>
+                    <span className={styles.timeLabel}>Hrs</span>
+                </div>
+                <div className={styles.timeBox}>
+                    <span className={styles.timeVal}>{t.m}</span>
+                    <span className={styles.timeLabel}>Min</span>
+                </div>
+                <div className={styles.timeBox}>
+                    <span className={styles.timeVal}>{t.s}</span>
+                    <span className={styles.timeLabel}>Sec</span>
+                </div>
+            </div>
+        )
     };
 
     // --- LOVE REASONS GENERATOR ---
-    const loveReasons = [
-        "Your smile lights up my entire world.",
-        "The way you laugh makes my heart melt.",
-        "You always know how to make me feel better.",
-        "Your kindness to everyone around you inspires me.",
-        "You make the best coffee/tea (even if you don't, I love that you try!).",
-        "I love how passionate you are about your dreams.",
-        "You are my safe space.",
-        "The way you look at me makes me feel invincible.",
-        "You have the cutest sneeze.",
-        "I love our late-night conversations.",
-        "You challenge me to be a better person.",
-        "Your hugs are the best medicine.",
-        "I love how we can sit in silence and it feels comfortable.",
-        "You have a beautiful heart.",
-        "Imperfectly perfect, just for me."
-    ];
-
     const [showReason, setShowReason] = useState(false);
     const [currentReason, setCurrentReason] = useState("");
 
@@ -265,12 +269,28 @@ const ValentineClient: React.FC<ValentineClientProps> = ({ initialName, byName }
         setDarkMode(!darkMode);
     };
 
+    const handleCardClick = (item: TimelineItem) => {
+        if (item.title === "Valentine's Day") {
+            setShowProposal(true);
+        } else {
+            setActiveModal(item);
+        }
+    };
+
+    const handleProposalYes = () => {
+        setShowProposal(false);
+        // Find Valentine's Day item
+        const vDayItem = timeline.find(t => t.title === "Valentine's Day");
+        if (vDayItem) setActiveModal(vDayItem);
+    };
+
     if (!isMounted) {
         return null; // Prevent hydration mismatch by not rendering until mounted
     }
 
     return (
         <div className={`${styles.appWrapper} ${darkMode ? styles.darkMode : ''}`}>
+            <CursorTrail />
             <AudioPlayer />
             <HeartRain />
 
@@ -278,6 +298,13 @@ const ValentineClient: React.FC<ValentineClientProps> = ({ initialName, byName }
             <button onClick={generateReason} className={styles.generatorBtn} aria-label="Why I Love You">
                 Why I Love You 💌
             </button>
+
+            {/* Proposal Modal */}
+            <ProposalModal 
+                isOpen={showProposal} 
+                onClose={() => setShowProposal(false)} 
+                onYes={handleProposalYes} 
+            />
 
             {/* Reason Modal */}
             <AnimatePresence>
@@ -332,8 +359,8 @@ const ValentineClient: React.FC<ValentineClientProps> = ({ initialName, byName }
                         <PerspectiveCard
                             item={item}
                             unlocked={isUnlocked(item.date)}
-                            onClick={setActiveModal}
-                            getCountdown={getCountdown}
+                            onClick={handleCardClick}
+                            getCountdown={getCountdownNode}
                         />
                     </div>
                 ))}
@@ -342,7 +369,7 @@ const ValentineClient: React.FC<ValentineClientProps> = ({ initialName, byName }
             <AnimatePresence>
                 {activeModal && (
                     <motion.div className={styles.modalOverlay} initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={() => setActiveModal(null)} role="dialog" aria-modal="true" aria-labelledby="modal-title">
-                        <HeartRain count={12} />
+                        <HeartRain count={50} />
                         <motion.div
                             className={styles.modal}
                             layoutId={activeModal.title}

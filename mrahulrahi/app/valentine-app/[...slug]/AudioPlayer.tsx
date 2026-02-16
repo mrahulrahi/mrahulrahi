@@ -20,9 +20,19 @@ const AudioPlayer = () => {
     return (
         <div className={styles.audioPlayer}>
             <audio ref={audioRef} loop src="/Perfect by Ed Sheeran.mp3" />
-            <button onClick={togglePlay} className={styles.audioButton} aria-label={isPlaying ? "Pause Music" : "Play Music"}>
-                {isPlaying ? "🔇" : "🎵"}
-            </button>
+            <div className={`${styles.vinylRecord} ${isPlaying ? styles.spinning : ''}`} onClick={togglePlay}>
+                <div className={styles.vinylGrooves}></div>
+                <div className={styles.vinylLabel}>
+                    <span className={styles.musicNote}>{isPlaying ? "🎵" : "🔇"}</span>
+                </div>
+            </div>
+            {isPlaying && (
+                <div className={styles.musicNotesFloating}>
+                    <span style={{ animationDelay: '0s' }}>♩</span>
+                    <span style={{ animationDelay: '1s' }}>♪</span>
+                    <span style={{ animationDelay: '2s' }}>♫</span>
+                </div>
+            )}
         </div>
     );
 };
