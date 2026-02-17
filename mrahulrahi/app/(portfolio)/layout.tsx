@@ -1,10 +1,12 @@
-// app/layout.tsx
+
 import type { Metadata } from 'next'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
-import './globals.css'
-import ImportBsJS from './importBsJS'
+import './portfolio.css'
+import ImportBsJS from '../importBsJS'
 import { Josefin_Sans, Outfit } from 'next/font/google'
+import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
 
 // Google Fonts setup
 const josefinSans = Josefin_Sans({
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
   description: 'portfolio',
 }
 
-export default function RootLayout({
+export default function PortfolioLayout({
   children,
 }: {
   children: React.ReactNode
@@ -32,7 +34,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${josefinSans.variable} ${outfit.variable}`}>
       <body className="overlay">
-        {children}
+        <Header />
+        <main>{children}</main>
+        <Footer />
         <ImportBsJS />
         <SpeedInsights />
         <Analytics />
