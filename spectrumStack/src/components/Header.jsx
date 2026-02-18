@@ -20,22 +20,8 @@ const Header = () => {
                         <div className="navbar-logo w-10"><img className="w-full h-full object-contain" src="/logo.png" alt="logo" /></div>
                         <span className="text-xl font-bold leading-none text-white">Spectrum<br />Stack</span>
                     </a>
-                    <ul className={`nav-menu flex flex-col gap-6 px-5 w-[calc(100%+40px)] -ml-5 md:flex md:flex-row md:static absolute top-full left-0 md:w-auto bg-first md:bg-transparent transition-all duration-300 ease-in ${menuOpen ? 'block py-5 md:py-0' : 'hidden md:block'}`}>
-                        {links.map(link =>
-                            <li key={link.href} className="nav-item">
-                                <NavLink
-                                    className={({ isActive }) => `nav-link font-varelaRound text-lg font-bold hover:text-[yellowgreen] ${isActive ? 'text-[yellowgreen]' : 'text-second'}`}
-                                    to={link.href}
-                                >
-                                    {link.label}
-                                </NavLink>
-                            </li>
-                        )}
-                    </ul>
-
-                    <button className="navbar-toggler text-4xl md:hidden" type="button" onClick={() => setMenuOpen(!menuOpen)}>
-                        {menuOpen ? <IoClose /> : <IoMenu />}
-                    </button>
+               <span className="text-xl font-bold leading-none text-second">Header</span>
+               
                 </div>
             </div>
         </header>

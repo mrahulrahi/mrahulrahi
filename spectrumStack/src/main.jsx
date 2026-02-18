@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')).render(
     <GradientProvider>
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
-       <AppRoutes />
+          <AppRoutes />
         </BrowserRouter>
       </QueryClientProvider>
     </GradientProvider>
