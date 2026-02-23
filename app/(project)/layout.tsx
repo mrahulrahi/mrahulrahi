@@ -2,6 +2,9 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Josefin_Sans, Outfit } from 'next/font/google'
+import { GradientProvider } from '../context/GradientContext.jsx';
+import Providers from './providers';
+import 'highlight.js/styles/atom-one-dark.css'; 
 
 // Google Fonts setup
 const josefinSans = Josefin_Sans({
@@ -22,8 +25,6 @@ export const metadata: Metadata = {
   description: 'Built with Tailwind CSS',
 }
 
-
-
 export default function ProjectLayout({
   children,
 }: {
@@ -32,7 +33,11 @@ export default function ProjectLayout({
   return (
     <html lang="en">
       <body className={`${josefinSans.variable} ${outfit.variable}`}>
-        {children}
+        <GradientProvider>
+          <Providers>
+            {children}
+          </Providers>
+        </GradientProvider>
       </body>
     </html>
   )

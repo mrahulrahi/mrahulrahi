@@ -1,8 +1,9 @@
+'use client'
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import ReactPaginate from "react-paginate";
-import { Link } from "react-router";
-import Hero from "../../components/Hero";
+import Link from "next/link";
+import Hero from "../components/Hero";
 
 const BlogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -49,7 +50,7 @@ const BlogPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
             {blogs.map((blog) => (
               <div className="w-full" key={blog.id}>
-                <Link className="card flex flex-col h-full p-5 lg:p-8 bg-white/10 border border-[#ccc] rounded-xl group" to={`/blog/${blog.id}`} >
+                <Link className="card flex flex-col h-full p-5 lg:p-8 bg-white/10 border border-[#ccc] rounded-xl group" href={`/blog/${blog.id}`} >
                   <div className="badge badge-primary mb-2">{blog.id}</div>
                   <h3 className="card-title text-white capitalize line-clamp-2">{blog.title}</h3>
                   <p className="card-text line-clamp-3">{blog.body}</p>
