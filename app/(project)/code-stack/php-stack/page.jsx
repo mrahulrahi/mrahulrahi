@@ -1,3 +1,4 @@
+'use client'
 import Highlight from 'react-highlight';
 
 

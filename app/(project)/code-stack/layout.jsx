@@ -1,17 +1,17 @@
-/* eslint-disable*/
+'use client'
 import { useState } from 'react';
-import { Outlet, useLocation } from "react-router";
-import { Link } from 'react-router';
-import { useGradient } from '../context/GradientContext.jsx';
-import Hero from "../components/Hero";
+import { usePathname } from "next/navigation";
+import Link from 'next/link';
+import { useGradient } from '../../context/GradientContext.jsx';
+import Hero from "../components/Hero.jsx";
 import { TbLayoutSidebarLeftCollapseFilled, TbLayoutSidebarLeftExpandFilled } from "react-icons/tb";
 import { FaDiceFour, FaCalculator, FaNoteSticky, FaCloudSun, FaQuoteRight } from 'react-icons/fa6';
 
-const CodeStackLayout = () => {
+const CodeStackLayout = ({ children }) => {
   const { gradientStyle, changeGradientColor } = useGradient();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const location = useLocation();
+  const location = usePathname();
   const active = location.pathname;
 
   // Check if we're on the parent route (exact match)
@@ -63,6 +63,7 @@ const CodeStackLayout = () => {
 
   const heroConfig = getHeroConfig();
 
+
   return (
     <>
       <Hero bgImg={heroConfig.bgImg} title={heroConfig.title} subTitle={heroConfig.subTitle} gradientColor={heroConfig.gradientColor} />
@@ -76,7 +77,7 @@ const CodeStackLayout = () => {
             {/* Sidebar content here */}
             {links.map((card, index) => (
               <li className="not-last:mb-2" key={index}>
-                <Link className={`w-full h-10 flex items-center justify-start gap-3 py-2 px-4 rounded-xl border-2 hover:bg-primary hover:border-primary hover:text-white transition ${active === card.href ? 'bg-primary border-primary text-white rounded-[10px]' : 'bg-white border-primary text-primary'}`} to={card.href} >
+                <Link className={`w-full h-10 flex items-center justify-start gap-3 py-2 px-4 rounded-xl border-2 hover:bg-primary hover:border-primary hover:text-white transition ${active === card.href ? 'bg-primary border-primary text-white rounded-[10px]' : 'bg-white border-primary text-primary'}`} href={card.href} >
                   {card.icon} {card.title}
                 </Link>
               </li>
@@ -92,7 +93,7 @@ const CodeStackLayout = () => {
                   <ul className="device-head-dots flex items-center justify-end gap-1"><li className="w-2 h-2 rounded-full bg-white/50 shrink-0"></li><li className="w-2 h-2 rounded-full bg-[rgba(255,255,255,0.5)] shrink-0"></li><li className="w-2 h-2 rounded-full bg-[rgba(255,255,255,0.5)] shrink-0"></li></ul>
                 </div>
                 <div className="w-full h-full overflow-y-auto">
-                  <Outlet />
+                  {children}
                 </div>
               </div>
             </div>

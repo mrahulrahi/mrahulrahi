@@ -1,3 +1,4 @@
+'use client'
 import { useState } from "react";
 
 // Equivalent of the `demo` class in JS

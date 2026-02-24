@@ -1,3 +1,4 @@
+'use client'
 import { useState, useRef, useEffect } from "react";
 
 // Generator function for bubble sort with step-by-step output
