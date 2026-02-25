@@ -1,4 +1,4 @@
-/* eslint-disable*/
+'use client'
 import { useState, useEffect } from 'react';
 import { FaPlus, FaXmark, FaEllipsis, FaPen, FaTrash } from 'react-icons/fa6';
 

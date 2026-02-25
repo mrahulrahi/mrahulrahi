@@ -1,3 +1,4 @@
+'use client'
 import { useState, useMemo } from 'react';
 import { TrendingUp, Trash2, Calendar, Info } from 'lucide-react';
 

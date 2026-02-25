@@ -20,14 +20,14 @@ const CodeStackLayout = ({ children }) => {
   const links = [
     { title: 'Js Stack', href: '/code-stack/js-stack', icon: <FaNoteSticky /> },
     { title: 'Php Stack', href: '/code-stack/php-stack', icon: <FaNoteSticky /> },
-    { title: 'Quiz App', href: '/code-stack/quiz-app', icon: <FaDiceFour /> },
-    { title: 'Calculator App', href: '/code-stack/calculator-app', icon: <FaCalculator /> },
-    { title: 'Notes App', href: '/code-stack/notes-app', icon: <FaNoteSticky /> },
-    { title: 'Weather App', href: '/code-stack/weather-app', icon: <FaCloudSun /> },
-    { title: 'Quote App', href: '/code-stack/quote-app', icon: <FaQuoteRight /> },
-    { title: 'Salary Calculator', href: '/code-stack/salary-calculator', icon: <FaCalculator /> },
-    { title: 'Smart EMI Planner', href: '/code-stack/smart-emi-planner', icon: <FaCalculator /> },
-    { title: 'Salary Calculator', href: '/code-stack/salary-calculator-two', icon: <FaCalculator /> },
+    { title: 'Quiz App', href: '/code-stack/tools/quiz-app', icon: <FaDiceFour /> },
+    { title: 'Calculator App', href: '/code-stack/tools/calculator-app', icon: <FaCalculator /> },
+    { title: 'Notes App', href: '/code-stack/tools/notes-app', icon: <FaNoteSticky /> },
+    { title: 'Weather App', href: '/code-stack/tools/weather-app', icon: <FaCloudSun /> },
+    { title: 'Quote App', href: '/code-stack/tools/quote-app', icon: <FaQuoteRight /> },
+    { title: 'Salary Calculator', href: '/code-stack/tools/salary-calculator', icon: <FaCalculator /> },
+    { title: 'Smart EMI Planner', href: '/code-stack/tools/smart-emi-planner', icon: <FaCalculator /> },
+    { title: 'Salary Calculator', href: '/code-stack/tools/salary-calculator-two', icon: <FaCalculator /> },
   ];
 
   // Hero configuration based on current route

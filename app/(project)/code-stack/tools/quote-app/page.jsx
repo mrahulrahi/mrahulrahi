@@ -1,4 +1,4 @@
-/* eslint-disable*/
+'use client'
 import { useState, useEffect } from 'react';
 import { FiShare, FiCopy } from "react-icons/fi";
 import { FaQuoteLeft } from 'react-icons/fa';
