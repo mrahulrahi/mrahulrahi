@@ -1,0 +1,139 @@
+:root {
+    --grid-color: #E5E7EB;
+}
+
+.dark {
+    --grid-color: #27272A;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D1D5DB;
+    border-radius: 4px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #27272A;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #00DC82;
+}
+
+.bg-grid {
+    background-size: 40px 40px;
+    mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+}
+
+.cursor-blink {
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(229, 231, 235, 0.5);
+}
+
+.dark .glass {
+    background: rgba(24, 24, 27, 0.7);
+    border: 1px solid rgba(39, 39, 42, 0.5);
+}
+
+/* App Sidebar Styles */
+.nav-item.active {
+    background-color: rgba(0, 220, 130, 0.1);
+    color: #00DC82;
+    border-right: 2px solid #00DC82;
+}
+
+.nav-item:hover:not(.active) {
+    background-color: rgba(39, 39, 42, 0.5);
+}
+
+/* Fixed Range Input Styling */
+input[type=range] {
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #00DC82;
+    margin-top: -4px;
+    cursor: pointer;
+    box-shadow: 0 0 0 2px rgba(24, 24, 27, 0.5);
+    transition: transform 0.1s;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    border-radius: 999px;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+/* Toggle Switch CSS */
+.toggle-checkbox:checked {
+    right: 0;
+    border-color: #00DC82;
+}
+
+.toggle-checkbox:checked+.toggle-label {
+    background-color: #00DC82;
+}
+
+.toggle-checkbox {
+    right: 0;
+    transition: all 0.3s;
+    border-color: #e5e7eb;
+}
+
+.dark .toggle-checkbox {
+    border-color: #4b5563;
+}
+
+.toggle-label {
+    width: 40px;
+}
+
+.toggle-checkbox:checked {
+    transform: translateX(0);
+}
+
+.toggle-checkbox:not(:checked) {
+    right: auto;
+    left: 0;
+}
