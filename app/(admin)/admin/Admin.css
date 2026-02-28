@@ -1,3 +1,37 @@
+@import "tailwindcss";
+
+
+@theme {
+    --color-background: "var(--background)",
+        --color-foreground: "var(--foreground)",
+    --color-black: '#09090B',
+        /* Void Black */
+        --color-surface: '#18181B',
+        /* Graphite */
+        --color-surfaceHighlight: '#27272A',
+        /* Surface Highlight */
+        --color-white: '#F8FAFC',
+        /* Vapor White */
+        --color-mint: '#00DC82',
+        /* Electric Mint */
+        --color-fern: '#047857',
+        /* Deep Fern */
+        --color-glow: '#BBF7D0',
+        /* Lime Glow */
+        --color-text: '#ECEDEE',
+        /* Text Main */
+        --color-muted: '#A1A1AA',
+        /* Text Muted */
+        --color-border: '#27272A',
+        /* Border Color */
+        --font-sans: ['Inter', 'sans-serif'],
+        --font-display: ['Space Grotesk', 'sans-serif'],
+        --font-mono: ['JetBrains Mono', 'monospace'],
+        --background: "var(--background)",
+        --foreground: "var(--foreground)",
+        --grid-pattern: "linear-gradient(to right, var(--grid-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px)",
+}
+
 :root {
     --grid-color: #E5E7EB;
 }

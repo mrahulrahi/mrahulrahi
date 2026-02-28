@@ -1,17 +1,7 @@
 'use client'
 import { useEffect } from 'react'
-import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google'
-import "./Admin.css"
 import { Wallet } from 'lucide-react';
 import Chart from 'chart.js/auto';
-
-const inter = Inter({ subsets: ['latin'] })
-const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
-
-
-
-
 
 
 
@@ -301,6 +291,16 @@ useEffect(() => {
     function copyLink() {
         navigator.clipboard.writeText(window.location.href).then(() => { showToast("Link copied to clipboard"); });
     }
+
+    const btnShare = document.getElementById('btn-share');
+    if (btnShare) btnShare.addEventListener('click', () => copyLink());
+    if (btnStyleGuide) btnStyleGuide.addEventListener('click', () => switchView('styleguide'));
+    if (btnApp) btnApp.addEventListener('click', () => switchView('app'));
+    if (navDashboard) navDashboard.addEventListener('click', () => switchAppPage('dashboard'));
+    if (navPortfolio) navPortfolio.addEventListener('click', () => switchAppPage('portfolio'));
+    if (navEmi) navEmi.addEventListener('click', () => switchAppPage('emi'));
+    if (navSettings) navSettings.addEventListener('click', () => switchAppPage('settings'));
+
     document.querySelectorAll('.palette-card').forEach(card => {
         card.addEventListener('click', function () {
             const color = this.getAttribute('data-color');
@@ -312,7 +312,7 @@ useEffect(() => {
 
     return (
         <>
-            <div className={`${inter.className} ${jetBrainsMono.className} ${spaceGrotesk.className}`}>
+            <div >
                 <section className="bg-gray-50 text-gray-900 dark:bg-brand-black dark:text-brand-text font-sans antialiased selection:bg-brand-mint selection:text-brand-black transition-colors duration-300 overflow-x-hidden">
 
 
@@ -320,15 +320,15 @@ useEffect(() => {
 
 
                     <nav className="fixed top-0 w-full z-50 glass border-b border-gray-200 dark:border-brand-border h-16 flex items-center px-6 lg:px-8 justify-between transition-colors duration-300">
-                        <div className="flex items-center gap-2 cursor-pointer" onclick="window.location.reload()">
+                        <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.reload()}>
                             <div className="w-8 h-8 bg-brand-mint/10 border border-brand-mint/30 rounded flex items-center justify-center text-brand-mint font-mono font-bold transition-all duration-300">m</div>
                             <span className="font-display font-bold text-lg tracking-wide text-gray-900 dark:text-brand-text">mrahulrahi</span>
                         </div>
 
 
                         <div className="hidden md:flex bg-gray-100 dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-lg p-1">
-                            <button onclick="switchView('styleguide')" id="btn-styleguide" className="px-4 py-1.5 rounded text-sm font-medium transition-all bg-white dark:bg-brand-surfaceHighlight shadow-sm text-gray-900 dark:text-white">Style Guide</button>
-                            <button onclick="switchView('app')" id="btn-app" className="px-4 py-1.5 rounded text-sm font-medium transition-all text-gray-500 dark:text-brand-muted hover:text-gray-900 dark:hover:text-white">Admin CMS</button>
+                            <button id="btn-styleguide" className="px-4 py-1.5 rounded text-sm font-medium transition-all bg-white dark:bg-brand-surfaceHighlight shadow-sm text-gray-900 dark:text-white">Style Guide</button>
+                            <button id="btn-app" className="px-4 py-1.5 rounded text-sm font-medium transition-all text-gray-500 dark:text-brand-muted hover:text-gray-900 dark:hover:text-white">Admin CMS</button>
                         </div>
 
                         <div className="flex items-center gap-3">
@@ -338,7 +338,7 @@ useEffect(() => {
                                 <i data-lucide="moon" className="w-4 h-4 block dark:hidden"></i>
                             </button>
 
-                            <button onclick="copyLink()" className="hidden sm:block border border-gray-200 dark:border-brand-border hover:border-brand-mint hover:text-brand-mint text-gray-500 dark:text-brand-muted px-4 py-2 rounded text-xs font-mono transition-all">
+                            <button id="btn-share" className="hidden sm:block border border-gray-200 dark:border-brand-border hover:border-brand-mint hover:text-brand-mint text-gray-500 dark:text-brand-muted px-4 py-2 rounded text-xs font-mono transition-all">
                                 Share
                             </button>
                         </div>
@@ -458,14 +458,14 @@ useEffect(() => {
                             </div>
 
                             <nav className="flex-1 px-4 space-y-1">
-                                <button onclick="switchAppPage('dashboard')" id="nav-dashboard" className="nav-item active w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 dark:text-brand-text">
+                                <button id="nav-dashboard" className="nav-item active w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 dark:text-brand-text">
                                     <i data-lucide="layout-dashboard" className="w-4 h-4"></i>
                                     Dashboard
                                 </button>
 
                                 <div className="pt-4 mt-2 mb-2">
                                     <div className="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">Content Manager</div>
-                                    <button onclick="switchAppPage('portfolio')" id="nav-portfolio" className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
+                                    <button id="nav-portfolio" className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                                         <i data-lucide="briefcase" className="w-4 h-4"></i>
                                         Portfolio
                                     </button>
@@ -481,14 +481,14 @@ useEffect(() => {
 
                                 <div className="pt-4 mt-2 border-t border-gray-200 dark:border-brand-border">
                                     <div className="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">Tools</div>
-                                    <button onclick="switchAppPage('emi')" id="nav-emi" className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
+                                    <button id="nav-emi" className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                                         <i data-lucide="calculator" className="w-4 h-4"></i>
                                         Smart EMI
                                     </button>
                                 </div>
 
                                 <div className="mt-auto pb-4">
-                                    <button onclick="switchAppPage('settings')" id="nav-settings" className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
+                                    <button id="nav-settings" className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                                         <i data-lucide="settings" className="w-4 h-4"></i>
                                         Configuration
                                     </button>
@@ -674,17 +674,17 @@ useEffect(() => {
 
                                             <div>
                                                 <label className="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Loan Amount (₹)</label>
-                                                <input type="number" id="inp-loan" value="5000000" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono" />
+                                                <input type="number" id="inp-loan" defaultValue="5000000" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono" />
                                             </div>
 
                                             <div className="grid grid-cols-2 gap-4">
                                                 <div>
                                                     <label className="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Rate (%)</label>
-                                                    <input type="number" id="inp-rate" step="0.1" value="8.5" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono" />
+                                                    <input type="number" id="inp-rate" step="0.1" defaultValue="8.5" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono" />
                                                 </div>
                                                 <div>
                                                     <label className="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Tenure (Yrs)</label>
-                                                    <input type="number" id="inp-tenure" value="20" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono" />
+                                                    <input type="number" id="inp-tenure" defaultValue="20" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono" />
                                                 </div>
                                             </div>
 
@@ -700,7 +700,7 @@ useEffect(() => {
                                                     <label className="block text-sm font-medium text-gray-600 dark:text-brand-muted font-mono">Yearly Increase (%)</label>
                                                     <span className="text-sm font-bold text-brand-mint font-mono" id="disp-increase">10%</span>
                                                 </div>
-                                                <input type="range" id="inp-increase" min="0" max="25" step="1" value="10" className="w-full h-2 bg-gray-200 dark:bg-brand-black rounded-lg appearance-none cursor-pointer accent-brand-mint" />
+                                                <input type="range" id="inp-increase" min="0" max="25" step="1" defaultValue="10" className="w-full h-2 bg-gray-200 dark:bg-brand-black rounded-lg appearance-none cursor-pointer accent-brand-mint" />
                                             </div>
 
                                             <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-brand-black rounded-xl border border-gray-200 dark:border-brand-border">
@@ -767,11 +767,11 @@ useEffect(() => {
                                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                                     <div>
                                                         <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Username</label>
-                                                        <input type="text" value="mrahulrahi" disabled className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-brand-black/50 border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted outline-none font-mono text-sm cursor-not-allowed" />
+                                                        <input type="text" defaultValue="mrahulrahi" disabled className="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-brand-black/50 border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted outline-none font-mono text-sm cursor-not-allowed" />
                                                     </div>
                                                     <div>
                                                         <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Email</label>
-                                                        <input type="email" value="admin@mrahulrahi.com" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm" />
+                                                        <input type="email" defaultValue="admin@mrahulrahi.com" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -785,11 +785,11 @@ useEffect(() => {
                                         <div className="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 space-y-4">
                                             <div>
                                                 <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Site Title</label>
-                                                <input type="text" value="mrahulrahi | Portfolio & Tools" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm" />
+                                                <input type="text" defaultValue="mrahulrahi | Portfolio & Tools" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm" />
                                             </div>
                                             <div>
                                                 <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Meta Description</label>
-                                                <textarea rows="3" className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">Design system, UI libraries, and helpful developer tools by mrahulrahi.</textarea>
+                                                <textarea rows="3" defaultValue="Design system, UI libraries, and helpful developer tools by mrahulrahi." className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm" />
                                             </div>
                                             <div className="flex gap-4">
                                                 <div className="flex-1">
@@ -819,7 +819,7 @@ useEffect(() => {
                                                 </div>
                                                 <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
                                                     <input type="checkbox" name="toggle" id="toggle-notif" className="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer border-brand-mint right-0" />
-                                                    <label for="toggle-notif" className="toggle-label block overflow-hidden h-5 rounded-full bg-brand-mint cursor-pointer"></label>
+                                                    <label htmlFor="toggle-notif" className="toggle-label block overflow-hidden h-5 rounded-full bg-brand-mint cursor-pointer"></label>
                                                 </div>
                                             </div>
                                         </div>
