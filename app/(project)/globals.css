@@ -51,7 +51,6 @@
   /* =================core css ends here================= */
 }
 
-
 @layer components{
 
 .container-fluid{@apply max-w-480 w-full px-5 mx-auto}
@@ -63,7 +62,6 @@ input[type="color"]::-webkit-color-swatch {@apply border-0 rounded-none}
 input[type="color"]::-moz-color-swatch,
 input[type="color"]::-moz-focus-inner {@apply border-0}
 input[type="color"]::-moz-focus-inner {@apply p-0}
-
 
 
 .quiz-container,.notes-todos-app-container{color: var(--color-white);width: 100%;}
@@ -92,7 +90,6 @@ input[type="color"]::-moz-focus-inner {@apply p-0}
 .feedback-wrapper{background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));width:100%;max-width: 650px;padding: 50px;border-radius: 25px;}
 
 .quiz-container .btn{font-size: 20px;padding: 19px 24px;}
-
 
 .background-clip-text{background-clip: text; color: transparent!important;}
 
@@ -141,7 +138,6 @@ form textarea.form-control {min-height: 150px;}
 .task-list li:has(input:checked){text-decoration: line-through;}
 .task li:has(input:checked){text-decoration: line-through;}
 
-
 .custom-checkbox-wrapper input[type="checkbox"] {visibility: hidden;display: none;}
 .custom-checkbox-wrapper label {margin: 0;padding: 0;border: 0;font-size: 100%;font: inherit;vertical-align: baseline;line-height: 1;}
 .custom-checkbox-wrapper *, .custom-checkbox-wrapper ::after, .custom-checkbox-wrapper ::before {box-sizing: border-box;}
@@ -159,7 +155,6 @@ form textarea.form-control {min-height: 150px;}
 .custom-checkbox-wrapper .item input:checked + .cbx:after {transform: scale(1);opacity: 0;transition: all 0.6s ease;}
 .custom-checkbox-wrapper .item input:checked ~ .cbx-lbl {color: #9098a9;}
 .custom-checkbox-wrapper .item input:checked ~ .cbx-lbl:after {width: 100%;transition: all 0.4s ease;}
-
 
 .weather-wrapper {@apply relative text-white}
 .weather-today-box {@apply relative shrink-0 w-[300px] h-full min-h-[400px]  p-[25px] rounded-[25px] bg-[url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80")] bg-no-repeat bg-center bg-cover shadow-[0_0_20px_-10px_rgba(0,0,0,0.2)] ;transition: transform 300ms ease;transform: translateZ(0) scale(1.02) perspective(1000px);}
@@ -205,7 +200,6 @@ form textarea.form-control {min-height: 150px;}
 .btn-transparent-text{color: transparent;background-clip: text;}
 .btn-transparent:hover {opacity: 0.8; }
 .btn-transparent.lg {min-width: 160px;} 
-
 
 .hero-bg-pattern{
     --dot-bg: #000000;
