@@ -14,84 +14,6 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Chart.js (For data viz example) -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            black: '#09090B', // Void Black
-                            surface: '#18181B', // Graphite
-                            white: '#F8FAFC', // Vapor White
-                            mint: '#00DC82', // Electric Mint
-                            fern: '#047857', // Deep Fern
-                            glow: '#BBF7D0', // Lime Glow
-                            text: '#ECEDEE', // Text Main
-                            muted: '#A1A1AA', // Text Muted
-                            border: '#27272A', // Border Color
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Space Grotesk', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    backgroundImage: {
-                        'grid-pattern': "linear-gradient(to right, #27272A 1px, transparent 1px), linear-gradient(to bottom, #27272A 1px, transparent 1px)",
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #09090B;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #27272A;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00DC82;
-        }
-
-        /* Grid Background */
-        .bg-grid {
-            background-size: 40px 40px;
-            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-        }
-
-        /* Typing Cursor */
-        .cursor-blink {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* Glassmorphism */
-        .glass {
-            background: rgba(24, 24, 27, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(39, 39, 42, 0.5);
-        }
-
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 100%;
-            height: 250px;
-        }
-    </style>
 </head>
 <body class="bg-brand-black text-brand-text font-sans antialiased selection:bg-brand-mint selection:text-brand-black">
 
@@ -151,7 +73,7 @@
                 </div>
                 <h1 class="text-5xl lg:text-7xl font-display font-bold leading-tight">
                     Structured <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-mint to-brand-fern">Ecology</span>
+                    <span class="text-transparent bg-clip-text bg-linear-to-r from-brand-mint to-brand-fern">Ecology</span>
                 </h1>
                 <p class="text-brand-muted text-lg max-w-xl leading-relaxed">
                     Bridging the gap between raw code structure and organic creativity. A design system for portfolio, UI libraries, and developer tools.
