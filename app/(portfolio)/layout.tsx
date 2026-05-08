@@ -22,8 +22,8 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
-  title: 'mrahulrahi',
-  description: 'portfolio',
+  title: 'Rahul Maurya | Front-end Developer',
+  description: 'Portfolio of Rahul Maurya, a Front-end Developer specializing in the MERN stack.',
 }
 
 export default function PortfolioLayout({

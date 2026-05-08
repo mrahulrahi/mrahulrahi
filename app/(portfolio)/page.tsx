@@ -27,13 +27,13 @@ import { BiLogoTypescript, BiLogoVisualStudio } from "react-icons/bi";
 
 const HeroHeading = () => {
   return (<>
-    About <span className="bg-clip-text bg-gradient">me</span>
+    Behind <span className="bg-clip-text bg-gradient">The Code</span>
   </>)
 }
 
 const BannerHeadingOne = () => {
   return (<>
-    My <span className="bg-clip-text bg-gradient">Portfolio</span>
+    Creative <span className="bg-clip-text bg-gradient">Showcase</span>
   </>)
 }
 
