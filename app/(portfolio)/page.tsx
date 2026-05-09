@@ -189,7 +189,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
-            <Heading heading="Skills" />
+            <Heading heading="The Toolkit" />
 
             <motion.div className="skill-card-list d-flex flex-wrap" initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
