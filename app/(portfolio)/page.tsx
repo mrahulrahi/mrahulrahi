@@ -111,7 +111,7 @@ export default function Home() {
             <ul className="stats-list d-flex flex-wrap">
               <li className="stats-item">
                 <div className="stats-title">
-                  <h4>Why choose me ?</h4>
+                  <h4>The Edge I Bring</h4>
                   <h3>Stats</h3>
                 </div>
               </li>
@@ -202,7 +202,7 @@ export default function Home() {
           </motion.div>
         </ContentContainer>
 
-        <ContentContainer className="position-relative oveflow-hidden pt-0" heading="What I do" id="timelineSection"
+        <ContentContainer className="position-relative oveflow-hidden pt-0" heading="The Journey So Far" id="timelineSection"
           rightHeading={
             <div className="custom-arrow-container d-flex justify-content-between">
               <button className="custom-arrow-button custom-arrow-prev timeline-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
@@ -252,7 +252,7 @@ export default function Home() {
           </motion.div>
         </ContentContainer>
 
-        <ContentContainer heading="Certificates" className="pt-0" >
+        <ContentContainer heading="Continuous Learning" className="pt-0" >
           <motion.div className="certificate-card-list d-flex flex-wrap" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -333,7 +333,7 @@ export default function Home() {
           </div>
         </div>
 
-        <ContentContainer column="col-lg-10 mx-auto" heading="Side Hustle" id="sideHustle" >
+        <ContentContainer column="col-lg-10 mx-auto" heading="Beyond the Code" id="sideHustle" >
           <motion.div className="interest-card-list d-flex flex-wrap" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -342,7 +342,7 @@ export default function Home() {
           </motion.div>
         </ContentContainer>
 
-        <ContentContainer className="pt-0 overflow-hidden" heading="Dev.to's latest articles"
+        <ContentContainer className="pt-0 overflow-hidden" heading="Articles & Insights"
           rightHeading={
             <div className="custom-arrow-container d-flex justify-content-between">
               <button className="custom-arrow-button custom-arrow-prev blog-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
