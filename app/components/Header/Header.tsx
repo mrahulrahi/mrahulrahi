@@ -2,9 +2,9 @@
 import * as motion from "motion/react-client"
 import './Header.css';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import Button from '../Button';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
 import { LuSun, LuMoon } from "react-icons/lu";
 
@@ -164,7 +164,7 @@ const Header = () => {
                             whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                             viewport={{ once: true, amount: 0.2 }}>
-                            <img src="/logo.svg" alt="Logo" />
+                            <Image src="/logo.svg" alt="Logo" width={200} height={200} />
                         </motion.a>
                         <motion.button
                             id="navbarToggle"

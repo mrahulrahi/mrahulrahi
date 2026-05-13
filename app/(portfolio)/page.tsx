@@ -235,7 +235,7 @@ export default function Home() {
               <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}><Image src="/rahi.webp" alt="Rahul Maurya Profile Picture" width={500} height={500} style={{ width: '100%', height: 'auto' }} /></motion.div >
+                viewport={{ once: true, amount: 0.2 }}><Image src="/rahi.webp" alt="Rahul Maurya Profile Picture" width={500} height={500} /></motion.div >
             </div>
 
             <div className="col-md-10">

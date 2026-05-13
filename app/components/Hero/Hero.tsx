@@ -19,7 +19,7 @@ const Hero = ({ children }: Props) => {
         <div className="row">
           <div className="col-md-12">
             <div className="hero-content d-flex flex-wrap align-items-center justify-content-center">
-              <motion.div className="hero-inner text-center" initial={{ opacity: 0, y: -50 }}
+              <motion.div className="hero-inner text-center" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}>
