@@ -6,7 +6,7 @@ interface BlogCard {
   description: string;
   url: string;
   cover_image: string;
-  public_reactions_count: string;
+  public_reactions_count: number;
   published_at: string;
   user: {
     name: string;

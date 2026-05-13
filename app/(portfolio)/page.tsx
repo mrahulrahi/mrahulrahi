@@ -47,26 +47,39 @@ const BackgroundFixedElement = () => {
   </>)
 }
 
+export interface DevArticle {
+  id: number;
+  title: string;
+  url: string;
+  description: string;
+  cover_image: string;
+  readable_publish_date: string;
+  public_reactions_count: number;
+  published_at: string;
+  user: { name: string; profile_image: string; [key: string]: any };
+  [key: string]: any;
+}
+
+const skills = [
+  { id: 1, logo: <FaHtml5 />, title: 'HTML' },
+  { id: 2, logo: <FaCss3Alt />, title: 'CSS' },
+  { id: 3, logo: <FaJsSquare />, title: 'JavaScript' },
+  { id: 4, logo: <BiLogoTypescript />, title: 'TypeScript' },
+  { id: 5, logo: <FaBootstrap />, title: 'Bootstrap' },
+  { id: 6, logo: <TbBrandTailwind />, title: 'Tailwind CSS' },
+  { id: 7, logo: <FaReact />, title: 'ReactJS' },
+  { id: 8, logo: <TbBrandNextjs />, title: 'Next Js' },
+  { id: 9, logo: <FaNodeJs />, title: 'Node.js' },
+  { id: 10, logo: <FaGitAlt />, title: 'Git' },
+  { id: 11, logo: <FaGithub />, title: 'GitHub' },
+  { id: 12, logo: <FaFigma />, title: 'Figma' },
+  { id: 13, logo: <SiAdobexd />, title: 'Adobe Xd' },
+  { id: 14, logo: <BiLogoVisualStudio />, title: 'VS Code' },
+]
+
 export default function Home() {
 
-  const skills = [
-    { id: 1, logo: <FaHtml5 />, title: 'HTML' },
-    { id: 2, logo: <FaCss3Alt />, title: 'CSS' },
-    { id: 3, logo: <FaJsSquare />, title: 'JavaScript' },
-    { id: 4, logo: <BiLogoTypescript />, title: 'TypeScript' },
-    { id: 5, logo: <FaBootstrap />, title: 'Bootstrap' },
-    { id: 6, logo: <TbBrandTailwind />, title: 'Tailwind CSS' },
-    { id: 7, logo: <FaReact />, title: 'ReactJS' },
-    { id: 8, logo: <TbBrandNextjs />, title: 'Next Js' },
-    { id: 9, logo: <FaNodeJs />, title: 'Node.js' },
-    { id: 10, logo: <FaGitAlt />, title: 'Git' },
-    { id: 11, logo: <FaGithub />, title: 'GitHub' },
-    { id: 12, logo: <FaFigma />, title: 'Figma' },
-    { id: 13, logo: <SiAdobexd />, title: 'Adobe Xd' },
-    { id: 14, logo: <BiLogoVisualStudio />, title: 'VS Code' },
-  ]
-
-  const [articles, setArticles] = useState<any[]>([]);
+  const [articles, setArticles] = useState<DevArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -138,7 +151,7 @@ export default function Home() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
               <div className="ai-img">
-                <Image src="/hero-img.jpg" alt="" width={1000} height={1000} />
+                <Image src="/hero-img.jpg" alt="Rahul Maurya - Hero Image" width={1000} height={1000} />
               </div>
             </motion.div>
             <motion.div className="ai-text" initial={{ opacity: 0, x: 50 }}
@@ -195,7 +208,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
-              {skills.map(skill => <div key={skill.id} className="skill-card-item flex-grow-1">
+              {skills.map(skill => <div key={skill.id} className="skill-card-item grow">
                 <SkillCard skill={skill} />
               </div>)}
             </motion.div>
@@ -205,10 +218,10 @@ export default function Home() {
         <ContentContainer className="position-relative oveflow-hidden pt-0" heading="The Journey So Far" id="timelineSection"
           rightHeading={
             <div className="custom-arrow-container d-flex justify-content-between">
-              <button className="custom-arrow-button custom-arrow-prev timeline-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
+              <button aria-label="Previous timeline event" className="custom-arrow-button custom-arrow-prev timeline-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
                 <TiArrowRightOutline />
               </button>
-              <button className="custom-arrow-button custom-arrow-next timeline-arrow-next bg-glass d-flex align-items-center justify-content-center rounded-circle">
+              <button aria-label="Next timeline event" className="custom-arrow-button custom-arrow-next timeline-arrow-next bg-glass d-flex align-items-center justify-content-center rounded-circle">
                 <TiArrowRightOutline />
               </button>
             </div>
@@ -222,7 +235,7 @@ export default function Home() {
               <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}><img src="/rahi.webp" alt="" /></motion.div >
+                viewport={{ once: true, amount: 0.2 }}><Image src="/rahi.webp" alt="Rahul Maurya Profile Picture" width={500} height={500} style={{ width: '100%', height: 'auto' }} /></motion.div >
             </div>
 
             <div className="col-md-10">
@@ -287,50 +300,22 @@ export default function Home() {
 
 
         <div className="text-scroll-wrapper m-0">
-          <div className="text-scroll-list">
-            <div className="text-scroll-item">
-              <div className="text-scroll-box">
-                <h2 className="mb-0">WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
-              </div>
+          {[1, 2].map((listIdx) => (
+            <div className="text-scroll-list" key={listIdx}>
+              {[1, 2, 3, 4].map((itemIdx) => (
+                <div className="text-scroll-item" key={itemIdx}>
+                  <div className="text-scroll-box">
+                    <h2 className="mb-0">
+                      {itemIdx % 2 !== 0 ? "WHERE " : "MEETS "}
+                      <span className='bg-clip-text bg-gradient'>
+                        {itemIdx % 2 !== 0 ? "IMAGINATION" : "CREATIVITY"}
+                      </span>
+                    </h2>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="text-scroll-item">
-              <div className="text-scroll-box">
-                <h2 className="mb-0">MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
-              </div>
-            </div>
-            <div className="text-scroll-item">
-              <div className="text-scroll-box">
-                <h2 className="mb-0">WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
-              </div>
-            </div>
-            <div className="text-scroll-item">
-              <div className="text-scroll-box">
-                <h2 className="mb-0">MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
-              </div>
-            </div>
-          </div>
-          <div className="text-scroll-list">
-            <div className="text-scroll-item">
-              <div className="text-scroll-box">
-                <h2 className="mb-0">WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
-              </div>
-            </div>
-            <div className="text-scroll-item">
-              <div className="text-scroll-box">
-                <h2 className="mb-0">MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
-              </div>
-            </div>
-            <div className="text-scroll-item">
-              <div className="text-scroll-box">
-                <h2 className="mb-0">WHERE <span className='bg-clip-text bg-gradient'>IMAGINATION</span></h2>
-              </div>
-            </div>
-            <div className="text-scroll-item">
-              <div className="text-scroll-box">
-                <h2 className="mb-0">MEETS <span className='bg-clip-text bg-gradient'>CREATIVITY</span></h2>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
 
         <ContentContainer column="col-lg-10 mx-auto" heading="Beyond the Code" id="sideHustle" >
@@ -345,10 +330,10 @@ export default function Home() {
         <ContentContainer className="pt-0 overflow-hidden" heading="Articles & Insights"
           rightHeading={
             <div className="custom-arrow-container d-flex justify-content-between">
-              <button className="custom-arrow-button custom-arrow-prev blog-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
+              <button aria-label="Previous article" className="custom-arrow-button custom-arrow-prev blog-arrow-prev bg-glass d-flex align-items-center justify-content-center rounded-circle">
                 <TiArrowRightOutline />
               </button>
-              <button className="custom-arrow-button custom-arrow-next blog-arrow-next bg-glass d-flex align-items-center justify-content-center rounded-circle">
+              <button aria-label="Next article" className="custom-arrow-button custom-arrow-next blog-arrow-next bg-glass d-flex align-items-center justify-content-center rounded-circle">
                 <TiArrowRightOutline />
               </button>
             </div>
@@ -369,7 +354,7 @@ export default function Home() {
                 breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
                 navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
                 className="blog-card-list d-flex flex-wrap overflow-visible">
-                {articles.slice(0, 10).map((article: any) => (
+                {articles.slice(0, 10).map((article: DevArticle) => (
                   <SwiperSlide className="blog-card-item h-auto" key={article.id}>
                     <BlogCard {...article} />
                   </SwiperSlide>
