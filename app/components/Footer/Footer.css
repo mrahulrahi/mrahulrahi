@@ -19,6 +19,9 @@
 
 /* ========================== footer End ============================ */
 
+.bg-glow .heading:after{background: var(--mrr-accent-color);}
+.bg-glow .heading-underline:after{background: var(--mrr-accent-color);}
+
 /* ========================================== 
 ! Large devices (desktops, less than 1200px)
 =========================================== */

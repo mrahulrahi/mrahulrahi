@@ -208,7 +208,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
-              {skills.map(skill => <div key={skill.id} className="skill-card-item grow">
+              {skills.map(skill => <div key={skill.id} className="skill-card-item flex-grow-1">
                 <SkillCard skill={skill} />
               </div>)}
             </motion.div>

@@ -1,4 +1,5 @@
 import './BlogCard.css'
+import Image from 'next/image';
 import * as LuIcons from "react-icons/lu";
 
 interface BlogCard {
@@ -20,7 +21,7 @@ const BlogCard = (blog: BlogCard) => {
     <>
         <a href={blog.url} className="blog-card-box d-flex flex-column">
           <div className="blog-card-image">
-            <img src={blog.cover_image ? blog.cover_image : `https://placehold.co/800/1B9C85/white?text=${blog.title}&font=poppins`} alt={blog.title} loading="lazy" />
+            <Image src={blog.cover_image ? blog.cover_image : `https://placehold.co/800/1B9C85/white?text=${blog.title}&font=poppins`} alt={blog.title} loading="lazy" width={1000} height={1000} />
           </div>
           <div className="blog-card-text">
             <h4>{blog.title}</h4>
@@ -39,7 +40,7 @@ const BlogCard = (blog: BlogCard) => {
 
             <ul className="blog-card-cta-list">
               <li className="blog-card-avatar d-flex align-items-center justify-content-between">
-                <img src={blog.user.profile_image} alt={blog.user.name} loading="lazy" />
+                <Image src={blog.user.profile_image} alt={blog.user.name} loading="lazy" width={100} height={100} />
                 <p>Article by <span>{blog.user.name}</span></p>
               </li>
             </ul>
