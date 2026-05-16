@@ -1,4 +1,4 @@
-import './BlogCard.css'
+import './BlogCard.css';
 import Image from 'next/image';
 import * as LuIcons from "react-icons/lu";
 
@@ -21,7 +21,7 @@ const BlogCard = (blog: BlogCard) => {
     <>
         <a href={blog.url} className="blog-card-box d-flex flex-column">
           <div className="blog-card-image">
-            <Image src={blog.cover_image ? blog.cover_image : `https://placehold.co/800/1B9C85/white?text=${blog.title}&font=poppins`} alt={blog.title} loading="lazy" width={1000} height={1000} />
+            <Image src={blog.cover_image ? blog.cover_image : `https://placehold.co/800/1B9C85/white.png?text=${encodeURIComponent(blog.title)}&font=poppins`} alt={blog.title} loading="lazy" width={1000} height={1000} />
           </div>
           <div className="blog-card-text">
             <h4>{blog.title}</h4>

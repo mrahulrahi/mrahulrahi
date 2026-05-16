@@ -158,7 +158,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
-              <h4><span className="bg-clip-text bg-gradient-reverse">Hello,</span> I'm</h4>
+              <h4><span className="bg-clip-text">Hello,</span> I'm</h4>
               <h2>Rahul Maurya</h2>
               <h5>Web Developer</h5>
               <p>I am a front-end web developer whose life's passion is Technology and I also love to
