@@ -116,7 +116,7 @@ export default function Home() {
           <Button title="🔍 About Me" style="default" url="#about" icon={<TiArrowDownOutline />} />
         </Hero>
 
-        <ContentContainer column="col-xl-10 mx-auto">
+        <ContentContainer className="pb-0" column="col-xl-10 mx-auto">
           <motion.div className="stats-content-box bg-gradient position-relative z-3" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
@@ -265,7 +265,7 @@ export default function Home() {
           </motion.div>
         </ContentContainer>
 
-        <ContentContainer heading="Continuous Learning" className="pt-0" >
+        <ContentContainer heading="Continuous Learning" className="pt-0 pb-0" >
           <motion.div className="certificate-card-list d-flex flex-wrap" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
