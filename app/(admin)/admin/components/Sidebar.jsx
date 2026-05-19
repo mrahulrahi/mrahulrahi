@@ -5,10 +5,20 @@ import {
     Component, 
     PenTool, 
     Calculator, 
-    Settings 
+    Settings,
+    LogOut
 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { logoutAction } from '../actions';
 
 const Sidebar = ({ activePage, setActivePage }) => {
+    const router = useRouter();
+
+    const handleLogout = async () => {
+        await logoutAction();
+        router.refresh();
+    };
+
     return (
         <aside className="w-64 border-r border-gray-200 dark:border-brand-border bg-white dark:bg-brand-surface flex-col hidden md:flex">
             <div className="p-6">
@@ -61,13 +71,20 @@ const Sidebar = ({ activePage, setActivePage }) => {
                     </button>
                 </div>
 
-                <div className="mt-auto pb-4">
+                <div className="mt-auto pb-4 space-y-1">
                     <button 
                         onClick={() => setActivePage('settings')} 
                         className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'settings' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}
                     >
                         <Settings className="w-4 h-4" />
                         Configuration
+                    </button>
+                    <button 
+                        onClick={handleLogout} 
+                        className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/10"
+                    >
+                        <LogOut className="w-4 h-4" />
+                        Log Out
                     </button>
                 </div>
             </nav>

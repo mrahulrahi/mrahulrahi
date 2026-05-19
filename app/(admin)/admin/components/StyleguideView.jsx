@@ -35,7 +35,7 @@ const StyleguideView = () => {
                     </div>
                     <h1 className="text-5xl lg:text-7xl font-display font-bold leading-tight text-gray-900 dark:text-brand-text">
                         Structured <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-mint to-brand-fern">Ecology</span>
+                        <span className="text-transparent bg-clip-text bg-linear-to-r from-brand-mint to-brand-fern">Ecology</span>
                     </h1>
                     <p className="text-gray-600 dark:text-brand-muted text-lg max-w-xl leading-relaxed">
                         Bridging the gap between raw code structure and organic creativity. A design system for portfolio, UI libraries, and developer tools.
@@ -47,7 +47,7 @@ const StyleguideView = () => {
                     </div>
                 </div>
 
-                <div className="lg:col-span-5 h-64 lg:h-80 bg-[#09090B] border border-gray-200 dark:border-brand-border rounded-lg p-6 relative overflow-hidden group shadow-xl">
+                <div className="lg:col-span-5 h-64 lg:h-80 bg-brand-black border border-gray-200 dark:border-brand-border rounded-lg p-6 relative overflow-hidden group shadow-xl">
                     <div className="absolute top-0 left-0 w-full h-6 bg-brand-border/30 flex items-center px-4 gap-2">
                         <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
                         <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
@@ -72,12 +72,12 @@ const StyleguideView = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                     <div onClick={() => copyColor('#09090B', 'Void Black')} className="group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-black flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-lg overflow-hidden shadow-sm">
-                        <div className="absolute inset-0 bg-[#09090B]"></div>
+                        <div className="absolute inset-0 bg-brand-black"></div>
                         <span className="relative z-10 text-xs font-mono bg-brand-black/50 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Main BG</span>
                         <div className="relative z-10 flex justify-between items-end"><span className="font-display font-bold text-white">Void Black</span><span className="font-mono text-xs text-brand-muted">#09090B</span></div>
                     </div>
                     <div onClick={() => copyColor('#00DC82', 'Electric Mint')} className="group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-mint flex flex-col justify-between p-4 cursor-pointer transition-all hover:scale-[1.02] hover:shadow-lg overflow-hidden shadow-sm">
-                        <div className="absolute inset-0 bg-[#00DC82]"></div>
+                        <div className="absolute inset-0 bg-brand-mint"></div>
                         <span className="relative z-10 text-xs font-mono bg-black/20 backdrop-blur px-2 py-1 rounded text-black w-max border border-black/10 font-bold">Accent</span>
                         <div className="relative z-10 flex justify-between items-end text-brand-black"><span className="font-display font-bold">Electric Mint</span><span className="font-mono text-xs font-bold">#00DC82</span></div>
                     </div>
@@ -94,7 +94,7 @@ const StyleguideView = () => {
                         <p className="text-2xl font-display font-bold text-gray-900 dark:text-brand-text mb-4">Space Grotesk</p>
                         <p className="font-display text-4xl font-bold leading-tight text-gray-900 dark:text-brand-text">Technical Brutalism</p>
                     </div>
-                    <div className="col-span-1 bg-[#09090B] border border-gray-200 dark:border-brand-border rounded-xl p-8 shadow-xl">
+                    <div className="col-span-1 bg-brand-black border border-gray-200 dark:border-brand-border rounded-xl p-8 shadow-xl">
                         <h3 className="text-brand-mint font-mono text-sm mb-1">Code</h3>
                         <p className="text-2xl font-mono text-brand-text mb-4">JetBrains Mono</p>
                         <div className="bg-[#1e1e1e] p-4 rounded border-l-2 border-brand-mint font-mono text-sm text-left"><span className="text-[#c678dd]">const</span> sys = <span className="text-[#98c379]">'Ready'</span>;</div>
