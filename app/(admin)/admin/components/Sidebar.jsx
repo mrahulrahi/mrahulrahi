@@ -50,13 +50,19 @@ const Sidebar = ({ activePage, setActivePage }) => {
                         <Briefcase className="w-4 h-4" />
                         Portfolio
                     </button>
-                    <button className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
+                    <button 
+                        onClick={() => setActivePage('resume')} 
+                        className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'resume' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}
+                    >
                         <Component className="w-4 h-4" />
-                        Components
+                        Resume
                     </button>
-                    <button className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
+                    <button 
+                        onClick={() => setActivePage('interests')} 
+                        className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'interests' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}
+                    >
                         <PenTool className="w-4 h-4" />
-                        Blog & Notes
+                        Interests
                     </button>
                 </div>
 

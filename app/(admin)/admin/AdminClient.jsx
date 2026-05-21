@@ -7,6 +7,8 @@ import PortfolioView from './components/PortfolioView';
 import EmiView from './components/EmiView';
 import SettingsView from './components/SettingsView';
 import StyleguideView from './components/StyleguideView';
+import ResumeView from './components/ResumeView';
+import InterestsView from './components/InterestsView';
 
 const AdminPage = () => {
     const [activeView, setActiveView] = useState('app'); // 'styleguide' | 'app'
@@ -104,6 +106,8 @@ const AdminPage = () => {
 
                         {activePage === 'dashboard' && <DashboardView theme={theme} />}
                         {activePage === 'portfolio' && <PortfolioView />}
+                        {activePage === 'resume' && <ResumeView />}
+                        {activePage === 'interests' && <InterestsView />}
                         {activePage === 'emi' && <EmiView theme={theme} />}
                         {activePage === 'settings' && <SettingsView />}
                     </main>
