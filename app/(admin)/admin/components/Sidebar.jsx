@@ -1,4 +1,3 @@
-import React from 'react';
 import { 
     LayoutDashboard, 
     Briefcase, 
@@ -6,7 +5,10 @@ import {
     PenTool, 
     Calculator, 
     Settings,
-    LogOut
+    LogOut,
+    Sparkles,
+    TrendingUp,
+    Library
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { logoutAction } from '../actions';
@@ -44,6 +46,13 @@ const Sidebar = ({ activePage, setActivePage }) => {
                 <div className="pt-4 mt-2 mb-2">
                     <div className="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">Content Manager</div>
                     <button 
+                        onClick={() => setActivePage('hero-about')} 
+                        className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'hero-about' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}
+                    >
+                        <Sparkles className="w-4 h-4" />
+                        Hero & About
+                    </button>
+                    <button 
                         onClick={() => setActivePage('portfolio')} 
                         className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'portfolio' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}
                     >
@@ -56,6 +65,20 @@ const Sidebar = ({ activePage, setActivePage }) => {
                     >
                         <Component className="w-4 h-4" />
                         Resume
+                    </button>
+                    <button 
+                        onClick={() => setActivePage('stats')} 
+                        className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'stats' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}
+                    >
+                        <TrendingUp className="w-4 h-4" />
+                        Stats Manager
+                    </button>
+                    <button 
+                        onClick={() => setActivePage('skills')} 
+                        className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'skills' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}
+                    >
+                        <Library className="w-4 h-4" />
+                        Skills Toolkit
                     </button>
                     <button 
                         onClick={() => setActivePage('interests')} 

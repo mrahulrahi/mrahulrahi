@@ -2,11 +2,32 @@ import { ReactNode } from 'react';
 import * as motion from "motion/react-client"
 import './Hero.css'
 
-interface Props {
-  children: ReactNode;
+interface HeroData {
+  hey?: string;
+  firstName?: string;
+  lastName?: string;
+  role?: string;
+  location?: string;
+  description?: string;
 }
 
-const Hero = ({ children }: Props) => {
+interface Props {
+  children: ReactNode;
+  hero?: HeroData;
+}
+
+const Hero = ({ children, hero }: Props) => {
+  const hey = hero?.hey || "Hey! ✌️ I'm";
+  const firstName = hero?.firstName || "Rahul";
+  const lastName = hero?.lastName || "Maurya";
+  const role = hero?.role || "Frontend Developer";
+  const location = hero?.location || "[ India ]";
+  const description = hero?.description || "I craft beautiful and functional websites using HTML, CSS, JavaScript, and React — blending design precision with code clarity to build seamless user experiences.";
+
+  const heyWords = hey.split(" ");
+  const heyHighlight = heyWords[0];
+  const heyRest = heyWords.slice(1).join(" ");
+
   return (
     <section className="hero-container position-relative">
       <div className="hero-icons">
@@ -24,10 +45,10 @@ const Hero = ({ children }: Props) => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}>
                 <div className="hero-text">
-                  <h3><span className="bg-clip-text bg-gradient">Hey!</span> ✌️ I'm</h3>
-                  <h1>Rahul <span className="bg-clip-text bg-gradient">Maurya</span></h1>
-                  <h4>Frontend Developer <span className="bg-clip-text bg-gradient">[ India ]</span></h4>
-                  <p>I craft beautiful and functional websites using HTML, CSS, JavaScript, and React — blending design precision with code clarity to build seamless user experiences.</p>
+                  <h3><span className="bg-clip-text bg-gradient">{heyHighlight}</span> {heyRest}</h3>
+                  <h1>{firstName} <span className="bg-clip-text bg-gradient">{lastName}</span></h1>
+                  <h4>{role} <span className="bg-clip-text bg-gradient">{location}</span></h4>
+                  <p>{description}</p>
                   <div className="hero-cta d-flex justify-content-center mt-4">
                     {children}
                   </div>

@@ -16,7 +16,17 @@ import BlogCard from "../components/BlogCard/BlogCard";
 import Heading from '../components/Heading';
 import CertificateCard from '../components/CertificateCard/CertificateCard';
 import SkillCard from '../components/SkillCard/SkillCard';
-import { projectsCards, interest, timelineItems, certificates } from '../data/staticData';
+import { 
+  projectsCards as staticProjects, 
+  interest as staticInterest, 
+  timelineItems as staticTimeline, 
+  certificates as staticCertificates,
+  hero as staticHero,
+  stats as staticStats,
+  about as staticAbout,
+  skills as staticSkills
+} from '../data/staticData';
+import { getPublicPortfolioData } from '../(admin)/admin/dataActions';
 import { TiArrowRightOutline, TiArrowDownOutline } from "react-icons/ti";
 import { MdWeb } from "react-icons/md";
 import { FaUserGraduate, FaLayerGroup, FaClock } from "react-icons/fa6";
@@ -60,28 +70,43 @@ export interface DevArticle {
   [key: string]: any;
 }
 
-const skills = [
-  { id: 1, logo: <FaHtml5 />, title: 'HTML' },
-  { id: 2, logo: <FaCss3Alt />, title: 'CSS' },
-  { id: 3, logo: <FaJsSquare />, title: 'JavaScript' },
-  { id: 4, logo: <BiLogoTypescript />, title: 'TypeScript' },
-  { id: 5, logo: <FaBootstrap />, title: 'Bootstrap' },
-  { id: 6, logo: <TbBrandTailwind />, title: 'Tailwind CSS' },
-  { id: 7, logo: <FaReact />, title: 'ReactJS' },
-  { id: 8, logo: <TbBrandNextjs />, title: 'Next Js' },
-  { id: 9, logo: <FaNodeJs />, title: 'Node.js' },
-  { id: 10, logo: <FaGitAlt />, title: 'Git' },
-  { id: 11, logo: <FaGithub />, title: 'GitHub' },
-  { id: 12, logo: <FaFigma />, title: 'Figma' },
-  { id: 13, logo: <SiAdobexd />, title: 'Adobe Xd' },
-  { id: 14, logo: <BiLogoVisualStudio />, title: 'VS Code' },
-]
-
 export default function Home() {
 
   const [articles, setArticles] = useState<DevArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const [portfolioData, setPortfolioData] = useState({
+    projectsCards: staticProjects,
+    interest: staticInterest,
+    timelineItems: staticTimeline,
+    certificates: staticCertificates,
+    hero: staticHero,
+    stats: staticStats,
+    about: staticAbout,
+    skills: staticSkills
+  });
+
+  useEffect(() => {
+    async function loadPortfolioData() {
+      try {
+        const liveData = await getPublicPortfolioData();
+        setPortfolioData({
+          projectsCards: liveData.projectsCards || staticProjects,
+          interest: liveData.interest || staticInterest,
+          timelineItems: liveData.timelineItems || staticTimeline,
+          certificates: liveData.certificates || staticCertificates,
+          hero: liveData.hero || staticHero,
+          stats: liveData.stats || staticStats,
+          about: liveData.about || staticAbout,
+          skills: liveData.skills || staticSkills
+        });
+      } catch (err) {
+        console.error("Failed to load dynamic portfolio data", err);
+      }
+    }
+    loadPortfolioData();
+  }, []);
 
   useEffect(() => {
     async function fetchArticles() {
@@ -106,13 +131,19 @@ export default function Home() {
     fetchArticles();
   }, []);
 
+  const { projectsCards, interest, timelineItems, certificates, hero, stats, about, skills } = portfolioData;
+
+  const aboutSubheading = about?.subheading || "Hello, I'm";
+  const aboutSubWords = aboutSubheading.split(" ");
+  const aboutHighlight = aboutSubWords[0];
+  const aboutRest = aboutSubWords.slice(1).join(" ");
 
   return (
     <>
       <div className="bg-dark bg-graphic position-relative overflow-hidden">
         <BackgroundFixedElement />
 
-        <Hero>
+        <Hero hero={hero}>
           <Button title="🔍 About Me" style="default" url="#about" icon={<TiArrowDownOutline />} />
         </Hero>
 
@@ -128,11 +159,15 @@ export default function Home() {
                   <h3>Stats</h3>
                 </div>
               </li>
-              <StatCard icon={<FaUserGraduate />} countEnd={2} suffix=" +" description="Years of experience" />
-              <StatCard icon={<MdWeb />} countEnd={80} suffix=" +" description="Projects Completed" />
-              <StatCard icon={<FaLayerGroup />} countEnd={12} suffix=" +" description="Skills in my stack" />
-              <StatCard icon={<FaClock />} countEnd={1500} suffix=" +" description="Hours of code" />
-              <StatCard icon={<FaGitAlt />} countEnd={2000} suffix=" +" description="Total Github Contributions" />
+              {stats && stats.map((stat: any) => (
+                <StatCard 
+                  key={stat.id} 
+                  icon={stat.icon} 
+                  countEnd={stat.countEnd} 
+                  suffix={stat.suffix} 
+                  description={stat.description} 
+                />
+              ))}
             </ul>
           </motion.div>
         </ContentContainer>
@@ -151,23 +186,19 @@ export default function Home() {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
               <div className="ai-img">
-                <Image src="/hero-img.jpg" alt="Rahul Maurya - Hero Image" width={1000} height={1000} />
+                <Image src={about?.imageUrl || "/hero-img.jpg"} alt={`${about?.name || "Rahul Maurya"} - Hero Image`} width={1000} height={1000} />
               </div>
             </motion.div>
             <motion.div className="ai-text" initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
-              <h4><span className="bg-clip-text">Hello,</span> I'm</h4>
-              <h2>Rahul Maurya</h2>
-              <h5>Web Developer</h5>
-              <p>I am a front-end web developer whose life's passion is Technology and I also love to
-                click photographs. I can provide clean code and pixel perfect design. I also make the
-                website responsive & more interactive with web animations. I try to make videos that are
-                to-the-point and as content-packed as possible, so if that sounds like your cup of tea,
-                a sub would be massively appreciated! 🙏</p>
-              <p>Stack - <span className="text-accent fw-bold">MERN</span> Stack</p>
-              <Button title="Download Resume" style="gradient" url="https://flowcv.com/resume/29mh2gwpwu" icon={<TiArrowDownOutline />} />
+              <h4><span className="bg-clip-text">{aboutHighlight}</span> {aboutRest}</h4>
+              <h2>{about?.name || "Rahul Maurya"}</h2>
+              <h5>{about?.role || "Web Developer"}</h5>
+              <p>{about?.description || "I am a front-end web developer..."}</p>
+              <p>{about?.stackPrefix || "Stack - "}<span className="text-accent fw-bold">{about?.stack || "MERN Stack"}</span></p>
+              <Button title={about?.resumeTitle || "Download Resume"} style="gradient" url={about?.resumeUrl || "https://flowcv.com/resume/29mh2gwpwu"} icon={<TiArrowDownOutline />} />
             </motion.div>
 
             <div className="text-scroll-wrapper mt-5">
@@ -208,7 +239,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
-              {skills.map(skill => <div key={skill.id} className="skill-card-item flex-grow-1">
+              {skills && skills.map((skill: any) => <div key={skill.id} className="skill-card-item flex-grow-1">
                 <SkillCard skill={skill} />
               </div>)}
             </motion.div>

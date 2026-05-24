@@ -20,6 +20,11 @@ export async function getPortfolioData() {
     return JSON.parse(data);
 }
 
+export async function getPublicPortfolioData() {
+    const data = fs.readFileSync(dbPath, 'utf8');
+    return JSON.parse(data);
+}
+
 // --- Projects ---
 export async function saveProject(project) {
     await checkAuth();
@@ -141,5 +146,93 @@ export async function deleteInterest(id) {
     data.interest = data.interest.filter(p => p.id !== id);
     fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/'); 
+    return { success: true };
+}
+
+// --- Hero Data ---
+export async function saveHeroData(hero) {
+    await checkAuth();
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    data.hero = hero;
+    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    revalidatePath('/');
+    return { success: true };
+}
+
+// --- About Data ---
+export async function saveAboutData(about) {
+    await checkAuth();
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    data.about = about;
+    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    revalidatePath('/');
+    return { success: true };
+}
+
+// --- Stats ---
+export async function saveStatItem(stat) {
+    await checkAuth();
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    if (!data.stats) data.stats = [];
+    
+    if (stat.id) {
+        const index = data.stats.findIndex(p => p.id === stat.id);
+        if (index !== -1) {
+            data.stats[index] = stat;
+        } else {
+            data.stats.push(stat);
+        }
+    } else {
+        stat.id = Date.now();
+        data.stats.push(stat);
+    }
+    
+    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    revalidatePath('/');
+    return { success: true };
+}
+
+export async function deleteStatItem(id) {
+    await checkAuth();
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    if (data.stats) {
+        data.stats = data.stats.filter(p => p.id !== id);
+        fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    }
+    revalidatePath('/');
+    return { success: true };
+}
+
+// --- Skills ---
+export async function saveSkillItem(skill) {
+    await checkAuth();
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    if (!data.skills) data.skills = [];
+    
+    if (skill.id) {
+        const index = data.skills.findIndex(p => p.id === skill.id);
+        if (index !== -1) {
+            data.skills[index] = skill;
+        } else {
+            data.skills.push(skill);
+        }
+    } else {
+        skill.id = Date.now();
+        data.skills.push(skill);
+    }
+    
+    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    revalidatePath('/');
+    return { success: true };
+}
+
+export async function deleteSkillItem(id) {
+    await checkAuth();
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    if (data.skills) {
+        data.skills = data.skills.filter(p => p.id !== id);
+        fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    }
+    revalidatePath('/');
     return { success: true };
 }

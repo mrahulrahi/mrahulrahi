@@ -221,5 +221,47 @@
       "organization": "Hacker Rank",
       "icon": "SiHackerrank"
     }
+  ],
+  "hero": {
+    "hey": "Hey! ✌️ I'm",
+    "firstName": "Rahul",
+    "lastName": "Maurya",
+    "role": "Frontend Developer",
+    "location": "[ India ]",
+    "description": "I craft beautiful and functional websites using HTML, CSS, JavaScript, and React — blending design precision with code clarity to build seamless user experiences."
+  },
+  "stats": [
+    { "id": 1, "icon": "FaUserGraduate", "countEnd": 2, "suffix": " +", "description": "Years of experience" },
+    { "id": 2, "icon": "MdWeb", "countEnd": 80, "suffix": " +", "description": "Projects Completed" },
+    { "id": 3, "icon": "FaLayerGroup", "countEnd": 12, "suffix": " +", "description": "Skills in my stack" },
+    { "id": 4, "icon": "FaClock", "countEnd": 1500, "suffix": " +", "description": "Hours of code" },
+    { "id": 5, "icon": "FaGitAlt", "countEnd": 2000, "suffix": " +", "description": "Total Github Contributions" }
+  ],
+  "about": {
+    "subheading": "Hello, I'm",
+    "name": "Rahul Maurya",
+    "role": "Web Developer",
+    "description": "I am a front-end web developer whose life's passion is Technology and I also love to click photographs. I can provide clean code and pixel perfect design. I also make the website responsive & more interactive with web animations. I try to make videos that are to-the-point and as content-packed as possible, so if that sounds like your cup of tea, a sub would be massively appreciated! 🙏",
+    "stackPrefix": "Stack - ",
+    "stack": "MERN Stack",
+    "resumeTitle": "Download Resume",
+    "resumeUrl": "https://flowcv.com/resume/29mh2gwpwu",
+    "imageUrl": "/hero-img.jpg"
+  },
+  "skills": [
+    { "id": 1, "icon": "FaHtml5", "title": "HTML" },
+    { "id": 2, "icon": "FaCss3Alt", "title": "CSS" },
+    { "id": 3, "icon": "FaJsSquare", "title": "JavaScript" },
+    { "id": 4, "icon": "BiLogoTypescript", "title": "TypeScript" },
+    { "id": 5, "icon": "FaBootstrap", "title": "Bootstrap" },
+    { "id": 6, "icon": "TbBrandTailwind", "title": "Tailwind CSS" },
+    { "id": 7, "icon": "FaReact", "title": "ReactJS" },
+    { "id": 8, "icon": "TbBrandNextjs", "title": "Next Js" },
+    { "id": 9, "icon": "FaNodeJs", "title": "Node.js" },
+    { "id": 10, "icon": "FaGitAlt", "title": "Git" },
+    { "id": 11, "icon": "FaGithub", "title": "GitHub" },
+    { "id": 12, "icon": "FaFigma", "title": "Figma" },
+    { "id": 13, "icon": "SiAdobexd", "title": "Adobe Xd" },
+    { "id": 14, "icon": "BiLogoVisualStudio", "title": "VS Code" }
   ]
 }

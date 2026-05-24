@@ -9,6 +9,9 @@ import SettingsView from './components/SettingsView';
 import StyleguideView from './components/StyleguideView';
 import ResumeView from './components/ResumeView';
 import InterestsView from './components/InterestsView';
+import HeroAboutView from './components/HeroAboutView';
+import StatsView from './components/StatsView';
+import SkillsView from './components/SkillsView';
 
 const AdminPage = () => {
     const [activeView, setActiveView] = useState('app'); // 'styleguide' | 'app'
@@ -105,8 +108,11 @@ const AdminPage = () => {
                         </div>
 
                         {activePage === 'dashboard' && <DashboardView theme={theme} />}
+                        {activePage === 'hero-about' && <HeroAboutView />}
                         {activePage === 'portfolio' && <PortfolioView />}
                         {activePage === 'resume' && <ResumeView />}
+                        {activePage === 'stats' && <StatsView />}
+                        {activePage === 'skills' && <SkillsView />}
                         {activePage === 'interests' && <InterestsView />}
                         {activePage === 'emi' && <EmiView theme={theme} />}
                         {activePage === 'settings' && <SettingsView />}
