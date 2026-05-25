@@ -1,25 +1,30 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import Link from 'next/link';
 import { useGradient } from '../../context/GradientContext.jsx';
 import Hero from "../components/Hero.jsx";
 import { TbLayoutSidebarLeftCollapseFilled, TbLayoutSidebarLeftExpandFilled } from "react-icons/tb";
 import { FaDiceFour, FaCalculator, FaNoteSticky, FaCloudSun, FaQuoteRight } from 'react-icons/fa6';
+import { getPublicUiToolsData } from '../../(admin)/admin/dataActions';
 
 const CodeStackLayout = ({ children }) => {
   const { gradientStyle, changeGradientColor } = useGradient();
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const location = usePathname();
-  const active = location.pathname;
+  // Ensure we fall back if location is a string (Next.js usePathname returns string)
+  const active = location?.pathname || location || '';
 
   // Check if we're on the parent route (exact match)
   const isParentPage = active === '/code-stack' || active === '/code-stack/';
 
-  const links = [
+  const coreLinks = [
     { title: 'Js Stack', href: '/code-stack/js-stack', icon: <FaNoteSticky /> },
     { title: 'Php Stack', href: '/code-stack/php-stack', icon: <FaNoteSticky /> },
+  ];
+
+  const optionalTools = [
     { title: 'Quiz App', href: '/code-stack/tools/quiz-app', icon: <FaDiceFour /> },
     { title: 'Calculator App', href: '/code-stack/tools/calculator-app', icon: <FaCalculator /> },
     { title: 'Notes App', href: '/code-stack/tools/notes-app', icon: <FaNoteSticky /> },
@@ -28,6 +33,24 @@ const CodeStackLayout = ({ children }) => {
     { title: 'Salary Calculator', href: '/code-stack/tools/salary-calculator', icon: <FaCalculator /> },
     { title: 'Smart EMI Planner', href: '/code-stack/tools/smart-emi-planner', icon: <FaCalculator /> },
     { title: 'Salary Calculator', href: '/code-stack/tools/salary-calculator-two', icon: <FaCalculator /> },
+  ];
+
+  const [visibleToolHrefs, setVisibleToolHrefs] = useState(optionalTools.map(t => t.href));
+
+  useEffect(() => {
+    getPublicUiToolsData().then(data => {
+      const visible = (data.tools || [])
+        .filter((t) => t.visible)
+        .map((t) => t.href);
+      setVisibleToolHrefs(visible);
+    }).catch(err => {
+      console.error("Failed to load visible tools for sidebar", err);
+    });
+  }, []);
+
+  const links = [
+    ...coreLinks,
+    ...optionalTools.filter(tool => visibleToolHrefs.includes(tool.href))
   ];
 
   // Hero configuration based on current route

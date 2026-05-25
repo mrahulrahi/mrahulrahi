@@ -8,7 +8,8 @@ import {
     LogOut,
     Sparkles,
     TrendingUp,
-    Library
+    Library,
+    Eye
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { logoutAction } from '../actions';
@@ -97,6 +98,13 @@ const Sidebar = ({ activePage, setActivePage }) => {
                     >
                         <Calculator className="w-4 h-4" />
                         Smart EMI
+                    </button>
+                    <button 
+                        onClick={() => setActivePage('uitools')} 
+                        className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'uitools' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}
+                    >
+                        <Eye className="w-4 h-4" />
+                        UI & Tools Vis
                     </button>
                 </div>
 

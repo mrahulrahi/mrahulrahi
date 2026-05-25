@@ -236,3 +236,51 @@ export async function deleteSkillItem(id) {
     revalidatePath('/');
     return { success: true };
 }
+
+// --- UI Components & Tools Visibility ---
+export async function getUiToolsData() {
+    await checkAuth();
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    return {
+        uiComponents: data.uiComponents || [],
+        tools: data.tools || []
+    };
+}
+
+export async function saveUiComponentVisibility(id, visible) {
+    await checkAuth();
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    if (!data.uiComponents) data.uiComponents = [];
+    const index = data.uiComponents.findIndex(c => c.id === id);
+    if (index !== -1) {
+        data.uiComponents[index].visible = visible;
+    } else {
+        data.uiComponents.push({ id, visible });
+    }
+    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    revalidatePath('/');
+    return { success: true };
+}
+
+export async function saveToolVisibility(id, visible) {
+    await checkAuth();
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    if (!data.tools) data.tools = [];
+    const index = data.tools.findIndex(t => t.id === id);
+    if (index !== -1) {
+        data.tools[index].visible = visible;
+    } else {
+        data.tools.push({ id, visible });
+    }
+    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    revalidatePath('/');
+    return { success: true };
+}
+
+export async function getPublicUiToolsData() {
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    return {
+        uiComponents: data.uiComponents || [],
+        tools: data.tools || []
+    };
+}
