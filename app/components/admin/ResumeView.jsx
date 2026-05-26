@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit3, Trash2, Clock, Award } from 'lucide-react';
-import { getPortfolioData, saveTimelineItem, deleteTimelineItem, saveCertificate, deleteCertificate } from '../dataActions';
+import { getPortfolioData, saveTimelineItem, deleteTimelineItem, saveCertificate, deleteCertificate } from '@/app/(admin)/admin/dataActions';
 
 const ResumeView = () => {
     const [activeTab, setActiveTab] = useState('timeline'); // 'timeline' or 'certificates'

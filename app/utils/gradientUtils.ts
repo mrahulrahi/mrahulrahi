@@ -1,4 +1,4 @@
-export const getRandomHexColor = () => {
+export const getRandomHexColor = (): string => {
   const letters = '0123456789ABCDEF';
   let color = '#';
   for (let i = 0; i < 6; i++) {
@@ -7,10 +7,17 @@ export const getRandomHexColor = () => {
   return color;
 };
 
-export const getRandomGradient = () => {
+export interface GradientInfo {
+  direction: string;
+  c1: string;
+  c2: string;
+  gradientValue: string;
+}
+
+export const getRandomGradient = (): GradientInfo => {
   const c1 = getRandomHexColor();
   const c2 = getRandomHexColor();
-  const directions = [
+  const directions: string[] = [
     'to right', 'to left', 'to top', 'to bottom',
     'to top right', 'to top left', 'to bottom right', 'to bottom left'
   ];

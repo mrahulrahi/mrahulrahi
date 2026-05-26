@@ -1,7 +1,7 @@
 'use client'
 import Link from "next/link"
-import ContentContainer from "../components/ContentContainer"
-import MouseFollower from '../components/MouseFollower';
+import ContentContainer from "@/app/components/ui/ContentContainer"
+import MouseFollower from '@/app/components/layout/MouseFollower';
 
 export default function NotFound({
   error,

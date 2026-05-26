@@ -2,11 +2,11 @@
 import { useState, useEffect } from 'react';
 import { usePathname } from "next/navigation";
 import Link from 'next/link';
-import { useGradient } from '../../context/GradientContext.jsx';
-import Hero from "../components/Hero.jsx";
+import { useGradient } from '@/app/context/GradientContext';
+import Hero from "@/app/components/project/Hero";
 import { TbLayoutSidebarLeftCollapseFilled, TbLayoutSidebarLeftExpandFilled } from "react-icons/tb";
 import { FaDiceFour, FaCalculator, FaNoteSticky, FaCloudSun, FaQuoteRight } from 'react-icons/fa6';
-import { getPublicUiToolsData } from '../../(admin)/admin/dataActions';
+import { getPublicUiToolsData } from '@/app/(admin)/admin/dataActions';
 
 const CodeStackLayout = ({ children }) => {
   const { gradientStyle, changeGradientColor } = useGradient();

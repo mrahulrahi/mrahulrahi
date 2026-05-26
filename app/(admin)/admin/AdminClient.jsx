@@ -1,18 +1,18 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, CheckCircle } from 'lucide-react';
-import Sidebar from './components/Sidebar';
-import DashboardView from './components/DashboardView';
-import PortfolioView from './components/PortfolioView';
-import EmiView from './components/EmiView';
-import SettingsView from './components/SettingsView';
-import StyleguideView from './components/StyleguideView';
-import ResumeView from './components/ResumeView';
-import InterestsView from './components/InterestsView';
-import HeroAboutView from './components/HeroAboutView';
-import StatsView from './components/StatsView';
-import SkillsView from './components/SkillsView';
-import UiToolsView from './components/UiToolsView';
+import Sidebar from '@/app/components/admin/Sidebar';
+import DashboardView from '@/app/components/admin/DashboardView';
+import PortfolioView from '@/app/components/admin/PortfolioView';
+import EmiView from '@/app/components/admin/EmiView';
+import SettingsView from '@/app/components/admin/SettingsView';
+import StyleguideView from '@/app/components/admin/StyleguideView';
+import ResumeView from '@/app/components/admin/ResumeView';
+import InterestsView from '@/app/components/admin/InterestsView';
+import HeroAboutView from '@/app/components/admin/HeroAboutView';
+import StatsView from '@/app/components/admin/StatsView';
+import SkillsView from '@/app/components/admin/SkillsView';
+import UiToolsView from '@/app/components/admin/UiToolsView';
 
 const AdminPage = () => {
     const [activeView, setActiveView] = useState('app'); // 'styleguide' | 'app'

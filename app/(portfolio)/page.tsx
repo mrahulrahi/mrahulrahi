@@ -4,18 +4,18 @@ import Image from 'next/image'
 import * as motion from "motion/react-client";
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Hero from "../components/Hero/Hero";
-import ProjectCard from "../components/ProjectCard/ProjectCard";
-import ContentContainer from "../components/ContentContainer";
-import Button from "../components/Button";
-import StatCard from '../components/StatCard/StatCard';
-import MouseFollower from '../components/MouseFollower';
-import Banner from '../components/Banner/Banner'
-import InterestCard from "../components/InterestCard/InterestCard";
-import BlogCard from "../components/BlogCard/BlogCard";
-import Heading from '../components/Heading';
-import CertificateCard from '../components/CertificateCard/CertificateCard';
-import SkillCard from '../components/SkillCard/SkillCard';
+import Hero from "@/app/components/portfolio/Hero/Hero";
+import ProjectCard from "@/app/components/portfolio/ProjectCard/ProjectCard";
+import ContentContainer from "@/app/components/ui/ContentContainer";
+import Button from "@/app/components/ui/Button";
+import StatCard from '@/app/components/portfolio/StatCard/StatCard';
+import MouseFollower from '@/app/components/layout/MouseFollower';
+import Banner from '@/app/components/portfolio/Banner/Banner'
+import InterestCard from "@/app/components/portfolio/InterestCard/InterestCard";
+import BlogCard from "@/app/components/portfolio/BlogCard/BlogCard";
+import Heading from '@/app/components/ui/Heading';
+import CertificateCard from '@/app/components/portfolio/CertificateCard/CertificateCard';
+import SkillCard from '@/app/components/portfolio/SkillCard/SkillCard';
 import { 
   projectsCards as staticProjects, 
   interest as staticInterest, 
@@ -25,8 +25,8 @@ import {
   stats as staticStats,
   about as staticAbout,
   skills as staticSkills
-} from '../data/staticData';
-import { getPublicPortfolioData } from '../(admin)/admin/dataActions';
+} from '@/app/data/staticData';
+import { getPublicPortfolioData } from '@/app/(admin)/admin/dataActions';
 import { TiArrowRightOutline, TiArrowDownOutline } from "react-icons/ti";
 import { MdWeb } from "react-icons/md";
 import { FaUserGraduate, FaLayerGroup, FaClock } from "react-icons/fa6";

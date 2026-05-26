@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit3, Trash2, TrendingUp, Info } from 'lucide-react';
-import { getPortfolioData, saveStatItem, deleteStatItem } from '../dataActions';
+import { getPortfolioData, saveStatItem, deleteStatItem } from '@/app/(admin)/admin/dataActions';
 
 const StatsView = () => {
     const [stats, setStats] = useState([]);

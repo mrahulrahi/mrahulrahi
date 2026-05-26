@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit3, Trash2, Heart } from 'lucide-react';
-import { getPortfolioData, saveInterest, deleteInterest } from '../dataActions';
+import { getPortfolioData, saveInterest, deleteInterest } from '@/app/(admin)/admin/dataActions';
 
 const InterestsView = () => {
     const [interests, setInterests] = useState([]);

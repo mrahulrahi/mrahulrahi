@@ -1,5 +1,5 @@
 import { useParams } from 'react-router';
-import Hero from '../../components/Hero';
+import Hero from '@/app/components/project/Hero';
 
 const Product = () => {
   const { pid } = useParams();

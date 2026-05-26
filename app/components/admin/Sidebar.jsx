@@ -12,7 +12,7 @@ import {
     Eye
 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
-import { logoutAction } from '../actions';
+import { logoutAction } from '@/app/(admin)/admin/actions';
 
 const Sidebar = ({ activePage, setActivePage }) => {
     const router = useRouter();

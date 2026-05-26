@@ -3,8 +3,8 @@ import Image from 'next/image'
 import './Footer.css'
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from "react-icons/fa";
 import * as motion from "motion/react-client"
-import Button from '../Button'
-import ContentContainer from '../ContentContainer'
+import Button from '@/app/components/ui/Button'
+import ContentContainer from '@/app/components/ui/ContentContainer'
 import MessageForm from './MessageForm'
 
 const SocialLinks = ({ className = "", style }: { className?: string, style?: React.CSSProperties }) => (

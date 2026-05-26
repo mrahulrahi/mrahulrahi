@@ -1,10 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Hero from "../components/Hero";
-import ListGroup from "../components/ListGroup";
-import Counter from "../components/Counter";
-import ListItemTable from "../components/ListItemTable";
+import Hero from "@/app/components/project/Hero";
+import ListGroup from "@/app/components/project/ListGroup";
+import Counter from "@/app/components/project/Counter";
+import ListItemTable from "@/app/components/project/ListItemTable";
 import { FaRegHeart, FaHeart, FaRegFaceGrinHearts, FaHeartPulse } from "react-icons/fa6";
 import { SlUserFollow, SlUserUnfollow } from "react-icons/sl";
 

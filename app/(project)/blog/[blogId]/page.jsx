@@ -1,8 +1,8 @@
 'use client'
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import Hero from "../../components/Hero.jsx";
-import { useGradient } from "../../../context/GradientContext.jsx";
+import Hero from "@/app/components/project/Hero";
+import { useGradient } from "@/app/context/GradientContext";
 
 
 const BlogPage = () => {

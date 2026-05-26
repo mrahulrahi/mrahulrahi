@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers';
-import LoginView from './components/LoginView';
+import LoginView from '@/app/components/admin/LoginView';
 import AdminClient from './AdminClient';
 
 export default async function AdminPage() {

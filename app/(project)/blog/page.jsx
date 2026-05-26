@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import ReactPaginate from "react-paginate";
 import Link from "next/link";
-import Hero from "../components/Hero";
+import Hero from "@/app/components/project/Hero";
 
 const BlogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);

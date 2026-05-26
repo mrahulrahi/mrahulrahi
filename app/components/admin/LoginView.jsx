@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { loginAction } from '../actions';
+import { loginAction } from '@/app/(admin)/admin/actions';
 import { Lock } from 'lucide-react';
 
 const LoginView = () => {

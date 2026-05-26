@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit3, Trash2, Library, Info } from 'lucide-react';
-import { getPortfolioData, saveSkillItem, deleteSkillItem } from '../dataActions';
+import { getPortfolioData, saveSkillItem, deleteSkillItem } from '@/app/(admin)/admin/dataActions';
 
 const SkillsView = () => {
     const [skills, setSkills] = useState([]);

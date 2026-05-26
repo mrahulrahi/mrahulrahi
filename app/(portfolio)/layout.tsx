@@ -3,10 +3,10 @@ import type { Metadata } from 'next'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import './portfolio.css'
-import ImportBsJS from '../importBsJS'
+import ImportBsJS from '@/app/importBsJS'
 import { Josefin_Sans, Outfit } from 'next/font/google'
-import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
+import Header from '@/app/components/portfolio/Header/Header'
+import Footer from '@/app/components/portfolio/Footer/Footer'
 
 // Google Fonts setup
 const josefinSans = Josefin_Sans({

@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { User, ShieldAlert, Sparkles } from 'lucide-react';
-import { getPortfolioData, saveHeroData, saveAboutData } from '../dataActions';
+import { getPortfolioData, saveHeroData, saveAboutData } from '@/app/(admin)/admin/dataActions';
 
 const HeroAboutView = () => {
     const [loading, setLoading] = useState(true);

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Image as ImageIcon, Edit3, Plus, Trash2 } from 'lucide-react';
-import { getPortfolioData, saveProject, deleteProject } from '../dataActions';
+import { getPortfolioData, saveProject, deleteProject } from '@/app/(admin)/admin/dataActions';
 
 const PortfolioView = () => {
     const [projects, setProjects] = useState([]);

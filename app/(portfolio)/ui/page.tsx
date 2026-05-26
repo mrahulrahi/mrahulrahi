@@ -1,42 +1,42 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Search, Component, Terminal, Copy, Check, Sparkles, BookOpen, Layers } from 'lucide-react';
-import { getPublicUiToolsData } from '../../(admin)/admin/dataActions';
+import { getPublicUiToolsData } from '@/app/(admin)/admin/dataActions';
 
 // Import all 33 React components from the code-stack Components library
-import BirthdayCard from '../../(project)/code-stack/Components/BirthdayCard';
-import BubbleSortAlgorithm from '../../(project)/code-stack/Components/BubbleSortAlgorithm';
-import Calculator from '../../(project)/code-stack/Components/Calculator';
-import ChoiceConverter from '../../(project)/code-stack/Components/ChoiceConverter';
-import ClassDemoComponent from '../../(project)/code-stack/Components/ClassDemoComponent';
-import DialogExamples from '../../(project)/code-stack/Components/DialogExamples';
-import DoublyLinkedList from '../../(project)/code-stack/Components/DoublyLinkedList';
-import EvenNumbersFilter from '../../(project)/code-stack/Components/EvenNumbersFilter';
-import FactorialCalculator from '../../(project)/code-stack/Components/FactorialCalculator';
-import FibonacciSeries from '../../(project)/code-stack/Components/FibonacciSeries';
-import FullExample from '../../(project)/code-stack/Components/FullExample';
-import GreenCircleMessage from '../../(project)/code-stack/Components/GreenCircleMessage';
-import JSBasicsCard from '../../(project)/code-stack/Components/JSBasicsCard';
-import LoginForm from '../../(project)/code-stack/Components/LoginForm';
-import LoopType from '../../(project)/code-stack/Components/LoopType';
-import MiniWindowControl from '../../(project)/code-stack/Components/MiniWindowControl';
-import MultiplicationTable from '../../(project)/code-stack/Components/MultiplicationTable';
-import PalindromeChecker from '../../(project)/code-stack/Components/PalindromeChecker';
-import ParkingPriceCalculator from '../../(project)/code-stack/Components/ParkingPriceCalculator';
-import PythonToReactDemo from '../../(project)/code-stack/Components/PythonToReactDemo';
-import QuadraticSolver from '../../(project)/code-stack/Components/QuadraticSolver';
-import RedCircleWithMessage from '../../(project)/code-stack/Components/RedCircleWithMessage';
-import RotatingSquares from '../../(project)/code-stack/Components/RotatingSquares';
-import ScopeDemo from '../../(project)/code-stack/Components/ScopeDemo';
-import SortIntegerList from '../../(project)/code-stack/Components/SortIntegerList';
-import StringPermutations from '../../(project)/code-stack/Components/StringPermutations';
-import StudentList from '../../(project)/code-stack/Components/StudentList';
-import StudentRecord from '../../(project)/code-stack/Components/StudentRecord';
-import { StyleManipulator } from '../../(project)/code-stack/Components/StyleManipulator';
-import SubjectAverageCalculator from '../../(project)/code-stack/Components/SubjectAverageCalculator';
-import SumTwoNumbers from '../../(project)/code-stack/Components/SumTwoNumbers';
-import SwitchCase from '../../(project)/code-stack/Components/SwitchCase';
-import TextTransfer from '../../(project)/code-stack/Components/TextTransfer';
+import BirthdayCard from '@/app/components/code-stack/BirthdayCard';
+import BubbleSortAlgorithm from '@/app/components/code-stack/BubbleSortAlgorithm';
+import Calculator from '@/app/components/code-stack/Calculator';
+import ChoiceConverter from '@/app/components/code-stack/ChoiceConverter';
+import ClassDemoComponent from '@/app/components/code-stack/ClassDemoComponent';
+import DialogExamples from '@/app/components/code-stack/DialogExamples';
+import DoublyLinkedList from '@/app/components/code-stack/DoublyLinkedList';
+import EvenNumbersFilter from '@/app/components/code-stack/EvenNumbersFilter';
+import FactorialCalculator from '@/app/components/code-stack/FactorialCalculator';
+import FibonacciSeries from '@/app/components/code-stack/FibonacciSeries';
+import FullExample from '@/app/components/code-stack/FullExample';
+import GreenCircleMessage from '@/app/components/code-stack/GreenCircleMessage';
+import JSBasicsCard from '@/app/components/code-stack/JSBasicsCard';
+import LoginForm from '@/app/components/code-stack/LoginForm';
+import LoopType from '@/app/components/code-stack/LoopType';
+import MiniWindowControl from '@/app/components/code-stack/MiniWindowControl';
+import MultiplicationTable from '@/app/components/code-stack/MultiplicationTable';
+import PalindromeChecker from '@/app/components/code-stack/PalindromeChecker';
+import ParkingPriceCalculator from '@/app/components/code-stack/ParkingPriceCalculator';
+import PythonToReactDemo from '@/app/components/code-stack/PythonToReactDemo';
+import QuadraticSolver from '@/app/components/code-stack/QuadraticSolver';
+import RedCircleWithMessage from '@/app/components/code-stack/RedCircleWithMessage';
+import RotatingSquares from '@/app/components/code-stack/RotatingSquares';
+import ScopeDemo from '@/app/components/code-stack/ScopeDemo';
+import SortIntegerList from '@/app/components/code-stack/SortIntegerList';
+import StringPermutations from '@/app/components/code-stack/StringPermutations';
+import StudentList from '@/app/components/code-stack/StudentList';
+import StudentRecord from '@/app/components/code-stack/StudentRecord';
+import { StyleManipulator } from '@/app/components/code-stack/StyleManipulator';
+import SubjectAverageCalculator from '@/app/components/code-stack/SubjectAverageCalculator';
+import SumTwoNumbers from '@/app/components/code-stack/SumTwoNumbers';
+import SwitchCase from '@/app/components/code-stack/SwitchCase';
+import TextTransfer from '@/app/components/code-stack/TextTransfer';
 
 // Component Map for dynamic rendering
 const COMPONENT_MAP: { [key: string]: React.ComponentType<any> } = {

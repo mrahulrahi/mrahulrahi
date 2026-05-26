@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Search, Eye, EyeOff, Component, PenTool, CheckCircle, Info } from 'lucide-react';
-import { getUiToolsData, saveUiComponentVisibility, saveToolVisibility } from '../dataActions';
+import { getUiToolsData, saveUiComponentVisibility, saveToolVisibility } from '@/app/(admin)/admin/dataActions';
 
 const UiToolsView = () => {
     const [uiComponents, setUiComponents] = useState([]);
