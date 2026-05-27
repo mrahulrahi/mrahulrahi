@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { FaMinus, FaPlus } from "react-icons/fa";
 
-const Counter = () => {
-    const [counter, setCounter] = useState(0)
+const Counter = ({initialValue = 0}) => {
+    const [counter, setCounter] = useState<number>(initialValue)
 
     return (
         <>

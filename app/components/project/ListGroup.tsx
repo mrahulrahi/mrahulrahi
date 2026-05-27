@@ -1,8 +1,18 @@
 import { useEffect, useState } from 'react';
 
-function ListGroup({ items = [], heading, onSelectItem }) {
+interface ListItem{
+  id: number;
+  name: string;
+}
+interface ListGroupProps{
+  items: ListItem[];
+  heading: string;
+  onSelectItem: (item: ListItem) => void;
+}
+
+function ListGroup({ items = [], heading, onSelectItem }: ListGroupProps) {
   const initial = items[0] || null; // Ensure initial is null if items[0] doesn't exist
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
 
   const onStart = () => {
     if (initial) {
