@@ -4,7 +4,7 @@ import './globals.css'
 import { Josefin_Sans, Outfit } from 'next/font/google'
 import { GradientProvider } from '../context/GradientContext.jsx';
 import Providers from './providers';
-import 'highlight.js/styles/atom-one-dark.css'; 
+import 'highlight.js/styles/atom-one-dark.css';
 
 // Google Fonts setup
 const josefinSans = Josefin_Sans({
@@ -32,7 +32,7 @@ export default function ProjectLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${josefinSans.variable} ${outfit.variable}`}>
+      <body className={`${josefinSans.variable} ${outfit.variable} pt-0`}>
         <GradientProvider>
           <Providers>
             {children}

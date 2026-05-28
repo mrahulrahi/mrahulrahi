@@ -1,6 +1,8 @@
+interface ListItemTableProps {
+    data: Record<string, any>;
+}
 
-
-const ListItemTable = ({ data }) => {
+const ListItemTable: React.FC<ListItemTableProps> = ({ data }) => {
     if (!data || Object.keys(data).length === 0) {
         return <p>No data available to display.</p>;
     }
