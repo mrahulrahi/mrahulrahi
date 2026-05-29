@@ -2,9 +2,24 @@
 import { createContext, useContext, useState } from 'react';
 import { getRandomGradient } from '../utils/gradientUtils';
 
-const GradientContext = createContext();
+interface GradientContextType {
+  gradientDirection: string;
+  color1: string;
+  color2: string;
+  gradientStyle: React.CSSProperties;
+  gradientCSS: string;
+  showGradient: boolean;
+  setShowGradient: React.Dispatch<React.SetStateAction<boolean>>;
+  changeGradientColor: () => void;
+  handleColor1Change: (newColor: string) => void;
+  handleColor2Change: (newColor: string) => void;
+  handleDirectionChange: (newDirection: string) => void;
+  updateGradient: (c1: string, c2: string, direction?: string) => void;
+}
 
-export const useGradient = () => {
+const GradientContext = createContext<GradientContextType | undefined>(undefined);
+
+export const useGradient = (): GradientContextType => {
   const context = useContext(GradientContext);
   if (!context) {
     throw new Error('useGradient must be used within a GradientProvider');
@@ -12,7 +27,7 @@ export const useGradient = () => {
   return context;
 };
 
-export const GradientProvider = ({ children }) => {
+export const GradientProvider = ({ children  }: { children: React.ReactNode }) => {
   // Initialize with random gradient
   const initialGradient = getRandomGradient();
 
@@ -38,22 +53,22 @@ export const GradientProvider = ({ children }) => {
     }, 5000);
   };
 
-  const handleColor1Change = (newColor) => {
+  const handleColor1Change = (newColor: string) => {
     setColor1(newColor);
     updateGradient(newColor, color2);
   };
 
-  const handleColor2Change = (newColor) => {
+  const handleColor2Change = (newColor: string) => {
     setColor2(newColor);
     updateGradient(color1, newColor);
   };
 
-  const handleDirectionChange = (newDirection) => {
+  const handleDirectionChange = (newDirection: string) => {
     setGradientDirection(newDirection);
     updateGradient(color1, color2, newDirection);
   };
 
-  const updateGradient = (c1, c2, direction = gradientDirection) => {
+  const updateGradient = (c1: string, c2: string, direction = gradientDirection) => {
     const gradientValue = `linear-gradient(${direction}, ${c1}, ${c2})`;
     setGradientStyle({ backgroundImage: gradientValue });
     setGradientCSS(gradientValue);

@@ -1,6 +1,13 @@
+interface HeroProps {
+    bgImg?: string;
+    title: string;
+    subTitle: string;
+    content: string;
+    gradientColor?: React.CSSProperties;
+}
 
 
-const Hero = ({ bgImg, title, subTitle, content, gradientColor }) => {
+const Hero = ({ bgImg, title, subTitle, content, gradientColor }: HeroProps) => {
     return (
         <>
             <div className={`hero-container flex items-end relative ${!bgImg ? 'hero-bg-pattern min-h-[250px]' : 'min-h-[300px] lg:min-h-[400px]' }`} >

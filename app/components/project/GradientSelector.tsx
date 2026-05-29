@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FiCopy } from "react-icons/fi";
-import { useGradient } from '../context/GradientContext';
+import { useGradient } from '@/app/context/GradientContext';
 
-const GradientSelector = () => {
+
+const GradientSelector : React.FC = () => {
     const [openSideBox, setOpenSideBox] = useState(false);
 
     const {

@@ -2,7 +2,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { Josefin_Sans, Outfit } from 'next/font/google'
-import { GradientProvider } from '../context/GradientContext.jsx';
+import { GradientProvider } from '@/app/context/GradientContext';
 import Providers from './providers';
 import 'highlight.js/styles/atom-one-dark.css';
 
