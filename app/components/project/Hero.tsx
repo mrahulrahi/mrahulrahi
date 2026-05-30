@@ -2,7 +2,7 @@ interface HeroProps {
     bgImg?: string;
     title: string;
     subTitle: string;
-    content: string;
+    content?: string;
     gradientColor?: React.CSSProperties;
 }
 
@@ -18,7 +18,7 @@ const Hero = ({ bgImg, title, subTitle, content, gradientColor }: HeroProps) => 
                     <div className="w-full">
                         <h6 className={`mb-2 font-extrabold ${!bgImg && "bg-clip-text text-transparent"}`} style={gradientColor}>{subTitle}</h6>
                         <h1 className={`mb-0 text-5xl ${!bgImg && "bg-clip-text text-transparent"}`} style={gradientColor}>{title}</h1>
-                        <p className="mt-2">{content}</p>
+                        {content && <p className="mt-2">{content}</p>}
                     </div>
                 </div>
             </div>
