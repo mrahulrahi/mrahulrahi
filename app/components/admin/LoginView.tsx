@@ -5,23 +5,23 @@ import { useRouter } from 'next/navigation';
 import { loginAction } from '@/app/(admin)/admin/actions';
 import { Lock } from 'lucide-react';
 
-const LoginView = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
+const LoginView: React.FC = () => {
+    const [username, setUsername] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [error, setError] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter();
 
-    const handleLogin = async (e) => {
+    const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setLoading(true);
         setError('');
-        
+
         const result = await loginAction(username, password);
         if (result.success) {
             router.refresh();
         } else {
-            setError(result.error);
+            setError(result.error || 'Authentication failed');
             setLoading(false);
         }
     };

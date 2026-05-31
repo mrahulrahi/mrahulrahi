@@ -2,7 +2,12 @@
 
 import { cookies } from 'next/headers';
 
-export async function loginAction(username, password) {
+interface AuthResponse {
+    success: boolean;
+    error?: string;
+}
+
+export async function loginAction(username: string, password: string): Promise<AuthResponse> {
     const validUsername = process.env.ADMIN_USERNAME;
     const validPassword = process.env.ADMIN_PASSWORD;
 
@@ -21,7 +26,7 @@ export async function loginAction(username, password) {
     return { success: false, error: 'Invalid username or password' };
 }
 
-export async function logoutAction() {
+export async function logoutAction(): Promise<AuthResponse> {
     const cookieStore = await cookies();
     cookieStore.delete('admin_auth_session');
     return { success: true };
