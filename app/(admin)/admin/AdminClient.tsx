@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useState, useEffect } from 'react';
 import { Sun, Moon, CheckCircle } from 'lucide-react';
 import Sidebar from '@/app/components/admin/Sidebar';
@@ -14,12 +15,28 @@ import StatsView from '@/app/components/admin/StatsView';
 import SkillsView from '@/app/components/admin/SkillsView';
 import UiToolsView from '@/app/components/admin/UiToolsView';
 
-const AdminPage = () => {
-    const [activeView, setActiveView] = useState('app'); // 'styleguide' | 'app'
-    const [activePage, setActivePage] = useState('dashboard'); // 'dashboard' | 'portfolio' | 'emi' | 'settings'
-    const [theme, setTheme] = useState('light');
-    const [toastMessage, setToastMessage] = useState('');
-    const [showToast, setShowToast] = useState(false);
+type ActiveView = 'styleguide' | 'app';
+
+type ActivePage = 
+    | 'dashboard' 
+    | 'hero-about' 
+    | 'portfolio' 
+    | 'resume' 
+    | 'stats' 
+    | 'skills' 
+    | 'interests' 
+    | 'emi' 
+    | 'settings' 
+    | 'uitools';
+
+type Theme = 'light' | 'dark';
+
+const AdminClient: React.FC = () => {
+    const [activeView, setActiveView] = useState<ActiveView>('app');
+    const [activePage, setActivePage] = useState<ActivePage>('dashboard');
+    const [theme, setTheme] = useState<Theme>('light');
+    const [toastMessage, setToastMessage] = useState<string>('');
+    const [showToast, setShowToast] = useState<boolean>(false);
 
     useEffect(() => {
         const storedTheme = localStorage.getItem('color-theme');
@@ -31,8 +48,9 @@ const AdminPage = () => {
             setTheme('light');
         }
 
-        const handleToast = (e) => {
-            setToastMessage(e.detail);
+        const handleToast = (e: Event) => {
+            const customEvent = e as CustomEvent<string>;
+            setToastMessage(customEvent.detail);
             setShowToast(true);
             setTimeout(() => setShowToast(false), 3000);
         };
@@ -99,7 +117,7 @@ const AdminPage = () => {
                 <StyleguideView />
             ) : (
                 <div className="fixed inset-0 top-16 z-20 flex bg-gray-50 dark:bg-brand-black transition-opacity duration-300">
-                    <Sidebar activePage={activePage} setActivePage={setActivePage} />
+                    <Sidebar activePage={activePage} setActivePage={(page: string) => setActivePage(page as ActivePage)} />
 
                     <main className="flex-1 overflow-y-auto p-6 lg:p-10 relative">
                         <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-brand-muted font-mono mb-6">
@@ -130,4 +148,4 @@ const AdminPage = () => {
     );
 };
 
-export default AdminPage;
+export default AdminClient;

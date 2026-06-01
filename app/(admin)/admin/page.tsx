@@ -1,3 +1,4 @@
+import React from 'react';
 import { cookies } from 'next/headers';
 import LoginView from '@/app/components/admin/LoginView';
 import AdminClient from './AdminClient';
