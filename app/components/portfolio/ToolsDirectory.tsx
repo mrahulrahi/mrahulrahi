@@ -1,10 +1,15 @@
 'use client'
+
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Search, Sparkles, Terminal, Sliders, ExternalLink, Calculator, HelpCircle, FileText, CloudSun, Quote } from 'lucide-react';
-import { getPublicUiToolsData } from '../../(admin)/admin/dataActions';
+import { getPublicUiToolsData } from '@/app/(admin)/admin/dataActions';
 
-export default function ToolsDirectoryPage() {
+interface ToolsDirectoryProps {
+    isEmbedded?: boolean;
+}
+
+export default function ToolsDirectory({ isEmbedded = false }: ToolsDirectoryProps) {
     const [tools, setTools] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
@@ -53,21 +58,24 @@ export default function ToolsDirectoryPage() {
     );
 
     return (
-        <div className="bg-[#0f172a] text-slate-100 min-h-screen py-24 px-4 sm:px-6 lg:px-8 font-sans transition-colors duration-300">
-            {/* Header Area */}
-            <div className="max-w-7xl mx-auto text-center mb-16 relative">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-12 w-64 h-64 bg-brand-mint/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div className="inline-flex items-center gap-2 bg-brand-mint/10 text-brand-mint px-4 py-1.5 rounded-full text-xs font-mono mb-4 border border-brand-mint/20 animate-pulse">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Interactive Workspace</span>
+        <div className={`text-slate-100 font-sans transition-colors duration-300 ${isEmbedded ? 'w-full py-0 px-0' : 'bg-[#0f172a] min-h-screen py-24 px-4 sm:px-6 lg:px-8'}`}>
+            
+            {/* Header Area (only render if not embedded) */}
+            {!isEmbedded && (
+                <div className="max-w-7xl mx-auto text-center mb-16 relative">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-12 w-64 h-64 bg-brand-mint/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="inline-flex items-center gap-2 bg-brand-mint/10 text-brand-mint px-4 py-1.5 rounded-full text-xs font-mono mb-4 border border-brand-mint/20 animate-pulse">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Interactive Workspace</span>
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 leading-tight">
+                        Interactive Web Utilities
+                    </h1>
+                    <p className="text-slate-400 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
+                        A suite of full-featured client utilities, financial estimators, and algorithmic playgrounds built to solve real-world tasks beautifully.
+                    </p>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 leading-tight">
-                    Interactive Web Utilities
-                </h1>
-                <p className="text-slate-400 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
-                    A suite of full-featured client utilities, financial estimators, and algorithmic playgrounds built to solve real-world tasks beautifully.
-                </p>
-            </div>
+            )}
 
             {loading ? (
                 <div className="flex flex-col items-center justify-center py-32 gap-3 text-slate-400 font-mono">
@@ -75,7 +83,7 @@ export default function ToolsDirectoryPage() {
                     <span>Synchronizing utility engines...</span>
                 </div>
             ) : (
-                <div className="max-w-6xl mx-auto space-y-10">
+                <div className="max-w-7xl mx-auto space-y-8">
                     
                     {/* Search and Metadata Bar */}
                     <div className="flex flex-col sm:flex-row justify-between items-stretch sm:items-center gap-4 bg-slate-900/60 border border-slate-800 p-4 rounded-2xl backdrop-blur-md">
@@ -101,7 +109,7 @@ export default function ToolsDirectoryPage() {
                             {filteredTools.map(tool => (
                                 <div
                                     key={tool.id}
-                                    className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 hover:border-brand-mint/40 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden backdrop-blur-md"
+                                    className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 hover:border-brand-mint/40 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden backdrop-blur-md animate-pulse-once"
                                 >
                                     {/* Subtly Glowing Background Accent on Card Hover */}
                                     <div className="absolute inset-0 bg-gradient-to-br from-brand-mint/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>

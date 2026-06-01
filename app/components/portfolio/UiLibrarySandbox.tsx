@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useState, useEffect } from 'react';
 import { Search, Component, Terminal, Copy, Check, Sparkles, BookOpen, Layers } from 'lucide-react';
 import { getPublicUiToolsData } from '@/app/(admin)/admin/dataActions';
@@ -75,7 +76,11 @@ const COMPONENT_MAP: { [key: string]: React.ComponentType<any> } = {
     'scope-demo': ScopeDemo
 };
 
-export default function UiLibraryPage() {
+interface UiLibrarySandboxProps {
+    isEmbedded?: boolean;
+}
+
+export default function UiLibrarySandbox({ isEmbedded = false }: UiLibrarySandboxProps) {
     const [uiComponents, setUiComponents] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
@@ -110,7 +115,7 @@ export default function UiLibraryPage() {
         if (!activeComponent) return '';
         const name = activeComponent.name.replace(/\s+/g, '');
         return `import ${name} from '@/components/${name}';
-
+ 
 export default function App() {
   return (
     <div className="container mx-auto p-6">
@@ -134,21 +139,24 @@ export default function App() {
     );
 
     return (
-        <div className="bg-[#0f172a] text-slate-100 min-h-screen py-24 px-4 sm:px-6 lg:px-8 font-sans transition-colors duration-300">
-            {/* Header Area */}
-            <div className="max-w-7xl mx-auto text-center mb-16 relative">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-12 w-64 h-64 bg-brand-mint/10 rounded-full blur-3xl pointer-events-none"></div>
-                <div className="inline-flex items-center gap-2 bg-brand-mint/10 text-brand-mint px-4 py-1.5 rounded-full text-xs font-mono mb-4 border border-brand-mint/20">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>Spectrum UI Library</span>
+        <div className={`text-slate-100 font-sans transition-colors duration-300 ${isEmbedded ? 'w-full py-0 px-0' : 'bg-[#0f172a] min-h-screen py-24 px-4 sm:px-6 lg:px-8'}`}>
+            
+            {/* Header Area (only render if not embedded) */}
+            {!isEmbedded && (
+                <div className="max-w-7xl mx-auto text-center mb-16 relative">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-12 w-64 h-64 bg-brand-mint/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div className="inline-flex items-center gap-2 bg-brand-mint/10 text-brand-mint px-4 py-1.5 rounded-full text-xs font-mono mb-4 border border-brand-mint/20">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Spectrum UI Library</span>
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 leading-tight">
+                        Custom Component Sandbox
+                    </h1>
+                    <p className="text-slate-400 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
+                        Explore, interact, and integrate beautiful customized React widgets and modular interface elements built for speed and visual excellence.
+                    </p>
                 </div>
-                <h1 className="text-4xl md:text-5xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 leading-tight">
-                    Custom Component Sandbox
-                </h1>
-                <p className="text-slate-400 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
-                    Explore, interact, and integrate beautiful customized React widgets and modular interface elements built for speed and visual excellence.
-                </p>
-            </div>
+            )}
 
             {loading ? (
                 <div className="flex flex-col items-center justify-center py-32 gap-3 text-slate-400 font-mono">
@@ -167,7 +175,7 @@ export default function App() {
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                             
                             {/* Left panel: List Sidebar */}
-                            <div className="lg:col-span-4 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 h-[calc(100vh-250px)] min-h-[500px] flex flex-col backdrop-blur-md">
+                            <div className={`lg:col-span-4 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 flex flex-col backdrop-blur-md ${isEmbedded ? 'h-[500px]' : 'h-[calc(100vh-250px)] min-h-[500px]'}`}>
                                 <div className="relative mb-4">
                                     <Search className="absolute left-3 top-3 w-4 h-4 text-slate-500" />
                                     <input
@@ -188,7 +196,7 @@ export default function App() {
                                                     setActiveComponentId(item.id);
                                                     setActiveTab('preview');
                                                 }}
-                                                className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-start gap-3 group ${
+                                                className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-start gap-3 group cursor-pointer ${
                                                     activeComponentId === item.id
                                                         ? 'bg-brand-mint/10 border-brand-mint/40 text-white shadow-[0_0_15px_-3px_rgba(79,209,197,0.1)]'
                                                         : 'bg-slate-950/40 border-transparent hover:bg-slate-900/40 hover:border-slate-800 text-slate-400 hover:text-slate-200'
@@ -222,7 +230,7 @@ export default function App() {
                                         {/* Component Intro Header */}
                                         <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 backdrop-blur-md flex flex-col md:flex-row md:items-center justify-between gap-4">
                                             <div className="space-y-1">
-                                                <span className="text-[10px] font-mono bg-slate-950 border border-slate-800 text-slate-500 px-2 py-0.5 rounded uppercase tracking-wider">
+                                                <span className="text-[10px] font-mono bg-slate-950 border border-slate-800 text-slate-500 px-2 py-0.5 rounded uppercase tracking-wider animate-pulse">
                                                     ID: {activeComponent.id}
                                                 </span>
                                                 <h2 className="text-2xl font-bold text-white tracking-wide">{activeComponent.name}</h2>
@@ -233,7 +241,7 @@ export default function App() {
                                             <div className="flex bg-slate-950 border border-slate-800 rounded-lg p-1 shrink-0 self-start md:self-center">
                                                 <button
                                                     onClick={() => setActiveTab('preview')}
-                                                    className={`px-3 py-1.5 rounded-md text-xs font-semibold flex items-center gap-1.5 transition ${
+                                                    className={`px-3 py-1.5 rounded-md text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer ${
                                                         activeTab === 'preview'
                                                             ? 'bg-slate-900 text-brand-mint shadow'
                                                             : 'text-slate-500 hover:text-slate-300'
@@ -244,7 +252,7 @@ export default function App() {
                                                 </button>
                                                 <button
                                                     onClick={() => setActiveTab('code')}
-                                                    className={`px-3 py-1.5 rounded-md text-xs font-semibold flex items-center gap-1.5 transition ${
+                                                    className={`px-3 py-1.5 rounded-md text-xs font-semibold flex items-center gap-1.5 transition cursor-pointer ${
                                                         activeTab === 'code'
                                                             ? 'bg-slate-900 text-brand-mint shadow'
                                                             : 'text-slate-500 hover:text-slate-300'
@@ -297,7 +305,7 @@ export default function App() {
                                                     </div>
                                                     <button
                                                         onClick={handleCopy}
-                                                        className="text-xs font-mono text-slate-400 hover:text-brand-mint bg-slate-950 border border-slate-800 hover:border-brand-mint/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors"
+                                                        className="text-xs font-mono text-slate-400 hover:text-brand-mint bg-slate-950 border border-slate-800 hover:border-brand-mint/30 px-3 py-1.5 rounded-lg flex items-center gap-1.5 transition-colors cursor-pointer"
                                                     >
                                                         {copied ? (
                                                             <>

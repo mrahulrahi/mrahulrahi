@@ -145,6 +145,7 @@ const Header = () => {
         { path: '/', label: 'Home' },
         { path: '/#about', label: 'About' },
         { path: '/#portfolio', label: 'Portfolio' },
+        { path: '/workspace', label: 'Workspace' },
         { path: '#contact', label: 'Contact' },
     ];
 
@@ -193,6 +194,7 @@ const Header = () => {
                                     viewport={{ once: true, amount: 0.2 }}>
                                     {links.map(link => (
                                         <li key={link.path} className={`${
+                                            link.path === currentPath ||
                                             link.path === activeSection || 
                                             (link.path === '#contact' && activeSection === '/#contact')
                                                 ? 'active' 
