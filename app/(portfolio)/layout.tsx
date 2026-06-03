@@ -7,6 +7,7 @@ import ImportBsJS from '@/app/importBsJS'
 import { Josefin_Sans, Outfit } from 'next/font/google'
 import Header from '@/app/components/portfolio/Header/Header'
 import Footer from '@/app/components/portfolio/Footer/Footer'
+import FloatingWorkspaceToggle from '@/app/components/layout/FloatingWorkspaceToggle'
 
 // Google Fonts setup
 const josefinSans = Josefin_Sans({
@@ -36,6 +37,7 @@ export default function PortfolioLayout({
       <body className="overlay">
         <Header />
         <main>{children}</main>
+        <FloatingWorkspaceToggle />
         <Footer />
         <ImportBsJS />
         <SpeedInsights />

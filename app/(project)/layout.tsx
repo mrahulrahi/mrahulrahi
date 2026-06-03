@@ -5,6 +5,7 @@ import { Josefin_Sans, Outfit } from 'next/font/google'
 import { GradientProvider } from '@/app/context/GradientContext';
 import Providers from './providers';
 import 'highlight.js/styles/atom-one-dark.css';
+import FloatingWorkspaceToggle from '@/app/components/layout/FloatingWorkspaceToggle';
 
 // Google Fonts setup
 const josefinSans = Josefin_Sans({
@@ -36,6 +37,7 @@ export default function ProjectLayout({
         <GradientProvider>
           <Providers>
             {children}
+            <FloatingWorkspaceToggle />
           </Providers>
         </GradientProvider>
       </body>
