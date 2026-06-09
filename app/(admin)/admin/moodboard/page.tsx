@@ -385,11 +385,9 @@ export default function MergedMoodboardPage() {
     };
 
 
-    // 1. Initialize Icons
-    lucide.createIcons();
 
-    // 2. Typing Effect Logic
-    const words = ["Ready", "Stable", "Optimized", "Growing"];
+
+
     let i = 0;
     let timer;
 
@@ -439,32 +437,10 @@ export default function MergedMoodboardPage() {
         });
     });
 
-    // 4. Generic Copy Logic for Prompts
-    function copyToClipboard(elementId) {
-        const text = document.getElementById(elementId).innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            showToast("Prompt copied to clipboard");
-        });
-    }
 
-    function copyLink() {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-            showToast("Link copied to clipboard");
-        });
-    }
 
-    // 5. Toast Notification Logic
-    function showToast(message) {
-        const toast = document.getElementById('toast');
-        const msg = document.getElementById('toast-msg');
-        msg.innerText = message;
 
-        toast.classList.remove('translate-y-24');
 
-        setTimeout(() => {
-            toast.classList.add('translate-y-24');
-        }, 3000);
-    }
 
     // 6. Mini Chart (Chart.js) for the 'Stats' card
     const ctx = document.getElementById('miniChart').getContext('2d');
@@ -934,7 +910,7 @@ export default function MergedMoodboardPage() {
                     <div className="fixed inset-0 top-16 z-20 flex bg-gray-50 dark:bg-brand-black transition-opacity duration-300">
 
                         {/* App Sidebar */}
-                        <aside className="w-64 border-r border-gray-200 dark:border-brand-border bg-white dark:bg-brand-surface flex-col flex-shrink-0 hidden md:flex">
+                        <aside className="w-64 border-r border-gray-200 dark:border-brand-border bg-white dark:bg-brand-surface flex-col shrink-0 hidden md:flex">
                             <div className="p-6">
                                 <div className="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">Admin Console</div>
                                 <div className="flex items-center gap-3 p-2 rounded-lg bg-gray-100 dark:bg-brand-surfaceHighlight border border-gray-200 dark:border-brand-border">
@@ -1178,7 +1154,7 @@ export default function MergedMoodboardPage() {
                                                 <p className="text-[10px] text-gray-500 dark:text-brand-muted uppercase font-semibold">Standard EMI</p>
                                                 <p className="text-lg font-bold text-gray-700 dark:text-brand-text">{formatCurrency(normalEmiData.initialEmi)}</p>
                                             </div>
-                                            <div className="h-8 w-[1px] bg-gray-200 dark:bg-brand-border"></div>
+                                            <div className="h-8 w-px bg-gray-200 dark:bg-brand-border"></div>
                                             <div className="text-right">
                                                 <p className="text-[10px] text-brand-mint uppercase font-semibold">Smart EMI</p>
                                                 <p className="text-lg font-bold text-brand-mint">{formatCurrency(smartEmiData.initialEmi)}</p>
@@ -1312,7 +1288,7 @@ export default function MergedMoodboardPage() {
                                         <section>
                                             <h3 className="text-sm font-bold text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">Admin Profile</h3>
                                             <div className="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center gap-6 shadow-sm">
-                                                <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-mint to-brand-fern flex-shrink-0 flex items-center justify-center text-3xl font-bold text-white shadow-lg">
+                                                <div className="w-20 h-20 rounded-full bg-linear-to-tr from-brand-mint to-brand-fern shrink-0 flex items-center justify-center text-3xl font-bold text-white shadow-lg">
                                                     M
                                                 </div>
                                                 <div className="flex-1 space-y-4 w-full">
@@ -1421,7 +1397,7 @@ export default function MergedMoodboardPage() {
                 )}
 
                 {/* Notification Toast */}
-                <div className={`fixed bottom-8 right-8 bg-white dark:bg-brand-surface border border-brand-mint text-brand-mint px-6 py-3 rounded shadow-2xl transform transition-transform duration-300 flex items-center gap-2 z-[9999] font-mono text-sm ${showToast ? 'translate-y-0' : 'translate-y-24'}`}>
+                <div className={`fixed bottom-8 right-8 bg-white dark:bg-brand-surface border border-brand-mint text-brand-mint px-6 py-3 rounded shadow-2xl transform transition-transform duration-300 flex items-center gap-2 z-9999 font-mono text-sm ${showToast ? 'translate-y-0' : 'translate-y-24'}`}>
                     <CheckCircle className="w-4 h-4" />
                     <span>{toastMessage}</span>
                 </div>

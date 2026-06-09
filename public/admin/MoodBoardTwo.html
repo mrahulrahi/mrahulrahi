@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,47 +10,66 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gray-50 text-gray-900 dark:bg-brand-black dark:text-brand-text font-sans antialiased selection:bg-brand-mint selection:text-brand-black transition-colors duration-300 overflow-x-hidden">
+
+<body
+    class="bg-gray-50 text-gray-900 dark:bg-brand-black dark:text-brand-text font-sans antialiased selection:bg-brand-mint selection:text-brand-black transition-colors duration-300 overflow-x-hidden">
 
     <!-- Background Grid Layout -->
-    <div class="fixed inset-0 bg-grid-pattern opacity-[0.4] dark:opacity-[0.07] pointer-events-none z-0 bg-grid transition-opacity duration-300"></div>
+    <div
+        class="fixed inset-0 bg-grid-pattern opacity-[0.4] dark:opacity-[0.07] pointer-events-none z-0 bg-grid transition-opacity duration-300">
+    </div>
 
     <!-- Top Navigation -->
-    <nav class="fixed top-0 w-full z-50 glass border-b border-gray-200 dark:border-brand-border h-16 flex items-center px-6 lg:px-8 justify-between transition-colors duration-300">
+    <nav
+        class="fixed top-0 w-full z-50 glass border-b border-gray-200 dark:border-brand-border h-16 flex items-center px-6 lg:px-8 justify-between transition-colors duration-300">
         <div class="flex items-center gap-2 cursor-pointer" onclick="window.location.reload()">
-            <div class="w-8 h-8 bg-brand-mint/10 border border-brand-mint/30 rounded flex items-center justify-center text-brand-mint font-mono font-bold transition-all duration-300">m</div>
-            <span class="font-display font-bold text-lg tracking-wide text-gray-900 dark:text-brand-text">mrahulrahi</span>
+            <div
+                class="w-8 h-8 bg-brand-mint/10 border border-brand-mint/30 rounded flex items-center justify-center text-brand-mint font-mono font-bold transition-all duration-300">
+                m</div>
+            <span
+                class="font-display font-bold text-lg tracking-wide text-gray-900 dark:text-brand-text">mrahulrahi</span>
         </div>
 
         <!-- View Switcher (Center) -->
-        <div class="hidden md:flex bg-gray-100 dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-lg p-1">
-            <button onclick="switchView('styleguide')" id="btn-styleguide" class="px-4 py-1.5 rounded text-sm font-medium transition-all bg-white dark:bg-brand-surfaceHighlight shadow-sm text-gray-900 dark:text-white">Style Guide</button>
-            <button onclick="switchView('app')" id="btn-app" class="px-4 py-1.5 rounded text-sm font-medium transition-all text-gray-500 dark:text-brand-muted hover:text-gray-900 dark:hover:text-white">Admin CMS</button>
+        <div
+            class="hidden md:flex bg-gray-100 dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-lg p-1">
+            <button onclick="switchView('styleguide')" id="btn-styleguide"
+                class="px-4 py-1.5 rounded text-sm font-medium transition-all bg-white dark:bg-brand-surfaceHighlight shadow-sm text-gray-900 dark:text-white">Style
+                Guide</button>
+            <button onclick="switchView('app')" id="btn-app"
+                class="px-4 py-1.5 rounded text-sm font-medium transition-all text-gray-500 dark:text-brand-muted hover:text-gray-900 dark:hover:text-white">Admin
+                CMS</button>
         </div>
 
         <div class="flex items-center gap-3">
-             <!-- Theme Toggle -->
-             <button id="theme-toggle" class="p-2 rounded-full border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted hover:text-brand-mint hover:border-brand-mint transition-all">
+            <!-- Theme Toggle -->
+            <button id="theme-toggle"
+                class="p-2 rounded-full border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted hover:text-brand-mint hover:border-brand-mint transition-all">
                 <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
                 <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
             </button>
-            
-            <button onclick="copyLink()" class="hidden sm:block border border-gray-200 dark:border-brand-border hover:border-brand-mint hover:text-brand-mint text-gray-500 dark:text-brand-muted px-4 py-2 rounded text-xs font-mono transition-all">
+
+            <button onclick="copyLink()"
+                class="hidden sm:block border border-gray-200 dark:border-brand-border hover:border-brand-mint hover:text-brand-mint text-gray-500 dark:text-brand-muted px-4 py-2 rounded text-xs font-mono transition-all">
                 Share
             </button>
         </div>
     </nav>
 
     <!-- VIEW 1: STYLE GUIDE (Static Brand Assets) -->
-    <main id="view-styleguide" class="relative z-10 pt-24 px-6 lg:px-12 max-w-7xl mx-auto pb-20 space-y-24 transition-opacity duration-300">
+    <main id="view-styleguide"
+        class="relative z-10 pt-24 px-6 lg:px-12 max-w-7xl mx-auto pb-20 space-y-24 transition-opacity duration-300">
         <!-- Sub-nav for Style Guide -->
-        <div class="flex flex-wrap gap-4 md:gap-8 text-sm font-mono text-gray-500 dark:text-brand-muted border-b border-gray-200 dark:border-brand-border pb-4 mb-8">
+        <div
+            class="flex flex-wrap gap-4 md:gap-8 text-sm font-mono text-gray-500 dark:text-brand-muted border-b border-gray-200 dark:border-brand-border pb-4 mb-8">
             <a href="#essence" class="hover:text-brand-mint transition-colors">01.Essence</a>
             <a href="#palette" class="hover:text-brand-mint transition-colors">02.Palette</a>
             <a href="#typography" class="hover:text-brand-mint transition-colors">03.Type</a>
@@ -60,25 +80,33 @@
         <!-- 1. Hero Section -->
         <section id="essence" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div class="lg:col-span-7 space-y-6">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-xs font-mono text-brand-mint shadow-sm">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-xs font-mono text-brand-mint shadow-sm">
                     <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
                     v1.0.0 System Online
                 </div>
-                <h1 class="text-5xl lg:text-7xl font-display font-bold leading-tight text-gray-900 dark:text-brand-text">
+                <h1
+                    class="text-5xl lg:text-7xl font-display font-bold leading-tight text-gray-900 dark:text-brand-text">
                     Structured <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-mint to-brand-fern">Ecology</span>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-mint to-brand-fern">Ecology</span>
                 </h1>
                 <p class="text-gray-600 dark:text-brand-muted text-lg max-w-xl leading-relaxed">
-                    Bridging the gap between raw code structure and organic creativity. A design system for portfolio, UI libraries, and developer tools.
+                    Bridging the gap between raw code structure and organic creativity. A design system for portfolio,
+                    UI libraries, and developer tools.
                 </p>
                 <div class="flex flex-wrap gap-3 pt-4">
-                    <span class="px-3 py-1 border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Systemic</span>
-                    <span class="px-3 py-1 border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Atomic</span>
-                    <span class="px-3 py-1 border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Terminal-Inspired</span>
+                    <span
+                        class="px-3 py-1 border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Systemic</span>
+                    <span
+                        class="px-3 py-1 border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Atomic</span>
+                    <span
+                        class="px-3 py-1 border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Terminal-Inspired</span>
                 </div>
             </div>
             <!-- Terminal Mockup -->
-            <div class="lg:col-span-5 h-64 lg:h-80 bg-[#09090B] border border-gray-200 dark:border-brand-border rounded-lg p-6 relative overflow-hidden group shadow-xl">
+            <div
+                class="lg:col-span-5 h-64 lg:h-80 bg-[#09090B] border border-gray-200 dark:border-brand-border rounded-lg p-6 relative overflow-hidden group shadow-xl">
                 <div class="absolute top-0 left-0 w-full h-6 bg-brand-border/30 flex items-center px-4 gap-2">
                     <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
                     <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
@@ -87,32 +115,46 @@
                 <div class="mt-6 font-mono text-sm space-y-2">
                     <p class="text-brand-muted">$ init <span class="text-brand-mint">mrahulrahi</span></p>
                     <p class="text-brand-muted">> Loading modules...</p>
-                    <p class="text-brand-muted">> Applying theme: <span class="text-brand-glow">Electric Flora</span></p>
+                    <p class="text-brand-muted">> Applying theme: <span class="text-brand-glow">Electric Flora</span>
+                    </p>
                     <p class="text-brand-text flex items-center gap-2">
-                        > Status: <span id="typing-text" class="text-brand-mint"></span><span class="cursor-blink w-2 h-4 bg-brand-mint block"></span>
+                        > Status: <span id="typing-text" class="text-brand-mint"></span><span
+                            class="cursor-blink w-2 h-4 bg-brand-mint block"></span>
                     </p>
                 </div>
-                <div class="absolute bottom-4 right-4 w-16 h-16 border-r border-b border-brand-mint/30 rounded-br-xl"></div>
+                <div class="absolute bottom-4 right-4 w-16 h-16 border-r border-b border-brand-mint/30 rounded-br-xl">
+                </div>
             </div>
         </section>
 
         <!-- 2. Color Palette -->
         <section id="palette" class="space-y-8">
             <div class="border-l-2 border-brand-mint pl-4">
-                <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text">Electric Flora Palette</h2>
-                <p class="text-gray-600 dark:text-brand-muted mt-2">Monochromatic base with high-voltage green accents.</p>
+                <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text">Electric Flora Palette
+                </h2>
+                <p class="text-gray-600 dark:text-brand-muted mt-2">Monochromatic base with high-voltage green accents.
+                </p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 <!-- Color Cards -->
-                <div class="palette-card group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-black flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-lg overflow-hidden shadow-sm" data-color="#09090B" data-name="Void Black">
+                <div class="palette-card group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-black flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-lg overflow-hidden shadow-sm"
+                    data-color="#09090B" data-name="Void Black">
                     <div class="absolute inset-0 bg-[#09090B]"></div>
-                    <span class="relative z-10 text-xs font-mono bg-brand-black/50 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Main BG</span>
-                    <div class="relative z-10 flex justify-between items-end"><span class="font-display font-bold text-white">Void Black</span><span class="font-mono text-xs text-brand-muted">#09090B</span></div>
+                    <span
+                        class="relative z-10 text-xs font-mono bg-brand-black/50 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Main
+                        BG</span>
+                    <div class="relative z-10 flex justify-between items-end"><span
+                            class="font-display font-bold text-white">Void Black</span><span
+                            class="font-mono text-xs text-brand-muted">#09090B</span></div>
                 </div>
-                <div class="palette-card group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-mint flex flex-col justify-between p-4 cursor-pointer transition-all hover:scale-[1.02] hover:shadow-lg overflow-hidden shadow-sm" data-color="#00DC82" data-name="Electric Mint">
+                <div class="palette-card group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-mint flex flex-col justify-between p-4 cursor-pointer transition-all hover:scale-[1.02] hover:shadow-lg overflow-hidden shadow-sm"
+                    data-color="#00DC82" data-name="Electric Mint">
                     <div class="absolute inset-0 bg-[#00DC82]"></div>
-                    <span class="relative z-10 text-xs font-mono bg-black/20 backdrop-blur px-2 py-1 rounded text-black w-max border border-black/10 font-bold">Accent</span>
-                    <div class="relative z-10 flex justify-between items-end text-brand-black"><span class="font-display font-bold">Electric Mint</span><span class="font-mono text-xs font-bold">#00DC82</span></div>
+                    <span
+                        class="relative z-10 text-xs font-mono bg-black/20 backdrop-blur px-2 py-1 rounded text-black w-max border border-black/10 font-bold">Accent</span>
+                    <div class="relative z-10 flex justify-between items-end text-brand-black"><span
+                            class="font-display font-bold">Electric Mint</span><span
+                            class="font-mono text-xs font-bold">#00DC82</span></div>
                 </div>
                 <!-- (Other colors implied) -->
             </div>
@@ -124,34 +166,45 @@
                 <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text">Typography Stack</h2>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-8 shadow-sm">
+                <div
+                    class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-8 shadow-sm">
                     <h3 class="text-brand-mint font-mono text-sm mb-1">Headings</h3>
                     <p class="text-2xl font-display font-bold text-gray-900 dark:text-brand-text mb-4">Space Grotesk</p>
-                    <p class="font-display text-4xl font-bold leading-tight text-gray-900 dark:text-brand-text">Technical Brutalism</p>
+                    <p class="font-display text-4xl font-bold leading-tight text-gray-900 dark:text-brand-text">
+                        Technical Brutalism</p>
                 </div>
-                <div class="col-span-1 bg-[#09090B] border border-gray-200 dark:border-brand-border rounded-xl p-8 shadow-xl">
+                <div
+                    class="col-span-1 bg-[#09090B] border border-gray-200 dark:border-brand-border rounded-xl p-8 shadow-xl">
                     <h3 class="text-brand-mint font-mono text-sm mb-1">Code</h3>
                     <p class="text-2xl font-mono text-brand-text mb-4">JetBrains Mono</p>
-                    <div class="bg-[#1e1e1e] p-4 rounded border-l-2 border-brand-mint font-mono text-sm text-left"><span class="text-[#c678dd]">const</span> sys = <span class="text-[#98c379]">'Ready'</span>;</div>
+                    <div class="bg-[#1e1e1e] p-4 rounded border-l-2 border-brand-mint font-mono text-sm text-left"><span
+                            class="text-[#c678dd]">const</span> sys = <span class="text-[#98c379]">'Ready'</span>;</div>
                 </div>
             </div>
         </section>
-        
+
         <!-- 4. UI Lab Placeholder -->
         <section id="ui-lab" class="py-12 border-t border-gray-200 dark:border-brand-border text-center">
-            <p class="text-gray-500 dark:text-brand-muted font-mono">Switch to "Admin CMS" in the navbar to see the Dashboard.</p>
+            <p class="text-gray-500 dark:text-brand-muted font-mono">Switch to "Admin CMS" in the navbar to see the
+                Dashboard.</p>
         </section>
     </main>
 
     <!-- VIEW 2: APP ADMIN (CMS & Dashboard) -->
-    <div id="view-app" class="hidden fixed inset-0 top-16 z-20 flex bg-gray-50 dark:bg-brand-black transition-opacity duration-300">
-        
+    <div id="view-app"
+        class="hidden fixed inset-0 top-16 z-20 flex bg-gray-50 dark:bg-brand-black transition-opacity duration-300">
+
         <!-- App Sidebar -->
-        <aside class="w-64 border-r border-gray-200 dark:border-brand-border bg-white dark:bg-brand-surface flex flex-col hidden md:flex">
+        <aside
+            class="w-64 border-r border-gray-200 dark:border-brand-border bg-white dark:bg-brand-surface flex flex-col hidden md:flex">
             <div class="p-6">
-                <div class="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">Admin Console</div>
-                <div class="flex items-center gap-3 p-2 rounded-lg bg-gray-100 dark:bg-brand-surfaceHighlight border border-gray-200 dark:border-brand-border">
-                    <div class="w-8 h-8 rounded bg-brand-mint flex items-center justify-center font-bold text-brand-black">M</div>
+                <div class="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">Admin
+                    Console</div>
+                <div
+                    class="flex items-center gap-3 p-2 rounded-lg bg-gray-100 dark:bg-brand-surfaceHighlight border border-gray-200 dark:border-brand-border">
+                    <div
+                        class="w-8 h-8 rounded bg-brand-mint flex items-center justify-center font-bold text-brand-black">
+                        M</div>
                     <div class="text-sm">
                         <div class="font-bold text-gray-900 dark:text-brand-text">mrahulrahi</div>
                         <div class="text-xs text-gray-500 dark:text-brand-muted">Super Admin</div>
@@ -160,37 +213,47 @@
             </div>
 
             <nav class="flex-1 px-4 space-y-1">
-                <button onclick="switchAppPage('dashboard')" id="nav-dashboard" class="nav-item active w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 dark:text-brand-text">
+                <button onclick="switchAppPage('dashboard')" id="nav-dashboard"
+                    class="nav-item active w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 dark:text-brand-text">
                     <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
                     Dashboard
                 </button>
-                
+
                 <div class="pt-4 mt-2 mb-2">
-                    <div class="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">Content Manager</div>
-                    <button onclick="switchAppPage('portfolio')" id="nav-portfolio" class="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
+                    <div
+                        class="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">
+                        Content Manager</div>
+                    <button onclick="switchAppPage('portfolio')" id="nav-portfolio"
+                        class="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                         <i data-lucide="briefcase" class="w-4 h-4"></i>
                         Portfolio
                     </button>
-                    <button class="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
+                    <button
+                        class="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                         <i data-lucide="component" class="w-4 h-4"></i>
                         Components
                     </button>
-                    <button class="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
+                    <button
+                        class="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                         <i data-lucide="pen-tool" class="w-4 h-4"></i>
                         Blog & Notes
                     </button>
                 </div>
 
                 <div class="pt-4 mt-2 border-t border-gray-200 dark:border-brand-border">
-                    <div class="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">Tools</div>
-                    <button onclick="switchAppPage('emi')" id="nav-emi" class="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
+                    <div
+                        class="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">
+                        Tools</div>
+                    <button onclick="switchAppPage('emi')" id="nav-emi"
+                        class="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                         <i data-lucide="calculator" class="w-4 h-4"></i>
                         Smart EMI
                     </button>
                 </div>
 
                 <div class="mt-auto pb-4">
-                    <button onclick="switchAppPage('settings')" id="nav-settings" class="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
+                    <button onclick="switchAppPage('settings')" id="nav-settings"
+                        class="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                         <i data-lucide="settings" class="w-4 h-4"></i>
                         Configuration
                     </button>
@@ -211,14 +274,17 @@
             <div id="page-dashboard" class="space-y-6 animate-fade-in">
                 <div class="flex justify-between items-end">
                     <div>
-                        <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text">Site Overview</h2>
+                        <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text">Site Overview
+                        </h2>
                         <p class="text-gray-500 dark:text-brand-muted mt-1">Analytics for mrahulrahi.vercel.app</p>
                     </div>
                     <div class="flex gap-2">
-                        <a href="https://mrahulrahi.vercel.app/" target="_blank" class="px-4 py-2 rounded bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-sm font-mono flex items-center gap-2 text-gray-900 dark:text-brand-text hover:border-brand-mint transition-colors">
+                        <a href="https://mrahulrahi.vercel.app/" target="_blank"
+                            class="px-4 py-2 rounded bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-sm font-mono flex items-center gap-2 text-gray-900 dark:text-brand-text hover:border-brand-mint transition-colors">
                             <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span> View Live Site
                         </a>
-                        <button class="bg-brand-mint hover:bg-brand-fern hover:text-white text-brand-black px-4 py-2 rounded text-sm font-medium transition-colors flex items-center gap-2">
+                        <button
+                            class="bg-brand-mint hover:bg-brand-fern hover:text-white text-brand-black px-4 py-2 rounded text-sm font-medium transition-colors flex items-center gap-2">
                             <i data-lucide="plus" class="w-4 h-4"></i> New Post
                         </button>
                     </div>
@@ -226,7 +292,8 @@
 
                 <!-- Stats Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 relative overflow-hidden group">
+                    <div
+                        class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 relative overflow-hidden group">
                         <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                             <i data-lucide="eye" class="w-16 h-16 text-brand-mint"></i>
                         </div>
@@ -236,8 +303,9 @@
                             <i data-lucide="arrow-up" class="w-3 h-3"></i> 8.4% vs last month
                         </div>
                     </div>
-                    <div class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 relative overflow-hidden group">
-                         <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                    <div
+                        class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 relative overflow-hidden group">
+                        <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                             <i data-lucide="download" class="w-16 h-16 text-brand-fern"></i>
                         </div>
                         <p class="text-sm font-mono text-gray-500 dark:text-brand-muted">Library Downloads</p>
@@ -246,7 +314,8 @@
                             <i data-lucide="arrow-up" class="w-3 h-3"></i> 12% vs last month
                         </div>
                     </div>
-                    <div class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 relative overflow-hidden group">
+                    <div
+                        class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 relative overflow-hidden group">
                         <div class="absolute right-0 top-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                             <i data-lucide="mouse-pointer" class="w-16 h-16 text-brand-glow"></i>
                         </div>
@@ -259,10 +328,12 @@
                 </div>
 
                 <!-- Main Chart -->
-                <div class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6">
+                <div
+                    class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6">
                     <div class="flex justify-between items-center mb-6">
                         <h3 class="font-bold text-gray-900 dark:text-brand-text">Traffic Volume</h3>
-                        <select class="bg-transparent border border-gray-200 dark:border-brand-border text-xs rounded px-2 py-1 text-gray-500 dark:text-brand-muted outline-none">
+                        <select
+                            class="bg-transparent border border-gray-200 dark:border-brand-border text-xs rounded px-2 py-1 text-gray-500 dark:text-brand-muted outline-none">
                             <option>Last 7 Days</option>
                             <option>Last 30 Days</option>
                         </select>
@@ -275,35 +346,49 @@
 
             <!-- PAGE 2: PORTFOLIO MANAGER (Was Modules) -->
             <div id="page-portfolio" class="hidden space-y-6 animate-fade-in">
-                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
                     <div>
-                        <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text">Portfolio Manager</h2>
+                        <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text">Portfolio Manager
+                        </h2>
                         <p class="text-gray-500 dark:text-brand-muted mt-1">Manage projects and case studies.</p>
                     </div>
                     <div class="flex gap-2">
                         <div class="relative">
-                            <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
-                            <input type="text" placeholder="Search projects..." class="pl-10 pr-4 py-2 rounded-lg bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-sm w-64 focus:border-brand-mint outline-none text-gray-900 dark:text-brand-text">
+                            <i data-lucide="search"
+                                class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                            <input type="text" placeholder="Search projects..."
+                                class="pl-10 pr-4 py-2 rounded-lg bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-sm w-64 focus:border-brand-mint outline-none text-gray-900 dark:text-brand-text">
                         </div>
-                        <button class="bg-brand-mint text-brand-black px-4 py-2 rounded-lg text-sm font-bold hover:bg-brand-fern hover:text-white transition-colors">Add Project</button>
+                        <button
+                            class="bg-brand-mint text-brand-black px-4 py-2 rounded-lg text-sm font-bold hover:bg-brand-fern hover:text-white transition-colors">Add
+                            Project</button>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Project Card 1 -->
-                    <div class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl overflow-hidden group hover:border-brand-mint transition-all">
+                    <div
+                        class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl overflow-hidden group hover:border-brand-mint transition-all">
                         <div class="h-40 bg-gray-200 dark:bg-brand-black/50 relative flex items-center justify-center">
                             <i data-lucide="image" class="w-8 h-8 text-gray-400"></i>
-                            <div class="absolute top-2 right-2 bg-brand-mint text-brand-black text-[10px] font-bold px-2 py-1 rounded">PUBLISHED</div>
+                            <div
+                                class="absolute top-2 right-2 bg-brand-mint text-brand-black text-[10px] font-bold px-2 py-1 rounded">
+                                PUBLISHED</div>
                         </div>
                         <div class="p-5">
                             <h3 class="font-bold text-lg text-gray-900 dark:text-brand-text">FinTech Dashboard</h3>
                             <p class="text-xs font-mono text-brand-mint mt-1">UX / UI Design</p>
-                            <p class="text-sm text-gray-500 dark:text-brand-muted mt-3 h-10 line-clamp-2">A comprehensive dashboard for a banking client focusing on data visualization.</p>
-                            <div class="mt-4 pt-4 border-t border-gray-100 dark:border-brand-border flex items-center justify-between">
+                            <p class="text-sm text-gray-500 dark:text-brand-muted mt-3 h-10 line-clamp-2">A
+                                comprehensive dashboard for a banking client focusing on data visualization.</p>
+                            <div
+                                class="mt-4 pt-4 border-t border-gray-100 dark:border-brand-border flex items-center justify-between">
                                 <div class="flex gap-2">
-                                    <button class="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><i data-lucide="edit-3" class="w-4 h-4"></i></button>
-                                    <button class="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><i data-lucide="eye" class="w-4 h-4"></i></button>
+                                    <button
+                                        class="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><i
+                                            data-lucide="edit-3" class="w-4 h-4"></i></button>
+                                    <button
+                                        class="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><i
+                                            data-lucide="eye" class="w-4 h-4"></i></button>
                                 </div>
                                 <span class="text-xs text-gray-400">Updated 2d ago</span>
                             </div>
@@ -311,19 +396,28 @@
                     </div>
 
                     <!-- Project Card 2 -->
-                    <div class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl overflow-hidden group hover:border-brand-mint transition-all">
+                    <div
+                        class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl overflow-hidden group hover:border-brand-mint transition-all">
                         <div class="h-40 bg-gray-200 dark:bg-brand-black/50 relative flex items-center justify-center">
                             <i data-lucide="image" class="w-8 h-8 text-gray-400"></i>
-                            <div class="absolute top-2 right-2 bg-gray-500 text-white text-[10px] font-bold px-2 py-1 rounded">DRAFT</div>
+                            <div
+                                class="absolute top-2 right-2 bg-gray-500 text-white text-[10px] font-bold px-2 py-1 rounded">
+                                DRAFT</div>
                         </div>
                         <div class="p-5">
                             <h3 class="font-bold text-lg text-gray-900 dark:text-brand-text">E-commerce Mobile App</h3>
                             <p class="text-xs font-mono text-brand-mint mt-1">Product Design</p>
-                            <p class="text-sm text-gray-500 dark:text-brand-muted mt-3 h-10 line-clamp-2">Concept app for a streetwear brand featuring AR try-on.</p>
-                            <div class="mt-4 pt-4 border-t border-gray-100 dark:border-brand-border flex items-center justify-between">
+                            <p class="text-sm text-gray-500 dark:text-brand-muted mt-3 h-10 line-clamp-2">Concept app
+                                for a streetwear brand featuring AR try-on.</p>
+                            <div
+                                class="mt-4 pt-4 border-t border-gray-100 dark:border-brand-border flex items-center justify-between">
                                 <div class="flex gap-2">
-                                    <button class="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><i data-lucide="edit-3" class="w-4 h-4"></i></button>
-                                    <button class="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><i data-lucide="eye-off" class="w-4 h-4"></i></button>
+                                    <button
+                                        class="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><i
+                                            data-lucide="edit-3" class="w-4 h-4"></i></button>
+                                    <button
+                                        class="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><i
+                                            data-lucide="eye-off" class="w-4 h-4"></i></button>
                                 </div>
                                 <span class="text-xs text-gray-400">Updated 5h ago</span>
                             </div>
@@ -331,12 +425,15 @@
                     </div>
 
                     <!-- Add New Placeholder -->
-                    <button class="bg-gray-50 dark:bg-brand-surfaceHighlight/30 border border-dashed border-gray-300 dark:border-brand-border rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-brand-mint hover:bg-brand-mint/5 transition-all group">
-                        <div class="w-12 h-12 rounded-full bg-gray-200 dark:bg-brand-surfaceHighlight flex items-center justify-center text-gray-400 group-hover:bg-brand-mint group-hover:text-brand-black transition-colors mb-4">
+                    <button
+                        class="bg-gray-50 dark:bg-brand-surfaceHighlight/30 border border-dashed border-gray-300 dark:border-brand-border rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-brand-mint hover:bg-brand-mint/5 transition-all group">
+                        <div
+                            class="w-12 h-12 rounded-full bg-gray-200 dark:bg-brand-surfaceHighlight flex items-center justify-center text-gray-400 group-hover:bg-brand-mint group-hover:text-brand-black transition-colors mb-4">
                             <i data-lucide="plus" class="w-6 h-6"></i>
                         </div>
                         <h3 class="font-bold text-lg text-gray-900 dark:text-brand-text">Create New Project</h3>
-                        <p class="text-sm text-gray-500 dark:text-brand-muted mt-1">Add a case study to your portfolio</p>
+                        <p class="text-sm text-gray-500 dark:text-brand-muted mt-1">Add a case study to your portfolio
+                        </p>
                     </button>
                 </div>
             </div>
@@ -346,16 +443,20 @@
                 <!-- Header -->
                 <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
-                         <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text flex items-center gap-2">
-                             <i data-lucide="refresh-cw" class="w-6 h-6 text-brand-mint"></i>
-                             Smart EMI Planner
-                         </h2>
-                         <p class="text-gray-500 dark:text-brand-muted mt-1">Live Tool Preview</p>
+                        <h2
+                            class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text flex items-center gap-2">
+                            <i data-lucide="refresh-cw" class="w-6 h-6 text-brand-mint"></i>
+                            Smart EMI Planner
+                        </h2>
+                        <p class="text-gray-500 dark:text-brand-muted mt-1">Live Tool Preview</p>
                     </div>
-                    <div class="bg-white dark:bg-brand-surface px-4 py-2 rounded-xl border border-gray-200 dark:border-brand-border flex items-center gap-3">
+                    <div
+                        class="bg-white dark:bg-brand-surface px-4 py-2 rounded-xl border border-gray-200 dark:border-brand-border flex items-center gap-3">
                         <div class="text-right">
-                            <p class="text-[10px] text-gray-500 dark:text-brand-muted uppercase font-semibold">Standard EMI</p>
-                            <p class="text-lg font-bold text-gray-700 dark:text-brand-text" id="disp-standard-emi">₹0</p>
+                            <p class="text-[10px] text-gray-500 dark:text-brand-muted uppercase font-semibold">Standard
+                                EMI</p>
+                            <p class="text-lg font-bold text-gray-700 dark:text-brand-text" id="disp-standard-emi">₹0
+                            </p>
                         </div>
                         <div class="h-8 w-[1px] bg-gray-200 dark:bg-brand-border"></div>
                         <div class="text-right">
@@ -368,53 +469,75 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
                     <!-- Controls Sidebar -->
                     <aside class="lg:col-span-4 space-y-6">
-                        <div class="bg-white dark:bg-brand-surface p-6 rounded-xl border border-gray-200 dark:border-brand-border space-y-5">
-                            <h2 class="text-lg font-semibold text-gray-900 dark:text-brand-text flex items-center gap-2 mb-2">
+                        <div
+                            class="bg-white dark:bg-brand-surface p-6 rounded-xl border border-gray-200 dark:border-brand-border space-y-5">
+                            <h2
+                                class="text-lg font-semibold text-gray-900 dark:text-brand-text flex items-center gap-2 mb-2">
                                 <i data-lucide="wallet" class="w-5 h-5 text-brand-mint"></i>
                                 Loan Details
                             </h2>
 
                             <div>
-                                <label class="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Loan Amount (₹)</label>
-                                <input type="number" id="inp-loan" value="5000000" class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono">
+                                <label
+                                    class="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Loan
+                                    Amount (₹)</label>
+                                <input type="number" id="inp-loan" value="5000000"
+                                    class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono">
                             </div>
 
                             <div class="grid grid-cols-2 gap-4">
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Rate (%)</label>
-                                    <input type="number" id="inp-rate" step="0.1" value="8.5" class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono">
+                                    <label
+                                        class="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Rate
+                                        (%)</label>
+                                    <input type="number" id="inp-rate" step="0.1" value="8.5"
+                                        class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono">
                                 </div>
                                 <div>
-                                    <label class="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Tenure (Yrs)</label>
-                                    <input type="number" id="inp-tenure" value="20" class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono">
+                                    <label
+                                        class="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Tenure
+                                        (Yrs)</label>
+                                    <input type="number" id="inp-tenure" value="20"
+                                        class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono">
                                 </div>
                             </div>
 
                             <div class="h-px bg-gray-200 dark:bg-brand-border my-4"></div>
 
-                            <h2 class="text-lg font-semibold text-gray-900 dark:text-brand-text flex items-center gap-2 mb-2">
+                            <h2
+                                class="text-lg font-semibold text-gray-900 dark:text-brand-text flex items-center gap-2 mb-2">
                                 <i data-lucide="arrow-up-circle" class="w-5 h-5 text-brand-mint"></i>
                                 Smart Modifiers
                             </h2>
 
                             <div>
                                 <div class="flex justify-between items-center mb-1">
-                                    <label class="block text-sm font-medium text-gray-600 dark:text-brand-muted font-mono">Yearly Increase (%)</label>
-                                    <span class="text-sm font-bold text-brand-mint font-mono" id="disp-increase">10%</span>
+                                    <label
+                                        class="block text-sm font-medium text-gray-600 dark:text-brand-muted font-mono">Yearly
+                                        Increase (%)</label>
+                                    <span class="text-sm font-bold text-brand-mint font-mono"
+                                        id="disp-increase">10%</span>
                                 </div>
-                                <input type="range" id="inp-increase" min="0" max="25" step="1" value="10" class="w-full h-2 bg-gray-200 dark:bg-brand-black rounded-lg appearance-none cursor-pointer accent-brand-mint">
+                                <input type="range" id="inp-increase" min="0" max="25" step="1" value="10"
+                                    class="w-full h-2 bg-gray-200 dark:bg-brand-black rounded-lg appearance-none cursor-pointer accent-brand-mint">
                             </div>
 
-                            <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-brand-black rounded-xl border border-gray-200 dark:border-brand-border">
+                            <div
+                                class="flex items-center justify-between p-3 bg-gray-50 dark:bg-brand-black rounded-xl border border-gray-200 dark:border-brand-border">
                                 <div class="flex items-center gap-3">
                                     <i data-lucide="calendar" class="text-gray-400"></i>
                                     <div>
-                                        <p class="text-sm font-semibold text-gray-900 dark:text-brand-text">13th EMI Strategy</p>
-                                        <p class="text-xs text-gray-500 dark:text-brand-muted">Pay one extra EMI yearly</p>
+                                        <p class="text-sm font-semibold text-gray-900 dark:text-brand-text">13th EMI
+                                            Strategy</p>
+                                        <p class="text-xs text-gray-500 dark:text-brand-muted">Pay one extra EMI yearly
+                                        </p>
                                     </div>
                                 </div>
-                                <button id="btn-toggle-extra" class="w-12 h-6 rounded-full transition-colors relative bg-brand-mint">
-                                    <div id="toggle-circle" class="absolute top-1 bg-white dark:bg-brand-black w-4 h-4 rounded-full transition-all left-7"></div>
+                                <button id="btn-toggle-extra"
+                                    class="w-12 h-6 rounded-full transition-colors relative bg-brand-mint">
+                                    <div id="toggle-circle"
+                                        class="absolute top-1 bg-white dark:bg-brand-black w-4 h-4 rounded-full transition-all left-7">
+                                    </div>
                                 </button>
                             </div>
                         </div>
@@ -424,22 +547,35 @@
                     <main class="lg:col-span-8 space-y-6">
                         <!-- Stats Grid -->
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-white dark:bg-brand-surface p-5 rounded-xl border border-gray-200 dark:border-brand-border">
-                                <p class="text-gray-500 dark:text-brand-muted text-xs font-bold uppercase tracking-wider mb-1">Interest Saved</p>
-                                <span class="text-2xl font-black text-brand-fern dark:text-brand-mint block" id="val-interest-saved">₹0</span>
+                            <div
+                                class="bg-white dark:bg-brand-surface p-5 rounded-xl border border-gray-200 dark:border-brand-border">
+                                <p
+                                    class="text-gray-500 dark:text-brand-muted text-xs font-bold uppercase tracking-wider mb-1">
+                                    Interest Saved</p>
+                                <span class="text-2xl font-black text-brand-fern dark:text-brand-mint block"
+                                    id="val-interest-saved">₹0</span>
                             </div>
-                            <div class="bg-white dark:bg-brand-surface p-5 rounded-xl border border-gray-200 dark:border-brand-border">
-                                <p class="text-gray-500 dark:text-brand-muted text-xs font-bold uppercase tracking-wider mb-1">Time Saved</p>
-                                <span class="text-2xl font-black text-blue-600 dark:text-blue-400 block" id="val-time-saved">0y 0m</span>
+                            <div
+                                class="bg-white dark:bg-brand-surface p-5 rounded-xl border border-gray-200 dark:border-brand-border">
+                                <p
+                                    class="text-gray-500 dark:text-brand-muted text-xs font-bold uppercase tracking-wider mb-1">
+                                    Time Saved</p>
+                                <span class="text-2xl font-black text-blue-600 dark:text-blue-400 block"
+                                    id="val-time-saved">0y 0m</span>
                             </div>
-                            <div class="bg-white dark:bg-brand-surface p-5 rounded-xl border border-gray-200 dark:border-brand-border">
-                                <p class="text-gray-500 dark:text-brand-muted text-xs font-bold uppercase tracking-wider mb-1">Total Savings</p>
-                                <span class="text-2xl font-black text-gray-900 dark:text-brand-text block" id="val-total-saved">₹0</span>
+                            <div
+                                class="bg-white dark:bg-brand-surface p-5 rounded-xl border border-gray-200 dark:border-brand-border">
+                                <p
+                                    class="text-gray-500 dark:text-brand-muted text-xs font-bold uppercase tracking-wider mb-1">
+                                    Total Savings</p>
+                                <span class="text-2xl font-black text-gray-900 dark:text-brand-text block"
+                                    id="val-total-saved">₹0</span>
                             </div>
                         </div>
 
                         <!-- Chart Section -->
-                        <div class="bg-white dark:bg-brand-surface rounded-xl border border-gray-200 dark:border-brand-border p-6">
+                        <div
+                            class="bg-white dark:bg-brand-surface rounded-xl border border-gray-200 dark:border-brand-border p-6">
                             <div class="w-full h-80 chart-container">
                                 <canvas id="emiChart"></canvas>
                             </div>
@@ -450,9 +586,11 @@
 
             <!-- PAGE 4: CONFIGURATION (SETTINGS) -->
             <div id="page-settings" class="hidden space-y-6 animate-fade-in max-w-4xl mx-auto">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-gray-200 dark:border-brand-border pb-6">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-gray-200 dark:border-brand-border pb-6">
                     <div>
-                        <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text">Configuration</h2>
+                        <h2 class="text-3xl font-display font-bold text-gray-900 dark:text-brand-text">Configuration
+                        </h2>
                         <p class="text-gray-500 dark:text-brand-muted mt-1">Manage admin profile and site metadata.</p>
                     </div>
                 </div>
@@ -460,68 +598,99 @@
                 <div class="space-y-8">
                     <!-- Profile Card -->
                     <section>
-                        <h3 class="text-sm font-bold text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">Admin Profile</h3>
-                        <div class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
-                            <div class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-mint to-brand-fern flex-shrink-0 flex items-center justify-center text-3xl font-bold text-white shadow-lg">
+                        <h3 class="text-sm font-bold text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">
+                            Admin Profile</h3>
+                        <div
+                            class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
+                            <div
+                                class="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-mint to-brand-fern flex-shrink-0 flex items-center justify-center text-3xl font-bold text-white shadow-lg">
                                 M
                             </div>
                             <div class="flex-1 space-y-4 w-full">
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                     <div>
-                                        <label class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Username</label>
-                                        <input type="text" value="mrahulrahi" disabled class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-brand-black/50 border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted outline-none font-mono text-sm cursor-not-allowed">
+                                        <label
+                                            class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Username</label>
+                                        <input type="text" value="mrahulrahi" disabled
+                                            class="w-full px-4 py-2 rounded-lg bg-gray-100 dark:bg-brand-black/50 border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted outline-none font-mono text-sm cursor-not-allowed">
                                     </div>
                                     <div>
-                                        <label class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Email</label>
-                                        <input type="email" value="admin@mrahulrahi.com" class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">
+                                        <label
+                                            class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Email</label>
+                                        <input type="email" value="admin@mrahulrahi.com"
+                                            class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">
                                     </div>
                                 </div>
                             </div>
-                            <button class="px-4 py-2 bg-brand-mint text-brand-black font-medium rounded hover:bg-brand-fern hover:text-white transition-colors text-sm">Save</button>
+                            <button
+                                class="px-4 py-2 bg-brand-mint text-brand-black font-medium rounded hover:bg-brand-fern hover:text-white transition-colors text-sm">Save</button>
                         </div>
                     </section>
 
                     <!-- Site Metadata (Replaced API Keys) -->
                     <section>
-                        <h3 class="text-sm font-bold text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">Site Metadata & SEO</h3>
-                        <div class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 space-y-4">
+                        <h3 class="text-sm font-bold text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">
+                            Site Metadata & SEO</h3>
+                        <div
+                            class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 space-y-4">
                             <div>
-                                <label class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Site Title</label>
-                                <input type="text" value="mrahulrahi | Portfolio & Tools" class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">
+                                <label class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Site
+                                    Title</label>
+                                <input type="text" value="mrahulrahi | Portfolio & Tools"
+                                    class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">
                             </div>
                             <div>
-                                <label class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Meta Description</label>
-                                <textarea rows="3" class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">Design system, UI libraries, and helpful developer tools by mrahulrahi.</textarea>
+                                <label class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Meta
+                                    Description</label>
+                                <textarea rows="3"
+                                    class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">Design system, UI libraries, and helpful developer tools by mrahulrahi.</textarea>
                             </div>
                             <div class="flex gap-4">
                                 <div class="flex-1">
-                                    <label class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Twitter URL</label>
-                                    <input type="text" placeholder="https://twitter.com/..." class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">
+                                    <label
+                                        class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Twitter
+                                        URL</label>
+                                    <input type="text" placeholder="https://twitter.com/..."
+                                        class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">
                                 </div>
                                 <div class="flex-1">
-                                    <label class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">GitHub URL</label>
-                                    <input type="text" placeholder="https://github.com/..." class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">
+                                    <label
+                                        class="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">GitHub
+                                        URL</label>
+                                    <input type="text" placeholder="https://github.com/..."
+                                        class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">
                                 </div>
                             </div>
-                            <button class="px-4 py-2 border border-gray-300 dark:border-brand-border text-gray-600 dark:text-brand-muted font-medium rounded hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight transition-colors text-sm">Update Meta</button>
+                            <button
+                                class="px-4 py-2 border border-gray-300 dark:border-brand-border text-gray-600 dark:text-brand-muted font-medium rounded hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight transition-colors text-sm">Update
+                                Meta</button>
                         </div>
                     </section>
 
                     <!-- System Preferences -->
                     <section>
-                        <h3 class="text-sm font-bold text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">System Preferences</h3>
-                        <div class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl overflow-hidden divide-y divide-gray-100 dark:divide-brand-border">
-                            <div class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-brand-black/30 transition-colors">
+                        <h3 class="text-sm font-bold text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">
+                            System Preferences</h3>
+                        <div
+                            class="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl overflow-hidden divide-y divide-gray-100 dark:divide-brand-border">
+                            <div
+                                class="p-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-brand-black/30 transition-colors">
                                 <div class="flex items-center gap-3">
-                                    <div class="p-2 rounded bg-purple-500/10 text-purple-500"><i data-lucide="bell" class="w-4 h-4"></i></div>
+                                    <div class="p-2 rounded bg-purple-500/10 text-purple-500"><i data-lucide="bell"
+                                            class="w-4 h-4"></i></div>
                                     <div>
-                                        <p class="text-sm font-medium text-gray-900 dark:text-brand-text">Content Notifications</p>
-                                        <p class="text-xs text-gray-500 dark:text-brand-muted">Notify me when comments are posted.</p>
+                                        <p class="text-sm font-medium text-gray-900 dark:text-brand-text">Content
+                                            Notifications</p>
+                                        <p class="text-xs text-gray-500 dark:text-brand-muted">Notify me when comments
+                                            are posted.</p>
                                     </div>
                                 </div>
-                                <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-                                    <input type="checkbox" name="toggle" id="toggle-notif" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer border-brand-mint right-0"/>
-                                    <label for="toggle-notif" class="toggle-label block overflow-hidden h-5 rounded-full bg-brand-mint cursor-pointer"></label>
+                                <div
+                                    class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                                    <input type="checkbox" name="toggle" id="toggle-notif"
+                                        class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 appearance-none cursor-pointer border-brand-mint right-0" />
+                                    <label for="toggle-notif"
+                                        class="toggle-label block overflow-hidden h-5 rounded-full bg-brand-mint cursor-pointer"></label>
                                 </div>
                             </div>
                         </div>
@@ -532,7 +701,8 @@
     </div>
 
     <!-- Notification Toast -->
-    <div id="toast" class="fixed bottom-8 right-8 bg-white dark:bg-brand-surface border border-brand-mint text-brand-mint px-6 py-3 rounded shadow-2xl transform translate-y-24 transition-transform duration-300 flex items-center gap-2 z-50 font-mono text-sm">
+    <div id="toast"
+        class="fixed bottom-8 right-8 bg-white dark:bg-brand-surface border border-brand-mint text-brand-mint px-6 py-3 rounded shadow-2xl transform translate-y-24 transition-transform duration-300 flex items-center gap-2 z-50 font-mono text-sm">
         <i data-lucide="check-circle" class="w-4 h-4"></i>
         <span id="toast-msg">Copied to clipboard</span>
     </div>
@@ -571,18 +741,18 @@
         const pagePortfolio = document.getElementById('page-portfolio');
         const pageEmi = document.getElementById('page-emi');
         const pageSettings = document.getElementById('page-settings');
-        
+
         const navDashboard = document.getElementById('nav-dashboard');
         const navPortfolio = document.getElementById('nav-portfolio');
         const navEmi = document.getElementById('nav-emi');
         const navSettings = document.getElementById('nav-settings');
-        
+
         const breadcrumbCurrent = document.getElementById('breadcrumb-current');
 
         function switchAppPage(pageName) {
             // Reset Active classes
             [navDashboard, navPortfolio, navEmi, navSettings].forEach(nav => {
-                if(nav) {
+                if (nav) {
                     nav.classList.remove('active', 'text-brand-mint');
                     nav.classList.add('text-gray-600', 'dark:text-brand-muted');
                 }
@@ -621,7 +791,7 @@
         // 4. Chart Logic (Dashboard)
         let dashboardChartInstance = null;
         function initDashboardChart() {
-            if (dashboardChartInstance) return; 
+            if (dashboardChartInstance) return;
             const ctx = document.getElementById('mainDashboardChart').getContext('2d');
             const isDark = document.documentElement.classList.contains('dark');
             const gridColor = isDark ? '#27272A' : '#E5E7EB';
@@ -680,37 +850,37 @@
         };
 
         const runAmortization = (principal, annualRate, tenureYears, yearlyIncrease, extraEmiPerYear) => {
-             let balance = principal;
-             const monthlyRate = annualRate / 12 / 100;
-             let currentEmi = calculateEMI(principal, annualRate, tenureYears * 12);
-             const initialEmi = currentEmi;
-             let totalInterest = 0;
-             let totalPaid = 0;
-             let month = 0;
-             const yearlyData = [];
+            let balance = principal;
+            const monthlyRate = annualRate / 12 / 100;
+            let currentEmi = calculateEMI(principal, annualRate, tenureYears * 12);
+            const initialEmi = currentEmi;
+            let totalInterest = 0;
+            let totalPaid = 0;
+            let month = 0;
+            const yearlyData = [];
 
-             while (balance > 1 && month < 600) {
-                 month++;
-                 const interestForMonth = balance * monthlyRate;
-                 let principalForMonth = currentEmi - interestForMonth;
-                 if (principalForMonth > balance) principalForMonth = balance;
-                 balance -= principalForMonth;
-                 totalInterest += interestForMonth;
-                 totalPaid += (principalForMonth + interestForMonth);
-                 if (extraEmiPerYear && month % 12 === 0 && balance > 0) {
-                     let extraAmt = currentEmi;
-                     if (extraAmt > balance) extraAmt = balance;
-                     balance -= extraAmt;
-                     totalPaid += extraAmt;
-                 }
-                 if (month % 12 === 0 || balance <= 1) {
-                     const yearNum = Math.ceil(month / 12);
-                     yearlyData.push({ year: yearNum, balance: Math.max(0, balance) });
-                     if (month % 12 === 0) currentEmi = currentEmi * (1 + yearlyIncrease / 100);
-                 }
-                 if (balance <= 1) break;
-             }
-             return { totalMonths: month, totalInterest, totalPaid, yearlyData, initialEmi };
+            while (balance > 1 && month < 600) {
+                month++;
+                const interestForMonth = balance * monthlyRate;
+                let principalForMonth = currentEmi - interestForMonth;
+                if (principalForMonth > balance) principalForMonth = balance;
+                balance -= principalForMonth;
+                totalInterest += interestForMonth;
+                totalPaid += (principalForMonth + interestForMonth);
+                if (extraEmiPerYear && month % 12 === 0 && balance > 0) {
+                    let extraAmt = currentEmi;
+                    if (extraAmt > balance) extraAmt = balance;
+                    balance -= extraAmt;
+                    totalPaid += extraAmt;
+                }
+                if (month % 12 === 0 || balance <= 1) {
+                    const yearNum = Math.ceil(month / 12);
+                    yearlyData.push({ year: yearNum, balance: Math.max(0, balance) });
+                    if (month % 12 === 0) currentEmi = currentEmi * (1 + yearlyIncrease / 100);
+                }
+                if (balance <= 1) break;
+            }
+            return { totalMonths: month, totalInterest, totalPaid, yearlyData, initialEmi };
         };
 
         function updateEMIView() {
@@ -722,7 +892,7 @@
             const timeSavedM = normal.totalMonths - smart.totalMonths;
             const totalSaved = normal.totalPaid - smart.totalPaid;
             document.getElementById('val-interest-saved').innerText = formatCurrency(savedInt);
-            document.getElementById('val-time-saved').innerText = `${Math.floor(timeSavedM/12)}y ${timeSavedM%12}m`;
+            document.getElementById('val-time-saved').innerText = `${Math.floor(timeSavedM / 12)}y ${timeSavedM % 12}m`;
             document.getElementById('val-total-saved').innerText = formatCurrency(totalSaved);
             updateEMIChart(normal.yearlyData, smart.yearlyData);
         }
@@ -730,9 +900,9 @@
         function updateEMIChart(normalData, smartData) {
             const ctx = document.getElementById('emiChart').getContext('2d');
             const maxYear = Math.max(normalData.length, smartData.length);
-            const labels = Array.from({length: maxYear + 1}, (_, i) => `Yr ${i}`);
-            const normPoints = labels.map((_, i) => { if(i===0) return emiState.loanAmount; const d = normalData.find(x => x.year === i); return d ? d.balance : (i > normalData[normalData.length-1]?.year ? 0 : null); });
-            const smartPoints = labels.map((_, i) => { if(i===0) return emiState.loanAmount; const d = smartData.find(x => x.year === i); return d ? d.balance : (i > smartData[smartData.length-1]?.year ? 0 : null); });
+            const labels = Array.from({ length: maxYear + 1 }, (_, i) => `Yr ${i}`);
+            const normPoints = labels.map((_, i) => { if (i === 0) return emiState.loanAmount; const d = normalData.find(x => x.year === i); return d ? d.balance : (i > normalData[normalData.length - 1]?.year ? 0 : null); });
+            const smartPoints = labels.map((_, i) => { if (i === 0) return emiState.loanAmount; const d = smartData.find(x => x.year === i); return d ? d.balance : (i > smartData[smartData.length - 1]?.year ? 0 : null); });
             const isDark = document.documentElement.classList.contains('dark');
             const gridColor = isDark ? '#27272A' : '#E5E7EB';
             const textColor = isDark ? '#A1A1AA' : '#6B7280';
@@ -759,23 +929,23 @@
                         responsive: true,
                         maintainAspectRatio: false,
                         interaction: { mode: 'index', intersect: false },
-                        plugins: { legend: { display: true, labels: { color: textColor, font: {family: 'Inter'} } } },
+                        plugins: { legend: { display: true, labels: { color: textColor, font: { family: 'Inter' } } } },
                         scales: {
                             x: { grid: { display: false }, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } },
-                            y: { grid: { color: gridColor, borderDash: [4, 4] }, ticks: { color: textColor, font: { family: 'JetBrains Mono' }, callback: (val) => '₹' + val/100000 + 'L' } }
+                            y: { grid: { color: gridColor, borderDash: [4, 4] }, ticks: { color: textColor, font: { family: 'JetBrains Mono' }, callback: (val) => '₹' + val / 100000 + 'L' } }
                         }
                     }
                 });
             }
         }
 
-        if(inpLoan) inpLoan.addEventListener('input', (e) => { emiState.loanAmount = Number(e.target.value); updateEMIView(); });
-        if(inpRate) inpRate.addEventListener('input', (e) => { emiState.rate = Number(e.target.value); updateEMIView(); });
-        if(inpTenure) inpTenure.addEventListener('input', (e) => { emiState.tenure = Number(e.target.value); updateEMIView(); });
-        if(inpIncrease) inpIncrease.addEventListener('input', (e) => { emiState.increase = Number(e.target.value); dispIncrease.innerText = e.target.value + '%'; updateEMIView(); });
-        if(btnToggleExtra) btnToggleExtra.addEventListener('click', () => {
+        if (inpLoan) inpLoan.addEventListener('input', (e) => { emiState.loanAmount = Number(e.target.value); updateEMIView(); });
+        if (inpRate) inpRate.addEventListener('input', (e) => { emiState.rate = Number(e.target.value); updateEMIView(); });
+        if (inpTenure) inpTenure.addEventListener('input', (e) => { emiState.tenure = Number(e.target.value); updateEMIView(); });
+        if (inpIncrease) inpIncrease.addEventListener('input', (e) => { emiState.increase = Number(e.target.value); dispIncrease.innerText = e.target.value + '%'; updateEMIView(); });
+        if (btnToggleExtra) btnToggleExtra.addEventListener('click', () => {
             emiState.extraEmi = !emiState.extraEmi;
-            if(emiState.extraEmi) {
+            if (emiState.extraEmi) {
                 btnToggleExtra.classList.remove('bg-gray-300', 'dark:bg-gray-600');
                 btnToggleExtra.classList.add('bg-brand-mint');
                 toggleCircle.classList.remove('left-1');
@@ -797,14 +967,14 @@
         } else {
             htmlElement.classList.add('dark');
         }
-        themeToggleBtn.addEventListener('click', function() {
+        themeToggleBtn.addEventListener('click', function () {
             htmlElement.classList.toggle('dark');
             const isDark = htmlElement.classList.contains('dark');
             localStorage.setItem('color-theme', isDark ? 'dark' : 'light');
             const gridColor = isDark ? '#27272A' : '#E5E7EB';
             const textColor = isDark ? '#A1A1AA' : '#6B7280';
             const updateChartTheme = (chart) => {
-                if(!chart) return;
+                if (!chart) return;
                 chart.options.scales.y.grid.color = gridColor;
                 chart.options.scales.x.ticks.color = textColor;
                 chart.options.scales.y.ticks.color = textColor;
@@ -822,10 +992,10 @@
             setTimeout(() => { toast.classList.add('translate-y-24'); }, 3000);
         }
         function copyLink() {
-             navigator.clipboard.writeText(window.location.href).then(() => { showToast("Link copied to clipboard"); });
+            navigator.clipboard.writeText(window.location.href).then(() => { showToast("Link copied to clipboard"); });
         }
         document.querySelectorAll('.palette-card').forEach(card => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 const color = this.getAttribute('data-color');
                 const name = this.getAttribute('data-name');
                 navigator.clipboard.writeText(color).then(() => { showToast(`${name} (${color}) copied`); });
@@ -833,4 +1003,601 @@
         });
     </script>
 </body>
+
+
+
+<body class="bg-brand-black text-brand-text font-sans antialiased selection:bg-brand-mint selection:text-brand-black">
+
+    <!-- Placeholder Comments Required -->
+    <!-- Chosen Palette: Electric Flora (Void Black, Graphite, Electric Mint, Deep Fern) -->
+    <!-- Application Structure Plan:
+         The structure mirrors the "Technical Brutalism" ethos: a modular, single-page dashboard.
+         1. Hero: Brand introduction with terminal typing effect (Technical vibe).
+         2. Colors: Interactive swatch deck (User task: Copy colors).
+         3. Typography: Live type tester (User task: Visualize fonts).
+         4. UI Components: A 'Lab' section demonstrating buttons, inputs, and glassmorphism.
+         5. Logo Lab: Visualization of the concepts described in the text.
+         6. Prompts: Code-block style copyable prompts for AI generation.
+         Reasoning: The modular Bento-grid layout allows users to scan the brand system holistically, emphasizing the "Structured Ecology" theme.
+    -->
+    <!-- Visualization & Content Choices:
+         1. Colors: Visualized as cards with hover glow effects to demonstrate the "Electric Flora" concept.
+         2. Typography: Editable inputs to allow users to test the specific fonts mentioned.
+         3. Logos: CSS/SVG shapes used to visualize abstract concepts (Monogram, Terminal, Node) without needing raster images.
+         4. UI Demo: Functional buttons and inputs to show the "Technical Brutalism" in action.
+         5. Prompts: Displayed in monospace code blocks to emphasize the "developer tools" focus.
+         Library: Chart.js used for a small data viz example to show how charts fit into this design system.
+         NO SVG FILES used. NO Mermaid used.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <!-- Background Grid Layout -->
+    <div class="fixed inset-0 bg-grid-pattern opacity-[0.07] pointer-events-none z-0 bg-grid"></div>
+
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 w-full z-50 glass border-b border-brand-border h-16 flex items-center px-6 lg:px-12 justify-between">
+        <div class="flex items-center gap-2 group cursor-pointer">
+            <div
+                class="w-8 h-8 bg-brand-mint/10 border border-brand-mint/30 rounded flex items-center justify-center text-brand-mint font-mono font-bold group-hover:bg-brand-mint group-hover:text-brand-black transition-all duration-300">
+                m</div>
+            <span class="font-display font-bold text-lg tracking-wide">mrahulrahi</span>
+        </div>
+        <div class="hidden md:flex items-center gap-8 text-sm font-mono text-brand-muted">
+            <a href="#essence" class="hover:text-brand-mint transition-colors">01.Essence</a>
+            <a href="#palette" class="hover:text-brand-mint transition-colors">02.Palette</a>
+            <a href="#typography" class="hover:text-brand-mint transition-colors">03.Type</a>
+            <a href="#ui-lab" class="hover:text-brand-mint transition-colors">04.UI_Lab</a>
+            <a href="#prompts" class="hover:text-brand-mint transition-colors">05.Prompts</a>
+        </div>
+        <button onclick="copyLink()"
+            class="border border-brand-border hover:border-brand-mint hover:text-brand-mint px-4 py-2 rounded text-xs font-mono transition-all">
+            Share_Board
+        </button>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="relative z-10 pt-24 px-6 lg:px-12 max-w-7xl mx-auto pb-20 space-y-24">
+
+        <!-- 1. Hero Section -->
+        <section id="essence" class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-6">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-surface border border-brand-border text-xs font-mono text-brand-mint">
+                    <span class="w-2 h-2 rounded-full bg-brand-mint animate-pulse"></span>
+                    v1.0.0 System Online
+                </div>
+                <h1 class="text-5xl lg:text-7xl font-display font-bold leading-tight">
+                    Structured <br>
+                    <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-brand-mint to-brand-fern">Ecology</span>
+                </h1>
+                <p class="text-brand-muted text-lg max-w-xl leading-relaxed">
+                    Bridging the gap between raw code structure and organic creativity. A design system for portfolio,
+                    UI libraries, and developer tools.
+                </p>
+                <div class="flex flex-wrap gap-3 pt-4">
+                    <span
+                        class="px-3 py-1 border border-brand-border text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Systemic</span>
+                    <span
+                        class="px-3 py-1 border border-brand-border text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Atomic</span>
+                    <span
+                        class="px-3 py-1 border border-brand-border text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Terminal-Inspired</span>
+                    <span
+                        class="px-3 py-1 border border-brand-border text-brand-muted text-sm font-mono rounded hover:border-brand-mint transition-colors cursor-default">#Future-Proof</span>
+                </div>
+            </div>
+            <div
+                class="lg:col-span-5 h-64 lg:h-80 bg-brand-surface border border-brand-border rounded-lg p-6 relative overflow-hidden group">
+                <!-- Terminal Animation -->
+                <div class="absolute top-0 left-0 w-full h-6 bg-brand-border/30 flex items-center px-4 gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                </div>
+                <div class="mt-6 font-mono text-sm space-y-2">
+                    <p class="text-brand-muted">$ init <span class="text-brand-mint">mrahulrahi</span></p>
+                    <p class="text-brand-muted">> Loading modules...</p>
+                    <p class="text-brand-muted">> Applying theme: <span class="text-brand-glow">Electric Flora</span>
+                    </p>
+                    <p class="text-brand-muted">> Optimizing grid...</p>
+                    <p class="text-brand-text flex items-center gap-2">
+                        > Status: <span id="typing-text" class="text-brand-mint"></span><span
+                            class="cursor-blink w-2 h-4 bg-brand-mint block"></span>
+                    </p>
+                </div>
+                <!-- Decorative elements -->
+                <div class="absolute bottom-4 right-4 w-16 h-16 border-r border-b border-brand-mint/30 rounded-br-xl">
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Color Palette -->
+        <section id="palette" class="space-y-8">
+            <div class="border-l-2 border-brand-mint pl-4">
+                <h2 class="text-3xl font-display font-bold">Electric Flora Palette</h2>
+                <p class="text-brand-muted mt-2">Monochromatic base with high-voltage green accents. Click to copy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                <!-- Cards generated by JS for easy management -->
+                <div class="palette-card group relative aspect-square rounded-xl border border-brand-border bg-brand-black flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(0,220,130,0.1)] overflow-hidden"
+                    data-color="#09090B" data-name="Void Black">
+                    <div class="absolute inset-0 bg-[#09090B]"></div>
+                    <span
+                        class="relative z-10 text-xs font-mono bg-brand-black/50 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Main
+                        BG</span>
+                    <div class="relative z-10 flex justify-between items-end">
+                        <span class="font-display font-bold text-white">Void Black</span>
+                        <span class="font-mono text-xs text-brand-muted">#09090B</span>
+                    </div>
+                </div>
+
+                <div class="palette-card group relative aspect-square rounded-xl border border-brand-border bg-brand-surface flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(0,220,130,0.1)] overflow-hidden"
+                    data-color="#18181B" data-name="Graphite">
+                    <div class="absolute inset-0 bg-[#18181B]"></div>
+                    <span
+                        class="relative z-10 text-xs font-mono bg-brand-black/50 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Surface</span>
+                    <div class="relative z-10 flex justify-between items-end">
+                        <span class="font-display font-bold text-white">Graphite</span>
+                        <span class="font-mono text-xs text-brand-muted">#18181B</span>
+                    </div>
+                </div>
+
+                <div class="palette-card group relative aspect-square rounded-xl border border-brand-border bg-brand-mint flex flex-col justify-between p-4 cursor-pointer transition-all hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(0,220,130,0.4)] overflow-hidden"
+                    data-color="#00DC82" data-name="Electric Mint">
+                    <div class="absolute inset-0 bg-[#00DC82]"></div>
+                    <span
+                        class="relative z-10 text-xs font-mono bg-black/20 backdrop-blur px-2 py-1 rounded text-black w-max border border-black/10 font-bold">Accent</span>
+                    <div class="relative z-10 flex justify-between items-end text-brand-black">
+                        <span class="font-display font-bold">Electric Mint</span>
+                        <span class="font-mono text-xs font-bold">#00DC82</span>
+                    </div>
+                </div>
+
+                <div class="palette-card group relative aspect-square rounded-xl border border-brand-border bg-brand-fern flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(4,120,87,0.3)] overflow-hidden"
+                    data-color="#047857" data-name="Deep Fern">
+                    <div class="absolute inset-0 bg-[#047857]"></div>
+                    <span
+                        class="relative z-10 text-xs font-mono bg-black/20 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Secondary</span>
+                    <div class="relative z-10 flex justify-between items-end text-white">
+                        <span class="font-display font-bold">Deep Fern</span>
+                        <span class="font-mono text-xs opacity-80">#047857</span>
+                    </div>
+                </div>
+
+                <div class="palette-card group relative aspect-square rounded-xl border border-brand-border bg-brand-glow flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(187,247,208,0.3)] overflow-hidden"
+                    data-color="#BBF7D0" data-name="Lime Glow">
+                    <div class="absolute inset-0 bg-[#BBF7D0]"></div>
+                    <span
+                        class="relative z-10 text-xs font-mono bg-brand-black/10 backdrop-blur px-2 py-1 rounded text-brand-black w-max border border-black/5">Highlight</span>
+                    <div class="relative z-10 flex justify-between items-end text-brand-black">
+                        <span class="font-display font-bold">Lime Glow</span>
+                        <span class="font-mono text-xs font-bold">#BBF7D0</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Notification toast container -->
+            <div id="toast"
+                class="fixed bottom-8 right-8 bg-brand-surface border border-brand-mint text-brand-mint px-6 py-3 rounded shadow-2xl transform translate-y-24 transition-transform duration-300 flex items-center gap-2 z-50 font-mono text-sm">
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                <span id="toast-msg">Copied to clipboard</span>
+            </div>
+        </section>
+
+        <!-- 3. Typography System -->
+        <section id="typography" class="space-y-8">
+            <div class="border-l-2 border-brand-mint pl-4">
+                <h2 class="text-3xl font-display font-bold">Typography Stack</h2>
+                <p class="text-brand-muted mt-2">Balancing technical precision with readability.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Display Font -->
+                <div
+                    class="bg-brand-surface border border-brand-border rounded-xl p-8 hover:border-brand-muted transition-colors">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-brand-mint font-mono text-sm mb-1">Headings / Display</h3>
+                            <p class="text-2xl font-display font-bold">Space Grotesk</p>
+                        </div>
+                        <span
+                            class="text-brand-muted font-mono text-xs border border-brand-border px-2 py-1 rounded">Aa</span>
+                    </div>
+                    <p class="font-display text-4xl font-bold leading-tight mb-4">
+                        Technical Brutalism for Modern UI
+                    </p>
+                    <p class="font-display text-brand-muted text-sm">
+                        ABCDEFGHIJKLMNOPQRSTUVWXYZ <br>
+                        abcdefghijklmnopqrstuvwxyz <br>
+                        0123456789
+                    </p>
+                </div>
+
+                <!-- Body Font -->
+                <div
+                    class="bg-brand-surface border border-brand-border rounded-xl p-8 hover:border-brand-muted transition-colors">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-brand-mint font-mono text-sm mb-1">Body Copy</h3>
+                            <p class="text-2xl font-sans font-medium">Inter</p>
+                        </div>
+                        <span
+                            class="text-brand-muted font-mono text-xs border border-brand-border px-2 py-1 rounded">Aa</span>
+                    </div>
+                    <p class="font-sans text-base leading-relaxed text-brand-muted mb-4">
+                        The theme bridges the gap between raw code (structure) and organic growth (creativity). It feels
+                        engineered but alive. This text is set in Inter for maximum legibility on screens.
+                    </p>
+                    <p class="font-sans text-brand-muted text-sm opacity-60">
+                        Regular 400 · Medium 500 · SemiBold 600
+                    </p>
+                </div>
+
+                <!-- Mono Font -->
+                <div
+                    class="col-span-1 lg:col-span-2 bg-brand-black border border-brand-border rounded-xl p-8 hover:border-brand-mint transition-colors">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-brand-mint font-mono text-sm mb-1">Code / Technical</h3>
+                            <p class="text-2xl font-mono">JetBrains Mono</p>
+                        </div>
+                        <span
+                            class="text-brand-muted font-mono text-xs border border-brand-border px-2 py-1 rounded">{}</span>
+                    </div>
+                    <div
+                        class="bg-[#1e1e1e] p-4 rounded border-l-2 border-brand-mint font-mono text-sm overflow-x-auto">
+                        <span class="text-[#c678dd]">const</span> <span class="text-[#e5c07b]">BrandIdentity</span>
+                        <span class="text-[#56b6c2]">=</span> {<br>
+                        &nbsp;&nbsp;theme: <span class="text-[#98c379]">'Structured Ecology'</span>,<br>
+                        &nbsp;&nbsp;version: <span class="text-[#d19a66]">1.0</span>,<br>
+                        &nbsp;&nbsp;init: <span class="text-[#c678dd]">function</span>() {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-[#e06c75]">return</span> <span
+                            class="text-[#98c379]">"Ready"</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        };
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. UI Lab (Components) -->
+        <section id="ui-lab" class="space-y-8">
+            <div class="border-l-2 border-brand-mint pl-4">
+                <h2 class="text-3xl font-display font-bold">UI Lab</h2>
+                <p class="text-brand-muted mt-2">Component behavior and the Bento grid system.</p>
+            </div>
+
+            <!-- Bento Grid Demo -->
+            <div class="grid grid-cols-1 md:grid-cols-4 grid-rows-4 md:grid-rows-3 gap-4 h-[600px]">
+
+                <!-- Card 1: Primary Action -->
+                <div
+                    class="col-span-1 md:col-span-2 row-span-2 bg-brand-surface border border-brand-border rounded-xl p-6 relative group overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+                        <i data-lucide="arrow-up-right" class="text-brand-mint"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl mb-4">Interactive Elements</h3>
+                    <div class="flex flex-col gap-4 items-start">
+                        <button
+                            class="px-6 py-2 bg-brand-mint text-brand-black font-medium rounded hover:bg-brand-mint/90 transition-colors w-full md:w-auto font-mono text-sm">
+                            Primary_Action
+                        </button>
+                        <button
+                            class="px-6 py-2 bg-transparent border border-brand-border text-brand-text font-medium rounded hover:border-brand-mint hover:text-brand-mint transition-colors w-full md:w-auto font-mono text-sm">
+                            Secondary_Action
+                        </button>
+                        <div class="flex items-center gap-2 group/link cursor-pointer">
+                            <span class="text-brand-mint font-mono text-sm group-hover/link:underline">Read
+                                Documentation</span>
+                            <i data-lucide="chevron-right"
+                                class="w-4 h-4 text-brand-mint transition-transform group-hover/link:translate-x-1"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Stats (Glassmorphism) -->
+                <div
+                    class="col-span-1 md:col-span-2 row-span-1 glass rounded-xl p-6 flex items-center justify-between border border-brand-border relative overflow-hidden">
+                    <div class="absolute -right-4 -bottom-4 w-24 h-24 bg-brand-mint/10 blur-2xl rounded-full"></div>
+                    <div>
+                        <p class="text-brand-muted text-sm font-mono">System Status</p>
+                        <p class="text-3xl font-mono font-bold text-brand-mint">98.4%</p>
+                    </div>
+                    <div class="h-12 w-32 chart-container">
+                        <canvas id="miniChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Card 3: Input Field -->
+                <div
+                    class="col-span-1 row-span-1 bg-brand-black border border-brand-border rounded-xl p-6 flex flex-col justify-center group hover:border-brand-muted transition-colors">
+                    <label
+                        class="text-xs font-mono text-brand-muted mb-2 group-focus-within:text-brand-mint transition-colors">Command
+                        Input</label>
+                    <div
+                        class="flex items-center border-b border-brand-border group-focus-within:border-brand-mint transition-colors py-1">
+                        <span class="text-brand-mint mr-2">></span>
+                        <input type="text" placeholder="Type..."
+                            class="bg-transparent w-full outline-none text-brand-text font-mono text-sm placeholder-brand-muted/50">
+                    </div>
+                </div>
+
+                <!-- Card 4: Feature List -->
+                <div class="col-span-1 row-span-2 bg-brand-surface border border-brand-border rounded-xl p-6">
+                    <h3 class="font-display font-bold text-lg mb-4">Modules</h3>
+                    <ul class="space-y-3">
+                        <li
+                            class="flex items-center gap-3 text-sm text-brand-muted hover:text-brand-text transition-colors cursor-default">
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand-mint"></div>
+                            <span>Layout_Grid</span>
+                        </li>
+                        <li
+                            class="flex items-center gap-3 text-sm text-brand-muted hover:text-brand-text transition-colors cursor-default">
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand-fern"></div>
+                            <span>Typography</span>
+                        </li>
+                        <li
+                            class="flex items-center gap-3 text-sm text-brand-muted hover:text-brand-text transition-colors cursor-default">
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand-border"></div>
+                            <span>Icons</span>
+                        </li>
+                        <li
+                            class="flex items-center gap-3 text-sm text-brand-muted hover:text-brand-text transition-colors cursor-default">
+                            <div class="w-1.5 h-1.5 rounded-full bg-brand-border"></div>
+                            <span>Animations</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Card 5: Logo Concepts Visualization -->
+                <div
+                    class="col-span-1 md:col-span-2 row-span-1 bg-brand-surface border border-brand-border rounded-xl p-6 flex items-center justify-around">
+                    <!-- Concept A: Monogram Stack -->
+                    <div class="group text-center">
+                        <div
+                            class="w-12 h-12 border-2 border-brand-mint rounded-lg flex items-center justify-center relative mb-2 transition-all group-hover:bg-brand-mint group-hover:text-brand-black">
+                            <span class="font-display font-bold text-xl leading-none">M</span>
+                            <div class="absolute -right-1 -bottom-1 w-2 h-2 bg-brand-black border border-brand-mint">
+                            </div>
+                        </div>
+                        <p class="text-[10px] font-mono text-brand-muted uppercase">Monogram</p>
+                    </div>
+
+                    <!-- Concept B: Terminal Cursor -->
+                    <div class="group text-center">
+                        <div class="w-12 h-12 flex items-center justify-center mb-2">
+                            <span class="font-display font-bold text-2xl text-white">m<span
+                                    class="text-brand-mint animate-pulse">_</span></span>
+                        </div>
+                        <p class="text-[10px] font-mono text-brand-muted uppercase">Terminal</p>
+                    </div>
+
+                    <!-- Concept C: Bracket Node -->
+                    <div class="group text-center">
+                        <div class="w-12 h-12 relative flex items-center justify-center mb-2">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-brand-mint">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <p class="text-[10px] font-mono text-brand-muted uppercase">Node</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Prompts (Tool) -->
+        <section id="prompts" class="space-y-8">
+            <div class="border-l-2 border-brand-mint pl-4 flex justify-between items-end">
+                <div>
+                    <h2 class="text-3xl font-display font-bold">Generator Prompts</h2>
+                    <p class="text-brand-muted mt-2">Source material for AI asset generation.</p>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Prompt 1 -->
+                <div class="bg-[#0d0d0d] border border-brand-border rounded-lg overflow-hidden">
+                    <div
+                        class="bg-brand-surface border-b border-brand-border px-4 py-2 flex justify-between items-center">
+                        <span class="text-xs font-mono text-brand-muted">UI_Mockup.txt</span>
+                        <button onclick="copyToClipboard('prompt-ui')"
+                            class="text-xs font-mono text-brand-mint hover:text-white flex items-center gap-1">
+                            <i data-lucide="copy" class="w-3 h-3"></i> Copy
+                        </button>
+                    </div>
+                    <div class="p-4 font-mono text-sm text-brand-muted leading-relaxed" id="prompt-ui">
+                        "High fidelity UI design for a personal portfolio and developer tools website named
+                        'mrahulrahi'. Dark mode aesthetic, matte black background with subtle noise texture. Accent
+                        color is electric mint green (#00DC82). Layout uses a bento-grid style. Typography is a mix of
+                        geometric sans-serif and coding monospace fonts. Visual elements include floating code snippets,
+                        glassmorphism cards, and neon green thin border lines. Tech-minimalist, clean, Dribbble
+                        trending, 4k, vector style."
+                    </div>
+                </div>
+
+                <!-- Prompt 2 -->
+                <div class="bg-[#0d0d0d] border border-brand-border rounded-lg overflow-hidden">
+                    <div
+                        class="bg-brand-surface border-b border-brand-border px-4 py-2 flex justify-between items-center">
+                        <span class="text-xs font-mono text-brand-muted">Logo_Concept.txt</span>
+                        <button onclick="copyToClipboard('prompt-logo')"
+                            class="text-xs font-mono text-brand-mint hover:text-white flex items-center gap-1">
+                            <i data-lucide="copy" class="w-3 h-3"></i> Copy
+                        </button>
+                    </div>
+                    <div class="p-4 font-mono text-sm text-brand-muted leading-relaxed" id="prompt-logo">
+                        "Minimalist tech logo for brand 'mrahulrahi'. The logo should combine the letter 'M' with coding
+                        symbols like brackets or a terminal cursor. Flat vector design. Color scheme: Neon Green and
+                        Dark Grey. Modern, geometric, suitable for a GitHub profile picture or app icon. White
+                        background."
+                    </div>
+                </div>
+
+                <!-- Prompt 3 -->
+                <div class="bg-[#0d0d0d] border border-brand-border rounded-lg overflow-hidden">
+                    <div
+                        class="bg-brand-surface border-b border-brand-border px-4 py-2 flex justify-between items-center">
+                        <span class="text-xs font-mono text-brand-muted">Brand_Texture.txt</span>
+                        <button onclick="copyToClipboard('prompt-texture')"
+                            class="text-xs font-mono text-brand-mint hover:text-white flex items-center gap-1">
+                            <i data-lucide="copy" class="w-3 h-3"></i> Copy
+                        </button>
+                    </div>
+                    <div class="p-4 font-mono text-sm text-brand-muted leading-relaxed" id="prompt-texture">
+                        "Abstract 3D background for a developer brand identity. Dark obsidian geometric shapes floating
+                        in a void. Illuminated by electric mint green laser lights. Cyberpunk meets clean corporate
+                        memphis design. Matte finish, soft shadows, high contrast, 8k resolution."
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer
+            class="border-t border-brand-border pt-8 pb-12 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="text-sm text-brand-muted font-mono">
+                © 2025 mrahulrahi. All systems nominal.
+            </div>
+            <div class="flex gap-4">
+                <div
+                    class="w-8 h-8 rounded bg-brand-surface border border-brand-border flex items-center justify-center hover:border-brand-mint transition-colors cursor-pointer">
+                    <i data-lucide="github" class="w-4 h-4 text-brand-muted"></i>
+                </div>
+                <div
+                    class="w-8 h-8 rounded bg-brand-surface border border-brand-border flex items-center justify-center hover:border-brand-mint transition-colors cursor-pointer">
+                    <i data-lucide="twitter" class="w-4 h-4 text-brand-muted"></i>
+                </div>
+                <div
+                    class="w-8 h-8 rounded bg-brand-surface border border-brand-border flex items-center justify-center hover:border-brand-mint transition-colors cursor-pointer">
+                    <i data-lucide="figma" class="w-4 h-4 text-brand-muted"></i>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // 1. Initialize Icons
+        lucide.createIcons();
+
+        // 2. Typing Effect Logic
+        const words = ["Ready", "Stable", "Optimized", "Growing"];
+        let i = 0;
+        let timer;
+
+        function typeEffect() {
+            const word = words[i % words.length];
+            const element = document.getElementById('typing-text');
+            let charIndex = 0;
+
+            // Clear previous word
+            element.innerText = "";
+
+            function typeChar() {
+                if (charIndex < word.length) {
+                    element.innerText += word.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeChar, 150);
+                } else {
+                    setTimeout(eraseWord, 2000);
+                }
+            }
+
+            function eraseWord() {
+                if (element.innerText.length > 0) {
+                    element.innerText = element.innerText.slice(0, -1);
+                    setTimeout(eraseWord, 50);
+                } else {
+                    i++;
+                    typeEffect();
+                }
+            }
+
+            typeChar();
+        }
+
+        // Start typing effect
+        document.addEventListener('DOMContentLoaded', typeEffect);
+
+        // 3. Color Copy Logic
+        document.querySelectorAll('.palette-card').forEach(card => {
+            card.addEventListener('click', function () {
+                const color = this.getAttribute('data-color');
+                const name = this.getAttribute('data-name');
+
+                navigator.clipboard.writeText(color).then(() => {
+                    showToast(`${name} (${color}) copied`);
+                });
+            });
+        });
+
+        // 4. Generic Copy Logic for Prompts
+        function copyToClipboard(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                showToast("Prompt copied to clipboard");
+            });
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                showToast("Link copied to clipboard");
+            });
+        }
+
+        // 5. Toast Notification Logic
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const msg = document.getElementById('toast-msg');
+            msg.innerText = message;
+
+            toast.classList.remove('translate-y-24');
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-24');
+            }, 3000);
+        }
+
+        // 6. Mini Chart (Chart.js) for the 'Stats' card
+        const ctx = document.getElementById('miniChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+                datasets: [{
+                    data: [65, 78, 72, 85, 82, 90, 98],
+                    borderColor: '#00DC82',
+                    borderWidth: 2,
+                    backgroundColor: (context) => {
+                        const ctx = context.chart.ctx;
+                        const gradient = ctx.createLinearGradient(0, 0, 0, 100);
+                        gradient.addColorStop(0, 'rgba(0, 220, 130, 0.2)');
+                        gradient.addColorStop(1, 'rgba(0, 220, 130, 0)');
+                        return gradient;
+                    },
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: { enabled: false } },
+                scales: {
+                    x: { display: false },
+                    y: { display: false, min: 50 }
+                },
+                interaction: {
+                    intersect: false,
+                    mode: 'index',
+                },
+            }
+        });
+    </script>
+</body>
+
 </html>
