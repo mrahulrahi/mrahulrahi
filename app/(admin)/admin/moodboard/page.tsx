@@ -473,7 +473,7 @@ export default function MergedMoodboardPage() {
                                     Structured <br />
                                     <span className={`text-transparent bg-clip-text ${useTailwindV4Gradient
                                         ? 'bg-linear-to-r from-brand-mint to-brand-fern'
-                                        : 'bg-gradient-to-r from-brand-mint to-brand-fern'
+                                        : 'bg-linear-to-r from-brand-mint to-brand-fern'
                                         }`}>
                                         Ecology
                                     </span>
@@ -490,7 +490,7 @@ export default function MergedMoodboardPage() {
                             </div>
 
                             {/* Terminal Mockup */}
-                            <div className="lg:col-span-5 h-64 lg:h-80 bg-[#09090B] border border-gray-200 dark:border-brand-border rounded-lg p-6 relative overflow-hidden group shadow-xl">
+                            <div className="lg:col-span-5 h-64 lg:h-80 bg-brand-black border border-gray-200 dark:border-brand-border rounded-lg p-6 relative overflow-hidden group shadow-xl">
                                 <div className="absolute top-0 left-0 w-full h-6 bg-brand-border/30 flex items-center px-4 gap-2">
                                     <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
                                     <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
@@ -523,7 +523,7 @@ export default function MergedMoodboardPage() {
                                     onClick={() => handleCopyText("#09090B", "Void Black")}
                                     className="palette-card group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-black flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(0,220,130,0.1)] overflow-hidden shadow-sm"
                                 >
-                                    <div className="absolute inset-0 bg-[#09090B]"></div>
+                                    <div className="absolute inset-0 bg-brand-black"></div>
                                     <span className="relative z-10 text-xs font-mono bg-brand-black/50 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Main BG</span>
                                     <div className="relative z-10 flex justify-between items-end">
                                         <span className="font-display font-bold text-white">Void Black</span>
@@ -535,7 +535,7 @@ export default function MergedMoodboardPage() {
                                     onClick={() => handleCopyText("#18181B", "Graphite")}
                                     className="palette-card group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-surface flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(0,220,130,0.1)] overflow-hidden shadow-sm"
                                 >
-                                    <div className="absolute inset-0 bg-[#18181B]"></div>
+                                    <div className="absolute inset-0 bg-brand-surface "></div>
                                     <span className="relative z-10 text-xs font-mono bg-brand-black/50 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Surface</span>
                                     <div className="relative z-10 flex justify-between items-end">
                                         <span className="font-display font-bold text-white">Graphite</span>
@@ -547,7 +547,7 @@ export default function MergedMoodboardPage() {
                                     onClick={() => handleCopyText("#00DC82", "Electric Mint")}
                                     className="palette-card group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-mint flex flex-col justify-between p-4 cursor-pointer transition-all hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(0,220,130,0.4)] overflow-hidden shadow-sm"
                                 >
-                                    <div className="absolute inset-0 bg-[#00DC82]"></div>
+                                    <div className="absolute inset-0 bg-brand-mint "></div>
                                     <span className="relative z-10 text-xs font-mono bg-black/20 backdrop-blur px-2 py-1 rounded text-black w-max border border-black/10 font-bold">Accent</span>
                                     <div className="relative z-10 flex justify-between items-end text-brand-black">
                                         <span className="font-display font-bold">Electric Mint</span>
@@ -559,7 +559,7 @@ export default function MergedMoodboardPage() {
                                     onClick={() => handleCopyText("#047857", "Deep Fern")}
                                     className="palette-card group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-fern flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(4,120,87,0.3)] overflow-hidden shadow-sm"
                                 >
-                                    <div className="absolute inset-0 bg-[#047857]"></div>
+                                    <div className="absolute inset-0 bg-brand-fern"></div>
                                     <span className="relative z-10 text-xs font-mono bg-black/20 backdrop-blur px-2 py-1 rounded text-white w-max border border-white/10">Secondary</span>
                                     <div className="relative z-10 flex justify-between items-end text-white">
                                         <span className="font-display font-bold">Deep Fern</span>
@@ -571,7 +571,7 @@ export default function MergedMoodboardPage() {
                                     onClick={() => handleCopyText("#BBF7D0", "Lime Glow")}
                                     className="palette-card group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-glow flex flex-col justify-between p-4 cursor-pointer transition-all hover:border-brand-mint hover:shadow-[0_0_20px_rgba(187,247,208,0.3)] overflow-hidden shadow-sm"
                                 >
-                                    <div className="absolute inset-0 bg-[#BBF7D0]"></div>
+                                    <div className="absolute inset-0 bg-brand-glow"></div>
                                     <span className="relative z-10 text-xs font-mono bg-brand-black/10 backdrop-blur px-2 py-1 rounded text-brand-black w-max border border-black/5">Highlight</span>
                                     <div className="relative z-10 flex justify-between items-end text-brand-black">
                                         <span className="font-display font-bold">Lime Glow</span>
@@ -623,7 +623,7 @@ export default function MergedMoodboardPage() {
                                     </p>
                                 </div>
 
-                                <div className="col-span-1 lg:col-span-2 bg-[#09090B] border border-gray-200 dark:border-brand-border rounded-xl p-8 hover:border-brand-mint transition-colors shadow-xl">
+                                <div className="col-span-1 lg:col-span-2 bg-brand-black border border-gray-200 dark:border-brand-border rounded-xl p-8 hover:border-brand-mint transition-colors shadow-xl">
                                     <div className="flex justify-between items-start mb-6">
                                         <div>
                                             <h3 className="text-brand-mint font-mono text-sm mb-1">Code / Technical</h3>
@@ -769,8 +769,8 @@ export default function MergedMoodboardPage() {
                                         text: `"Abstract 3D background for a developer brand identity. Dark obsidian geometric shapes floating in a void. Illuminated by electric mint green laser lights. Cyberpunk meets clean corporate memphis design. Matte finish, soft shadows, high contrast, 8k resolution."`
                                     }
                                 ].map((prompt) => (
-                                    <div key={prompt.id} className="bg-[#09090B] border border-gray-200 dark:border-brand-border rounded-lg overflow-hidden shadow-md">
-                                        <div className="bg-[#18181B] border-b border-gray-200 dark:border-brand-border px-4 py-2 flex justify-between items-center">
+                                    <div key={prompt.id} className="bg-brand-black border border-gray-200 dark:border-brand-border rounded-lg overflow-hidden shadow-md">
+                                        <div className="bg-brand-surface border-b border-gray-200 dark:border-brand-border px-4 py-2 flex justify-between items-center">
                                             <span className="text-xs font-mono text-gray-400">{prompt.file}</span>
                                             <button
                                                 onClick={() => handleCopyText(prompt.text, prompt.file)}
@@ -1299,7 +1299,7 @@ export default function MergedMoodboardPage() {
                 )}
 
                 {/* Notification Toast */}
-                <div className={`fixed bottom-8 right-8 bg-white dark:bg-brand-surface border border-brand-mint text-brand-mint px-6 py-3 rounded shadow-2xl transform transition-transform duration-300 flex items-center gap-2 z-[9999] font-mono text-sm ${showToast ? 'translate-y-0' : 'translate-y-24'}`}>
+                <div className={`fixed bottom-8 right-8 bg-white dark:bg-brand-surface border border-brand-mint text-brand-mint px-6 py-3 rounded shadow-2xl transform transition-transform duration-300 flex items-center gap-2 z-9999 font-mono text-sm ${showToast ? 'translate-y-0' : 'translate-y-24'}`}>
                     <CheckCircle className="w-4 h-4" />
                     <span>{toastMessage}</span>
                 </div>
