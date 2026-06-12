@@ -1,6 +1,454 @@
-import React from 'react'
+'use client'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 
-const StyleGuidePage = () => {
+// ─── Types ────────────────────────────────────────────────────────────────────
+
+interface EmiState {
+    loanAmount: number
+    rate: number
+    tenure: number
+    increase: number
+    extraEmi: boolean
+}
+
+interface YearlyDataPoint {
+    year: number
+    balance: number
+}
+
+interface AmortizationResult {
+    totalMonths: number
+    totalInterest: number
+    totalPaid: number
+    yearlyData: YearlyDataPoint[]
+    initialEmi: number
+}
+
+type ViewName = 'styleguide' | 'app'
+type AppPage = 'dashboard' | 'portfolio' | 'emi' | 'settings'
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+const formatCurrency = (val: number): string =>
+    new Intl.NumberFormat('en-IN', {
+        style: 'currency',
+        currency: 'INR',
+        maximumFractionDigits: 0,
+    }).format(val)
+
+const calculateEMI = (p: number, r: number, n: number): number => {
+    const monthlyRate = r / 12 / 100
+    return (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1)
+}
+
+const runAmortization = (
+    principal: number,
+    annualRate: number,
+    tenureYears: number,
+    yearlyIncrease: number,
+    extraEmiPerYear: boolean
+): AmortizationResult => {
+    let balance = principal
+    const monthlyRate = annualRate / 12 / 100
+    let currentEmi = calculateEMI(principal, annualRate, tenureYears * 12)
+    const initialEmi = currentEmi
+    let totalInterest = 0
+    let totalPaid = 0
+    let month = 0
+    const yearlyData: YearlyDataPoint[] = []
+
+    while (balance > 1 && month < 600) {
+        month++
+        const interestForMonth = balance * monthlyRate
+        let principalForMonth = currentEmi - interestForMonth
+        if (principalForMonth > balance) principalForMonth = balance
+        balance -= principalForMonth
+        totalInterest += interestForMonth
+        totalPaid += principalForMonth + interestForMonth
+
+        if (extraEmiPerYear && month % 12 === 0 && balance > 0) {
+            let extraAmt = currentEmi
+            if (extraAmt > balance) extraAmt = balance
+            balance -= extraAmt
+            totalPaid += extraAmt
+        }
+
+        if (month % 12 === 0 || balance <= 1) {
+            const yearNum = Math.ceil(month / 12)
+            yearlyData.push({ year: yearNum, balance: Math.max(0, balance) })
+            if (month % 12 === 0) currentEmi = currentEmi * (1 + yearlyIncrease / 100)
+        }
+
+        if (balance <= 1) break
+    }
+
+    return { totalMonths: month, totalInterest, totalPaid, yearlyData, initialEmi }
+}
+
+// ─── Component ────────────────────────────────────────────────────────────────
+
+const StyleGuidePage: React.FC = () => {
+    // ── View / nav state ────────────────────────────────────────────────────────
+    const [activeView, setActiveView] = useState<ViewName>('styleguide')
+    const [activePage, setActivePage] = useState<AppPage>('dashboard')
+
+    // ── Theme ───────────────────────────────────────────────────────────────────
+    const [isDark, setIsDark] = useState<boolean>(() => {
+        if (typeof window !== 'undefined') {
+            return localStorage.getItem('color-theme') !== 'light'
+        }
+        return true
+    })
+
+    useEffect(() => {
+        const html = document.documentElement
+        if (isDark) {
+            html.classList.add('dark')
+            localStorage.setItem('color-theme', 'dark')
+        } else {
+            html.classList.remove('dark')
+            localStorage.setItem('color-theme', 'light')
+        }
+    }, [isDark])
+
+    // ── Toast ───────────────────────────────────────────────────────────────────
+    const [toastMsg, setToastMsg] = useState<string>('')
+    const [toastVisible, setToastVisible] = useState<boolean>(false)
+    const toastTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+    const showToast = useCallback((message: string): void => {
+        if (toastTimerRef.current) clearTimeout(toastTimerRef.current)
+        setToastMsg(message)
+        setToastVisible(true)
+        toastTimerRef.current = setTimeout(() => setToastVisible(false), 3000)
+    }, [])
+
+    // ── Copy helpers ─────────────────────────────────────────────────────────────
+    const copyLink = (): void => {
+        navigator.clipboard.writeText(window.location.href).then(() => showToast('Link copied to clipboard'))
+    }
+
+    const copyToClipboard = (elementId: string): void => {
+        const el = document.getElementById(elementId)
+        if (!el) return
+        navigator.clipboard.writeText(el.innerText).then(() => showToast('Prompt copied to clipboard'))
+    }
+
+    const copyColor = (color: string, name: string): void => {
+        navigator.clipboard.writeText(color).then(() => showToast(`${name} (${color}) copied`))
+    }
+
+    // ── Typing effect ────────────────────────────────────────────────────────────
+    const typingRef = useRef<HTMLSpanElement | null>(null)
+
+    useEffect(() => {
+        const words = ['Ready', 'Stable', 'Optimized', 'Growing']
+        let wordIndex = 0
+        let cancelled = false
+
+        const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms))
+
+        const runTyping = async (): Promise<void> => {
+            while (!cancelled) {
+                const word = words[wordIndex % words.length]
+                const el = typingRef.current
+                if (!el) break
+                el.innerText = ''
+
+                for (let i = 0; i < word.length && !cancelled; i++) {
+                    el.innerText += word.charAt(i)
+                    await sleep(150)
+                }
+
+                await sleep(2000)
+
+                while (el.innerText.length > 0 && !cancelled) {
+                    el.innerText = el.innerText.slice(0, -1)
+                    await sleep(50)
+                }
+
+                wordIndex++
+            }
+        }
+
+        runTyping()
+        return () => { cancelled = true }
+    }, [])
+
+    // ── Charts ────────────────────────────────────────────────────────────────────
+    const dashboardChartRef = useRef<HTMLCanvasElement | null>(null)
+    const dashboardChartInstance = useRef<any>(null)
+
+    const miniChartRef = useRef<HTMLCanvasElement | null>(null)
+
+    const emiChartRef = useRef<HTMLCanvasElement | null>(null)
+    const emiChartInstance = useRef<any>(null)
+
+    // Mini chart (static, rendered once on mount)
+    useEffect(() => {
+        const Chart = (window as any).Chart
+        if (!Chart || !miniChartRef.current) return
+
+        const ctx = miniChartRef.current.getContext('2d')
+        if (!ctx) return
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+                datasets: [{
+                    data: [65, 78, 72, 85, 82, 90, 98],
+                    borderColor: '#00DC82',
+                    borderWidth: 2,
+                    backgroundColor: (context: any) => {
+                        const c = context.chart.ctx
+                        const gradient = c.createLinearGradient(0, 0, 0, 100)
+                        gradient.addColorStop(0, 'rgba(0, 220, 130, 0.2)')
+                        gradient.addColorStop(1, 'rgba(0, 220, 130, 0)')
+                        return gradient
+                    },
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 0,
+                    pointHoverRadius: 4,
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false }, tooltip: { enabled: false } },
+                scales: {
+                    x: { display: false },
+                    y: { display: false, min: 50 },
+                },
+                interaction: { intersect: false, mode: 'index' },
+            },
+        })
+    }, [])
+
+    // Dashboard chart (init when app view is opened)
+    const initDashboardChart = useCallback((): void => {
+        const Chart = (window as any).Chart
+        if (!Chart || !dashboardChartRef.current || dashboardChartInstance.current) return
+
+        const ctx = dashboardChartRef.current.getContext('2d')
+        if (!ctx) return
+
+        const gridColor = isDark ? '#27272A' : '#E5E7EB'
+        const textColor = isDark ? '#A1A1AA' : '#6B7280'
+
+        dashboardChartInstance.current = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Visitors',
+                    data: [120, 190, 300, 500, 220, 300, 450],
+                    borderColor: '#00DC82',
+                    backgroundColor: (context: any) => {
+                        const c = context.chart.ctx
+                        const gradient = c.createLinearGradient(0, 0, 0, 300)
+                        gradient.addColorStop(0, 'rgba(0, 220, 130, 0.2)')
+                        gradient.addColorStop(1, 'rgba(0, 220, 130, 0)')
+                        return gradient
+                    },
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#09090B',
+                    pointBorderColor: '#00DC82',
+                    pointRadius: 4,
+                }],
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } },
+                    y: { grid: { color: gridColor, borderDash: [4, 4] }, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } },
+                },
+            },
+        })
+    }, [isDark])
+
+    // Update chart themes when dark mode changes
+    useEffect(() => {
+        const gridColor = isDark ? '#27272A' : '#E5E7EB'
+        const textColor = isDark ? '#A1A1AA' : '#6B7280'
+
+        const updateChartTheme = (chart: any): void => {
+            if (!chart) return
+            chart.options.scales.y.grid.color = gridColor
+            chart.options.scales.x.ticks.color = textColor
+            chart.options.scales.y.ticks.color = textColor
+            chart.update()
+        }
+
+        updateChartTheme(dashboardChartInstance.current)
+        updateChartTheme(emiChartInstance.current)
+    }, [isDark])
+
+    // ── EMI state ────────────────────────────────────────────────────────────────
+    const [emiState, setEmiState] = useState<EmiState>({
+        loanAmount: 5000000,
+        rate: 8.5,
+        tenure: 20,
+        increase: 10,
+        extraEmi: true,
+    })
+
+    const [emiResults, setEmiResults] = useState({
+        standardEmi: 0,
+        smartEmi: 0,
+        interestSaved: '₹0',
+        timeSaved: '0y 0m',
+        totalSaved: '₹0',
+    })
+
+    const updateEMIChart = useCallback(
+        (normalData: YearlyDataPoint[], smartData: YearlyDataPoint[], loanAmount: number): void => {
+            const Chart = (window as any).Chart
+            if (!Chart || !emiChartRef.current) return
+
+            const ctx = emiChartRef.current.getContext('2d')
+            if (!ctx) return
+
+            const maxYear = Math.max(normalData.length, smartData.length)
+            const labels = Array.from({ length: maxYear + 1 }, (_, i) => `Yr ${i}`)
+
+            const toPoints = (data: YearlyDataPoint[]) =>
+                labels.map((_, i) => {
+                    if (i === 0) return loanAmount
+                    const d = data.find((x) => x.year === i)
+                    return d ? d.balance : i > (data[data.length - 1]?.year ?? 0) ? 0 : null
+                })
+
+            const normPoints = toPoints(normalData)
+            const smartPoints = toPoints(smartData)
+
+            const gridColor = isDark ? '#27272A' : '#E5E7EB'
+            const textColor = isDark ? '#A1A1AA' : '#6B7280'
+
+            if (emiChartInstance.current) {
+                emiChartInstance.current.data.labels = labels
+                emiChartInstance.current.data.datasets[0].data = normPoints
+                emiChartInstance.current.data.datasets[1].data = smartPoints
+                emiChartInstance.current.options.scales.x.ticks.color = textColor
+                emiChartInstance.current.options.scales.y.ticks.color = textColor
+                emiChartInstance.current.options.scales.y.grid.color = gridColor
+                emiChartInstance.current.update()
+            } else {
+                emiChartInstance.current = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels,
+                        datasets: [
+                            {
+                                label: 'Standard Loan',
+                                data: normPoints,
+                                borderColor: '#9CA3AF',
+                                backgroundColor: 'rgba(156, 163, 175, 0.1)',
+                                borderWidth: 2,
+                                fill: true,
+                                tension: 0.4,
+                                pointRadius: 0,
+                            },
+                            {
+                                label: 'Smart Plan',
+                                data: smartPoints,
+                                borderColor: '#00DC82',
+                                backgroundColor: 'rgba(0, 220, 130, 0.2)',
+                                borderWidth: 2,
+                                fill: true,
+                                tension: 0.4,
+                                pointRadius: 0,
+                            },
+                        ],
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: { mode: 'index', intersect: false },
+                        plugins: {
+                            legend: { display: true, labels: { color: textColor, font: { family: 'Inter' } } },
+                        },
+                        scales: {
+                            x: { grid: { display: false }, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } },
+                            y: {
+                                grid: { color: gridColor, borderDash: [4, 4] },
+                                ticks: {
+                                    color: textColor,
+                                    font: { family: 'JetBrains Mono' },
+                                    callback: (val: number) => `₹${val / 100000}L`,
+                                },
+                            },
+                        },
+                    },
+                })
+            }
+        },
+        [isDark]
+    )
+
+    const updateEMIView = useCallback(
+        (state: EmiState): void => {
+            const normal = runAmortization(state.loanAmount, state.rate, state.tenure, 0, false)
+            const smart = runAmortization(state.loanAmount, state.rate, state.tenure, state.increase, state.extraEmi)
+
+            const savedInt = normal.totalInterest - smart.totalInterest
+            const timeSavedM = normal.totalMonths - smart.totalMonths
+            const totalSaved = normal.totalPaid - smart.totalPaid
+
+            setEmiResults({
+                standardEmi: normal.initialEmi,
+                smartEmi: smart.initialEmi,
+                interestSaved: formatCurrency(savedInt),
+                timeSaved: `${Math.floor(timeSavedM / 12)}y ${timeSavedM % 12}m`,
+                totalSaved: formatCurrency(totalSaved),
+            })
+
+            updateEMIChart(normal.yearlyData, smart.yearlyData, state.loanAmount)
+        },
+        [updateEMIChart]
+    )
+
+    // Recalculate whenever EMI state changes
+    useEffect(() => {
+        if (activePage === 'emi') {
+            updateEMIView(emiState)
+        }
+    }, [emiState, activePage, updateEMIView])
+
+    // ── View switching ────────────────────────────────────────────────────────────
+    const handleSwitchView = (view: ViewName): void => {
+        setActiveView(view)
+        if (view === 'app') initDashboardChart()
+    }
+
+    const handleSwitchPage = (page: AppPage): void => {
+        setActivePage(page)
+        if (page === 'emi') updateEMIView(emiState)
+        if (page === 'dashboard') setTimeout(initDashboardChart, 0)
+    }
+
+    const breadcrumbMap: Record<AppPage, string> = {
+        dashboard: 'Dashboard',
+        portfolio: 'Portfolio Manager',
+        emi: 'Smart EMI Tool',
+        settings: 'Configuration',
+    }
+
+    // ── Palette data ──────────────────────────────────────────────────────────────
+    const paletteColors: { color: string; name: string; label: string; bg: string; textClass: string }[] = [
+        { color: '#09090B', name: 'Void Black', label: 'Main BG', bg: 'bg-brand-black', textClass: 'text-white' },
+        { color: '#18181B', name: 'Graphite', label: 'Surface', bg: 'bg-brand-surface', textClass: 'text-white' },
+        { color: '#00DC82', name: 'Electric Mint', label: 'Accent', bg: 'bg-brand-mint', textClass: 'text-brand-black' },
+        { color: '#047857', name: 'Deep Fern', label: 'Secondary', bg: 'bg-brand-fern', textClass: 'text-white' },
+        { color: '#BBF7D0', name: 'Lime Glow', label: 'Highlight', bg: 'bg-brand-glow', textClass: 'text-brand-black' },
+    ]
+
+    // ── Render ────────────────────────────────────────────────────────────────────
     return (
         <>
             <main
@@ -31,10 +479,10 @@ const StyleGuidePage = () => {
                     {/* <!-- View Switcher (Center) --> */}
                     <div
                         className="hidden md:flex bg-gray-100 dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-lg p-1">
-                        <button onClick={switchView('styleguide')} id="btn-styleguide"
+                        <button onClick={() => { }} id="btn-styleguide"
                             className="px-4 py-1.5 rounded text-sm font-medium transition-all bg-white dark:bg-brand-surfaceHighlight shadow-sm text-gray-900 dark:text-white">Style
                             Guide</button>
-                        <button onClick={switchView('app')} id="btn-app"
+                        <button onClick={() => { }} id="btn-app"
                             className="px-4 py-1.5 rounded text-sm font-medium transition-all text-gray-500 dark:text-brand-muted hover:text-gray-900 dark:hover:text-white">Admin
                             CMS</button>
                     </div>
@@ -47,12 +495,12 @@ const StyleGuidePage = () => {
                             <i data-lucide="moon" className="w-4 h-4 block dark:hidden"></i>
                         </button>
 
-                        <button onClick={copyLink()}
+                        <button onClick={() => { }}
                             className="hidden sm:block border border-gray-200 dark:border-brand-border hover:border-brand-mint hover:text-brand-mint text-gray-500 dark:text-brand-muted px-4 py-2 rounded text-xs font-mono transition-all">
                             Share
                         </button>
                     </div>
-                    <button onClick={copyLink()}
+                    <button onClick={() => { }}
                         className="border border-brand-border hover:border-brand-mint hover:text-brand-mint px-4 py-2 rounded text-xs font-mono transition-all">
                         Share_Board
                     </button>
@@ -217,7 +665,7 @@ const StyleGuidePage = () => {
                         </div>
 
                         <nav className="flex-1 px-4 space-y-1">
-                            <button onClick={() => switchAppPage('dashboard')} id="nav-dashboard"
+                            <button onClick={() => {}} id="nav-dashboard"
                                 className="nav-item active w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 dark:text-brand-text">
                                 <i data-lucide="layout-dashboard" className="w-4 h-4"></i>
                                 Dashboard
@@ -227,7 +675,7 @@ const StyleGuidePage = () => {
                                 <div
                                     className="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">
                                     Content Manager</div>
-                                <button onClick={() => switchAppPage('portfolio')} id="nav-portfolio"
+                                <button onClick={() => {}} id="nav-portfolio"
                                     className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                                     <i data-lucide="briefcase" className="w-4 h-4"></i>
                                     Portfolio
@@ -248,7 +696,7 @@ const StyleGuidePage = () => {
                                 <div
                                     className="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">
                                     Tools</div>
-                                <button onClick={() => switchAppPage('emi')} id="nav-emi"
+                                <button onClick={() => {}} id="nav-emi"
                                     className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                                     <i data-lucide="calculator" className="w-4 h-4"></i>
                                     Smart EMI
@@ -256,7 +704,7 @@ const StyleGuidePage = () => {
                             </div>
 
                             <div className="mt-auto pb-4">
-                                <button onClick={() => switchAppPage('settings')} id="nav-settings"
+                                <button onClick={() => {}} id="nav-settings"
                                     className="nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text">
                                     <i data-lucide="settings" className="w-4 h-4"></i>
                                     Configuration
@@ -646,7 +1094,7 @@ const StyleGuidePage = () => {
                                         <div>
                                             <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Meta
                                                 Description</label>
-                                            <textarea rows="3"
+                                            <textarea rows={3}
                                                 className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono text-sm">Design system, UI libraries, and helpful developer tools by mrahulrahi.</textarea>
                                         </div>
                                         <div className="flex gap-4">
