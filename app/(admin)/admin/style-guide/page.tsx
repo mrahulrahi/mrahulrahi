@@ -1,4 +1,5 @@
 'use client'
+// Workspace update tracking checkpoint
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 
 // ─── Types ────────────────────────────────────────────────────────────────────
