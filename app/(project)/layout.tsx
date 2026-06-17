@@ -1,6 +1,6 @@
 
 import type { Metadata } from 'next'
-import './globals.css'
+import '@/app/globals.css'
 import { Josefin_Sans, Outfit } from 'next/font/google'
 import { GradientProvider } from '@/app/context/GradientContext';
 import Providers from './providers';
