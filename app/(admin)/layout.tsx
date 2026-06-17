@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google'
 import '@/app/globals.css'
-import "./admin/Admin.css"
 import { GradientProvider } from '@/app/context/GradientContext';
 import Providers from '../(project)/providers'; // Points to the shared providers
 const inter = Inter({ subsets: ['latin'] })
