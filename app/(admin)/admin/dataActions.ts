@@ -99,6 +99,9 @@ export interface SkillItem {
 export interface VisibilityItem {
     id: string;
     visible: boolean;
+    name?: string;
+    description?: string;
+    href?: string;
 }
 
 export interface UiToolsData {

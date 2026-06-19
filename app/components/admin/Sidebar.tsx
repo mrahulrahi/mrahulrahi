@@ -1,3 +1,4 @@
+import React from 'react';
 import { 
     LayoutDashboard, 
     Briefcase, 
@@ -14,7 +15,12 @@ import {
 import { useRouter } from 'next/navigation';
 import { logoutAction } from '@/app/(admin)/admin/actions';
 
-const Sidebar = ({ activePage, setActivePage }) => {
+interface SidebarProps {
+    activePage: string;
+    setActivePage: (page: string) => void;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ activePage, setActivePage }) => {
     const router = useRouter();
 
     const handleLogout = async () => {

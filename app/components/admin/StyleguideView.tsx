@@ -1,7 +1,8 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 
-const StyleguideView = () => {
-    const [cursorVisible, setCursorVisible] = useState(true);
+const StyleguideView: React.FC = () => {
+    const [cursorVisible, setCursorVisible] = useState<boolean>(true);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -10,10 +11,8 @@ const StyleguideView = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const copyColor = (color, name) => {
+    const copyColor = (color: string, name: string) => {
         navigator.clipboard.writeText(color);
-        // You could dispatch a custom event here to trigger the global toast, 
-        // or accept a showToast function as a prop.
         const event = new CustomEvent('show-toast', { detail: `${name} (${color}) copied` });
         window.dispatchEvent(event);
     };
@@ -79,7 +78,7 @@ const StyleguideView = () => {
                     <div onClick={() => copyColor('#00DC82', 'Electric Mint')} className="group relative aspect-square rounded-xl border border-gray-200 dark:border-brand-border bg-brand-mint flex flex-col justify-between p-4 cursor-pointer transition-all hover:scale-[1.02] hover:shadow-lg overflow-hidden shadow-sm">
                         <div className="absolute inset-0 bg-brand-mint"></div>
                         <span className="relative z-10 text-xs font-mono bg-black/20 backdrop-blur px-2 py-1 rounded text-black w-max border border-black/10 font-bold">Accent</span>
-                        <div className="relative z-10 flex justify-between items-end text-brand-black"><span className="font-display font-bold">Electric Mint</span><span className="font-mono text-xs font-bold">#00DC82</span></div>
+                        <div className="relative z-10 flex justify-between items-end text-brand-black"><span className="font-display font-bold">Electric Mint</span><span className="font-mono text-xs font-bold font-display">#00DC82</span></div>
                     </div>
                 </div>
             </section>

@@ -2,22 +2,37 @@ import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 import { Eye, Download, MousePointer, Plus, ArrowUp } from 'lucide-react';
 
-const DashboardView = ({ theme }) => {
-    const chartRef = useRef(null);
-    const chartInstanceRef = useRef(null);
+interface DashboardViewProps {
+    theme: string;
+}
+
+const DashboardView: React.FC<DashboardViewProps> = ({ theme }) => {
+    const chartRef = useRef<HTMLCanvasElement | null>(null);
+    const chartInstanceRef = useRef<Chart | null>(null);
 
     useEffect(() => {
         if (!chartRef.current) return;
         
         const ctx = chartRef.current.getContext('2d');
+        if (!ctx) return;
+        
         const isDark = theme === 'dark';
         const gridColor = isDark ? '#27272A' : '#E5E7EB';
         const textColor = isDark ? '#A1A1AA' : '#6B7280';
 
         if (chartInstanceRef.current) {
-            chartInstanceRef.current.options.scales.y.grid.color = gridColor;
-            chartInstanceRef.current.options.scales.x.ticks.color = textColor;
-            chartInstanceRef.current.options.scales.y.ticks.color = textColor;
+            const scales = chartInstanceRef.current.options.scales;
+            if (scales) {
+                if (scales.y && scales.y.grid) {
+                    scales.y.grid.color = gridColor;
+                }
+                if (scales.x && scales.x.ticks) {
+                    scales.x.ticks.color = textColor;
+                }
+                if (scales.y && scales.y.ticks) {
+                    scales.y.ticks.color = textColor;
+                }
+            }
             chartInstanceRef.current.update();
         } else {
             chartInstanceRef.current = new Chart(ctx, {
@@ -29,8 +44,8 @@ const DashboardView = ({ theme }) => {
                         data: [120, 190, 300, 500, 220, 300, 450],
                         borderColor: '#00DC82',
                         backgroundColor: (context) => {
-                            const ctx = context.chart.ctx;
-                            const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+                            const chartCtx = context.chart.ctx;
+                            const gradient = chartCtx.createLinearGradient(0, 0, 0, 300);
                             gradient.addColorStop(0, 'rgba(0, 220, 130, 0.2)');
                             gradient.addColorStop(1, 'rgba(0, 220, 130, 0)');
                             return gradient;
@@ -49,7 +64,7 @@ const DashboardView = ({ theme }) => {
                     plugins: { legend: { display: false } },
                     scales: {
                         x: { grid: { display: false }, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } },
-                        y: { grid: { color: gridColor, borderDash: [4, 4] }, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } }
+                        y: { grid: { color: gridColor, borderDash: [4, 4] } as any, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } }
                     }
                 }
             });

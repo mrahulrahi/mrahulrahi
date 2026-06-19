@@ -1,15 +1,39 @@
+'use client'
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import Chart from 'chart.js/auto';
 import { RefreshCw, Wallet, ArrowUpCircle, Calendar } from 'lucide-react';
 
-const formatCurrency = (val) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
+interface EmiViewProps {
+    theme: string;
+}
 
-const calculateEMI = (p, r, n) => {
+interface AmortizationYearData {
+    year: number;
+    balance: number;
+}
+
+interface AmortizationResult {
+    totalMonths: number;
+    totalInterest: number;
+    totalPaid: number;
+    yearlyData: AmortizationYearData[];
+    initialEmi: number;
+}
+
+const formatCurrency = (val: number) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
+
+const calculateEMI = (p: number, r: number, n: number) => {
     const monthlyRate = r / 12 / 100;
     return (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
 };
 
-const runAmortization = (principal, annualRate, tenureYears, yearlyIncrease, extraEmiPerYear) => {
+const runAmortization = (
+    principal: number,
+    annualRate: number,
+    tenureYears: number,
+    yearlyIncrease: number,
+    extraEmiPerYear: boolean
+): AmortizationResult => {
     let balance = principal;
     const monthlyRate = annualRate / 12 / 100;
     let currentEmi = calculateEMI(principal, annualRate, tenureYears * 12);
@@ -17,7 +41,7 @@ const runAmortization = (principal, annualRate, tenureYears, yearlyIncrease, ext
     let totalInterest = 0;
     let totalPaid = 0;
     let month = 0;
-    const yearlyData = [];
+    const yearlyData: AmortizationYearData[] = [];
 
     while (balance > 1 && month < 600) {
         month++;
@@ -43,15 +67,15 @@ const runAmortization = (principal, annualRate, tenureYears, yearlyIncrease, ext
     return { totalMonths: month, totalInterest, totalPaid, yearlyData, initialEmi };
 };
 
-const EmiView = ({ theme }) => {
-    const [loanAmount, setLoanAmount] = useState(5000000);
-    const [rate, setRate] = useState(8.5);
-    const [tenure, setTenure] = useState(20);
-    const [increase, setIncrease] = useState(10);
-    const [extraEmi, setExtraEmi] = useState(true);
+const EmiView: React.FC<EmiViewProps> = ({ theme }) => {
+    const [loanAmount, setLoanAmount] = useState<number>(5000000);
+    const [rate, setRate] = useState<number>(8.5);
+    const [tenure, setTenure] = useState<number>(20);
+    const [increase, setIncrease] = useState<number>(10);
+    const [extraEmi, setExtraEmi] = useState<boolean>(true);
 
-    const chartRef = useRef(null);
-    const chartInstanceRef = useRef(null);
+    const chartRef = useRef<HTMLCanvasElement | null>(null);
+    const chartInstanceRef = useRef<Chart | null>(null);
 
     const normalData = useMemo(() => runAmortization(loanAmount, rate, tenure, 0, false), [loanAmount, rate, tenure]);
     const smartData = useMemo(() => runAmortization(loanAmount, rate, tenure, increase, extraEmi), [loanAmount, rate, tenure, increase, extraEmi]);
@@ -64,10 +88,26 @@ const EmiView = ({ theme }) => {
         if (!chartRef.current) return;
         
         const ctx = chartRef.current.getContext('2d');
+        if (!ctx) return;
+
         const maxYear = Math.max(normalData.yearlyData.length, smartData.yearlyData.length);
         const labels = Array.from({ length: maxYear + 1 }, (_, i) => `Yr ${i}`);
-        const normPoints = labels.map((_, i) => { if (i === 0) return loanAmount; const d = normalData.yearlyData.find(x => x.year === i); return d ? d.balance : (i > normalData.yearlyData[normalData.yearlyData.length - 1]?.year ? 0 : null); });
-        const smartPoints = labels.map((_, i) => { if (i === 0) return loanAmount; const d = smartData.yearlyData.find(x => x.year === i); return d ? d.balance : (i > smartData.yearlyData[smartData.yearlyData.length - 1]?.year ? 0 : null); });
+        
+        const normPoints = labels.map((_, i) => { 
+            if (i === 0) return loanAmount; 
+            const d = normalData.yearlyData.find(x => x.year === i); 
+            if (d) return d.balance;
+            const lastYear = normalData.yearlyData[normalData.yearlyData.length - 1]?.year;
+            return lastYear && i > lastYear ? 0 : null;
+        });
+
+        const smartPoints = labels.map((_, i) => { 
+            if (i === 0) return loanAmount; 
+            const d = smartData.yearlyData.find(x => x.year === i); 
+            if (d) return d.balance;
+            const lastYear = smartData.yearlyData[smartData.yearlyData.length - 1]?.year;
+            return lastYear && i > lastYear ? 0 : null;
+        });
         
         const isDark = theme === 'dark';
         const gridColor = isDark ? '#27272A' : '#E5E7EB';
@@ -77,9 +117,19 @@ const EmiView = ({ theme }) => {
             chartInstanceRef.current.data.labels = labels;
             chartInstanceRef.current.data.datasets[0].data = normPoints;
             chartInstanceRef.current.data.datasets[1].data = smartPoints;
-            chartInstanceRef.current.options.scales.x.ticks.color = textColor;
-            chartInstanceRef.current.options.scales.y.ticks.color = textColor;
-            chartInstanceRef.current.options.scales.y.grid.color = gridColor;
+            
+            const scales = chartInstanceRef.current.options.scales;
+            if (scales) {
+                if (scales.x && scales.x.ticks) {
+                    scales.x.ticks.color = textColor;
+                }
+                if (scales.y && scales.y.ticks) {
+                    scales.y.ticks.color = textColor;
+                }
+                if (scales.y && scales.y.grid) {
+                    scales.y.grid.color = gridColor;
+                }
+            }
             chartInstanceRef.current.update();
         } else {
             chartInstanceRef.current = new Chart(ctx, {
@@ -98,7 +148,7 @@ const EmiView = ({ theme }) => {
                     plugins: { legend: { display: true, labels: { color: textColor, font: { family: 'Inter' } } } },
                     scales: {
                         x: { grid: { display: false }, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } },
-                        y: { grid: { color: gridColor, borderDash: [4, 4] }, ticks: { color: textColor, font: { family: 'JetBrains Mono' }, callback: (val) => '₹' + val / 100000 + 'L' } }
+                        y: { grid: { color: gridColor, borderDash: [4, 4] } as any, ticks: { color: textColor, font: { family: 'JetBrains Mono' }, callback: (val) => '₹' + Number(val) / 100000 + 'L' } }
                     }
                 }
             });

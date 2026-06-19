@@ -1,12 +1,13 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit3, Trash2, Heart } from 'lucide-react';
-import { getPortfolioData, saveInterest, deleteInterest } from '@/app/(admin)/admin/dataActions';
+import { getPortfolioData, saveInterest, deleteInterest, Interest, TagItem } from '@/app/(admin)/admin/dataActions';
 
-const InterestsView = () => {
-    const [interests, setInterests] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [isEditing, setIsEditing] = useState(false);
-    const [currentInterest, setCurrentInterest] = useState(null);
+const InterestsView: React.FC = () => {
+    const [interests, setInterests] = useState<Interest[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [currentInterest, setCurrentInterest] = useState<Interest | null>(null);
 
     useEffect(() => {
         loadData();
@@ -23,8 +24,8 @@ const InterestsView = () => {
         setLoading(false);
     };
 
-    const handleEdit = (interest) => {
-        setCurrentInterest({ ...interest, items: [...interest.items] });
+    const handleEdit = (interest: Interest) => {
+        setCurrentInterest({ ...interest, items: interest.items ? [...interest.items] : [] });
         setIsEditing(true);
     };
 
@@ -33,7 +34,7 @@ const InterestsView = () => {
         setIsEditing(true);
     };
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id: number) => {
         if (window.confirm("Are you sure you want to delete this interest?")) {
             await deleteInterest(id);
             dispatchToast('Interest deleted');
@@ -41,37 +42,45 @@ const InterestsView = () => {
         }
     };
 
-    const handleSave = async (e) => {
+    const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!currentInterest) return;
         await saveInterest(currentInterest);
         dispatchToast('Interest saved successfully');
         setIsEditing(false);
         loadData();
     };
 
-    const dispatchToast = (msg) => {
+    const dispatchToast = (msg: string) => {
         window.dispatchEvent(new CustomEvent('show-toast', { detail: msg }));
     };
 
     const addItem = () => {
+        if (!currentInterest) return;
         setCurrentInterest({
             ...currentInterest,
-            items: [...currentInterest.items, { label: '', icon: '' }]
+            items: [...(currentInterest.items || []), { label: '', icon: '' }]
         });
     };
 
-    const updateItem = (index, field, value) => {
+    const updateItem = (index: number, field: keyof TagItem, value: string) => {
+        if (!currentInterest || !currentInterest.items) return;
         const newItems = [...currentInterest.items];
-        newItems[index][field] = value;
+        newItems[index] = {
+            ...newItems[index],
+            [field]: value
+        };
         setCurrentInterest({ ...currentInterest, items: newItems });
     };
 
-    const removeItem = (index) => {
+    const removeItem = (index: number) => {
+        if (!currentInterest || !currentInterest.items) return;
         const newItems = currentInterest.items.filter((_, i) => i !== index);
         setCurrentInterest({ ...currentInterest, items: newItems });
     };
 
     if (isEditing) {
+        if (!currentInterest) return null;
         return (
             <div className="space-y-6 animate-fade-in max-w-4xl">
                 <div className="flex items-center justify-between">
@@ -97,17 +106,17 @@ const InterestsView = () => {
                         </div>
                         <div>
                             <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Created By</label>
-                            <input required type="text" value={currentInterest.createdBy} onChange={e => setCurrentInterest({...currentInterest, createdBy: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
+                            <input required type="text" value={currentInterest.createdBy || ''} onChange={e => setCurrentInterest({...currentInterest, createdBy: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
                         </div>
                     </div>
                     <div>
                         <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Description</label>
-                        <textarea required rows="3" value={currentInterest.desc} onChange={e => setCurrentInterest({...currentInterest, desc: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm"></textarea>
+                        <textarea required rows={3} value={currentInterest.desc} onChange={e => setCurrentInterest({...currentInterest, desc: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm"></textarea>
                     </div>
 
                     <div className="space-y-3 pt-4 border-t border-gray-100 dark:border-brand-border">
                         <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted">Sub-links / Tags</label>
-                        {currentInterest.items.map((item, idx) => (
+                        {(currentInterest.items || []).map((item, idx) => (
                             <div key={idx} className="flex gap-2 items-center">
                                 <input required type="text" placeholder="Label (e.g. YouTube)" value={item.label} onChange={e => updateItem(idx, 'label', e.target.value)} className="flex-1 px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-sm outline-none focus:border-brand-mint text-gray-900 dark:text-brand-text" />
                                 <input required type="text" placeholder="Icon Name (e.g. LuYoutube)" value={item.icon} onChange={e => updateItem(idx, 'icon', e.target.value)} className="flex-1 px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-sm outline-none focus:border-brand-mint text-gray-900 dark:text-brand-text" />
@@ -155,7 +164,7 @@ const InterestsView = () => {
                                 <p className="text-sm text-gray-500 dark:text-brand-muted mb-4 line-clamp-3">{interest.desc}</p>
                                 
                                 <div className="flex flex-wrap gap-2 mb-4">
-                                    {interest.items.map((it, idx) => (
+                                    {(interest.items || []).map((it, idx) => (
                                         <span key={idx} className="text-[10px] px-2 py-1 bg-gray-100 dark:bg-brand-surfaceHighlight rounded font-mono text-gray-600 dark:text-brand-muted border border-gray-200 dark:border-brand-border">
                                             {it.icon}: {it.label}
                                         </span>
@@ -165,7 +174,7 @@ const InterestsView = () => {
                                 <div className="mt-auto pt-4 border-t border-gray-100 dark:border-brand-border flex items-center justify-between">
                                     <div className="flex gap-2">
                                         <button onClick={() => handleEdit(interest)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><Edit3 className="w-4 h-4" /></button>
-                                        <button onClick={() => handleDelete(interest.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
+                                        <button onClick={() => interest.id !== undefined && handleDelete(interest.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
                                     </div>
                                     <span className="text-xs text-gray-400">By: {interest.createdBy}</span>
                                 </div>

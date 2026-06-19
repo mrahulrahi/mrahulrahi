@@ -1,8 +1,9 @@
+'use client'
 import React, { useState } from 'react';
 import { Bell } from 'lucide-react';
 
-const SettingsView = () => {
-    const [notifications, setNotifications] = useState(true);
+const SettingsView: React.FC = () => {
+    const [notifications, setNotifications] = useState<boolean>(true);
 
     return (
         <div className="space-y-6 animate-fade-in max-w-4xl mx-auto">

@@ -1,14 +1,14 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { Search, Eye, EyeOff, Component, PenTool, CheckCircle, Info } from 'lucide-react';
-import { getUiToolsData, saveUiComponentVisibility, saveToolVisibility } from '@/app/(admin)/admin/dataActions';
+import { Search, Eye, EyeOff, Component, PenTool, Info } from 'lucide-react';
+import { getUiToolsData, saveUiComponentVisibility, saveToolVisibility, VisibilityItem } from '@/app/(admin)/admin/dataActions';
 
-const UiToolsView = () => {
-    const [uiComponents, setUiComponents] = useState([]);
-    const [tools, setTools] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [activeTab, setActiveTab] = useState('components'); // 'components' | 'tools'
-    const [searchQuery, setSearchQuery] = useState('');
+const UiToolsView: React.FC = () => {
+    const [uiComponents, setUiComponents] = useState<VisibilityItem[]>([]);
+    const [tools, setTools] = useState<VisibilityItem[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [activeTab, setActiveTab] = useState<string>('components'); // 'components' | 'tools'
+    const [searchQuery, setSearchQuery] = useState<string>('');
 
     useEffect(() => {
         loadData();
@@ -27,7 +27,7 @@ const UiToolsView = () => {
         setLoading(false);
     };
 
-    const handleUiToggle = async (id, currentVisible) => {
+    const handleUiToggle = async (id: string, currentVisible: boolean) => {
         const nextVisible = !currentVisible;
         
         // Optimistic UI update
@@ -48,7 +48,7 @@ const UiToolsView = () => {
         }
     };
 
-    const handleToolToggle = async (id, currentVisible) => {
+    const handleToolToggle = async (id: string, currentVisible: boolean) => {
         const nextVisible = !currentVisible;
 
         // Optimistic UI update
@@ -69,21 +69,21 @@ const UiToolsView = () => {
         }
     };
 
-    const dispatchToast = (msg) => {
+    const dispatchToast = (msg: string) => {
         window.dispatchEvent(new CustomEvent('show-toast', { detail: msg }));
     };
 
     // Filter list by search query
     const filteredComponents = uiComponents.filter(item => 
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        (item.name || '').toLowerCase().includes(searchQuery.toLowerCase()) || 
         item.id.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        item.description.toLowerCase().includes(searchQuery.toLowerCase())
+        (item.description || '').toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     const filteredTools = tools.filter(item => 
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        (item.name || '').toLowerCase().includes(searchQuery.toLowerCase()) || 
         item.id.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        item.description.toLowerCase().includes(searchQuery.toLowerCase())
+        (item.description || '').toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     return (

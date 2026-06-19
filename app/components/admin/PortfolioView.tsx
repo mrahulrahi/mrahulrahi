@@ -1,12 +1,25 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import { Search, Image as ImageIcon, Edit3, Plus, Trash2 } from 'lucide-react';
-import { getPortfolioData, saveProject, deleteProject } from '@/app/(admin)/admin/dataActions';
+import { getPortfolioData, saveProject, deleteProject, Project } from '@/app/(admin)/admin/dataActions';
 
-const PortfolioView = () => {
-    const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [isEditing, setIsEditing] = useState(false);
-    const [currentProject, setCurrentProject] = useState(null);
+interface EditingProject {
+    id?: number;
+    title: string;
+    label: string;
+    imgUrl: string;
+    technologies: string;
+    liveUrl?: string;
+    gitHubUrl?: string;
+    para: string;
+}
+
+const PortfolioView: React.FC = () => {
+    const [projects, setProjects] = useState<Project[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [currentProject, setCurrentProject] = useState<EditingProject | null>(null);
+    const [searchQuery, setSearchQuery] = useState<string>('');
 
     useEffect(() => {
         loadData();
@@ -23,8 +36,17 @@ const PortfolioView = () => {
         setLoading(false);
     };
 
-    const handleEdit = (project) => {
-        setCurrentProject({ ...project, technologies: project.technologies.join(', ') });
+    const handleEdit = (project: Project) => {
+        setCurrentProject({
+            id: project.id,
+            title: project.title,
+            label: project.label,
+            imgUrl: project.imgUrl,
+            technologies: (project.technologies || []).join(', '),
+            liveUrl: project.liveUrl,
+            gitHubUrl: project.gitHubUrl,
+            para: project.para
+        });
         setIsEditing(true);
     };
 
@@ -33,7 +55,7 @@ const PortfolioView = () => {
         setIsEditing(true);
     };
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id: number) => {
         if (window.confirm("Are you sure you want to delete this project?")) {
             await deleteProject(id);
             const event = new CustomEvent('show-toast', { detail: 'Project deleted' });
@@ -42,10 +64,21 @@ const PortfolioView = () => {
         }
     };
 
-    const handleSave = async (e) => {
+    const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!currentProject) return;
+
         const techArray = currentProject.technologies.split(',').map(t => t.trim()).filter(Boolean);
-        const payload = { ...currentProject, technologies: techArray };
+        const payload: Project = {
+            id: currentProject.id,
+            title: currentProject.title,
+            label: currentProject.label,
+            imgUrl: currentProject.imgUrl,
+            technologies: techArray,
+            liveUrl: currentProject.liveUrl,
+            gitHubUrl: currentProject.gitHubUrl,
+            para: currentProject.para
+        };
         
         await saveProject(payload);
         const event = new CustomEvent('show-toast', { detail: 'Project saved successfully' });
@@ -54,7 +87,14 @@ const PortfolioView = () => {
         loadData();
     };
 
+    const filteredProjects = projects.filter(project => 
+        project.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        project.label.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        project.para.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
     if (isEditing) {
+        if (!currentProject) return null;
         return (
             <div className="space-y-6 animate-fade-in">
                 <div className="flex items-center justify-between">
@@ -84,21 +124,21 @@ const PortfolioView = () => {
                         </div>
                         <div>
                             <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Live URL</label>
-                            <input type="text" value={currentProject.liveUrl} onChange={e => setCurrentProject({...currentProject, liveUrl: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
+                            <input type="text" value={currentProject.liveUrl || ''} onChange={e => setCurrentProject({...currentProject, liveUrl: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
                         </div>
                         <div>
                             <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">GitHub URL</label>
-                            <input type="text" value={currentProject.gitHubUrl} onChange={e => setCurrentProject({...currentProject, gitHubUrl: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
+                            <input type="text" value={currentProject.gitHubUrl || ''} onChange={e => setCurrentProject({...currentProject, gitHubUrl: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
                         </div>
                     </div>
                     <div>
                         <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Description</label>
-                        <textarea required rows="4" value={currentProject.para} onChange={e => setCurrentProject({...currentProject, para: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm"></textarea>
+                        <textarea required rows={4} value={currentProject.para} onChange={e => setCurrentProject({...currentProject, para: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm"></textarea>
                     </div>
                     <button type="submit" className="bg-brand-mint text-brand-black px-6 py-2 rounded-lg text-sm font-bold hover:bg-brand-fern hover:text-white transition-colors">Save Project</button>
                 </form>
             </div>
-        )
+        );
     }
 
     return (
@@ -111,7 +151,7 @@ const PortfolioView = () => {
                 <div className="flex gap-2">
                     <div className="relative">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                        <input type="text" placeholder="Search projects..." className="pl-10 pr-4 py-2 rounded-lg bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-sm w-64 focus:border-brand-mint outline-none text-gray-900 dark:text-brand-text" />
+                        <input type="text" placeholder="Search projects..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="pl-10 pr-4 py-2 rounded-lg bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border text-sm w-64 focus:border-brand-mint outline-none text-gray-900 dark:text-brand-text" />
                     </div>
                     <button onClick={handleAdd} className="bg-brand-mint text-brand-black px-4 py-2 rounded-lg text-sm font-bold hover:bg-brand-fern hover:text-white transition-colors">Add Project</button>
                 </div>
@@ -121,7 +161,7 @@ const PortfolioView = () => {
                 <div className="text-center py-12 text-gray-500 font-mono">Loading data...</div>
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {projects.map((project) => (
+                    {filteredProjects.map((project) => (
                         <div key={project.id} className="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl overflow-hidden group hover:border-brand-mint transition-all flex flex-col">
                             <div className="h-40 bg-gray-200 dark:bg-brand-black/50 relative flex items-center justify-center overflow-hidden shrink-0">
                                 {project.imgUrl ? (
@@ -138,7 +178,7 @@ const PortfolioView = () => {
                                 <div className="mt-auto pt-4 border-t border-gray-100 dark:border-brand-border flex items-center justify-between">
                                     <div className="flex gap-2">
                                         <button onClick={() => handleEdit(project)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><Edit3 className="w-4 h-4" /></button>
-                                        <button onClick={() => handleDelete(project.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
+                                        <button onClick={() => project.id !== undefined && handleDelete(project.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
                                     </div>
                                     <span className="text-xs text-gray-400">ID: {project.id}</span>
                                 </div>

@@ -1,13 +1,13 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit3, Trash2, Library, Info } from 'lucide-react';
-import { getPortfolioData, saveSkillItem, deleteSkillItem } from '@/app/(admin)/admin/dataActions';
+import { getPortfolioData, saveSkillItem, deleteSkillItem, SkillItem } from '@/app/(admin)/admin/dataActions';
 
-const SkillsView = () => {
-    const [skills, setSkills] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [isEditing, setIsEditing] = useState(false);
-    const [currentSkill, setCurrentSkill] = useState(null);
+const SkillsView: React.FC = () => {
+    const [skills, setSkills] = useState<SkillItem[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [currentSkill, setCurrentSkill] = useState<SkillItem | null>(null);
 
     useEffect(() => {
         loadData();
@@ -24,7 +24,7 @@ const SkillsView = () => {
         setLoading(false);
     };
 
-    const handleEdit = (skill) => {
+    const handleEdit = (skill: SkillItem) => {
         setCurrentSkill({ ...skill });
         setIsEditing(true);
     };
@@ -34,7 +34,7 @@ const SkillsView = () => {
         setIsEditing(true);
     };
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id: number) => {
         if (window.confirm("Are you sure you want to delete this skill?")) {
             await deleteSkillItem(id);
             dispatchToast('Skill deleted');
@@ -42,8 +42,9 @@ const SkillsView = () => {
         }
     };
 
-    const handleSave = async (e) => {
+    const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!currentSkill) return;
         try {
             await saveSkillItem(currentSkill);
             dispatchToast('Skill saved successfully');
@@ -54,11 +55,12 @@ const SkillsView = () => {
         }
     };
 
-    const dispatchToast = (msg) => {
+    const dispatchToast = (msg: string) => {
         window.dispatchEvent(new CustomEvent('show-toast', { detail: msg }));
     };
 
     if (isEditing) {
+        if (!currentSkill) return null;
         return (
             <div className="space-y-6 animate-fade-in max-w-3xl">
                 <div className="flex items-center justify-between">
@@ -125,7 +127,7 @@ const SkillsView = () => {
                             <div className="pt-4 mt-4 border-t border-gray-100 dark:border-brand-border flex items-center justify-between">
                                 <div className="flex gap-2">
                                     <button onClick={() => handleEdit(skill)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><Edit3 className="w-4 h-4" /></button>
-                                    <button onClick={() => handleDelete(skill.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
+                                    <button onClick={() => skill.id !== undefined && handleDelete(skill.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
                                 </div>
                                 <span className="text-xs text-gray-400">ID: {skill.id}</span>
                             </div>

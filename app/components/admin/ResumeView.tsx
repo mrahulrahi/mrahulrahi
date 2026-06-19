@@ -1,17 +1,23 @@
+'use client'
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit3, Trash2, Clock, Award } from 'lucide-react';
-import { getPortfolioData, saveTimelineItem, deleteTimelineItem, saveCertificate, deleteCertificate } from '@/app/(admin)/admin/dataActions';
+import { getPortfolioData, saveTimelineItem, deleteTimelineItem, saveCertificate, deleteCertificate, TimelineItem, Certificate, Role } from '@/app/(admin)/admin/dataActions';
 
-const ResumeView = () => {
-    const [activeTab, setActiveTab] = useState('timeline'); // 'timeline' or 'certificates'
-    const [data, setData] = useState({ timelineItems: [], certificates: [] });
-    const [loading, setLoading] = useState(true);
+interface ResumeData {
+    timelineItems: TimelineItem[];
+    certificates: Certificate[];
+}
 
-    const [isEditingTimeline, setIsEditingTimeline] = useState(false);
-    const [currentTimeline, setCurrentTimeline] = useState(null);
+const ResumeView: React.FC = () => {
+    const [activeTab, setActiveTab] = useState<string>('timeline'); // 'timeline' or 'certificates'
+    const [data, setData] = useState<ResumeData>({ timelineItems: [], certificates: [] });
+    const [loading, setLoading] = useState<boolean>(true);
 
-    const [isEditingCert, setIsEditingCert] = useState(false);
-    const [currentCert, setCurrentCert] = useState(null);
+    const [isEditingTimeline, setIsEditingTimeline] = useState<boolean>(false);
+    const [currentTimeline, setCurrentTimeline] = useState<TimelineItem | null>(null);
+
+    const [isEditingCert, setIsEditingCert] = useState<boolean>(false);
+    const [currentCert, setCurrentCert] = useState<Certificate | null>(null);
 
     useEffect(() => {
         loadData();
@@ -37,12 +43,12 @@ const ResumeView = () => {
         setIsEditingTimeline(true);
     };
 
-    const handleEditTimeline = (item) => {
-        setCurrentTimeline({ ...item, roles: [...item.roles] });
+    const handleEditTimeline = (item: TimelineItem) => {
+        setCurrentTimeline({ ...item, roles: item.roles ? [...item.roles] : [] });
         setIsEditingTimeline(true);
     };
 
-    const handleDeleteTimeline = async (id) => {
+    const handleDeleteTimeline = async (id: number) => {
         if (window.confirm("Delete this timeline item?")) {
             await deleteTimelineItem(id);
             dispatchToast('Timeline item deleted');
@@ -50,8 +56,9 @@ const ResumeView = () => {
         }
     };
 
-    const handleSaveTimeline = async (e) => {
+    const handleSaveTimeline = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!currentTimeline) return;
         await saveTimelineItem(currentTimeline);
         dispatchToast('Timeline saved successfully');
         setIsEditingTimeline(false);
@@ -59,19 +66,25 @@ const ResumeView = () => {
     };
 
     const addRole = () => {
+        if (!currentTimeline) return;
         setCurrentTimeline({
             ...currentTimeline,
-            roles: [...currentTimeline.roles, { role: '', duration: '' }]
+            roles: [...(currentTimeline.roles || []), { role: '', duration: '' }]
         });
     };
 
-    const updateRole = (index, field, value) => {
+    const updateRole = (index: number, field: keyof Role, value: string) => {
+        if (!currentTimeline || !currentTimeline.roles) return;
         const newRoles = [...currentTimeline.roles];
-        newRoles[index][field] = value;
+        newRoles[index] = {
+            ...newRoles[index],
+            [field]: value
+        };
         setCurrentTimeline({ ...currentTimeline, roles: newRoles });
     };
 
-    const removeRole = (index) => {
+    const removeRole = (index: number) => {
+        if (!currentTimeline || !currentTimeline.roles) return;
         const newRoles = currentTimeline.roles.filter((_, i) => i !== index);
         setCurrentTimeline({ ...currentTimeline, roles: newRoles });
     };
@@ -82,12 +95,12 @@ const ResumeView = () => {
         setIsEditingCert(true);
     };
 
-    const handleEditCert = (cert) => {
+    const handleEditCert = (cert: Certificate) => {
         setCurrentCert({ ...cert });
         setIsEditingCert(true);
     };
 
-    const handleDeleteCert = async (id) => {
+    const handleDeleteCert = async (id: number) => {
         if (window.confirm("Delete this certificate?")) {
             await deleteCertificate(id);
             dispatchToast('Certificate deleted');
@@ -95,19 +108,21 @@ const ResumeView = () => {
         }
     };
 
-    const handleSaveCert = async (e) => {
+    const handleSaveCert = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!currentCert) return;
         await saveCertificate(currentCert);
         dispatchToast('Certificate saved successfully');
         setIsEditingCert(false);
         loadData();
     };
 
-    const dispatchToast = (msg) => {
+    const dispatchToast = (msg: string) => {
         window.dispatchEvent(new CustomEvent('show-toast', { detail: msg }));
     };
 
     if (isEditingTimeline) {
+        if (!currentTimeline) return null;
         return (
             <div className="space-y-6 animate-fade-in max-w-3xl">
                 <div className="flex items-center justify-between">
@@ -124,7 +139,7 @@ const ResumeView = () => {
                     
                     <div className="space-y-3 pt-4 border-t border-gray-100 dark:border-brand-border">
                         <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted">Roles / Sub-items</label>
-                        {currentTimeline.roles.map((role, idx) => (
+                        {(currentTimeline.roles || []).map((role, idx) => (
                             <div key={idx} className="flex gap-2 items-center">
                                 <input required type="text" placeholder="Role (e.g. 10th, Developer)" value={role.role} onChange={e => updateRole(idx, 'role', e.target.value)} className="flex-1 px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-sm outline-none focus:border-brand-mint text-gray-900 dark:text-brand-text" />
                                 <input required type="text" placeholder="Duration (e.g. Jul 2012 - Jun 2014)" value={role.duration} onChange={e => updateRole(idx, 'duration', e.target.value)} className="flex-1 px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-sm outline-none focus:border-brand-mint text-gray-900 dark:text-brand-text" />
@@ -141,6 +156,7 @@ const ResumeView = () => {
     }
 
     if (isEditingCert) {
+        if (!currentCert) return null;
         return (
             <div className="space-y-6 animate-fade-in max-w-3xl">
                 <div className="flex items-center justify-between">
@@ -204,7 +220,7 @@ const ResumeView = () => {
                                         <h3 className="font-bold text-lg text-gray-900 dark:text-brand-text">{item.title}</h3>
                                     </div>
                                     <div className="space-y-3 mb-6">
-                                        {item.roles.map((r, i) => (
+                                        {(item.roles || []).map((r, i) => (
                                             <div key={i} className="text-sm">
                                                 <p className="font-medium text-gray-700 dark:text-gray-300">{r.role}</p>
                                                 <p className="text-xs text-gray-500 dark:text-brand-muted">{r.duration}</p>
@@ -214,7 +230,7 @@ const ResumeView = () => {
                                     <div className="pt-4 border-t border-gray-100 dark:border-brand-border flex items-center justify-between">
                                         <div className="flex gap-2">
                                             <button onClick={() => handleEditTimeline(item)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><Edit3 className="w-4 h-4" /></button>
-                                            <button onClick={() => handleDeleteTimeline(item.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
+                                            <button onClick={() => item.id !== undefined && handleDeleteTimeline(item.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
                                         </div>
                                     </div>
                                 </div>
@@ -241,7 +257,7 @@ const ResumeView = () => {
                                     <div className="pt-4 border-t border-gray-100 dark:border-brand-border flex items-center justify-between">
                                         <div className="flex gap-2">
                                             <button onClick={() => handleEditCert(cert)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><Edit3 className="w-4 h-4" /></button>
-                                            <button onClick={() => handleDeleteCert(cert.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
+                                            <button onClick={() => cert.id !== undefined && handleDeleteCert(cert.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
                                         </div>
                                     </div>
                                 </div>

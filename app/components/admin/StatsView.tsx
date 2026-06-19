@@ -1,13 +1,13 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit3, Trash2, TrendingUp, Info } from 'lucide-react';
-import { getPortfolioData, saveStatItem, deleteStatItem } from '@/app/(admin)/admin/dataActions';
+import { getPortfolioData, saveStatItem, deleteStatItem, StatItem } from '@/app/(admin)/admin/dataActions';
 
-const StatsView = () => {
-    const [stats, setStats] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [isEditing, setIsEditing] = useState(false);
-    const [currentStat, setCurrentStat] = useState(null);
+const StatsView: React.FC = () => {
+    const [stats, setStats] = useState<StatItem[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [currentStat, setCurrentStat] = useState<StatItem | null>(null);
 
     useEffect(() => {
         loadData();
@@ -24,7 +24,7 @@ const StatsView = () => {
         setLoading(false);
     };
 
-    const handleEdit = (stat) => {
+    const handleEdit = (stat: StatItem) => {
         setCurrentStat({ ...stat });
         setIsEditing(true);
     };
@@ -34,7 +34,7 @@ const StatsView = () => {
         setIsEditing(true);
     };
 
-    const handleDelete = async (id) => {
+    const handleDelete = async (id: number) => {
         if (window.confirm("Are you sure you want to delete this stat?")) {
             await deleteStatItem(id);
             dispatchToast('Stat deleted');
@@ -42,8 +42,9 @@ const StatsView = () => {
         }
     };
 
-    const handleSave = async (e) => {
+    const handleSave = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        if (!currentStat) return;
         try {
             const payload = { ...currentStat, countEnd: Number(currentStat.countEnd) };
             await saveStatItem(payload);
@@ -55,11 +56,12 @@ const StatsView = () => {
         }
     };
 
-    const dispatchToast = (msg) => {
+    const dispatchToast = (msg: string) => {
         window.dispatchEvent(new CustomEvent('show-toast', { detail: msg }));
     };
 
     if (isEditing) {
+        if (!currentStat) return null;
         return (
             <div className="space-y-6 animate-fade-in max-w-3xl">
                 <div className="flex items-center justify-between">
@@ -73,7 +75,7 @@ const StatsView = () => {
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Value (Ending Number)</label>
-                            <input required type="number" value={currentStat.countEnd} onChange={e => setCurrentStat({...currentStat, countEnd: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
+                            <input required type="number" value={currentStat.countEnd} onChange={e => setCurrentStat({...currentStat, countEnd: Number(e.target.value)})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
                         </div>
                         <div>
                             <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Suffix (e.g. ' +', '%', 'h')</label>
@@ -135,7 +137,7 @@ const StatsView = () => {
                             <div className="pt-4 border-t border-gray-100 dark:border-brand-border flex items-center justify-between">
                                 <div className="flex gap-2">
                                     <button onClick={() => handleEdit(stat)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-gray-500 dark:text-brand-muted"><Edit3 className="w-4 h-4" /></button>
-                                    <button onClick={() => handleDelete(stat.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
+                                    <button onClick={() => stat.id !== undefined && handleDelete(stat.id)} className="p-2 hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight rounded text-red-500 hover:text-red-700"><Trash2 className="w-4 h-4" /></button>
                                 </div>
                                 <span className="text-xs text-gray-400">ID: {stat.id}</span>
                             </div>

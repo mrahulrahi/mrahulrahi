@@ -1,11 +1,11 @@
 'use client'
 import React, { useState, useEffect } from 'react';
-import { User, ShieldAlert, Sparkles } from 'lucide-react';
-import { getPortfolioData, saveHeroData, saveAboutData } from '@/app/(admin)/admin/dataActions';
+import { User, Sparkles } from 'lucide-react';
+import { getPortfolioData, saveHeroData, saveAboutData, HeroData, AboutData } from '@/app/(admin)/admin/dataActions';
 
-const HeroAboutView = () => {
-    const [loading, setLoading] = useState(true);
-    const [hero, setHero] = useState({
+const HeroAboutView: React.FC = () => {
+    const [loading, setLoading] = useState<boolean>(true);
+    const [hero, setHero] = useState<HeroData>({
         hey: '',
         firstName: '',
         lastName: '',
@@ -13,7 +13,7 @@ const HeroAboutView = () => {
         location: '',
         description: ''
     });
-    const [about, setAbout] = useState({
+    const [about, setAbout] = useState<AboutData>({
         subheading: '',
         name: '',
         role: '',
@@ -41,7 +41,7 @@ const HeroAboutView = () => {
         setLoading(false);
     };
 
-    const handleSaveHero = async (e) => {
+    const handleSaveHero = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             await saveHeroData(hero);
@@ -51,7 +51,7 @@ const HeroAboutView = () => {
         }
     };
 
-    const handleSaveAbout = async (e) => {
+    const handleSaveAbout = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
             await saveAboutData(about);
@@ -61,7 +61,7 @@ const HeroAboutView = () => {
         }
     };
 
-    const dispatchToast = (msg) => {
+    const dispatchToast = (msg: string) => {
         window.dispatchEvent(new CustomEvent('show-toast', { detail: msg }));
     };
 
@@ -111,7 +111,7 @@ const HeroAboutView = () => {
 
                         <div>
                             <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Hero Description</label>
-                            <textarea required rows="3" value={hero.description} onChange={e => setHero({...hero, description: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm"></textarea>
+                            <textarea required rows={3} value={hero.description} onChange={e => setHero({...hero, description: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm"></textarea>
                         </div>
 
                         <div className="flex justify-end">
@@ -165,7 +165,7 @@ const HeroAboutView = () => {
 
                         <div>
                             <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">About Bio Paragraph</label>
-                            <textarea required rows="4" value={about.description} onChange={e => setAbout({...about, description: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm"></textarea>
+                            <textarea required rows={4} value={about.description} onChange={e => setAbout({...about, description: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm"></textarea>
                         </div>
 
                         <div className="flex justify-end">
