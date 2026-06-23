@@ -1,6 +1,12 @@
 'use client'
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
+const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
+
 import Chart from 'chart.js/auto';
 import {
     Sun,
@@ -385,7 +391,8 @@ export default function MergedMoodboardPage() {
     };
 
     return (
-        <div className="bg-gray-50 text-gray-900 dark:bg-brand-black dark:text-brand-text font-sans antialiased selection:bg-brand-mint selection:text-brand-black transition-colors duration-300 overflow-x-hidden min-h-screen relative z-10">
+        <div className={`${inter.className} ${spaceGrotesk.className} ${jetBrainsMono.className}`}>
+            <div className="bg-gray-50 text-gray-900 dark:bg-brand-black dark:text-brand-text font-sans antialiased selection:bg-brand-mint selection:text-brand-black transition-colors duration-300 overflow-x-hidden min-h-screen relative z-10">
                 {/* Background Grid Pattern */}
                 <div className="fixed inset-0 bg-grid-pattern opacity-[0.4] dark:opacity-[0.07] pointer-events-none z-0 bg-grid transition-opacity duration-300"></div>
 
@@ -1304,5 +1311,6 @@ export default function MergedMoodboardPage() {
                     <span>{toastMessage}</span>
                 </div>
             </div>
+        </div>
     );
 }

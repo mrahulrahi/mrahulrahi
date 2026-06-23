@@ -1,6 +1,11 @@
 'use client'
 // Workspace update tracking checkpoint
 import React, { useEffect, useRef, useState, useCallback } from 'react'
+import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
+
+const inter = Inter({ subsets: ['latin'] })
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
+const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -451,7 +456,7 @@ const StyleGuidePage: React.FC = () => {
 
     // ── Render ────────────────────────────────────────────────────────────────────
     return (
-        <>
+        <div className={`${inter.className} ${spaceGrotesk.className} ${jetBrainsMono.className}`}>
             <main
                 className="bg-gray-50 text-gray-900 dark:bg-brand-black dark:text-brand-text font-sans antialiased selection:bg-brand-mint selection:text-brand-black transition-colors duration-300 overflow-x-hidden">
 
@@ -1583,10 +1588,7 @@ const StyleGuidePage: React.FC = () => {
                     </footer>
                 </div>
             </main>
-
-
-        </>
-
+        </div>
     )
 }
 
