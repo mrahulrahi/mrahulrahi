@@ -68,7 +68,7 @@ export default function ToolsDirectory({ isEmbedded = false }: ToolsDirectoryPro
                         <Sparkles className="w-3.5 h-3.5" />
                         <span>Interactive Workspace</span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 leading-tight">
+                    <h1 className="text-4xl md:text-5xl font-display font-bold bg-clip-text text-transparent bg-linear-to-r from-white via-slate-200 to-slate-400 leading-tight">
                         Interactive Web Utilities
                     </h1>
                     <p className="text-slate-400 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
@@ -112,7 +112,7 @@ export default function ToolsDirectory({ isEmbedded = false }: ToolsDirectoryPro
                                     className="bg-slate-900/40 border border-slate-800 rounded-3xl p-6 hover:border-brand-mint/40 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden backdrop-blur-md animate-pulse-once"
                                 >
                                     {/* Subtly Glowing Background Accent on Card Hover */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-brand-mint/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                                    <div className="absolute inset-0 bg-linear-to-br from-brand-mint/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
 
                                     <div>
                                         <div className="flex items-center justify-between gap-4 mb-4">

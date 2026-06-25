@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { 
-    LayoutDashboard, Layers, Sliders, Terminal, User, FolderGit2, 
-    ChevronRight, GraduationCap, Sparkles, Cpu, BookOpen, 
+import {
+    LayoutDashboard, Layers, Sliders, Terminal, User, FolderGit2,
+    ChevronRight, GraduationCap, Sparkles, Cpu, BookOpen,
     ArrowUpRight, Github, Linkedin, ExternalLink, HelpCircle, Briefcase
 } from 'lucide-react';
 import UiLibrarySandbox from '@/app/components/portfolio/UiLibrarySandbox';
@@ -12,7 +12,17 @@ import EducationalCodeBlocks from '@/app/components/portfolio/EducationalCodeBlo
 import { getPublicPortfolioData } from '@/app/(admin)/admin/dataActions';
 import { skills as staticSkills, projectsCards as staticProjects } from '@/app/data/staticData';
 
+import Link from 'next/link';
+import Hero from "@/app/components/project/Hero";
+import ListGroup from "@/app/components/project/ListGroup";
+import Counter from "@/app/components/project/Counter";
+import ListItemTable from "@/app/components/project/ListItemTable";
+import { FaRegHeart, FaHeart, FaRegFaceGrinHearts, FaHeartPulse } from "react-icons/fa6";
+import { SlUserFollow, SlUserUnfollow } from "react-icons/sl";
+
 type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks';
+
+
 
 export default function WorkspacePage() {
     const [activeTab, setActiveTab] = useState<WorkspaceTab>('portfolio');
@@ -47,6 +57,63 @@ export default function WorkspacePage() {
         { id: 'code-blocks' as WorkspaceTab, label: 'Code Academy', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' }
     ];
 
+
+
+    const cards = [
+        { title: 'Blog', href: '/blog' },
+        { title: 'Code Stack', href: '/code-stack' },
+        { title: 'Products', href: '#products' },
+    ];
+
+    const [users, setUsers] = useState<any[]>([]);
+    const [user, setUser] = useState<any>({});
+    const [products, setProducts] = useState<any[]>([]);
+
+    // Fetching data when component mounts
+    useEffect(() => {
+        const fetchUsers = async () => {
+            const res = await fetch('https://jsonplaceholder.typicode.com/users', { cache: 'no-store' });
+            const data = await res.json();
+            setUsers(data);
+        };
+
+        fetchUsers();
+    }, []); // Empty dependency array means this effect runs only once on mount
+
+    let [likeBtn1, setLikedBtn1] = useState({ title: 'Like', icon: <FaRegHeart /> });
+    let [likeBtn2, setLikedBtn2] = useState({ title: 'Follow', icon: <SlUserFollow /> });
+
+    const handleSelectUser = (item : any) => {
+        console.log("Selected User:", item);
+        setUser(item); // Set the selected user
+    };
+
+    function handleLikeItem1() {
+        setLikedBtn1(
+            likeBtn1.title === 'Like'
+                ? { title: 'Liked', icon: <FaHeart /> }
+                : { title: 'Like', icon: <FaRegHeart /> }
+        );
+    }
+
+    function handleLikeItem2() {
+        setLikedBtn2(
+            likeBtn2.title === 'Follow'
+                ? { title: 'Unfollow', icon: <SlUserUnfollow /> }
+                : { title: 'Follow', icon: <SlUserFollow /> }
+        );
+    }
+
+    // Fetch products
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const res = await fetch('https://fakestoreapi.com/products', { cache: 'no-store' });
+            const productsData = await res.json();
+            setProducts(productsData);
+        };
+        fetchProducts();
+    }, []);
+
     return (
         <div className="min-h-screen bg-[#09090b] text-slate-100 font-sans antialiased relative overflow-hidden flex flex-col pt-20">
             {/* Ambient Lighting Accents */}
@@ -55,19 +122,19 @@ export default function WorkspacePage() {
 
             {/* main dashboard grid container */}
             <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 flex flex-col lg:flex-row gap-8 relative z-10">
-                
+
                 {/* Left Side: Premium Nav Sidebar (Dashboard Layout) */}
                 <aside className="w-full lg:w-80 shrink-0 flex flex-col gap-6">
                     {/* Workspace Branding Card */}
                     <div className="bg-slate-900/40 border border-slate-800/80 p-6 rounded-3xl backdrop-blur-md relative overflow-hidden group shadow-inner">
-                        <div className="absolute inset-0 bg-gradient-to-br from-brand-mint/5 to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-linear-to-br from-brand-mint/5 to-transparent pointer-events-none" />
                         <div className="flex items-center gap-3 mb-3">
                             <div className="p-2.5 bg-brand-mint/10 border border-brand-mint/20 rounded-xl text-brand-mint">
                                 <Cpu className="w-5 h-5 animate-pulse" />
                             </div>
                             <div>
-                                <h2 className="text-sm font-mono font-bold tracking-widest text-slate-400">DEV_CENTER</h2>
-                                <h1 className="text-lg font-bold text-white tracking-wide">Developer Hub</h1>
+                                <h2 className="text-sm font-mono font-bold tracking-widest text-slate-400 mb-2">DEV_CENTER</h2>
+                                <h1 className="text-lg font-bold text-white tracking-wide mb-0">Developer Hub</h1>
                             </div>
                         </div>
                         <p className="text-[11px] text-slate-400 leading-normal font-mono border-t border-slate-800/60 pt-3 mt-1 uppercase tracking-wider">
@@ -81,26 +148,23 @@ export default function WorkspacePage() {
                             <button
                                 key={item.id}
                                 onClick={() => setActiveTab(item.id)}
-                                className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center gap-3.5 group cursor-pointer ${
-                                    activeTab === item.id
+                                className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center gap-3.5 group cursor-pointer ${activeTab === item.id
                                         ? 'bg-brand-mint/10 border-brand-mint/30 text-white shadow-[0_0_15px_-3px_rgba(0,220,130,0.15)]'
                                         : 'bg-transparent border-transparent hover:bg-slate-950/40 hover:border-slate-800/60 text-slate-400 hover:text-slate-200'
-                                }`}
+                                    }`}
                             >
-                                <div className={`p-2.5 rounded-xl transition-colors shrink-0 ${
-                                    activeTab === item.id
+                                <div className={`p-2.5 rounded-xl transition-colors shrink-0 ${activeTab === item.id
                                         ? 'bg-brand-mint/20 text-brand-mint'
                                         : 'bg-slate-950/60 border border-slate-800/60 text-slate-500 group-hover:text-slate-300'
-                                }`}>
+                                    }`}>
                                     {item.icon}
                                 </div>
                                 <div className="truncate flex-1">
                                     <h3 className="text-xs font-bold tracking-wide">{item.label}</h3>
                                     <p className="text-[10px] text-slate-500 truncate mt-0.5">{item.description}</p>
                                 </div>
-                                <ChevronRight className={`w-4 h-4 transition-transform ${
-                                    activeTab === item.id ? 'translate-x-0.5 text-brand-mint' : 'text-slate-700 group-hover:text-slate-400'
-                                }`} />
+                                <ChevronRight className={`w-4 h-4 transition-transform ${activeTab === item.id ? 'translate-x-0.5 text-brand-mint' : 'text-slate-700 group-hover:text-slate-400'
+                                    }`} />
                             </button>
                         ))}
                     </nav>
@@ -108,11 +172,11 @@ export default function WorkspacePage() {
 
                 {/* Right Side: Tab Viewport Shell */}
                 <main className="flex-1 bg-slate-900/20 border border-slate-800/80 rounded-[32px] p-6 lg:p-8 min-h-[500px] backdrop-blur-md flex flex-col justify-between overflow-hidden relative shadow-2xl">
-                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-black/40 via-transparent to-brand-black/20 pointer-events-none" />
-                    
+                    <div className="absolute inset-0 bg-linear-to-tr from-brand-black/40 via-transparent to-brand-black/20 pointer-events-none" />
+
                     <div className="relative z-10 w-full flex-1">
                         {/* Tab Content Viewers */}
-                        
+
                         {/* PORTFOLIO OVERVIEW TAB */}
                         {activeTab === 'portfolio' && (
                             <div className="space-y-8 w-full animate-pulse-once">
@@ -221,6 +285,115 @@ export default function WorkspacePage() {
                     </div>
                 </main>
             </div>
+
+
+            <Hero bgImg="https://picsum.photos/1920/1000" title="Welcome to SpectrumStack App" subTitle="Home Page" content=" This is a React application with Tailwind CSS" />
+    
+
+            <div className="py-10 lg:py-20">
+                <div className="container-fluid">
+                    <div className="grid grid-col-2 md:grid-cols-4 gap-5">
+                        {cards.map((card, index) => (
+                            <div className="w-full" key={index}>
+                                <Link className="card w-full p-8 bg-white/10 border border-[#ccc] rounded-xl" href={card.href} >
+                                    <h2 className="card-title text-white mb-0">{card.title}</h2>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="pb-10 lg:pb-20">
+                <div className="container-fluid">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 flex-wrap">
+                        <div className="lg:col-span-8">
+                            <div className="bg-white/10 p-8 rounded-xl h-full">
+                                <div className="font-oswald text-[32px] font-bold leading-none mb-6">All Button Type</div>
+                                <div className="flex flex-wrap gap-5">
+                                    <button className="btn btn-primary btn-sm">Primary SM</button>
+                                    <button className="btn btn-primary">Primary</button>
+                                    <button className="btn btn-primary btn-lg">Primary LG</button>
+                                    <button className="btn btn-secondary btn-sm">Secondary SM</button>
+                                    <button className="btn btn-secondary">Secondary</button>
+                                    <button className="btn btn-secondary btn-lg">Secondary LG</button>
+                                    <button className="btn btn-outline btn-sm">Outline SM</button>
+                                    <button className="btn btn-outline">Outline</button>
+                                    <button className="btn btn-primary btn-sm">Like <FaRegHeart /></button>
+                                    <button className="btn btn-secondary btn-sm">Like <FaHeart /></button>
+                                    <button className="btn btn-primary btn-sm">Like <FaRegFaceGrinHearts /></button>
+                                    <button className="btn btn-secondary btn-sm">Like <FaHeartPulse /> </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="lg:col-span-4">
+                            <div className="flex flex-col gap-5">
+                                <div className="bg-white/10 p-8 rounded-xl">
+                                    <div className="font-oswald text-[32px] font-bold leading-none mb-6">Like Button</div>
+                                    <div className="flex flex-wrap gap-5">
+                                        <button className="btn btn-secondary btn-sm" onClick={handleLikeItem1} >{likeBtn1.title} {likeBtn1.icon} </button>
+                                        <button className="btn btn-secondary btn-sm" onClick={handleLikeItem2} >{likeBtn2.title} {likeBtn2.icon} </button>
+                                    </div>
+                                </div>
+
+                                <div className="bg-white/10 p-8 rounded-xl">
+                                    <div className="font-oswald text-[32px] font-bold leading-none mb-6">Counter</div>
+                                    <div className="flex flex-wrap gap-5">
+                                        <Counter />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="lg:col-span-12">
+                            <div className="bg-white/10 p-8 rounded-xl">
+                                <div className="font-oswald text-[32px] font-bold leading-none mb-6">List Group</div>
+                                <div className="flex flex-wrap gap-5">
+                                    <div className="w-full">
+                                        <ListGroup items={users || []} heading="Users" onSelectItem={handleSelectUser} />
+                                    </div>
+                                    <div className="w-full">
+                                        <div className="text-2xl font-bold mb-2">User Table</div>
+                                        <ListItemTable data={user} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="pb-10 lg:pb-20">
+                <div className="container-fluid">
+
+                    <h2>Product Page</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6 flex-wrap">
+                        {products.map((product) => (
+                            <div className="w-full" key={product.id}>
+                                <Link className="card flex flex-col h-full bg-white/10 border border-[#ccc] rounded-xl overflow-hidden" href={`/products/${product.id}`} >
+                                    <div className="w-full h-[300px] aspect-square bg-white p-6">
+                                        <img className="w-full h-full object-contain" src={product.image} alt="Product" />
+                                    </div>
+                                    <div className="flex flex-col p-5 grow">
+                                        <div className="flex justify-between mb-5">
+                                            <div className="badge text-bg-dark">{product.id}</div>
+                                            <div className="badge text-bg-dark capitalize">{product.category}</div>
+                                            <div className="badge text-bg-dark">{product.price} $</div>
+                                        </div>
+                                        <div className="mt-auto">
+                                            <h5 className="card-title text-white line-clamp-2">{product.title}</h5>
+                                            <p className="card-text line-clamp-3">{product.description}</p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 }

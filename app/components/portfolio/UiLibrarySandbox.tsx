@@ -149,7 +149,7 @@ export default function App() {
                         <Sparkles className="w-3.5 h-3.5" />
                         <span>Spectrum UI Library</span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-slate-200 to-slate-400 leading-tight">
+                    <h1 className="text-4xl md:text-5xl font-display font-bold bg-clip-text text-transparent bg-linear-to-r from-white via-slate-200 to-slate-400 leading-tight">
                         Custom Component Sandbox
                     </h1>
                     <p className="text-slate-400 max-w-2xl mx-auto mt-4 text-base md:text-lg leading-relaxed">
