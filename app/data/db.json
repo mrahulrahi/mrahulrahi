@@ -231,11 +231,41 @@
     "description": "I craft beautiful and functional websites using HTML, CSS, JavaScript, and React — blending design precision with code clarity to build seamless user experiences."
   },
   "stats": [
-    { "id": 1, "icon": "FaUserGraduate", "countEnd": 3, "suffix": " +", "description": "Years of experience" },
-    { "id": 2, "icon": "MdWeb", "countEnd": 80, "suffix": " +", "description": "Projects Completed" },
-    { "id": 3, "icon": "FaLayerGroup", "countEnd": 12, "suffix": " +", "description": "Skills in my stack" },
-    { "id": 4, "icon": "FaClock", "countEnd": 1500, "suffix": " +", "description": "Hours of code" },
-    { "id": 5, "icon": "FaGitAlt", "countEnd": 2000, "suffix": " +", "description": "Total Github Contributions" }
+    {
+      "id": 1,
+      "icon": "FaUserGraduate",
+      "countEnd": 3.5,
+      "suffix": " +",
+      "description": "Years of experience"
+    },
+    {
+      "id": 2,
+      "icon": "MdWeb",
+      "countEnd": 80,
+      "suffix": " +",
+      "description": "Projects Completed"
+    },
+    {
+      "id": 3,
+      "icon": "FaLayerGroup",
+      "countEnd": 12,
+      "suffix": " +",
+      "description": "Skills in my stack"
+    },
+    {
+      "id": 4,
+      "icon": "FaClock",
+      "countEnd": 1500,
+      "suffix": " +",
+      "description": "Hours of code"
+    },
+    {
+      "id": 5,
+      "icon": "FaGitAlt",
+      "countEnd": 2000,
+      "suffix": " +",
+      "description": "Total Github Contributions"
+    }
   ],
   "about": {
     "subheading": "Hello, I'm",
@@ -249,64 +279,333 @@
     "imageUrl": "/hero-img.jpg"
   },
   "skills": [
-    { "id": 1, "icon": "FaHtml5", "title": "HTML" },
-    { "id": 2, "icon": "FaCss3Alt", "title": "CSS" },
-    { "id": 3, "icon": "FaJsSquare", "title": "JavaScript" },
-    { "id": 4, "icon": "BiLogoTypescript", "title": "TypeScript" },
-    { "id": 5, "icon": "FaBootstrap", "title": "Bootstrap" },
-    { "id": 6, "icon": "TbBrandTailwind", "title": "Tailwind CSS" },
-    { "id": 7, "icon": "FaReact", "title": "ReactJS" },
-    { "id": 8, "icon": "TbBrandNextjs", "title": "Next Js" },
-    { "id": 9, "icon": "FaNodeJs", "title": "Node.js" },
-    { "id": 10, "icon": "FaGitAlt", "title": "Git" },
-    { "id": 11, "icon": "FaGithub", "title": "GitHub" },
-    { "id": 12, "icon": "FaFigma", "title": "Figma" },
-    { "id": 13, "icon": "SiAdobexd", "title": "Adobe Xd" },
-    { "id": 14, "icon": "BiLogoVisualStudio", "title": "VS Code" }
+    {
+      "id": 1,
+      "icon": "FaHtml5",
+      "title": "HTML"
+    },
+    {
+      "id": 2,
+      "icon": "FaCss3Alt",
+      "title": "CSS"
+    },
+    {
+      "id": 3,
+      "icon": "FaJsSquare",
+      "title": "JavaScript"
+    },
+    {
+      "id": 4,
+      "icon": "BiLogoTypescript",
+      "title": "TypeScript"
+    },
+    {
+      "id": 5,
+      "icon": "FaBootstrap",
+      "title": "Bootstrap"
+    },
+    {
+      "id": 6,
+      "icon": "TbBrandTailwind",
+      "title": "Tailwind CSS"
+    },
+    {
+      "id": 7,
+      "icon": "FaReact",
+      "title": "ReactJS"
+    },
+    {
+      "id": 8,
+      "icon": "TbBrandNextjs",
+      "title": "Next Js"
+    },
+    {
+      "id": 9,
+      "icon": "FaNodeJs",
+      "title": "Node.js"
+    },
+    {
+      "id": 10,
+      "icon": "FaGitAlt",
+      "title": "Git"
+    },
+    {
+      "id": 11,
+      "icon": "FaGithub",
+      "title": "GitHub"
+    },
+    {
+      "id": 12,
+      "icon": "FaFigma",
+      "title": "Figma"
+    },
+    {
+      "id": 13,
+      "icon": "SiAdobexd",
+      "title": "Adobe Xd"
+    },
+    {
+      "id": 14,
+      "icon": "BiLogoVisualStudio",
+      "title": "VS Code"
+    }
   ],
   "uiComponents": [
-    { "id": "palindrome-checker", "name": "Palindrome Checker", "description": "Check if a word, phrase, number, or other sequence of characters reads the same forward and backward.", "visible": true },
-    { "id": "factorial-calculator", "name": "Factorial Calculator", "description": "Calculate the factorial of an integer recursively or iteratively.", "visible": true },
-    { "id": "parking-price-calculator", "name": "Parking Price Calculator", "description": "Compute the cost of parking based on duration and vehicle type.", "visible": true },
-    { "id": "bubble-sort-algorithm", "name": "Bubble Sort Algorithm", "description": "Interactive visualizer for the bubble sort sorting algorithm.", "visible": true },
-    { "id": "sum-two-numbers", "name": "Sum of Two Numbers", "description": "Simple input/output sum calculator with basic validation.", "visible": true },
-    { "id": "switch-case", "name": "Switch Case", "description": "Interactive demo explaining the switch-case conditional statement in JS.", "visible": true },
-    { "id": "fibonacci-series", "name": "Fibonacci Series Generator", "description": "Generate and display terms of the Fibonacci sequence.", "visible": true },
-    { "id": "calculator", "name": "Calculator", "description": "Standard arithmetic calculator with an interactive grid.", "visible": true },
-    { "id": "login-form", "name": "Login Form", "description": "Demonstration of client-side form validation with state indicators.", "visible": true },
-    { "id": "mini-window-control", "name": "Mini Window & Browser Info", "description": "Display screen resolution, window viewport dimensions and user agent information.", "visible": true },
-    { "id": "dialog-examples", "name": "Dialog Examples", "description": "Showcase of standard web dialogs and modal overlays.", "visible": true },
-    { "id": "text-transfer", "name": "Text Transfer", "description": "Demonstrate data transfer and copy-to-clipboard actions.", "visible": true },
-    { "id": "style-manipulator", "name": "Style Manipulator", "description": "Dynamically adjust CSS styles (colors, padding, border radius) on elements.", "visible": true },
-    { "id": "js-basics", "name": "JS Basics", "description": "Educational cards summarizing fundamental JS syntax and data structures.", "visible": true },
-    { "id": "loops-in-js", "name": "Loops in JS", "description": "Visual explanation of for, while, and do-while loops in Action.", "visible": true },
-    { "id": "full-example", "name": "Full Example", "description": "All-in-one demo layout combining multiple component techniques.", "visible": true },
-    { "id": "birthday-card", "name": "Birthday Card", "description": "Interactive, styled digital birthday greetings card with animations.", "visible": true },
-    { "id": "python-to-react-demo", "name": "Python to React Demo", "description": "Visual comparison of programming paradigms across backend and frontend environments.", "visible": true },
-    { "id": "choice-converter", "name": "Choice Converter", "description": "Utility to parse and convert choices or option structures.", "visible": true },
-    { "id": "rotating-squares", "name": "Rotating Squares", "description": "Subtle 2D CSS/JS animation showing rotating shapes.", "visible": true },
-    { "id": "green-circle-message", "name": "Green Circle Message", "description": "Standard feedback message representing successful operations.", "visible": true },
-    { "id": "red-circle-with-message", "name": "Red Circle With Message", "description": "Standard feedback message representing error or warning alerts.", "visible": true },
-    { "id": "quadratic-solver", "name": "Quadratic Equation Solver", "description": "Solve quadratic equations of form ax^2 + bx + c = 0.", "visible": true },
-    { "id": "student-list", "name": "Student List", "description": "Manage and render lists of student records dynamically.", "visible": true },
-    { "id": "student-record", "name": "Student Record", "description": "Individual student card detailing profile information and metrics.", "visible": true },
-    { "id": "doubly-linked-list", "name": "Doubly Linked List Operations", "description": "Interactive doubly linked list simulator (insert, delete, traverse).", "visible": true },
-    { "id": "sort-integer-list", "name": "Sort Integer List", "description": "Input and sort an arbitrary list of integers with step tracking.", "visible": true },
-    { "id": "subject-average-calculator", "name": "Subject Average Calculator", "description": "Compute GPA and subject averages with instant feedback.", "visible": true },
-    { "id": "string-permutation", "name": "String Permutation Generator", "description": "Find and visualize all mathematical permutations of an input string.", "visible": true },
-    { "id": "class-demo-simulation", "name": "Class Demo Simulation", "description": "Simulate class instances, OOP inheritance, and method calling in real-time.", "visible": true },
-    { "id": "even-numbers-filter", "name": "Even Numbers Filter", "description": "Demonstrate the array filter function by picking out even numbers.", "visible": true },
-    { "id": "multiplication-table", "name": "Multiplication Table", "description": "Generate customized grid-based math multiplication tables.", "visible": true },
-    { "id": "scope-demo", "name": "Scope Demo", "description": "Demonstrate JavaScript scopes (global, function, block) with interactive logs.", "visible": true }
+    {
+      "id": "palindrome-checker",
+      "name": "Palindrome Checker",
+      "description": "Check if a word, phrase, number, or other sequence of characters reads the same forward and backward.",
+      "visible": true
+    },
+    {
+      "id": "factorial-calculator",
+      "name": "Factorial Calculator",
+      "description": "Calculate the factorial of an integer recursively or iteratively.",
+      "visible": true
+    },
+    {
+      "id": "parking-price-calculator",
+      "name": "Parking Price Calculator",
+      "description": "Compute the cost of parking based on duration and vehicle type.",
+      "visible": true
+    },
+    {
+      "id": "bubble-sort-algorithm",
+      "name": "Bubble Sort Algorithm",
+      "description": "Interactive visualizer for the bubble sort sorting algorithm.",
+      "visible": true
+    },
+    {
+      "id": "sum-two-numbers",
+      "name": "Sum of Two Numbers",
+      "description": "Simple input/output sum calculator with basic validation.",
+      "visible": true
+    },
+    {
+      "id": "switch-case",
+      "name": "Switch Case",
+      "description": "Interactive demo explaining the switch-case conditional statement in JS.",
+      "visible": true
+    },
+    {
+      "id": "fibonacci-series",
+      "name": "Fibonacci Series Generator",
+      "description": "Generate and display terms of the Fibonacci sequence.",
+      "visible": true
+    },
+    {
+      "id": "calculator",
+      "name": "Calculator",
+      "description": "Standard arithmetic calculator with an interactive grid.",
+      "visible": true
+    },
+    {
+      "id": "login-form",
+      "name": "Login Form",
+      "description": "Demonstration of client-side form validation with state indicators.",
+      "visible": true
+    },
+    {
+      "id": "mini-window-control",
+      "name": "Mini Window & Browser Info",
+      "description": "Display screen resolution, window viewport dimensions and user agent information.",
+      "visible": true
+    },
+    {
+      "id": "dialog-examples",
+      "name": "Dialog Examples",
+      "description": "Showcase of standard web dialogs and modal overlays.",
+      "visible": true
+    },
+    {
+      "id": "text-transfer",
+      "name": "Text Transfer",
+      "description": "Demonstrate data transfer and copy-to-clipboard actions.",
+      "visible": true
+    },
+    {
+      "id": "style-manipulator",
+      "name": "Style Manipulator",
+      "description": "Dynamically adjust CSS styles (colors, padding, border radius) on elements.",
+      "visible": true
+    },
+    {
+      "id": "js-basics",
+      "name": "JS Basics",
+      "description": "Educational cards summarizing fundamental JS syntax and data structures.",
+      "visible": true
+    },
+    {
+      "id": "loops-in-js",
+      "name": "Loops in JS",
+      "description": "Visual explanation of for, while, and do-while loops in Action.",
+      "visible": true
+    },
+    {
+      "id": "full-example",
+      "name": "Full Example",
+      "description": "All-in-one demo layout combining multiple component techniques.",
+      "visible": true
+    },
+    {
+      "id": "birthday-card",
+      "name": "Birthday Card",
+      "description": "Interactive, styled digital birthday greetings card with animations.",
+      "visible": true
+    },
+    {
+      "id": "python-to-react-demo",
+      "name": "Python to React Demo",
+      "description": "Visual comparison of programming paradigms across backend and frontend environments.",
+      "visible": true
+    },
+    {
+      "id": "choice-converter",
+      "name": "Choice Converter",
+      "description": "Utility to parse and convert choices or option structures.",
+      "visible": true
+    },
+    {
+      "id": "rotating-squares",
+      "name": "Rotating Squares",
+      "description": "Subtle 2D CSS/JS animation showing rotating shapes.",
+      "visible": true
+    },
+    {
+      "id": "green-circle-message",
+      "name": "Green Circle Message",
+      "description": "Standard feedback message representing successful operations.",
+      "visible": true
+    },
+    {
+      "id": "red-circle-with-message",
+      "name": "Red Circle With Message",
+      "description": "Standard feedback message representing error or warning alerts.",
+      "visible": true
+    },
+    {
+      "id": "quadratic-solver",
+      "name": "Quadratic Equation Solver",
+      "description": "Solve quadratic equations of form ax^2 + bx + c = 0.",
+      "visible": true
+    },
+    {
+      "id": "student-list",
+      "name": "Student List",
+      "description": "Manage and render lists of student records dynamically.",
+      "visible": true
+    },
+    {
+      "id": "student-record",
+      "name": "Student Record",
+      "description": "Individual student card detailing profile information and metrics.",
+      "visible": true
+    },
+    {
+      "id": "doubly-linked-list",
+      "name": "Doubly Linked List Operations",
+      "description": "Interactive doubly linked list simulator (insert, delete, traverse).",
+      "visible": true
+    },
+    {
+      "id": "sort-integer-list",
+      "name": "Sort Integer List",
+      "description": "Input and sort an arbitrary list of integers with step tracking.",
+      "visible": true
+    },
+    {
+      "id": "subject-average-calculator",
+      "name": "Subject Average Calculator",
+      "description": "Compute GPA and subject averages with instant feedback.",
+      "visible": true
+    },
+    {
+      "id": "string-permutation",
+      "name": "String Permutation Generator",
+      "description": "Find and visualize all mathematical permutations of an input string.",
+      "visible": true
+    },
+    {
+      "id": "class-demo-simulation",
+      "name": "Class Demo Simulation",
+      "description": "Simulate class instances, OOP inheritance, and method calling in real-time.",
+      "visible": true
+    },
+    {
+      "id": "even-numbers-filter",
+      "name": "Even Numbers Filter",
+      "description": "Demonstrate the array filter function by picking out even numbers.",
+      "visible": true
+    },
+    {
+      "id": "multiplication-table",
+      "name": "Multiplication Table",
+      "description": "Generate customized grid-based math multiplication tables.",
+      "visible": true
+    },
+    {
+      "id": "scope-demo",
+      "name": "Scope Demo",
+      "description": "Demonstrate JavaScript scopes (global, function, block) with interactive logs.",
+      "visible": true
+    }
   ],
   "tools": [
-    { "id": "quiz-app", "name": "Quiz App", "description": "Test your knowledge with an interactive and fun multiple-choice quiz.", "href": "/code-stack/tools/quiz-app", "visible": true },
-    { "id": "calculator-app", "name": "Calculator App", "description": "A fully featured digital calculator with basic arithmetic and memory functions.", "href": "/code-stack/tools/calculator-app", "visible": true },
-    { "id": "notes-app", "name": "Notes App", "description": "Create, edit, delete, and manage sticky notes with localStorage backup.", "href": "/code-stack/tools/notes-app", "visible": true },
-    { "id": "weather-app", "name": "Weather App", "description": "Check real-time weather conditions and forecasts for cities worldwide.", "href": "/code-stack/tools/weather-app", "visible": true },
-    { "id": "quote-app", "name": "Quote App", "description": "Generate inspiring random quotes and share them with your peers.", "href": "/code-stack/tools/quote-app", "visible": true },
-    { "id": "salary-calculator", "name": "Salary Calculator", "description": "Calculate your net take-home salary after taxes and deductions.", "href": "/code-stack/tools/salary-calculator", "visible": true },
-    { "id": "smart-emi-planner", "name": "Smart EMI Planner", "description": "Plan your loans and mortgages with detailed monthly amortization charts.", "href": "/code-stack/tools/smart-emi-planner", "visible": true },
-    { "id": "salary-calculator-two", "name": "Salary Calculator Advanced", "description": "Compare different tax regimes and plan savings to optimize income tax.", "href": "/code-stack/tools/salary-calculator-two", "visible": true }
+    {
+      "id": "quiz-app",
+      "name": "Quiz App",
+      "description": "Test your knowledge with an interactive and fun multiple-choice quiz.",
+      "href": "/code-stack/tools/quiz-app",
+      "visible": true
+    },
+    {
+      "id": "calculator-app",
+      "name": "Calculator App",
+      "description": "A fully featured digital calculator with basic arithmetic and memory functions.",
+      "href": "/code-stack/tools/calculator-app",
+      "visible": true
+    },
+    {
+      "id": "notes-app",
+      "name": "Notes App",
+      "description": "Create, edit, delete, and manage sticky notes with localStorage backup.",
+      "href": "/code-stack/tools/notes-app",
+      "visible": true
+    },
+    {
+      "id": "weather-app",
+      "name": "Weather App",
+      "description": "Check real-time weather conditions and forecasts for cities worldwide.",
+      "href": "/code-stack/tools/weather-app",
+      "visible": true
+    },
+    {
+      "id": "quote-app",
+      "name": "Quote App",
+      "description": "Generate inspiring random quotes and share them with your peers.",
+      "href": "/code-stack/tools/quote-app",
+      "visible": true
+    },
+    {
+      "id": "salary-calculator",
+      "name": "Salary Calculator",
+      "description": "Calculate your net take-home salary after taxes and deductions.",
+      "href": "/code-stack/tools/salary-calculator",
+      "visible": true
+    },
+    {
+      "id": "smart-emi-planner",
+      "name": "Smart EMI Planner",
+      "description": "Plan your loans and mortgages with detailed monthly amortization charts.",
+      "href": "/code-stack/tools/smart-emi-planner",
+      "visible": true
+    },
+    {
+      "id": "salary-calculator-two",
+      "name": "Salary Calculator Advanced",
+      "description": "Compare different tax regimes and plan savings to optimize income tax.",
+      "href": "/code-stack/tools/salary-calculator-two",
+      "visible": true
+    }
   ]
 }

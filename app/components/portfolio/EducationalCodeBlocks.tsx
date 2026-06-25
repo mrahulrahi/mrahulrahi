@@ -69,10 +69,10 @@ function useDebounce<T>(value: T, delay: number): T {
         category: 'Tailwind CSS',
         language: 'html',
         code: `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6 bg-slate-900 rounded-3xl border border-slate-800">
-    <div class="bg-gradient-to-br from-brand-mint/10 to-brand-mint/5 p-6 rounded-2xl border border-brand-mint/20 text-center">Card 1</div>
-    <div class="bg-gradient-to-br from-brand-mint/10 to-brand-mint/5 p-6 rounded-2xl border border-brand-mint/20 text-center">Card 2</div>
-    <div class="bg-gradient-to-br from-brand-mint/10 to-brand-mint/5 p-6 rounded-2xl border border-brand-mint/20 text-center">Card 3</div>
-    <div class="bg-gradient-to-br from-brand-mint/10 to-brand-mint/5 p-6 rounded-2xl border border-brand-mint/20 text-center">Card 4</div>
+    <div class="bg-linear-to-br from-brand-mint/10 to-brand-mint/5 p-6 rounded-2xl border border-brand-mint/20 text-center">Card 1</div>
+    <div class="bg-linear-to-br from-brand-mint/10 to-brand-mint/5 p-6 rounded-2xl border border-brand-mint/20 text-center">Card 2</div>
+    <div class="bg-linear-to-br from-brand-mint/10 to-brand-mint/5 p-6 rounded-2xl border border-brand-mint/20 text-center">Card 3</div>
+    <div class="bg-linear-to-br from-brand-mint/10 to-brand-mint/5 p-6 rounded-2xl border border-brand-mint/20 text-center">Card 4</div>
 </div>`
     },
     {
@@ -289,7 +289,7 @@ export default function EducationalCodeBlocks() {
                                                     <div
                                                         key={idx}
                                                         style={{ height: `${value}%` }}
-                                                        className="w-8 rounded-t-lg bg-gradient-to-t from-brand-fern to-brand-mint text-brand-black text-[9px] font-mono font-bold flex items-end justify-center pb-2 transition-all duration-300 shadow-[0_0_10px_rgba(0,220,130,0.15)]"
+                                                        className="w-8 rounded-t-lg bg-linear-to-t from-brand-fern to-brand-mint text-brand-black text-[9px] font-mono font-bold flex items-end justify-center pb-2 transition-all duration-300 shadow-[0_0_10px_rgba(0,220,130,0.15)]"
                                                     >
                                                         {value}
                                                     </div>
