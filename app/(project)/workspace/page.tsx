@@ -15,11 +15,6 @@ import { skills as staticSkills, projectsCards as staticProjects } from '@/app/d
 
 import Link from 'next/link';
 import Hero from "@/app/components/project/Hero";
-import ListGroup from "@/app/components/project/ListGroup";
-import Counter from "@/app/components/project/Counter";
-import ListItemTable from "@/app/components/project/ListItemTable";
-import { FaRegHeart, FaHeart, FaRegFaceGrinHearts, FaHeartPulse } from "react-icons/fa6";
-import { SlUserFollow, SlUserUnfollow } from "react-icons/sl";
 
 type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks' | 'js-stack';
 
@@ -67,44 +62,7 @@ export default function WorkspacePage() {
         { title: 'Products', href: '#products' },
     ];
 
-    const [users, setUsers] = useState<any[]>([]);
-    const [user, setUser] = useState<any>({});
     const [products, setProducts] = useState<any[]>([]);
-
-    // Fetching data when component mounts
-    useEffect(() => {
-        const fetchUsers = async () => {
-            const res = await fetch('https://jsonplaceholder.typicode.com/users', { cache: 'no-store' });
-            const data = await res.json();
-            setUsers(data);
-        };
-
-        fetchUsers();
-    }, []); // Empty dependency array means this effect runs only once on mount
-
-    let [likeBtn1, setLikedBtn1] = useState({ title: 'Like', icon: <FaRegHeart /> });
-    let [likeBtn2, setLikedBtn2] = useState({ title: 'Follow', icon: <SlUserFollow /> });
-
-    const handleSelectUser = (item : any) => {
-        console.log("Selected User:", item);
-        setUser(item); // Set the selected user
-    };
-
-    function handleLikeItem1() {
-        setLikedBtn1(
-            likeBtn1.title === 'Like'
-                ? { title: 'Liked', icon: <FaHeart /> }
-                : { title: 'Like', icon: <FaRegHeart /> }
-        );
-    }
-
-    function handleLikeItem2() {
-        setLikedBtn2(
-            likeBtn2.title === 'Follow'
-                ? { title: 'Unfollow', icon: <SlUserUnfollow /> }
-                : { title: 'Follow', icon: <SlUserFollow /> }
-        );
-    }
 
     // Fetch products
     useEffect(() => {
@@ -305,66 +263,6 @@ export default function WorkspacePage() {
                                 </Link>
                             </div>
                         ))}
-                    </div>
-                </div>
-            </div>
-
-            <div className="pb-10 lg:pb-20">
-                <div className="container-fluid">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 flex-wrap">
-                        <div className="lg:col-span-8">
-                            <div className="bg-white/10 p-8 rounded-xl h-full">
-                                <div className="font-oswald text-[32px] font-bold leading-none mb-6">All Button Type</div>
-                                <div className="flex flex-wrap gap-5">
-                                    <button className="btn btn-primary btn-sm">Primary SM</button>
-                                    <button className="btn btn-primary">Primary</button>
-                                    <button className="btn btn-primary btn-lg">Primary LG</button>
-                                    <button className="btn btn-secondary btn-sm">Secondary SM</button>
-                                    <button className="btn btn-secondary">Secondary</button>
-                                    <button className="btn btn-secondary btn-lg">Secondary LG</button>
-                                    <button className="btn btn-outline btn-sm">Outline SM</button>
-                                    <button className="btn btn-outline">Outline</button>
-                                    <button className="btn btn-primary btn-sm">Like <FaRegHeart /></button>
-                                    <button className="btn btn-secondary btn-sm">Like <FaHeart /></button>
-                                    <button className="btn btn-primary btn-sm">Like <FaRegFaceGrinHearts /></button>
-                                    <button className="btn btn-secondary btn-sm">Like <FaHeartPulse /> </button>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="lg:col-span-4">
-                            <div className="flex flex-col gap-5">
-                                <div className="bg-white/10 p-8 rounded-xl">
-                                    <div className="font-oswald text-[32px] font-bold leading-none mb-6">Like Button</div>
-                                    <div className="flex flex-wrap gap-5">
-                                        <button className="btn btn-secondary btn-sm" onClick={handleLikeItem1} >{likeBtn1.title} {likeBtn1.icon} </button>
-                                        <button className="btn btn-secondary btn-sm" onClick={handleLikeItem2} >{likeBtn2.title} {likeBtn2.icon} </button>
-                                    </div>
-                                </div>
-
-                                <div className="bg-white/10 p-8 rounded-xl">
-                                    <div className="font-oswald text-[32px] font-bold leading-none mb-6">Counter</div>
-                                    <div className="flex flex-wrap gap-5">
-                                        <Counter />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="lg:col-span-12">
-                            <div className="bg-white/10 p-8 rounded-xl">
-                                <div className="font-oswald text-[32px] font-bold leading-none mb-6">List Group</div>
-                                <div className="flex flex-wrap gap-5">
-                                    <div className="w-full">
-                                        <ListGroup items={users || []} heading="Users" onSelectItem={handleSelectUser} />
-                                    </div>
-                                    <div className="w-full">
-                                        <div className="text-2xl font-bold mb-2">User Table</div>
-                                        <ListItemTable data={user} />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
