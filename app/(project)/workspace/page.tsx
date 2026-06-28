@@ -10,13 +10,13 @@ import UiLibrarySandbox from '@/app/components/portfolio/UiLibrarySandbox';
 import ToolsDirectory from '@/app/components/portfolio/ToolsDirectory';
 import EducationalCodeBlocks from '@/app/components/portfolio/EducationalCodeBlocks';
 import JsStack from '@/app/(project)/js-stack/page';
+import Products from '@/app/(project)/products/page';
 import { getPublicPortfolioData } from '@/app/(admin)/admin/dataActions';
 import { skills as staticSkills, projectsCards as staticProjects } from '@/app/data/staticData';
 
-import Link from 'next/link';
-import Hero from "@/app/components/project/Hero";
 
-type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks' | 'js-stack';
+
+type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks' | 'js-stack' | 'products';
 
 
 
@@ -52,27 +52,8 @@ export default function WorkspacePage() {
         { id: 'tools' as WorkspaceTab, label: 'Utilities Hub', icon: <Sliders className="w-4 h-4" />, description: 'Interactive Client Tools' },
         { id: 'code-blocks' as WorkspaceTab, label: 'Code Academy', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
         { id: 'js-stack' as WorkspaceTab, label: 'Js Stack', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
+        { id: 'products' as WorkspaceTab, label: 'Products', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
     ];
-
-
-
-    const cards = [
-        { title: 'Blog', href: '/blog' },
-        { title: 'Code Stack', href: '/code-stack' },
-        { title: 'Products', href: '#products' },
-    ];
-
-    const [products, setProducts] = useState<any[]>([]);
-
-    // Fetch products
-    useEffect(() => {
-        const fetchProducts = async () => {
-            const res = await fetch('https://fakestoreapi.com/products', { cache: 'no-store' });
-            const productsData = await res.json();
-            setProducts(productsData);
-        };
-        fetchProducts();
-    }, []);
 
     return (
         <div className="min-h-screen bg-[#09090b] text-slate-100 font-sans antialiased relative overflow-hidden flex flex-col pt-20">
@@ -120,8 +101,8 @@ export default function WorkspacePage() {
                                     {item.icon}
                                 </div>
                                 <div className="truncate flex-1">
-                                    <h3 className="text-xs font-bold tracking-wide">{item.label}</h3>
-                                    <p className="text-[10px] text-slate-500 truncate mt-0.5">{item.description}</p>
+                                    <h3 className="text-xs font-bold tracking-wide mb-1">{item.label}</h3>
+                                    <p className="text-[10px] text-slate-500 truncate">{item.description}</p>
                                 </div>
                                 <ChevronRight className={`w-4 h-4 transition-transform ${activeTab === item.id ? 'translate-x-0.5 text-brand-mint' : 'text-slate-700 group-hover:text-slate-400'
                                     }`} />
@@ -245,56 +226,11 @@ export default function WorkspacePage() {
 
                         {/* Js Stack Page */}
                         {activeTab === 'js-stack' && <JsStack />}
+
+                        {/* Products Page */}
+                        {activeTab === 'products' && <Products />}
                     </div>
                 </main>
-            </div>
-
-
-            <Hero bgImg="https://picsum.photos/1920/1000" title="Welcome to SpectrumStack App" subTitle="Home Page" content=" This is a React application with Tailwind CSS" />
-    
-
-            <div className="py-10 lg:py-20">
-                <div className="container-fluid">
-                    <div className="grid grid-col-2 md:grid-cols-4 gap-5">
-                        {cards.map((card, index) => (
-                            <div className="w-full" key={index}>
-                                <Link className="card w-full p-8 bg-white/10 border border-[#ccc] rounded-xl" href={card.href} >
-                                    <h2 className="card-title text-white mb-0">{card.title}</h2>
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-
-            <div className="pb-10 lg:pb-20">
-                <div className="container-fluid">
-
-                    <h2>Product Page</h2>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6 flex-wrap">
-                        {products.map((product) => (
-                            <div className="w-full" key={product.id}>
-                                <Link className="card flex flex-col h-full bg-white/10 border border-[#ccc] rounded-xl overflow-hidden" href={`/products/${product.id}`} >
-                                    <div className="w-full h-[300px] aspect-square bg-white p-6">
-                                        <img className="w-full h-full object-contain" src={product.image} alt="Product" />
-                                    </div>
-                                    <div className="flex flex-col p-5 grow">
-                                        <div className="flex justify-between mb-5">
-                                            <div className="badge text-bg-dark">{product.id}</div>
-                                            <div className="badge text-bg-dark capitalize">{product.category}</div>
-                                            <div className="badge text-bg-dark">{product.price} $</div>
-                                        </div>
-                                        <div className="mt-auto">
-                                            <h5 className="card-title text-white line-clamp-2">{product.title}</h5>
-                                            <p className="card-text line-clamp-3">{product.description}</p>
-                                        </div>
-                                    </div>
-                                </Link>
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
 
         </div>
