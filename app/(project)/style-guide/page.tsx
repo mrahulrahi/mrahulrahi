@@ -1,12 +1,7 @@
 'use client'
 
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
-
-const inter = Inter({ subsets: ['latin'] });
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
-const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
-
 import Chart from 'chart.js/auto';
 import {
     Sun,
@@ -39,18 +34,15 @@ import {
     Check
 } from 'lucide-react';
 
-// Workspace update tracking checkpoint
-import React, { useEffect, useRef, useState, useCallback } from 'react'
-import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google'
 import ListGroup from "@/app/components/project/ListGroup";
 import Counter from "@/app/components/project/Counter";
 import ListItemTable from "@/app/components/project/ListItemTable";
 import { FaRegHeart, FaHeart, FaRegFaceGrinHearts, FaHeartPulse } from "react-icons/fa6";
 import { SlUserFollow, SlUserUnfollow } from "react-icons/sl";
 
-const inter = Inter({ subsets: ['latin'] })
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
-const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] });
+const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] });
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -78,48 +70,9 @@ interface AmortizationResult {
 type ViewName = 'styleguide' | 'app'
 type AppPage = 'dashboard' | 'portfolio' | 'emi' | 'settings'
 
-// Amortization calculation helpers
-const formatCurrency = (val: number) =>
-    new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
 
-const calculateEMI = (p: number, r: number, n: number) => {
-    const monthlyRate = r / 12 / 100;
-    return (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
-};
 
-const runAmortization = (principal: number, annualRate: number, tenureYears: number, yearlyIncrease: number, extraEmiPerYear: boolean) => {
-    let balance = principal;
-    const monthlyRate = annualRate / 12 / 100;
-    let currentEmi = calculateEMI(principal, annualRate, tenureYears * 12);
-    const initialEmi = currentEmi;
-    let totalInterest = 0;
-    let totalPaid = 0;
-    let month = 0;
-    const yearlyData: Array<{ year: number; balance: number }> = [];
 
-    while (balance > 1 && month < 600) {
-        month++;
-        const interestForMonth = balance * monthlyRate;
-        let principalForMonth = currentEmi - interestForMonth;
-        if (principalForMonth > balance) principalForMonth = balance;
-        balance -= principalForMonth;
-        totalInterest += interestForMonth;
-        totalPaid += (principalForMonth + interestForMonth);
-        if (extraEmiPerYear && month % 12 === 0 && balance > 0) {
-            let extraAmt = currentEmi;
-            if (extraAmt > balance) extraAmt = balance;
-            balance -= extraAmt;
-            totalPaid += extraAmt;
-        }
-        if (month % 12 === 0 || balance <= 1) {
-            const yearNum = Math.ceil(month / 12);
-            yearlyData.push({ year: yearNum, balance: Math.max(0, balance) });
-            if (month % 12 === 0) currentEmi = currentEmi * (1 + yearlyIncrease / 100);
-        }
-        if (balance <= 1) break;
-    }
-    return { totalMonths: month, totalInterest, totalPaid, yearlyData, initialEmi };
-};
 
 type ActiveView = 'styleguide' | 'app';
 type ActivePage = 'dashboard' | 'portfolio' | 'emi' | 'settings';
@@ -127,33 +80,18 @@ type Theme = 'light' | 'dark';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
+
+// Amortization calculation helpers
 const formatCurrency = (val: number): string =>
-    new Intl.NumberFormat('en-IN', {
-        style: 'currency',
-        currency: 'INR',
-        maximumFractionDigits: 0,
-    }).format(val)
+    new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(val);
 
 const calculateEMI = (p: number, r: number, n: number): number => {
-    const monthlyRate = r / 12 / 100
-    return (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1)
-}
+    const monthlyRate = r / 12 / 100;
+    return (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
+};
 
-const runAmortization = (
-    principal: number,
-    annualRate: number,
-    tenureYears: number,
-    yearlyIncrease: number,
-    extraEmiPerYear: boolean
-): AmortizationResult => {
-    let balance = principal
-    const monthlyRate = annualRate / 12 / 100
-    let currentEmi = calculateEMI(principal, annualRate, tenureYears * 12)
-    const initialEmi = currentEmi
-    let totalInterest = 0
-    let totalPaid = 0
-    let month = 0
-    const yearlyData: YearlyDataPoint[] = []
+
+const runAmortization = () => {
 
     while (balance > 1 && month < 600) {
         month++
@@ -183,6 +121,44 @@ const runAmortization = (
     return { totalMonths: month, totalInterest, totalPaid, yearlyData, initialEmi }
 }
 
+const runAmortization = (principal: number, annualRate: number, tenureYears: number, yearlyIncrease: number, extraEmiPerYear: boolean): AmortizationResult => {
+    let balance = principal;
+    const monthlyRate = annualRate / 12 / 100;
+    let currentEmi = calculateEMI(principal, annualRate, tenureYears * 12);
+    const initialEmi = currentEmi;
+    let totalInterest = 0;
+    let totalPaid = 0;
+    let month = 0;
+    const yearlyData: YearlyDataPoint[] = [];
+
+    while (balance > 1 && month < 600) {
+        month++;
+        const interestForMonth = balance * monthlyRate;
+        let principalForMonth = currentEmi - interestForMonth;
+        if (principalForMonth > balance) principalForMonth = balance;
+        balance -= principalForMonth;
+        totalInterest += interestForMonth;
+        totalPaid += principalForMonth + interestForMonth;
+
+        if (extraEmiPerYear && month % 12 === 0 && balance > 0) {
+            let extraAmt = currentEmi;
+            if (extraAmt > balance) extraAmt = balance;
+            balance -= extraAmt;
+            totalPaid += extraAmt;
+        }
+
+        if (month % 12 === 0 || balance <= 1) {
+            const yearNum = Math.ceil(month / 12);
+            yearlyData.push({ year: yearNum, balance: Math.max(0, balance) });
+            if (month % 12 === 0) currentEmi = currentEmi * (1 + yearlyIncrease / 100);
+        }
+
+        if (balance <= 1) break;
+    }
+
+    return { totalMonths: month, totalInterest, totalPaid, yearlyData, initialEmi };
+};
+
 // ─── Component ────────────────────────────────────────────────────────────────
 
 const StyleGuidePage: React.FC = () => {
@@ -195,7 +171,7 @@ const StyleGuidePage: React.FC = () => {
     const [toastMessage, setToastMessage] = useState<string>('');
     const [showToast, setShowToast] = useState<boolean>(false);
 
-    // Uncommon / Version Toggles
+    // Uncommon / Toggles
     const [useTailwindV4Gradient, setUseTailwindV4Gradient] = useState<boolean>(false);
 
     // Typewriter effect state
@@ -208,6 +184,17 @@ const StyleGuidePage: React.FC = () => {
     const [tenure, setTenure] = useState(20);
     const [increase, setIncrease] = useState(10);
     const [extraEmi, setExtraEmi] = useState(true);
+
+    // Custom Components state
+    const [users, setUsers] = useState<any[]>([]);
+    const [user, setUser] = useState<any>({});
+    const [likeBtn1, setLikedBtn1] = useState({ title: 'Like', icon: <FaRegHeart /> });
+    const [likeBtn2, setLikedBtn2] = useState({ title: 'Follow', icon: <SlUserFollow /> });
+
+
+
+
+
 
     // Chart refs
     const dashboardChartRef = useRef<HTMLCanvasElement | null>(null);
@@ -257,11 +244,12 @@ const StyleGuidePage: React.FC = () => {
                 document.documentElement.classList.remove('dark');
             }
         } else {
-            // default to dark as per styleboards
             document.documentElement.classList.add('dark');
             setTheme('dark');
         }
     }, []);
+
+    const isDark = theme === 'dark';
 
     // Typewriter effect
     useEffect(() => {
@@ -675,8 +663,8 @@ const StyleGuidePage: React.FC = () => {
 
     // Update chart themes when dark mode changes
     useEffect(() => {
-        const gridColor = isDark ? '#27272A' : '#E5E7EB'
-        const textColor = isDark ? '#A1A1AA' : '#6B7280'
+        const gridColor = isDark ? '#27272A' : '#E5E7EB';
+        const textColor = isDark ? '#A1A1AA' : '#6B7280';
 
         const updateChartTheme = (chart: any): void => {
             if (!chart) return
@@ -838,7 +826,7 @@ const StyleGuidePage: React.FC = () => {
         portfolio: 'Portfolio Manager',
         emi: 'Smart EMI Tool',
         settings: 'Configuration',
-    }
+    };
 
     // ── Palette data ──────────────────────────────────────────────────────────────
     const paletteColors: { color: string; name: string; label: string; bg: string; textClass: string }[] = [
@@ -849,10 +837,6 @@ const StyleGuidePage: React.FC = () => {
         { color: '#BBF7D0', name: 'Lime Glow', label: 'Highlight', bg: 'bg-brand-glow', textClass: 'text-brand-black' },
     ]
 
-    const [users, setUsers] = useState<any[]>([]);
-    const [user, setUser] = useState<any>({});
-    let [likeBtn1, setLikedBtn1] = useState({ title: 'Like', icon: <FaRegHeart /> });
-    let [likeBtn2, setLikedBtn2] = useState({ title: 'Follow', icon: <SlUserFollow /> });
 
     // Fetching data when component mounts
     useEffect(() => {
@@ -1292,6 +1276,67 @@ const StyleGuidePage: React.FC = () => {
                                 </div>
                             </section>
 
+                            {/* 6. Custom React Components & Buttons */}
+                            <div className="pb-10 lg:pb-20 border-t border-gray-250 dark:border-brand-border pt-12">
+                                <div className="container-fluid">
+                                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 flex-wrap">
+                                        <div className="lg:col-span-8">
+                                            <div className="bg-white/10 p-8 rounded-xl h-full border border-gray-200 dark:border-brand-border">
+                                                <div className="font-oswald text-[32px] font-bold leading-none mb-6">All Button Type</div>
+                                                <div className="flex flex-wrap gap-5">
+                                                    <button className="btn btn-primary btn-sm">Primary SM</button>
+                                                    <button className="btn btn-primary">Primary</button>
+                                                    <button className="btn btn-primary btn-lg">Primary LG</button>
+                                                    <button className="btn btn-secondary btn-sm">Secondary SM</button>
+                                                    <button className="btn btn-secondary">Secondary</button>
+                                                    <button className="btn btn-secondary btn-lg">Secondary LG</button>
+                                                    <button className="btn btn-outline btn-sm">Outline SM</button>
+                                                    <button className="btn btn-outline">Outline</button>
+                                                    <button className="btn btn-primary btn-sm flex items-center gap-2">Like <FaRegHeart /></button>
+                                                    <button className="btn btn-secondary btn-sm flex items-center gap-2">Like <FaHeart /></button>
+                                                    <button className="btn btn-primary btn-sm flex items-center gap-2">Like <FaRegFaceGrinHearts /></button>
+                                                    <button className="btn btn-secondary btn-sm flex items-center gap-2">Like <FaHeartPulse /> </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="lg:col-span-4">
+                                            <div className="flex flex-col gap-5">
+                                                <div className="bg-white/10 p-8 rounded-xl border border-gray-200 dark:border-brand-border">
+                                                    <div className="font-oswald text-[32px] font-bold leading-none mb-6">Like Button</div>
+                                                    <div className="flex flex-wrap gap-5">
+                                                        <button className="btn btn-secondary btn-sm flex items-center gap-2" onClick={handleLikeItem1} >{likeBtn1.title} {likeBtn1.icon} </button>
+                                                        <button className="btn btn-secondary btn-sm flex items-center gap-2" onClick={handleLikeItem2} >{likeBtn2.title} {likeBtn2.icon} </button>
+                                                    </div>
+                                                </div>
+
+                                                <div className="bg-white/10 p-8 rounded-xl border border-gray-200 dark:border-brand-border">
+                                                    <div className="font-oswald text-[32px] font-bold leading-none mb-6">Counter</div>
+                                                    <div className="flex flex-wrap gap-5">
+                                                        <Counter />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="lg:col-span-12">
+                                            <div className="bg-white/10 p-8 rounded-xl border border-gray-200 dark:border-brand-border">
+                                                <div className="font-oswald text-[32px] font-bold leading-none mb-6">List Group</div>
+                                                <div className="flex flex-wrap gap-5">
+                                                    <div className="w-full">
+                                                        <ListGroup items={users || []} heading="Users" onSelectItem={handleSelectUser} />
+                                                    </div>
+                                                    <div className="w-full">
+                                                        <div className="text-2xl font-bold mb-2">User Table</div>
+                                                        <ListItemTable data={user} />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             {/* Footer */}
                             <footer className="border-t border-gray-200 dark:border-brand-border pt-8 pb-12 flex flex-col md:flex-row justify-between items-center gap-4">
                                 <div className="text-sm text-gray-500 dark:text-brand-muted font-mono">
@@ -1331,7 +1376,7 @@ const StyleGuidePage: React.FC = () => {
 
                                 <nav className="flex-1 px-4 space-y-1">
                                     <button
-                                        onClick={() => setActivePage('dashboard')}
+                                        onClick={() => handleSwitchPage('dashboard')}
                                         className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${activePage === 'dashboard'
                                             ? 'bg-brand-mint/10 text-brand-mint border-r-2 border-brand-mint'
                                             : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight/50'
@@ -1344,7 +1389,7 @@ const StyleGuidePage: React.FC = () => {
                                     <div className="pt-4 mt-2 mb-2">
                                         <div className="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">Content Manager</div>
                                         <button
-                                            onClick={() => setActivePage('portfolio')}
+                                            onClick={() => handleSwitchPage('portfolio')}
                                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${activePage === 'portfolio'
                                                 ? 'bg-brand-mint/10 text-brand-mint border-r-2 border-brand-mint'
                                                 : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight/50'
@@ -1366,7 +1411,7 @@ const StyleGuidePage: React.FC = () => {
                                     <div className="pt-4 mt-2 border-t border-gray-200 dark:border-brand-border">
                                         <div className="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">Tools</div>
                                         <button
-                                            onClick={() => setActivePage('emi')}
+                                            onClick={() => handleSwitchPage('emi')}
                                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${activePage === 'emi'
                                                 ? 'bg-brand-mint/10 text-brand-mint border-r-2 border-brand-mint'
                                                 : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight/50'
@@ -1379,7 +1424,7 @@ const StyleGuidePage: React.FC = () => {
 
                                     <div className="pt-4 mt-auto">
                                         <button
-                                            onClick={() => setActivePage('settings')}
+                                            onClick={() => handleSwitchPage('settings')}
                                             className={`w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer ${activePage === 'settings'
                                                 ? 'bg-brand-mint/10 text-brand-mint border-r-2 border-brand-mint'
                                                 : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight/50'
@@ -1398,7 +1443,7 @@ const StyleGuidePage: React.FC = () => {
                                 <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-brand-muted font-mono mb-6">
                                     <span>admin</span>
                                     <span>/</span>
-                                    <span className="text-gray-900 dark:text-brand-text capitalize">{activePage}</span>
+                                    <span className="text-gray-900 dark:text-brand-text capitalize">{breadcrumbMap[activePage]}</span>
                                 </div>
 
                                 {/* PAGE 1: DASHBOARD */}
