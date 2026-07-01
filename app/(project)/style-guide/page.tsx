@@ -1,38 +1,8 @@
 'use client'
-
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { Inter, Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import Chart from 'chart.js/auto';
-import {
-    Sun,
-    Moon,
-    CheckCircle,
-    Eye,
-    Download,
-    MousePointer,
-    Plus,
-    ArrowUp,
-    ChevronRight,
-    Copy,
-    Github,
-    Twitter,
-    Figma,
-    Search,
-    Edit3,
-    EyeOff,
-    LayoutDashboard,
-    Briefcase,
-    Component as ComponentIcon,
-    PenTool,
-    Calculator,
-    Settings,
-    RefreshCw,
-    Wallet,
-    ArrowUpCircle,
-    Calendar,
-    Bell,
-    Check
-} from 'lucide-react';
+import { Sun, Moon, CheckCircle, Eye, Download, MousePointer, Plus, ArrowUp, ChevronRight, Copy, Github, Twitter, Figma, Search, Edit3, EyeOff, LayoutDashboard, Briefcase, Component as ComponentIcon, PenTool, Calculator, Settings, RefreshCw, Wallet, ArrowUpCircle, Calendar, Bell, Check } from 'lucide-react';
 
 import ListGroup from "@/app/components/project/ListGroup";
 import Counter from "@/app/components/project/Counter";
@@ -67,13 +37,6 @@ interface AmortizationResult {
     initialEmi: number
 }
 
-type ViewName = 'styleguide' | 'app'
-type AppPage = 'dashboard' | 'portfolio' | 'emi' | 'settings'
-
-
-
-
-
 type ActiveView = 'styleguide' | 'app';
 type ActivePage = 'dashboard' | 'portfolio' | 'emi' | 'settings';
 type Theme = 'light' | 'dark';
@@ -90,36 +53,6 @@ const calculateEMI = (p: number, r: number, n: number): number => {
     return (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
 };
 
-
-const runAmortization = () => {
-
-    while (balance > 1 && month < 600) {
-        month++
-        const interestForMonth = balance * monthlyRate
-        let principalForMonth = currentEmi - interestForMonth
-        if (principalForMonth > balance) principalForMonth = balance
-        balance -= principalForMonth
-        totalInterest += interestForMonth
-        totalPaid += principalForMonth + interestForMonth
-
-        if (extraEmiPerYear && month % 12 === 0 && balance > 0) {
-            let extraAmt = currentEmi
-            if (extraAmt > balance) extraAmt = balance
-            balance -= extraAmt
-            totalPaid += extraAmt
-        }
-
-        if (month % 12 === 0 || balance <= 1) {
-            const yearNum = Math.ceil(month / 12)
-            yearlyData.push({ year: yearNum, balance: Math.max(0, balance) })
-            if (month % 12 === 0) currentEmi = currentEmi * (1 + yearlyIncrease / 100)
-        }
-
-        if (balance <= 1) break
-    }
-
-    return { totalMonths: month, totalInterest, totalPaid, yearlyData, initialEmi }
-}
 
 const runAmortization = (principal: number, annualRate: number, tenureYears: number, yearlyIncrease: number, extraEmiPerYear: boolean): AmortizationResult => {
     let balance = principal;
@@ -162,14 +95,13 @@ const runAmortization = (principal: number, annualRate: number, tenureYears: num
 // ─── Component ────────────────────────────────────────────────────────────────
 
 const StyleGuidePage: React.FC = () => {
-    // Nav / View State
+    // ── View / nav state ────────────────────────────────────────────────────────
     const [activeView, setActiveView] = useState<ActiveView>('styleguide');
     const [activePage, setActivePage] = useState<ActivePage>('dashboard');
+
     const [theme, setTheme] = useState<Theme>('dark');
 
-    // Toast notification
-    const [toastMessage, setToastMessage] = useState<string>('');
-    const [showToast, setShowToast] = useState<boolean>(false);
+
 
     // Uncommon / Toggles
     const [useTailwindV4Gradient, setUseTailwindV4Gradient] = useState<boolean>(false);
@@ -191,12 +123,7 @@ const StyleGuidePage: React.FC = () => {
     const [likeBtn1, setLikedBtn1] = useState({ title: 'Like', icon: <FaRegHeart /> });
     const [likeBtn2, setLikedBtn2] = useState({ title: 'Follow', icon: <SlUserFollow /> });
 
-
-
-
-
-
-    // Chart refs
+    // ── Charts ────────────────────────────────────────────────────────────────────
     const dashboardChartRef = useRef<HTMLCanvasElement | null>(null);
     const dashboardChartInstance = useRef<Chart | null>(null);
 
@@ -206,17 +133,11 @@ const StyleGuidePage: React.FC = () => {
     const miniChartRef = useRef<HTMLCanvasElement | null>(null);
     const miniChartInstance = useRef<Chart | null>(null);
 
-    // Show toast message
-    const triggerToast = (message: string) => {
-        setToastMessage(message);
-        setShowToast(true);
-        setTimeout(() => setShowToast(false), 3000);
-    };
 
     // Copy handlers
     const handleCopyText = (text: string, label: string) => {
         navigator.clipboard.writeText(text).then(() => {
-            triggerToast(`${label} copied to clipboard`);
+            showToast(`${label} copied to clipboard`);
         });
     };
 
@@ -249,7 +170,7 @@ const StyleGuidePage: React.FC = () => {
         }
     }, []);
 
-    const isDark = theme === 'dark';
+
 
     // Typewriter effect
     useEffect(() => {
@@ -477,9 +398,7 @@ const StyleGuidePage: React.FC = () => {
         handleCopyText(window.location.href, "Page URL");
     };
 
-    // ── View / nav state ────────────────────────────────────────────────────────
-    const [activeView, setActiveView] = useState<ViewName>('styleguide')
-    const [activePage, setActivePage] = useState<AppPage>('dashboard')
+
 
     // ── Theme ───────────────────────────────────────────────────────────────────
     const [isDark, setIsDark] = useState<boolean>(() => {
@@ -564,14 +483,7 @@ const StyleGuidePage: React.FC = () => {
         return () => { cancelled = true }
     }, [])
 
-    // ── Charts ────────────────────────────────────────────────────────────────────
-    const dashboardChartRef = useRef<HTMLCanvasElement | null>(null)
-    const dashboardChartInstance = useRef<any>(null)
-
-    const miniChartRef = useRef<HTMLCanvasElement | null>(null)
-
-    const emiChartRef = useRef<HTMLCanvasElement | null>(null)
-    const emiChartInstance = useRef<any>(null)
+    
 
     // Mini chart (static, rendered once on mount)
     useEffect(() => {
@@ -723,9 +635,14 @@ const StyleGuidePage: React.FC = () => {
                 emiChartInstance.current.data.labels = labels
                 emiChartInstance.current.data.datasets[0].data = normPoints
                 emiChartInstance.current.data.datasets[1].data = smartPoints
-                emiChartInstance.current.options.scales.x.ticks.color = textColor
-                emiChartInstance.current.options.scales.y.ticks.color = textColor
-                emiChartInstance.current.options.scales.y.grid.color = gridColor
+                const scales = emiChartInstance.current.options.scales;
+                if (scales) {
+                    if (scales.x?.ticks) scales.x.ticks.color = textColor;
+                    if (scales.y) {
+                        if (scales.y.ticks) scales.y.ticks.color = textColor;
+                        if (scales.y.grid) scales.y.grid.color = gridColor;
+                    }
+                }
                 emiChartInstance.current.update()
             } else {
                 emiChartInstance.current = new Chart(ctx, {
@@ -810,18 +727,18 @@ const StyleGuidePage: React.FC = () => {
     }, [emiState, activePage, updateEMIView])
 
     // ── View switching ────────────────────────────────────────────────────────────
-    const handleSwitchView = (view: ViewName): void => {
+    const handleSwitchView = (view: ActiveView): void => {
         setActiveView(view)
         if (view === 'app') initDashboardChart()
     }
 
-    const handleSwitchPage = (page: AppPage): void => {
+    const handleSwitchPage = (page: ActivePage): void => {
         setActivePage(page)
         if (page === 'emi') updateEMIView(emiState)
         if (page === 'dashboard') setTimeout(initDashboardChart, 0)
     }
 
-    const breadcrumbMap: Record<AppPage, string> = {
+    const breadcrumbMap: Record<ActivePage, string> = {
         dashboard: 'Dashboard',
         portfolio: 'Portfolio Manager',
         emi: 'Smart EMI Tool',
@@ -1765,7 +1682,7 @@ const StyleGuidePage: React.FC = () => {
                                                         </div>
                                                     </div>
                                                     <button
-                                                        onClick={() => triggerToast("Profile settings saved (mock)")}
+                                                        onClick={() => showToast("Profile settings saved (mock)")}
                                                         className="w-full md:w-auto px-4 py-2 bg-brand-mint text-brand-black font-medium rounded hover:bg-brand-fern hover:text-white transition-colors text-sm cursor-pointer"
                                                     >
                                                         Save
@@ -1811,7 +1728,7 @@ const StyleGuidePage: React.FC = () => {
                                                         </div>
                                                     </div>
                                                     <button
-                                                        onClick={() => triggerToast("Metadata updated (mock)")}
+                                                        onClick={() => showToast("Metadata updated (mock)")}
                                                         className="px-4 py-2 border border-gray-300 dark:border-brand-border text-gray-600 dark:text-brand-muted font-medium rounded hover:bg-gray-100 dark:hover:bg-brand-surfaceHighlight transition-colors text-sm cursor-pointer"
                                                     >
                                                         Update Meta
@@ -1849,9 +1766,9 @@ const StyleGuidePage: React.FC = () => {
                     )}
 
                     {/* Notification Toast */}
-                    <div className={`fixed bottom-8 right-8 bg-white dark:bg-brand-surface border border-brand-mint text-brand-mint px-6 py-3 rounded shadow-2xl transform transition-transform duration-300 flex items-center gap-2 z-9999 font-mono text-sm ${showToast ? 'translate-y-0' : 'translate-y-24'}`}>
+                    <div className={`fixed bottom-8 right-8 bg-white dark:bg-brand-surface border border-brand-mint text-brand-mint px-6 py-3 rounded shadow-2xl transform transition-transform duration-300 flex items-center gap-2 z-9999 font-mono text-sm ${toastVisible ? 'translate-y-0' : 'translate-y-24'}`}>
                         <CheckCircle className="w-4 h-4" />
-                        <span>{toastMessage}</span>
+                        <span>{toastMsg}</span>
                     </div>
                 </div>
             </div>
