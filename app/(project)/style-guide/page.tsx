@@ -2804,7 +2804,7 @@ const StyleGuidePage: React.FC = () => {
                                     <div className="group text-center">
                                         <div className="w-12 h-12 relative flex items-center justify-center mb-2">
                                             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="text-brand-mint">
+                                                strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-mint">
                                                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                                             </svg>
                                         </div>
