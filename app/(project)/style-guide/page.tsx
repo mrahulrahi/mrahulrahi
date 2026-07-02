@@ -483,7 +483,7 @@ const StyleGuidePage: React.FC = () => {
         return () => { cancelled = true }
     }, [])
 
-    
+
 
     // Mini chart (static, rendered once on mount)
     useEffect(() => {
@@ -2941,27 +2941,7 @@ const StyleGuidePage: React.FC = () => {
                             </div>
                         </div>
 
-                        {/* <!-- Footer --> */}
-                        <footer
-                            className="border-t border-brand-border pt-8 pb-12 flex flex-col md:flex-row justify-between items-center gap-4">
-                            <div className="text-sm text-brand-muted font-mono">
-                                © 2025 mrahulrahi. All systems nominal.
-                            </div>
-                            <div className="flex gap-4">
-                                <div
-                                    className="w-8 h-8 rounded bg-brand-surface border border-brand-border flex items-center justify-center hover:border-brand-mint transition-colors cursor-pointer">
-                                    <i data-lucide="github" className="w-4 h-4 text-brand-muted"></i>
-                                </div>
-                                <div
-                                    className="w-8 h-8 rounded bg-brand-surface border border-brand-border flex items-center justify-center hover:border-brand-mint transition-colors cursor-pointer">
-                                    <i data-lucide="twitter" className="w-4 h-4 text-brand-muted"></i>
-                                </div>
-                                <div
-                                    className="w-8 h-8 rounded bg-brand-surface border border-brand-border flex items-center justify-center hover:border-brand-mint transition-colors cursor-pointer">
-                                    <i data-lucide="figma" className="w-4 h-4 text-brand-muted"></i>
-                                </div>
-                            </div>
-                        </footer>
+
                     </div>
                 </main>
             </div>
