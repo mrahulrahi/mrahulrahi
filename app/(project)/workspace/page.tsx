@@ -1,11 +1,8 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
-import {
-    LayoutDashboard, Layers, Sliders, Terminal, User, FolderGit2,
-    ChevronRight, GraduationCap, Sparkles, Cpu, BookOpen,
-    ArrowUpRight, Github, Linkedin, ExternalLink, HelpCircle, Briefcase
-} from 'lucide-react';
+import  { useState, useEffect } from 'react';
+import { Layers, Sliders, Terminal, User, ChevronRight, Sparkles, Cpu, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { TbBrandReact, TbBrandNextjs, TbBrandTypescript, TbBrandTailwind} from "react-icons/tb";
 import UiLibrarySandbox from '@/app/components/portfolio/UiLibrarySandbox';
 import ToolsDirectory from '@/app/components/portfolio/ToolsDirectory';
 import EducationalCodeBlocks from '@/app/components/portfolio/EducationalCodeBlocks';
@@ -15,10 +12,7 @@ import { getPublicPortfolioData } from '@/app/(admin)/admin/dataActions';
 import { skills as staticSkills, projectsCards as staticProjects } from '@/app/data/staticData';
 
 
-
 type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks' | 'js-stack' | 'products';
-
-
 
 export default function WorkspacePage() {
     const [activeTab, setActiveTab] = useState<WorkspaceTab>('portfolio');
@@ -90,13 +84,13 @@ export default function WorkspacePage() {
                                 key={item.id}
                                 onClick={() => setActiveTab(item.id)}
                                 className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center gap-3.5 group cursor-pointer ${activeTab === item.id
-                                        ? 'bg-brand-mint/10 border-brand-mint/30 text-white shadow-[0_0_15px_-3px_rgba(0,220,130,0.15)]'
-                                        : 'bg-transparent border-transparent hover:bg-slate-950/40 hover:border-slate-800/60 text-slate-400 hover:text-slate-200'
+                                    ? 'bg-brand-mint/10 border-brand-mint/30 text-white shadow-[0_0_15px_-3px_rgba(0,220,130,0.15)]'
+                                    : 'bg-transparent border-transparent hover:bg-slate-950/40 hover:border-slate-800/60 text-slate-400 hover:text-slate-200'
                                     }`}
                             >
                                 <div className={`p-2.5 rounded-xl transition-colors shrink-0 ${activeTab === item.id
-                                        ? 'bg-brand-mint/20 text-brand-mint'
-                                        : 'bg-slate-950/60 border border-slate-800/60 text-slate-500 group-hover:text-slate-300'
+                                    ? 'bg-brand-mint/20 text-brand-mint'
+                                    : 'bg-slate-950/60 border border-slate-800/60 text-slate-500 group-hover:text-slate-300'
                                     }`}>
                                     {item.icon}
                                 </div>
@@ -173,19 +167,19 @@ export default function WorkspacePage() {
                                     <h2 className="text-xs font-mono text-slate-400 uppercase tracking-widest border-b border-slate-800/80 pb-2">Core Technology Matrix</h2>
                                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                                         <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex items-center gap-3">
-                                            <div className="p-2 bg-slate-950 rounded-lg text-[#61DAFB]"><Cpu className="w-4 h-4" /></div>
+                                            <div className="p-2 bg-slate-950 rounded-lg text-[#61DAFB]"><TbBrandReact className="w-4 h-4" /></div>
                                             <span className="text-xs font-semibold">React.js</span>
                                         </div>
                                         <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex items-center gap-3">
-                                            <div className="p-2 bg-slate-950 rounded-lg text-[#000000]"><Cpu className="w-4 h-4" /></div>
+                                            <div className="p-2 bg-slate-950 rounded-lg text-white"><TbBrandNextjs className="w-4 h-4" /></div>
                                             <span className="text-xs font-semibold">Next.js</span>
                                         </div>
                                         <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex items-center gap-3">
-                                            <div className="p-2 bg-slate-950 rounded-lg text-[#3178C6]"><Cpu className="w-4 h-4" /></div>
+                                            <div className="p-2 bg-slate-950 rounded-lg text-[#3178C6]"><TbBrandTypescript className="w-4 h-4" /></div>
                                             <span className="text-xs font-semibold">TypeScript</span>
                                         </div>
                                         <div className="p-4 bg-slate-900/40 border border-slate-800/60 rounded-2xl flex items-center gap-3">
-                                            <div className="p-2 bg-slate-950 rounded-lg text-[#38BDF8]"><Cpu className="w-4 h-4" /></div>
+                                            <div className="p-2 bg-slate-950 rounded-lg text-[#38BDF8]"><TbBrandTailwind className="w-4 h-4" /></div>
                                             <span className="text-xs font-semibold">Tailwind CSS</span>
                                         </div>
                                     </div>

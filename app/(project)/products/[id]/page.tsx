@@ -93,7 +93,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
               {product.title}
             </h1>
 
-            <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300 font-mono">
+            <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-teal-300 font-mono">
               ${product.price.toFixed(2)}
             </div>
 
