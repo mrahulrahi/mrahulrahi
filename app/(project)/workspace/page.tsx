@@ -20,7 +20,7 @@ export default function WorkspacePage() {
         projectsCount: staticProjects.length,
         skillsCount: staticSkills.length,
         certificationsCount: 4,
-        experienceYears: 2
+        experienceYears: 3
     });
 
     useEffect(() => {
@@ -202,6 +202,16 @@ export default function WorkspacePage() {
                                         <button onClick={() => setActiveTab('code-blocks')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
                                             <Terminal className="w-5 h-5 text-brand-mint mb-3" />
                                             <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Launch Academy</h3>
+                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Examine modular sorting visualizers, custom hooks logs, and pointer grids.</p>
+                                        </button>
+                                        <button onClick={() => setActiveTab('js-stack')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
+                                            <Terminal className="w-5 h-5 text-brand-mint mb-3" />
+                                            <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Js Stack</h3>
+                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Examine modular sorting visualizers, custom hooks logs, and pointer grids.</p>
+                                        </button>
+                                        <button onClick={() => setActiveTab('products')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
+                                            <Terminal className="w-5 h-5 text-brand-mint mb-3" />
+                                            <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Products</h3>
                                             <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Examine modular sorting visualizers, custom hooks logs, and pointer grids.</p>
                                         </button>
                                     </div>
