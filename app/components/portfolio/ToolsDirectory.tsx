@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Search, Sparkles, Terminal, Sliders, ExternalLink, Calculator, HelpCircle, FileText, CloudSun, Quote, Wallet } from 'lucide-react';
+import { Search, Sparkles, Terminal, Sliders, ExternalLink, Calculator, HelpCircle, FileText, CloudSun, Quote, Wallet, Percent, Coins } from 'lucide-react';
 import { getPublicUiToolsData } from '@/app/(admin)/admin/dataActions';
 
 interface ToolsDirectoryProps {
@@ -44,6 +44,10 @@ export default function ToolsDirectory({ isEmbedded = false }: ToolsDirectoryPro
                 return <Quote className={iconClasses} />;
             case 'expense-tracker':
                 return <Wallet className={iconClasses} />;
+            case 'salary-divider':
+                return <Percent className={iconClasses} />;
+            case 'debt-tracker':
+                return <Coins className={iconClasses} />;
             case 'calculator-app':
             case 'salary-calculator':
             case 'salary-calculator-two':

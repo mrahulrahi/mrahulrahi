@@ -613,6 +613,20 @@
       "description": "Track your daily income, expenses, set budgets, and visualize spending categories.",
       "href": "/code-stack/tools/expense-tracker",
       "visible": true
+    },
+    {
+      "id": "salary-divider",
+      "name": "Salary Divider",
+      "description": "Apportion your monthly income into savings, investments, living expenses, and lifestyle pots.",
+      "href": "/code-stack/tools/salary-divider",
+      "visible": true
+    },
+    {
+      "id": "debt-tracker",
+      "name": "Debt Book (Give/Take)",
+      "description": "Log loans, borrow records, track who owes you money, and manage outstanding balances.",
+      "href": "/code-stack/tools/debt-tracker",
+      "visible": true
     }
   ]
 }

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useGradient } from '@/app/context/GradientContext';
 import Hero from "@/app/components/project/Hero";
 import { TbLayoutSidebarLeftCollapseFilled, TbLayoutSidebarLeftExpandFilled } from "react-icons/tb";
-import { FaDiceFour, FaCalculator, FaNoteSticky, FaCloudSun, FaQuoteRight, FaCreditCard } from 'react-icons/fa6';
+import { FaDiceFour, FaCalculator, FaNoteSticky, FaCloudSun, FaQuoteRight, FaCreditCard, FaPercent, FaCoins } from 'react-icons/fa6';
 import { getPublicUiToolsData } from '@/app/(admin)/admin/dataActions';
 
 const CodeStackLayout = ({ children }) => {
@@ -34,6 +34,8 @@ const CodeStackLayout = ({ children }) => {
     { title: 'Smart EMI Planner', href: '/code-stack/tools/smart-emi-planner', icon: <FaCalculator /> },
     { title: 'Salary Calculator', href: '/code-stack/tools/salary-calculator-two', icon: <FaCalculator /> },
     { title: 'Expense Tracker', href: '/code-stack/tools/expense-tracker', icon: <FaCreditCard /> },
+    { title: 'Salary Divider', href: '/code-stack/tools/salary-divider', icon: <FaPercent /> },
+    { title: 'Debt Book', href: '/code-stack/tools/debt-tracker', icon: <FaCoins /> },
   ];
 
   const [visibleToolHrefs, setVisibleToolHrefs] = useState(optionalTools.map(t => t.href));
