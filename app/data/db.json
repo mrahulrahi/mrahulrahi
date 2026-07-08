@@ -606,6 +606,13 @@
       "description": "Compare different tax regimes and plan savings to optimize income tax.",
       "href": "/code-stack/tools/salary-calculator-two",
       "visible": true
+    },
+    {
+      "id": "expense-tracker",
+      "name": "Expense Tracker",
+      "description": "Track your daily income, expenses, set budgets, and visualize spending categories.",
+      "href": "/code-stack/tools/expense-tracker",
+      "visible": true
     }
   ]
 }
