@@ -4,7 +4,8 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { 
     TrendingUp, ShieldAlert, Sparkles, Percent, DollarSign, Calendar, 
     RotateCcw, Info, Lightbulb, Settings, FileSpreadsheet, ArrowUpRight, 
-    ArrowDownRight, CheckCircle2, AlertTriangle, ShieldCheck
+    ArrowDownRight, CheckCircle2, AlertTriangle, ShieldCheck,
+    Car, Bike, Smartphone, Laptop, Plus, Trash2, Target
 } from 'lucide-react';
 
 const DEFAULT_PRE_ALLOCATION = [
@@ -21,6 +22,63 @@ const DEFAULT_POST_ALLOCATION = [
     { name: 'Smallcap mutual funds', return: 18, tax: 20, share: 0 }
 ];
 
+const getCategoryIcon = (category, className = "w-4 h-4") => {
+    switch (category) {
+        case 'car':
+            return <Car className={className} />;
+        case 'bike':
+            return <Bike className={className} />;
+        case 'smartphone':
+            return <Smartphone className={className} />;
+        case 'laptop':
+            return <Laptop className={className} />;
+        default:
+            return <Sparkles className={className} />;
+    }
+};
+
+const getCategoryDefaults = (category) => {
+    switch (category) {
+        case 'laptop':
+        case 'smartphone':
+            return {
+                inflationRate: 3,
+                bucketYield: 7,
+                useLoan: false,
+                downPaymentPct: 100,
+                loanDuration: 0,
+                loanInterest: 0
+            };
+        case 'car':
+            return {
+                inflationRate: 8,
+                bucketYield: 12,
+                useLoan: true,
+                downPaymentPct: 20,
+                loanDuration: 5,
+                loanInterest: 9
+            };
+        case 'bike':
+            return {
+                inflationRate: 8,
+                bucketYield: 12,
+                useLoan: false,
+                downPaymentPct: 100,
+                loanDuration: 0,
+                loanInterest: 0
+            };
+        default:
+            return {
+                inflationRate: 10,
+                bucketYield: 10,
+                useLoan: false,
+                downPaymentPct: 100,
+                loanDuration: 0,
+                loanInterest: 0
+            };
+    }
+};
+
 export default function RetirementPlanner() {
     // ----------------------------------------------------
     // State Definitions
@@ -34,6 +92,23 @@ export default function RetirementPlanner() {
     const [retirementExpense, setRetirementExpense] = useState(50000); // post-retirement monthly (today's rate)
     const [inflation, setInflation] = useState(10); // annual inflation (10%)
     const [taxApplied, setTaxApplied] = useState(false); // toggle pre-tax vs post-tax calculations
+
+    // Short-Term Goals
+    const [shortTermGoals, setShortTermGoals] = useState([
+        { id: '1', name: 'MacBook Pro', cost: 150000, targetAge: 30, category: 'laptop', enabled: true, inflationRate: 3, bucketYield: 7, useLoan: false, downPaymentPct: 100, loanDuration: 0, loanInterest: 0 },
+        { id: '2', name: 'iPhone Upgrade', cost: 80000, targetAge: 32, category: 'smartphone', enabled: true, inflationRate: 3, bucketYield: 7, useLoan: false, downPaymentPct: 100, loanDuration: 0, loanInterest: 0 },
+        { id: '3', name: 'Sports Bike', cost: 250000, targetAge: 34, category: 'bike', enabled: true, inflationRate: 8, bucketYield: 12, useLoan: false, downPaymentPct: 100, loanDuration: 0, loanInterest: 0 },
+        { id: '4', name: 'Electric SUV', cost: 1500000, targetAge: 38, category: 'car', enabled: false, inflationRate: 8, bucketYield: 12, useLoan: true, downPaymentPct: 20, loanDuration: 5, loanInterest: 9 }
+    ]);
+
+    // Active Settings ID state
+    const [openSettingsGoalId, setOpenSettingsGoalId] = useState(null);
+
+    // Form inputs state
+    const [goalName, setGoalName] = useState('');
+    const [goalCost, setGoalCost] = useState('');
+    const [goalAge, setGoalAge] = useState(30);
+    const [goalCategory, setGoalCategory] = useState('car');
 
     // Portfolios
     const [preAllocation, setPreAllocation] = useState(DEFAULT_PRE_ALLOCATION);
@@ -62,6 +137,7 @@ export default function RetirementPlanner() {
                 setTaxApplied(parsed.taxApplied ?? false);
                 if (parsed.preAllocation) setPreAllocation(parsed.preAllocation);
                 if (parsed.postAllocation) setPostAllocation(parsed.postAllocation);
+                if (parsed.shortTermGoals) setShortTermGoals(parsed.shortTermGoals);
             } catch (e) {
                 console.error("Failed to load retirement configurations", e);
             }
@@ -73,14 +149,16 @@ export default function RetirementPlanner() {
             const data = {
                 currentAge, retirementAge, planningAge, currentSavings,
                 monthlyInvestments, annualStepUp, retirementExpense,
-                inflation, taxApplied, preAllocation, postAllocation
+                inflation, taxApplied, preAllocation, postAllocation,
+                shortTermGoals
             };
             localStorage.setItem('retirement_planner_config', JSON.stringify(data));
         }
     }, [
         currentAge, retirementAge, planningAge, currentSavings,
         monthlyInvestments, annualStepUp, retirementExpense,
-        inflation, taxApplied, preAllocation, postAllocation, isMounted
+        inflation, taxApplied, preAllocation, postAllocation, 
+        shortTermGoals, isMounted
     ]);
 
     // ----------------------------------------------------
@@ -134,6 +212,11 @@ export default function RetirementPlanner() {
             totalShare
         };
     }, [postAllocation]);
+    const preRetireReturnRate = useMemo(() => {
+        return taxApplied 
+            ? preSummary.weightedReturn * (1 - preSummary.weightedTax / 100)
+            : preSummary.weightedReturn;
+    }, [taxApplied, preSummary]);
 
     // ----------------------------------------------------
     // Simulation Logic
@@ -146,11 +229,6 @@ export default function RetirementPlanner() {
 
         const maxSimulationAge = 110;
         let runoutAge = null;
-
-        // Pre-tax returns vs post-tax returns
-        const preRetireReturnRate = taxApplied 
-            ? preSummary.weightedReturn * (1 - preSummary.weightedTax / 100)
-            : preSummary.weightedReturn;
 
         const postRetireReturnRate = taxApplied 
             ? postSummary.weightedReturn * (1 - postSummary.weightedTax / 100)
@@ -165,6 +243,58 @@ export default function RetirementPlanner() {
             let interest = 0;
             let startSavings = savings;
 
+            // Calculate short-term goal cash expenses and EMIs at this age
+            let goalExpensesVal = 0; // Immediate cash / down payments
+            let emiExpensesVal = 0;  // Ongoing EMIs
+            const goalsListAtAge = [];
+            const emiListAtAge = [];
+
+            shortTermGoals.forEach(g => {
+                if (!g.enabled) return;
+
+                const goalInflation = g.inflationRate !== undefined ? g.inflationRate : inflation;
+                const yearsDiff = age - currentAge;
+                const inflatedCost = Number(g.cost) * Math.pow(1 + goalInflation / 100, yearsDiff);
+
+                // Check if this goal is purchased at this age
+                if (Number(g.targetAge) === age) {
+                    if (g.useLoan) {
+                        const downPaymentCost = inflatedCost * ((g.downPaymentPct ?? 20) / 100);
+                        goalExpensesVal += downPaymentCost;
+                        goalsListAtAge.push({ ...g, inflatedCost, costPaid: downPaymentCost, type: 'downpayment' });
+                    } else {
+                        goalExpensesVal += inflatedCost;
+                        goalsListAtAge.push({ ...g, inflatedCost, costPaid: inflatedCost, type: 'cash' });
+                    }
+                }
+
+                // Check if this goal has active EMI at this age
+                if (g.useLoan && age >= Number(g.targetAge) && age < Number(g.targetAge) + Number(g.loanDuration)) {
+                    // Loan principal = inflatedCostAtPurchase
+                    const yearsDiffAtPurchase = Number(g.targetAge) - currentAge;
+                    const inflatedCostAtPurchase = Number(g.cost) * Math.pow(1 + goalInflation / 100, yearsDiffAtPurchase);
+                    const downPaymentCostAtPurchase = inflatedCostAtPurchase * ((g.downPaymentPct ?? 20) / 100);
+                    const loanPrincipal = inflatedCostAtPurchase - downPaymentCostAtPurchase;
+
+                    const r_annual = g.loanInterest ?? 9;
+                    const r_monthly = r_annual / 12 / 100;
+                    const n_months = Number(g.loanDuration) * 12;
+
+                    let monthlyEmi = 0;
+                    if (r_monthly > 0) {
+                        monthlyEmi = loanPrincipal * r_monthly * Math.pow(1 + r_monthly, n_months) / (Math.pow(1 + r_monthly, n_months) - 1);
+                    } else {
+                        monthlyEmi = loanPrincipal / n_months;
+                    }
+
+                    const annualEmi = monthlyEmi * 12;
+                    emiExpensesVal += annualEmi;
+                    emiListAtAge.push({ ...g, annualEmi, monthlyEmi });
+                }
+            });
+
+            const totalGoalOutflow = goalExpensesVal + emiExpensesVal;
+
             if (isDead) {
                 expenses = 0;
                 additions = 0;
@@ -176,8 +306,8 @@ export default function RetirementPlanner() {
                 // calculate yearly addition with step-up growth compounding each year
                 const yearsDiff = age - currentAge;
                 additions = annualSavingsInput * Math.pow(1 + annualStepUp / 100, yearsDiff);
-                interest = startSavings * (preRetireReturnRate / 100);
-                savings = startSavings + additions + interest;
+                interest = Math.max(0, startSavings) * (preRetireReturnRate / 100);
+                savings = startSavings + additions + interest - totalGoalOutflow;
             } else {
                 // Retired years
                 additions = 0;
@@ -185,7 +315,7 @@ export default function RetirementPlanner() {
                 const yearsDiff = age - currentAge;
                 expenses = initialRetirementExpenseYearly * Math.pow(1 + inflation / 100, yearsDiff);
                 interest = Math.max(0, startSavings) * (postRetireReturnRate / 100);
-                savings = startSavings - expenses + interest;
+                savings = startSavings - expenses + interest - totalGoalOutflow;
             }
 
             if (savings < 0 && runoutAge === null && !isDead) {
@@ -198,6 +328,10 @@ export default function RetirementPlanner() {
                 expenses: expenses > 0 ? expenses : 0,
                 additions: additions > 0 ? additions : 0,
                 interest: interest > 0 ? interest : 0,
+                goalExpenses: goalExpensesVal,
+                emiExpenses: emiExpensesVal,
+                goalsList: goalsListAtAge,
+                emiList: emiListAtAge,
                 endSavings: savings > 0 ? savings : 0,
                 status: isDead ? 'Dead' : isEarning ? 'Earning' : 'Retired',
                 warning: savings < 0 && !isDead
@@ -211,7 +345,7 @@ export default function RetirementPlanner() {
     }, [
         currentAge, retirementAge, planningAge, currentSavings,
         monthlyInvestments, annualStepUp, retirementExpense,
-        inflation, taxApplied, preSummary, postSummary
+        inflation, taxApplied, preSummary, postSummary, shortTermGoals
     ]);
 
     // ----------------------------------------------------
@@ -239,6 +373,27 @@ export default function RetirementPlanner() {
 
         return { line, area, points, width, height, padding };
     }, [simulation]);
+
+    const milestonePoints = useMemo(() => {
+        if (!chartPaths.points || chartPaths.points.length === 0) return [];
+        return chartPaths.points.map(p => {
+            const row = simulation.rows.find(r => r.age === p.age);
+            const goalsAtAge = row?.goalsList || [];
+            const activeEmisAtAge = row?.emiList || [];
+            const hasGoal = goalsAtAge.length > 0;
+            return { ...p, goals: goalsAtAge, emis: activeEmisAtAge, hasGoal };
+        }).filter(p => p.hasGoal);
+    }, [chartPaths.points, simulation.rows]);
+
+    const goalsAtHoveredAge = useMemo(() => {
+        if (!hoveredData) return [];
+        return simulation.rows.find(r => r.age === hoveredData.age)?.goalsList || [];
+    }, [hoveredData, simulation.rows]);
+
+    const emisAtHoveredAge = useMemo(() => {
+        if (!hoveredData) return [];
+        return simulation.rows.find(r => r.age === hoveredData.age)?.emiList || [];
+    }, [hoveredData, simulation.rows]);
 
     // ----------------------------------------------------
     // Portfolios Update Helpers
@@ -270,6 +425,97 @@ export default function RetirementPlanner() {
             setTaxApplied(false);
             setPreAllocation(DEFAULT_PRE_ALLOCATION);
             setPostAllocation(DEFAULT_POST_ALLOCATION);
+            setShortTermGoals([
+                { id: '1', name: 'MacBook Pro', cost: 150000, targetAge: 30, category: 'laptop', enabled: true, inflationRate: 3, bucketYield: 7, useLoan: false, downPaymentPct: 100, loanDuration: 0, loanInterest: 0 },
+                { id: '2', name: 'iPhone Upgrade', cost: 80000, targetAge: 32, category: 'smartphone', enabled: true, inflationRate: 3, bucketYield: 7, useLoan: false, downPaymentPct: 100, loanDuration: 0, loanInterest: 0 },
+                { id: '3', name: 'Sports Bike', cost: 250000, targetAge: 34, category: 'bike', enabled: true, inflationRate: 8, bucketYield: 12, useLoan: false, downPaymentPct: 100, loanDuration: 0, loanInterest: 0 },
+                { id: '4', name: 'Electric SUV', cost: 1500000, targetAge: 38, category: 'car', enabled: false, inflationRate: 8, bucketYield: 12, useLoan: true, downPaymentPct: 20, loanDuration: 5, loanInterest: 9 }
+            ]);
+        }
+    };
+
+    const getInflatedCost = (cost, targetAge, customInflation) => {
+        const yearsDiff = Math.max(0, Number(targetAge) - currentAge);
+        const infRate = customInflation !== undefined ? customInflation : inflation;
+        return Number(cost) * Math.pow(1 + infRate / 100, yearsDiff);
+    };
+
+    const getRequiredMonthlySavings = (g) => {
+        const targetAge = Number(g.targetAge);
+        const yearsToSave = targetAge - currentAge;
+        if (yearsToSave <= 0) return 0;
+        
+        const goalInflation = g.inflationRate !== undefined ? g.inflationRate : inflation;
+        const inflatedCost = getInflatedCost(g.cost, targetAge, goalInflation);
+        
+        // Target amount is down payment if using loan, else full cost
+        const targetAmount = g.useLoan 
+            ? inflatedCost * ((g.downPaymentPct ?? 20) / 100)
+            : inflatedCost;
+
+        const monthlyRate = (g.bucketYield !== undefined ? g.bucketYield : preRetireReturnRate) / 12 / 100;
+        if (monthlyRate <= 0) {
+            return targetAmount / (yearsToSave * 12);
+        }
+        
+        const totalMonths = yearsToSave * 12;
+        const required = targetAmount * monthlyRate / (Math.pow(1 + monthlyRate, totalMonths) - 1);
+        return required;
+    };
+
+    const totalRequiredMonthlyGoalSavings = useMemo(() => {
+        let total = 0;
+        shortTermGoals.forEach(g => {
+            if (g.enabled) {
+                total += getRequiredMonthlySavings(g);
+            }
+        });
+        return total;
+    }, [shortTermGoals, currentAge, preRetireReturnRate, inflation]);
+
+    const handleAddGoal = (e) => {
+        e.preventDefault();
+        if (!goalName.trim() || !goalCost || !goalAge) return;
+
+        const defaults = getCategoryDefaults(goalCategory);
+        const newGoal = {
+            id: Date.now().toString(),
+            name: goalName,
+            cost: Number(goalCost),
+            targetAge: Number(goalAge),
+            category: goalCategory,
+            enabled: true,
+            ...defaults
+        };
+
+        setShortTermGoals(prev => [...prev, newGoal]);
+        setGoalName('');
+        setGoalCost('');
+    };
+
+    const handleDeleteGoal = (id) => {
+        setShortTermGoals(prev => prev.filter(g => g.id !== id));
+    };
+
+    const handleToggleGoal = (id) => {
+        setShortTermGoals(prev => prev.map(g => g.id === id ? { ...g, enabled: !g.enabled } : g));
+    };
+
+    const handleGoalParamChange = (id, field, value) => {
+        setShortTermGoals(prev => prev.map(g => {
+            if (g.id === id) {
+                return { ...g, [field]: value };
+            }
+            return g;
+        }));
+    };
+
+    const handleAutoOptimize = () => {
+        if (totalRequiredMonthlyGoalSavings > 0) {
+            const addedAmount = Math.round(totalRequiredMonthlyGoalSavings);
+            if (window.confirm(`Would you like to increase your monthly investment by ${formatCurrency(addedAmount)} (raising it from ${formatCurrency(monthlyInvestments)} to ${formatCurrency(monthlyInvestments + addedAmount)}) to fully cover your active short-term goals?`)) {
+                setMonthlyInvestments(prev => prev + addedAmount);
+            }
         }
     };
 
@@ -490,6 +736,28 @@ export default function RetirementPlanner() {
                                 {/* Main Line path */}
                                 <path d={chartPaths.line} fill="none" stroke="#00DC82" strokeWidth="2" strokeLinecap="round" className="transition-all duration-300" />
 
+                                 {/* Milestone indicator markers on curve */}
+                                {milestonePoints.map((mp, idx) => (
+                                    <g key={idx} className="transition-all duration-300">
+                                        {/* Pulsing glow ring */}
+                                        <circle
+                                            cx={mp.x}
+                                            cy={mp.y}
+                                            r="8"
+                                            className="fill-amber-400/10 stroke-amber-400/40 stroke-[0.5px] animate-pulse"
+                                        />
+                                        {/* Center dot */}
+                                        <circle
+                                            cx={mp.x}
+                                            cy={mp.y}
+                                            r="3.5"
+                                            className="fill-amber-400 stroke-1.5 stroke-slate-950 cursor-pointer"
+                                            onMouseEnter={() => setHoveredData({ age: mp.age, savings: mp.savings })}
+                                            onMouseLeave={() => setHoveredData(null)}
+                                        />
+                                    </g>
+                                ))}
+
                                 {/* Interaction Tooltip tracking points */}
                                 {chartPaths.points.map((p, idx) => (
                                     <circle
@@ -507,9 +775,43 @@ export default function RetirementPlanner() {
 
                             {/* Floating tooltip hover box */}
                             {hoveredData && (
-                                <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-slate-950/90 border border-slate-800 p-2.5 rounded-xl text-[10px] font-mono shadow-2xl backdrop-blur-xs flex gap-3 z-20">
-                                    <div><span className="text-slate-500">Age:</span> <strong className="text-white">{hoveredData.age}</strong></div>
-                                    <div><span className="text-slate-500">Savings:</span> <strong className="text-brand-mint">{formatCurrency(hoveredData.savings)}</strong></div>
+                                <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-slate-950/90 border border-slate-800 p-2.5 rounded-xl text-[10px] font-mono shadow-2xl backdrop-blur-xs flex flex-col gap-1.5 z-20 min-w-[200px]">
+                                    <div className="flex justify-between items-center gap-3">
+                                        <div><span className="text-slate-500">Age:</span> <strong className="text-white">{hoveredData.age}</strong></div>
+                                        <div><span className="text-slate-500">Savings:</span> <strong className="text-brand-mint">{formatCurrency(hoveredData.savings)}</strong></div>
+                                    </div>
+                                    {goalsAtHoveredAge.length > 0 && (
+                                        <div className="border-t border-slate-800/80 pt-1.5 mt-0.5">
+                                            <div className="text-[8px] text-amber-400 font-bold uppercase tracking-wider mb-0.5">Goals Purchased:</div>
+                                            <div className="flex flex-col gap-1">
+                                                {goalsAtHoveredAge.map(g => (
+                                                    <div key={g.id} className="text-[9px] text-slate-300 flex items-center justify-between gap-1.5">
+                                                        <span className="flex items-center gap-1">
+                                                            {getCategoryIcon(g.category, "w-3 h-3 text-amber-400")}
+                                                            <span>{g.name}</span>
+                                                        </span>
+                                                        <span className="font-semibold text-white">{formatCurrency(g.costPaid)}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                    {emisAtHoveredAge.length > 0 && (
+                                        <div className="border-t border-slate-800/80 pt-1.5 mt-0.5">
+                                            <div className="text-[8px] text-cyan-400 font-bold uppercase tracking-wider mb-0.5">Active Loan EMIs:</div>
+                                            <div className="flex flex-col gap-1">
+                                                {emisAtHoveredAge.map(g => (
+                                                    <div key={g.id} className="text-[9px] text-slate-300 flex items-center justify-between gap-1.5">
+                                                        <span className="flex items-center gap-1">
+                                                            {getCategoryIcon(g.category, "w-3 h-3 text-cyan-400")}
+                                                            <span>{g.name} (EMI)</span>
+                                                        </span>
+                                                        <span className="font-semibold text-white">{formatCurrency(g.monthlyEmi)}/mo</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -529,6 +831,290 @@ export default function RetirementPlanner() {
                                 {isSafe ? 'Survives Target Age' : `Depletes at Age ${targetSavingsRunout}`}
                             </span>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Short-Term Goals Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 relative z-10">
+                {/* Goal Form Card */}
+                <div className="lg:col-span-4 bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 backdrop-blur-md shadow-inner flex flex-col justify-between">
+                    <div>
+                        <h2 className="text-sm font-mono font-bold tracking-wider text-slate-400 uppercase border-b border-slate-800 pb-3 mb-5 flex items-center gap-2">
+                            <Target className="w-4 h-4 text-brand-mint" />
+                            Add Short-Term Goal
+                        </h2>
+                        <form onSubmit={handleAddGoal} className="space-y-4">
+                            <div>
+                                <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Goal Name</label>
+                                <input
+                                    type="text"
+                                    placeholder="e.g. Electric Bike, New Laptop"
+                                    value={goalName}
+                                    onChange={(e) => setGoalName(e.target.value)}
+                                    className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50"
+                                    required
+                                />
+                            </div>
+                            <div className="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Category</label>
+                                    <select
+                                        value={goalCategory}
+                                        onChange={(e) => setGoalCategory(e.target.value)}
+                                        className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50"
+                                    >
+                                        <option value="car">🚗 Car</option>
+                                        <option value="bike">🏍️ Bike</option>
+                                        <option value="smartphone">📱 Smartphone</option>
+                                        <option value="laptop">💻 Laptop</option>
+                                        <option value="other">🎁 Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Target Age</label>
+                                    <input
+                                        type="number"
+                                        min={currentAge}
+                                        max={planningAge}
+                                        value={goalAge}
+                                        onChange={(e) => setGoalAge(Math.max(currentAge, Math.min(planningAge, Number(e.target.value))))}
+                                        className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50 font-mono"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <div>
+                                <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Cost (Today's Value)</label>
+                                <div className="relative">
+                                    <span className="absolute left-3 top-2 text-[10px] text-slate-500">₹</span>
+                                    <input
+                                        type="number"
+                                        min="1"
+                                        placeholder="Cost in INR"
+                                        value={goalCost}
+                                        onChange={(e) => setGoalCost(Math.max(0, Number(e.target.value)))}
+                                        className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl pl-6 pr-2 py-2 text-xs outline-none focus:border-brand-mint/50 font-mono"
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <button
+                                type="submit"
+                                className="w-full mt-2 py-2 bg-brand-mint hover:bg-brand-mint/90 text-slate-950 font-bold rounded-xl text-xs transition-all shadow-lg hover:shadow-brand-mint/20 cursor-pointer flex items-center justify-center gap-1"
+                            >
+                                <Plus className="w-3.5 h-3.5" />
+                                <span>Add to Timeline</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                {/* Goals List Card */}
+                <div className="lg:col-span-8 bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 backdrop-blur-md shadow-inner flex flex-col justify-between">
+                    <div>
+                        <h2 className="text-sm font-mono font-bold tracking-wider text-slate-400 uppercase border-b border-slate-800 pb-3 mb-5 flex items-center justify-between">
+                            <span className="flex items-center gap-2">
+                                <Target className="w-4 h-4 text-brand-mint" />
+                                Short-Term Goal Milestones
+                            </span>
+                            <span className="text-[10px] text-slate-500 font-mono">
+                                Total: {shortTermGoals.filter(g => g.enabled).length} active
+                            </span>
+                        </h2>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pr-1">
+                            {shortTermGoals.length === 0 ? (
+                                <div className="col-span-2 flex flex-col items-center justify-center py-12 text-slate-500 text-center">
+                                    <Target className="w-8 h-8 text-slate-650 mb-2 opacity-50" />
+                                    <p className="text-xs">No short-term goals added yet.</p>
+                                    <p className="text-[10px] text-slate-600 mt-1">Use the form on the left to add items you plan to buy.</p>
+                                </div>
+                            ) : (
+                                shortTermGoals.map(g => {
+                                    const inflatedCost = getInflatedCost(g.cost, g.targetAge);
+                                    return (
+                                        <div 
+                                            key={g.id} 
+                                            className={`flex flex-col p-3.5 rounded-2xl border transition-all ${
+                                                g.enabled 
+                                                    ? 'bg-slate-950/40 border-slate-800 hover:border-slate-700' 
+                                                    : 'bg-slate-950/10 border-slate-900 opacity-50'
+                                            }`}
+                                        >
+                                            <div className="flex items-center justify-between">
+                                                <div className="flex items-center gap-3 min-w-0">
+                                                    <div className={`w-10 h-10 rounded-xl shrink-0 flex items-center justify-center ${
+                                                        g.enabled 
+                                                            ? 'bg-brand-mint/10 border border-brand-mint/20 text-brand-mint' 
+                                                            : 'bg-slate-900 border border-slate-850 text-slate-500'
+                                                    }`}>
+                                                        {getCategoryIcon(g.category, "w-5 h-5")}
+                                                    </div>
+                                                    <div className="min-w-0">
+                                                        <h4 className="text-xs font-bold text-white flex items-center gap-1.5 min-w-0">
+                                                            <span className="truncate" title={g.name}>{g.name}</span>
+                                                            <span className="text-[9px] px-1.5 py-0.2 bg-slate-800 text-slate-300 rounded font-mono shrink-0">
+                                                                Age {g.targetAge}
+                                                            </span>
+                                                        </h4>
+                                                        <div className="flex flex-col gap-0.5 mt-1 text-[10px] font-mono">
+                                                            <div>
+                                                                <span className="text-slate-500">Today: </span>
+                                                                <span className="text-slate-300">{formatCurrency(g.cost)}</span>
+                                                            </div>
+                                                            <div>
+                                                                <span className="text-slate-500">Inflated: </span>
+                                                                <span className="text-amber-400 font-semibold">{formatCurrency(getInflatedCost(g.cost, g.targetAge, g.inflationRate))}</span>
+                                                            </div>
+                                                            {g.targetAge > currentAge ? (
+                                                                <div>
+                                                                    <span className="text-slate-500">Save Monthly: </span>
+                                                                    <span className="text-brand-mint font-semibold">
+                                                                        {formatCurrency(getRequiredMonthlySavings(g))}
+                                                                    </span>
+                                                                </div>
+                                                            ) : (
+                                                                <div>
+                                                                    <span className="text-rose-400 italic">Immediate cash purchase</span>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="flex items-center gap-1.5 shrink-0">
+                                                    {/* Settings Toggle */}
+                                                    <button
+                                                        onClick={() => setOpenSettingsGoalId(openSettingsGoalId === g.id ? null : g.id)}
+                                                        className={`p-1 hover:bg-slate-800 rounded transition-all cursor-pointer ${openSettingsGoalId === g.id ? 'text-brand-mint bg-slate-850' : 'text-slate-500 hover:text-slate-300'}`}
+                                                        title="Advanced Settings"
+                                                    >
+                                                        <Settings className="w-3.5 h-3.5" />
+                                                    </button>
+                                                    {/* Toggle Enable */}
+                                                    <input
+                                                        type="checkbox"
+                                                        checked={g.enabled}
+                                                        onChange={() => handleToggleGoal(g.id)}
+                                                        className="toggle toggle-xs accent-brand-mint toggle-success cursor-pointer"
+                                                        title={g.enabled ? "Disable this goal" : "Enable this goal"}
+                                                    />
+                                                    {/* Delete button */}
+                                                    <button
+                                                        onClick={() => handleDeleteGoal(g.id)}
+                                                        className="p-1 text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 rounded transition-all cursor-pointer"
+                                                        title="Delete goal"
+                                                    >
+                                                        <Trash2 className="w-3.5 h-3.5" />
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            {/* Collapsible settings details */}
+                                            {openSettingsGoalId === g.id && (
+                                                <div className="mt-3 pt-3 border-t border-slate-800/80 grid grid-cols-2 gap-3 text-[10px]">
+                                                    {/* Bucket Yield & Custom Inflation */}
+                                                    <div>
+                                                        <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Bucket Yield %</label>
+                                                        <input
+                                                            type="number"
+                                                            value={g.bucketYield ?? 10}
+                                                            onChange={(e) => handleGoalParamChange(g.id, 'bucketYield', Number(e.target.value))}
+                                                            className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
+                                                        />
+                                                    </div>
+                                                    <div>
+                                                        <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Inflation Rate %</label>
+                                                        <input
+                                                            type="number"
+                                                            value={g.inflationRate ?? 10}
+                                                            onChange={(e) => handleGoalParamChange(g.id, 'inflationRate', Number(e.target.value))}
+                                                            className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
+                                                        />
+                                                    </div>
+
+                                                    {/* Loan Funding Toggle */}
+                                                    <div className="col-span-2 flex items-center justify-between bg-slate-950/60 p-2 rounded-xl border border-slate-800/40">
+                                                        <span className="font-bold text-[9px] text-slate-400 uppercase font-mono">Use Loan / EMI Finance</span>
+                                                        <input
+                                                            type="checkbox"
+                                                            checked={g.useLoan ?? false}
+                                                            onChange={(e) => handleGoalParamChange(g.id, 'useLoan', e.target.checked)}
+                                                            className="toggle toggle-xs toggle-info cursor-pointer"
+                                                        />
+                                                    </div>
+
+                                                    {/* Loan fields (conditional) */}
+                                                    {(g.useLoan ?? false) && (
+                                                        <>
+                                                            <div>
+                                                                <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Down Payment %</label>
+                                                                <input
+                                                                    type="number"
+                                                                    min="0"
+                                                                    max="100"
+                                                                    value={g.downPaymentPct ?? 20}
+                                                                    onChange={(e) => handleGoalParamChange(g.id, 'downPaymentPct', Math.max(0, Math.min(100, Number(e.target.value))))}
+                                                                    className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
+                                                                />
+                                                            </div>
+                                                            <div>
+                                                                <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Loan Term (Yrs)</label>
+                                                                <input
+                                                                    type="number"
+                                                                    min="1"
+                                                                    value={g.loanDuration ?? 5}
+                                                                    onChange={(e) => handleGoalParamChange(g.id, 'loanDuration', Math.max(1, Number(e.target.value)))}
+                                                                    className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
+                                                                />
+                                                            </div>
+                                                            <div className="col-span-2">
+                                                                <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Loan Interest Rate %</label>
+                                                                <input
+                                                                    type="number"
+                                                                    min="0"
+                                                                    value={g.loanInterest ?? 9}
+                                                                    onChange={(e) => handleGoalParamChange(g.id, 'loanInterest', Math.max(0, Number(e.target.value)))}
+                                                                    className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
+                                                                />
+                                                            </div>
+                                                        </>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                })
+                            )}
+                        </div>
+
+                        {/* Dedicated Goal Savings Recommendation Banner */}
+                        {shortTermGoals.filter(g => g.enabled).length > 0 && (
+                            <div className="mt-5 p-4 bg-slate-950/60 border border-slate-800/80 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                                <div>
+                                    <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Goal Savings Plan</div>
+                                    <div className="text-lg font-mono font-bold text-brand-mint mt-0.5">
+                                        {formatCurrency(totalRequiredMonthlyGoalSavings)} <span className="text-xs text-slate-400 font-normal">/ month</span>
+                                    </div>
+                                    <p className="text-[10px] text-slate-400 mt-1 max-w-[480px]">
+                                        Invest this dedicated amount monthly (compounding at {formatPercent(preRetireReturnRate)}) on top of your retirement savings to buy these goals with <strong>₹0 loan</strong>.
+                                    </p>
+                                </div>
+                                <div className="text-right shrink-0 flex flex-col items-end gap-2">
+                                    <span className="inline-flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-1 rounded-lg text-[9px] font-mono uppercase tracking-wider">
+                                        <ShieldCheck className="w-3.5 h-3.5" />
+                                        <span>Zero Loan Path</span>
+                                    </span>
+                                    <button 
+                                        onClick={handleAutoOptimize}
+                                        className="px-2.5 py-1 text-[10px] font-semibold bg-brand-mint text-slate-950 hover:bg-brand-mint/90 rounded-lg transition-all shadow-md cursor-pointer uppercase tracking-wider font-mono"
+                                    >
+                                        Auto-Optimize
+                                    </button>
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
@@ -672,6 +1258,7 @@ export default function RetirementPlanner() {
                                 <th className="pb-3 text-right">Expenses (Post-Tax)</th>
                                 <th className="pb-3 text-right">Additional Savings</th>
                                 <th className="pb-3 text-right">Compounded Interest</th>
+                                <th className="pb-3 text-right">Goals Outflow</th>
                                 <th className="pb-3 text-right">Ending Savings</th>
                                 <th className="pb-3 pr-3 text-right">Status</th>
                             </tr>
@@ -713,6 +1300,29 @@ export default function RetirementPlanner() {
                                     {/* Interest earned */}
                                     <td className="py-2.5 text-right text-indigo-300">
                                         {row.status === 'Dead' ? '-' : `+${formatCurrency(row.interest)}`}
+                                    </td>
+
+                                    {/* Goals Outflow */}
+                                    <td className="py-2.5 text-right font-medium text-amber-400">
+                                        {row.goalExpenses > 0 || row.emiExpenses > 0 ? (
+                                            <div className="flex flex-col items-end">
+                                                <span className="font-bold text-amber-400">{formatCurrency(row.goalExpenses + row.emiExpenses)}</span>
+                                                <div className="flex gap-1 mt-1 max-w-[180px] flex-wrap justify-end">
+                                                    {row.goalsList.map(g => (
+                                                        <span key={g.id} className="inline-flex items-center gap-0.5 bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[8px] px-1 py-0.2 rounded" title={`${g.name} (${g.type === 'downpayment' ? 'Down Payment' : 'Cash Purchase'}, Today's Value: ${formatCurrency(g.cost)})`}>
+                                                            {getCategoryIcon(g.category, "w-2.5 h-2.5")}
+                                                            <span className="truncate max-w-[60px]">{g.name} {g.type === 'downpayment' ? '(DP)' : '(Cash)'}</span>
+                                                        </span>
+                                                    ))}
+                                                    {row.emiList.map(g => (
+                                                        <span key={g.id} className="inline-flex items-center gap-0.5 bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-[8px] px-1 py-0.2 rounded" title={`${g.name} Loan EMI (Monthly: ${formatCurrency(g.monthlyEmi)}, Interest: ${g.loanInterest}%, Term: ${g.loanDuration} yrs)`}>
+                                                            {getCategoryIcon(g.category, "w-2.5 h-2.5")}
+                                                            <span className="truncate max-w-[60px]">{g.name} (EMI)</span>
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        ) : '-'}
                                     </td>
 
                                     {/* Ending savings */}
