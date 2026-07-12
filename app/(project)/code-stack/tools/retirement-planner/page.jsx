@@ -5,7 +5,8 @@ import {
     TrendingUp, ShieldAlert, Sparkles, Percent, DollarSign, Calendar, 
     RotateCcw, Info, Lightbulb, Settings, FileSpreadsheet, ArrowUpRight, 
     ArrowDownRight, CheckCircle2, AlertTriangle, ShieldCheck,
-    Car, Bike, Smartphone, Laptop, Plus, Trash2, Target
+    Car, Bike, Smartphone, Laptop, Plus, Trash2, Target, HandCoins,
+    Tag, Edit
 } from 'lucide-react';
 
 const DEFAULT_PRE_ALLOCATION = [
@@ -103,6 +104,25 @@ export default function RetirementPlanner() {
 
     // Active Settings ID state
     const [openSettingsGoalId, setOpenSettingsGoalId] = useState(null);
+    const [activeGoalsTab, setActiveGoalsTab] = useState('goals'); // 'goals' vs 'debts'
+
+    // Synced Debt / Debt Ledger states
+    const [debts, setDebts] = useState([]);
+    const [debtRepaymentAges, setDebtRepaymentAges] = useState({});
+    const [debtIncludedToggles, setDebtIncludedToggles] = useState({});
+
+    // Debt Form inputs state
+    const [name, setName] = useState('');
+    const [amount, setAmount] = useState('');
+    const [type, setType] = useState('give'); // 'give' (lent) vs 'take' (borrowed)
+    const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+    const [note, setNote] = useState('');
+    const [editingId, setEditingId] = useState(null);
+
+    // Debt filter states
+    const [searchQuery, setSearchQuery] = useState('');
+    const [statusFilter, setStatusFilter] = useState('pending');
+    const [typeFilter, setTypeFilter] = useState('all');
 
     // Form inputs state
     const [goalName, setGoalName] = useState('');
@@ -138,8 +158,21 @@ export default function RetirementPlanner() {
                 if (parsed.preAllocation) setPreAllocation(parsed.preAllocation);
                 if (parsed.postAllocation) setPostAllocation(parsed.postAllocation);
                 if (parsed.shortTermGoals) setShortTermGoals(parsed.shortTermGoals);
+                if (parsed.debtRepaymentAges) setDebtRepaymentAges(parsed.debtRepaymentAges);
+                if (parsed.debtIncludedToggles) setDebtIncludedToggles(parsed.debtIncludedToggles);
             } catch (e) {
                 console.error("Failed to load retirement configurations", e);
+            }
+        }
+
+        // Synced debts from Debt Tracker entries
+        const storedDebts = localStorage.getItem('debt_tracker_entries');
+        if (storedDebts) {
+            try {
+                const parsedDebts = JSON.parse(storedDebts);
+                setDebts(parsedDebts);
+            } catch (e) {
+                console.error("Failed to parse synced debts", e);
             }
         }
     }, []);
@@ -150,7 +183,9 @@ export default function RetirementPlanner() {
                 currentAge, retirementAge, planningAge, currentSavings,
                 monthlyInvestments, annualStepUp, retirementExpense,
                 inflation, taxApplied, preAllocation, postAllocation,
-                shortTermGoals
+                shortTermGoals,
+                debtRepaymentAges,
+                debtIncludedToggles
             };
             localStorage.setItem('retirement_planner_config', JSON.stringify(data));
         }
@@ -158,8 +193,14 @@ export default function RetirementPlanner() {
         currentAge, retirementAge, planningAge, currentSavings,
         monthlyInvestments, annualStepUp, retirementExpense,
         inflation, taxApplied, preAllocation, postAllocation, 
-        shortTermGoals, isMounted
+        shortTermGoals, debtRepaymentAges, debtIncludedToggles, isMounted
     ]);
+
+    useEffect(() => {
+        if (isMounted) {
+            localStorage.setItem('debt_tracker_entries', JSON.stringify(debts));
+        }
+    }, [debts, isMounted]);
 
     // ----------------------------------------------------
     // Allocation Weighted Averages
@@ -295,6 +336,32 @@ export default function RetirementPlanner() {
 
             const totalGoalOutflow = goalExpensesVal + emiExpensesVal;
 
+            // Calculate synced debt inflows and outflows at this age
+            let debtInflowVal = 0;
+            let debtOutflowVal = 0;
+            const debtInflowsListAtAge = [];
+            const debtOutflowsListAtAge = [];
+
+            debts.forEach(d => {
+                // Only pending items are simulated on the projection curve
+                if (d.status !== 'pending') return;
+
+                const isIncluded = debtIncludedToggles[d.id] !== false;
+                if (!isIncluded) return;
+
+                const settlementAge = debtRepaymentAges[d.id] ?? currentAge;
+                if (settlementAge === age) {
+                    const amt = Number(d.amount) || 0;
+                    if (d.type === 'give') {
+                        debtInflowVal += amt;
+                        debtInflowsListAtAge.push(d);
+                    } else {
+                        debtOutflowVal += amt;
+                        debtOutflowsListAtAge.push(d);
+                    }
+                }
+            });
+
             if (isDead) {
                 expenses = 0;
                 additions = 0;
@@ -307,7 +374,7 @@ export default function RetirementPlanner() {
                 const yearsDiff = age - currentAge;
                 additions = annualSavingsInput * Math.pow(1 + annualStepUp / 100, yearsDiff);
                 interest = Math.max(0, startSavings) * (preRetireReturnRate / 100);
-                savings = startSavings + additions + interest - totalGoalOutflow;
+                savings = startSavings + additions + interest - totalGoalOutflow + debtInflowVal - debtOutflowVal;
             } else {
                 // Retired years
                 additions = 0;
@@ -315,7 +382,7 @@ export default function RetirementPlanner() {
                 const yearsDiff = age - currentAge;
                 expenses = initialRetirementExpenseYearly * Math.pow(1 + inflation / 100, yearsDiff);
                 interest = Math.max(0, startSavings) * (postRetireReturnRate / 100);
-                savings = startSavings - expenses + interest - totalGoalOutflow;
+                savings = startSavings - expenses + interest - totalGoalOutflow + debtInflowVal - debtOutflowVal;
             }
 
             if (savings < 0 && runoutAge === null && !isDead) {
@@ -332,6 +399,10 @@ export default function RetirementPlanner() {
                 emiExpenses: emiExpensesVal,
                 goalsList: goalsListAtAge,
                 emiList: emiListAtAge,
+                debtInflow: debtInflowVal,
+                debtOutflow: debtOutflowVal,
+                debtInflowsList: debtInflowsListAtAge,
+                debtOutflowsList: debtOutflowsListAtAge,
                 endSavings: savings > 0 ? savings : 0,
                 status: isDead ? 'Dead' : isEarning ? 'Earning' : 'Retired',
                 warning: savings < 0 && !isDead
@@ -345,7 +416,8 @@ export default function RetirementPlanner() {
     }, [
         currentAge, retirementAge, planningAge, currentSavings,
         monthlyInvestments, annualStepUp, retirementExpense,
-        inflation, taxApplied, preSummary, postSummary, shortTermGoals
+        inflation, taxApplied, preSummary, postSummary, shortTermGoals,
+        debts, debtRepaymentAges, debtIncludedToggles
     ]);
 
     // ----------------------------------------------------
@@ -380,9 +452,11 @@ export default function RetirementPlanner() {
             const row = simulation.rows.find(r => r.age === p.age);
             const goalsAtAge = row?.goalsList || [];
             const activeEmisAtAge = row?.emiList || [];
-            const hasGoal = goalsAtAge.length > 0;
-            return { ...p, goals: goalsAtAge, emis: activeEmisAtAge, hasGoal };
-        }).filter(p => p.hasGoal);
+            const debtInflowsAtAge = row?.debtInflowsList || [];
+            const debtOutflowsAtAge = row?.debtOutflowsList || [];
+            const hasMilestone = goalsAtAge.length > 0 || debtInflowsAtAge.length > 0 || debtOutflowsAtAge.length > 0;
+            return { ...p, goals: goalsAtAge, emis: activeEmisAtAge, debtInflows: debtInflowsAtAge, debtOutflows: debtOutflowsAtAge, hasMilestone };
+        }).filter(p => p.hasMilestone);
     }, [chartPaths.points, simulation.rows]);
 
     const goalsAtHoveredAge = useMemo(() => {
@@ -393,6 +467,16 @@ export default function RetirementPlanner() {
     const emisAtHoveredAge = useMemo(() => {
         if (!hoveredData) return [];
         return simulation.rows.find(r => r.age === hoveredData.age)?.emiList || [];
+    }, [hoveredData, simulation.rows]);
+
+    const debtInflowsAtHoveredAge = useMemo(() => {
+        if (!hoveredData) return [];
+        return simulation.rows.find(r => r.age === hoveredData.age)?.debtInflowsList || [];
+    }, [hoveredData, simulation.rows]);
+
+    const debtOutflowsAtHoveredAge = useMemo(() => {
+        if (!hoveredData) return [];
+        return simulation.rows.find(r => r.age === hoveredData.age)?.debtOutflowsList || [];
     }, [hoveredData, simulation.rows]);
 
     // ----------------------------------------------------
@@ -517,6 +601,105 @@ export default function RetirementPlanner() {
                 setMonthlyInvestments(prev => prev + addedAmount);
             }
         }
+    };
+
+    // ----------------------------------------------------
+    // Integrated Debt Book CRUD & Selectors
+    // ----------------------------------------------------
+    const debtMetrics = useMemo(() => {
+        let totalOwedToMe = 0; // Give type (Lent)
+        let totalIOwe = 0;     // Take type (Borrowed)
+
+        debts.forEach(d => {
+            if (d.status === 'pending') {
+                const amt = Number(d.amount) || 0;
+                if (d.type === 'give') {
+                    totalOwedToMe += amt;
+                } else {
+                    totalIOwe += amt;
+                }
+            }
+        });
+
+        const netDebtPosition = totalOwedToMe - totalIOwe;
+
+        return {
+            totalOwedToMe,
+            totalIOwe,
+            netDebtPosition
+        };
+    }, [debts]);
+
+    const filteredDebts = useMemo(() => {
+        return debts.filter(d => {
+            const matchesSearch = d.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                  (d.note && d.note.toLowerCase().includes(searchQuery.toLowerCase()));
+            const matchesStatus = statusFilter === 'all' || d.status === statusFilter;
+            const matchesType = typeFilter === 'all' || d.type === typeFilter;
+
+            return matchesSearch && matchesStatus && matchesType;
+        });
+    }, [debts, searchQuery, statusFilter, typeFilter]);
+
+    const handleSaveDebt = (e) => {
+        e.preventDefault();
+        if (!name.trim()) return alert('Please enter a person name');
+        if (!amount || Number(amount) <= 0) return alert('Please enter a valid positive amount');
+        if (!date) return alert('Please select a date');
+
+        const debtData = {
+            id: editingId || Date.now(),
+            name: name.trim(),
+            amount: Number(amount),
+            type,
+            date,
+            note: note.trim(),
+            status: editingId ? (debts.find(d => d.id === editingId)?.status || 'pending') : 'pending'
+        };
+
+        if (editingId) {
+            setDebts(prev => prev.map(d => d.id === editingId ? debtData : d));
+            setEditingId(null);
+        } else {
+            setDebts(prev => [debtData, ...prev]);
+        }
+
+        // Reset inputs
+        setName('');
+        setAmount('');
+        setNote('');
+        setDate(new Date().toISOString().split('T')[0]);
+    };
+
+    const handleEditDebt = (debt) => {
+        setEditingId(debt.id);
+        setName(debt.name);
+        setAmount(debt.amount.toString());
+        setType(debt.type);
+        setDate(debt.date);
+        setNote(debt.note || '');
+    };
+
+    const handleDeleteDebt = (id) => {
+        if (window.confirm('Are you sure you want to delete this ledger entry?')) {
+            setDebts(prev => prev.filter(d => d.id !== id));
+            if (editingId === id) {
+                setEditingId(null);
+                setName('');
+                setAmount('');
+                setNote('');
+            }
+        }
+    };
+
+    const toggleDebtStatus = (id) => {
+        setDebts(prev => prev.map(d => {
+            if (d.id === id) {
+                const nextStatus = d.status === 'pending' ? 'settled' : 'pending';
+                return { ...d, status: nextStatus };
+            }
+            return d;
+        }));
     };
 
     const formatCurrency = (val) => {
@@ -812,6 +995,38 @@ export default function RetirementPlanner() {
                                             </div>
                                         </div>
                                     )}
+                                    {debtInflowsAtHoveredAge.length > 0 && (
+                                        <div className="border-t border-slate-800/80 pt-1.5 mt-0.5">
+                                            <div className="text-[8px] text-emerald-400 font-bold uppercase tracking-wider mb-0.5">Debt Repayments (Inflow):</div>
+                                            <div className="flex flex-col gap-1">
+                                                {debtInflowsAtHoveredAge.map(d => (
+                                                    <div key={d.id} className="text-[9px] text-slate-300 flex items-center justify-between gap-1.5">
+                                                        <span className="flex items-center gap-1">
+                                                            <ArrowUpRight className="w-3 h-3 text-emerald-400" />
+                                                            <span>{d.name}</span>
+                                                        </span>
+                                                        <span className="font-semibold text-emerald-400">+{formatCurrency(d.amount)}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                    {debtOutflowsAtHoveredAge.length > 0 && (
+                                        <div className="border-t border-slate-800/80 pt-1.5 mt-0.5">
+                                            <div className="text-[8px] text-rose-400 font-bold uppercase tracking-wider mb-0.5">Debt Settlements (Outflow):</div>
+                                            <div className="flex flex-col gap-1">
+                                                {debtOutflowsAtHoveredAge.map(d => (
+                                                    <div key={d.id} className="text-[9px] text-slate-300 flex items-center justify-between gap-1.5">
+                                                        <span className="flex items-center gap-1">
+                                                            <ArrowDownRight className="w-3 h-3 text-rose-400" />
+                                                            <span>{d.name}</span>
+                                                        </span>
+                                                        <span className="font-semibold text-rose-400">-{formatCurrency(d.amount)}</span>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
                                 </div>
                             )}
                         </div>
@@ -837,285 +1052,586 @@ export default function RetirementPlanner() {
 
             {/* Short-Term Goals Section */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 relative z-10">
-                {/* Goal Form Card */}
+                {/* Goal / Debt Form Card */}
                 <div className="lg:col-span-4 bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 backdrop-blur-md shadow-inner flex flex-col justify-between">
-                    <div>
-                        <h2 className="text-sm font-mono font-bold tracking-wider text-slate-400 uppercase border-b border-slate-800 pb-3 mb-5 flex items-center gap-2">
-                            <Target className="w-4 h-4 text-brand-mint" />
-                            Add Short-Term Goal
-                        </h2>
-                        <form onSubmit={handleAddGoal} className="space-y-4">
-                            <div>
-                                <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Goal Name</label>
-                                <input
-                                    type="text"
-                                    placeholder="e.g. Electric Bike, New Laptop"
-                                    value={goalName}
-                                    onChange={(e) => setGoalName(e.target.value)}
-                                    className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50"
-                                    required
-                                />
-                            </div>
-                            <div className="grid grid-cols-2 gap-4">
+                    {activeGoalsTab === 'goals' ? (
+                        <div>
+                            <h2 className="text-sm font-mono font-bold tracking-wider text-slate-400 uppercase border-b border-slate-800 pb-3 mb-5 flex items-center gap-2">
+                                <Target className="w-4 h-4 text-brand-mint" />
+                                Add Short-Term Goal
+                            </h2>
+                            <form onSubmit={handleAddGoal} className="space-y-4">
                                 <div>
-                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Category</label>
-                                    <select
-                                        value={goalCategory}
-                                        onChange={(e) => setGoalCategory(e.target.value)}
+                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Goal Name</label>
+                                    <input
+                                        type="text"
+                                        placeholder="e.g. Electric Bike, New Laptop"
+                                        value={goalName}
+                                        onChange={(e) => setGoalName(e.target.value)}
                                         className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50"
-                                    >
-                                        <option value="car">🚗 Car</option>
-                                        <option value="bike">🏍️ Bike</option>
-                                        <option value="smartphone">📱 Smartphone</option>
-                                        <option value="laptop">💻 Laptop</option>
-                                        <option value="other">🎁 Other</option>
-                                    </select>
+                                        required
+                                    />
+                                </div>
+                                <div className="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Category</label>
+                                        <select
+                                            value={goalCategory}
+                                            onChange={(e) => setGoalCategory(e.target.value)}
+                                            className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50"
+                                        >
+                                            <option value="car">🚗 Car</option>
+                                            <option value="bike">🏍️ Bike</option>
+                                            <option value="smartphone">📱 Smartphone</option>
+                                            <option value="laptop">💻 Laptop</option>
+                                            <option value="other">🎁 Other</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Target Age</label>
+                                        <input
+                                            type="number"
+                                            min={currentAge}
+                                            max={planningAge}
+                                            value={goalAge}
+                                            onChange={(e) => setGoalAge(Math.max(currentAge, Math.min(planningAge, Number(e.target.value))))}
+                                            className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50 font-mono"
+                                            required
+                                        />
+                                    </div>
                                 </div>
                                 <div>
-                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Target Age</label>
+                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Cost (Today's Value)</label>
+                                    <div className="relative">
+                                        <span className="absolute left-3 top-2 text-[10px] text-slate-500">₹</span>
+                                        <input
+                                            type="number"
+                                            min="1"
+                                            placeholder="Cost in INR"
+                                            value={goalCost}
+                                            onChange={(e) => setGoalCost(Math.max(0, Number(e.target.value)))}
+                                            className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl pl-6 pr-2 py-2 text-xs outline-none focus:border-brand-mint/50 font-mono"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="w-full mt-2 py-2 bg-brand-mint hover:bg-brand-mint/90 text-slate-950 font-bold rounded-xl text-xs transition-all shadow-lg hover:shadow-brand-mint/20 cursor-pointer flex items-center justify-center gap-1"
+                                >
+                                    <Plus className="w-3.5 h-3.5" />
+                                    <span>Add to Timeline</span>
+                                </button>
+                            </form>
+                        </div>
+                    ) : (
+                        <div>
+                            <h2 className="text-sm font-mono font-bold tracking-wider text-slate-400 uppercase border-b border-slate-800 pb-3 mb-5 flex items-center gap-2">
+                                <Tag className="w-4 h-4 text-brand-mint" />
+                                {editingId ? 'Edit Debt Entry' : 'Log Debt Entry'}
+                            </h2>
+                            <form onSubmit={handleSaveDebt} className="space-y-4">
+                                <div>
+                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1.5">Ledger Flow Direction</label>
+                                    <div className="flex bg-slate-950 border border-slate-850 p-1 rounded-xl">
+                                        <button
+                                            type="button"
+                                            onClick={() => setType('give')}
+                                            className={`w-1/2 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${type === 'give' 
+                                                ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold' 
+                                                : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'}`}
+                                        >
+                                            🟢 Give (Lent)
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => setType('take')}
+                                            className={`w-1/2 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${type === 'take' 
+                                                ? 'bg-rose-500/10 border border-rose-500/30 text-rose-400 font-bold' 
+                                                : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'}`}
+                                        >
+                                            🔴 Take (Owe)
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Person Name</label>
                                     <input
-                                        type="number"
-                                        min={currentAge}
-                                        max={planningAge}
-                                        value={goalAge}
-                                        onChange={(e) => setGoalAge(Math.max(currentAge, Math.min(planningAge, Number(e.target.value))))}
-                                        className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50 font-mono"
+                                        type="text"
+                                        placeholder="e.g. Alice Smith"
+                                        value={name}
+                                        onChange={(e) => setName(e.target.value)}
+                                        className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50"
                                         required
                                     />
                                 </div>
-                            </div>
-                            <div>
-                                <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Cost (Today's Value)</label>
-                                <div className="relative">
-                                    <span className="absolute left-3 top-2 text-[10px] text-slate-500">₹</span>
-                                    <input
-                                        type="number"
-                                        min="1"
-                                        placeholder="Cost in INR"
-                                        value={goalCost}
-                                        onChange={(e) => setGoalCost(Math.max(0, Number(e.target.value)))}
-                                        className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl pl-6 pr-2 py-2 text-xs outline-none focus:border-brand-mint/50 font-mono"
-                                        required
+
+                                <div className="grid grid-cols-2 gap-3">
+                                    <div>
+                                        <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Amount (INR)</label>
+                                        <div className="relative">
+                                            <span className="absolute left-3 top-2 text-[10px] text-slate-500">₹</span>
+                                            <input
+                                                type="number"
+                                                placeholder="0"
+                                                value={amount}
+                                                onChange={(e) => setAmount(e.target.value)}
+                                                className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl pl-6 pr-2 py-2 text-xs outline-none focus:border-brand-mint/50 font-mono"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Entry Date</label>
+                                        <input
+                                            type="date"
+                                            value={date}
+                                            onChange={(e) => setDate(e.target.value)}
+                                            className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50 font-mono"
+                                            required
+                                        />
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Description (Notes)</label>
+                                    <textarea
+                                        placeholder="Add details..."
+                                        value={note}
+                                        onChange={(e) => setNote(e.target.value)}
+                                        className="w-full h-16 bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50 resize-none"
                                     />
                                 </div>
-                            </div>
-                            <button
-                                type="submit"
-                                className="w-full mt-2 py-2 bg-brand-mint hover:bg-brand-mint/90 text-slate-950 font-bold rounded-xl text-xs transition-all shadow-lg hover:shadow-brand-mint/20 cursor-pointer flex items-center justify-center gap-1"
-                            >
-                                <Plus className="w-3.5 h-3.5" />
-                                <span>Add to Timeline</span>
-                            </button>
-                        </form>
-                    </div>
+
+                                <div className="flex gap-2">
+                                    {editingId && (
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                setEditingId(null);
+                                                setName('');
+                                                setAmount('');
+                                                setNote('');
+                                            }}
+                                            className="w-1/3 py-2 text-xs font-bold bg-slate-950 hover:bg-slate-900 border border-slate-800 text-slate-400 rounded-xl transition-all cursor-pointer font-mono uppercase"
+                                        >
+                                            Cancel
+                                        </button>
+                                    )}
+                                    <button
+                                        type="submit"
+                                        className={`grow py-2 text-xs font-bold rounded-xl transition-all cursor-pointer font-mono uppercase ${
+                                            type === 'give' ? 'bg-emerald-500 hover:bg-emerald-600 text-slate-950' : 'bg-rose-500 hover:bg-rose-600 text-white'
+                                        }`}
+                                    >
+                                        {editingId ? 'Save' : 'Log'}
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    )}
                 </div>
 
                 {/* Goals List Card */}
                 <div className="lg:col-span-8 bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 backdrop-blur-md shadow-inner flex flex-col justify-between">
-                    <div>
-                        <h2 className="text-sm font-mono font-bold tracking-wider text-slate-400 uppercase border-b border-slate-800 pb-3 mb-5 flex items-center justify-between">
-                            <span className="flex items-center gap-2">
-                                <Target className="w-4 h-4 text-brand-mint" />
-                                Short-Term Goal Milestones
-                            </span>
-                            <span className="text-[10px] text-slate-500 font-mono">
-                                Total: {shortTermGoals.filter(g => g.enabled).length} active
-                            </span>
-                        </h2>
+                    <div className="flex justify-between items-center border-b border-slate-800 pb-3 mb-5 flex-wrap gap-2">
+                        <div className="flex bg-slate-950 p-1 border border-slate-800/80 rounded-xl">
+                            <button
+                                onClick={() => setActiveGoalsTab('goals')}
+                                className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all cursor-pointer ${
+                                    activeGoalsTab === 'goals' 
+                                        ? 'bg-brand-mint/15 border border-brand-mint/35 text-brand-mint' 
+                                        : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
+                                }`}
+                            >
+                                🎯 Goals ({shortTermGoals.filter(g => g.enabled).length})
+                            </button>
+                            <button
+                                onClick={() => setActiveGoalsTab('debts')}
+                                className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all cursor-pointer ${
+                                    activeGoalsTab === 'debts' 
+                                        ? 'bg-brand-mint/15 border border-brand-mint/35 text-brand-mint' 
+                                        : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
+                                }`}
+                            >
+                                🤝 Debt Ledger ({debts.filter(d => d.status === 'pending').length})
+                            </button>
+                        </div>
+                        
+                        <span className="text-[10px] text-slate-500 font-mono">
+                            {activeGoalsTab === 'goals' 
+                                ? `${shortTermGoals.length} total goals` 
+                                : `${debts.length} ledger items`
+                            }
+                        </span>
+                    </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pr-1">
-                            {shortTermGoals.length === 0 ? (
-                                <div className="col-span-2 flex flex-col items-center justify-center py-12 text-slate-500 text-center">
-                                    <Target className="w-8 h-8 text-slate-650 mb-2 opacity-50" />
-                                    <p className="text-xs">No short-term goals added yet.</p>
-                                    <p className="text-[10px] text-slate-600 mt-1">Use the form on the left to add items you plan to buy.</p>
-                                </div>
-                            ) : (
-                                shortTermGoals.map(g => {
-                                    const inflatedCost = getInflatedCost(g.cost, g.targetAge);
-                                    return (
-                                        <div 
-                                            key={g.id} 
-                                            className={`flex flex-col p-3.5 rounded-2xl border transition-all ${
-                                                g.enabled 
-                                                    ? 'bg-slate-950/40 border-slate-800 hover:border-slate-700' 
-                                                    : 'bg-slate-950/10 border-slate-900 opacity-50'
-                                            }`}
-                                        >
-                                            <div className="flex items-center justify-between">
-                                                <div className="flex items-center gap-3 min-w-0">
-                                                    <div className={`w-10 h-10 rounded-xl shrink-0 flex items-center justify-center ${
-                                                        g.enabled 
-                                                            ? 'bg-brand-mint/10 border border-brand-mint/20 text-brand-mint' 
-                                                            : 'bg-slate-900 border border-slate-850 text-slate-500'
-                                                    }`}>
-                                                        {getCategoryIcon(g.category, "w-5 h-5")}
-                                                    </div>
-                                                    <div className="min-w-0">
-                                                        <h4 className="text-xs font-bold text-white flex items-center gap-1.5 min-w-0">
-                                                            <span className="truncate" title={g.name}>{g.name}</span>
-                                                            <span className="text-[9px] px-1.5 py-0.2 bg-slate-800 text-slate-300 rounded font-mono shrink-0">
-                                                                Age {g.targetAge}
-                                                            </span>
-                                                        </h4>
-                                                        <div className="flex flex-col gap-0.5 mt-1 text-[10px] font-mono">
-                                                            <div>
-                                                                <span className="text-slate-500">Today: </span>
-                                                                <span className="text-slate-300">{formatCurrency(g.cost)}</span>
-                                                            </div>
-                                                            <div>
-                                                                <span className="text-slate-500">Inflated: </span>
-                                                                <span className="text-amber-400 font-semibold">{formatCurrency(getInflatedCost(g.cost, g.targetAge, g.inflationRate))}</span>
-                                                            </div>
-                                                            {g.targetAge > currentAge ? (
+                    {activeGoalsTab === 'goals' && (
+                        <>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pr-1">
+                                {shortTermGoals.length === 0 ? (
+                                    <div className="col-span-2 flex flex-col items-center justify-center py-12 text-slate-500 text-center">
+                                        <Target className="w-8 h-8 text-slate-650 mb-2 opacity-50" />
+                                        <p className="text-xs">No short-term goals added yet.</p>
+                                        <p className="text-[10px] text-slate-600 mt-1">Use the form on the left to add items you plan to buy.</p>
+                                    </div>
+                                ) : (
+                                    shortTermGoals.map(g => {
+                                        const inflatedCost = getInflatedCost(g.cost, g.targetAge, g.inflationRate);
+                                        return (
+                                            <div 
+                                                key={g.id} 
+                                                className={`flex flex-col p-3.5 rounded-2xl border transition-all ${
+                                                    g.enabled 
+                                                        ? 'bg-slate-950/40 border-slate-800 hover:border-slate-700' 
+                                                        : 'bg-slate-950/10 border-slate-900 opacity-50'
+                                                }`}
+                                            >
+                                                <div className="flex items-center justify-between">
+                                                    <div className="flex items-center gap-3 min-w-0">
+                                                        <div className={`w-10 h-10 rounded-xl shrink-0 flex items-center justify-center ${
+                                                            g.enabled 
+                                                                ? 'bg-brand-mint/10 border border-brand-mint/20 text-brand-mint' 
+                                                                : 'bg-slate-900 border border-slate-850 text-slate-500'
+                                                        }`}>
+                                                            {getCategoryIcon(g.category, "w-5 h-5")}
+                                                        </div>
+                                                        <div className="min-w-0">
+                                                            <h4 className="text-xs font-bold text-white flex items-center gap-1.5 min-w-0">
+                                                                <span className="truncate" title={g.name}>{g.name}</span>
+                                                                <span className="text-[9px] px-1.5 py-0.2 bg-slate-800 text-slate-300 rounded font-mono shrink-0">
+                                                                    Age {g.targetAge}
+                                                                </span>
+                                                            </h4>
+                                                            <div className="flex flex-col gap-0.5 mt-1 text-[10px] font-mono">
                                                                 <div>
-                                                                    <span className="text-slate-500">Save Monthly: </span>
-                                                                    <span className="text-brand-mint font-semibold">
-                                                                        {formatCurrency(getRequiredMonthlySavings(g))}
-                                                                    </span>
+                                                                    <span className="text-slate-500">Today: </span>
+                                                                    <span className="text-slate-300">{formatCurrency(g.cost)}</span>
                                                                 </div>
-                                                            ) : (
                                                                 <div>
-                                                                    <span className="text-rose-400 italic">Immediate cash purchase</span>
+                                                                    <span className="text-slate-500">Inflated: </span>
+                                                                    <span className="text-amber-400 font-semibold">{formatCurrency(getInflatedCost(g.cost, g.targetAge, g.inflationRate))}</span>
                                                                 </div>
-                                                            )}
+                                                                {g.targetAge > currentAge ? (
+                                                                    <div>
+                                                                        <span className="text-slate-500">Save Monthly: </span>
+                                                                        <span className="text-brand-mint font-semibold">
+                                                                            {formatCurrency(getRequiredMonthlySavings(g))}
+                                                                        </span>
+                                                                    </div>
+                                                                ) : (
+                                                                    <div>
+                                                                        <span className="text-rose-400 italic">Immediate cash purchase</span>
+                                                                    </div>
+                                                                )}
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div className="flex items-center gap-1.5 shrink-0">
-                                                    {/* Settings Toggle */}
-                                                    <button
-                                                        onClick={() => setOpenSettingsGoalId(openSettingsGoalId === g.id ? null : g.id)}
-                                                        className={`p-1 hover:bg-slate-800 rounded transition-all cursor-pointer ${openSettingsGoalId === g.id ? 'text-brand-mint bg-slate-850' : 'text-slate-500 hover:text-slate-300'}`}
-                                                        title="Advanced Settings"
-                                                    >
-                                                        <Settings className="w-3.5 h-3.5" />
-                                                    </button>
-                                                    {/* Toggle Enable */}
-                                                    <input
-                                                        type="checkbox"
-                                                        checked={g.enabled}
-                                                        onChange={() => handleToggleGoal(g.id)}
-                                                        className="toggle toggle-xs accent-brand-mint toggle-success cursor-pointer"
-                                                        title={g.enabled ? "Disable this goal" : "Enable this goal"}
-                                                    />
-                                                    {/* Delete button */}
-                                                    <button
-                                                        onClick={() => handleDeleteGoal(g.id)}
-                                                        className="p-1 text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 rounded transition-all cursor-pointer"
-                                                        title="Delete goal"
-                                                    >
-                                                        <Trash2 className="w-3.5 h-3.5" />
-                                                    </button>
-                                                </div>
-                                            </div>
-
-                                            {/* Collapsible settings details */}
-                                            {openSettingsGoalId === g.id && (
-                                                <div className="mt-3 pt-3 border-t border-slate-800/80 grid grid-cols-2 gap-3 text-[10px]">
-                                                    {/* Bucket Yield & Custom Inflation */}
-                                                    <div>
-                                                        <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Bucket Yield %</label>
-                                                        <input
-                                                            type="number"
-                                                            value={g.bucketYield ?? 10}
-                                                            onChange={(e) => handleGoalParamChange(g.id, 'bucketYield', Number(e.target.value))}
-                                                            className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
-                                                        />
-                                                    </div>
-                                                    <div>
-                                                        <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Inflation Rate %</label>
-                                                        <input
-                                                            type="number"
-                                                            value={g.inflationRate ?? 10}
-                                                            onChange={(e) => handleGoalParamChange(g.id, 'inflationRate', Number(e.target.value))}
-                                                            className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
-                                                        />
-                                                    </div>
-
-                                                    {/* Loan Funding Toggle */}
-                                                    <div className="col-span-2 flex items-center justify-between bg-slate-950/60 p-2 rounded-xl border border-slate-800/40">
-                                                        <span className="font-bold text-[9px] text-slate-400 uppercase font-mono">Use Loan / EMI Finance</span>
+                                                    <div className="flex items-center gap-1.5 shrink-0">
+                                                        <button
+                                                            onClick={() => setOpenSettingsGoalId(openSettingsGoalId === g.id ? null : g.id)}
+                                                            className={`p-1 hover:bg-slate-800 rounded transition-all cursor-pointer ${openSettingsGoalId === g.id ? 'text-brand-mint bg-slate-850' : 'text-slate-500 hover:text-slate-300'}`}
+                                                            title="Advanced Settings"
+                                                        >
+                                                            <Settings className="w-3.5 h-3.5" />
+                                                        </button>
                                                         <input
                                                             type="checkbox"
-                                                            checked={g.useLoan ?? false}
-                                                            onChange={(e) => handleGoalParamChange(g.id, 'useLoan', e.target.checked)}
-                                                            className="toggle toggle-xs toggle-info cursor-pointer"
+                                                            checked={g.enabled}
+                                                            onChange={() => handleToggleGoal(g.id)}
+                                                            className="toggle toggle-xs accent-brand-mint toggle-success cursor-pointer"
+                                                            title={g.enabled ? "Disable this goal" : "Enable this goal"}
                                                         />
+                                                        <button
+                                                            onClick={() => handleDeleteGoal(g.id)}
+                                                            className="p-1 text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 rounded transition-all cursor-pointer"
+                                                            title="Delete goal"
+                                                        >
+                                                            <Trash2 className="w-3.5 h-3.5" />
+                                                        </button>
                                                     </div>
-
-                                                    {/* Loan fields (conditional) */}
-                                                    {(g.useLoan ?? false) && (
-                                                        <>
-                                                            <div>
-                                                                <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Down Payment %</label>
-                                                                <input
-                                                                    type="number"
-                                                                    min="0"
-                                                                    max="100"
-                                                                    value={g.downPaymentPct ?? 20}
-                                                                    onChange={(e) => handleGoalParamChange(g.id, 'downPaymentPct', Math.max(0, Math.min(100, Number(e.target.value))))}
-                                                                    className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
-                                                                />
-                                                            </div>
-                                                            <div>
-                                                                <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Loan Term (Yrs)</label>
-                                                                <input
-                                                                    type="number"
-                                                                    min="1"
-                                                                    value={g.loanDuration ?? 5}
-                                                                    onChange={(e) => handleGoalParamChange(g.id, 'loanDuration', Math.max(1, Number(e.target.value)))}
-                                                                    className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
-                                                                />
-                                                            </div>
-                                                            <div className="col-span-2">
-                                                                <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Loan Interest Rate %</label>
-                                                                <input
-                                                                    type="number"
-                                                                    min="0"
-                                                                    value={g.loanInterest ?? 9}
-                                                                    onChange={(e) => handleGoalParamChange(g.id, 'loanInterest', Math.max(0, Number(e.target.value)))}
-                                                                    className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
-                                                                />
-                                                            </div>
-                                                        </>
-                                                    )}
                                                 </div>
-                                            )}
-                                        </div>
-                                    );
-                                })
-                            )}
-                        </div>
 
-                        {/* Dedicated Goal Savings Recommendation Banner */}
-                        {shortTermGoals.filter(g => g.enabled).length > 0 && (
-                            <div className="mt-5 p-4 bg-slate-950/60 border border-slate-800/80 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
-                                <div>
-                                    <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Goal Savings Plan</div>
-                                    <div className="text-lg font-mono font-bold text-brand-mint mt-0.5">
-                                        {formatCurrency(totalRequiredMonthlyGoalSavings)} <span className="text-xs text-slate-400 font-normal">/ month</span>
+                                                {openSettingsGoalId === g.id && (
+                                                    <div className="mt-3 pt-3 border-t border-slate-800/80 grid grid-cols-2 gap-3 text-[10px]">
+                                                        <div>
+                                                            <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Bucket Yield %</label>
+                                                            <input
+                                                                type="number"
+                                                                value={g.bucketYield ?? 10}
+                                                                onChange={(e) => handleGoalParamChange(g.id, 'bucketYield', Number(e.target.value))}
+                                                                className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
+                                                            />
+                                                        </div>
+                                                        <div>
+                                                            <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Inflation Rate %</label>
+                                                            <input
+                                                                type="number"
+                                                                value={g.inflationRate ?? 10}
+                                                                onChange={(e) => handleGoalParamChange(g.id, 'inflationRate', Number(e.target.value))}
+                                                                className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
+                                                            />
+                                                        </div>
+
+                                                        <div className="col-span-2 flex items-center justify-between bg-slate-950/60 p-2 rounded-xl border border-slate-800/40">
+                                                            <span className="font-bold text-[9px] text-slate-400 uppercase font-mono">Use Loan / EMI Finance</span>
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={g.useLoan ?? false}
+                                                                onChange={(e) => handleGoalParamChange(g.id, 'useLoan', e.target.checked)}
+                                                                className="toggle toggle-xs toggle-info cursor-pointer"
+                                                            />
+                                                        </div>
+
+                                                        {(g.useLoan ?? false) && (
+                                                            <>
+                                                                <div>
+                                                                    <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Down Payment %</label>
+                                                                    <input
+                                                                        type="number"
+                                                                        min="0"
+                                                                        max="100"
+                                                                        value={g.downPaymentPct ?? 20}
+                                                                        onChange={(e) => handleGoalParamChange(g.id, 'downPaymentPct', Math.max(0, Math.min(100, Number(e.target.value))))}
+                                                                        className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Loan Term (Yrs)</label>
+                                                                    <input
+                                                                        type="number"
+                                                                        min="1"
+                                                                        value={g.loanDuration ?? 5}
+                                                                        onChange={(e) => handleGoalParamChange(g.id, 'loanDuration', Math.max(1, Number(e.target.value)))}
+                                                                        className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
+                                                                    />
+                                                                </div>
+                                                                <div className="col-span-2">
+                                                                    <label className="block text-[8px] font-mono text-slate-500 uppercase tracking-wider mb-0.5">Loan Interest Rate %</label>
+                                                                    <input
+                                                                        type="number"
+                                                                        min="0"
+                                                                        value={g.loanInterest ?? 9}
+                                                                        onChange={(e) => handleGoalParamChange(g.id, 'loanInterest', Math.max(0, Number(e.target.value)))}
+                                                                        className="w-full bg-slate-950 border border-slate-800 rounded px-2 py-1 text-2xs text-slate-200 outline-none font-mono"
+                                                                    />
+                                                                </div>
+                                                            </>
+                                                        )}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        );
+                                    })
+                                )}
+                            </div>
+
+                            {shortTermGoals.filter(g => g.enabled).length > 0 && (
+                                <div className="mt-5 p-4 bg-slate-950/60 border border-slate-800/80 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+                                    <div>
+                                        <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">Goal Savings Plan</div>
+                                        <div className="text-lg font-mono font-bold text-brand-mint mt-0.5">
+                                            {formatCurrency(totalRequiredMonthlyGoalSavings)} <span className="text-xs text-slate-400 font-normal">/ month</span>
+                                        </div>
+                                        <p className="text-[10px] text-slate-400 mt-1 max-w-[480px]">
+                                            Invest this dedicated amount monthly (compounding at {formatPercent(preRetireReturnRate)}) on top of your retirement savings to buy these goals with <strong>₹0 loan</strong>.
+                                        </p>
                                     </div>
-                                    <p className="text-[10px] text-slate-400 mt-1 max-w-[480px]">
-                                        Invest this dedicated amount monthly (compounding at {formatPercent(preRetireReturnRate)}) on top of your retirement savings to buy these goals with <strong>₹0 loan</strong>.
-                                    </p>
+                                    <div className="text-right shrink-0 flex flex-col items-end gap-2">
+                                        <span className="inline-flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-1 rounded-lg text-[9px] font-mono uppercase tracking-wider">
+                                            <ShieldCheck className="w-3.5 h-3.5" />
+                                            <span>Zero Loan Path</span>
+                                        </span>
+                                        <button 
+                                            onClick={handleAutoOptimize}
+                                            className="px-2.5 py-1 text-[10px] font-semibold bg-brand-mint text-slate-950 hover:bg-brand-mint/90 rounded-lg transition-all shadow-md cursor-pointer uppercase tracking-wider font-mono"
+                                        >
+                                            Auto-Optimize
+                                        </button>
+                                    </div>
                                 </div>
-                                <div className="text-right shrink-0 flex flex-col items-end gap-2">
-                                    <span className="inline-flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-2 py-1 rounded-lg text-[9px] font-mono uppercase tracking-wider">
-                                        <ShieldCheck className="w-3.5 h-3.5" />
-                                        <span>Zero Loan Path</span>
+                            )}
+                        </>
+                    )}
+
+                    {activeGoalsTab === 'debts' && (
+                        <div className="space-y-4">
+                            {/* Debt metrics overview */}
+                            <div className="grid grid-cols-3 gap-2.5 text-left">
+                                <div className="bg-slate-950/60 border border-slate-800/80 p-2.5 rounded-xl">
+                                    <span className="text-[8px] font-mono text-slate-500 uppercase block">GIVE (LENT)</span>
+                                    <span className="text-xs font-mono font-bold text-emerald-400 block mt-0.5">{formatCurrency(debtMetrics.totalOwedToMe)}</span>
+                                </div>
+                                <div className="bg-slate-950/60 border border-slate-800/80 p-2.5 rounded-xl">
+                                    <span className="text-[8px] font-mono text-slate-500 uppercase block">TAKE (OWE)</span>
+                                    <span className="text-xs font-mono font-bold text-rose-400 block mt-0.5">{formatCurrency(debtMetrics.totalIOwe)}</span>
+                                </div>
+                                <div className="bg-slate-950/60 border border-slate-800/80 p-2.5 rounded-xl">
+                                    <span className="text-[8px] font-mono text-slate-500 uppercase block">NET POSITION</span>
+                                    <span className={`text-xs font-mono font-bold block mt-0.5 ${debtMetrics.netDebtPosition >= 0 ? 'text-emerald-400' : 'text-rose-455'}`}>
+                                        {debtMetrics.netDebtPosition >= 0 ? '+' : ''}{formatCurrency(debtMetrics.netDebtPosition)}
                                     </span>
-                                    <button 
-                                        onClick={handleAutoOptimize}
-                                        className="px-2.5 py-1 text-[10px] font-semibold bg-brand-mint text-slate-950 hover:bg-brand-mint/90 rounded-lg transition-all shadow-md cursor-pointer uppercase tracking-wider font-mono"
-                                    >
-                                        Auto-Optimize
-                                    </button>
                                 </div>
                             </div>
-                        )}
-                    </div>
+
+                            {/* Search and Filters toolbar */}
+                            <div className="flex gap-2 items-center">
+                                <input
+                                    type="text"
+                                    placeholder="Search debts by name or notes..."
+                                    value={searchQuery}
+                                    onChange={(e) => setSearchQuery(e.target.value)}
+                                    className="grow bg-slate-950 border border-slate-800/80 rounded-xl px-3 py-1.5 text-[10px] text-slate-300 outline-none focus:border-brand-mint/50"
+                                />
+                                <select
+                                    value={statusFilter}
+                                    onChange={(e) => setStatusFilter(e.target.value)}
+                                    className="bg-slate-950 border border-slate-800/80 rounded-xl px-2 py-1.5 text-[10px] text-slate-350 outline-none cursor-pointer focus:border-brand-mint/50"
+                                >
+                                    <option value="pending">Pending</option>
+                                    <option value="settled">Settled</option>
+                                    <option value="all">All Status</option>
+                                </select>
+                                <select
+                                    value={typeFilter}
+                                    onChange={(e) => setTypeFilter(e.target.value)}
+                                    className="bg-slate-950 border border-slate-800/80 rounded-xl px-2 py-1.5 text-[10px] text-slate-350 outline-none cursor-pointer focus:border-brand-mint/50"
+                                >
+                                    <option value="all">All Types</option>
+                                    <option value="give">Give (Lent)</option>
+                                    <option value="take">Take (Owe)</option>
+                                </select>
+                            </div>
+
+                            {/* Debts list */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[280px] overflow-y-auto pr-1">
+                                {filteredDebts.length === 0 ? (
+                                    <div className="col-span-2 flex flex-col items-center justify-center py-12 text-slate-500 text-center">
+                                        <HandCoins className="w-8 h-8 text-slate-650 mb-2 opacity-50" />
+                                        <p className="text-xs">No matching debts found.</p>
+                                        <p className="text-[10px] text-slate-600 mt-1">Use the Log form on the left to add items you give or take.</p>
+                                    </div>
+                                ) : (
+                                    filteredDebts.map(d => {
+                                        const isIncluded = debtIncludedToggles[d.id] !== false;
+                                        const settlementAge = debtRepaymentAges[d.id] ?? currentAge;
+                                        return (
+                                            <div 
+                                                key={d.id} 
+                                                className={`flex flex-col p-3 rounded-2xl border transition-all ${
+                                                    d.status === 'settled'
+                                                        ? 'bg-slate-950/10 border-slate-900 opacity-40'
+                                                        : isIncluded 
+                                                            ? 'bg-slate-950/40 border-slate-800 hover:border-slate-700' 
+                                                            : 'bg-slate-950/10 border-slate-900 opacity-60'
+                                                }`}
+                                            >
+                                                <div className="flex items-center justify-between">
+                                                    <div className="flex items-center gap-3 min-w-0">
+                                                        <div className={`w-10 h-10 rounded-xl shrink-0 flex items-center justify-center ${
+                                                            d.status === 'settled'
+                                                                ? 'bg-slate-900 border border-slate-850 text-slate-500'
+                                                                : isIncluded
+                                                                    ? d.type === 'give'
+                                                                        ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
+                                                                        : 'bg-rose-500/10 border border-rose-500/20 text-rose-400'
+                                                                    : 'bg-slate-900 border border-slate-850 text-slate-500'
+                                                        }`}>
+                                                            {d.type === 'give' ? <ArrowUpRight className="w-5 h-5" /> : <ArrowDownRight className="w-5 h-5" />}
+                                                        </div>
+                                                        <div className="min-w-0 text-left">
+                                                            <h4 className="text-xs font-bold text-white flex items-center gap-1.5 min-w-0">
+                                                                <span className="truncate" title={d.name}>{d.name}</span>
+                                                                <span className={`text-[7px] font-mono uppercase px-1 py-0.2 rounded leading-none shrink-0 ${
+                                                                    d.status === 'settled'
+                                                                        ? 'bg-slate-800 text-slate-400'
+                                                                        : d.type === 'give'
+                                                                            ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
+                                                                            : 'bg-rose-500/10 border border-rose-500/20 text-rose-455'
+                                                                }`}>
+                                                                    {d.status === 'settled' ? 'Settled' : d.type === 'give' ? 'Give' : 'Take'}
+                                                                </span>
+                                                            </h4>
+                                                            <div className="flex flex-col gap-0.5 mt-1 text-[9px] font-mono">
+                                                                <div>
+                                                                    <span className="text-slate-500">Amount: </span>
+                                                                    <span className={`font-semibold ${d.status === 'settled' ? 'text-slate-400 line-through' : d.type === 'give' ? 'text-emerald-400' : 'text-rose-400'}`}>{formatCurrency(d.amount)}</span>
+                                                                </div>
+                                                                {d.note && (
+                                                                    <div className="text-slate-400 truncate max-w-[110px]" title={d.note}>
+                                                                        <span className="text-slate-500">Note: </span>{d.note}
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="flex items-center gap-1 shrink-0">
+                                                        {d.status === 'pending' && (
+                                                            <input
+                                                                type="checkbox"
+                                                                checked={isIncluded}
+                                                                onChange={(e) => setDebtIncludedToggles(prev => ({ ...prev, [d.id]: e.target.checked }))}
+                                                                className="toggle toggle-xs accent-brand-mint toggle-success cursor-pointer"
+                                                                title={isIncluded ? "Exclude from simulation" : "Include in simulation"}
+                                                            />
+                                                        )}
+                                                        <button
+                                                            onClick={() => toggleDebtStatus(d.id)}
+                                                            className={`p-1 rounded border transition-all cursor-pointer ${
+                                                                d.status === 'settled'
+                                                                    ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-400'
+                                                                    : 'border-slate-800 text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/5'
+                                                            }`}
+                                                            title={d.status === 'settled' ? 'Mark as Outstanding' : 'Mark as Settled'}
+                                                        >
+                                                            <CheckCircle2 className="w-3.5 h-3.5" />
+                                                        </button>
+                                                        <button
+                                                            onClick={() => handleEditDebt(d)}
+                                                            disabled={d.status === 'settled'}
+                                                            className="p-1 rounded border border-slate-800 text-slate-550 hover:text-slate-200 hover:bg-slate-900/60 disabled:opacity-20 disabled:pointer-events-none transition-all cursor-pointer"
+                                                            title="Edit Entry"
+                                                        >
+                                                            <Edit className="w-3.5 h-3.5" />
+                                                        </button>
+                                                        <button
+                                                            onClick={() => handleDeleteDebt(d.id)}
+                                                            className="p-1 rounded border border-slate-800 text-slate-550 hover:text-rose-400 hover:bg-rose-500/10 transition-all cursor-pointer"
+                                                            title="Delete Entry"
+                                                        >
+                                                            <Trash2 className="w-3.5 h-3.5" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+
+                                                {d.status === 'pending' && isIncluded && (
+                                                    <div className="mt-2.5 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[10px]">
+                                                        <span className="font-mono text-slate-500 uppercase tracking-wider text-[8px]">Settlement Age</span>
+                                                        <div className="flex items-center gap-1.5">
+                                                            <input
+                                                                type="range"
+                                                                min={currentAge}
+                                                                max={planningAge}
+                                                                value={settlementAge}
+                                                                onChange={(e) => setDebtRepaymentAges(prev => ({ ...prev, [d.id]: Number(e.target.value) }))}
+                                                                className="w-20 h-1 rounded bg-slate-800 appearance-none accent-brand-mint cursor-pointer"
+                                                            />
+                                                            <span className="font-mono text-slate-300 text-2xs bg-slate-950 px-1 py-0.5 border border-slate-850 rounded">
+                                                                Age {settlementAge}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
+                                        );
+                                    })
+                                )}
+                            </div>
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -1258,7 +1774,7 @@ export default function RetirementPlanner() {
                                 <th className="pb-3 text-right">Expenses (Post-Tax)</th>
                                 <th className="pb-3 text-right">Additional Savings</th>
                                 <th className="pb-3 text-right">Compounded Interest</th>
-                                <th className="pb-3 text-right">Goals Outflow</th>
+                                <th className="pb-3 text-right">Flow (Goals & Debts)</th>
                                 <th className="pb-3 text-right">Ending Savings</th>
                                 <th className="pb-3 pr-3 text-right">Status</th>
                             </tr>
@@ -1302,12 +1818,23 @@ export default function RetirementPlanner() {
                                         {row.status === 'Dead' ? '-' : `+${formatCurrency(row.interest)}`}
                                     </td>
 
-                                    {/* Goals Outflow */}
+                                    {/* Flow (Goals & Debts) */}
                                     <td className="py-2.5 text-right font-medium text-amber-400">
-                                        {row.goalExpenses > 0 || row.emiExpenses > 0 ? (
+                                        {row.goalExpenses > 0 || row.emiExpenses > 0 || row.debtInflow > 0 || row.debtOutflow > 0 ? (
                                             <div className="flex flex-col items-end">
-                                                <span className="font-bold text-amber-400">{formatCurrency(row.goalExpenses + row.emiExpenses)}</span>
-                                                <div className="flex gap-1 mt-1 max-w-[180px] flex-wrap justify-end">
+                                                {(() => {
+                                                    const totalOutflows = row.goalExpenses + row.emiExpenses + row.debtOutflow;
+                                                    const totalInflows = row.debtInflow;
+                                                    const netFlow = totalInflows - totalOutflows;
+                                                    if (netFlow > 0) {
+                                                        return <span className="font-bold text-emerald-400">+{formatCurrency(netFlow)}</span>;
+                                                    } else if (netFlow < 0) {
+                                                        return <span className="font-bold text-amber-400">-{formatCurrency(Math.abs(netFlow))}</span>;
+                                                    } else {
+                                                        return <span className="font-bold text-slate-400">{formatCurrency(0)}</span>;
+                                                    }
+                                                })()}
+                                                <div className="flex gap-1 mt-1 max-w-[200px] flex-wrap justify-end">
                                                     {row.goalsList.map(g => (
                                                         <span key={g.id} className="inline-flex items-center gap-0.5 bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[8px] px-1 py-0.2 rounded" title={`${g.name} (${g.type === 'downpayment' ? 'Down Payment' : 'Cash Purchase'}, Today's Value: ${formatCurrency(g.cost)})`}>
                                                             {getCategoryIcon(g.category, "w-2.5 h-2.5")}
@@ -1318,6 +1845,18 @@ export default function RetirementPlanner() {
                                                         <span key={g.id} className="inline-flex items-center gap-0.5 bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-[8px] px-1 py-0.2 rounded" title={`${g.name} Loan EMI (Monthly: ${formatCurrency(g.monthlyEmi)}, Interest: ${g.loanInterest}%, Term: ${g.loanDuration} yrs)`}>
                                                             {getCategoryIcon(g.category, "w-2.5 h-2.5")}
                                                             <span className="truncate max-w-[60px]">{g.name} (EMI)</span>
+                                                        </span>
+                                                    ))}
+                                                    {row.debtInflowsList.map(d => (
+                                                        <span key={d.id} className="inline-flex items-center gap-0.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[8px] px-1 py-0.2 rounded" title={`Repaid by ${d.name} (Inflow)`}>
+                                                            <ArrowUpRight className="w-2.5 h-2.5 text-emerald-400" />
+                                                            <span className="truncate max-w-[60px]">{d.name} (Repay)</span>
+                                                        </span>
+                                                    ))}
+                                                    {row.debtOutflowsList.map(d => (
+                                                        <span key={d.id} className="inline-flex items-center gap-0.5 bg-rose-500/10 border border-rose-500/20 text-rose-400 text-[8px] px-1 py-0.2 rounded" title={`Settle back to ${d.name} (Outflow)`}>
+                                                            <ArrowDownRight className="w-2.5 h-2.5 text-rose-450" />
+                                                            <span className="truncate max-w-[60px]">{d.name} (Settle)</span>
                                                         </span>
                                                     ))}
                                                 </div>
