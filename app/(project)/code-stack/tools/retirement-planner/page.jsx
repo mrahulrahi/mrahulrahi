@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { 
-    TrendingUp, ShieldAlert, Sparkles, Percent, DollarSign, Calendar, 
-    RotateCcw, Info, Lightbulb, Settings, FileSpreadsheet, ArrowUpRight, 
+import {
+    TrendingUp, ShieldAlert, Sparkles, Percent, DollarSign, Calendar,
+    RotateCcw, Info, Lightbulb, Settings, FileSpreadsheet, ArrowUpRight,
     ArrowDownRight, CheckCircle2, AlertTriangle, ShieldCheck,
     Car, Bike, Smartphone, Laptop, Plus, Trash2, Target, HandCoins,
     Tag, Edit
@@ -136,6 +136,21 @@ export default function RetirementPlanner() {
 
     const [isMounted, setIsMounted] = useState(false);
     const [hoveredData, setHoveredData] = useState(null);
+    const [expandedDebtId, setExpandedDebtId] = useState(null);
+    const [adjType, setAdjType] = useState('minus');
+    const [adjAmount, setAdjAmount] = useState('');
+    const [adjDate, setAdjDate] = useState(new Date().toISOString().split('T')[0]);
+    const [adjNote, setAdjNote] = useState('');
+
+    const getDebtNetAmount = (d) => {
+        if (!d.transactions || !Array.isArray(d.transactions) || d.transactions.length === 0) {
+            return Number(d.amount) || 0;
+        }
+        return d.transactions.reduce((acc, t) => {
+            const amt = Number(t.amount) || 0;
+            return t.type === 'plus' ? acc + amt : acc - amt;
+        }, 0);
+    };
 
     // ----------------------------------------------------
     // Load & Save to LocalStorage
@@ -170,7 +185,24 @@ export default function RetirementPlanner() {
         if (storedDebts) {
             try {
                 const parsedDebts = JSON.parse(storedDebts);
-                setDebts(parsedDebts);
+                const migratedDebts = parsedDebts.map(d => {
+                    if (!d.transactions || !Array.isArray(d.transactions)) {
+                        return {
+                            ...d,
+                            transactions: [
+                                {
+                                    id: d.id,
+                                    type: 'plus',
+                                    amount: Number(d.amount) || 0,
+                                    date: d.date,
+                                    note: d.note || 'Original entry'
+                                }
+                            ]
+                        };
+                    }
+                    return d;
+                });
+                setDebts(migratedDebts);
             } catch (e) {
                 console.error("Failed to parse synced debts", e);
             }
@@ -192,7 +224,7 @@ export default function RetirementPlanner() {
     }, [
         currentAge, retirementAge, planningAge, currentSavings,
         monthlyInvestments, annualStepUp, retirementExpense,
-        inflation, taxApplied, preAllocation, postAllocation, 
+        inflation, taxApplied, preAllocation, postAllocation,
         shortTermGoals, debtRepaymentAges, debtIncludedToggles, isMounted
     ]);
 
@@ -254,7 +286,7 @@ export default function RetirementPlanner() {
         };
     }, [postAllocation]);
     const preRetireReturnRate = useMemo(() => {
-        return taxApplied 
+        return taxApplied
             ? preSummary.weightedReturn * (1 - preSummary.weightedTax / 100)
             : preSummary.weightedReturn;
     }, [taxApplied, preSummary]);
@@ -271,7 +303,7 @@ export default function RetirementPlanner() {
         const maxSimulationAge = 110;
         let runoutAge = null;
 
-        const postRetireReturnRate = taxApplied 
+        const postRetireReturnRate = taxApplied
             ? postSummary.weightedReturn * (1 - postSummary.weightedTax / 100)
             : postSummary.weightedReturn;
 
@@ -351,7 +383,7 @@ export default function RetirementPlanner() {
 
                 const settlementAge = debtRepaymentAges[d.id] ?? currentAge;
                 if (settlementAge === age) {
-                    const amt = Number(d.amount) || 0;
+                    const amt = getDebtNetAmount(d);
                     if (d.type === 'give') {
                         debtInflowVal += amt;
                         debtInflowsListAtAge.push(d);
@@ -528,12 +560,12 @@ export default function RetirementPlanner() {
         const targetAge = Number(g.targetAge);
         const yearsToSave = targetAge - currentAge;
         if (yearsToSave <= 0) return 0;
-        
+
         const goalInflation = g.inflationRate !== undefined ? g.inflationRate : inflation;
         const inflatedCost = getInflatedCost(g.cost, targetAge, goalInflation);
-        
+
         // Target amount is down payment if using loan, else full cost
-        const targetAmount = g.useLoan 
+        const targetAmount = g.useLoan
             ? inflatedCost * ((g.downPaymentPct ?? 20) / 100)
             : inflatedCost;
 
@@ -541,7 +573,7 @@ export default function RetirementPlanner() {
         if (monthlyRate <= 0) {
             return targetAmount / (yearsToSave * 12);
         }
-        
+
         const totalMonths = yearsToSave * 12;
         const required = targetAmount * monthlyRate / (Math.pow(1 + monthlyRate, totalMonths) - 1);
         return required;
@@ -612,7 +644,7 @@ export default function RetirementPlanner() {
 
         debts.forEach(d => {
             if (d.status === 'pending') {
-                const amt = Number(d.amount) || 0;
+                const amt = getDebtNetAmount(d);
                 if (d.type === 'give') {
                     totalOwedToMe += amt;
                 } else {
@@ -632,8 +664,8 @@ export default function RetirementPlanner() {
 
     const filteredDebts = useMemo(() => {
         return debts.filter(d => {
-            const matchesSearch = d.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                                  (d.note && d.note.toLowerCase().includes(searchQuery.toLowerCase()));
+            const matchesSearch = d.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                (d.note && d.note.toLowerCase().includes(searchQuery.toLowerCase()));
             const matchesStatus = statusFilter === 'all' || d.status === statusFilter;
             const matchesType = typeFilter === 'all' || d.type === typeFilter;
 
@@ -647,20 +679,52 @@ export default function RetirementPlanner() {
         if (!amount || Number(amount) <= 0) return alert('Please enter a valid positive amount');
         if (!date) return alert('Please select a date');
 
-        const debtData = {
-            id: editingId || Date.now(),
-            name: name.trim(),
+        const initialTx = {
+            id: Date.now(),
+            type: 'plus',
             amount: Number(amount),
-            type,
             date,
-            note: note.trim(),
-            status: editingId ? (debts.find(d => d.id === editingId)?.status || 'pending') : 'pending'
+            note: note.trim() || 'Initial ledger entry'
         };
 
         if (editingId) {
+            const existingDebt = debts.find(d => d.id === editingId);
+            const updatedTransactions = [...(existingDebt?.transactions || [])];
+            if (updatedTransactions.length > 0) {
+                updatedTransactions[0] = {
+                    ...updatedTransactions[0],
+                    amount: Number(amount),
+                    date,
+                    note: note.trim()
+                };
+            } else {
+                updatedTransactions.push(initialTx);
+            }
+
+            const debtData = {
+                id: editingId,
+                name: name.trim(),
+                amount: Number(amount),
+                type,
+                date,
+                note: note.trim(),
+                status: existingDebt?.status || 'pending',
+                transactions: updatedTransactions
+            };
+
             setDebts(prev => prev.map(d => d.id === editingId ? debtData : d));
             setEditingId(null);
         } else {
+            const debtData = {
+                id: Date.now(),
+                name: name.trim(),
+                amount: Number(amount),
+                type,
+                date,
+                note: note.trim(),
+                status: 'pending',
+                transactions: [initialTx]
+            };
             setDebts(prev => [debtData, ...prev]);
         }
 
@@ -674,7 +738,13 @@ export default function RetirementPlanner() {
     const handleEditDebt = (debt) => {
         setEditingId(debt.id);
         setName(debt.name);
-        setAmount(debt.amount.toString());
+
+        // Use first transaction's amount for editing if it exists, otherwise fallback
+        const originalAmt = debt.transactions && debt.transactions.length > 0
+            ? debt.transactions[0].amount
+            : debt.amount;
+
+        setAmount(originalAmt.toString());
         setType(debt.type);
         setDate(debt.date);
         setNote(debt.note || '');
@@ -689,6 +759,9 @@ export default function RetirementPlanner() {
                 setAmount('');
                 setNote('');
             }
+            if (expandedDebtId === id) {
+                setExpandedDebtId(null);
+            }
         }
     };
 
@@ -700,6 +773,102 @@ export default function RetirementPlanner() {
             }
             return d;
         }));
+    };
+
+    // Adjustment handlers
+    const handleAddAdjustment = (debtId, adjType, adjAmountVal, adjDateVal, adjNoteVal) => {
+        if (!adjAmountVal || Number(adjAmountVal) <= 0) return alert('Please enter a positive adjustment amount');
+        if (!adjDateVal) return alert('Please select a date');
+
+        const nextTx = {
+            id: Date.now(),
+            type: adjType,
+            amount: Number(adjAmountVal),
+            date: adjDateVal,
+            note: adjNoteVal.trim() || (adjType === 'plus' ? 'Additional amount' : 'Partial repayment')
+        };
+
+        setDebts(prev => prev.map(d => {
+            if (d.id === debtId) {
+                const updatedTx = [...(d.transactions || []), nextTx];
+                return {
+                    ...d,
+                    transactions: updatedTx,
+                    amount: updatedTx.reduce((acc, t) => t.type === 'plus' ? acc + t.amount : acc - t.amount, 0)
+                };
+            }
+            return d;
+        }));
+    };
+
+    const handleDeleteAdjustment = (debtId, txId) => {
+        setDebts(prev => prev.map(d => {
+            if (d.id === debtId) {
+                if ((d.transactions || []).length <= 1) {
+                    alert('Cannot delete the only transaction. Delete the entire debt entry instead.');
+                    return d;
+                }
+                const updatedTx = d.transactions.filter(t => t.id !== txId);
+                return {
+                    ...d,
+                    transactions: updatedTx,
+                    amount: updatedTx.reduce((acc, t) => t.type === 'plus' ? acc + t.amount : acc - t.amount, 0)
+                };
+            }
+            return d;
+        }));
+    };
+
+    // Import/Export Configuration JSON
+    const handleExportConfig = () => {
+        const storedConfig = localStorage.getItem('retirement_planner_config');
+        const storedDebts = localStorage.getItem('debt_tracker_entries');
+
+        const backupData = {
+            version: '1.0',
+            exportedAt: new Date().toISOString(),
+            config: storedConfig ? JSON.parse(storedConfig) : null,
+            debts: storedDebts ? JSON.parse(storedDebts) : []
+        };
+
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(backupData, null, 2));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute("href", dataStr);
+        downloadAnchor.setAttribute("download", `retirement_planner_backup_${new Date().toISOString().split('T')[0]}.json`);
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click();
+        downloadAnchor.remove();
+    };
+
+    const handleImportConfig = (e) => {
+        const fileReader = new FileReader();
+        const files = e.target.files;
+        if (!files || files.length === 0) return;
+
+        fileReader.onload = (event) => {
+            try {
+                const parsed = JSON.parse(event.target?.result);
+                if (!parsed || (!parsed.config && !parsed.debts)) {
+                    return alert('Invalid backup file structure. Must contain config and debts keys.');
+                }
+
+                if (window.confirm('Importing this file will overwrite your existing planner and ledger database. Do you wish to proceed?')) {
+                    if (parsed.config) {
+                        localStorage.setItem('retirement_planner_config', JSON.stringify(parsed.config));
+                    }
+                    if (parsed.debts) {
+                        localStorage.setItem('debt_tracker_entries', JSON.stringify(parsed.debts));
+                    }
+                    alert('Data imported successfully! The dashboard will now reload.');
+                    window.location.reload();
+                }
+            } catch (err) {
+                alert('Failed to parse backup JSON file. Ensure the file is valid JSON.');
+                console.error(err);
+            }
+        };
+
+        fileReader.readAsText(files[0]);
     };
 
     const formatCurrency = (val) => {
@@ -740,19 +909,44 @@ export default function RetirementPlanner() {
                     <h1 className="text-2xl font-bold tracking-tight text-white mb-1">Financial Retirement Planner</h1>
                     <p className="text-xs text-slate-400">Analyze long-term capital compounding, pre/post-retirement allocation splits, and inflation effects.</p>
                 </div>
-                <div>
-                    <button 
-                        onClick={handleReset} 
-                        className="px-3.5 py-2 text-xs font-semibold bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-slate-300 hover:text-white cursor-pointer"
+                <div className="flex gap-2 flex-wrap">
+                    <button
+                        onClick={handleExportConfig}
+                        className="px-3 py-2 text-xs font-semibold bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-slate-350 hover:text-white cursor-pointer"
+                        title="Download JSON backup"
+                    >
+                        <ArrowUpRight className="w-3.5 h-3.5 text-emerald-400" />
+                        <span>Export Backup</span>
+                    </button>
+
+                    <label
+                        className="px-3 py-2 text-xs font-semibold bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-slate-350 hover:text-white cursor-pointer relative"
+                        title="Upload JSON backup"
+                    >
+                        <ArrowDownRight className="w-3.5 h-3.5 text-cyan-405" />
+                        <span>Import Backup</span>
+                        <input
+                            type="file"
+                            accept=".json"
+                            onChange={handleImportConfig}
+                            className="absolute inset-0 opacity-0 w-full h-full cursor-pointer"
+                        />
+                    </label>
+
+                    <button
+                        onClick={handleReset}
+                        className="px-3 py-2 text-xs font-semibold bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-slate-400 hover:text-rose-400 cursor-pointer"
+                        title="Restore default parameters"
                     >
                         <RotateCcw className="w-3.5 h-3.5" />
-                        <span>Reset Defaults</span>
+                        <span>Reset</span>
                     </button>
+                    <button class="px-3.5 py-2 text-xs font-semibold bg-rose-500/10 border border-rose-500/20 hover:bg-rose-500/20 rounded-xl transition-all flex items-center gap-1.5 text-rose-400 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2 lucide-trash-2 w-3.5 h-3.5" aria-hidden="true"><path d="M10 11v6"></path><path d="M14 11v6"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M3 6h18"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg><span>Clear All</span></button>
                 </div>
             </div>
 
             {/* Config & Assumptions Split Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6 relative z-10">
                 {/* Inputs Setup Card */}
                 <div className="lg:col-span-5 bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 backdrop-blur-md shadow-inner flex flex-col justify-between space-y-4">
                     <div>
@@ -888,13 +1082,12 @@ export default function RetirementPlanner() {
                                 <TrendingUp className="w-4 h-4 text-brand-mint" />
                                 Lifetime Savings Projection Curve
                             </span>
-                            
+
                             {/* Quick status badge */}
-                            <span className={`text-[9px] font-mono uppercase px-2 py-0.5 rounded ${
-                                isSafe 
-                                    ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400' 
-                                    : 'bg-rose-500/10 border border-rose-500/20 text-rose-400'
-                            }`}>
+                            <span className={`text-[9px] font-mono uppercase px-2 py-0.5 rounded ${isSafe
+                                ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
+                                : 'bg-rose-500/10 border border-rose-500/20 text-rose-400'
+                                }`}>
                                 {isSafe ? 'Secure Strategy' : `Depletes at Age ${targetSavingsRunout}`}
                             </span>
                         </h2>
@@ -919,7 +1112,7 @@ export default function RetirementPlanner() {
                                 {/* Main Line path */}
                                 <path d={chartPaths.line} fill="none" stroke="#00DC82" strokeWidth="2" strokeLinecap="round" className="transition-all duration-300" />
 
-                                 {/* Milestone indicator markers on curve */}
+                                {/* Milestone indicator markers on curve */}
                                 {milestonePoints.map((mp, idx) => (
                                     <g key={idx} className="transition-all duration-300">
                                         {/* Pulsing glow ring */}
@@ -1051,7 +1244,7 @@ export default function RetirementPlanner() {
             </div>
 
             {/* Short-Term Goals Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-6 relative z-10">
                 {/* Goal / Debt Form Card */}
                 <div className="lg:col-span-4 bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 backdrop-blur-md shadow-inner flex flex-col justify-between">
                     {activeGoalsTab === 'goals' ? (
@@ -1137,20 +1330,20 @@ export default function RetirementPlanner() {
                                         <button
                                             type="button"
                                             onClick={() => setType('give')}
-                                            className={`w-1/2 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${type === 'give' 
-                                                ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold' 
+                                            className={`w-1/2 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${type === 'give'
+                                                ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold'
                                                 : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'}`}
                                         >
-                                            🟢 Give (Lent)
+                                            🟢 Give (I Lent Money)
                                         </button>
                                         <button
                                             type="button"
                                             onClick={() => setType('take')}
-                                            className={`w-1/2 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${type === 'take' 
-                                                ? 'bg-rose-500/10 border border-rose-500/30 text-rose-400 font-bold' 
+                                            className={`w-1/2 py-1.5 text-xs font-semibold rounded-lg transition-all cursor-pointer ${type === 'take'
+                                                ? 'bg-rose-500/10 border border-rose-500/30 text-rose-400 font-bold'
                                                 : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'}`}
                                         >
-                                            🔴 Take (Owe)
+                                            🔴 Take (I Borrowed)
                                         </button>
                                     </div>
                                 </div>
@@ -1159,7 +1352,7 @@ export default function RetirementPlanner() {
                                     <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Person Name</label>
                                     <input
                                         type="text"
-                                        placeholder="e.g. Alice Smith"
+                                        placeholder="e.g. John Doe, Sarah Miller"
                                         value={name}
                                         onChange={(e) => setName(e.target.value)}
                                         className="w-full bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50"
@@ -1195,9 +1388,9 @@ export default function RetirementPlanner() {
                                 </div>
 
                                 <div>
-                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Description (Notes)</label>
+                                    <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Ledger Description (Notes)</label>
                                     <textarea
-                                        placeholder="Add details..."
+                                        placeholder="Add details about what the loan was for..."
                                         value={note}
                                         onChange={(e) => setNote(e.target.value)}
                                         className="w-full h-16 bg-slate-950 border border-slate-800 text-slate-200 rounded-xl px-3 py-2 text-xs outline-none focus:border-brand-mint/50 resize-none"
@@ -1221,9 +1414,8 @@ export default function RetirementPlanner() {
                                     )}
                                     <button
                                         type="submit"
-                                        className={`grow py-2 text-xs font-bold rounded-xl transition-all cursor-pointer font-mono uppercase ${
-                                            type === 'give' ? 'bg-emerald-500 hover:bg-emerald-600 text-slate-950' : 'bg-rose-500 hover:bg-rose-600 text-white'
-                                        }`}
+                                        className={`grow py-2 text-xs font-bold rounded-xl transition-all cursor-pointer font-mono uppercase ${type === 'give' ? 'bg-emerald-500 hover:bg-emerald-600 text-slate-950' : 'bg-rose-500 hover:bg-rose-600 text-white'
+                                            }`}
                                     >
                                         {editingId ? 'Save' : 'Log'}
                                     </button>
@@ -1239,29 +1431,27 @@ export default function RetirementPlanner() {
                         <div className="flex bg-slate-950 p-1 border border-slate-800/80 rounded-xl">
                             <button
                                 onClick={() => setActiveGoalsTab('goals')}
-                                className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all cursor-pointer ${
-                                    activeGoalsTab === 'goals' 
-                                        ? 'bg-brand-mint/15 border border-brand-mint/35 text-brand-mint' 
-                                        : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
-                                }`}
+                                className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all cursor-pointer ${activeGoalsTab === 'goals'
+                                    ? 'bg-brand-mint/15 border border-brand-mint/35 text-brand-mint'
+                                    : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
+                                    }`}
                             >
                                 🎯 Goals ({shortTermGoals.filter(g => g.enabled).length})
                             </button>
                             <button
                                 onClick={() => setActiveGoalsTab('debts')}
-                                className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all cursor-pointer ${
-                                    activeGoalsTab === 'debts' 
-                                        ? 'bg-brand-mint/15 border border-brand-mint/35 text-brand-mint' 
-                                        : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
-                                }`}
+                                className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all cursor-pointer ${activeGoalsTab === 'debts'
+                                    ? 'bg-brand-mint/15 border border-brand-mint/35 text-brand-mint'
+                                    : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
+                                    }`}
                             >
                                 🤝 Debt Ledger ({debts.filter(d => d.status === 'pending').length})
                             </button>
                         </div>
-                        
+
                         <span className="text-[10px] text-slate-500 font-mono">
-                            {activeGoalsTab === 'goals' 
-                                ? `${shortTermGoals.length} total goals` 
+                            {activeGoalsTab === 'goals'
+                                ? `${shortTermGoals.length} total goals`
                                 : `${debts.length} ledger items`
                             }
                         </span>
@@ -1280,21 +1470,19 @@ export default function RetirementPlanner() {
                                     shortTermGoals.map(g => {
                                         const inflatedCost = getInflatedCost(g.cost, g.targetAge, g.inflationRate);
                                         return (
-                                            <div 
-                                                key={g.id} 
-                                                className={`flex flex-col p-3.5 rounded-2xl border transition-all ${
-                                                    g.enabled 
-                                                        ? 'bg-slate-950/40 border-slate-800 hover:border-slate-700' 
-                                                        : 'bg-slate-950/10 border-slate-900 opacity-50'
-                                                }`}
+                                            <div
+                                                key={g.id}
+                                                className={`flex flex-col p-3.5 rounded-2xl border transition-all ${g.enabled
+                                                    ? 'bg-slate-950/40 border-slate-800 hover:border-slate-700'
+                                                    : 'bg-slate-950/10 border-slate-900 opacity-50'
+                                                    }`}
                                             >
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex items-center gap-3 min-w-0">
-                                                        <div className={`w-10 h-10 rounded-xl shrink-0 flex items-center justify-center ${
-                                                            g.enabled 
-                                                                ? 'bg-brand-mint/10 border border-brand-mint/20 text-brand-mint' 
-                                                                : 'bg-slate-900 border border-slate-850 text-slate-500'
-                                                        }`}>
+                                                        <div className={`w-10 h-10 rounded-xl shrink-0 flex items-center justify-center ${g.enabled
+                                                            ? 'bg-brand-mint/10 border border-brand-mint/20 text-brand-mint'
+                                                            : 'bg-slate-900 border border-slate-850 text-slate-500'
+                                                            }`}>
                                                             {getCategoryIcon(g.category, "w-5 h-5")}
                                                         </div>
                                                         <div className="min-w-0">
@@ -1444,7 +1632,7 @@ export default function RetirementPlanner() {
                                             <ShieldCheck className="w-3.5 h-3.5" />
                                             <span>Zero Loan Path</span>
                                         </span>
-                                        <button 
+                                        <button
                                             onClick={handleAutoOptimize}
                                             className="px-2.5 py-1 text-[10px] font-semibold bg-brand-mint text-slate-950 hover:bg-brand-mint/90 rounded-lg transition-all shadow-md cursor-pointer uppercase tracking-wider font-mono"
                                         >
@@ -1460,19 +1648,31 @@ export default function RetirementPlanner() {
                         <div className="space-y-4">
                             {/* Debt metrics overview */}
                             <div className="grid grid-cols-3 gap-2.5 text-left">
-                                <div className="bg-slate-950/60 border border-slate-800/80 p-2.5 rounded-xl">
-                                    <span className="text-[8px] font-mono text-slate-500 uppercase block">GIVE (LENT)</span>
-                                    <span className="text-xs font-mono font-bold text-emerald-400 block mt-0.5">{formatCurrency(debtMetrics.totalOwedToMe)}</span>
+                                <div className="flex items-start justify-between bg-slate-950/60 border border-slate-800/80 p-2.5 rounded-xl">
+                                    <div>
+                                        <span className="text-[8px] font-mono text-slate-500 uppercase block">GIVE (LENT)</span>
+                                        <span className="text-[10px] font-mono text-slate-400 mb-1">Owed to You (Receivable)</span>
+                                        <span className="text-xs font-mono font-bold text-emerald-400 block mt-0.5">{formatCurrency(debtMetrics.totalOwedToMe)}</span>
+                                    </div>
+                                    <div class="p-2.5 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right w-5 h-5" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg></div>
                                 </div>
-                                <div className="bg-slate-950/60 border border-slate-800/80 p-2.5 rounded-xl">
-                                    <span className="text-[8px] font-mono text-slate-500 uppercase block">TAKE (OWE)</span>
-                                    <span className="text-xs font-mono font-bold text-rose-400 block mt-0.5">{formatCurrency(debtMetrics.totalIOwe)}</span>
+                                <div className="flex items-start justify-between bg-slate-950/60 border border-slate-800/80 p-2.5 rounded-xl">
+                                    <div>
+                                        <span className="text-[8px] font-mono text-slate-500 uppercase block">TAKE (BORROWED)</span>
+                                        <p class="text-[10px] text-slate-400 mb-1">You Owe (Payable)</p>
+                                        <span className="text-xs font-mono font-bold text-rose-400 block mt-0.5">{formatCurrency(debtMetrics.totalIOwe)}</span>
+                                    </div>
+                                    <div class="p-2.5 bg-rose-500/10 border border-rose-500/20 rounded-xl text-rose-400"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-right w-5 h-5" aria-hidden="true"><path d="m7 7 10 10"></path><path d="M17 7v10H7"></path></svg></div>
                                 </div>
-                                <div className="bg-slate-950/60 border border-slate-800/80 p-2.5 rounded-xl">
-                                    <span className="text-[8px] font-mono text-slate-500 uppercase block">NET POSITION</span>
-                                    <span className={`text-xs font-mono font-bold block mt-0.5 ${debtMetrics.netDebtPosition >= 0 ? 'text-emerald-400' : 'text-rose-455'}`}>
-                                        {debtMetrics.netDebtPosition >= 0 ? '+' : ''}{formatCurrency(debtMetrics.netDebtPosition)}
-                                    </span>
+                                <div className="flex items-start justify-between bg-slate-950/60 border border-slate-800/80 p-2.5 rounded-xl">
+                                    <div>
+                                        <span className="text-[8px] font-mono text-slate-500 uppercase block">NET POSITION</span>
+                                        <p class="text-[10px] text-slate-400 mb-1">Net Balance Stance</p>
+                                        <span className={`text-xs font-mono font-bold block mt-0.5 ${debtMetrics.netDebtPosition >= 0 ? 'text-emerald-400' : 'text-rose-455'}`}>
+                                            {debtMetrics.netDebtPosition >= 0 ? '+' : ''}{formatCurrency(debtMetrics.netDebtPosition)}
+                                        </span>
+                                    </div>
+                                    <div class="p-2.5 bg-brand-mint/10 border border-brand-mint/20 rounded-xl text-brand-mint"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand-coins w-5 h-5" aria-hidden="true"><path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17"></path><path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"></path><path d="m2 16 6 6"></path><circle cx="16" cy="9" r="2.9"></circle><circle cx="6" cy="5" r="3"></circle></svg></div>
                                 </div>
                             </div>
 
@@ -1518,46 +1718,47 @@ export default function RetirementPlanner() {
                                         const isIncluded = debtIncludedToggles[d.id] !== false;
                                         const settlementAge = debtRepaymentAges[d.id] ?? currentAge;
                                         return (
-                                            <div 
-                                                key={d.id} 
-                                                className={`flex flex-col p-3 rounded-2xl border transition-all ${
-                                                    d.status === 'settled'
-                                                        ? 'bg-slate-950/10 border-slate-900 opacity-40'
-                                                        : isIncluded 
-                                                            ? 'bg-slate-950/40 border-slate-800 hover:border-slate-700' 
-                                                            : 'bg-slate-950/10 border-slate-900 opacity-60'
-                                                }`}
+                                            <div
+                                                key={d.id}
+                                                className={`flex flex-col p-3 rounded-2xl border transition-all ${d.status === 'settled'
+                                                    ? 'bg-slate-950/20 border-slate-850/50 opacity-60'
+                                                    : isIncluded
+                                                        ? d.type === 'give'
+                                                            ? 'bg-emerald-500/5 hover:bg-emerald-500/10 border-emerald-500/20 hover:border-emerald-500/30'
+                                                            : 'bg-rose-500/5 hover:bg-rose-500/10 border-rose-500/20 hover:border-rose-500/30'
+                                                        : 'bg-slate-950/20 border-slate-850/50 opacity-60'
+                                                    }`}
                                             >
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex items-center gap-3 min-w-0">
-                                                        <div className={`w-10 h-10 rounded-xl shrink-0 flex items-center justify-center ${
-                                                            d.status === 'settled'
-                                                                ? 'bg-slate-900 border border-slate-850 text-slate-500'
-                                                                : isIncluded
-                                                                    ? d.type === 'give'
-                                                                        ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
-                                                                        : 'bg-rose-500/10 border border-rose-500/20 text-rose-400'
-                                                                    : 'bg-slate-900 border border-slate-850 text-slate-500'
-                                                        }`}>
+                                                        <div className={`w-10 h-10 rounded-xl shrink-0 flex items-center justify-center ${d.status === 'settled'
+                                                            ? 'bg-slate-900 border border-slate-850 text-slate-500'
+                                                            : isIncluded
+                                                                ? d.type === 'give'
+                                                                    ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
+                                                                    : 'bg-rose-500/10 border border-rose-500/20 text-rose-450'
+                                                                : 'bg-slate-900 border border-slate-850 text-slate-500'
+                                                            }`}>
                                                             {d.type === 'give' ? <ArrowUpRight className="w-5 h-5" /> : <ArrowDownRight className="w-5 h-5" />}
                                                         </div>
                                                         <div className="min-w-0 text-left">
                                                             <h4 className="text-xs font-bold text-white flex items-center gap-1.5 min-w-0">
                                                                 <span className="truncate" title={d.name}>{d.name}</span>
-                                                                <span className={`text-[7px] font-mono uppercase px-1 py-0.2 rounded leading-none shrink-0 ${
-                                                                    d.status === 'settled'
-                                                                        ? 'bg-slate-800 text-slate-400'
-                                                                        : d.type === 'give'
-                                                                            ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
-                                                                            : 'bg-rose-500/10 border border-rose-500/20 text-rose-455'
-                                                                }`}>
+                                                                <span className={`text-[7px] font-mono uppercase px-1 py-0.2 rounded leading-none shrink-0 ${d.status === 'settled'
+                                                                    ? 'bg-slate-800 text-slate-400'
+                                                                    : d.type === 'give'
+                                                                        ? 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
+                                                                        : 'bg-rose-500/10 border border-rose-500/20 text-rose-455'
+                                                                    }`}>
                                                                     {d.status === 'settled' ? 'Settled' : d.type === 'give' ? 'Give' : 'Take'}
                                                                 </span>
                                                             </h4>
                                                             <div className="flex flex-col gap-0.5 mt-1 text-[9px] font-mono">
                                                                 <div>
-                                                                    <span className="text-slate-500">Amount: </span>
-                                                                    <span className={`font-semibold ${d.status === 'settled' ? 'text-slate-400 line-through' : d.type === 'give' ? 'text-emerald-400' : 'text-rose-400'}`}>{formatCurrency(d.amount)}</span>
+                                                                    <span className="text-slate-500">Balance: </span>
+                                                                    <span className={`font-semibold ${d.status === 'settled' ? 'text-slate-400 line-through' : d.type === 'give' ? 'text-emerald-400' : 'text-rose-450'}`}>
+                                                                        {formatCurrency(getDebtNetAmount(d))}
+                                                                    </span>
                                                                 </div>
                                                                 {d.note && (
                                                                     <div className="text-slate-400 truncate max-w-[110px]" title={d.note}>
@@ -1579,12 +1780,26 @@ export default function RetirementPlanner() {
                                                             />
                                                         )}
                                                         <button
+                                                            onClick={() => {
+                                                                setExpandedDebtId(expandedDebtId === d.id ? null : d.id);
+                                                                setAdjType('minus');
+                                                                setAdjAmount('');
+                                                                setAdjNote('');
+                                                            }}
+                                                            className={`p-1 rounded border transition-all cursor-pointer ${expandedDebtId === d.id
+                                                                ? 'border-brand-mint/55 bg-brand-mint/15 text-brand-mint'
+                                                                : 'border-slate-800 text-slate-500 hover:text-brand-mint hover:bg-brand-mint/5'
+                                                                }`}
+                                                            title="Adjustments Ledger (±)"
+                                                        >
+                                                            <Calendar className="w-3.5 h-3.5" />
+                                                        </button>
+                                                        <button
                                                             onClick={() => toggleDebtStatus(d.id)}
-                                                            className={`p-1 rounded border transition-all cursor-pointer ${
-                                                                d.status === 'settled'
-                                                                    ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-400'
-                                                                    : 'border-slate-800 text-slate-500 hover:text-emerald-400 hover:bg-emerald-500/5'
-                                                            }`}
+                                                            className={`p-1 rounded border transition-all cursor-pointer ${d.status === 'settled'
+                                                                ? 'border-emerald-500/40 bg-emerald-500/10 text-emerald-400'
+                                                                : 'border-slate-800 text-slate-550 hover:text-emerald-450 hover:bg-emerald-500/5'
+                                                                }`}
                                                             title={d.status === 'settled' ? 'Mark as Outstanding' : 'Mark as Settled'}
                                                         >
                                                             <CheckCircle2 className="w-3.5 h-3.5" />
@@ -1607,9 +1822,112 @@ export default function RetirementPlanner() {
                                                     </div>
                                                 </div>
 
+                                                {/* Expanded adjustments panel */}
+                                                {expandedDebtId === d.id && (
+                                                    <div className="mt-3 pt-3 border-t border-slate-800/85 text-2xs font-mono text-left space-y-3">
+                                                        <div>
+                                                            <div className="text-[8px] text-slate-500 uppercase tracking-wider mb-1">Transaction History:</div>
+                                                            <div className="space-y-1 max-h-36 overflow-y-auto pr-1">
+                                                                {(d.transactions || []).map(t => (
+                                                                    <div key={t.id} className="flex justify-between items-start bg-slate-950/80 border border-slate-850 p-1.5 rounded-lg gap-1.5">
+                                                                        <div className="min-w-0">
+                                                                            <div className="flex items-center gap-1.5 flex-wrap">
+                                                                                <span className={`font-bold ${t.type === 'plus' ? 'text-emerald-400' : 'text-rose-455'}`}>
+                                                                                    {t.type === 'plus' ? '+' : '-'}{formatCurrency(t.amount)}
+                                                                                </span>
+                                                                                <span className="text-[7px] text-slate-500">{t.date}</span>
+                                                                            </div>
+                                                                            {t.note && <div className="text-slate-400 text-[8px] truncate mt-0.5" title={t.note}>{t.note}</div>}
+                                                                        </div>
+                                                                        <button
+                                                                            onClick={() => handleDeleteAdjustment(d.id, t.id)}
+                                                                            className="text-slate-650 hover:text-rose-400 p-0.5 rounded transition-all shrink-0 cursor-pointer"
+                                                                            title="Delete transaction entry"
+                                                                        >
+                                                                            <Trash2 className="w-3 h-3" />
+                                                                        </button>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Log adjustment inside expanded panel */}
+                                                        {d.status === 'pending' && (
+                                                            <div className="bg-slate-950/40 border border-slate-850 p-2 rounded-xl space-y-2">
+                                                                <div className="text-[8px] text-brand-mint font-bold uppercase tracking-wider">Log Adjustment (±):</div>
+                                                                <div className="flex bg-slate-950 p-0.5 border border-slate-850 rounded-lg">
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => setAdjType('plus')}
+                                                                        className={`w-1/2 py-0.5 text-[8px] font-bold rounded transition-all cursor-pointer ${adjType === 'plus'
+                                                                            ? 'bg-emerald-500/10 text-emerald-400'
+                                                                            : 'bg-transparent text-slate-500 hover:text-slate-300'
+                                                                            }`}
+                                                                    >
+                                                                        + Plus (Increase)
+                                                                    </button>
+                                                                    <button
+                                                                        type="button"
+                                                                        onClick={() => setAdjType('minus')}
+                                                                        className={`w-1/2 py-0.5 text-[8px] font-bold rounded transition-all cursor-pointer ${adjType === 'minus'
+                                                                            ? 'bg-rose-500/10 text-rose-400'
+                                                                            : 'bg-transparent text-slate-500 hover:text-slate-300'
+                                                                            }`}
+                                                                    >
+                                                                        - Minus (Repay)
+                                                                    </button>
+                                                                </div>
+                                                                <div className="grid grid-cols-2 gap-2">
+                                                                    <div>
+                                                                        <label className="text-[7px] text-slate-500 block mb-0.5">Amount (INR)</label>
+                                                                        <input
+                                                                            type="number"
+                                                                            placeholder="Amount"
+                                                                            value={adjAmount}
+                                                                            onChange={(e) => setAdjAmount(e.target.value)}
+                                                                            className="w-full bg-slate-950 border border-slate-800 rounded px-1.5 py-0.5 text-2xs outline-none text-slate-300 font-mono"
+                                                                        />
+                                                                    </div>
+                                                                    <div>
+                                                                        <label className="text-[7px] text-slate-500 block mb-0.5">Date</label>
+                                                                        <input
+                                                                            type="date"
+                                                                            value={adjDate}
+                                                                            onChange={(e) => setAdjDate(e.target.value)}
+                                                                            className="w-full bg-slate-950 border border-slate-800 rounded px-1.5 py-0.5 text-2xs outline-none text-slate-350 font-mono"
+                                                                        />
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <label className="text-[7px] text-slate-500 block mb-0.5">Note</label>
+                                                                    <input
+                                                                        type="text"
+                                                                        placeholder="e.g. partial return"
+                                                                        value={adjNote}
+                                                                        onChange={(e) => setAdjNote(e.target.value)}
+                                                                        className="w-full bg-slate-950 border border-slate-800 rounded px-1.5 py-0.5 text-2xs outline-none text-slate-300"
+                                                                    />
+                                                                </div>
+                                                                <button
+                                                                    type="button"
+                                                                    onClick={() => {
+                                                                        handleAddAdjustment(d.id, adjType, adjAmount, adjDate, adjNote);
+                                                                        setAdjAmount('');
+                                                                        setAdjNote('');
+                                                                    }}
+                                                                    className="w-full py-1 bg-brand-mint hover:bg-brand-mint/90 text-slate-950 font-bold rounded text-2xs font-mono uppercase transition-all cursor-pointer"
+                                                                >
+                                                                    Post Adjustment
+                                                                </button>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                )}
+
                                                 {d.status === 'pending' && isIncluded && (
                                                     <div className="mt-2.5 pt-2.5 border-t border-slate-800/80 flex items-center justify-between text-[10px]">
                                                         <span className="font-mono text-slate-500 uppercase tracking-wider text-[8px]">Settlement Age</span>
+                                                        <span class="flex items-center gap-1"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar w-3 h-3" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg>{adjDate}</span> 
                                                         <div className="flex items-center gap-1.5">
                                                             <input
                                                                 type="range"
@@ -1636,7 +1954,7 @@ export default function RetirementPlanner() {
             </div>
 
             {/* Asset Allocation Sliders Tabular panels */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 relative z-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 relative z-10">
                 {/* Pre-Retirement Portfolio */}
                 <div className="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 backdrop-blur-md shadow-inner">
                     <h3 className="text-xs font-mono font-bold tracking-wider text-slate-400 uppercase border-b border-slate-800 pb-3 mb-4 flex items-center justify-between">
@@ -1781,17 +2099,16 @@ export default function RetirementPlanner() {
                         </thead>
                         <tbody className="divide-y divide-slate-800/40">
                             {simulation.rows.map((row) => (
-                                <tr 
-                                    key={row.age} 
-                                    className={`hover:bg-slate-900/20 transition-all font-mono text-2xs ${
-                                        row.status === 'Dead' 
-                                            ? 'opacity-30 bg-slate-950/20' 
-                                            : row.warning 
-                                                ? 'bg-rose-500/5 hover:bg-rose-500/10 text-rose-300' 
-                                                : row.status === 'Retired' 
-                                                    ? 'bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-300' 
-                                                    : 'text-slate-300'
-                                    }`}
+                                <tr
+                                    key={row.age}
+                                    className={`hover:bg-slate-900/20 transition-all font-mono text-2xs ${row.status === 'Dead'
+                                        ? 'opacity-30 bg-slate-950/20'
+                                        : row.warning
+                                            ? 'bg-rose-500/5 hover:bg-rose-500/10 text-rose-300'
+                                            : row.status === 'Retired'
+                                                ? 'bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-300'
+                                                : 'text-slate-300'
+                                        }`}
                                 >
                                     {/* Age */}
                                     <td className="py-2.5 pl-3 font-bold text-white">
@@ -1871,15 +2188,14 @@ export default function RetirementPlanner() {
 
                                     {/* Status tag */}
                                     <td className="py-2.5 pr-3 text-right">
-                                        <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold ${
-                                            row.status === 'Dead'
-                                                ? 'bg-slate-950 text-slate-650'
-                                                : row.warning
-                                                    ? 'bg-rose-500/20 text-rose-400'
-                                                    : row.status === 'Retired'
-                                                        ? 'bg-emerald-500/20 text-emerald-400'
-                                                        : 'bg-blue-500/20 text-blue-400'
-                                        }`}>
+                                        <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold ${row.status === 'Dead'
+                                            ? 'bg-slate-950 text-slate-650'
+                                            : row.warning
+                                                ? 'bg-rose-500/20 text-rose-400'
+                                                : row.status === 'Retired'
+                                                    ? 'bg-emerald-500/20 text-emerald-400'
+                                                    : 'bg-blue-500/20 text-blue-400'
+                                            }`}>
                                             {row.status === 'Dead' ? 'Dead' : row.warning ? 'Depleted' : row.status}
                                         </span>
                                     </td>
