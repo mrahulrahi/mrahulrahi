@@ -35,7 +35,6 @@ const CodeStackLayout = ({ children }) => {
     { title: 'Salary Calculator', href: '/code-stack/tools/salary-calculator-two', icon: <FaCalculator /> },
     { title: 'Expense Tracker', href: '/code-stack/tools/expense-tracker', icon: <FaCreditCard /> },
     { title: 'Salary Divider', href: '/code-stack/tools/salary-divider', icon: <FaPercent /> },
-    { title: 'Debt Book', href: '/code-stack/tools/debt-tracker', icon: <FaCoins /> },
     { title: 'Retirement Planner', href: '/code-stack/tools/retirement-planner', icon: <FaChartLine /> },
   ];
 

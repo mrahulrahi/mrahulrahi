@@ -46,8 +46,6 @@ export default function ToolsDirectory({ isEmbedded = false }: ToolsDirectoryPro
                 return <Wallet className={iconClasses} />;
             case 'salary-divider':
                 return <Percent className={iconClasses} />;
-            case 'debt-tracker':
-                return <Coins className={iconClasses} />;
             case 'retirement-planner':
                 return <TrendingUp className={iconClasses} />;
             case 'calculator-app':

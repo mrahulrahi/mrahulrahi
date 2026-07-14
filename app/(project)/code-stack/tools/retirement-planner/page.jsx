@@ -6,7 +6,7 @@ import {
     RotateCcw, Info, Lightbulb, Settings, FileSpreadsheet, ArrowUpRight,
     ArrowDownRight, CheckCircle2, AlertTriangle, ShieldCheck,
     Car, Bike, Smartphone, Laptop, Plus, Trash2, Target, HandCoins,
-    Tag, Edit
+    Tag, Edit, Flame, Activity
 } from 'lucide-react';
 
 const DEFAULT_PRE_ALLOCATION = [
@@ -105,6 +105,7 @@ export default function RetirementPlanner() {
     // Active Settings ID state
     const [openSettingsGoalId, setOpenSettingsGoalId] = useState(null);
     const [activeGoalsTab, setActiveGoalsTab] = useState('goals'); // 'goals' vs 'debts'
+    const [bottomActiveTab, setBottomActiveTab] = useState('ledger'); // 'ledger' | 'fire' | 'optimizer'
 
     // Synced Debt / Debt Ledger states
     const [debts, setDebts] = useState([]);
@@ -510,6 +511,58 @@ export default function RetirementPlanner() {
         if (!hoveredData) return [];
         return simulation.rows.find(r => r.age === hoveredData.age)?.debtOutflowsList || [];
     }, [hoveredData, simulation.rows]);
+
+    const fireAnalytics = useMemo(() => {
+        const todayAnnualExpense = retirementExpense * 12;
+        const todayFireNumber = todayAnnualExpense * 25;
+
+        const yearsToRetire = Math.max(0, retirementAge - currentAge);
+        const inflationFactor = Math.pow(1 + inflation / 100, yearsToRetire);
+        const futureAnnualExpense = todayAnnualExpense * inflationFactor;
+        const futureFireNumber = futureAnnualExpense * 25;
+
+        const fiRow = simulation.rows.find(r => r.interest > r.expenses && r.status !== 'Dead');
+        const fiAge = fiRow ? fiRow.age : null;
+
+        const peakRow = simulation.rows.reduce((peak, r) => r.endSavings > peak.endSavings ? r : peak, { endSavings: 0, age: currentAge });
+
+        const retirementRow = simulation.rows.find(r => r.age === retirementAge);
+        const nestEggAtRetirement = retirementRow ? retirementRow.startSavings : 0;
+        const realNestEggValue = nestEggAtRetirement / inflationFactor;
+
+        const readinessPct = todayFireNumber > 0 ? Math.min(100, Math.max(0, (currentSavings / todayFireNumber) * 100)) : 100;
+
+        return {
+            todayFireNumber,
+            futureFireNumber,
+            fiAge,
+            peakSavings: peakRow.endSavings,
+            peakSavingsAge: peakRow.age,
+            nestEggAtRetirement,
+            realNestEggValue,
+            readinessPct
+        };
+    }, [simulation.rows, retirementExpense, retirementAge, currentAge, inflation, currentSavings]);
+
+    const handleOptimizePortfolio = () => {
+        if (window.confirm("Would you like to automatically rebalance your pre-retirement and post-retirement portfolios for optimal tax-efficiency and capital preservation?")) {
+            setPreAllocation([
+                { name: 'Fixed Returns', return: 7, tax: 30, share: 15 },
+                { name: 'Large Cap Mutual Funds', return: 12, tax: 20, share: 50 },
+                { name: 'Midcap Mutual Funds', return: 15, tax: 20, share: 20 },
+                { name: 'Smallcap mutual funds', return: 18, tax: 20, share: 15 }
+            ]);
+
+            setPostAllocation([
+                { name: 'Fixed Returns', return: 7, tax: 30, share: 60 },
+                { name: 'Large Cap Mutual Funds', return: 12, tax: 20, share: 30 },
+                { name: 'Midcap Mutual Funds', return: 15, tax: 20, share: 10 },
+                { name: 'Smallcap mutual funds', return: 18, tax: 20, share: 0 }
+            ]);
+
+            alert("Portfolios optimized successfully! Pre-retirement fixed returns reduced to limit tax drag, and post-retirement secured to avoid equity volatility.");
+        }
+    };
 
     // ----------------------------------------------------
     // Portfolios Update Helpers
@@ -2076,134 +2129,289 @@ export default function RetirementPlanner() {
                 </div>
             </div>
 
-            {/* Bottom Table: Simulation Ledger */}
+            {/* Bottom Card: Ledger, FIRE & Optimizer */}
             <div className="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-6 backdrop-blur-md shadow-inner relative z-10">
-                <h2 className="text-sm font-mono font-bold tracking-wider text-slate-400 uppercase border-b border-slate-800 pb-3 mb-5 flex items-center gap-2">
-                    <FileSpreadsheet className="w-4 h-4 text-brand-mint" />
-                    Compounding Sheet Ledger
-                </h2>
+                <div className="flex justify-between items-center border-b border-slate-800 pb-3 mb-5 flex-wrap gap-3">
+                    <div className="flex bg-slate-950 p-1 border border-slate-800/80 rounded-xl">
+                        <button
+                            onClick={() => setBottomActiveTab('ledger')}
+                            className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1.5 ${
+                                bottomActiveTab === 'ledger' 
+                                    ? 'bg-brand-mint/15 border border-brand-mint/35 text-brand-mint' 
+                                    : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
+                            }`}
+                        >
+                            <FileSpreadsheet className="w-3.5 h-3.5" />
+                            <span>Compounding Sheet Ledger</span>
+                        </button>
+                        <button
+                            onClick={() => setBottomActiveTab('fire')}
+                            className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1.5 ${
+                                bottomActiveTab === 'fire' 
+                                    ? 'bg-brand-mint/15 border border-brand-mint/35 text-brand-mint' 
+                                    : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
+                            }`}
+                        >
+                            <Flame className="w-3.5 h-3.5" />
+                            <span>FIRE Analytics</span>
+                        </button>
+                        <button
+                            onClick={() => setBottomActiveTab('optimizer')}
+                            className={`px-3 py-1.5 text-xs font-mono font-bold rounded-lg transition-all cursor-pointer flex items-center gap-1.5 ${
+                                bottomActiveTab === 'optimizer' 
+                                    ? 'bg-brand-mint/15 border border-brand-mint/35 text-brand-mint' 
+                                    : 'bg-transparent border-transparent text-slate-400 hover:text-slate-200'
+                            }`}
+                        >
+                            <Activity className="w-3.5 h-3.5" />
+                            <span>Portfolio Optimizer</span>
+                        </button>
+                    </div>
 
-                <div className="overflow-x-auto max-h-96">
-                    <table className="w-full text-left border-collapse">
-                        <thead>
-                            <tr className="border-b border-slate-800 text-slate-500 text-[10px] font-mono uppercase tracking-wider sticky top-0 bg-slate-950 z-10">
-                                <th className="pb-3 pl-3">Age</th>
-                                <th className="pb-3 text-right">Starting Savings</th>
-                                <th className="pb-3 text-right">Expenses (Post-Tax)</th>
-                                <th className="pb-3 text-right">Additional Savings</th>
-                                <th className="pb-3 text-right">Compounded Interest</th>
-                                <th className="pb-3 text-right">Flow (Goals & Debts)</th>
-                                <th className="pb-3 text-right">Ending Savings</th>
-                                <th className="pb-3 pr-3 text-right">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-slate-800/40">
-                            {simulation.rows.map((row) => (
-                                <tr
-                                    key={row.age}
-                                    className={`hover:bg-slate-900/20 transition-all font-mono text-2xs ${row.status === 'Dead'
-                                        ? 'opacity-30 bg-slate-950/20'
-                                        : row.warning
-                                            ? 'bg-rose-500/5 hover:bg-rose-500/10 text-rose-300'
-                                            : row.status === 'Retired'
-                                                ? 'bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-300'
-                                                : 'text-slate-300'
-                                        }`}
-                                >
-                                    {/* Age */}
-                                    <td className="py-2.5 pl-3 font-bold text-white">
-                                        {row.age}
-                                    </td>
-
-                                    {/* Starting */}
-                                    <td className="py-2.5 text-right">
-                                        {row.status === 'Dead' ? '-' : formatCurrency(row.startSavings)}
-                                    </td>
-
-                                    {/* Expenses */}
-                                    <td className="py-2.5 text-right font-medium text-rose-400">
-                                        {row.status === 'Retired' ? formatCurrency(row.expenses) : '-'}
-                                    </td>
-
-                                    {/* Additional savings */}
-                                    <td className="py-2.5 text-right font-medium text-emerald-400">
-                                        {row.status === 'Earning' ? formatCurrency(row.additions) : '-'}
-                                    </td>
-
-                                    {/* Interest earned */}
-                                    <td className="py-2.5 text-right text-indigo-300">
-                                        {row.status === 'Dead' ? '-' : `+${formatCurrency(row.interest)}`}
-                                    </td>
-
-                                    {/* Flow (Goals & Debts) */}
-                                    <td className="py-2.5 text-right font-medium text-amber-400">
-                                        {row.goalExpenses > 0 || row.emiExpenses > 0 || row.debtInflow > 0 || row.debtOutflow > 0 ? (
-                                            <div className="flex flex-col items-end">
-                                                {(() => {
-                                                    const totalOutflows = row.goalExpenses + row.emiExpenses + row.debtOutflow;
-                                                    const totalInflows = row.debtInflow;
-                                                    const netFlow = totalInflows - totalOutflows;
-                                                    if (netFlow > 0) {
-                                                        return <span className="font-bold text-emerald-400">+{formatCurrency(netFlow)}</span>;
-                                                    } else if (netFlow < 0) {
-                                                        return <span className="font-bold text-amber-400">-{formatCurrency(Math.abs(netFlow))}</span>;
-                                                    } else {
-                                                        return <span className="font-bold text-slate-400">{formatCurrency(0)}</span>;
-                                                    }
-                                                })()}
-                                                <div className="flex gap-1 mt-1 max-w-[200px] flex-wrap justify-end">
-                                                    {row.goalsList.map(g => (
-                                                        <span key={g.id} className="inline-flex items-center gap-0.5 bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[8px] px-1 py-0.2 rounded" title={`${g.name} (${g.type === 'downpayment' ? 'Down Payment' : 'Cash Purchase'}, Today's Value: ${formatCurrency(g.cost)})`}>
-                                                            {getCategoryIcon(g.category, "w-2.5 h-2.5")}
-                                                            <span className="truncate max-w-[60px]">{g.name} {g.type === 'downpayment' ? '(DP)' : '(Cash)'}</span>
-                                                        </span>
-                                                    ))}
-                                                    {row.emiList.map(g => (
-                                                        <span key={g.id} className="inline-flex items-center gap-0.5 bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-[8px] px-1 py-0.2 rounded" title={`${g.name} Loan EMI (Monthly: ${formatCurrency(g.monthlyEmi)}, Interest: ${g.loanInterest}%, Term: ${g.loanDuration} yrs)`}>
-                                                            {getCategoryIcon(g.category, "w-2.5 h-2.5")}
-                                                            <span className="truncate max-w-[60px]">{g.name} (EMI)</span>
-                                                        </span>
-                                                    ))}
-                                                    {row.debtInflowsList.map(d => (
-                                                        <span key={d.id} className="inline-flex items-center gap-0.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[8px] px-1 py-0.2 rounded" title={`Repaid by ${d.name} (Inflow)`}>
-                                                            <ArrowUpRight className="w-2.5 h-2.5 text-emerald-400" />
-                                                            <span className="truncate max-w-[60px]">{d.name} (Repay)</span>
-                                                        </span>
-                                                    ))}
-                                                    {row.debtOutflowsList.map(d => (
-                                                        <span key={d.id} className="inline-flex items-center gap-0.5 bg-rose-500/10 border border-rose-500/20 text-rose-400 text-[8px] px-1 py-0.2 rounded" title={`Settle back to ${d.name} (Outflow)`}>
-                                                            <ArrowDownRight className="w-2.5 h-2.5 text-rose-450" />
-                                                            <span className="truncate max-w-[60px]">{d.name} (Settle)</span>
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        ) : '-'}
-                                    </td>
-
-                                    {/* Ending savings */}
-                                    <td className="py-2.5 text-right font-bold text-white">
-                                        {row.status === 'Dead' ? '-' : formatCurrency(row.endSavings)}
-                                    </td>
-
-                                    {/* Status tag */}
-                                    <td className="py-2.5 pr-3 text-right">
-                                        <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold ${row.status === 'Dead'
-                                            ? 'bg-slate-950 text-slate-650'
-                                            : row.warning
-                                                ? 'bg-rose-500/20 text-rose-400'
-                                                : row.status === 'Retired'
-                                                    ? 'bg-emerald-500/20 text-emerald-400'
-                                                    : 'bg-blue-500/20 text-blue-400'
-                                            }`}>
-                                            {row.status === 'Dead' ? 'Dead' : row.warning ? 'Depleted' : row.status}
-                                        </span>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                    <span className="text-[10px] text-slate-500 font-mono">
+                        {bottomActiveTab === 'ledger' && "Year-by-year cashflow simulation"}
+                        {bottomActiveTab === 'fire' && "Financial Independence indicators"}
+                        {bottomActiveTab === 'optimizer' && "Allocation risk and tax advisor"}
+                    </span>
                 </div>
+
+                {bottomActiveTab === 'ledger' && (
+                    <div className="overflow-x-auto max-h-96">
+                        <table className="w-full text-left border-collapse">
+                            <thead>
+                                <tr className="border-b border-slate-800 text-slate-500 text-[10px] font-mono uppercase tracking-wider sticky top-0 bg-slate-950 z-10">
+                                    <th className="pb-3 pl-3">Age</th>
+                                    <th className="pb-3 text-right">Starting Savings</th>
+                                    <th className="pb-3 text-right">Expenses (Post-Tax)</th>
+                                    <th className="pb-3 text-right">Additional Savings</th>
+                                    <th className="pb-3 text-right">Compounded Interest</th>
+                                    <th className="pb-3 text-right">Flow (Goals & Debts)</th>
+                                    <th className="pb-3 text-right">Ending Savings</th>
+                                    <th className="pb-3 pr-3 text-right">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody className="divide-y divide-slate-800/30 text-[11px] font-mono">
+                                {simulation.rows.map((row) => (
+                                    <tr 
+                                        key={row.age} 
+                                        className={`hover:bg-slate-900/20 transition-all font-mono text-2xs ${row.status === 'Dead'
+                                            ? 'opacity-30 bg-slate-950/20'
+                                            : row.warning
+                                                ? 'bg-rose-500/5 hover:bg-rose-500/10 text-rose-350'
+                                                : row.status === 'Retired'
+                                                    ? 'bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-300 font-semibold'
+                                                    : 'text-slate-300'
+                                        }`}
+                                    >
+                                        <td className="py-2.5 pl-3 font-bold text-white flex items-center gap-1.5">
+                                            <span>{row.age}</span>
+                                            {row.age === retirementAge && (
+                                                <span className="text-[7px] font-sans font-bold uppercase bg-brand-mint/15 text-brand-mint border border-brand-mint/20 px-1 rounded leading-none">
+                                                    Retired
+                                                </span>
+                                            )}
+                                        </td>
+                                        <td className="py-2.5 text-right">{row.status === 'Dead' ? '-' : formatCurrency(row.startSavings)}</td>
+                                        <td className="py-2.5 text-right text-rose-400">{row.status === 'Retired' ? formatCurrency(row.expenses) : '-'}</td>
+                                        <td className="py-2.5 text-right text-emerald-400">{row.status === 'Earning' ? formatCurrency(row.additions) : '-'}</td>
+                                        <td className="py-2.5 text-right text-indigo-300">{row.status === 'Dead' ? '-' : `+${formatCurrency(row.interest)}`}</td>
+                                        <td className="py-2.5 text-right text-amber-405">
+                                            {row.goalExpenses > 0 || row.emiExpenses > 0 || row.debtInflow > 0 || row.debtOutflow > 0 ? (
+                                                <div className="flex flex-col items-end">
+                                                    {(() => {
+                                                        const totalOutflows = row.goalExpenses + row.emiExpenses + row.debtOutflow;
+                                                        const totalInflows = row.debtInflow;
+                                                        const netFlow = totalInflows - totalOutflows;
+                                                        if (netFlow > 0) {
+                                                            return <span className="font-bold text-emerald-450">+{formatCurrency(netFlow)}</span>;
+                                                        } else if (netFlow < 0) {
+                                                            return <span className="font-bold text-amber-450">-{formatCurrency(Math.abs(netFlow))}</span>;
+                                                        } else {
+                                                            return <span className="font-bold text-slate-500">{formatCurrency(0)}</span>;
+                                                        }
+                                                    })()}
+                                                    <div className="flex gap-1 mt-1 max-w-[200px] flex-wrap justify-end">
+                                                        {row.goalsList.map(g => (
+                                                            <span key={g.id} className="inline-flex items-center gap-0.5 bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[8px] px-1 py-0.2 rounded" title={`${g.name} (${g.type === 'downpayment' ? 'Down Payment' : 'Cash Purchase'}, Today's Value: ${formatCurrency(g.cost)})`}>
+                                                                {getCategoryIcon(g.category, "w-2.5 h-2.5")}
+                                                                <span className="truncate max-w-[60px]">{g.name} {g.type === 'downpayment' ? '(DP)' : '(Cash)'}</span>
+                                                            </span>
+                                                        ))}
+                                                        {row.emiList.map(g => (
+                                                            <span key={g.id} className="inline-flex items-center gap-0.5 bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-[8px] px-1 py-0.2 rounded" title={`${g.name} Loan EMI (Monthly: ${formatCurrency(g.monthlyEmi)}, Interest: ${g.loanInterest}%, Term: ${g.loanDuration} yrs)`}>
+                                                                {getCategoryIcon(g.category, "w-2.5 h-2.5")}
+                                                                <span className="truncate max-w-[60px]">{g.name} (EMI)</span>
+                                                            </span>
+                                                        ))}
+                                                        {row.debtInflowsList.map(d => (
+                                                            <span key={d.id} className="inline-flex items-center gap-0.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[8px] px-1 py-0.2 rounded" title={`Repaid by ${d.name} (Inflow)`}>
+                                                                <ArrowUpRight className="w-2.5 h-2.5 text-emerald-400" />
+                                                                <span className="truncate max-w-[60px]">{d.name} (Repay)</span>
+                                                            </span>
+                                                        ))}
+                                                        {row.debtOutflowsList.map(d => (
+                                                            <span key={d.id} className="inline-flex items-center gap-0.5 bg-rose-500/10 border border-rose-500/20 text-rose-450 text-[8px] px-1 py-0.2 rounded" title={`Settle back to ${d.name} (Outflow)`}>
+                                                                <ArrowDownRight className="w-2.5 h-2.5 text-rose-455" />
+                                                                <span className="truncate max-w-[60px]">{d.name} (Settle)</span>
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <span className="text-slate-650">-</span>
+                                            )}
+                                        </td>
+                                        <td className="py-2.5 text-right font-bold text-white">{row.status === 'Dead' ? '-' : formatCurrency(row.endSavings)}</td>
+                                        <td className="py-2.5 pr-3 text-right">
+                                            <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold ${
+                                                row.status === 'Dead'
+                                                    ? 'bg-slate-950 text-slate-655'
+                                                    : row.warning
+                                                        ? 'bg-rose-500/20 text-rose-400'
+                                                        : row.status === 'Retired'
+                                                            ? 'bg-emerald-500/20 text-emerald-400'
+                                                            : 'bg-blue-500/20 text-blue-400'
+                                            }`}>
+                                                {row.status === 'Dead' ? 'Dead' : row.warning ? 'Depleted' : row.status}
+                                            </span>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
+
+                {bottomActiveTab === 'fire' && (
+                    <div className="space-y-6 text-left">
+                        {/* FIRE readiness score progress bar */}
+                        <div className="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-5">
+                            <div className="flex justify-between items-center mb-2">
+                                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">FIRE Readiness Status</span>
+                                <span className="text-xs font-mono font-bold text-brand-mint">{fireAnalytics.readinessPct.toFixed(1)}% Completed</span>
+                            </div>
+                            <div className="w-full h-3 bg-slate-900 border border-slate-800 rounded-full overflow-hidden">
+                                <div 
+                                    className="h-full bg-gradient-to-r from-emerald-500 to-brand-mint rounded-full transition-all duration-500" 
+                                    style={{ width: `${fireAnalytics.readinessPct}%` }}
+                                />
+                            </div>
+                            <p className="text-[10px] text-slate-400 mt-2">
+                                Ratio of your current savings (₹{formatCurrency(currentSavings)}) relative to your target today (₹{formatCurrency(fireAnalytics.todayFireNumber)}), based on 25x your expected annual retirement expenses (₹{formatCurrency(retirementExpense * 12)}).
+                            </p>
+                        </div>
+
+                        {/* FIRE statistics cards grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div className="bg-slate-950/40 border border-slate-800/80 p-4 rounded-2xl flex flex-col justify-between">
+                                <span className="text-[8px] font-mono text-slate-550 uppercase tracking-wider block">Baseline FI Number</span>
+                                <span className="text-base font-mono font-bold text-white block mt-1">{formatCurrency(fireAnalytics.todayFireNumber)}</span>
+                                <span className="text-[9px] text-slate-500 mt-1 block">Safe 25x expense rule</span>
+                            </div>
+                            <div className="bg-slate-950/40 border border-slate-800/80 p-4 rounded-2xl flex flex-col justify-between">
+                                <span className="text-[8px] font-mono text-slate-550 uppercase tracking-wider block">Future FIRE Target</span>
+                                <span className="text-base font-mono font-bold text-brand-mint block mt-1">{formatCurrency(fireAnalytics.futureFireNumber)}</span>
+                                <span className="text-[9px] text-slate-500 mt-1 block">Inflated target at Age {retirementAge}</span>
+                            </div>
+                            <div className="bg-slate-950/40 border border-slate-800/80 p-4 rounded-2xl flex flex-col justify-between">
+                                <span className="text-[8px] font-mono text-slate-550 uppercase tracking-wider block">FI Achievement Age</span>
+                                <span className="text-base font-mono font-bold text-amber-400 block mt-1">
+                                    {fireAnalytics.fiAge ? `Age ${fireAnalytics.fiAge}` : "Never"}
+                                </span>
+                                <span className="text-[9px] text-slate-500 mt-1 block">When interest exceeds expenses</span>
+                            </div>
+                            <div className="bg-slate-950/40 border border-slate-800/80 p-4 rounded-2xl flex flex-col justify-between">
+                                <span className="text-[8px] font-mono text-slate-550 uppercase tracking-wider block">Max Lifetime Nest Egg</span>
+                                <span className="text-base font-mono font-bold text-emerald-450 block mt-1">{formatCurrency(fireAnalytics.peakSavings)}</span>
+                                <span className="text-[9px] text-slate-500 mt-1 block">Reached at Age {fireAnalytics.peakSavingsAge}</span>
+                            </div>
+                        </div>
+
+                        {/* Nest Egg inflation impact analysis */}
+                        <div className="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-5 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+                            <div className="min-w-0">
+                                <h3 className="text-xs font-mono font-bold text-white uppercase tracking-wider flex items-center gap-1.5">
+                                    <TrendingUp className="w-4 h-4 text-emerald-400" />
+                                    Nest Egg Purchasing Power Analysis
+                                </h3>
+                                <p className="text-[10px] text-slate-400 mt-1 max-w-[480px]">
+                                    At retirement age ({retirementAge}), your nominal net worth is projected to reach <strong>{formatCurrency(fireAnalytics.nestEggAtRetirement)}</strong>. However, due to {inflation}% annual inflation, the real buying power of that amount is equivalent to <strong>{formatCurrency(fireAnalytics.realNestEggValue)}</strong> in today's currency.
+                                </p>
+                            </div>
+                            <div className="bg-slate-900/60 border border-slate-800/60 px-4 py-2 rounded-xl font-mono text-center shrink-0 min-w-[160px]">
+                                <span className="text-[8px] text-slate-550 block uppercase">Real Value Today</span>
+                                <span className="text-xs font-bold text-emerald-400">{formatCurrency(fireAnalytics.realNestEggValue)}</span>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {bottomActiveTab === 'optimizer' && (
+                    <div className="space-y-5 text-left">
+                        <div className="bg-slate-950/60 border border-slate-800/80 rounded-2xl p-5">
+                            <h3 className="text-xs font-mono font-bold text-white uppercase tracking-wider mb-4 flex items-center gap-2">
+                                <Activity className="w-4 h-4 text-brand-mint" />
+                                Allocation Tax & Risk Metrics
+                            </h3>
+                            <div className="space-y-4">
+                                {/* Tax warning */}
+                                <div className="flex gap-3 items-start">
+                                    <div className="w-5 h-5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                                        <Info className="w-3.5 h-3.5" />
+                                    </div>
+                                    <div className="text-[10px]">
+                                        <div className="font-bold text-slate-200">Pre-Retirement Tax Exposure ({preSummary.weightedTax.toFixed(1)}%)</div>
+                                        <p className="text-slate-455 mt-0.5">
+                                            {preSummary.weightedTax > 24
+                                                ? "High pre-retirement tax drag. Shifting high fixed-returns shares to capital-gains efficient equity mutual funds can reduce taxation impact on compound interest."
+                                                : "Your pre-retirement portfolio is tax-efficient and well diversified."}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Volatility warning */}
+                                {(() => {
+                                    const postEquityShare = (postAllocation.find(a => a.name.toLowerCase().includes('midcap'))?.share || 0) + (postAllocation.find(a => a.name.toLowerCase().includes('smallcap'))?.share || 0);
+                                    return (
+                                        <div className="flex gap-3 items-start">
+                                            <div className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 mt-0.5 ${
+                                                postEquityShare > 25
+                                                    ? 'bg-rose-500/10 border border-rose-500/20 text-rose-450'
+                                                    : 'bg-emerald-500/10 border border-emerald-500/20 text-emerald-400'
+                                            }`}>
+                                                {postEquityShare > 25 ? <AlertTriangle className="w-3.5 h-3.5" /> : <ShieldCheck className="w-3.5 h-3.5" />}
+                                            </div>
+                                            <div className="text-[10px]">
+                                                <div className="font-bold text-slate-200">Post-Retirement Volatile Equity Share ({postEquityShare}%)</div>
+                                                <p className="text-slate-455 mt-0.5">
+                                                    {postEquityShare > 25
+                                                        ? "Sequence-of-returns risk! You have over 25% allocated to highly volatile small/midcap equity post-retirement. Rebalance toward Fixed Returns and Large Cap to protect against market crashes."
+                                                        : "Your post-retirement portfolio focuses on capital preservation and fixed returns, which is ideal."}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    );
+                                })()}
+                            </div>
+                        </div>
+
+                        {/* One-click portfolio optimizer call to action */}
+                        <div className="p-5 bg-gradient-to-r from-slate-950 to-slate-900/60 border border-slate-800 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                            <div>
+                                <h3 className="text-xs font-mono font-bold text-brand-mint uppercase tracking-wider">Automated Portfolio Optimization Advisor</h3>
+                                <p className="text-[10px] text-slate-400 mt-1 max-w-[500px]">
+                                    Automatically adjust your asset allocation percentages to optimize for pre-retirement tax-efficiency (equity-weighted) and post-retirement capital preservation (fixed-income weighted).
+                                </p>
+                            </div>
+                            <button
+                                onClick={handleOptimizePortfolio}
+                                className="px-4 py-2 text-xs font-bold bg-brand-mint hover:bg-brand-mint/90 text-slate-950 rounded-xl transition-all shadow-md cursor-pointer uppercase tracking-wider font-mono shrink-0"
+                            >
+                                Optimize Portfolios
+                            </button>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );

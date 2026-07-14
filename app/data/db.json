@@ -622,13 +622,6 @@
       "visible": true
     },
     {
-      "id": "debt-tracker",
-      "name": "Debt Book (Give/Take)",
-      "description": "Log loans, borrow records, track who owes you money, and manage outstanding balances.",
-      "href": "/code-stack/tools/debt-tracker",
-      "visible": true
-    },
-    {
       "id": "retirement-planner",
       "name": "Retirement Planner",
       "description": "Model your retirement growth curves, calculate inflation-adjusted expenses, and optimize portfolio returns.",
