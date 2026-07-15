@@ -1041,7 +1041,7 @@ export default function RetirementPlanner() {
                             </div>
 
                             {/* Savings amounts setup */}
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Starting Savings</label>
                                     <div className="relative">
@@ -1069,7 +1069,7 @@ export default function RetirementPlanner() {
                             </div>
 
                             {/* Step-up and Inflation setup */}
-                            <div className="grid grid-cols-2 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Yearly Savings Step-up</label>
                                     <div className="relative">
@@ -1279,7 +1279,7 @@ export default function RetirementPlanner() {
                     </div>
 
                     {/* Insights Summary panel */}
-                    <div className="grid grid-cols-2 gap-4 mt-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
                         <div className="bg-slate-950/40 border border-slate-800/80 p-4 rounded-2xl flex flex-col justify-center">
                             <span className="text-[9px] font-mono text-slate-500 uppercase">PEAK SAVINGS POOL</span>
                             <span className="text-sm font-mono font-bold text-white mt-1">
@@ -1413,7 +1413,7 @@ export default function RetirementPlanner() {
                                     />
                                 </div>
 
-                                <div className="grid grid-cols-2 gap-3">
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                                     <div>
                                         <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Amount (INR)</label>
                                         <div className="relative">
@@ -1700,7 +1700,7 @@ export default function RetirementPlanner() {
                     {activeGoalsTab === 'debts' && (
                         <div className="space-y-4">
                             {/* Debt metrics overview */}
-                            <div className="grid grid-cols-3 gap-2.5 text-left">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 text-left">
                                 <div className="flex items-start justify-between bg-slate-950/60 border border-slate-800/80 p-2.5 rounded-xl">
                                     <div>
                                         <span className="text-[8px] font-mono text-slate-500 uppercase block">GIVE (LENT)</span>
@@ -1930,7 +1930,7 @@ export default function RetirementPlanner() {
                                                                         - Minus (Repay)
                                                                     </button>
                                                                 </div>
-                                                                <div className="grid grid-cols-2 gap-2">
+                                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                                                     <div>
                                                                         <label className="text-[7px] text-slate-500 block mb-0.5">Amount (INR)</label>
                                                                         <input
@@ -2019,38 +2019,40 @@ export default function RetirementPlanner() {
 
                     <div className="space-y-4">
                         {preAllocation.map((asset, idx) => (
-                            <div key={idx} className="grid grid-cols-12 gap-2.5 items-center">
-                                <span className="col-span-4 text-[11px] text-slate-300 truncate font-semibold">{asset.name}</span>
-                                <div className="col-span-3">
-                                    <label className="text-[8px] font-mono text-slate-500 block mb-0.5">Return %</label>
-                                    <input
-                                        type="number"
-                                        value={asset.return}
-                                        onChange={(e) => handleAllocationChange('pre', idx, 'return', e.target.value)}
-                                        className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-2xs text-slate-200 outline-none focus:border-brand-mint font-mono"
-                                    />
-                                </div>
-                                <div className="col-span-2">
-                                    <label className="text-[8px] font-mono text-slate-500 block mb-0.5">Tax %</label>
-                                    <input
-                                        type="number"
-                                        value={asset.tax}
-                                        onChange={(e) => handleAllocationChange('pre', idx, 'tax', e.target.value)}
-                                        className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-2xs text-slate-200 outline-none focus:border-brand-mint font-mono"
-                                    />
-                                </div>
-                                <div className="col-span-3">
-                                    <label className="text-[8px] font-mono text-slate-500 block mb-0.5">Share %</label>
-                                    <input
-                                        type="range"
-                                        min="0"
-                                        max="100"
-                                        step="5"
-                                        value={asset.share}
-                                        onChange={(e) => handleAllocationChange('pre', idx, 'share', e.target.value)}
-                                        className="w-full h-1 rounded bg-slate-800 appearance-none accent-brand-mint"
-                                    />
-                                    <span className="text-[9px] font-mono text-slate-400 block text-right mt-0.5">{asset.share}%</span>
+                            <div key={idx} className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-2.5 items-start sm:items-center bg-slate-950/20 sm:bg-transparent p-3 sm:p-0 rounded-2xl border border-slate-850/50 sm:border-0">
+                                <span className="col-span-1 sm:col-span-4 text-xs sm:text-[11px] text-slate-350 sm:text-slate-300 font-semibold block text-left truncate" title={asset.name}>{asset.name}</span>
+                                <div className="col-span-1 sm:col-span-8 grid grid-cols-3 gap-2">
+                                    <div>
+                                        <label className="text-[8px] font-mono text-slate-500 block mb-0.5 sm:hidden">Return %</label>
+                                        <input
+                                            type="number"
+                                            value={asset.return}
+                                            onChange={(e) => handleAllocationChange('pre', idx, 'return', e.target.value)}
+                                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-2xs text-slate-200 outline-none focus:border-brand-mint font-mono"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="text-[8px] font-mono text-slate-500 block mb-0.5 sm:hidden">Tax %</label>
+                                        <input
+                                            type="number"
+                                            value={asset.tax}
+                                            onChange={(e) => handleAllocationChange('pre', idx, 'tax', e.target.value)}
+                                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-2xs text-slate-200 outline-none focus:border-brand-mint font-mono"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="text-[8px] font-mono text-slate-500 block mb-0.5 sm:hidden">Share %</label>
+                                        <input
+                                            type="range"
+                                            min="0"
+                                            max="100"
+                                            step="5"
+                                            value={asset.share}
+                                            onChange={(e) => handleAllocationChange('pre', idx, 'share', e.target.value)}
+                                            className="w-full h-1.5 rounded bg-slate-800 appearance-none accent-brand-mint"
+                                        />
+                                        <span className="text-[9px] font-mono text-slate-400 block text-right mt-0.5">{asset.share}%</span>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -2079,38 +2081,40 @@ export default function RetirementPlanner() {
 
                     <div className="space-y-4">
                         {postAllocation.map((asset, idx) => (
-                            <div key={idx} className="grid grid-cols-12 gap-2.5 items-center">
-                                <span className="col-span-4 text-[11px] text-slate-300 truncate font-semibold">{asset.name}</span>
-                                <div className="col-span-3">
-                                    <label className="text-[8px] font-mono text-slate-500 block mb-0.5">Return %</label>
-                                    <input
-                                        type="number"
-                                        value={asset.return}
-                                        onChange={(e) => handleAllocationChange('post', idx, 'return', e.target.value)}
-                                        className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-2xs text-slate-200 outline-none focus:border-brand-mint font-mono"
-                                    />
-                                </div>
-                                <div className="col-span-2">
-                                    <label className="text-[8px] font-mono text-slate-500 block mb-0.5">Tax %</label>
-                                    <input
-                                        type="number"
-                                        value={asset.tax}
-                                        onChange={(e) => handleAllocationChange('post', idx, 'tax', e.target.value)}
-                                        className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-2xs text-slate-200 outline-none focus:border-brand-mint font-mono"
-                                    />
-                                </div>
-                                <div className="col-span-3">
-                                    <label className="text-[8px] font-mono text-slate-500 block mb-0.5">Share %</label>
-                                    <input
-                                        type="range"
-                                        min="0"
-                                        max="100"
-                                        step="5"
-                                        value={asset.share}
-                                        onChange={(e) => handleAllocationChange('post', idx, 'share', e.target.value)}
-                                        className="w-full h-1 rounded bg-slate-800 appearance-none accent-brand-mint"
-                                    />
-                                    <span className="text-[9px] font-mono text-slate-400 block text-right mt-0.5">{asset.share}%</span>
+                            <div key={idx} className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-2.5 items-start sm:items-center bg-slate-950/20 sm:bg-transparent p-3 sm:p-0 rounded-2xl border border-slate-850/50 sm:border-0">
+                                <span className="col-span-1 sm:col-span-4 text-xs sm:text-[11px] text-slate-350 sm:text-slate-300 font-semibold block text-left truncate" title={asset.name}>{asset.name}</span>
+                                <div className="col-span-1 sm:col-span-8 grid grid-cols-3 gap-2">
+                                    <div>
+                                        <label className="text-[8px] font-mono text-slate-500 block mb-0.5 sm:hidden">Return %</label>
+                                        <input
+                                            type="number"
+                                            value={asset.return}
+                                            onChange={(e) => handleAllocationChange('post', idx, 'return', e.target.value)}
+                                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-2xs text-slate-200 outline-none focus:border-brand-mint font-mono"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="text-[8px] font-mono text-slate-500 block mb-0.5 sm:hidden">Tax %</label>
+                                        <input
+                                            type="number"
+                                            value={asset.tax}
+                                            onChange={(e) => handleAllocationChange('post', idx, 'tax', e.target.value)}
+                                            className="w-full bg-slate-950 border border-slate-800 rounded-lg px-2 py-1 text-2xs text-slate-200 outline-none focus:border-brand-mint font-mono"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="text-[8px] font-mono text-slate-500 block mb-0.5 sm:hidden">Share %</label>
+                                        <input
+                                            type="range"
+                                            min="0"
+                                            max="100"
+                                            step="5"
+                                            value={asset.share}
+                                            onChange={(e) => handleAllocationChange('post', idx, 'share', e.target.value)}
+                                            className="w-full h-1.5 rounded bg-slate-800 appearance-none accent-brand-mint"
+                                        />
+                                        <span className="text-[9px] font-mono text-slate-400 block text-right mt-0.5">{asset.share}%</span>
+                                    </div>
                                 </div>
                             </div>
                         ))}
