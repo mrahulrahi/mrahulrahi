@@ -1010,7 +1010,7 @@ export default function RetirementPlanner() {
 
                         <div className="space-y-4">
                             {/* Ages setup */}
-                            <div className="grid grid-cols-3 gap-3">
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                                 <div>
                                     <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-wider mb-1">Current Age</label>
                                     <input

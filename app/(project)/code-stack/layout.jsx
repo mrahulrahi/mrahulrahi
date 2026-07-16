@@ -95,7 +95,7 @@ const CodeStackLayout = ({ children }) => {
       <Hero bgImg={heroConfig.bgImg} title={heroConfig.title} subTitle={heroConfig.subTitle} gradientColor={heroConfig.gradientColor} />
 
       <div className="flex items-start overflow-x-clip">
-        <div className={`fixed p-2 pr-0 left-0 z-99 lg:z-9 lg:sticky top-15 lg:left-auto h-auto max-h-[calc(100vh-60px)] w-80 shrink-0 ${sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'} transition-transform duration-300 ease-in-out`}>
+        <div className={`fixed p-2 pr-0 left-0 z-99 lg:z-9 lg:sticky top-15 lg:left-auto h-auto max-h-[calc(100vh-60px)] ${sidebarOpen ? 'w-80 translate-x-0' : 'w-0 -translate-x-full lg:translate-x-0'} lg:w-80 lg:shrink-0 shrink-0 transition-all duration-300 ease-in-out`}>
           <div className=" absolute top-2 left-2 bottom-2 right-0 rounded-2xl opacity-50" style={gradientStyle}></div>
           <button type="button" className="text-2xl px-3 py-3 rounded-none rounded-r-md absolute left-full top-10 btn btn-lg btn-primary lg:hidden" onClick={() => setSidebarOpen(!sidebarOpen)} >{sidebarOpen ? <TbLayoutSidebarLeftExpandFilled /> : <TbLayoutSidebarLeftCollapseFilled />}</button>
           <ul className="relative d-flex flex-col w-full h-full text-base-content min-h-full overflow-auto bg-white/20 p-2.5 rounded-2xl">
@@ -110,7 +110,7 @@ const CodeStackLayout = ({ children }) => {
             ))}
           </ul>
         </div>
-        <div className="grow">
+        <div className="grow min-w-0">
           <div className="w-full py-10">
             <div className="container-fluid">
               <div className="device-frame relative flex flex-col justify-between w-full h-full bg-[#222831] border-5 border-[rgba(0,0,0,0.5)] rounded-[25px] overflow-hidden pb-[60px]">
