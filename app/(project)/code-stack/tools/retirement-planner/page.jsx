@@ -2296,7 +2296,7 @@ export default function RetirementPlanner() {
                             </div>
                             <div className="w-full h-3 bg-slate-900 border border-slate-800 rounded-full overflow-hidden">
                                 <div 
-                                    className="h-full bg-gradient-to-r from-emerald-500 to-brand-mint rounded-full transition-all duration-500" 
+                                    className="h-full bg-linear-to-r from-emerald-500 to-brand-mint rounded-full transition-all duration-500" 
                                     style={{ width: `${fireAnalytics.readinessPct}%` }}
                                 />
                             </div>
@@ -2400,7 +2400,7 @@ export default function RetirementPlanner() {
                         </div>
 
                         {/* One-click portfolio optimizer call to action */}
-                        <div className="p-5 bg-gradient-to-r from-slate-950 to-slate-900/60 border border-slate-800 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                        <div className="p-5 bg-linear-to-r from-slate-950 to-slate-900/60 border border-slate-800 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                             <div>
                                 <h3 className="text-xs font-mono font-bold text-brand-mint uppercase tracking-wider">Automated Portfolio Optimization Advisor</h3>
                                 <p className="text-[10px] text-slate-400 mt-1 max-w-[500px]">
