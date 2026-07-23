@@ -175,7 +175,7 @@ export default function App() {
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                             
                             {/* Left panel: List Sidebar */}
-                            <div className={`lg:col-span-4 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 flex flex-col backdrop-blur-md ${isEmbedded ? 'h-[500px]' : 'h-[calc(100vh-250px)] min-h-[500px]'}`}>
+                            <div className={`lg:col-span-4 bg-slate-900/60 border border-slate-800 rounded-2xl p-4 flex flex-col backdrop-blur-md ${isEmbedded ? 'h-125' : 'h-[calc(100vh-250px)] min-h-125'}`}>
                                 <div className="relative mb-4">
                                     <Search className="absolute left-3 top-3 w-4 h-4 text-slate-500" />
                                     <input
@@ -281,7 +281,7 @@ export default function App() {
                                                 </div>
                                                 
                                                 {/* Component Render Frame */}
-                                                <div className="p-8 md:p-12 overflow-y-auto max-h-[600px] text-slate-200">
+                                                <div className="p-8 md:p-12 overflow-y-auto max-h-150 text-slate-200">
                                                     {SelectedComponent ? (
                                                         <div className="w-full flex items-center justify-center">
                                                             <div className="w-full max-w-2xl bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 shadow-inner">

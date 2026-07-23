@@ -1,7 +1,5 @@
 'use client'
-import Link from 'next/link';
 import { useGradient } from '@/app/context/GradientContext';
-import { FaArrowLeft } from 'react-icons/fa6';
 
 const CodeStackLayout = ({ children }) => {
   const { gradientStyle } = useGradient();
@@ -14,10 +12,6 @@ const CodeStackLayout = ({ children }) => {
             <div className="device-frame relative flex flex-col justify-between w-full h-full bg-[#222831] border-5 border-[rgba(0,0,0,0.5)] rounded-[25px] overflow-hidden pb-15">
               <div className="device-head flex items-center justify-between px-4 h-7 bg-[rgba(0,0,0,0.5)] pb-1.25">
                 <div className="flex items-center gap-3">
-                  <Link href="/workspace" className="flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400 hover:text-brand-mint transition-colors" title="Back to Workspace">
-                    <FaArrowLeft className="w-2.5 h-2.5" />
-                    <span>Workspace</span>
-                  </Link>
                   <h4 className="text-lg font-bold tracking-widest bg-clip-text text-transparent mb-0 text-center" style={gradientStyle}>Code Stack</h4>
                 </div>
                 <ul className="device-head-dots flex items-center justify-end gap-1"><li className="w-2 h-2 rounded-full bg-white/50 shrink-0"></li><li className="w-2 h-2 rounded-full bg-[rgba(255,255,255,0.5)] shrink-0"></li><li className="w-2 h-2 rounded-full bg-[rgba(255,255,255,0.5)] shrink-0"></li></ul>

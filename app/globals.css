@@ -47,7 +47,7 @@
 }
 }
 @layer base{*{@apply m-0 p-0}
-html{@apply scroll-smooth scroll-pt-[70px]}
+html{@apply scroll-smooth scroll-pt-17.5}
 h1,h2,h3,h4,h5,h6,p,ul,li,body,html,form,fieldset{@apply m-0 p-0 outline-0 border-0}
 a{@apply no-underline border-0 outline-0}
 ul{@apply list-none}
@@ -164,7 +164,7 @@ form textarea.form-control{min-height:150px}
 .custom-checkbox-wrapper .item input:checked ~ .cbx-lbl{color:#9098a9}
 .custom-checkbox-wrapper .item input:checked ~ .cbx-lbl:after{width:100%;transition:all 0.4s ease}
 .weather-wrapper{@apply relative text-white}
-.weather-today-box{@apply relative shrink-0 w-[300px] h-full min-h-[400px] p-[25px] rounded-[25px] bg-no-repeat bg-center bg-cover shadow-[0_0_20px_-10px_rgba(0,0,0,0.2)];background-image: url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");transition:transform 300ms ease;transform:translateZ(0) scale(1.02) perspective(1000px)}
+.weather-today-box{@apply relative shrink-0 w-75 h-full min-h-100 p-6.25 rounded-[25px] bg-no-repeat bg-center bg-cover shadow-[0_0_20px_-10px_rgba(0,0,0,0.2)];background-image: url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");transition:transform 300ms ease;transform:translateZ(0) scale(1.02) perspective(1000px)}
 .weather-today-box:hover{-webkit-transform:scale(1.1) perspective(1500px) rotateY(10deg);transform:scale(1.1) perspective(1500px) rotateY(10deg)}
 .weather-gradient-bg{@apply absolute w-full h-full top-0 left-0 rounded-[25px] opacity-80}
 .weather-date-box{position:relative;z-index:9}

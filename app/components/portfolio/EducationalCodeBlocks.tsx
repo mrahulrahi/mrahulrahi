@@ -279,7 +279,7 @@ export default function EducationalCodeBlocks() {
                                     <div className="w-2.5 h-2.5 rounded-full bg-brand-mint animate-pulse" />
                                 </div>
 
-                                <div className="p-6 flex-1 flex flex-col justify-center min-h-[300px]">
+                                <div className="p-6 flex-1 flex flex-col justify-center min-h-75">
                                     {/* Bubble Sort Visualizer */}
                                     {activeTopic.id === 'bubble-sort' && (
                                         <div className="space-y-6 w-full">
@@ -459,10 +459,10 @@ export default function EducationalCodeBlocks() {
                                     {activeTopic.id === 'linked-list' && (
                                         <div className="space-y-6 w-full">
                                             {/* Visual Node Queue */}
-                                            <div className="flex items-center flex-wrap gap-2 justify-center py-4 bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4 min-h-[140px]">
+                                            <div className="flex items-center flex-wrap gap-2 justify-center py-4 bg-slate-950/60 border border-slate-800/80 rounded-2xl p-4 min-h-35">
                                                 {listNodes.map((val, idx) => (
                                                     <React.Fragment key={idx}>
-                                                        <div className="bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 flex flex-col items-center gap-1 min-w-[70px] shadow-md relative group hover:border-brand-mint/30 transition-all">
+                                                        <div className="bg-slate-900 border border-slate-800 rounded-xl px-3.5 py-2.5 flex flex-col items-center gap-1 min-w-17.5 shadow-md relative group hover:border-brand-mint/30 transition-all">
                                                             <span className="text-[9px] font-mono text-slate-500">Node[{idx}]</span>
                                                             <span className="text-xs font-mono font-bold text-white">{val}</span>
 
@@ -541,7 +541,7 @@ export default function EducationalCodeBlocks() {
                                         )}
                                     </button>
                                 </div>
-                                <pre className="p-6 overflow-x-auto font-mono text-[11px] text-brand-mint leading-relaxed flex-1 min-h-[300px] max-h-[450px]">
+                                <pre className="p-6 overflow-x-auto font-mono text-[11px] text-brand-mint leading-relaxed flex-1 min-h-75 max-h-112.5">
                                     <code>{activeTopic.code}</code>
                                 </pre>
                             </div>
