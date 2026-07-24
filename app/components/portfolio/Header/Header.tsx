@@ -7,39 +7,9 @@ import { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { FaLinkedinIn, FaGithub, FaYoutube, FaTelegram } from 'react-icons/fa';
 import { LuSun, LuMoon } from "react-icons/lu";
+import useDarkMode from '@/app/hooks/useDarkMode';
 
-// Custom hook for dark mode
-function useDarkMode() {
- const [isDark, setIsDark] = useState(false);
 
-  useEffect(() => {
-    // Check if user has a saved preference
-    const saved = localStorage.getItem('darkMode');
-    if (saved !== null) {
-      setIsDark(JSON.parse(saved));
-    } else {
-      // Otherwise check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setIsDark(prefersDark);
-    }
-  }, []);
-
-  useEffect(() => {
-    // Save preference to localStorage
-    localStorage.setItem('darkMode', JSON.stringify(isDark));
-    
-    // Apply dark class to html element
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDark]);
-
-  const toggle = () => setIsDark(prev => !prev);
-
-  return { isDark, toggle };
-}
 
 
 const Header = () => {
@@ -47,7 +17,7 @@ const Header = () => {
     const [activeSection, setActiveSection] = useState('');
     const { isDark, toggle } = useDarkMode();
 
-    const navbarRef = useRef(null);
+    const navbarRef.current;
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
@@ -105,7 +75,7 @@ const Header = () => {
     }, [isOpen]);
 
     const toggleNavbar = () => {
-        setIsOpen(!isOpen);
+        setIsOpen(prev => !prev);
     };
 
     const handleLinkClick = (e : any, path : any) => {
