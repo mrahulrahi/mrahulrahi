@@ -17,7 +17,7 @@ const Header = () => {
     const [activeSection, setActiveSection] = useState('');
     const { isDark, toggle } = useDarkMode();
 
-    const navbarRef.current;
+    const navbarRef = useRef<HTMLDivElement>(null);
 
     const handleScroll = () => {
         const scrollY = window.scrollY;
