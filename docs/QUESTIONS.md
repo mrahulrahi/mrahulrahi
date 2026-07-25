@@ -7,3 +7,9 @@ Why does React re-render after setState?
 Status
 
 Pending
+
+Why use useMemo?
+
+Difference between ISR and SSR?
+
+Why use Generics?

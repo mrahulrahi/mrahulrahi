@@ -17,3 +17,25 @@ No code changes
 Next
 
 CSS Assessment
+
+# JavaScript
+
+## Closures
+
+Date
+
+Summary
+
+Example
+
+MRR Usage
+
+---
+
+# React
+
+## useMemo
+
+Summary
+
+MRR Usage

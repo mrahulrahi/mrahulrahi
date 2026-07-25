@@ -1,22 +1,79 @@
 # Mentor Journal
 
-## Day 4
+## Observation 1
 
-### Observation
+Rahul consistently underestimates his own abilities.
 
-Rahul is much stronger than he estimates himself.
+Actual implementation skills are stronger than his confidence.
 
-### Learning Style
+---
 
-Visual + Project Based
+## Observation 2
 
-### Biggest Improvement Needed
+Learning Style
 
-JavaScript problem-solving confidence.
+Visual
 
-### Teaching Strategy
+Project Based
 
-- Use real project examples.
-- Minimize isolated theory.
-- Ask recall questions before teaching.
-- End every session with documentation and a Git commit.
+Architecture First
+
+---
+
+## Observation 3
+
+Explaining concepts is harder than implementing them.
+
+Future sessions should ask "Why?" after every coding exercise.
+
+---
+
+## Observation 4
+
+Strength
+
+Reusable Components
+
+Folder Architecture
+
+UI Development
+
+---
+
+## Observation 5
+
+Weakness
+
+JavaScript Mental Models
+
+React Internals
+
+Advanced TypeScript
+
+---
+
+## Teaching Strategy
+
+Office
+
+- Interview
+- Theory
+- Review
+- Architecture
+
+Home
+
+- Coding
+- Refactoring
+- Git Commit
+- Documentation
+
+---
+
+Current Mentor Confidence
+
+Very High
+
+Expected Result
+
+Within 8–12 months Rahul can comfortably work as a Senior Frontend Engineer if this pace continues.
