@@ -555,77 +555,77 @@
       "id": "quiz-app",
       "name": "Quiz App",
       "description": "Test your knowledge with an interactive and fun multiple-choice quiz.",
-      "href": "/code-stack/tools/quiz-app",
+      "href": "/tools/quiz-app",
       "visible": true
     },
     {
       "id": "calculator-app",
       "name": "Calculator App",
       "description": "A fully featured digital calculator with basic arithmetic and memory functions.",
-      "href": "/code-stack/tools/calculator-app",
+      "href": "/tools/calculator-app",
       "visible": true
     },
     {
       "id": "notes-app",
       "name": "Notes App",
       "description": "Create, edit, delete, and manage sticky notes with localStorage backup.",
-      "href": "/code-stack/tools/notes-app",
+      "href": "/tools/notes-app",
       "visible": true
     },
     {
       "id": "weather-app",
       "name": "Weather App",
       "description": "Check real-time weather conditions and forecasts for cities worldwide.",
-      "href": "/code-stack/tools/weather-app",
+      "href": "/tools/weather-app",
       "visible": true
     },
     {
       "id": "quote-app",
       "name": "Quote App",
       "description": "Generate inspiring random quotes and share them with your peers.",
-      "href": "/code-stack/tools/quote-app",
+      "href": "/tools/quote-app",
       "visible": true
     },
     {
       "id": "salary-calculator",
       "name": "Salary Calculator",
       "description": "Calculate your net take-home salary after taxes and deductions.",
-      "href": "/code-stack/tools/salary-calculator",
+      "href": "/tools/salary-calculator",
       "visible": true
     },
     {
       "id": "smart-emi-planner",
       "name": "Smart EMI Planner",
       "description": "Plan your loans and mortgages with detailed monthly amortization charts.",
-      "href": "/code-stack/tools/smart-emi-planner",
+      "href": "/tools/smart-emi-planner",
       "visible": true
     },
     {
       "id": "salary-calculator-two",
       "name": "Salary Calculator Advanced",
       "description": "Compare different tax regimes and plan savings to optimize income tax.",
-      "href": "/code-stack/tools/salary-calculator-two",
+      "href": "/tools/salary-calculator-two",
       "visible": true
     },
     {
       "id": "expense-tracker",
       "name": "Expense Tracker",
       "description": "Track your daily income, expenses, set budgets, and visualize spending categories.",
-      "href": "/code-stack/tools/expense-tracker",
+      "href": "/tools/expense-tracker",
       "visible": true
     },
     {
       "id": "salary-divider",
       "name": "Salary Divider",
       "description": "Apportion your monthly income into savings, investments, living expenses, and lifestyle pots.",
-      "href": "/code-stack/tools/salary-divider",
+      "href": "/tools/salary-divider",
       "visible": true
     },
     {
       "id": "retirement-planner",
       "name": "Retirement Planner",
       "description": "Model your retirement growth curves, calculate inflation-adjusted expenses, and optimize portfolio returns.",
-      "href": "/code-stack/tools/retirement-planner",
+      "href": "/tools/retirement-planner",
       "visible": true
     }
   ]
