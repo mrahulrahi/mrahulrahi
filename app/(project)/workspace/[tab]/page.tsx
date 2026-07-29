@@ -86,7 +86,7 @@ export default function WorkspacePage() {
             <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-brand-fern/15 blur-[150px] pointer-events-none" />
 
             {/* main dashboard grid container */}
-            <div className="max-w-[1600px] w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 flex flex-col lg:flex-row gap-8 relative z-10">
+            <div className="max-w-400 w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 flex flex-col lg:flex-row gap-8 relative z-10">
 
                 {/* Left Side: Premium Nav Sidebar (Dashboard Layout) */}
                 <aside className="w-full lg:w-80 shrink-0 flex flex-col gap-6">
@@ -136,7 +136,7 @@ export default function WorkspacePage() {
                 </aside>
 
                 {/* Right Side: Tab Viewport Shell */}
-                <main className="flex-1 bg-slate-900/20 border border-slate-800/80 rounded-[32px] p-6 lg:p-8 min-h-[500px] backdrop-blur-md flex flex-col justify-between overflow-hidden relative shadow-2xl">
+                <main className="flex-1 bg-slate-900/20 border border-slate-800/80 rounded-4xl p-6 lg:p-8 min-h-125 backdrop-blur-md flex flex-col justify-between overflow-hidden relative shadow-2xl">
                     <div className="absolute inset-0 bg-linear-to-tr from-brand-black/40 via-transparent to-brand-black/20 pointer-events-none" />
 
                     <div className="relative z-10 w-full flex-1">
