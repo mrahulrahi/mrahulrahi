@@ -401,23 +401,7 @@ const StyleGuidePage: React.FC = () => {
 
 
     // ── Theme ───────────────────────────────────────────────────────────────────
-    const [isDark, setIsDark] = useState<boolean>(() => {
-        if (typeof window !== 'undefined') {
-            return localStorage.getItem('color-theme') !== 'light'
-        }
-        return true
-    })
-
-    useEffect(() => {
-        const html = document.documentElement
-        if (isDark) {
-            html.classList.add('dark')
-            localStorage.setItem('color-theme', 'dark')
-        } else {
-            html.classList.remove('dark')
-            localStorage.setItem('color-theme', 'light')
-        }
-    }, [isDark])
+    const isDark = theme === 'dark';
 
     // ── Toast ───────────────────────────────────────────────────────────────────
     const [toastMsg, setToastMsg] = useState<string>('')

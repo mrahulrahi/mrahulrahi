@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import * as motion from "motion/react-client"
+import Image from 'next/image';
 import './Hero.css'
 
 interface HeroData {
@@ -31,10 +32,10 @@ const Hero = ({ children, hero }: Props) => {
   return (
     <section className="hero-container position-relative">
       <div className="hero-icons">
-        <div className="hero-icon hi-1"> <img src="/html-5.png" alt="" /> </div>
-        <div className="hero-icon hi-2"> <img src="/css-3.png" alt="" /> </div>
-        <div className="hero-icon hi-3"> <img src="/java.png" alt="" /> </div>
-        <div className="hero-icon hi-4"> <img src="/react.png" alt="" /> </div>
+        <div className="hero-icon hi-1"> <Image src="/html-5.png" alt="HTML5" width={48} height={48} /> </div>
+        <div className="hero-icon hi-2"> <Image src="/css-3.png" alt="CSS3" width={48} height={48} /> </div>
+        <div className="hero-icon hi-3"> <Image src="/java.png" alt="Java" width={48} height={48} /> </div>
+        <div className="hero-icon hi-4"> <Image src="/react.png" alt="React" width={48} height={48} /> </div>
       </div>
       <div className="container">
         <div className="row">
