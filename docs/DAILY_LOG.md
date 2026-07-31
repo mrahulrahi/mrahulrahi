@@ -97,3 +97,45 @@ Today's assessment confirmed that practical implementation is stronger than theo
 - Software Architecture Assessment
 - API & Backend Thinking
 - Performance & Optimization
+
+# Daily Log
+
+## Date
+
+2026-07-31
+
+---
+
+## Completed Today
+
+- Git Assessment
+- Software Architecture Assessment
+- API Assessment
+- Performance Assessment
+
+---
+
+## Biggest Learning
+
+I don't struggle with React syntax.
+
+I struggle with choosing:
+
+- Which hook?
+- Which state?
+- Which architecture?
+- Which optimization?
+
+Future sessions will focus on engineering decision making.
+
+---
+
+## Next Session
+
+Phase 1
+
+JavaScript for React
+
+Topic 1:
+
+Closures

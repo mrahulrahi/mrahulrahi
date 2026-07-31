@@ -29,3 +29,26 @@ Next.js Assessment
 - Added mentor observations and learning roadmap.
 - Improved project documentation structure.
 - Planned next assessment phase (Software Architecture).
+
+# Changelog
+
+## 2026-07-31
+
+### Added
+
+- Completed Git Assessment
+- Completed Software Architecture Assessment
+- Completed API Assessment
+- Completed Performance Assessment
+
+### Updated
+
+- Engineering Report
+- Learning Roadmap
+- Mentor Strategy
+- Interview Preparation
+
+### Planned
+
+- Start practical React & Next.js roadmap.
+- Implement every concept directly inside MRR.

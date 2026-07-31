@@ -17,3 +17,27 @@ Pending
 - SEO
 - Metadata
 - Image Optimization
+
+# MRR Improvement Strategy
+
+Every new topic learned should immediately be implemented inside MRR.
+
+Example:
+
+JavaScript
+↓
+
+React
+↓
+
+Next.js
+↓
+
+Refactor Existing Code
+
+instead of building unrelated demo projects.
+
+MRR will become both:
+
+- Portfolio
+- Learning Laboratory

@@ -242,3 +242,98 @@ Senior Frontend Engineer## Assessment Progress
 | Software Architecture | ⏳ Pending |
 | APIs & Backend Thinking | ⏳ Pending |
 | Performance & Optimization | ⏳ Pending |
+
+# Engineering Report (Updated)
+
+_Last Updated: 2026-07-31_
+
+## Overall Engineering Assessment
+
+| Area | Score | Level |
+|------|------:|--------|
+| HTML | 9.4/10 | Advanced |
+| CSS | 9.2/10 | Advanced |
+| JavaScript | 7.3/10 | Intermediate |
+| TypeScript | 7.0/10 | Intermediate |
+| React | 8.1/10 | Strong Intermediate |
+| Next.js | 9.0/10 | Advanced |
+| Git & GitHub | 8.6/10 | Strong Intermediate |
+| Software Architecture | 9.4/10 | Advanced |
+| API & Backend Thinking | 8.4/10 | Strong Intermediate |
+| Performance & Optimization | 7.8/10 | Strong Intermediate |
+
+## Overall Rating
+
+**8.4 / 10 — Strong Intermediate Frontend Developer**
+
+---
+
+## Strengths
+
+- Excellent HTML semantics.
+- Strong CSS and responsive layouts.
+- Good UI implementation skills.
+- Strong Next.js App Router knowledge.
+- Excellent software architecture thinking.
+- Good folder organization and project scalability.
+- Practical Git workflow.
+- Good API integration experience.
+- Good problem-solving approach.
+
+---
+
+## Improvement Areas
+
+### JavaScript
+
+- Closures
+- Event Loop
+- Async Internals
+- Promises
+- Execution Context
+- `this`
+- Higher Order Functions
+
+### TypeScript
+
+- Generics
+- Utility Types
+- Type Inference
+- Advanced Typing
+
+### React
+
+- Choosing the right hook
+- useMemo
+- useCallback
+- React.memo
+- Render lifecycle
+- Custom Hooks
+
+### Next.js
+
+- Dynamic Imports
+- Caching
+- Revalidation
+- Middleware
+- Server Actions
+
+### Performance
+
+- Code Splitting
+- Bundle Optimization
+- Core Web Vitals
+- React Profiler
+- Lighthouse
+
+---
+
+## Mentor Notes
+
+The biggest gap is **not coding ability**.
+
+The biggest gap is:
+
+> Choosing the correct React/Next.js tool for a feature before writing code.
+
+Future learning will focus on engineering decision-making instead of memorizing APIs.
