@@ -150,17 +150,7 @@
       "roles": [
         {
           "role": "Web Dev Intern",
-          "duration": "Nov 2022 - Dec 2022"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "title": "Freelancer",
-      "roles": [
-        {
-          "role": "Frontend Developer",
-          "duration": "Jan 2023 - Jun 2023"
+          "duration": "Nov 2022"
         }
       ]
     },
@@ -168,6 +158,10 @@
       "id": 7,
       "title": "SlicemyPage",
       "roles": [
+        {
+          "role": "Frontend Developer Intern",
+          "duration": "Jan 2023 - Jun 2023"
+        },
         {
           "role": "Frontend Developer",
           "duration": "Jun 2023 - Now"

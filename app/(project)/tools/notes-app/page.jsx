@@ -21,8 +21,10 @@ const NotesApp = () => {
     const [tasks, setTasks] = useState([]);
     const [savedToDoId, setSavedToDoId] = useState(null); // Track saved To-Do ID
     const [itemType, setItemType] = useState('note');
+    const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
+        setIsMounted(true);
         const savedItemsJson = localStorage.getItem('items');
         if (savedItemsJson) {
             try {
@@ -35,8 +37,10 @@ const NotesApp = () => {
     }, []);
 
     useEffect(() => {
-        localStorage.setItem('items', JSON.stringify(items));
-    }, [items]);
+        if (isMounted) {
+            localStorage.setItem('items', JSON.stringify(items));
+        }
+    }, [items, isMounted]);
 
     const addItem = () => {
         const currentDate = new Date();

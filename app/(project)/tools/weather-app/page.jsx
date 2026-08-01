@@ -10,6 +10,7 @@ const WeatherApp = (gradientColor) => {
     const [inputCity, setInputCity] = useState('');
     const apiKey = 'be3a0ff29ba77031d805f92ea6dc23fb';
     const [currentDayIndex, setCurrentDayIndex] = useState(new Date().getDay());
+    const [error, setError] = useState(null);
 
     const handleInputChange = (event) => {
         setInputCity(event.target.value);
@@ -27,11 +28,12 @@ const WeatherApp = (gradientColor) => {
     useEffect(() => {
         const fetchWeatherData = async () => {
             try {
+                setError(null);
                 const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`);
                 const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`);
 
                 if (!weatherResponse.ok || !forecastResponse.ok) {
-                    throw new Error('Weather data not available');
+                    throw new Error('City location not found or weather data not available');
                 }
 
                 const weatherData = await weatherResponse.json();
@@ -43,6 +45,7 @@ const WeatherApp = (gradientColor) => {
                 setCurrentDayIndex(dailyForecastData.findIndex((day) => formatDay(day.dt).dayIndex === new Date().getDay()));
             } catch (error) {
                 console.error('Error fetching weather data:', error);
+                setError(error.message);
             }
         };
 
@@ -59,8 +62,24 @@ const WeatherApp = (gradientColor) => {
         return { dayIndex, dayName, date: `${day} ${month}` };
     };
 
+    if (error) {
+        return (
+            <div className="weather-app py-5 px-5 text-center flex flex-col items-center justify-center min-h-[300px] gap-4">
+                <div className="text-red-500 font-bold tracking-wide text-lg bg-red-500/10 border border-red-500/20 px-4 py-3 rounded-2xl max-w-md">
+                    {error}
+                </div>
+                <div className="weather-location-group flex flex-col sm:flex-row gap-3 w-full max-w-md mt-2">
+                    <input type="text" id="city" className="form-control grow" placeholder="Enter city name" value={inputCity} onChange={handleInputChange} />
+                    <button className="btn-transparent lg" onClick={handleButtonClick2}>
+                        <span className="btn-transparent-text bg-clip-text text-transparent" style={gradientColor.gradientColor}>Try another location</span>
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
     if (!weather || dailyForecast.length === 0) {
-        return <div>Loading...</div>;
+        return <div className="p-10 text-center font-bold tracking-widest text-slate-400">Loading...</div>;
     }
 
     return (
