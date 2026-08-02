@@ -115,22 +115,22 @@ type ActionResult = { success: boolean };
 
 export async function getPortfolioData() {
     await checkAuth();
-    const data = fs.readFileSync(dbPath, 'utf8');
+    const data = await fs.promises.readFile(dbPath, 'utf8');
     return JSON.parse(data);
 }
 
 export async function getPublicPortfolioData() {
-    const data = fs.readFileSync(dbPath, 'utf8');
+    const data = await fs.promises.readFile(dbPath, 'utf8');
     return JSON.parse(data);
 }
 
 // --- Projects ---
 export async function saveProject(project: Project): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     
     if (project.id) {
-        const index = data.projectsCards.findIndex((p: any) => p.id === project.id);
+        const index = data.projectsCards.findIndex((p: Project) => p.id === project.id);
         if (index !== -1) {
             data.projectsCards[index] = project;
         } else {
@@ -141,16 +141,16 @@ export async function saveProject(project: Project): Promise<ActionResult> {
         data.projectsCards.push(project);
     }
     
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/'); 
     return { success: true };
 }
 
 export async function deleteProject(id: number): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
-    data.projectsCards = data.projectsCards.filter((p: any) => p.id !== id);
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
+    data.projectsCards = data.projectsCards.filter((p: Project) => p.id !== id);
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/'); 
     return { success: true };
 }
@@ -158,10 +158,10 @@ export async function deleteProject(id: number): Promise<ActionResult> {
 // --- Timeline Items ---
 export async function saveTimelineItem(item: TimelineItem): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     
     if (item.id) {
-        const index = data.timelineItems.findIndex((p: any) => p.id === item.id);
+        const index = data.timelineItems.findIndex((p: TimelineItem) => p.id === item.id);
         if (index !== -1) {
             data.timelineItems[index] = item;
         } else {
@@ -172,16 +172,16 @@ export async function saveTimelineItem(item: TimelineItem): Promise<ActionResult
         data.timelineItems.push(item);
     }
     
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/'); 
     return { success: true };
 }
 
 export async function deleteTimelineItem(id: number): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
-    data.timelineItems = data.timelineItems.filter((p: any) => p.id !== id);
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
+    data.timelineItems = data.timelineItems.filter((p: TimelineItem) => p.id !== id);
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/'); 
     return { success: true };
 }
@@ -189,10 +189,10 @@ export async function deleteTimelineItem(id: number): Promise<ActionResult> {
 // --- Certificates ---
 export async function saveCertificate(cert: Certificate): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     
     if (cert.id) {
-        const index = data.certificates.findIndex((p: any) => p.id === cert.id);
+        const index = data.certificates.findIndex((p: Certificate) => p.id === cert.id);
         if (index !== -1) {
             data.certificates[index] = cert;
         } else {
@@ -203,16 +203,16 @@ export async function saveCertificate(cert: Certificate): Promise<ActionResult> 
         data.certificates.push(cert);
     }
     
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/'); 
     return { success: true };
 }
 
 export async function deleteCertificate(id: number): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
-    data.certificates = data.certificates.filter((p: any) => p.id !== id);
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
+    data.certificates = data.certificates.filter((p: Certificate) => p.id !== id);
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/'); 
     return { success: true };
 }
@@ -220,10 +220,10 @@ export async function deleteCertificate(id: number): Promise<ActionResult> {
 // --- Interests ---
 export async function saveInterest(interest: Interest): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     
     if (interest.id) {
-        const index = data.interest.findIndex((p: any) => p.id === interest.id);
+        const index = data.interest.findIndex((p: Interest) => p.id === interest.id);
         if (index !== -1) {
             data.interest[index] = interest;
         } else {
@@ -234,16 +234,16 @@ export async function saveInterest(interest: Interest): Promise<ActionResult> {
         data.interest.push(interest);
     }
     
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/'); 
     return { success: true };
 }
 
 export async function deleteInterest(id: number): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
-    data.interest = data.interest.filter((p: any) => p.id !== id);
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
+    data.interest = data.interest.filter((p: Interest) => p.id !== id);
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/'); 
     return { success: true };
 }
@@ -251,9 +251,9 @@ export async function deleteInterest(id: number): Promise<ActionResult> {
 // --- Hero Data ---
 export async function saveHeroData(hero: HeroData): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     data.hero = hero;
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/');
     return { success: true };
 }
@@ -261,9 +261,9 @@ export async function saveHeroData(hero: HeroData): Promise<ActionResult> {
 // --- About Data ---
 export async function saveAboutData(about: AboutData): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     data.about = about;
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/');
     return { success: true };
 }
@@ -271,11 +271,11 @@ export async function saveAboutData(about: AboutData): Promise<ActionResult> {
 // --- Stats ---
 export async function saveStatItem(stat: StatItem): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     if (!data.stats) data.stats = [];
     
     if (stat.id) {
-        const index = data.stats.findIndex((p: any) => p.id === stat.id);
+        const index = data.stats.findIndex((p: StatItem) => p.id === stat.id);
         if (index !== -1) {
             data.stats[index] = stat;
         } else {
@@ -286,17 +286,17 @@ export async function saveStatItem(stat: StatItem): Promise<ActionResult> {
         data.stats.push(stat);
     }
     
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/');
     return { success: true };
 }
 
 export async function deleteStatItem(id: number): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     if (data.stats) {
-        data.stats = data.stats.filter((p: any) => p.id !== id);
-        fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+        data.stats = data.stats.filter((p: StatItem) => p.id !== id);
+        await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     }
     revalidatePath('/');
     return { success: true };
@@ -305,11 +305,11 @@ export async function deleteStatItem(id: number): Promise<ActionResult> {
 // --- Skills ---
 export async function saveSkillItem(skill: SkillItem): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     if (!data.skills) data.skills = [];
     
     if (skill.id) {
-        const index = data.skills.findIndex((p: any) => p.id === skill.id);
+        const index = data.skills.findIndex((p: SkillItem) => p.id === skill.id);
         if (index !== -1) {
             data.skills[index] = skill;
         } else {
@@ -320,17 +320,17 @@ export async function saveSkillItem(skill: SkillItem): Promise<ActionResult> {
         data.skills.push(skill);
     }
     
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/');
     return { success: true };
 }
 
 export async function deleteSkillItem(id: number): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     if (data.skills) {
-        data.skills = data.skills.filter((p: any) => p.id !== id);
-        fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+        data.skills = data.skills.filter((p: SkillItem) => p.id !== id);
+        await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     }
     revalidatePath('/');
     return { success: true };
@@ -339,7 +339,7 @@ export async function deleteSkillItem(id: number): Promise<ActionResult> {
 // --- UI Components & Tools Visibility ---
 export async function getUiToolsData(): Promise<UiToolsData> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     return {
         uiComponents: data.uiComponents || [],
         tools: data.tools || []
@@ -348,36 +348,36 @@ export async function getUiToolsData(): Promise<UiToolsData> {
 
 export async function saveUiComponentVisibility(id: string, visible: boolean): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     if (!data.uiComponents) data.uiComponents = [];
-    const index = data.uiComponents.findIndex((c: any) => c.id === id);
+    const index = data.uiComponents.findIndex((c: VisibilityItem) => c.id === id);
     if (index !== -1) {
         data.uiComponents[index].visible = visible;
     } else {
         data.uiComponents.push({ id, visible });
     }
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/');
     return { success: true };
 }
 
 export async function saveToolVisibility(id: string, visible: boolean): Promise<ActionResult> {
     await checkAuth();
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     if (!data.tools) data.tools = [];
-    const index = data.tools.findIndex((t: any) => t.id === id);
+    const index = data.tools.findIndex((t: VisibilityItem) => t.id === id);
     if (index !== -1) {
         data.tools[index].visible = visible;
     } else {
         data.tools.push({ id, visible });
     }
-    fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+    await fs.promises.writeFile(dbPath, JSON.stringify(data, null, 2));
     revalidatePath('/');
     return { success: true };
 }
 
 export async function getPublicUiToolsData(): Promise<UiToolsData> {
-    const data = JSON.parse(fs.readFileSync(dbPath, 'utf8'));
+    const data = JSON.parse(await fs.promises.readFile(dbPath, 'utf8'));
     return {
         uiComponents: data.uiComponents || [],
         tools: data.tools || []

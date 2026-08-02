@@ -111,7 +111,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchArticles() {
       try {
-        const res = await fetch("https://dev.to/api/articles", {
+        const res = await fetch("https://dev.to/api/articles?username=mrahulrahi", {
           cache: "no-store", // avoid caching
         });
 
@@ -373,7 +373,10 @@ export default function Home() {
 
           {loading && <p>Loading articles...</p>}
           {error && <p className="text-red-500">Error: {error}</p>}
-          {!loading && !error && (
+          {!loading && !error && articles.length === 0 && (
+            <p className="text-slate-400 font-mono text-xs">No articles published yet. Check back soon!</p>
+          )}
+          {!loading && !error && articles.length > 0 && (
             <motion.div initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
@@ -392,7 +395,6 @@ export default function Home() {
                 ))}
               </Swiper>
             </motion.div>
-
           )}
         </ContentContainer>
       </div>

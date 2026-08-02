@@ -1,5 +1,5 @@
 'use client'
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect, useRef } from 'react';
 import { getRandomGradient } from '../utils/gradientUtils';
 
 interface GradientContextType {
@@ -28,28 +28,49 @@ export const useGradient = (): GradientContextType => {
 };
 
 export const GradientProvider = ({ children  }: { children: React.ReactNode }) => {
-  // Initialize with random gradient
-  const initialGradient = getRandomGradient();
-
-  const [gradientDirection, setGradientDirection] = useState(initialGradient.direction);
-  const [color1, setColor1] = useState(initialGradient.c1);
-  const [color2, setColor2] = useState(initialGradient.c2);
+  const [gradientDirection, setGradientDirection] = useState('to right');
+  const [color1, setColor1] = useState('#00DC82');
+  const [color2, setColor2] = useState('#047857');
   const [gradientStyle, setGradientStyle] = useState({
-    backgroundImage: initialGradient.gradientValue
+    backgroundImage: 'linear-gradient(to right, #00DC82, #047857)'
   });
-  const [gradientCSS, setGradientCSS] = useState(initialGradient.gradientValue);
+  const [gradientCSS, setGradientCSS] = useState('linear-gradient(to right, #00DC82, #047857)');
   const [showGradient, setShowGradient] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    // Generate initial random gradient only on the client after hydration
+    const initialGradient = getRandomGradient();
+    setGradientDirection(initialGradient.direction);
+    setColor1(initialGradient.c1);
+    setColor2(initialGradient.c2);
+    setGradientStyle({
+      backgroundImage: initialGradient.gradientValue
+    });
+    setGradientCSS(initialGradient.gradientValue);
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
   const changeGradientColor = () => {
-  const { direction, c1, c2, gradientValue } = getRandomGradient();
+    const { direction, c1, c2, gradientValue } = getRandomGradient();
     setGradientDirection(direction);
     setColor1(c1);
     setColor2(c2);
     setGradientStyle({ backgroundImage: gradientValue });
     setGradientCSS(gradientValue);
     setShowGradient(true);
-    setTimeout(() => {
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
       setShowGradient(false);
+      timeoutRef.current = null;
     }, 5000);
   };
 
@@ -74,8 +95,12 @@ export const GradientProvider = ({ children  }: { children: React.ReactNode }) =
     setGradientCSS(gradientValue);
     setShowGradient(true);
 
-    setTimeout(() => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
       setShowGradient(false);
+      timeoutRef.current = null;
     }, 5000);
   };
 

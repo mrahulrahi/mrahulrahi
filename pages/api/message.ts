@@ -59,19 +59,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             <p
               style="margin: 0 0 8px 0; color: #6b7280; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">
               Message</p>
-            <div style="color: #374151; font-size: 15px; line-height: 1.7;">${message.replace(/\n/g, "<br>")}</div>
+            <div style="color: #374151; font-size: 15px; line-height: 1.7;">${(message || "").toString().replace(/\n/g, "<br>")}</div>
           </div>
       
         </div>
       
         <!-- Footer -->
         <div style="background: #f8f9fa; padding: 24px 32px; border-top: 1px solid #e5e7eb;">
-          <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="width: 100%; text-align: left; padding: 5px 0;">
             <a href="https://mrahulrahi.vercel.app/"
-              style="display: flex; align-items: center; text-decoration: none; color: #111827;">
+              style="text-decoration: none; color: #111827; display: inline-block;">
               <img src="https://photos.google.com/share/AF1QipNehpDEKf4vRKXdZFis-DyqzRO5uRdGTQq8Zx6URRAaKnF5PZWisvl98iqAw-TFEg/photo/AF1QipOC7EffXjpS4hGwRLP_S-KJuKdezChxpW_HAVhy?key=QjR0cFFSR0hlU2xoT2FJNzFaV0ZvVFBsay02LVN3" alt="Logo"
-                style="width: 32px; height: 32px; margin-right: 10px; border-radius: 6px;" />
-              <span style="font-size: 18px; font-weight: 700; letter-spacing: -0.3px;">mrahulrahi</span>
+                style="width: 32px; height: 32px; margin-right: 10px; border-radius: 6px; vertical-align: middle; display: inline-block;" />
+              <span style="font-size: 18px; font-weight: 700; letter-spacing: -0.3px; vertical-align: middle; display: inline-block;">mrahulrahi</span>
             </a>
           </div>
           <p style="margin: 16px 0 0 0; color: #9ca3af; font-size: 12px; line-height: 1.5;">Sent via portfolio contact form

@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Search, Component, Terminal, Copy, Check, Sparkles, BookOpen, Layers } from 'lucide-react';
 import { getPublicUiToolsData } from '@/app/(admin)/admin/dataActions';
 
@@ -87,6 +87,7 @@ export default function UiLibrarySandbox({ isEmbedded = false }: UiLibrarySandbo
     const [activeComponentId, setActiveComponentId] = useState<string>('');
     const [activeTab, setActiveTab] = useState<'preview' | 'code'>('preview');
     const [copied, setCopied] = useState(false);
+    const copyTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
         async function loadPublicData() {
@@ -105,6 +106,12 @@ export default function UiLibrarySandbox({ isEmbedded = false }: UiLibrarySandbo
             }
         }
         loadPublicData();
+
+        return () => {
+            if (copyTimeoutRef.current) {
+                clearTimeout(copyTimeoutRef.current);
+            }
+        };
     }, []);
 
     const activeComponent = uiComponents.find(c => c.id === activeComponentId);
@@ -128,7 +135,13 @@ export default function App() {
     const handleCopy = () => {
         navigator.clipboard.writeText(getCodeSnippet()).then(() => {
             setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
+            if (copyTimeoutRef.current) {
+                clearTimeout(copyTimeoutRef.current);
+            }
+            copyTimeoutRef.current = setTimeout(() => {
+                setCopied(false);
+                copyTimeoutRef.current = null;
+            }, 2000);
         });
     };
 
