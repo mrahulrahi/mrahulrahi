@@ -1,3 +1,5 @@
+'use client'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import './Footer.css'
@@ -10,13 +12,13 @@ import MessageForm from './MessageForm'
 const SocialLinks = ({ className = "", style }: { className?: string, style?: React.CSSProperties }) => (
   <div className={`social-links d-flex align-items-center ${className}`} style={style}>
     <Link className="d-flex align-items-center justify-content-center"
-      href="https://linkedin.com/in/mrahulrahi/" aria-label="LinkedIn"><FaLinkedinIn /></Link>
+      href="https://linkedin.com/in/mrahulrahi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedinIn /></Link>
     <Link className="d-flex align-items-center justify-content-center"
-      href="https://github.com/mrahulrahi/" aria-label="GitHub"><FaGithub /></Link>
+      href="https://github.com/mrahulrahi/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></Link>
     <Link className="d-flex align-items-center justify-content-center"
-      href="https://www.youtube.com/@fireliquidator" aria-label="YouTube"><FaYoutube /></Link>
+      href="https://www.youtube.com/@fireliquidator" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><FaYoutube /></Link>
     <Link className="d-flex align-items-center justify-content-center"
-      href="https://t.me/mrahulrahi" aria-label="Telegram"><FaTelegram /></Link>
+      href="https://t.me/mrahulrahi" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><FaTelegram /></Link>
   </div>
 );
 
@@ -43,6 +45,11 @@ const Contact = () => {
 };
 
 const Footer = () => {
+  const [year, setYear] = useState(2026);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   const links = [
     { path: '/', label: 'Home' },
@@ -61,7 +68,7 @@ const Footer = () => {
               <div className="col-lg-12">
                 <div className="footer-upper-box d-flex flex-wrap align-items-center justify-content-between">
                   <Link className="footer-logo" href="/"><Image src="/logo.svg" alt="Rahul Maurya Logo" width={500} height={500} /></Link>
-
+ 
                   <div className="footer-nav">
                     <div className="footer-nav-list d-flex flex-wrap align-items-center justify-content-between">
                       {links.map(link => <span key={link.path} className="footer-nav-item"><Link href={link.path}>{link.label}</Link></span>)}
@@ -78,7 +85,7 @@ const Footer = () => {
               <div className="col-lg-12">
                 <div
                   className="footer-lower-box d-flex flex-wrap-reverse align-items-center justify-content-sm-between">
-                  <div className="copyright">{new Date().getFullYear()} mrahulrahi &copy; All rights reserved</div>
+                  <div className="copyright">{year} mrahulrahi &copy; All rights reserved</div>
                   <div className="made-by">Made with ❤️ by mrahulrahi.</div>
                   <SocialLinks className="justify-content-center" />
                 </div>

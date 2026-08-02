@@ -4,11 +4,13 @@ import { useState } from 'react';
 const EvenNumbersFilter = () => {
   const [inputValues, setInputValues] = useState(Array(10).fill(''));
   const [filteredEvens, setFilteredEvens] = useState([]);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   const handleChange = (index, value) => {
     const updated = [...inputValues];
     updated[index] = value;
     setInputValues(updated);
+    setHasSubmitted(false);
   };
 
   const handleSubmit = (e) => {
@@ -16,6 +18,7 @@ const EvenNumbersFilter = () => {
     const numbers = inputValues.map(val => Number(val));
     const evens = numbers.filter(num => !isNaN(num) && num % 2 === 0);
     setFilteredEvens(evens);
+    setHasSubmitted(true);
   };
 
   return (
@@ -44,19 +47,24 @@ const EvenNumbersFilter = () => {
           </button>
         </form>
 
-        {filteredEvens.length > 0 && (
+        {hasSubmitted && (
           <div style={{ marginTop: '20px' }}>
-            <strong>Even Numbers:</strong>
-            <div style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>
-              {filteredEvens.map((num, idx) => (
-                <span key={idx}>{num}</span>
-              ))}
-            </div>
+            {filteredEvens.length > 0 ? (
+              <>
+                <strong>Even Numbers:</strong>
+                <div style={{ marginTop: '10px', display: 'flex', gap: '10px' }}>
+                  {filteredEvens.map((num, idx) => (
+                    <span key={idx}>{num}</span>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <p className="text-slate-400 text-sm">No even numbers found in the list.</p>
+            )}
           </div>
         )}
       </div>
     </>
-
   );
 };
 

@@ -25,6 +25,10 @@ export default function SubjectAverageCalculator() {
   const calculateAverage = (e) => {
     e.preventDefault();
     const validMarks = marks.map((mark) => parseInt(mark)).filter((mark) => !isNaN(mark));
+    if (validMarks.length === 0) {
+      setAverage(0);
+      return;
+    }
     const sum = validMarks.reduce((acc, val) => acc + val, 0);
     const avg = sum / validMarks.length;
     setAverage(avg);

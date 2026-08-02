@@ -61,12 +61,12 @@ const ProjectCard = ({ card }: Props) => {
                         </div>
                     </div>
                     <div className="pcb-cta d-flex flex-wrap align-items-center mt-auto">
-                        <a className="link-btn d-flex flex-wrap align-items-center" href={card.liveUrl} target='_blank'>
+                        <a className="link-btn d-flex flex-wrap align-items-center" href={card.liveUrl} target='_blank' rel='noopener noreferrer'>
                             <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"
                             ><FaGlobe /></span>See Project
                             <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div></a>
 
-                        <a className="link-btn d-flex flex-wrap align-items-center" href={card.gitHubUrl} target='_blank'>
+                        <a className="link-btn d-flex flex-wrap align-items-center" href={card.gitHubUrl} target='_blank' rel='noopener noreferrer'>
                             <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"
                             ><FaGithub /></span>See Github
                             <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div></a>

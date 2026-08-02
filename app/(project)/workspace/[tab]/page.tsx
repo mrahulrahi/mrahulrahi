@@ -158,10 +158,10 @@ export default function WorkspacePage() {
                                             Specializing in building robust digital ecosystems, premium responsive animations, and elegant interactive sandboxes with next-gen architectures.
                                         </p>
                                         <div className="flex items-center gap-3 pt-2">
-                                            <a href="https://github.com/mrahulrahi/" target="_blank" className="p-2 bg-slate-950 border border-slate-800 rounded-xl text-slate-400 hover:text-white transition-colors">
+                                            <a href="https://github.com/mrahulrahi/" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-950 border border-slate-800 rounded-xl text-slate-400 hover:text-white transition-colors">
                                                 <Github className="w-4 h-4" />
                                             </a>
-                                            <a href="https://linkedin.com/in/mrahulrahi/" target="_blank" className="p-2 bg-slate-950 border border-slate-800 rounded-xl text-slate-400 hover:text-white transition-colors">
+                                            <a href="https://linkedin.com/in/mrahulrahi/" target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-950 border border-slate-800 rounded-xl text-slate-400 hover:text-white transition-colors">
                                                 <Linkedin className="w-4 h-4" />
                                             </a>
                                             <a href="/" className="text-xs font-semibold text-brand-mint hover:underline flex items-center gap-1.5 pl-2 font-mono">

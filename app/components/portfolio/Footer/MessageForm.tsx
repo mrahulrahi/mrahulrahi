@@ -25,11 +25,14 @@ const MessageForm = () => {
       });
 
       const result = await res.json();
+      if (!res.ok) {
+        throw new Error(result.message || 'Failed to send message');
+      }
       setMessage(result.message || 'Thanks for your message!');
       setShowMessage(true);
       reset();
-    } catch (err) {
-      setMessage('Something went wrong. Please try again.');
+    } catch (err: any) {
+      setMessage(err.message || 'Something went wrong. Please try again.');
       setShowMessage(true);
     } finally {
       setIsSubmitting(false);

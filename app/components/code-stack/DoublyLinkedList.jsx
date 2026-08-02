@@ -112,26 +112,50 @@ export default function DoublyLinkedList() {
   };
 
   const initList = () => {
-    const tempHead = new Node(6);
-    const n2 = new Node(7);
     const n3 = new Node(1);
-
-    n2.next = tempHead;
-    tempHead.prev = n2;
+    const n2 = new Node(7);
+    const tempHead = new Node(6);
 
     n3.next = n2;
     n2.prev = n3;
 
+    n2.next = tempHead;
+    tempHead.prev = n2;
+
+    // insertAfterValue(7, 8) in-memory
+    const n8 = new Node(8);
+    n8.next = n2.next;
+    n8.prev = n2;
+    if (n2.next) {
+      n2.next.prev = n8;
+    }
+    n2.next = n8;
+
+    // append(4) in-memory
+    let last = n3;
+    while (last.next !== null) {
+      last = last.next;
+    }
+    const n4 = new Node(4);
+    last.next = n4;
+    n4.prev = last;
+
     setHead(n3);
-    append(4);
-    insertAfterValue(7, 8);
     forceUpdate();
   };
 
   const initializeListForDelete = () => {
     const values = [2, 4, 8, 10];
-    setHead(null);
-    values.forEach(val => push(val));
+    let tempHead = null;
+    values.forEach(val => {
+      const newNode = new Node(val);
+      newNode.next = tempHead;
+      if (tempHead) {
+        tempHead.prev = newNode;
+      }
+      tempHead = newNode;
+    });
+    setHead(tempHead);
     forceUpdate();
   };
 

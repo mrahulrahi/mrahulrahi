@@ -102,6 +102,7 @@ const BubbleSortVisualizer = () => {
           value={arrayInput}
           onChange={(e) => setArrayInput(e.target.value)}
           placeholder="Enter numbers separated by space"
+          disabled={isRunning}
         />
         {arrayError && <p className="text-red-400 mt-2">{arrayError}</p>}
       </div>

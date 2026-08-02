@@ -3,9 +3,21 @@ import { Inter, JetBrains_Mono, Space_Grotesk } from 'next/font/google'
 import '@/app/globals.css'
 import { GradientProvider } from '@/app/context/GradientContext';
 import Providers from '../(project)/providers'; // Points to the shared providers
-const inter = Inter({ subsets: ['latin'] })
-const jetBrainsMono = JetBrains_Mono({ subsets: ['latin'] })
-const spaceGrotesk = Space_Grotesk({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
+})
+const jetBrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-mono',
+})
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
+})
 
 export const metadata: Metadata = {
   title: 'Admin Dashboard',
@@ -18,8 +30,8 @@ export default function AdminLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${jetBrainsMono.className} ${spaceGrotesk.className}`}>
+    <html lang="en" className={`${inter.variable} ${jetBrainsMono.variable} ${spaceGrotesk.variable}`}>
+      <body className="font-sans">
         <GradientProvider>
           <Providers>
             {children}

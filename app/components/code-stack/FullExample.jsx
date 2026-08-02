@@ -55,7 +55,8 @@ export default function FullExample() {
     } while (i <= 10);
 
     // confirm
-    confirm("Do you want to go to the next page?");
+    // confirm("Do you want to go to the next page?");
+    lines.push("confirm('Do you want to go to the next page?'); // skipped to prevent browser modal blocking");
 
     // Function call
     const add = (num1, num2) => {

@@ -39,6 +39,8 @@ const AdminClient: React.FC = () => {
     const [showToast, setShowToast] = useState<boolean>(false);
 
     useEffect(() => {
+        let toastTimeoutId: ReturnType<typeof setTimeout> | null = null;
+
         const storedTheme = localStorage.getItem('color-theme');
         if (storedTheme === 'dark') {
             document.documentElement.classList.add('dark');
@@ -52,10 +54,21 @@ const AdminClient: React.FC = () => {
             const customEvent = e as CustomEvent<string>;
             setToastMessage(customEvent.detail);
             setShowToast(true);
-            setTimeout(() => setShowToast(false), 3000);
+            if (toastTimeoutId) {
+                clearTimeout(toastTimeoutId);
+            }
+            toastTimeoutId = setTimeout(() => {
+                setShowToast(false);
+                toastTimeoutId = null;
+            }, 3000);
         };
         window.addEventListener('show-toast', handleToast);
-        return () => window.removeEventListener('show-toast', handleToast);
+        return () => {
+            window.removeEventListener('show-toast', handleToast);
+            if (toastTimeoutId) {
+                clearTimeout(toastTimeoutId);
+            }
+        };
     }, []);
 
     const toggleTheme = () => {

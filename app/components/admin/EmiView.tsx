@@ -24,6 +24,9 @@ const formatCurrency = (val: number) => new Intl.NumberFormat('en-IN', { style: 
 
 const calculateEMI = (p: number, r: number, n: number) => {
     const monthlyRate = r / 12 / 100;
+    if (monthlyRate === 0) {
+        return p / n;
+    }
     return (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
 };
 
