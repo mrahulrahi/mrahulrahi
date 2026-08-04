@@ -41,7 +41,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activePage, setActivePage }) => {
                 </div>
             </div>
 
-            <nav className="flex-1 px-4 space-y-1">
+            <nav className="flex-1 flex flex-col px-4 space-y-1">
                 <button 
                     onClick={() => setActivePage('dashboard')} 
                     className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'dashboard' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}
@@ -98,13 +98,6 @@ const Sidebar: React.FC<SidebarProps> = ({ activePage, setActivePage }) => {
 
                 <div className="pt-4 mt-2 border-t border-gray-200 dark:border-brand-border">
                     <div className="text-xs font-mono text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-2 px-2">Tools</div>
-                    <button 
-                        onClick={() => setActivePage('emi')} 
-                        className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'emi' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}
-                    >
-                        <Calculator className="w-4 h-4" />
-                        Smart EMI
-                    </button>
                     <button 
                         onClick={() => setActivePage('uitools')} 
                         className={`nav-item w-full flex items-center gap-3 px-3 py-2 rounded-md text-sm font-medium transition-colors ${activePage === 'uitools' ? 'active' : 'text-gray-600 dark:text-brand-muted hover:text-gray-900 dark:hover:text-brand-text'}`}

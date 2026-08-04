@@ -621,6 +621,13 @@
       "description": "Model your retirement growth curves, calculate inflation-adjusted expenses, and optimize portfolio returns.",
       "href": "/tools/retirement-planner",
       "visible": true
+    },
+    {
+      "id": "emi",
+      "name": "EMI Calculator",
+      "description": "Calculate your EMI and plan your loans and mortgages with detailed monthly amortization charts.",
+      "href": "/tools/emi-view",
+      "visible": true
     }
   ]
 }

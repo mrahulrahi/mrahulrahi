@@ -5,7 +5,6 @@ import { Sun, Moon, CheckCircle } from 'lucide-react';
 import Sidebar from '@/app/components/admin/Sidebar';
 import DashboardView from '@/app/components/admin/DashboardView';
 import PortfolioView from '@/app/components/admin/PortfolioView';
-import EmiView from '@/app/components/admin/EmiView';
 import SettingsView from '@/app/components/admin/SettingsView';
 import StyleguideView from '@/app/components/admin/StyleguideView';
 import ResumeView from '@/app/components/admin/ResumeView';
@@ -25,7 +24,6 @@ type ActivePage =
     | 'stats' 
     | 'skills' 
     | 'interests' 
-    | 'emi' 
     | 'settings' 
     | 'uitools';
 
@@ -146,7 +144,6 @@ const AdminClient: React.FC = () => {
                         {activePage === 'stats' && <StatsView />}
                         {activePage === 'skills' && <SkillsView />}
                         {activePage === 'interests' && <InterestsView />}
-                        {activePage === 'emi' && <EmiView theme={theme} />}
                         {activePage === 'settings' && <SettingsView />}
                         {activePage === 'uitools' && <UiToolsView />}
                     </main>

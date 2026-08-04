@@ -20,65 +20,47 @@ const DashboardView: React.FC<DashboardViewProps> = ({ theme }) => {
         const gridColor = isDark ? '#27272A' : '#E5E7EB';
         const textColor = isDark ? '#A1A1AA' : '#6B7280';
 
-        if (chartInstanceRef.current) {
-            const scales = chartInstanceRef.current.options.scales;
-            if (scales) {
-                if (scales.y && scales.y.grid) {
-                    scales.y.grid.color = gridColor;
-                }
-                if (scales.x && scales.x.ticks) {
-                    scales.x.ticks.color = textColor;
-                }
-                if (scales.y && scales.y.ticks) {
-                    scales.y.ticks.color = textColor;
+        const chartInstance = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Visitors',
+                    data: [120, 190, 300, 500, 220, 300, 450],
+                    borderColor: '#00DC82',
+                    backgroundColor: (context) => {
+                        const chartCtx = context.chart.ctx;
+                        const gradient = chartCtx.createLinearGradient(0, 0, 0, 300);
+                        gradient.addColorStop(0, 'rgba(0, 220, 130, 0.2)');
+                        gradient.addColorStop(1, 'rgba(0, 220, 130, 0)');
+                        return gradient;
+                    },
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: '#09090B',
+                    pointBorderColor: '#00DC82',
+                    pointRadius: 4,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                    x: { grid: { display: false }, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } },
+                    y: { grid: { color: gridColor, borderDash: [4, 4] } as any, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } }
                 }
             }
-            chartInstanceRef.current.update();
-        } else {
-            chartInstanceRef.current = new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-                    datasets: [{
-                        label: 'Visitors',
-                        data: [120, 190, 300, 500, 220, 300, 450],
-                        borderColor: '#00DC82',
-                        backgroundColor: (context) => {
-                            const chartCtx = context.chart.ctx;
-                            const gradient = chartCtx.createLinearGradient(0, 0, 0, 300);
-                            gradient.addColorStop(0, 'rgba(0, 220, 130, 0.2)');
-                            gradient.addColorStop(1, 'rgba(0, 220, 130, 0)');
-                            return gradient;
-                        },
-                        borderWidth: 2,
-                        fill: true,
-                        tension: 0.4,
-                        pointBackgroundColor: '#09090B',
-                        pointBorderColor: '#00DC82',
-                        pointRadius: 4,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { grid: { display: false }, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } },
-                        y: { grid: { color: gridColor, borderDash: [4, 4] } as any, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } }
-                    }
-                }
-            });
-        }
-    }, [theme]);
+        });
 
-    useEffect(() => {
+        chartInstanceRef.current = chartInstance;
+
         return () => {
-            if (chartInstanceRef.current) {
-                chartInstanceRef.current.destroy();
-                chartInstanceRef.current = null;
-            }
+            chartInstance.destroy();
+            chartInstanceRef.current = null;
         };
-    }, []);
+    }, [theme]);
 
     return (
         <div className="space-y-6 animate-fade-in">

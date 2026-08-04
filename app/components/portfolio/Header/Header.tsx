@@ -57,12 +57,24 @@ const Header = () => {
     };
 
     useEffect(() => {
+        let ticking = false;
+
+        const onScroll = () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleScroll();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        };
+
         // Initial check
         handleScroll();
         
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', onScroll);
         return () => {
-            window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('scroll', onScroll);
         };
     }, []);
 
