@@ -13,11 +13,19 @@
 <p align="right"> <img src="https://komarev.com/ghpvc/?username=mrahulrahi&theme=dark&label=Profile%20views&color=0e75b6&style=flat" alt="mrahulrahi" /> </p>
 
 ```bash
-- 🔭 I’m currently pursuing **MCA** From Chandigarh University 
-  
-- 👨‍💼 I’m currently working as **Frontend Developer** with 3 years of experience.
-  
-- 🌱 I’m currently learning **Full Stack Development, MERN**
+## 👋 About Me
+
+I'm Rahul Maurya, a Frontend Developer with 3+ years of professional experience building responsive and modern web applications.
+
+I specialize in converting Figma, Adobe XD and Photoshop designs into production-ready user interfaces using React, Next.js, JavaScript and modern CSS.
+
+### Currently
+
+- 💼 Frontend Developer @ SLICEmyPAGE
+- 🎓 Pursuing MCA at Chandigarh University
+- 🌱 Learning Full Stack Development & TypeScript
+- 🚀 Building my Developer Portfolio & Workspace
+- 📍 Lucknow, India
   
 - 👨‍💻 All of my projects are available at [Github - mrahulrahi](https://mrahulrahi.github.io/mrahulrahi)
   
