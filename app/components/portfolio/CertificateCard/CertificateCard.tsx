@@ -3,7 +3,7 @@ import Link from "next/link"
 import * as SiIcons from "react-icons/si";
 import GradientIcon from "./GradientIcon";
 
-interface Prpos {
+interface Props {
     item: Item;
 }
 
@@ -15,12 +15,12 @@ interface Item {
     icon: string;
 }
 
-const CertificateCard = ({ item }: Prpos) => {
+const CertificateCard = ({ item }: Props) => {
     const IconComponent = SiIcons[item.icon as keyof typeof SiIcons];
 
     return (
         <>
-            <Link className="certificate-card-box d-flex" href={item.url}>
+            <Link className="certificate-card-box d-flex" href={item.url} target="_blank" rel="noopener noreferrer">
                 <div className="certificate-card-text">
                     <h4>{item.title}</h4>
                     <p>{item.organization}</p>

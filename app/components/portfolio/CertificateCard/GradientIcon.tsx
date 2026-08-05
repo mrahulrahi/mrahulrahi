@@ -1,3 +1,4 @@
+import React, { useId } from "react";
 import * as SiIcons from "react-icons/si";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
@@ -27,12 +28,14 @@ const GradientIcon: React.FC<GradientIconProps> = ({
   gradient = ["rgba(58, 58, 58, 0.5),", "rgba(58, 58, 58, 0.1)"],
   uniqueId,
 }) => {
+  const reactId = useId();
   const IconPack = iconLibraries[library];
   const IconComponent = IconPack?.[iconName];
 
   if (!IconComponent) return null;
 
-  const gradientId = `gradient-${iconName}-${uniqueId || Math.random().toString(36).slice(2)}`;
+  const stableId = reactId.replace(/:/g, '');
+  const gradientId = `gradient-${iconName}-${uniqueId || stableId}`;
 
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>

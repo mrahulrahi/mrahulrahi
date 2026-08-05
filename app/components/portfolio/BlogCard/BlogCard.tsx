@@ -19,7 +19,7 @@ const BlogCard = (blog: BlogCard) => {
 
   return (
     <>
-        <a href={blog.url} className="blog-card-box d-flex flex-column">
+        <a href={blog.url} target="_blank" rel="noopener noreferrer" className="blog-card-box d-flex flex-column">
           <div className="blog-card-image">
             <Image src={blog.cover_image ? blog.cover_image : `https://placehold.co/800/1B9C85/white.png?text=${encodeURIComponent(blog.title)}&font=poppins`} alt={blog.title} loading="lazy" width={1000} height={1000} />
           </div>

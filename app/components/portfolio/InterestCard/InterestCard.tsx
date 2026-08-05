@@ -17,7 +17,7 @@ const InterestCard = (interest: InterestCard) => {
   return (
     <>
       <div className="interest-card-item">
-        <a href={interest.url} className="interest-card-box d-flex flex-column">
+        <a href={interest.url} target="_blank" rel="noopener noreferrer" className="interest-card-box d-flex flex-column">
           <div className="interest-card-image">
             <img src={interest.imgUrl} alt={interest.title} loading="lazy" />
           </div>

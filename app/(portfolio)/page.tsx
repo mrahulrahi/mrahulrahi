@@ -111,7 +111,7 @@ export default function Home() {
   useEffect(() => {
     async function fetchArticles() {
       try {
-        const res = await fetch("https://dev.to/api/articles?username=mrahulrahi", {
+        const res = await fetch("https://dev.to/api/articles", {
           cache: "no-store", // avoid caching
         });
 
