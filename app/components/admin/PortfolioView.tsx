@@ -88,9 +88,9 @@ const PortfolioView: React.FC = () => {
     };
 
     const filteredProjects = projects.filter(project => 
-        project.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        project.label.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        project.para.toLowerCase().includes(searchQuery.toLowerCase())
+        (project.title || '').toLowerCase().includes(searchQuery.toLowerCase()) || 
+        (project.label || '').toLowerCase().includes(searchQuery.toLowerCase()) || 
+        (project.para || '').toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     if (isEditing) {

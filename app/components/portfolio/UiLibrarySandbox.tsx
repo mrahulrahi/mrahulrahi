@@ -146,9 +146,9 @@ export default function App() {
     };
 
     const filteredComponents = uiComponents.filter(item =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase())
+        (item.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (item.id || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (item.description || '').toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     return (

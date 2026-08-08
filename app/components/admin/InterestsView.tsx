@@ -64,7 +64,7 @@ const InterestsView: React.FC = () => {
     };
 
     const updateItem = (index: number, field: keyof TagItem, value: string) => {
-        if (!currentInterest || !currentInterest.items) return;
+        if (!currentInterest || !currentInterest.items || !currentInterest.items[index]) return;
         const newItems = [...currentInterest.items];
         newItems[index] = {
             ...newItems[index],

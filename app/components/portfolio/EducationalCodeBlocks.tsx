@@ -121,6 +121,7 @@ export default function EducationalCodeBlocks() {
     const [isPlaying, setIsPlaying] = useState<boolean>(false);
     const [speed, setSpeed] = useState<number>(500);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
+    const copyTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     // Debounce Visualizer State
     const [searchVal, setSearchVal] = useState<string>('');
@@ -142,9 +143,20 @@ export default function EducationalCodeBlocks() {
     const handleCopy = () => {
         navigator.clipboard.writeText(activeTopic.code).then(() => {
             setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
+            if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+            copyTimeoutRef.current = setTimeout(() => {
+                setCopied(false);
+                copyTimeoutRef.current = null;
+            }, 2000);
         });
     };
+
+    // Clean up copyTimeout on unmount
+    useEffect(() => {
+        return () => {
+            if (copyTimeoutRef.current) clearTimeout(copyTimeoutRef.current);
+        };
+    }, []);
 
     // Bubble Sort Step Generator
     const generateSortSteps = (arr: number[]) => {

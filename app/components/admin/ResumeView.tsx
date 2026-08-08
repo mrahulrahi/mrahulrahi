@@ -74,7 +74,7 @@ const ResumeView: React.FC = () => {
     };
 
     const updateRole = (index: number, field: keyof Role, value: string) => {
-        if (!currentTimeline || !currentTimeline.roles) return;
+        if (!currentTimeline || !currentTimeline.roles || !currentTimeline.roles[index]) return;
         const newRoles = [...currentTimeline.roles];
         newRoles[index] = {
             ...newRoles[index],
