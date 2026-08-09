@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import Hero from '@/app/components/project/Hero';
 
 interface PageProps {
@@ -68,12 +69,16 @@ export default async function ProductDetailPage({ params }: PageProps) {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           {/* Left Column: Product Image Frame */}
-          <div className="md:col-span-5 bg-white p-8 rounded-2xl border border-slate-800 shadow-inner flex justify-center items-center h-[400px]">
-            <img 
-              className="max-h-full max-w-full object-contain" 
-              src={product.image} 
-              alt={product.title} 
-            />
+          <div className="md:col-span-5 bg-white p-8 rounded-2xl border border-slate-800 shadow-inner flex justify-center items-center h-100">
+            <div className="w-full h-full relative">
+              <Image 
+                className="object-contain" 
+                src={product.image} 
+                alt={product.title} 
+                fill 
+                unoptimized 
+              />
+            </div>
           </div>
 
           {/* Right Column: Details Pane */}

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import './InterestCard.css'
 import * as LuIcons from "react-icons/lu";
 
@@ -19,7 +20,7 @@ const InterestCard = (interest: InterestCard) => {
       <div className="interest-card-item">
         <a href={interest.url} target="_blank" rel="noopener noreferrer" className="interest-card-box d-flex flex-column">
           <div className="interest-card-image">
-            <img src={interest.imgUrl} alt={interest.title} loading="lazy" />
+            <Image src={interest.imgUrl} alt={interest.title} loading="lazy" width={600} height={400} unoptimized />
           </div>
           <div className="interest-card-text">
             <h4>{interest.title}</h4>

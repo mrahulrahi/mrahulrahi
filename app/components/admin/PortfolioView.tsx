@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Search, Image as ImageIcon, Edit3, Plus, Trash2 } from 'lucide-react';
 import { getPortfolioData, saveProject, deleteProject, Project } from '@/app/(admin)/admin/dataActions';
 
@@ -165,7 +166,7 @@ const PortfolioView: React.FC = () => {
                         <div key={project.id} className="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl overflow-hidden group hover:border-brand-mint transition-all flex flex-col">
                             <div className="h-40 bg-gray-200 dark:bg-brand-black/50 relative flex items-center justify-center overflow-hidden shrink-0">
                                 {project.imgUrl ? (
-                                    <img src={project.imgUrl} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" />
+                                    <Image src={project.imgUrl} alt={project.title} className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity" width={300} height={160} unoptimized />
                                 ) : (
                                     <ImageIcon className="w-8 h-8 text-gray-400" />
                                 )}
@@ -186,7 +187,7 @@ const PortfolioView: React.FC = () => {
                         </div>
                     ))}
 
-                    <button onClick={handleAdd} className="bg-gray-50 dark:bg-brand-surfaceHighlight/30 border border-dashed border-gray-300 dark:border-brand-border rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-brand-mint hover:bg-brand-mint/5 transition-all group min-h-[300px]">
+                    <button onClick={handleAdd} className="bg-gray-50 dark:bg-brand-surfaceHighlight/30 border border-dashed border-gray-300 dark:border-brand-border rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-brand-mint hover:bg-brand-mint/5 transition-all group min-h-75">
                         <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-brand-surfaceHighlight flex items-center justify-center text-gray-400 group-hover:bg-brand-mint group-hover:text-brand-black transition-colors mb-4">
                             <Plus className="w-6 h-6" />
                         </div>

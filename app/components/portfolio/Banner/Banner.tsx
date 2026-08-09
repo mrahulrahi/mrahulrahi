@@ -1,4 +1,5 @@
 import { ReactNode, JSX } from 'react';
+import Image from 'next/image';
 import * as motion from "motion/react-client"
 import './Banner.css'
 
@@ -23,7 +24,7 @@ const Banner = ({ children, heading, logo, bgImage, className, id }: Props) => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
-              {logo && <div className="banner-logo"><img src={logo} alt="Banner Logo" /></div>}
+              {logo && <div className="banner-logo"><Image src={logo} alt="Banner Logo" width={200} height={200} unoptimized /></div>}
               {heading && <h1>{heading}</h1>}
               {children &&
                 <div className="banner-cta d-flex flex-column flex-sm-row align-items-center justify-content-center gap-3">

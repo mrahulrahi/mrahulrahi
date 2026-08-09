@@ -58,9 +58,9 @@ export default function ToolsDirectory({ isEmbedded = false }: ToolsDirectoryPro
     };
 
     const filteredTools = tools.filter(item =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.id.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase())
+        (item.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (item.id || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (item.description || '').toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     return (

@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { HiOutlineLocationMarker } from "react-icons/hi";
 
 const WeatherApp = (gradientColor) => {
@@ -96,9 +97,9 @@ const WeatherApp = (gradientColor) => {
                         </div>
                     </div>
                     <div className="weather-weather-box flex flex-col gap-2">
-                        <i className="weather-weather-icon">
-                            <img src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
-                                alt="Weather Icon" />
+                        <i className="weather-weather-icon flex justify-center items-center">
+                            <Image src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+                                alt="Weather Icon" width={50} height={50} unoptimized />
                         </i>
                         <h1>{Math.round(weather.main.temp - 273.15)}°C</h1>
                         <h4>{weather.weather[0].main}</h4>
@@ -125,9 +126,12 @@ const WeatherApp = (gradientColor) => {
                             <ul className="weather-week-row flex">
                                 {dailyForecast.map((day, index) => (
                                     <li key={day.dt} className={`flex flex-col gap-1 ${index === currentDayIndex ? 'active' : ''}`} onClick={() => handleWeekItemClick(index)}>
-                                        <img
+                                        <Image
                                             src={`https://openweathermap.org/img/wn/${day.weather[0].icon}.png`}
                                             alt="Day Icon"
+                                            width={40}
+                                            height={40}
+                                            unoptimized
                                         />
                                         <span className="day-name">{formatDay(day.dt).dayName.slice(0, 3)}</span>
                                         <span className="day-temp">{Math.round(day.main.temp - 273.15)}°C</span>

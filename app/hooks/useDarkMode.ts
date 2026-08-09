@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 
 // Custom hook for dark mode
 export default function useDarkMode() {
- const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     // Check if user has a saved preference
@@ -14,9 +15,12 @@ export default function useDarkMode() {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       setIsDark(prefersDark);
     }
+    setIsMounted(true);
   }, []);
 
   useEffect(() => {
+    if (!isMounted) return;
+
     // Save preference to localStorage
     localStorage.setItem('darkMode', JSON.stringify(isDark));
     
@@ -26,7 +30,7 @@ export default function useDarkMode() {
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, [isDark]);
+  }, [isDark, isMounted]);
 
   const toggle = () => setIsDark(prev => !prev);
 

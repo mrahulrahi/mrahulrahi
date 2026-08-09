@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Plus, Edit3, Trash2, Heart } from 'lucide-react';
 import { getPortfolioData, saveInterest, deleteInterest, Interest, TagItem } from '@/app/(admin)/admin/dataActions';
 
@@ -151,7 +152,7 @@ const InterestsView: React.FC = () => {
                             <div className="p-5 flex-1 flex flex-col">
                                 <div className="flex items-start gap-4 mb-4">
                                     {interest.imgUrl ? (
-                                        <img src={interest.imgUrl} alt={interest.title} className="w-16 h-16 rounded object-cover border border-gray-200 dark:border-brand-border bg-white" />
+                                        <Image src={interest.imgUrl} alt={interest.title} className="w-16 h-16 rounded object-cover border border-gray-200 dark:border-brand-border bg-white" width={64} height={64} unoptimized />
                                     ) : (
                                         <div className="w-16 h-16 rounded flex items-center justify-center bg-brand-mint/10 text-brand-mint"><Heart className="w-6 h-6" /></div>
                                     )}
@@ -182,7 +183,7 @@ const InterestsView: React.FC = () => {
                         </div>
                     ))}
 
-                    <button onClick={handleAdd} className="bg-gray-50 dark:bg-brand-surfaceHighlight/30 border border-dashed border-gray-300 dark:border-brand-border rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-brand-mint hover:bg-brand-mint/5 transition-all group min-h-[200px]">
+                    <button onClick={handleAdd} className="bg-gray-50 dark:bg-brand-surfaceHighlight/30 border border-dashed border-gray-300 dark:border-brand-border rounded-xl p-6 flex flex-col items-center justify-center text-center hover:border-brand-mint hover:bg-brand-mint/5 transition-all group min-h-50">
                         <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-brand-surfaceHighlight flex items-center justify-center text-gray-400 group-hover:bg-brand-mint group-hover:text-brand-black transition-colors mb-4">
                             <Plus className="w-6 h-6" />
                         </div>

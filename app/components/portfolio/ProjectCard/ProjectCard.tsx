@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import './ProjectCard.css'
 import { FaGlobe, FaGithub } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
@@ -44,7 +45,7 @@ const ProjectCard = ({ card }: Props) => {
                     <div className="pcb-img-head d-flex align-items-center justify-content-end pe-3">
                         <ul className="pcb-ih-dots d-flex align-items-center justify-content-end gap-1"><li></li><li></li><li></li></ul>
                     </div>
-                    <div className="pcb-img"> <img src={card.imgUrl} alt={card.title || "Project preview"} loading="lazy" /> </div>
+                    <div className="pcb-img"> <Image src={card.imgUrl} alt={card.title || "Project preview"} loading="lazy" width={800} height={500} unoptimized /> </div>
                 </div>
 
                 <div className="pcb-text d-flex flex-column">

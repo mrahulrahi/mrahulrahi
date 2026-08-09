@@ -1,6 +1,7 @@
 'use client'
 import { useEffect, useState } from "react";
 import Link from 'next/link';
+import Image from 'next/image';
 import Hero from "@/app/components/project/Hero";
 
 const page = () => {
@@ -50,8 +51,8 @@ const page = () => {
                         {products.map((product) => (
                             <div className="w-full" key={product.id}>
                                 <Link className="card flex flex-col h-full bg-white/10 border border-[#ccc] rounded-xl overflow-hidden" href={`/products/${product.id}`} >
-                                    <div className="w-full h-[300px] aspect-square bg-white p-6">
-                                        <img className="w-full h-full object-contain" src={product.image} alt="Product" />
+                                    <div className="w-full h-75 aspect-square bg-white p-6 relative">
+                                        <Image className="w-full h-full object-contain" src={product.image} alt="Product" fill unoptimized />
                                     </div>
                                     <div className="flex flex-col p-5 grow">
                                         <div className="flex justify-between mb-5">
