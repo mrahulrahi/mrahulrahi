@@ -111,7 +111,7 @@ const SalaryCalculator = () => {
     return (
         <>
             <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-900">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-8xl mx-auto px-3">
                     {/* Header */}
                     <header className="mb-8 text-center md:text-left">
                         <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
@@ -122,11 +122,19 @@ const SalaryCalculator = () => {
                         </div>
                         <p className="text-slate-500">Plan your financial growth with compound annual increases.</p>
                     </header>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <header className="mb-8 flex items-center gap-3">
+                        <div className="bg-emerald-600 p-3 rounded-2xl shadow-lg shadow-emerald-200">
+                            <TrendingUp className="text-white w-8 h-8" />
+                        </div>
+                        <div>
+                            <h1 className="text-3xl font-bold tracking-tight text-slate-800">Salary Growth Planner</h1>
+                            <p className="text-slate-500">Project your earnings based on custom yearly increments</p>
+                        </div>
+                    </header>
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
                         {/* Controls Panel */}
-                        <div className="lg:col-span-1 space-y-6">
+                        <aside className="lg:col-span-4 space-y-6">
                             <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                                 <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
                                     <Calendar className="w-5 h-5 text-indigo-500" /> General Settings
@@ -199,91 +207,9 @@ const SalaryCalculator = () => {
                             >
                                 <Trash2 className="w-4 h-4" /> Reset Custom Yearly Rates
                             </button>
-                        </div>
+                        </aside>
 
-                        {/* Results Table */}
-                        <div className="lg:col-span-2">
-                            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                                <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-                                    <h2 className="font-semibold text-slate-800">Year-by-Year Breakdown</h2>
-                                    <div className="flex items-center gap-2 text-xs text-slate-500">
-                                        <Info className="w-4 h-4" />
-                                        Edit percentages in the table to override defaults
-                                    </div>
-                                </div>
-
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left border-collapse">
-                                        <thead>
-                                            <tr className="bg-slate-50/50 text-slate-500 text-xs font-semibold uppercase tracking-wider">
-                                                <th className="px-6 py-4">Year</th>
-                                                <th className="px-6 py-4">Starting</th>
-                                                <th className="px-6 py-4">Rate (%)</th>
-                                                <th className="px-6 py-4">Increment</th>
-                                                <th className="px-6 py-4 text-right">Ending Salary</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-slate-100">
-                                            {results.map((row) => (
-                                                <tr key={row.year} className="hover:bg-indigo-50/30 transition-colors group">
-                                                    <td className="px-6 py-4 font-medium text-slate-400">Yr {row.year}</td>
-                                                    <td className="px-6 py-4 font-medium text-slate-600">
-                                                        {formatCurrency(row.startSalary)}
-                                                    </td>
-                                                    <td className="px-6 py-4">
-                                                        <div className="relative w-20">
-                                                            <input
-                                                                type="number"
-                                                                className={`w-full py-1 px-2 rounded-md border text-sm focus:ring-1 focus:ring-indigo-500 outline-none transition-all ${customRates[row.year] !== undefined
-                                                                    ? 'border-indigo-300 bg-indigo-50 text-indigo-700 font-bold'
-                                                                    : 'border-transparent bg-slate-100 text-slate-500 group-hover:bg-white group-hover:border-slate-300'
-                                                                    }`}
-                                                                value={row.rate}
-                                                                onChange={(e) => handleRateChange(row.year, e.target.value)}
-                                                            />
-                                                            {customRates[row.year] !== undefined && (
-                                                                <div className="absolute -top-1 -right-1 w-2 h-2 bg-indigo-500 rounded-full"></div>
-                                                            )}
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-6 py-4 text-green-600 font-medium">
-                                                        +{formatCurrency(row.increment)}
-                                                    </td>
-                                                    <td className="px-6 py-4 text-right font-bold text-slate-800">
-                                                        {formatCurrency(row.endSalary)}
-                                                    </td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                {results.length === 0 && (
-                                    <div className="p-12 text-center text-slate-400">
-                                        No data to display. Please set the number of years.
-                                    </div>
-                                )}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-900">
-                <div className="max-w-5xl mx-auto">
-                    {/* Header */}
-                    <header className="mb-8 flex items-center gap-3">
-                        <div className="bg-emerald-600 p-3 rounded-2xl shadow-lg shadow-emerald-200">
-                            <TrendingUp className="text-white w-8 h-8" />
-                        </div>
-                        <div>
-                            <h1 className="text-3xl font-bold tracking-tight text-slate-800">Salary Growth Planner</h1>
-                            <p className="text-slate-500">Project your earnings based on custom yearly increments</p>
-                        </div>
-                    </header>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-                        {/* Controls Panel */}
+                        
                         <aside className="lg:col-span-4 space-y-6">
                             <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200">
                                 <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
@@ -351,7 +277,72 @@ const SalaryCalculator = () => {
                             </div>
                         </aside>
 
-                        {/* Main Display */}
+                        {/* Results Table */}
+                        <div className="lg:col-span-2">
+                            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+                                <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+                                    <h2 className="font-semibold text-slate-800">Year-by-Year Breakdown</h2>
+                                    <div className="flex items-center gap-2 text-xs text-slate-500">
+                                        <Info className="w-4 h-4" />
+                                        Edit percentages in the table to override defaults
+                                    </div>
+                                </div>
+
+                                <div className="overflow-x-auto">
+                                    <table className="w-full text-left border-collapse">
+                                        <thead>
+                                            <tr className="bg-slate-50/50 text-slate-500 text-xs font-semibold uppercase tracking-wider">
+                                                <th className="px-6 py-4">Year</th>
+                                                <th className="px-6 py-4">Starting</th>
+                                                <th className="px-6 py-4">Rate (%)</th>
+                                                <th className="px-6 py-4">Increment</th>
+                                                <th className="px-6 py-4 text-right">Ending Salary</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-slate-100">
+                                            {results.map((row) => (
+                                                <tr key={row.year} className="hover:bg-indigo-50/30 transition-colors group">
+                                                    <td className="px-6 py-4 font-medium text-slate-400">Yr {row.year}</td>
+                                                    <td className="px-6 py-4 font-medium text-slate-600">
+                                                        {formatCurrency(row.startSalary)}
+                                                    </td>
+                                                    <td className="px-6 py-4">
+                                                        <div className="relative w-20">
+                                                            <input
+                                                                type="number"
+                                                                className={`w-full py-1 px-2 rounded-md border text-sm focus:ring-1 focus:ring-indigo-500 outline-none transition-all ${customRates[row.year] !== undefined
+                                                                    ? 'border-indigo-300 bg-indigo-50 text-indigo-700 font-bold'
+                                                                    : 'border-transparent bg-slate-100 text-slate-500 group-hover:bg-white group-hover:border-slate-300'
+                                                                    }`}
+                                                                value={row.rate}
+                                                                onChange={(e) => handleRateChange(row.year, e.target.value)}
+                                                            />
+                                                            {customRates[row.year] !== undefined && (
+                                                                <div className="absolute -top-1 -right-1 w-2 h-2 bg-indigo-500 rounded-full"></div>
+                                                            )}
+                                                        </div>
+                                                    </td>
+                                                    <td className="px-6 py-4 text-green-600 font-medium">
+                                                        +{formatCurrency(row.increment)}
+                                                    </td>
+                                                    <td className="px-6 py-4 text-right font-bold text-slate-800">
+                                                        {formatCurrency(row.endSalary)}
+                                                    </td>
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                {results.length === 0 && (
+                                    <div className="p-12 text-center text-slate-400">
+                                        No data to display. Please set the number of years.
+                                    </div>
+                                )}
+
+
+                            </div>
+                            {/* Main Display */}
                         <main className="lg:col-span-8 space-y-6">
                             {/* Summary Cards */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -423,7 +414,10 @@ const SalaryCalculator = () => {
                                 </p>
                             </div>
                         </main>
+                        </div>
                     </div>
+
+     
                 </div>
 
                 <style dangerouslySetInnerHTML={{

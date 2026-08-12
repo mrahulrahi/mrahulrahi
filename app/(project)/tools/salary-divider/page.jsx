@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { 
-    PiggyBank, Info, RotateCcw, Sparkles, Percent, ShieldCheck, 
-    TrendingUp, Calculator, ShieldAlert, BadgeCheck, Lightbulb, 
+import {
+    PiggyBank, Info, RotateCcw, Sparkles, Percent, ShieldCheck,
+    TrendingUp, Calculator, ShieldAlert, BadgeCheck, Lightbulb,
     ArrowUpRight, ArrowDownRight, Compass, Settings
 } from 'lucide-react';
 
@@ -109,7 +109,7 @@ export default function SalaryDivider() {
             setCustomPercentages({ needs: 20, wants: 20, savings: 20, investments: 20, others: 20 });
             return;
         }
-        
+
         // Scale proportionally to sum exactly to 100%
         const scale = 100 / percentageSum;
         const balanced = {};
@@ -151,7 +151,7 @@ export default function SalaryDivider() {
             const pct = currentPercentages[key] || 0;
             const normalizedPct = percentageSum > 0 ? (pct / percentageSum) * 100 : 0;
             const monthlyAmount = (monthlyIncome * normalizedPct) / 100;
-            
+
             allocs[key] = {
                 ...CATEGORY_META[key],
                 percent: Math.round(pct),
@@ -193,7 +193,7 @@ export default function SalaryDivider() {
     const advice = useMemo(() => {
         const investRate = currentPercentages.investments + currentPercentages.savings;
         const needsRate = currentPercentages.needs;
-        
+
         let header = 'Financial Path: Standard';
         let detail = 'Your budgeting follows typical outlines. Focus on reducing debt and expanding index fund portfolios.';
         let type = 'info';
@@ -303,11 +303,10 @@ export default function SalaryDivider() {
                                             key={preset.id}
                                             type="button"
                                             onClick={() => setSelectedPreset(preset.id)}
-                                            className={`w-full text-left p-3 rounded-2xl border transition-all cursor-pointer ${
-                                                selectedPreset === preset.id
+                                            className={`w-full text-left p-3 rounded-2xl border transition-all cursor-pointer ${selectedPreset === preset.id
                                                     ? 'bg-brand-mint/10 border-brand-mint/30 text-white shadow-md'
                                                     : 'bg-slate-950 border-slate-800 hover:border-slate-700 text-slate-400 hover:text-slate-200'
-                                            }`}
+                                                }`}
                                         >
                                             <div className="flex justify-between items-center mb-1">
                                                 <h4 className="text-xs font-bold text-slate-200">{preset.name}</h4>
@@ -364,9 +363,8 @@ export default function SalaryDivider() {
                                                         [key]: val
                                                     }));
                                                 }}
-                                                className={`w-full h-1 rounded-lg appearance-none accent-brand-mint ${
-                                                    selectedPreset === 'custom' ? 'cursor-pointer bg-slate-800' : 'opacity-40 pointer-events-none bg-slate-950'
-                                                }`}
+                                                className={`w-full h-1 rounded-lg appearance-none accent-brand-mint ${selectedPreset === 'custom' ? 'cursor-pointer bg-slate-800' : 'opacity-40 pointer-events-none bg-slate-950'
+                                                    }`}
                                             />
                                         </div>
                                     );
@@ -390,7 +388,7 @@ export default function SalaryDivider() {
                                             <span className="text-[10px] text-slate-500 italic">Preset lock active</span>
                                         )}
                                     </div>
-                                    
+
                                     {selectedPreset === 'custom' && percentageSum !== 100 && (
                                         <button
                                             type="button"
@@ -431,7 +429,7 @@ export default function SalaryDivider() {
                                         />
                                     ))}
                                 </svg>
-                                <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/40 rounded-full m-[10px] backdrop-blur-xs">
+                                <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/40 rounded-full m-2.5 backdrop-blur-xs">
                                     <span className="text-[9px] font-mono text-slate-500 uppercase tracking-wider">MONTHLY NET</span>
                                     <span className="text-sm font-bold font-mono text-slate-200 mt-0.5">
                                         {formatCurrency(monthlyIncome)}
@@ -452,14 +450,13 @@ export default function SalaryDivider() {
                             <Lightbulb className="w-4 h-4 text-brand-mint" />
                             Financial Insights
                         </h2>
-                        
-                        <div className={`p-4 rounded-2xl border mb-4 ${
-                            advice.type === 'success'
+
+                        <div className={`p-4 rounded-2xl border mb-4 ${advice.type === 'success'
                                 ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
                                 : advice.type === 'warning'
                                     ? 'bg-rose-500/10 border-rose-500/20 text-rose-400'
                                     : 'bg-indigo-500/10 border-indigo-500/20 text-indigo-400'
-                        }`}>
+                            }`}>
                             <h3 className="text-xs font-bold mb-1.5 flex items-center gap-1.5">
                                 <BadgeCheck className="w-4 h-4 shrink-0" />
                                 {advice.header}
@@ -467,7 +464,7 @@ export default function SalaryDivider() {
                             <p className="text-[10px] leading-relaxed opacity-90">{advice.detail}</p>
                         </div>
                     </div>
-                    
+
                     <div className="bg-slate-950/40 border border-slate-800/80 rounded-2xl p-4">
                         <h4 className="text-[10px] font-mono font-bold text-slate-500 uppercase mb-2 tracking-wider">Compound Math Check</h4>
                         <p className="text-[11px] text-slate-400 leading-normal">
