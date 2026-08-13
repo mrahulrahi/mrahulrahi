@@ -9,7 +9,7 @@ const CodeStackLayout = ({ children }) => {
       <div className="w-full"> 
         <div className="w-full py-10">
           <div className="container-fluid">
-            <div className="device-frame relative flex flex-col justify-between w-full h-full bg-[#222831] border-5 border-[rgba(0,0,0,0.5)] rounded-[25px] overflow-hidden pb-15">
+            <div className="device-frame relative flex flex-col justify-between w-full h-full bg-[#222831] border-5 border-[rgba(0,0,0,0.5)] rounded-[25px] overflow-hidden">
               <div className="device-head flex items-center justify-between px-4 h-7 bg-[rgba(0,0,0,0.5)] pb-1.25">
                 <div className="flex items-center gap-3">
                   <h4 className="text-lg font-bold tracking-widest bg-clip-text text-transparent mb-0 text-center" style={gradientStyle}>Code Stack</h4>

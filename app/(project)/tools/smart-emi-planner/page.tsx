@@ -293,31 +293,22 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
           {/* Header */}
           <header className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 space-y-6 animate-fade-in">
             <div>
-              <h2 className="text-3xl font-display font-bold text-slate-900 dark:text-brand-text flex items-center gap-2">
+              <h2 className="text-3xl font-display font-bold text-slate-900 flex items-center gap-2">
                 <RefreshCw className="w-6 h-6 text-brand-mint" />
                 Smart EMI Planner
               </h2>
-              <p className="text-gray-500 dark:text-brand-muted mt-1">Accelerate your journey to becoming debt-free. Live Tool Preview</p>
+              <p className="text-gray-500 mt-1">Accelerate your journey to becoming debt-free. Live Tool Preview</p>
             </div>
-            <div className="bg-white/5 dark:bg-brand-surface px-4 py-2 rounded-xl shadow-sm border border-white-200/10 dark:border-brand-border flex items-center gap-3">
+            <div className="bg-white/5 px-4 py-2 rounded-xl shadow-sm border border-white-200/10 flex items-center gap-3">
               <div className="text-right">
-                <p className="text-xs text-slate-500 uppercase font-semibold">Standard EMI</p>
-                <p className="text-lg font-bold text-slate-700">{formatCurrency(results.normal.initialEmi)}</p>
-              </div>
-              <div className="h-8 w-1px bg-slate-200"></div>
-              <div className="text-right">
-                <p className="text-xs text-blue-600 uppercase font-semibold">Current Smart EMI</p>
-                <p className="text-lg font-bold text-blue-700">{formatCurrency(results.smart.initialEmi)}</p>
+                <p className="text-[10px] text-gray-500 uppercase font-semibold">Standard EMI</p>
+                <p className="text-lg font-bold text-gray-700">{formatCurrency(results.normal.initialEmi)} {formatCurrency(normalData.initialEmi)}</p>
               </div>
 
+              <div className="h-8 w-px bg-gray-200"></div>
               <div className="text-right">
-                <p className="text-[10px] text-gray-500 dark:text-brand-muted uppercase font-semibold">Standard EMI</p>
-                <p className="text-lg font-bold text-gray-700 dark:text-brand-text">{formatCurrency(normalData.initialEmi)}</p>
-              </div>
-              <div className="h-8 w-px bg-gray-200 dark:bg-brand-border"></div>
-              <div className="text-right">
-                <p className="text-[10px] text-brand-mint uppercase font-semibold">Smart EMI</p>
-                <p className="text-lg font-bold text-brand-mint">{formatCurrency(smartData.initialEmi)}</p>
+                <p className="text-[10px] text-brand-mint uppercase font-semibold">Current Smart EMI</p>
+                <p className="text-lg font-bold text-brand-mint">{formatCurrency(results.smart.initialEmi)} {formatCurrency(smartData.initialEmi)}</p>
               </div>
             </div>
           </header>
@@ -326,7 +317,7 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
 
             {/* Sidebar - Inputs */}
             <aside className="lg:col-span-4 space-y-6">
-              <div className="bg-white/5 p-6 rounded-2xl shadow-sm border border-slate-200 space-y-5">
+              <div className="bg-white/5 p-6 rounded-2xl shadow-sm border border-slate-200/10 space-y-5">
                 <h2 className="text-lg font-semibold flex items-center gap-2 mb-2">
                   <Wallet className="w-5 h-5 text-blue-500" />
                   Loan Details
@@ -338,7 +329,7 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
                     type="number"
                     value={loanAmount}
                     onChange={(e) => setLoanAmount(Number(e.target.value))}
-                    className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                    className="w-full px-4 py-2 rounded-lg border border-slate-200/10 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
                   />
                 </div>
 
@@ -350,7 +341,7 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
                       step="0.1"
                       value={interestRate}
                       onChange={(e) => setInterestRate(Number(e.target.value))}
-                      className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                      className="w-full px-4 py-2 rounded-lg border border-slate-200/10 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
                     />
                   </div>
                   <div>
@@ -359,7 +350,7 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
                       type="number"
                       value={tenure}
                       onChange={(e) => setTenure(Number(e.target.value))}
-                      className="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
+                      className="w-full px-4 py-2 rounded-lg border border-slate-200/10 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
                     />
                   </div>
                 </div>
@@ -383,11 +374,11 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
                     step="1"
                     value={yearlyIncrease}
                     onChange={(e) => setYearlyIncrease(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                    className="w-full h-2 bg-slate-50/5 rounded-lg appearance-none cursor-pointer accent-blue-600"
                   />
                 </div>
 
-                <div className="flex items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-100">
+                <div className="flex items-center justify-between p-3 bg-slate-50/5 rounded-xl border border-slate-100">
                   <div className="flex items-center gap-3">
                     <Calendar className="text-slate-400" />
                     <div>
@@ -404,58 +395,58 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-brand-surface p-6 rounded-xl border border-gray-200 dark:border-brand-border space-y-5">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-brand-text flex items-center gap-2 mb-2">
+              <div className="bg-white/5 p-6 rounded-xl border border-gray-200/10 space-y-5">
+                <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2 mb-2">
                   <Wallet className="w-5 h-5 text-brand-mint" />
                   Loan Details
                 </h2>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Loan Amount (₹)</label>
-                  <input type="number" value={loanAmount} onChange={e => setLoanAmount(Number(e.target.value))} className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono" />
+                  <label className="block text-sm font-medium text-gray-600 mb-1 font-mono">Loan Amount (₹)</label>
+                  <input type="number" value={loanAmount} onChange={e => setLoanAmount(Number(e.target.value))} className="w-full px-4 py-2 rounded-lg bg-gray-50/5 border border-gray-200/10 text-current-900/10 focus:border-brand-mint outline-none transition-all font-mono" />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Rate (%)</label>
-                    <input type="number" step="0.1" value={interestRate} onChange={e => setInterestRate(Number(e.target.value))} className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono" />
+                    <label className="block text-sm font-medium text-gray-600 mb-1 font-mono">Rate (%)</label>
+                    <input type="number" step="0.1" value={interestRate} onChange={e => setInterestRate(Number(e.target.value))} className="w-full px-4 py-2 rounded-lg bg-gray-50/5 border border-gray-200/10 text-current-900/10 focus:border-brand-mint outline-none transition-all font-mono" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-600 dark:text-brand-muted mb-1 font-mono">Tenure (Yrs)</label>
-                    <input type="number" value={tenure} onChange={e => setTenure(Number(e.target.value))} className="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text focus:border-brand-mint outline-none transition-all font-mono" />
+                    <label className="block text-sm font-medium text-gray-600 mb-1 font-mono">Tenure (Yrs)</label>
+                    <input type="number" value={tenure} onChange={e => setTenure(Number(e.target.value))} className="w-full px-4 py-2 rounded-lg bg-gray-50/5 border border-gray-200/10 text-current-900/10 focus:border-brand-mint outline-none transition-all font-mono" />
                   </div>
                 </div>
 
-                <div className="h-px bg-gray-200 dark:bg-brand-border my-4"></div>
+                <div className="h-px bg-gray-200 my-4"></div>
 
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-brand-text flex items-center gap-2 mb-2">
+                <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2 mb-2">
                   <ArrowUpCircle className="w-5 h-5 text-brand-mint" />
                   Smart Modifiers
                 </h2>
 
                 <div>
                   <div className="flex justify-between items-center mb-1">
-                    <label className="block text-sm font-medium text-gray-600 dark:text-brand-muted font-mono">Yearly Increase (%)</label>
+                    <label className="block text-sm font-medium text-gray-600 font-mono">Yearly Increase (%)</label>
                     <span className="text-sm font-bold text-brand-mint font-mono">{yearlyIncrease}%</span>
                   </div>
-                  <input type="range" min="0" max="25" step="1" value={yearlyIncrease} onChange={e => setYearlyIncrease(Number(e.target.value))} className="w-full h-2 bg-gray-200 dark:bg-brand-black rounded-lg appearance-none cursor-pointer accent-brand-mint" />
+                  <input type="range" min="0" max="25" step="1" value={yearlyIncrease} onChange={e => setYearlyIncrease(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-mint" />
                 </div>
 
-                <div className="flex items-center justify-between p-3 bg-gray-50 dark:bg-brand-black rounded-xl border border-gray-200 dark:border-brand-border">
+                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200">
                   <div className="flex items-center gap-3">
                     <Calendar className="text-gray-400 w-5 h-5" />
                     <div>
-                      <p className="text-sm font-semibold text-gray-900 dark:text-brand-text">13th EMI Strategy</p>
-                      <p className="text-xs text-gray-500 dark:text-brand-muted">Pay one extra EMI yearly</p>
+                      <p className="text-sm font-semibold text-gray-900">13th EMI Strategy</p>
+                      <p className="text-xs text-gray-500">Pay one extra EMI yearly</p>
                     </div>
                   </div>
-                  <button onClick={() => setExtraEmi(!extraEmi)} className={`w-12 h-6 rounded-full transition-colors relative ${extraEmi ? 'bg-brand-mint' : 'bg-gray-300 dark:bg-gray-600'}`}>
-                    <div className={`absolute top-1 bg-white dark:bg-brand-black w-4 h-4 rounded-full transition-all ${extraEmi ? 'left-7' : 'left-1'}`}></div>
+                  <button onClick={() => setExtraEmi(!extraEmi)} className={`w-12 h-6 rounded-full transition-colors relative ${extraEmi ? 'bg-brand-mint' : 'bg-gray-300'}`}>
+                    <div className={`absolute top-1 bg-white  w-4 h-4 rounded-full transition-all ${extraEmi ? 'left-7' : 'left-1'}`}></div>
                   </button>
                 </div>
               </div>
 
-                {/* Simple Info Card */}
+              {/* Simple Info Card */}
               <div className="bg-blue-600 rounded-2xl p-6 text-white shadow-lg shadow-blue-200">
                 <h3 className="font-bold text-lg mb-2 flex items-center gap-2">
                   <Info className="w-5 h-5" />
@@ -472,7 +463,7 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
 
               {/* Stats Summary */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white/10 p-5 rounded-2xl border border-slate-200/10 shadow-sm">
+                <div className="bg-white/10 p-5 rounded-2xl border border-slate-200/10/10 shadow-sm">
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Interest Saved</p>
                   <div className="flex items-end gap-2">
                     <span className="text-2xl font-black text-green-600">{formatCurrency(results.interestSaved)}</span>
@@ -481,9 +472,12 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
                     <TrendingDown className="w-3 h-3" />
                     Lower Cost
                   </div>
+            
+                  <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Interest Saved</p>
+                  <span className="text-2xl font-black text-brand-fern block">{formatCurrency(savedInt)}</span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                <div className="bg-white/5 p-5 rounded-2xl border border-slate-200/10 shadow-sm">
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Time Saved</p>
                   <div className="flex items-end gap-2">
                     <span className="text-2xl font-black text-blue-600">
@@ -491,33 +485,25 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
                     </span>
                   </div>
                   <p className="text-xs text-slate-400 mt-2">Debt-free by Year {results.smart.yearlyData.length}</p>
+            
+                  <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Time Saved</p>
+                  <span className="text-2xl font-black text-blue-600 block">{`${Math.floor(timeSavedM / 12)}y ${timeSavedM % 12}m`}</span>
                 </div>
 
-                <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+                <div className="bg-white/5 p-5 rounded-2xl border border-slate-200/10 shadow-sm">
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Total Savings</p>
                   <div className="flex items-end gap-2">
                     <span className="text-2xl font-black text-slate-800">{formatCurrency(results.totalSaved)}</span>
                   </div>
                   <p className="text-xs text-slate-400 mt-2">Reduction in total liability</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white dark:bg-brand-surface p-5 rounded-xl border border-gray-200 dark:border-brand-border">
-                  <p className="text-gray-500 dark:text-brand-muted text-xs font-bold uppercase tracking-wider mb-1">Interest Saved</p>
-                  <span className="text-2xl font-black text-brand-fern dark:text-brand-mint block">{formatCurrency(savedInt)}</span>
-                </div>
-                <div className="bg-white dark:bg-brand-surface p-5 rounded-xl border border-gray-200 dark:border-brand-border">
-                  <p className="text-gray-500 dark:text-brand-muted text-xs font-bold uppercase tracking-wider mb-1">Time Saved</p>
-                  <span className="text-2xl font-black text-blue-600 dark:text-blue-400 block">{`${Math.floor(timeSavedM / 12)}y ${timeSavedM % 12}m`}</span>
-                </div>
-                <div className="bg-white dark:bg-brand-surface p-5 rounded-xl border border-gray-200 dark:border-brand-border">
-                  <p className="text-gray-500 dark:text-brand-muted text-xs font-bold uppercase tracking-wider mb-1">Total Savings</p>
-                  <span className="text-2xl font-black text-gray-900 dark:text-brand-text block">{formatCurrency(totalSaved)}</span>
+              
+                  <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Total Savings</p>
+                  <span className="text-2xl font-black text-gray-900 block">{formatCurrency(totalSaved)}</span>
                 </div>
               </div>
 
               {/* Navigation Tabs */}
-              <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="bg-white/5 rounded-2xl border border-slate-200/10 shadow-sm overflow-hidden">
                 <div className="flex border-b border-slate-100">
                   <button
                     onClick={() => setActiveTab('visual')}
@@ -646,10 +632,7 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
                 </div>
               </div>
 
-
-
-
-              <div className="bg-white dark:bg-brand-surface rounded-xl border border-gray-200 dark:border-brand-border p-6">
+              <div className="bg-white/5  rounded-xl border border-gray-200/10 p-6">
                 <div className="w-full h-80 chart-container">
                   <canvas ref={chartRef}></canvas>
                 </div>
@@ -658,7 +641,7 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
           </div>
 
           {/* Footer */}
-          <footer className="mt-12 text-center text-slate-400 text-sm py-8 border-t border-slate-200">
+          <footer className="mt-8 text-center text-slate-400 text-sm pt-4 border-t border-slate-200/10">
             <p>© 2026 Smart EMI Planner. For illustrative purposes only. Actual bank calculations may vary.</p>
           </footer>
         </div>
