@@ -207,10 +207,7 @@ const SalaryCalculator = () => {
                             >
                                 <Trash2 className="w-4 h-4" /> Reset Custom Yearly Rates
                             </button>
-                        </aside>
 
-                        
-                        <aside className="lg:col-span-4 space-y-6">
                             <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200">
                                 <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
                                     <Info className="w-5 h-5 text-emerald-600" />
@@ -277,8 +274,32 @@ const SalaryCalculator = () => {
                             </div>
                         </aside>
 
-                        {/* Results Table */}
-                        <div className="lg:col-span-2">
+
+                        {/* Main Display */}
+                        <main className="lg:col-span-8 space-y-6">
+                            {/* Summary Cards */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="bg-emerald-600 rounded-3xl p-6 text-white shadow-lg shadow-emerald-100">
+                                    <p className="text-emerald-100 text-sm font-medium uppercase tracking-wider">Projected Final Salary</p>
+                                    <div className="text-4xl font-bold mt-1">
+                                        ₹{projection.length > 0 ? projection[projection.length - 1].finalSalary.toLocaleString(undefined, { maximumFractionDigits: 0 }) : '0'}
+                                    </div>
+                                    <div className="mt-4 flex items-center gap-2 bg-white/10 w-fit px-3 py-1 rounded-full text-sm">
+                                        <TrendingUp className="w-4 h-4" />
+                                        <span>+{totalPercentage.toFixed(1)}% total growth</span>
+                                    </div>
+                                </div>
+
+                                <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
+                                    <p className="text-slate-500 text-sm font-medium uppercase tracking-wider">Total Increase Earned</p>
+                                    <div className="text-4xl font-bold mt-1 text-slate-800">
+                                        +₹{totalIncrease.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+                                    </div>
+                                    <p className="text-slate-400 text-xs mt-4 italic">Over the next {numYears} years</p>
+                                </div>
+                            </div>
+                            
+                            {/* Results Table */}
                             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                                 <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
                                     <h2 className="font-semibold text-slate-800">Year-by-Year Breakdown</h2>
@@ -342,29 +363,8 @@ const SalaryCalculator = () => {
 
 
                             </div>
-                            {/* Main Display */}
-                        <main className="lg:col-span-8 space-y-6">
-                            {/* Summary Cards */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="bg-emerald-600 rounded-3xl p-6 text-white shadow-lg shadow-emerald-100">
-                                    <p className="text-emerald-100 text-sm font-medium uppercase tracking-wider">Projected Final Salary</p>
-                                    <div className="text-4xl font-bold mt-1">
-                                        ₹{projection.length > 0 ? projection[projection.length - 1].finalSalary.toLocaleString(undefined, { maximumFractionDigits: 0 }) : '0'}
-                                    </div>
-                                    <div className="mt-4 flex items-center gap-2 bg-white/10 w-fit px-3 py-1 rounded-full text-sm">
-                                        <TrendingUp className="w-4 h-4" />
-                                        <span>+{totalPercentage.toFixed(1)}% total growth</span>
-                                    </div>
-                                </div>
 
-                                <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
-                                    <p className="text-slate-500 text-sm font-medium uppercase tracking-wider">Total Increase Earned</p>
-                                    <div className="text-4xl font-bold mt-1 text-slate-800">
-                                        +₹{totalIncrease.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                                    </div>
-                                    <p className="text-slate-400 text-xs mt-4 italic">Over the next {numYears} years</p>
-                                </div>
-                            </div>
+
 
                             {/* Detailed Table */}
                             <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
@@ -414,10 +414,9 @@ const SalaryCalculator = () => {
                                 </p>
                             </div>
                         </main>
-                        </div>
                     </div>
 
-     
+
                 </div>
 
                 <style dangerouslySetInnerHTML={{
