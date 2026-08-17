@@ -49,12 +49,15 @@ const formatCurrency = (value: number) =>
   }).format(value);
 
 const calculateEMI = (p: number, r: number, n: number) => {
+  if (n <= 0) return 0;
   const monthlyRate = r / 12 / 100;
 
   if (monthlyRate === 0) {
     return p / n;
   }
-  return (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / (Math.pow(1 + monthlyRate, n) - 1);
+  const denominator = Math.pow(1 + monthlyRate, n) - 1;
+  if (denominator === 0) return 0;
+  return (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / denominator;
 };
 
 
@@ -461,14 +464,14 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
             {/* Main Dashboard Area */}
             <main className="lg:col-span-8 space-y-6">
 
-              {/* Stats Summary */}
+               {/* Stats Summary */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white/10 p-5 rounded-2xl border border-slate-200/10/10 shadow-sm">
+                <div className="bg-white/10 p-5 rounded-2xl border border-slate-200/10 shadow-sm">
                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Interest Saved</p>
                   <div className="flex items-end gap-2">
                     <span className="text-2xl font-black text-green-600">{formatCurrency(results.interestSaved)}</span>
                   </div>
-                  <div className="mt-2 flex items-center gap-1 text-xs text-green-600 font-medium bg-green-50 px-2 py-1 rounded w-fit">
+                  <div className="mt-2 flex items-center gap-1 text-xs text-green-600 font-medium bg-green-50/10 px-2 py-1 rounded w-fit">
                     <TrendingDown className="w-3 h-3" />
                     Lower Cost
                   </div>

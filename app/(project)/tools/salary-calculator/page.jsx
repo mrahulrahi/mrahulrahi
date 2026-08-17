@@ -49,8 +49,9 @@ const SalaryCalculator = () => {
         }).format(val);
     };
 
-    const totalGrowth = results.length > 0
-        ? ((results[results.length - 1].endSalary - baseSalary) / baseSalary * 100).toFixed(1)
+    const baseSalNum = parseFloat(baseSalary) || 0;
+    const totalGrowth = (results.length > 0 && baseSalNum > 0)
+        ? ((results[results.length - 1].endSalary - baseSalNum) / baseSalNum * 100).toFixed(1)
         : 0;
 
 

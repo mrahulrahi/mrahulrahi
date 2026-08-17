@@ -2,7 +2,8 @@
 import { useGradient } from '@/app/context/GradientContext';
 
 const CodeStackLayout = ({ children }) => {
-  const { gradientStyle } = useGradient();
+  const context = useGradient();
+  const gradientStyle = context ? context.gradientStyle : { backgroundImage: 'linear-gradient(to right, #00DC82, #00B159)' };
 
   return (
     <>

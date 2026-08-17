@@ -355,10 +355,12 @@ export default function RetirementPlanner() {
                     const n_months = Number(g.loanDuration) * 12;
 
                     let monthlyEmi = 0;
-                    if (r_monthly > 0) {
-                        monthlyEmi = loanPrincipal * r_monthly * Math.pow(1 + r_monthly, n_months) / (Math.pow(1 + r_monthly, n_months) - 1);
-                    } else {
-                        monthlyEmi = loanPrincipal / n_months;
+                    if (n_months > 0) {
+                        if (r_monthly > 0) {
+                            monthlyEmi = loanPrincipal * r_monthly * Math.pow(1 + r_monthly, n_months) / (Math.pow(1 + r_monthly, n_months) - 1);
+                        } else {
+                            monthlyEmi = loanPrincipal / n_months;
+                        }
                     }
 
                     const annualEmi = monthlyEmi * 12;
