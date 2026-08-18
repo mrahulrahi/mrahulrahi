@@ -4,9 +4,13 @@ import { FiShare, FiCopy } from "react-icons/fi";
 import { FaQuoteLeft } from 'react-icons/fa';
 
 
-const QuoteApp = ( gradientColor, onClick ) => {
+import { useGradient } from '@/app/context/GradientContext';
+
+const QuoteApp = ({ onClick }) => {
     const [currentQuote, setCurrentQuote] = useState('');
     const [currentAuthor, setCurrentAuthor] = useState('');
+    const context = useGradient();
+    const gradientStyle = context ? context.gradientStyle : { backgroundImage: 'linear-gradient(to right, #00DC82, #00B159)' };
 
     const getRandomQuote = async () => {
         try {
@@ -28,10 +32,17 @@ const QuoteApp = ( gradientColor, onClick ) => {
     };
 
     const updateQuote = async () => {
-        const { quote, author } = await getRandomQuote();
-        setCurrentQuote(quote);
-        setCurrentAuthor(author);
-        onClick();
+        const result = await getRandomQuote();
+        if (result) {
+            setCurrentQuote(result.quote);
+            setCurrentAuthor(result.author);
+        } else {
+            setCurrentQuote("Believe you can and you're halfway there.");
+            setCurrentAuthor("Theodore Roosevelt");
+        }
+        if (typeof onClick === 'function') {
+            onClick();
+        }
     };
 
     useEffect(() => {
@@ -61,10 +72,10 @@ const QuoteApp = ( gradientColor, onClick ) => {
         <div className="quote-wrapper py-3 px-3 md:py-5 md:px-5">
             <div className="quote-box flex flex-col mb-4">
                 <span className="quote-icon"><FaQuoteLeft /></span>
-                <div className="quote-text bg-clip-text text-transparent" style={gradientColor.gradientColor}>
+                <div className="quote-text bg-clip-text text-transparent" style={gradientStyle}>
                     {currentQuote}
                 </div>
-                <div className="quote-author mt-auto bg-clip-text text-transparent" style={gradientColor.gradientColor}>- {currentAuthor}</div>
+                <div className="quote-author mt-auto bg-clip-text text-transparent" style={gradientStyle}>- {currentAuthor}</div>
             </div>
 
             <div className="quote-btn-group flex shrink-0 gap-2">
@@ -77,7 +88,7 @@ const QuoteApp = ( gradientColor, onClick ) => {
                 </button>
 
                 <button className="btn-transparent lg" onClick={updateQuote} >
-                    <span className="btn-transparent-text bg-clip-text text-transparent" style={gradientColor.gradientColor}>New quote</span>
+                    <span className="btn-transparent-text bg-clip-text text-transparent" style={gradientStyle}>New quote</span>
                 </button>
             </div>
         </div>

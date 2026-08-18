@@ -281,8 +281,8 @@ export default function ExpenseTracker() {
     // ----------------------------------------------------
     const filteredTransactions = useMemo(() => {
         return transactions.filter(t => {
-            const matchesSearch = t.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                                  t.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            const matchesSearch = (t.title || '').toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                  (t.category || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
                                   (t.note && t.note.toLowerCase().includes(searchQuery.toLowerCase()));
             const matchesType = typeFilter === 'all' || t.type === typeFilter;
             const matchesCategory = categoryFilter === 'all' || t.category === categoryFilter;
@@ -597,7 +597,7 @@ export default function ExpenseTracker() {
                             <div className="flex flex-col items-center justify-center py-20 text-slate-500 border border-dashed border-slate-800 rounded-2xl p-6">
                                 <Info className="w-8 h-8 mb-2 opacity-40 text-slate-400" />
                                 <p className="text-xs font-mono">No expense records found</p>
-                                <p className="text-[10px] opacity-60 text-center max-w-[240px] mt-1">Record debits on the form panel to compile category allocation graphs.</p>
+                                <p className="text-[10px] opacity-60 text-center max-w-60 mt-1">Record debits on the form panel to compile category allocation graphs.</p>
                             </div>
                         ) : (
                             <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-8 py-2">
@@ -629,7 +629,7 @@ export default function ExpenseTracker() {
                                             />
                                         ))}
                                     </svg>
-                                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/40 rounded-full m-[11px] backdrop-blur-xs">
+                                    <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-950/40 rounded-full m-2.75 backdrop-blur-xs">
                                         <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wide">EXPENSES</span>
                                         <span className="text-base font-bold font-mono text-slate-200 mt-0.5">
                                             {formatCurrency(categoryBreakdown.totalExpense)}

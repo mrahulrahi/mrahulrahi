@@ -1,5 +1,5 @@
 'use client'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 const QuizApp = (gradientColor) => {
     const [questionNumber, setQuestionNumber] = useState(0);
@@ -13,6 +13,15 @@ const QuizApp = (gradientColor) => {
     const [difficulty, setDifficulty] = useState('');
     const [type, setType] = useState('');
     const [categories, setCategories] = useState([]);
+
+      const currentQuestionAnswers = useMemo(() => {
+          if (questions.length === 0 || !questions[questionNumber]) return [];
+          const allAnswers = [
+              ...questions[questionNumber].incorrect_answers,
+              questions[questionNumber].correct_answer
+          ];
+          return [...allAnswers].sort(() => Math.random() - 0.5);
+      }, [questions, questionNumber]);
 
       console.log(gradientColor);
 
@@ -68,7 +77,7 @@ const QuizApp = (gradientColor) => {
                 <div className="question-answer-wrapper mx-auto">
                     <h3 dangerouslySetInnerHTML={{ __html: questions[questionNumber].question }}></h3>
                     <div className="answers-list flex flex-wrap">
-                        {[...questions[questionNumber].incorrect_answers, questions[questionNumber].correct_answer].map((answer, index) => (
+                        {currentQuestionAnswers.map((answer, index) => (
                             <div key={index} className="answers-item">
                                 <div className="answer-choice w-full h-full flex align-items-center">
                                     <input

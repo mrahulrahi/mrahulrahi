@@ -58,17 +58,20 @@ const CalculatorApp = () => {
     };
 
     const factorial = (n) => {
+        if (isNaN(n) || n < 0) return 0;
+        n = Math.floor(n);
         if (n === 0) return 1;
+        if (n > 170) return Infinity; // JS max float limit
         return n * factorial(n - 1);
     };
 
     return (
         <div className="py-3 px-3 md:py-5 md:px-5">
-            <div className="android-frame flex flex-col border-[0.425em] border-black rounded-[1.875rem] bg-[#151715] max-w-[400px] mx-auto">
+            <div className="android-frame flex flex-col border-[0.425em] border-black rounded-[1.875rem] bg-[#151715] max-w-100 mx-auto">
                 <div className="output-operation-class w-full" id="output-operation">
                     <input type="text" className="output-screen w-full h-16 text-end border-black rounded-[1.4rem_1.4rem_1.2rem_1.2rem] text-[1.25rem] bg-[#37303c] py-[0.8rem] px-2 text-[#eddbf3] focus:outline-none placeholder:text-[#eddbf3]" id="output-id" placeholder='0' value={expression} readOnly />
                 </div>
-                <div className="input-btn-wrapper pt-[30px] px-2.5 pb-5">
+                <div className="input-btn-wrapper pt-7.5 px-2.5 pb-5">
                     <div className="mini-algo-function flex justify-evenly text-auto w-full text-[#dfcee5] mb-3 gap-2.5">
                         <button onClick={handleButtonClick} className="button mini-function w-1/4 text-[#dfcee5] bg-[#4f4256] border-black rounded-[31.25rem] text-[1rem] font-semibold h-8 active:rounded-[10%] ease-in">x²</button>
                         <button onClick={handleButtonClick} className="button mini-function w-1/4 text-[#dfcee5] bg-[#4f4256] border-black rounded-[31.25rem] text-[1rem] font-semibold h-8 active:rounded-[10%] ease-in">√</button>

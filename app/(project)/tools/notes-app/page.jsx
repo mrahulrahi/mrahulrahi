@@ -183,15 +183,15 @@ const NotesApp = () => {
 
                                                 <li key={task.id} className="flex mb-2 items-center justify-content-between">
                                                     <div className="custom-checkbox-wrapper">
-                                                        <label htmlFor={`${task.id}`} className="item">
-                                                            <input type="checkbox" id={`${task.id}`} className="hidden" checked={task.completed}
+                                                        <label htmlFor={`popup-${task.id}`} className="item">
+                                                            <input type="checkbox" id={`popup-${task.id}`} className="hidden" checked={task.completed}
                                                                 onChange={() => toggleTaskCompletion(task.id)} />
-                                                            <label htmlFor={`${task.id}`} className="cbx">
+                                                            <label htmlFor={`popup-${task.id}`} className="cbx">
                                                                 <svg width="14px" height="12px" viewBox="0 0 14 12">
                                                                     <polyline points="1 7.6 5 11 13 1"></polyline>
                                                                 </svg>
                                                             </label>
-                                                            <label htmlFor={`${task.id}`} className={`cbx-lbl ${task.completed ? 'completed-task' : ''}`} >{task.title}</label>
+                                                            <label htmlFor={`popup-${task.id}`} className={`cbx-lbl ${task.completed ? 'completed-task' : ''}`} >{task.title}</label>
                                                         </label>
                                                     </div>
 
@@ -245,26 +245,26 @@ const NotesApp = () => {
                                         item.tasks?.map(task => (
                                             <div key={task.id} className="task flex items-center gap-1">
                                                 <div className="custom-checkbox-wrapper">
-                                                    <label htmlFor={`${task.id}`} className="item">
-                                                        <input type="checkbox" id={`${task.id}`} className="hidden"
-                                                            checked={task.completed}
-                                                            onChange={() => {
-                                                                const updatedTasks = item.tasks?.map(t =>
-                                                                    t.id === task.id ? { ...t, completed: !t.completed } : t
-                                                                );
-                                                                const updatedItems = items.map(i =>
-                                                                    i.id === item.id ? { ...i, tasks: updatedTasks } : i
-                                                                );
-                                                                setItems(updatedItems);
-                                                            }} />
-                                                        <label htmlFor={`${task.id}`} className="cbx">
-                                                            <svg width="14px" height="12px" viewBox="0 0 14 12">
-                                                                <polyline points="1 7.6 5 11 13 1"></polyline>
-                                                            </svg>
-                                                        </label>
+                                                     <label htmlFor={`list-${task.id}`} className="item">
+                                                         <input type="checkbox" id={`list-${task.id}`} className="hidden"
+                                                             checked={task.completed}
+                                                             onChange={() => {
+                                                                 const updatedTasks = item.tasks?.map(t =>
+                                                                     t.id === task.id ? { ...t, completed: !t.completed } : t
+                                                                 );
+                                                                 const updatedItems = items.map(i =>
+                                                                     i.id === item.id ? { ...i, tasks: updatedTasks } : i
+                                                                 );
+                                                                 setItems(updatedItems);
+                                                             }} />
+                                                         <label htmlFor={`list-${task.id}`} className="cbx">
+                                                             <svg width="14px" height="12px" viewBox="0 0 14 12">
+                                                                 <polyline points="1 7.6 5 11 13 1"></polyline>
+                                                             </svg>
+                                                         </label>
 
-                                                        <label htmlFor={`${task.id}`} className={`cbx-lbl ${task.completed ? 'completed-task' : ''}`} >{task.title}</label>
-                                                    </label>
+                                                         <label htmlFor={`list-${task.id}`} className={`cbx-lbl ${task.completed ? 'completed-task' : ''}`} >{task.title}</label>
+                                                     </label>
                                                 </div>
                                             </div>
                                         ))
