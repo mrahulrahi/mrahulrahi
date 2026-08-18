@@ -1206,7 +1206,7 @@ export default function RetirementPlanner() {
 
                             {/* Floating tooltip hover box */}
                             {hoveredData && (
-                                <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-slate-950/90 border border-slate-800 p-2.5 rounded-xl text-[10px] font-mono shadow-2xl backdrop-blur-xs flex flex-col gap-1.5 z-20 min-w-[200px]">
+                                <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-slate-950/90 border border-slate-800 p-2.5 rounded-xl text-[10px] font-mono shadow-2xl backdrop-blur-xs flex flex-col gap-1.5 z-20 min-w-50">
                                     <div className="flex justify-between items-center gap-3">
                                         <div><span className="text-slate-500">Age:</span> <strong className="text-white">{hoveredData.age}</strong></div>
                                         <div><span className="text-slate-500">Savings:</span> <strong className="text-brand-mint">{formatCurrency(hoveredData.savings)}</strong></div>
@@ -1514,7 +1514,7 @@ export default function RetirementPlanner() {
 
                     {activeGoalsTab === 'goals' && (
                         <>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[300px] overflow-y-auto pr-1">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-75 overflow-y-auto pr-1">
                                 {shortTermGoals.length === 0 ? (
                                     <div className="col-span-2 flex flex-col items-center justify-center py-12 text-slate-500 text-center">
                                         <Target className="w-8 h-8 text-slate-650 mb-2 opacity-50" />
@@ -1678,7 +1678,7 @@ export default function RetirementPlanner() {
                                         <div className="text-lg font-mono font-bold text-brand-mint mt-0.5">
                                             {formatCurrency(totalRequiredMonthlyGoalSavings)} <span className="text-xs text-slate-400 font-normal">/ month</span>
                                         </div>
-                                        <p className="text-[10px] text-slate-400 mt-1 max-w-[480px]">
+                                        <p className="text-[10px] text-slate-400 mt-1 max-w-120">
                                             Invest this dedicated amount monthly (compounding at {formatPercent(preRetireReturnRate)}) on top of your retirement savings to buy these goals with <strong>₹0 loan</strong>.
                                         </p>
                                     </div>
@@ -1761,7 +1761,7 @@ export default function RetirementPlanner() {
                             </div>
 
                             {/* Debts list */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-[280px] overflow-y-auto pr-1">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-h-70 overflow-y-auto pr-1">
                                 {filteredDebts.length === 0 ? (
                                     <div className="col-span-2 flex flex-col items-center justify-center py-12 text-slate-500 text-center">
                                         <HandCoins className="w-8 h-8 text-slate-650 mb-2 opacity-50" />
@@ -1816,7 +1816,7 @@ export default function RetirementPlanner() {
                                                                     </span>
                                                                 </div>
                                                                 {d.note && (
-                                                                    <div className="text-slate-400 truncate max-w-[110px]" title={d.note}>
+                                                                    <div className="text-slate-400 truncate max-w-27.5" title={d.note}>
                                                                         <span className="text-slate-500">Note: </span>{d.note}
                                                                     </div>
                                                                 )}
@@ -2236,29 +2236,29 @@ export default function RetirementPlanner() {
                                                             return <span className="font-bold text-slate-500">{formatCurrency(0)}</span>;
                                                         }
                                                     })()}
-                                                    <div className="flex gap-1 mt-1 max-w-[200px] flex-wrap justify-end">
+                                                    <div className="flex gap-1 mt-1 max-w-50 flex-wrap justify-end">
                                                         {row.goalsList.map(g => (
                                                             <span key={g.id} className="inline-flex items-center gap-0.5 bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[8px] px-1 py-0.2 rounded" title={`${g.name} (${g.type === 'downpayment' ? 'Down Payment' : 'Cash Purchase'}, Today's Value: ${formatCurrency(g.cost)})`}>
                                                                 {getCategoryIcon(g.category, "w-2.5 h-2.5")}
-                                                                <span className="truncate max-w-[60px]">{g.name} {g.type === 'downpayment' ? '(DP)' : '(Cash)'}</span>
+                                                                <span className="truncate max-w-15">{g.name} {g.type === 'downpayment' ? '(DP)' : '(Cash)'}</span>
                                                             </span>
                                                         ))}
                                                         {row.emiList.map(g => (
                                                             <span key={g.id} className="inline-flex items-center gap-0.5 bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-[8px] px-1 py-0.2 rounded" title={`${g.name} Loan EMI (Monthly: ${formatCurrency(g.monthlyEmi)}, Interest: ${g.loanInterest}%, Term: ${g.loanDuration} yrs)`}>
                                                                 {getCategoryIcon(g.category, "w-2.5 h-2.5")}
-                                                                <span className="truncate max-w-[60px]">{g.name} (EMI)</span>
+                                                                <span className="truncate max-w-15">{g.name} (EMI)</span>
                                                             </span>
                                                         ))}
                                                         {row.debtInflowsList.map(d => (
                                                             <span key={d.id} className="inline-flex items-center gap-0.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[8px] px-1 py-0.2 rounded" title={`Repaid by ${d.name} (Inflow)`}>
                                                                 <ArrowUpRight className="w-2.5 h-2.5 text-emerald-400" />
-                                                                <span className="truncate max-w-[60px]">{d.name} (Repay)</span>
+                                                                <span className="truncate max-w-15">{d.name} (Repay)</span>
                                                             </span>
                                                         ))}
                                                         {row.debtOutflowsList.map(d => (
                                                             <span key={d.id} className="inline-flex items-center gap-0.5 bg-rose-500/10 border border-rose-500/20 text-rose-450 text-[8px] px-1 py-0.2 rounded" title={`Settle back to ${d.name} (Outflow)`}>
                                                                 <ArrowDownRight className="w-2.5 h-2.5 text-rose-455" />
-                                                                <span className="truncate max-w-[60px]">{d.name} (Settle)</span>
+                                                                <span className="truncate max-w-15">{d.name} (Settle)</span>
                                                             </span>
                                                         ))}
                                                     </div>
@@ -2340,11 +2340,11 @@ export default function RetirementPlanner() {
                                     <TrendingUp className="w-4 h-4 text-emerald-400" />
                                     Nest Egg Purchasing Power Analysis
                                 </h3>
-                                <p className="text-[10px] text-slate-400 mt-1 max-w-[480px]">
+                                <p className="text-[10px] text-slate-400 mt-1 max-w-120">
                                     At retirement age ({retirementAge}), your nominal net worth is projected to reach <strong>{formatCurrency(fireAnalytics.nestEggAtRetirement)}</strong>. However, due to {inflation}% annual inflation, the real buying power of that amount is equivalent to <strong>{formatCurrency(fireAnalytics.realNestEggValue)}</strong> in today's currency.
                                 </p>
                             </div>
-                            <div className="bg-slate-900/60 border border-slate-800/60 px-4 py-2 rounded-xl font-mono text-center shrink-0 min-w-[160px]">
+                            <div className="bg-slate-900/60 border border-slate-800/60 px-4 py-2 rounded-xl font-mono text-center shrink-0 min-w-40">
                                 <span className="text-[8px] text-slate-550 block uppercase">Real Value Today</span>
                                 <span className="text-xs font-bold text-emerald-400">{formatCurrency(fireAnalytics.realNestEggValue)}</span>
                             </div>
@@ -2405,7 +2405,7 @@ export default function RetirementPlanner() {
                         <div className="p-5 bg-linear-to-r from-slate-950 to-slate-900/60 border border-slate-800 rounded-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                             <div>
                                 <h3 className="text-xs font-mono font-bold text-brand-mint uppercase tracking-wider">Automated Portfolio Optimization Advisor</h3>
-                                <p className="text-[10px] text-slate-400 mt-1 max-w-[500px]">
+                                <p className="text-[10px] text-slate-400 mt-1 max-w-125">
                                     Automatically adjust your asset allocation percentages to optimize for pre-retirement tax-efficiency (equity-weighted) and post-retirement capital preservation (fixed-income weighted).
                                 </p>
                             </div>
