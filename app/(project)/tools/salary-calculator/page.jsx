@@ -114,22 +114,16 @@ const SalaryCalculator = () => {
             <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-900">
                 <div className="max-w-8xl mx-auto px-3">
                     {/* Header */}
-                    <header className="mb-8 text-center md:text-left">
+                    <header className="mb-8 text-center md:text-left flex items-center gap-3">
                         <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
-                            <div className="bg-indigo-600 p-2 rounded-lg">
-                                <TrendingUp className="text-white w-6 h-6" />
+                            <div className="bg-emerald-600 p-3 rounded-2xl shadow-lg shadow-emerald-200">
+                                <TrendingUp className="text-white w-8 h-8" />
                             </div>
-                            <h1 className="text-3xl font-bold tracking-tight text-slate-800">Salary Increment Tracker</h1>
                         </div>
-                        <p className="text-slate-500">Plan your financial growth with compound annual increases.</p>
-                    </header>
-                    <header className="mb-8 flex items-center gap-3">
-                        <div className="bg-emerald-600 p-3 rounded-2xl shadow-lg shadow-emerald-200">
-                            <TrendingUp className="text-white w-8 h-8" />
-                        </div>
+
                         <div>
-                            <h1 className="text-3xl font-bold tracking-tight text-slate-800">Salary Growth Planner</h1>
-                            <p className="text-slate-500">Project your earnings based on custom yearly increments</p>
+                            <h1 className="text-3xl font-bold tracking-tight text-slate-800">Salary Increment Tracker / Salary Growth Planner</h1>
+                            <p className="text-slate-500">Plan your financial growth with compound annual increases. Project your earnings based on custom yearly increments</p>
                         </div>
                     </header>
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
@@ -299,7 +293,7 @@ const SalaryCalculator = () => {
                                     <p className="text-slate-400 text-xs mt-4 italic">Over the next {numYears} years</p>
                                 </div>
                             </div>
-                            
+
                             {/* Results Table */}
                             <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                                 <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
