@@ -1042,7 +1042,7 @@ const StyleGuidePage: React.FC = () => {
                                 </div>
 
                                 {/* Bento Grid */}
-                                <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-4 min-h-[600px] md:h-[600px]">
+                                <div className="grid grid-cols-1 md:grid-cols-4 md:grid-rows-3 gap-4 min-h-150 md:h-150">
 
                                     {/* Card 1: Primary Action */}
                                     <div className="col-span-1 md:col-span-2 md:row-span-2 bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 relative group overflow-hidden shadow-sm">
@@ -2680,7 +2680,7 @@ const StyleGuidePage: React.FC = () => {
                             </div>
 
                             {/* <!-- Bento Grid Demo --> */}
-                            <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-4 md:grid-rows-3 gap-4 h-[600px]">
+                            <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-4 md:grid-rows-3 gap-4 h-150">
 
                                 {/* <!-- Card 1: Primary Action --> */}
                                 <div

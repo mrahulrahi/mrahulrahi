@@ -37,6 +37,7 @@
     "@types/node": "^24",
     "@types/nodemailer": "^7.0.4",
     "@types/react-dom": "^19",
+    "@types/react-highlight": "^0.12.8",
     "autoprefixer": "^10.4.24",
     "daisyui": "^5.5.19",
     "postcss": "^8.5.6",

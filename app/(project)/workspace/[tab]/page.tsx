@@ -8,19 +8,17 @@ import { TbBrandReact, TbBrandNextjs, TbBrandTypescript, TbBrandTailwind} from "
 import UiLibrarySandbox from '@/app/components/portfolio/UiLibrarySandbox';
 import ToolsDirectory from '@/app/components/portfolio/ToolsDirectory';
 import EducationalCodeBlocks from '@/app/components/portfolio/EducationalCodeBlocks';
-import JsStack from '@/app/(project)/js-stack/page';
 import Products from '@/app/(project)/products/page';
 import { getPublicPortfolioData } from '@/app/(admin)/admin/dataActions';
 import { skills as staticSkills, projectsCards as staticProjects } from '@/app/data/staticData';
 
-type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks' | 'js-stack' | 'products';
+type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks' | 'products';
 
 const tabToSlug: Record<WorkspaceTab, string> = {
     portfolio: 'portfoliohub',
     'ui-sandbox': 'ui-sandbox',
     tools: 'utilitieshub',
     'code-blocks': 'codeacademy',
-    'js-stack': 'js-stack',
     products: 'products'
 };
 
@@ -29,7 +27,6 @@ const slugToTab: Record<string, WorkspaceTab> = {
     'ui-sandbox': 'ui-sandbox',
     utilitieshub: 'tools',
     codeacademy: 'code-blocks',
-    'js-stack': 'js-stack',
     products: 'products'
 };
 
@@ -78,7 +75,6 @@ export default function WorkspacePage() {
         { id: 'ui-sandbox' as WorkspaceTab, label: 'UI Sandbox', icon: <Layers className="w-4 h-4" />, description: 'React Component Library' },
         { id: 'tools' as WorkspaceTab, label: 'Utilities Hub', icon: <Sliders className="w-4 h-4" />, description: 'Interactive Client Tools text' },
         { id: 'code-blocks' as WorkspaceTab, label: 'Code Academy', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
-        { id: 'js-stack' as WorkspaceTab, label: 'Js Stack', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
         { id: 'products' as WorkspaceTab, label: 'Products', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
     ];
 
@@ -260,9 +256,6 @@ export default function WorkspacePage() {
 
                         {/* CODE BLOCKS VIEWPORT */}
                         {activeTab === 'code-blocks' && <EducationalCodeBlocks />}
-
-                        {/* Js Stack Page */}
-                        {activeTab === 'js-stack' && <JsStack />}
 
                         {/* Products Page */}
                         {activeTab === 'products' && <Products />}
