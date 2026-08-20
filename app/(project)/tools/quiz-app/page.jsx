@@ -1,7 +1,10 @@
 'use client'
 import { useState, useEffect, useMemo } from 'react';
+import { useGradient } from '@/app/context/GradientContext';
 
-const QuizApp = (gradientColor) => {
+const QuizApp = () => {
+    const context = useGradient();
+    const gradientStyle = context ? context.gradientStyle : { backgroundImage: 'linear-gradient(to right, #00DC82, #00B159)' };
     const [questionNumber, setQuestionNumber] = useState(0);
     const [score, setScore] = useState(0);
     const [showQuiz, setShowQuiz] = useState(false);
@@ -23,7 +26,7 @@ const QuizApp = (gradientColor) => {
           return [...allAnswers].sort(() => Math.random() - 0.5);
       }, [questions, questionNumber]);
 
-      console.log(gradientColor);
+
 
     useEffect(() => {
         fetchTriviaQuestions();
@@ -125,7 +128,7 @@ const QuizApp = (gradientColor) => {
             {!showQuiz ? (
                 <>
                     <div className="start-quiz-wrapper self-center mx-auto">
-                        <h2 className="bg-clip-text text-transparent" style={gradientColor.gradientColor}>Test your knowledge</h2>
+                        <h2 className="bg-clip-text text-transparent" style={gradientStyle}>Test your knowledge</h2>
                         <div className="select-menu mx-auto">
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="w-full">
@@ -213,7 +216,7 @@ const QuizApp = (gradientColor) => {
                         )
                     ) : (
                         <div className="feedback-wrapper self-center mx-auto">
-                            <h3 className="bg-clip-text text-transparent" style={gradientColor.gradientColor}>Quiz Completed!</h3>
+                            <h3 className="bg-clip-text text-transparent" style={gradientStyle}>Quiz Completed!</h3>
                             <h4 className="text-accent">Your Score: {score}</h4>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <button className="btn btn-green" onClick={restartQuiz}>Restart Quiz</button>

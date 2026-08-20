@@ -2,8 +2,11 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { HiOutlineLocationMarker } from "react-icons/hi";
+import { useGradient } from '@/app/context/GradientContext';
 
-const WeatherApp = (gradientColor) => {
+const WeatherApp = () => {
+    const context = useGradient();
+    const gradientStyle = context ? context.gradientStyle : { backgroundImage: 'linear-gradient(to right, #00DC82, #00B159)' };
 
     const [weather, setWeather] = useState(null);
     const [dailyForecast, setDailyForecast] = useState([]);
@@ -65,14 +68,14 @@ const WeatherApp = (gradientColor) => {
 
     if (error) {
         return (
-            <div className="weather-app py-5 px-5 text-center flex flex-col items-center justify-center min-h-[300px] gap-4">
+            <div className="weather-app py-5 px-5 text-center flex flex-col items-center justify-center min-h-75 gap-4">
                 <div className="text-red-500 font-bold tracking-wide text-lg bg-red-500/10 border border-red-500/20 px-4 py-3 rounded-2xl max-w-md">
                     {error}
                 </div>
                 <div className="weather-location-group flex flex-col sm:flex-row gap-3 w-full max-w-md mt-2">
                     <input type="text" id="city" className="form-control grow" placeholder="Enter city name" value={inputCity} onChange={handleInputChange} />
                     <button className="btn-transparent lg" onClick={handleButtonClick2}>
-                        <span className="btn-transparent-text bg-clip-text text-transparent" style={gradientColor.gradientColor}>Try another location</span>
+                        <span className="btn-transparent-text bg-clip-text text-transparent" style={gradientStyle}>Try another location</span>
                     </button>
                 </div>
             </div>
@@ -87,7 +90,7 @@ const WeatherApp = (gradientColor) => {
         <div className="weather-app py-3 px-3 md:py-5 md:px-5">
             <div className="weather-wrapper flex flex-col lg:flex-row items-center justify-center lg:justify-start ">
                 <div className="weather-today-box flex flex-col sm:flex-row lg:flex-col justify-between gap-2">
-                    <div className="weather-gradient-bg" style={gradientColor.gradientColor}></div>
+                    <div className="weather-gradient-bg" style={gradientStyle}></div>
                     <div className="weather-date-box flex flex-col gap-2">
                         <h2>{formatDay(weather.dt).dayName}</h2>
                         <h6>{formatDay(weather.dt).date}</h6>
@@ -145,7 +148,7 @@ const WeatherApp = (gradientColor) => {
                         <div className="weather-location-group flex flex-col sm:flex-row gap-2 grow">
                             <input type="text" id="city" className="form-control" placeholder="Enter city name" value={inputCity} onChange={handleInputChange} />
                             <button className="btn-transparent lg" onClick={handleButtonClick2}>
-                                <span className="btn-transparent-text bg-clip-text text-transparent" style={gradientColor.gradientColor}>Change location</span>
+                                <span className="btn-transparent-text bg-clip-text text-transparent" style={gradientStyle}>Change location</span>
                             </button>
                         </div>
                     </div>

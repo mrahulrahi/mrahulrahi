@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
+import { useGradient } from '@/app/context/GradientContext';
 import { Layers, Sliders, Terminal, User, ChevronRight, Sparkles, Cpu, Github, Linkedin, ExternalLink } from 'lucide-react';
 import { TbBrandReact, TbBrandNextjs, TbBrandTypescript, TbBrandTailwind} from "react-icons/tb";
 import UiLibrarySandbox from '@/app/components/portfolio/UiLibrarySandbox';
@@ -36,6 +37,8 @@ export default function WorkspacePage() {
     const params = useParams();
     const router = useRouter();
     const tabSlug = params?.tab as string;
+    const context = useGradient();
+    const gradientStyle = context ? context.gradientStyle : { backgroundImage: 'linear-gradient(to right, #00DC82, #00B159)' };
 
     const activeTab = (tabSlug && slugToTab[tabSlug]) || 'portfolio';
 
@@ -153,7 +156,7 @@ export default function WorkspacePage() {
                                             <Sparkles className="w-3.5 h-3.5" />
                                             <span>Full-Stack Web Developer</span>
                                         </div>
-                                        <h1 className="text-3xl font-display font-black text-white tracking-wide">Rahul Maurya</h1>
+                                        <h1 className="text-3xl font-display font-black tracking-wide bg-clip-text text-transparent" style={gradientStyle}>Rahul Maurya</h1>
                                         <p className="text-xs text-slate-400 max-w-xl leading-relaxed">
                                             Specializing in building robust digital ecosystems, premium responsive animations, and elegant interactive sandboxes with next-gen architectures.
                                         </p>

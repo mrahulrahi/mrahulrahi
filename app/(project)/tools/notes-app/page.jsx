@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react';
 import { FaPlus, FaXmark, FaEllipsis, FaPen, FaTrash } from 'react-icons/fa6';
+import { useGradient } from '@/app/context/GradientContext';
 
 const months = [
     "January", "February", "March", "April", "May", "June",
@@ -8,6 +9,8 @@ const months = [
 ];
 
 const NotesApp = () => {
+    const context = useGradient();
+    const gradientStyle = context ? context.gradientStyle : { backgroundImage: 'linear-gradient(to right, #00DC82, #00B159)' };
     const [items, setItems] = useState([]);
     const [isUpdate, setIsUpdate] = useState(false);
     const [updateId, setUpdateId] = useState(null);
@@ -149,7 +152,7 @@ const NotesApp = () => {
                     <div className="popup">
                         <div className="content">
                             <header>
-                                <p>{isUpdate ? (itemType === 'note' ? 'Update a Note' : 'Update a To-Do') : (itemType === 'note' ? 'Add a new Note' : 'Add a new To-Do')}</p>
+                                <p className="bg-clip-text text-transparent font-bold" style={gradientStyle}>{isUpdate ? (itemType === 'note' ? 'Update a Note' : 'Update a To-Do') : (itemType === 'note' ? 'Add a new Note' : 'Add a new To-Do')}</p>
                                 <i className="close-icon" onClick={closePopup}><FaXmark /></i>
                             </header>
                             <div className="view-toggle mb-6 flex justify-center">
@@ -232,7 +235,7 @@ const NotesApp = () => {
                 <div className="items-section">
                     <ul className="wrapper">
                         <li className="add-box" onClick={openPopup}>
-                            <div className="icon"><FaPlus /></div>
+                            <div className="icon" style={gradientStyle}><FaPlus /></div>
                             <p>Add new</p>
                         </li>
                         {items.map((item) => (
