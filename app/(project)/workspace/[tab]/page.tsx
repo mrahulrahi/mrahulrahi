@@ -12,14 +12,15 @@ import Products from '@/app/(project)/products/page';
 import { getPublicPortfolioData } from '@/app/(admin)/admin/dataActions';
 import { skills as staticSkills, projectsCards as staticProjects } from '@/app/data/staticData';
 
-type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks' | 'products';
+type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks' | 'products' | 'unified-dashboard';
 
 const tabToSlug: Record<WorkspaceTab, string> = {
     portfolio: 'portfoliohub',
     'ui-sandbox': 'ui-sandbox',
     tools: 'utilitieshub',
     'code-blocks': 'codeacademy',
-    products: 'products'
+    products: 'products',
+    'unified-dashboard': 'unified-dashboard'
 };
 
 const slugToTab: Record<string, WorkspaceTab> = {
@@ -27,7 +28,8 @@ const slugToTab: Record<string, WorkspaceTab> = {
     'ui-sandbox': 'ui-sandbox',
     utilitieshub: 'tools',
     codeacademy: 'code-blocks',
-    products: 'products'
+    products: 'products',
+    'unified-dashboard': 'unified-dashboard'
 };
 
 export default function WorkspacePage() {
@@ -76,6 +78,7 @@ export default function WorkspacePage() {
         { id: 'tools' as WorkspaceTab, label: 'Utilities Hub', icon: <Sliders className="w-4 h-4" />, description: 'Interactive Client Tools text' },
         { id: 'code-blocks' as WorkspaceTab, label: 'Code Academy', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
         { id: 'products' as WorkspaceTab, label: 'Products', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
+        { id: 'unified-dashboard' as WorkspaceTab, label: 'Daily Horizon', icon: <Sparkles className="w-4 h-4" />, description: 'Unified Productivity Hub' },
     ];
 
     return (
@@ -111,7 +114,13 @@ export default function WorkspacePage() {
                         {sidebarItems.map(item => (
                             <button
                                 key={item.id}
-                                onClick={() => router.push('/workspace/' + tabToSlug[item.id])}
+                                onClick={() => {
+                                    if (item.id === 'unified-dashboard') {
+                                        router.push('/tools/unified-dashboard');
+                                    } else {
+                                        router.push('/workspace/' + tabToSlug[item.id]);
+                                    }
+                                }}
                                 className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center gap-3.5 group cursor-pointer ${activeTab === item.id
                                     ? 'bg-brand-mint/10 border-brand-mint/30 text-white shadow-[0_0_15px_-3px_rgba(0,220,130,0.15)]'
                                     : 'bg-transparent border-transparent hover:bg-slate-950/40 hover:border-slate-800/60 text-slate-400 hover:text-slate-200'
@@ -242,6 +251,11 @@ export default function WorkspacePage() {
                                             <Terminal className="w-5 h-5 text-brand-mint mb-3" />
                                             <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Products</h3>
                                             <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Examine modular sorting visualizers, custom hooks logs, and pointer grids.</p>
+                                        </button>
+                                        <button onClick={() => router.push('/tools/unified-dashboard')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
+                                            <Sparkles className="w-5 h-5 text-brand-mint mb-3" style={gradientStyle} />
+                                            <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Unified Dashboard</h3>
+                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Access the merged Daily Horizon productivity dashboard containing all client utilities.</p>
                                         </button>
                                     </div>
                                 </div>
