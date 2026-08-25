@@ -7,6 +7,13 @@ export default function SubjectAverageCalculator() {
   const [step, setStep] = useState(1); // 1 = ask how many, 2 = enter marks
   const [average, setAverage] = useState(null);
 
+  const handleReset = () => {
+    setNumSubjects("");
+    setMarks([]);
+    setStep(1);
+    setAverage(null);
+  };
+
   const handleSubjectCountSubmit = (e) => {
     e.preventDefault();
     const count = parseInt(numSubjects);
@@ -83,11 +90,14 @@ export default function SubjectAverageCalculator() {
       )}
 
       {average !== null && (
-        <div style={{ marginTop: "1rem" }}>
+        <div style={{ marginTop: "1rem" }} className="space-y-3">
           <h6>
             For the {numSubjects} subjects you entered, the average mark is:{" "}
             {average.toFixed(2)}
           </h6>
+          <button onClick={handleReset} className="btn btn-secondary text-xs px-3 py-1.5 rounded-lg border border-slate-800 hover:border-slate-700 bg-slate-900/40 hover:bg-slate-900/80 transition-colors cursor-pointer">
+            Start Over
+          </button>
         </div>
       )}
     </div>

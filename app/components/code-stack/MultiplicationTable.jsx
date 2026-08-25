@@ -62,7 +62,7 @@ const MultiplicationTable = () => {
               <thead>
                 <tr>
                   <th style={{ border: '1px solid black', padding: '4px' }}></th>
-                  {table[0].map((_, j) => (
+                  {table.length > 0 && table[0].map((_, j) => (
                     <th key={j} style={{ border: '1px solid black', padding: '4px' }}>
                       {j + 1}
                     </th>

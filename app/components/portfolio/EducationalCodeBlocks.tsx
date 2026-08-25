@@ -195,8 +195,6 @@ export default function EducationalCodeBlocks() {
                     return prev + 1;
                 });
             }, speed);
-        } else {
-            if (timerRef.current) clearInterval(timerRef.current);
         }
         return () => {
             if (timerRef.current) clearInterval(timerRef.current);

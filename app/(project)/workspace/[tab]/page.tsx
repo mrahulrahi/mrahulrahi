@@ -78,7 +78,6 @@ export default function WorkspacePage() {
         { id: 'tools' as WorkspaceTab, label: 'Utilities Hub', icon: <Sliders className="w-4 h-4" />, description: 'Interactive Client Tools text' },
         { id: 'code-blocks' as WorkspaceTab, label: 'Code Academy', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
         { id: 'products' as WorkspaceTab, label: 'Products', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
-        { id: 'unified-dashboard' as WorkspaceTab, label: 'Daily Horizon', icon: <Sparkles className="w-4 h-4" />, description: 'Unified Productivity Hub' },
     ];
 
     return (
