@@ -2,21 +2,25 @@
 import { useState } from 'react';
 
 const FibonacciSeries = () => {
-  const [limit, setLimit] = useState(0);
+  const [limit, setLimit] = useState('');
   const [series, setSeries] = useState([]);
 
-  // Recursive Fibonacci function
-  const fibonacci = (n) => {
-    if (n === 0) return 0;
-    else if (n === 1) return 1;
-    else return fibonacci(n - 1) + fibonacci(n - 2);
-  };
-
-  // Generate Fibonacci series up to the given limit
+  // Generate Fibonacci series up to the given limit using optimized linear pass
   const generateSeries = () => {
+    const n = parseInt(limit);
+    if (isNaN(n) || n <= 0) {
+      setSeries([]);
+      return;
+    }
+
+    // Guard maximum limits to prevent integer precision overflow
+    const maxLimit = Math.min(n, 50);
     const result = [];
-    for (let i = 0; i < limit; i++) {
-      result.push(fibonacci(i));
+    if (maxLimit >= 1) result.push(0);
+    if (maxLimit >= 2) result.push(1);
+
+    for (let i = 2; i < maxLimit; i++) {
+      result.push(result[i - 1] + result[i - 2]);
     }
     setSeries(result);
   };
@@ -29,13 +33,13 @@ const FibonacciSeries = () => {
           className="form-input block w-full rounded-md bg-white/25 border-transparent focus:border-accent focus:bg-white/25 focus:ring-0 text-white/50 placeholder:text-white/50"
           placeholder="Enter limit"
           value={limit}
-          onChange={(e) => setLimit(Number(e.target.value))}
+          onChange={(e) => setLimit(e.target.value)}
         />
       </div>
 
       <div className="col-span-6">
         <button
-          className="btn btn-primary w-full"
+          className="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white px-4 py-2 rounded-xl hover:bg-slate-900 transition-colors w-full font-semibold text-sm cursor-pointer"
           onClick={generateSeries}
         >
           Generate

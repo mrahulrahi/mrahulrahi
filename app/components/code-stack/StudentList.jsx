@@ -9,14 +9,17 @@ const StudentList = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleChange = (index, field, value) => {
-    const updated = [...students];
-    updated[index][field] = value;
-    setStudents(updated);
+    setStudents(prev => prev.map((student, i) => i === index ? { ...student, [field]: value } : student));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+  };
+
+  const handleReset = () => {
+    setStudents(Array.from({ length: SIZE }, () => ({ name: '', mark: '' })));
+    setSubmitted(false);
   };
 
   return (
@@ -56,20 +59,28 @@ const StudentList = () => {
           ))}
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 col-span-1"
+            className="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white px-4 py-2 rounded-xl hover:bg-slate-900 transition-colors col-span-1 text-sm font-semibold cursor-pointer"
           >
             Submit
           </button>
         </form>
       ) : (
-        <div className="mt-6">
-          <h3 className="text-lg font-bold mb-4">Students Information</h3>
-          {students.map((student, index) => (
-            <p key={index} className="mb-2">
-              <strong>Name:</strong> {student.name} &nbsp; | &nbsp;
-              <strong>Average Mark:</strong> {student.mark}
-            </p>
-          ))}
+        <div className="mt-6 space-y-4">
+          <h3 className="text-lg font-bold">Students Information</h3>
+          <div className="space-y-2 bg-slate-900/60 border border-slate-800 rounded-xl p-4">
+            {students.map((student, index) => (
+              <p key={index} className="text-xs font-mono text-slate-300">
+                <span className="text-brand-mint font-semibold">Student {index + 1}:</span> {student.name} &nbsp; | &nbsp;
+                <span className="text-slate-500">Mark:</span> {student.mark}
+              </p>
+            ))}
+          </div>
+          <button
+            onClick={handleReset}
+            className="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white px-4 py-2 rounded-xl hover:bg-slate-900 transition-colors text-sm font-semibold cursor-pointer"
+          >
+            Start Over
+          </button>
         </div>
       )}
     </>

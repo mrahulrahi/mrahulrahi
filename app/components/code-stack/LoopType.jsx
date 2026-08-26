@@ -3,57 +3,51 @@ import { useState, useEffect } from 'react'
 
 const LoopType = () => {
 
-    const [oddNumbers, setOddNumbers] = useState([]);
-    const [numbers, setNumbers] = useState([]);
-    const [headings, setHeadings] = useState([]);
-    const [table, setTable] = useState([]);
-    const [evens, setEvens] = useState([]);
-
-    useEffect(() => {
+    const [oddNumbers] = useState(() => {
         let x = 1;
         const odds = [];
         while (x < 10) {
             odds.push(x);
             x += 2;
         }
-        setOddNumbers(odds);
-    }, []);
+        return odds;
+    });
 
-    useEffect(() => {
+    const [numbers] = useState(() => {
         let i = 1;
         const nums = [];
         while (i <= 5) {
             nums.push(i);
             i++;
         }
-        setNumbers(nums);
-    }, []);
+        return nums;
+    });
 
-    useEffect(() => {
+    const [headings] = useState(() => {
         let x = 8;
         const items = [];
         do {
             items.push('Rahi');
             x--;
         } while (x > 5);
-        setHeadings(items);
-    }, []);
+        return items;
+    });
 
-    useEffect(() => {
-        // 5 times table from 1 to 10
+    const [table] = useState(() => {
         const tableArr = [];
         for (let x = 1; x <= 10; x++) {
             tableArr.push(5 * x);
         }
-        setTable(tableArr);
+        return tableArr;
+    });
 
-        // Even numbers from 2 to 10
+    const [evens] = useState(() => {
         const evenArr = [];
         for (let x = 2; x <= 10; x += 2) {
             evenArr.push(x);
         }
-        setEvens(evenArr);
-    }, []);
+        return evenArr;
+    });
 
     return (
         <>

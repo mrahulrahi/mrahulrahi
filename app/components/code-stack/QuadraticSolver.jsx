@@ -28,8 +28,13 @@ export default function QuadraticSolver() {
     const discriminant = B * B - 4 * A * C;
 
     if (discriminant < 0) {
-      setNature('Roots are imaginary.');
-      setRoots(null);
+      setNature('Roots are imaginary (complex).');
+      const realPart = -B / (2 * A);
+      const imagPart = Math.sqrt(-discriminant) / (2 * A);
+      setRoots({
+        x1: `${realPart.toFixed(4)} + ${Math.abs(imagPart).toFixed(4)}i`,
+        x2: `${realPart.toFixed(4)} - ${Math.abs(imagPart).toFixed(4)}i`
+      });
     } else {
       const sqrtD = Math.sqrt(discriminant);
       const x1 = (-B + sqrtD) / (2 * A);
@@ -46,7 +51,10 @@ export default function QuadraticSolver() {
         setNature('Roots are real, unequal, and irrational.');
       }
 
-      setRoots({ x1, x2 });
+      setRoots({ 
+        x1: x1.toFixed(4), 
+        x2: x2.toFixed(4) 
+      });
     }
   };
 
@@ -80,19 +88,19 @@ export default function QuadraticSolver() {
       </div>
       <button
         onClick={solveQuadratic}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full"
+        className="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white px-4 py-2 rounded-xl hover:bg-slate-900 transition-colors w-full font-semibold text-sm cursor-pointer"
       >
         Calculate
       </button>
 
       {nature && (
-        <div className="mt-4 p-4 bg-gray-100 rounded">
-          <p className="font-semibold">{nature}</p>
+        <div className="mt-4 p-4 bg-slate-900/60 border border-slate-800 rounded-xl text-slate-300">
+          <p className="font-semibold text-white">{nature}</p>
           {roots && (
-            <p className="mt-2">
+            <p className="mt-2 text-xs font-mono">
               The value of x is{' '}
-              <strong>{roots.x1.toFixed(4)}</strong> or{' '}
-              <strong>{roots.x2.toFixed(4)}</strong>
+              <strong className="text-brand-mint">{roots.x1}</strong> or{' '}
+              <strong className="text-brand-mint">{roots.x2}</strong>
             </p>
           )}
         </div>

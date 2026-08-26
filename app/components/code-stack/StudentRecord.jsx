@@ -17,6 +17,15 @@ const StudentRecord = () => {
     setSubmitted(true);
   };
 
+  const handleReset = () => {
+    setName('');
+    setSurname('');
+    setEnglish('');
+    setMaths('');
+    setScience('');
+    setSubmitted(false);
+  };
+
   return (
     <>
       <div className="font-oswald text-[32px] font-bold leading-none mb-6">
@@ -66,17 +75,25 @@ const StudentRecord = () => {
           />
           <button
             type="submit"
-            className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+            className="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white px-4 py-2 rounded-xl hover:bg-slate-900 transition-colors text-sm font-semibold cursor-pointer"
           >
             Submit
           </button>
         </form>
       ) : (
-        <div className="mt-6">
-          <h3 className="text-lg font-semibold mb-4">Student Record</h3>
-          <p><strong>Student Name:</strong> {name}</p>
-          <p><strong>Student Surname:</strong> {surname}</p>
-          <p><strong>Average Mark:</strong> {average.toFixed(2)}</p>
+        <div className="mt-6 space-y-4">
+          <h3 className="text-lg font-bold">Student Record</h3>
+          <div className="space-y-2 bg-slate-900/60 border border-slate-800 rounded-xl p-4 text-xs font-mono text-slate-300">
+            <p><strong className="text-slate-500">Student Name:</strong> <span className="text-white">{name}</span></p>
+            <p><strong className="text-slate-500">Student Surname:</strong> <span className="text-white">{surname}</span></p>
+            <p><strong className="text-slate-500">Average Mark:</strong> <span className="text-brand-mint font-bold">{average.toFixed(2)}</span></p>
+          </div>
+          <button
+            onClick={handleReset}
+            className="bg-slate-950 border border-slate-800 hover:border-slate-700 text-white px-4 py-2 rounded-xl hover:bg-slate-900 transition-colors text-sm font-semibold cursor-pointer"
+          >
+            Start Over
+          </button>
         </div>
       )}
     </>
