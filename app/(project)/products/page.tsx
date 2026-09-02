@@ -8,7 +8,7 @@ const page = () => {
 
     const cards = [
         { title: 'Blog', href: '/blog' },
-        { title: 'Code Stack', href: '/code-stack' },
+        { title: 'Code Academy', href: '/code-blocks' },
         { title: 'Products', href: '#products' },
     ];
 

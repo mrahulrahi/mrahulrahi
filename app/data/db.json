@@ -37,7 +37,7 @@
       "imgUrl": "/project-img-4.png",
       "gitHubUrl": "https://github.com/mrahulrahi/soulsync",
       "liveUrl": "https://soulsyncapp.vercel.app",
-      "para": "The project is a personal portfolio website for front-end developer Rahul Maurya, built with Next.js. It features a modern and responsive design, showcasing various projects, skills, and tools. The site emphasizes user engagement through interactive elements and animations, providing a comprehensive overview of the developer's expertise and work.",
+      "para": "SoulVerse (SoulSync) is an immersive digital sanctuary designed for mindfulness, spiritual reflection, and inner calm. Built with Next.js, featuring interactive reflections, peaceful ambience, and modern responsive UI components.",
       "technologies": [
         "RiReactjsFill",
         "RiBootstrapLine",

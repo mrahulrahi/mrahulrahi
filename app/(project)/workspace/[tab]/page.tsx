@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useGradient } from '@/app/context/GradientContext';
-import { Layers, Sliders, Terminal, User, ChevronRight, Sparkles, Cpu, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Layers, Sliders, Terminal, User, ChevronRight, Sparkles, Cpu, Github, Linkedin, ExternalLink, ShoppingBag, BookOpen, Palette } from 'lucide-react';
 import { TbBrandReact, TbBrandNextjs, TbBrandTypescript, TbBrandTailwind} from "react-icons/tb";
 import UiLibrarySandbox from '@/app/components/portfolio/UiLibrarySandbox';
 import ToolsDirectory from '@/app/components/portfolio/ToolsDirectory';
@@ -63,7 +63,7 @@ export default function WorkspacePage() {
                     projectsCount: liveData.projectsCards?.length || staticProjects.length,
                     skillsCount: liveData.skills?.length || staticSkills.length,
                     certificationsCount: liveData.certificates?.length || 4,
-                    experienceYears: 2
+                    experienceYears: 3
                 });
             } catch (e) {
                 console.error("Failed to load portfolio stats in workspace", e);
@@ -75,9 +75,9 @@ export default function WorkspacePage() {
     const sidebarItems = [
         { id: 'portfolio' as WorkspaceTab, label: 'Portfolio Hub', icon: <User className="w-4 h-4" />, description: 'Overview & Statistics' },
         { id: 'ui-sandbox' as WorkspaceTab, label: 'UI Sandbox', icon: <Layers className="w-4 h-4" />, description: 'React Component Library' },
-        { id: 'tools' as WorkspaceTab, label: 'Utilities Hub', icon: <Sliders className="w-4 h-4" />, description: 'Interactive Client Tools text' },
+        { id: 'tools' as WorkspaceTab, label: 'Utilities Hub', icon: <Sliders className="w-4 h-4" />, description: 'Interactive Client Tools & Utilities' },
         { id: 'code-blocks' as WorkspaceTab, label: 'Code Academy', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
-        { id: 'products' as WorkspaceTab, label: 'Products', icon: <Terminal className="w-4 h-4" />, description: 'Educational Playgrounds' },
+        { id: 'products' as WorkspaceTab, label: 'Products', icon: <ShoppingBag className="w-4 h-4" />, description: 'E-Commerce & Digital Showcase' },
     ];
 
     return (
@@ -234,27 +234,27 @@ export default function WorkspacePage() {
                                         <button onClick={() => router.push('/workspace/utilitieshub')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
                                             <Sliders className="w-5 h-5 text-brand-mint mb-3" />
                                             <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Launch Utilities</h3>
-                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Explore real-world client-side utilities, calculators, and API visualizers.</p>
+                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Explore real-world client-side utilities, calculators, and financial planners.</p>
                                         </button>
                                         <button onClick={() => router.push('/workspace/codeacademy')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
                                             <Terminal className="w-5 h-5 text-brand-mint mb-3" />
                                             <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Launch Academy</h3>
-                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Examine modular sorting visualizers, custom hooks logs, and pointer grids.</p>
-                                        </button>
-                                        <button onClick={() => router.push('/workspace/js-stack')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
-                                            <Terminal className="w-5 h-5 text-brand-mint mb-3" />
-                                            <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Js Stack</h3>
-                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Examine modular sorting visualizers, custom hooks logs, and pointer grids.</p>
+                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Examine modular sorting visualizers, data structures, and code playgrounds.</p>
                                         </button>
                                         <button onClick={() => router.push('/workspace/products')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
-                                            <Terminal className="w-5 h-5 text-brand-mint mb-3" />
-                                            <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Products</h3>
-                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Examine modular sorting visualizers, custom hooks logs, and pointer grids.</p>
+                                            <ShoppingBag className="w-5 h-5 text-brand-mint mb-3" />
+                                            <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Products Showcase</h3>
+                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Explore responsive full-stack store interfaces, product grids, and details.</p>
                                         </button>
-                                        <button onClick={() => router.push('/tools/unified-dashboard')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
-                                            <Sparkles className="w-5 h-5 text-brand-mint mb-3" style={gradientStyle} />
-                                            <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Unified Dashboard</h3>
-                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Access the merged Daily Horizon productivity dashboard containing all client utilities.</p>
+                                        <button onClick={() => router.push('/blog')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
+                                            <BookOpen className="w-5 h-5 text-brand-mint mb-3" />
+                                            <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Technical Blog</h3>
+                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">Browse developer articles, tutorials, web development tips, and discussions.</p>
+                                        </button>
+                                        <button onClick={() => router.push('/style-guide')} className="bg-slate-900/30 border border-slate-800 hover:border-brand-mint/30 p-5 rounded-2xl text-left transition-all hover:-translate-y-1 cursor-pointer group">
+                                            <Palette className="w-5 h-5 text-brand-mint mb-3" />
+                                            <h3 className="text-sm font-bold text-white group-hover:text-brand-mint transition-colors">Design Style Guide</h3>
+                                            <p className="text-[11px] text-slate-400 leading-relaxed mt-1">View the design system, color tokens, typography scales, and component specs.</p>
                                         </button>
                                     </div>
                                 </div>

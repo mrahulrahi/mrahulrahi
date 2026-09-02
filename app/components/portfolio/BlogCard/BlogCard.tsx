@@ -21,7 +21,14 @@ const BlogCard = (blog: BlogCard) => {
     <>
         <a href={blog.url} target="_blank" rel="noopener noreferrer" className="blog-card-box d-flex flex-column">
           <div className="blog-card-image">
-            <Image src={blog.cover_image ? blog.cover_image : `https://placehold.co/800/1B9C85/white.png?text=${encodeURIComponent(blog.title)}&font=poppins`} alt={blog.title} loading="lazy" width={1000} height={1000} />
+            <Image 
+              src={blog.cover_image ? blog.cover_image : `https://placehold.co/800/1B9C85/white.png?text=${encodeURIComponent(blog.title)}&font=poppins`} 
+              alt={blog.title} 
+              loading="lazy" 
+              width={1000} 
+              height={1000} 
+              unoptimized
+            />
           </div>
           <div className="blog-card-text">
             <h4>{blog.title}</h4>
@@ -40,7 +47,14 @@ const BlogCard = (blog: BlogCard) => {
 
             <ul className="blog-card-cta-list">
               <li className="blog-card-avatar d-flex align-items-center justify-content-between">
-                <Image src={blog.user.profile_image} alt={blog.user.name} loading="lazy" width={100} height={100} />
+                <Image 
+                  src={blog.user.profile_image || `https://placehold.co/100/1B9C85/white.png?text=${encodeURIComponent(blog.user?.name?.[0] || 'U')}`} 
+                  alt={blog.user.name} 
+                  loading="lazy" 
+                  width={100} 
+                  height={100} 
+                  unoptimized
+                />
                 <p>Article by <span>{blog.user.name}</span></p>
               </li>
             </ul>

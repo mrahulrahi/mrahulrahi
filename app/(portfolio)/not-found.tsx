@@ -18,10 +18,10 @@ export default function NotFound({
  
             <div className="page_404-content">
               <h3>
-                Look like you're lost
+                Looks like you're lost
               </h3>
 
-              <p>the page you are looking for not avaible!</p>
+              <p>The page you are looking for is not available or has moved.</p>
 
               <Link href="/" className="btn btn-gradient">Go to Home</Link>
             </div>

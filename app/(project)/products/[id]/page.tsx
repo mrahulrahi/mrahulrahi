@@ -48,7 +48,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
         />
         <div className="py-20 text-center max-w-xl mx-auto px-4">
           <p className="text-red-400 mb-6 font-mono">{errorMsg || 'Product not found.'}</p>
-          <Link href="/code-stack" className="btn btn-primary">Back to Spectrum Stack</Link>
+          <Link href="/products" className="btn btn-primary">Back to Products</Link>
         </div>
       </>
     );
@@ -63,7 +63,7 @@ export default async function ProductDetailPage({ params }: PageProps) {
       />
       
       <div className="py-12 lg:py-20 max-w-6xl mx-auto px-4">
-        <Link href="/code-stack" className="btn btn-outline btn-sm mb-8 text-white">
+        <Link href="/products" className="btn btn-outline btn-sm mb-8 text-white">
           ← Back to Catalog
         </Link>
 

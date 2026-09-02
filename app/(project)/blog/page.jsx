@@ -1,6 +1,6 @@
 'use client'
 import { useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import ReactPaginate from "react-paginate";
 import Link from "next/link";
 import Hero from "@/app/components/project/Hero";
@@ -23,7 +23,7 @@ const BlogPage = () => {
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ['blogs', currentPage],
     queryFn: () => fetchBlogs(currentPage),
-    keepPreviousData: true, // Keep previous data while fetching new data
+    placeholderData: keepPreviousData,
   });
 
   const handlePageClick = (event) => {

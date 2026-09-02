@@ -158,6 +158,11 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
   const [yearlyIncrease, setYearlyIncrease] = useState(10);
   const [extraEmi, setExtraEmi] = useState<boolean>(true);
   const [activeTab, setActiveTab] = useState('visual');
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const chartRef = useRef<HTMLCanvasElement | null>(null);
   const chartInstanceRef = useRef<Chart | null>(null);
@@ -527,56 +532,62 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
                 <div className="p-6">
                   {activeTab === 'visual' ? (
                     <div className="space-y-6">
-                      <div className="h-87.5 w-full">
+                      <div className="w-full h-90 min-h-90">
                         <h3 className="text-center text-sm font-semibold text-slate-500 mb-4 uppercase tracking-widest">Outstanding Balance Comparison</h3>
-                        <ResponsiveContainer width="100%" height="100%">
-                          <AreaChart data={chartData}>
-                            <defs>
-                              <linearGradient id="colorNormal" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="#94a3b8" stopOpacity={0.1} />
-                                <stop offset="95%" stopColor="#94a3b8" stopOpacity={0} />
-                              </linearGradient>
-                              <linearGradient id="colorSmart" x1="0" y1="0" x2="0" y2="1">
-                                <stop offset="5%" stopColor="#2563eb" stopOpacity={0.3} />
-                                <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
-                              </linearGradient>
-                            </defs>
-                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                            <XAxis
-                              dataKey="year"
-                              axisLine={false}
-                              tickLine={false}
-                              tick={{ fill: '#64748b', fontSize: 12 }}
-                            />
-                            <YAxis
-                              axisLine={false}
-                              tickLine={false}
-                              tick={{ fill: '#64748b', fontSize: 12 }}
-                              tickFormatter={(val) => `₹${val / 100000}L`}
-                            />
-                            <Tooltip
-                              contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
-                              formatter={(value) => formatCurrency(Number(value))}
-                            />
-                            <Legend verticalAlign="top" height={36} iconType="circle" />
-                            <Area
-                              type="monotone"
-                              dataKey="Normal Loan"
-                              stroke="#94a3b8"
-                              strokeWidth={2}
-                              fillOpacity={1}
-                              fill="url(#colorNormal)"
-                            />
-                            <Area
-                              type="monotone"
-                              dataKey="Smart Plan"
-                              stroke="#2563eb"
-                              strokeWidth={3}
-                              fillOpacity={1}
-                              fill="url(#colorSmart)"
-                            />
-                          </AreaChart>
-                        </ResponsiveContainer>
+                        {isMounted ? (
+                          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={300}>
+                            <AreaChart data={chartData}>
+                              <defs>
+                                <linearGradient id="colorNormal" x1="0" y1="0" x2="0" y2="1">
+                                  <stop offset="5%" stopColor="#94a3b8" stopOpacity={0.1} />
+                                  <stop offset="95%" stopColor="#94a3b8" stopOpacity={0} />
+                                </linearGradient>
+                                <linearGradient id="colorSmart" x1="0" y1="0" x2="0" y2="1">
+                                  <stop offset="5%" stopColor="#2563eb" stopOpacity={0.3} />
+                                  <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
+                                </linearGradient>
+                              </defs>
+                              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                              <XAxis
+                                dataKey="year"
+                                axisLine={false}
+                                tickLine={false}
+                                tick={{ fill: '#64748b', fontSize: 12 }}
+                              />
+                              <YAxis
+                                axisLine={false}
+                                tickLine={false}
+                                tick={{ fill: '#64748b', fontSize: 12 }}
+                                tickFormatter={(val) => `₹${val / 100000}L`}
+                              />
+                              <Tooltip
+                                contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
+                                formatter={(value) => formatCurrency(Number(value))}
+                              />
+                              <Legend verticalAlign="top" height={36} iconType="circle" />
+                              <Area
+                                type="monotone"
+                                dataKey="Normal Loan"
+                                stroke="#94a3b8"
+                                strokeWidth={2}
+                                fillOpacity={1}
+                                fill="url(#colorNormal)"
+                              />
+                              <Area
+                                type="monotone"
+                                dataKey="Smart Plan"
+                                stroke="#2563eb"
+                                strokeWidth={3}
+                                fillOpacity={1}
+                                fill="url(#colorSmart)"
+                              />
+                            </AreaChart>
+                          </ResponsiveContainer>
+                        ) : (
+                          <div className="h-75 w-full flex items-center justify-center text-slate-400 font-mono text-xs">
+                            Loading visual comparison chart...
+                          </div>
+                        )}
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">

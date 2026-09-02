@@ -23,8 +23,11 @@ const outfit = Outfit({
 
 
 export const metadata: Metadata = {
-  title: 'React Project',
-  description: 'Built with Tailwind CSS',
+  title: {
+    default: 'Developer Workspace & Utilities | Rahul Maurya',
+    template: '%s | Rahul Maurya',
+  },
+  description: 'Interactive web utilities, UI component sandbox, and educational code playgrounds built by Rahul Maurya.',
 }
 
 export default function ProjectLayout({

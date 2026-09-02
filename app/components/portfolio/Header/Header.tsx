@@ -95,29 +95,31 @@ const Header = () => {
             setIsOpen(false);
         }
 
-        // Handle smooth scrolling for hash links
+        // Handle smooth scrolling for hash links if on the homepage
         if (path.includes('#')) {
-            e.preventDefault();
-            const hash = path.split('#')[1];
-            
-            if (hash) {
-                const element = document.getElementById(hash);
-                if (element) {
-                    const headerHeight = 80; // Adjust based on your header height
-                    const elementPosition = element.getBoundingClientRect().top + window.scrollY;
-                    const offsetPosition = elementPosition - headerHeight;
+            if (typeof window !== 'undefined' && window.location.pathname === '/') {
+                e.preventDefault();
+                const hash = path.split('#')[1];
+                
+                if (hash) {
+                    const element = document.getElementById(hash);
+                    if (element) {
+                        const headerHeight = 80; // Adjust based on your header height
+                        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+                        const offsetPosition = elementPosition - headerHeight;
 
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                } else {
+                    // Scroll to top for home
                     window.scrollTo({
-                        top: offsetPosition,
+                        top: 0,
                         behavior: 'smooth'
                     });
                 }
-            } else {
-                // Scroll to top for home
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
             }
         }
     };

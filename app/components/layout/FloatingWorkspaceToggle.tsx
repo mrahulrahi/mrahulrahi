@@ -14,7 +14,14 @@ export default function FloatingWorkspaceToggle() {
         return null;
     }
 
-    const isWorkspace = pathname === '/workspace';
+    const isWorkspace = Boolean(
+        pathname?.startsWith('/workspace') ||
+        pathname?.startsWith('/tools') ||
+        pathname?.startsWith('/ui') ||
+        pathname?.startsWith('/code-blocks') ||
+        pathname?.startsWith('/products') ||
+        pathname?.startsWith('/style-guide')
+    );
 
     const handleToggle = () => {
         if (isWorkspace) {
