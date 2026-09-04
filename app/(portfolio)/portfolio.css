@@ -9,10 +9,8 @@
   --mrr-dark-color: #26354e;
   --mrr-main-color: #1B9C85;
   --mrr-accent-color: #11D486;
-  --mrr-gradient: linear-gradient(135deg, var(--mrr-dark-color) 0%, var(--mrr-main-color) 50%, var(--mrr-dark-color) 100%);
+  --mrr-gradient: linear-gradient(135deg, var(--mrr-dark-color) 0%, var(--mrr-main-color) 50%, var(--mrr-dark-color) 100%), linear-gradient(45deg, var(--mrr-main-color) 0%, var(--mrr-accent-color) 100%);
   --mrr-gradient-text: linear-gradient(45deg, var(--mrr-main-color) 0%, var(--mrr-accent-color) 100%);
-  --mrr-gradient-reverse: linear-gradient(45deg, var(--mrr-main-color) 0%, var(--mrr-accent-color) 100%);
-
   --mrr-gradient-transparent: linear-gradient(45deg, rgba(38, 53, 78, 0.3), rgba(38, 53, 78, 0.1));
 }
 
@@ -20,8 +18,7 @@
 .dark {
   --mrr-text-color: #FFFFFF;
   --mrr-bg-color: #26354e;
-  --mrr-gradient: linear-gradient(45deg, var(--mrr-main-color) 0%, var(--mrr-accent-color) 100%);
-  --mrr-gradient-reverse: linear-gradient(135deg, var(--mrr-dark-color) 0%, var(--mrr-main-color) 50%, var(--mrr-dark-color) 100%);
+  --mrr-gradient: linear-gradient(45deg, var(--mrr-main-color) 0%, var(--mrr-accent-color) 100%, var(--mrr-dark-color) 0%, var(--mrr-main-color) 50%, var(--mrr-dark-color) 100%);
   --mrr-gradient-transparent: linear-gradient(45deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
 }
 
@@ -36,7 +33,7 @@ a:focus,input:focus,textarea:focus,*:focus{outline:0!important;}
 /* =================reset css ends here================= */
 /* =================core css starts here================= */
 body{font-family: var(--font-josefinSans);font-size:16px;line-height:1.6;font-weight:300;;color: inherit;background: var(--mrr-white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale; }
-.container{width:100%;max-width:1320px;}
+.container{width:100%;max-width:1400px;}
 a,input,button{display:inline-block;text-decoration:none;color:inherit;outline:none;transition:all 0.2s ease-in;-webkit-transition:all 0.2s ease-in;}
 a img{border:0px none;}
 a:hover{outline:none;color:var(--mrr-main-color);text-decoration:none;}
@@ -92,10 +89,9 @@ p:last-child{margin-bottom:0;}
 .bg-main{background-color: var(--mrr-main-color)!important;color: var(--mrr-white);}
 .bg-accent{background-color: var(--mrr-accent-color)!important;color: var(--mrr-white);}
 .bg-gradient{background: var(--mrr-gradient)!important;color: var(--mrr-white);}
-.bg-gradient-reverse{background: var(--mrr-gradient-reverse)!important;color: var(--mrr-white);}
 .bg-gradient-text{background: var(--mrr-gradient-text)!important;color: var(--mrr-white);}
 .bg-gradient-2{background: var(--mrr-gradient-2)!important;color: var(--mrr-white);}
-.bg-mask{  mask-image:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);}
+.bg-mask{ mask-image:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 80%, rgba(0, 0, 0, 0) 100%);}
 .bg-grey{background-color: #f5f5f5;}
 .bg-glass{background-color:rgba(255,255,255,0.3);box-shadow:0 4px 30px rgba(0,0,0,0.1);backdrop-filter:blur(5px);border:2px solid rgba(255,255,255,0.3);}
 .bg-graphic{position: relative;}
@@ -160,7 +156,6 @@ p:last-child{margin-bottom:0;}
 .banner-container:has(+ .portfolio-container){padding-bottom: 400px;}
 .ai-content-box{border-radius: 20px;padding: 40px;position: relative;z-index: 9;margin-top: -400px;}
 .ai-img-box{width: 40%;position: relative;}
-.ai-img-box::before{content:'';position:absolute;top:50%;left:50%;transform: translate(-50%,-50%);width:100%;height:100%;background: url(/animate-bg.svg) center / contain no-repeat ;}
 .ai-img{width: 70%;position: relative;padding-bottom: 70%;border-radius: 50%;aspect-ratio: 1;overflow: hidden;z-index: 5;}
 .ai-img img{width: 100%;height: 100%;object-fit: cover;position: absolute;top: 0;left: 0;object-position: top;}
 .ai-img::after {content: "";position: absolute;top: 0;left: 0;width: 100%;height: 100%;border-radius: 50%;border: 5px solid var(--mrr-white);background-color: transparent;border-right-color: var(--mrr-dark-color);animation: puterin 2s linear infinite;}

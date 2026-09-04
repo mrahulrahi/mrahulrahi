@@ -385,7 +385,7 @@ export default function Home() {
                 modules={[Navigation]}
                 slidesPerView={1}
                 spaceBetween={24}
-                breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 3 } }}
+                breakpoints={{ 320: { slidesPerView: 1 }, 768: { slidesPerView: 2 }, 1200: { slidesPerView: 4 } }}
                 navigation={{ nextEl: ".blog-arrow-next", prevEl: ".blog-arrow-prev", disabledClass: "swiper-button-disabled" }}
                 className="blog-card-list d-flex flex-wrap overflow-visible">
                 {articles.slice(0, 10).map((article: DevArticle) => (

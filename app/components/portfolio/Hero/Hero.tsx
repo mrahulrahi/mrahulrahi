@@ -46,9 +46,9 @@ const Hero = ({ children, hero }: Props) => {
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}>
                 <div className="hero-text">
-                  <h3><span className="bg-clip-text bg-gradient">{heyHighlight}</span> {heyRest}</h3>
-                  <h1>{firstName} <span className="bg-clip-text bg-gradient">{lastName}</span></h1>
-                  <h4>{role} <span className="bg-clip-text bg-gradient">{location}</span></h4>
+                  <h3><span className="opacity-75">{heyHighlight}</span> {heyRest}</h3>
+                  <h1>{firstName} <span className="opacity-75">{lastName}</span></h1>
+                  <h4>{role} <span className="opacity-75">{location}</span></h4>
                   <p>{description}</p>
                   <div className="hero-cta d-flex justify-content-center mt-4">
                     {children}
