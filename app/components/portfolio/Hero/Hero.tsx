@@ -10,6 +10,7 @@ interface HeroData {
   role?: string;
   location?: string;
   description?: string;
+  imageUrl?: string;
 }
 
 interface Props {
@@ -45,12 +46,16 @@ const Hero = ({ children, hero }: Props) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}>
+                <div className="hero-img">
+                  <Image src={hero?.imageUrl || "/hero-img.jpg"} alt={`${firstName + " " + lastName || "Rahul Maurya"} - Hero Image`} width={1000} height={1000} />
+                </div>
+
                 <div className="hero-text">
                   <h3><span className="opacity-75">{heyHighlight}</span> {heyRest}</h3>
                   <h1>{firstName} <span className="opacity-75">{lastName}</span></h1>
                   <h4>{role} <span className="opacity-75">{location}</span></h4>
                   <p>{description}</p>
-                  <div className="hero-cta d-flex justify-content-center mt-4">
+                  <div className="hero-cta d-flex flex-column flex-sm-row align-items-center justify-content-center gap-3 mt-4">
                     {children}
                   </div>
                 </div>

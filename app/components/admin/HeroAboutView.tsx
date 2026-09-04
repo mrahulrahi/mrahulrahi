@@ -11,18 +11,15 @@ const HeroAboutView: React.FC = () => {
         lastName: '',
         role: '',
         location: '',
-        description: ''
+        description: '',
+        imageUrl: ''
     });
     const [about, setAbout] = useState<AboutData>({
-        subheading: '',
-        name: '',
-        role: '',
         description: '',
         stackPrefix: '',
         stack: '',
         resumeTitle: '',
-        resumeUrl: '',
-        imageUrl: ''
+        resumeUrl: ''
     });
 
     useEffect(() => {
@@ -81,7 +78,7 @@ const HeroAboutView: React.FC = () => {
                 <section className="bg-white dark:bg-brand-surface p-6 rounded-xl border border-gray-200 dark:border-brand-border space-y-4">
                     <div className="flex items-center gap-3 border-b border-gray-100 dark:border-brand-border pb-4 mb-2">
                         <div className="p-2 bg-brand-mint/10 text-brand-mint rounded-lg"><Sparkles className="w-5 h-5" /></div>
-                        <h3 className="text-lg font-bold text-gray-900 dark:text-brand-text">1. Landing Hero Text</h3>
+                        <h3 className="text-lg font-bold text-gray-900 dark:text-brand-text">1. Landing Hero Text & Image</h3>
                     </div>
 
                     <form onSubmit={handleSaveHero} className="space-y-4">
@@ -104,9 +101,15 @@ const HeroAboutView: React.FC = () => {
                             </div>
                         </div>
 
-                        <div>
-                            <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Hero Subheading / Profession</label>
-                            <input required type="text" value={hero.role} onChange={e => setHero({...hero, role: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Hero Subheading / Profession</label>
+                                <input required type="text" value={hero.role} onChange={e => setHero({...hero, role: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
+                            </div>
+                            <div>
+                                <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Hero Image URL</label>
+                                <input type="text" value={hero.imageUrl || ''} onChange={e => setHero({...hero, imageUrl: e.target.value})} placeholder="/hero-img.jpg" className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
+                            </div>
                         </div>
 
                         <div>
@@ -129,22 +132,6 @@ const HeroAboutView: React.FC = () => {
 
                     <form onSubmit={handleSaveAbout} className="space-y-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div>
-                                <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Greeting Subheading</label>
-                                <input required type="text" value={about.subheading} onChange={e => setAbout({...about, subheading: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
-                            </div>
-                            <div>
-                                <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Display Name</label>
-                                <input required type="text" value={about.name} onChange={e => setAbout({...about, name: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
-                            </div>
-                            <div>
-                                <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Profession</label>
-                                <input required type="text" value={about.role} onChange={e => setAbout({...about, role: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
-                            </div>
-                            <div>
-                                <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Image URL</label>
-                                <input required type="text" value={about.imageUrl} onChange={e => setAbout({...about, imageUrl: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
-                            </div>
                             <div>
                                 <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Stack Prefix Text (e.g. 'Stack - ')</label>
                                 <input required type="text" value={about.stackPrefix} onChange={e => setAbout({...about, stackPrefix: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />

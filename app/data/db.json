@@ -102,6 +102,7 @@
   "timelineItems": [
     {
       "id": 1,
+      "type": "education",
       "title": "Schooling",
       "roles": [
         {
@@ -116,6 +117,7 @@
     },
     {
       "id": 2,
+      "type": "education",
       "title": "Diploma",
       "roles": [
         {
@@ -126,16 +128,7 @@
     },
     {
       "id": 3,
-      "title": "Fireliquidtaor",
-      "roles": [
-        {
-          "role": "Youtuber",
-          "duration": "Oct 2018 - Sep 2022"
-        }
-      ]
-    },
-    {
-      "id": 4,
+      "type": "education",
       "title": "BCA",
       "roles": [
         {
@@ -145,7 +138,30 @@
       ]
     },
     {
+      "id": 4,
+      "type": "education",
+      "title": "MCA",
+      "roles": [
+        {
+          "role": "Chandigarh University",
+          "duration": "July 2025 - Now"
+        }
+      ]
+    },
+    {
       "id": 5,
+      "type": "experience",
+      "title": "Fireliquidtaor",
+      "roles": [
+        {
+          "role": "Youtuber",
+          "duration": "Oct 2018 - Sep 2022"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "type": "experience",
       "title": "CodeClause",
       "roles": [
         {
@@ -156,6 +172,7 @@
     },
     {
       "id": 7,
+      "type": "experience",
       "title": "SlicemyPage",
       "roles": [
         {
@@ -164,19 +181,20 @@
         },
         {
           "role": "Frontend Developer",
-          "duration": "Jun 2023 - Now"
+          "duration": "Jun 2023 - Sep 2026"
         }
       ]
     },
     {
-      "id": 8,
-      "title": "MCA",
+      "title": "Simple Intelligent Systems",
+      "type": "experience",
       "roles": [
         {
-          "role": "Chandigarh University",
-          "duration": "July 2025 - Now"
+          "role": "Frontend Developer",
+          "duration": "Sep 2026 - Now"
         }
-      ]
+      ],
+      "id": 1788555145084
     }
   ],
   "certificates": [
@@ -222,7 +240,8 @@
     "lastName": "Maurya",
     "role": "Frontend Developer",
     "location": "[ India ]",
-    "description": "I craft beautiful and functional websites using HTML, CSS, JavaScript, and React — blending design precision with code clarity to build seamless user experiences."
+    "description": "I craft beautiful and functional websites using HTML, CSS, JavaScript, and React — blending design precision with code clarity to build seamless user experiences.",
+    "imageUrl": "/hero-img.jpg"
   },
   "stats": [
     {
@@ -262,15 +281,11 @@
     }
   ],
   "about": {
-    "subheading": "Hello, I'm",
-    "name": "Rahul Maurya",
-    "role": "Web Developer",
     "description": "I am a front-end web developer whose life's passion is Technology and I also love to click photographs. I can provide clean code and pixel perfect design. I also make the website responsive & more interactive with web animations. I try to make videos that are to-the-point and as content-packed as possible, so if that sounds like your cup of tea, a sub would be massively appreciated! 🙏",
     "stackPrefix": "Stack - ",
     "stack": "MERN Stack",
     "resumeTitle": "Download Resume",
-    "resumeUrl": "https://flowcv.com/resume/29mh2gwpwu",
-    "imageUrl": "/hero-img.jpg"
+    "resumeUrl": "https://flowcv.com/resume/29mh2gwpwu"
   },
   "skills": [
     {

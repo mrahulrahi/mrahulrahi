@@ -39,7 +39,7 @@ const ResumeView: React.FC = () => {
 
     // --- Timeline Handlers ---
     const handleAddTimeline = () => {
-        setCurrentTimeline({ title: '', roles: [{ role: '', duration: '' }] });
+        setCurrentTimeline({ title: '', type: 'education', roles: [{ role: '', duration: '' }] });
         setIsEditingTimeline(true);
     };
 
@@ -132,9 +132,18 @@ const ResumeView: React.FC = () => {
                     <button onClick={() => setIsEditingTimeline(false)} className="px-4 py-2 text-sm text-gray-500 hover:text-gray-900 dark:hover:text-white">Cancel</button>
                 </div>
                 <form onSubmit={handleSaveTimeline} className="bg-white dark:bg-brand-surface p-6 rounded-xl border border-gray-200 dark:border-brand-border space-y-4">
-                    <div>
-                        <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Title (e.g. Schooling, MCA)</label>
-                        <input required type="text" value={currentTimeline.title} onChange={e => setCurrentTimeline({...currentTimeline, title: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Title (e.g. Schooling, MCA)</label>
+                            <input required type="text" value={currentTimeline.title} onChange={e => setCurrentTimeline({...currentTimeline, title: e.target.value})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm" />
+                        </div>
+                        <div>
+                            <label className="block text-xs font-mono text-gray-500 dark:text-brand-muted mb-1">Type / Category</label>
+                            <select value={currentTimeline.type || 'education'} onChange={e => setCurrentTimeline({...currentTimeline, type: e.target.value as 'education' | 'experience'})} className="w-full px-3 py-2 rounded-lg bg-gray-50 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-900 dark:text-brand-text outline-none focus:border-brand-mint text-sm">
+                                <option value="education">Education</option>
+                                <option value="experience">Experience</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <div className="space-y-3 pt-4 border-t border-gray-100 dark:border-brand-border">
@@ -215,9 +224,14 @@ const ResumeView: React.FC = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                             {data.timelineItems.map(item => (
                                 <div key={item.id} className="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-5 group hover:border-brand-mint transition-all">
-                                    <div className="flex items-center gap-3 mb-4">
-                                        <div className="p-2 bg-brand-mint/10 text-brand-mint rounded-lg"><Clock className="w-5 h-5" /></div>
-                                        <h3 className="font-bold text-lg text-gray-900 dark:text-brand-text">{item.title}</h3>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <div className="flex items-center gap-3">
+                                            <div className="p-2 bg-brand-mint/10 text-brand-mint rounded-lg"><Clock className="w-5 h-5" /></div>
+                                            <h3 className="font-bold text-lg text-gray-900 dark:text-brand-text">{item.title}</h3>
+                                        </div>
+                                        <span className={`text-xs px-2 py-0.5 rounded-full capitalize font-medium ${item.type === 'experience' ? 'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300' : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300'}`}>
+                                            {item.type || 'education'}
+                                        </span>
                                     </div>
                                     <div className="space-y-3 mb-6">
                                         {(item.roles || []).map((r, i) => (

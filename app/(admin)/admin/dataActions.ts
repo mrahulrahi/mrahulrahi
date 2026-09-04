@@ -35,6 +35,7 @@ export interface Role {
 export interface TimelineItem {
     id?: number;
     title: string;
+    type?: 'education' | 'experience' | string;
     roles: Role[];
 }
 
@@ -68,18 +69,15 @@ export interface HeroData {
     role: string;
     location: string;
     description: string;
+    imageUrl?: string;
 }
 
 export interface AboutData {
-    subheading: string;
-    name: string;
-    role: string;
     description: string;
     stackPrefix: string;
     stack: string;
     resumeTitle: string;
     resumeUrl: string;
-    imageUrl: string;
 }
 
 export interface StatItem {
