@@ -164,6 +164,24 @@ export default function Home() {
           </motion.div>
         </ContentContainer>
 
+        <ContentContainer className="pt-0">
+          <motion.div className="ai-skill-box d-flex flex-column bg-gradient mb-4" initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}>
+            <Heading heading="The Toolkit" />
+
+            <motion.div className="skill-card-list d-flex flex-wrap" initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true, amount: 0.2 }}>
+              {skills && skills.map((skill: any) => <div key={skill.id} className="skill-card-item flex-grow-1">
+                <SkillCard skill={skill} />
+              </div>)}
+            </motion.div>
+          </motion.div>
+        </ContentContainer>
+
 
         <div className="text-scroll-wrapper m-0">
           {[1, 2].map((listIdx) => (
@@ -185,67 +203,112 @@ export default function Home() {
         </div>
 
         <Banner heading={<HeroHeading />} className="bg-dark bg-mask" id="about" >
-          <Button title="What I do ?" style="default" url="#timelineSection" icon={<TiArrowDownOutline />} />
+          <Button title="Continuous Learning" style="default" url="#continuousLearning" icon={<TiArrowDownOutline />} />
         </Banner>
 
-        <ContentContainer className="about-intro-container pt-0">
-          <div className="row">
+        <ContentContainer className="about-intro-container pt-0" heading="The Journey So Far">
+          <motion.div className="row g-4" initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}>
             <div className="col-lg-8">
-              <motion.div className="ai-skill-box d-flex flex-column bg-gradient mb-4" initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}>
-                <Heading heading="The Toolkit" />
-
-                <motion.div className="skill-card-list d-flex flex-wrap" initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.2 }}>
-                  {skills && skills.map((skill: any) => <div key={skill.id} className="skill-card-item flex-grow-1">
-                    <SkillCard skill={skill} />
-                  </div>)}
-                </motion.div>
-              </motion.div>
-
-              <motion.div className="ai-content-box d-flex flex-wrap bg-gradient overflow-hidden" initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}>
-                <motion.div className="ai-text" initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.2 }}>
-                  <p>{about?.description || "I am a front-end web developer..."}</p>
-                  <p>{about?.stackPrefix || "Stack - "}<span className="text-accent fw-bold">{about?.stack || "MERN Stack"}</span></p>
-                </motion.div>
-
-                <div className="text-scroll-wrapper mt-5">
-                  <div className="text-scroll-list">
-                    <div className="text-scroll-item">
-                      <div className="text-scroll-box">
-                        <h5>🧠 Turning ideas into interactive interfaces.</h5>
+              <div className="row g-4">
+                <div className="col-lg-6">
+                  <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}>
+                    <div className="timeline">
+                      <div className="timeline-section-header d-flex align-items-center gap-2 mb-3">
+                        <span className="timeline-badge-icon">🎓</span>
+                        <h4 className="timeline-section-title mb-0">Education</h4>
                       </div>
+                      {timelineItems.filter(item => item.type === "education" || (!item.type && (item.id ?? 0) <= 4)).map(item =>
+                        <div key={item.id} className="timeline-item" >
+                          <div className="timeline-content">
+                            <h3 className="timeline-content-title">{item.title}</h3>
+                            <ul className="timeline-content-desc">
+                              {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
+                            </ul>
+                          </div>
+                        </div>)}
                     </div>
-                    <div className="text-scroll-item">
-                      <div className="text-scroll-box">
-                        <h5>🎯 Let’s create something amazing together.</h5>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-scroll-list">
-                    <div className="text-scroll-item">
-                      <div className="text-scroll-box">
-                        <h5>🧠 Turning ideas into interactive interfaces.</h5>
-                      </div>
-                    </div>
-                    <div className="text-scroll-item">
-                      <div className="text-scroll-box">
-                        <h5>🎯 Let’s create something amazing together.</h5>
-                      </div>
-                    </div>
-                  </div>
+                  </motion.div>
                 </div>
-              </motion.div>
+                <div className="col-lg-6">
+                  <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}>
+                    <div className="timeline">
+                      <div className="timeline-section-header d-flex align-items-center gap-2 mb-3">
+                        <span className="timeline-badge-icon">💼</span>
+                        <h4 className="timeline-section-title mb-0">Experience</h4>
+                      </div>
+                      {timelineItems.filter(item => item.type === "experience" || (!item.type && (item.id ?? 0) > 4)).map(item =>
+                        <div key={item.id} className="timeline-item" >
+                          <div className="timeline-content">
+                            <h3 className="timeline-content-title">{item.title}</h3>
+                            <ul className="timeline-content-desc">
+                              {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
+                            </ul>
+                          </div>
+                        </div>)}
+                    </div>
+                  </motion.div>
+                </div>
+                <div className="col-lg-8">
+                  <motion.div className="ai-content-box d-flex flex-wrap bg-gradient overflow-hidden" initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}>
+                    <motion.div className="ai-text" initial={{ opacity: 0, x: 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, ease: "easeOut" }}
+                      viewport={{ once: true, amount: 0.2 }}>
+                      <p>{about?.description || "I am a front-end web developer..."}</p>
+                      <p>{about?.stackPrefix || "Stack - "}<span className="text-accent fw-bold">{about?.stack || "MERN Stack"}</span></p>
+                    </motion.div>
+
+                    <div className="text-scroll-wrapper mt-5">
+                      <div className="text-scroll-list">
+                        <div className="text-scroll-item">
+                          <div className="text-scroll-box">
+                            <h5>🧠 Turning ideas into interactive interfaces.</h5>
+                          </div>
+                        </div>
+                        <div className="text-scroll-item">
+                          <div className="text-scroll-box">
+                            <h5>🎯 Let’s create something amazing together.</h5>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="text-scroll-list">
+                        <div className="text-scroll-item">
+                          <div className="text-scroll-box">
+                            <h5>🧠 Turning ideas into interactive interfaces.</h5>
+                          </div>
+                        </div>
+                        <div className="text-scroll-item">
+                          <div className="text-scroll-box">
+                            <h5>🎯 Let’s create something amazing together.</h5>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
+                <div className="col-lg-4">
+                  <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    viewport={{ once: true, amount: 0.2 }}>
+                    <div className="timeline-img">
+                      <Image src="/rahi.webp" alt="Rahul Maurya Profile Picture" width={500} height={500} />
+                    </div>
+                  </motion.div >
+                </div>
+              </div>
             </div>
             <div className="col-lg-4">
               <motion.div className="stats-content-box bg-gradient position-relative z-3 mb-4 flex-grow-1" initial={{ opacity: 0, y: 50 }}
@@ -267,74 +330,6 @@ export default function Home() {
                     />
                   ))}
                 </ul>
-              </motion.div>
-            </div>
-
-          </div>
-        </ContentContainer>
-
-        <ContentContainer className="position-relative overflow-hidden pt-0" heading="The Journey So Far" id="timelineSection"
-          rightHeading={
-            <Button title="Continuous Learning" style="default" url="#continuousLearning" icon={<TiArrowDownOutline />} />
-          }
-          mobileRightHeading={true}>
-          <motion.div className="row g-4 align-items-center" initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.2 }}>
-
-            <div className="col-lg-5 col-md-6 order-2 order-lg-1">
-              <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}>
-                <div className="timeline">
-                  <div className="timeline-section-header d-flex align-items-center gap-2 mb-3">
-                    <span className="timeline-badge-icon">🎓</span>
-                    <h4 className="timeline-section-title mb-0">Education</h4>
-                  </div>
-                  {timelineItems.filter(item => item.type === "education" || (!item.type && (item.id ?? 0) <= 4)).map(item =>
-                    <div key={item.id} className="timeline-item" >
-                      <div className="timeline-content">
-                        <h3 className="timeline-content-title">{item.title}</h3>
-                        <ul className="timeline-content-desc">
-                          {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
-                        </ul>
-                      </div>
-                    </div>)}
-                </div>
-              </motion.div>
-            </div>
-
-            <div className="col-lg-2 col-md-12 order-1 order-lg-2 text-center">
-              <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}>
-                <Image src="/rahi.webp" alt="Rahul Maurya Profile Picture" width={500} height={500} />
-              </motion.div >
-            </div>
-
-            <div className="col-lg-5 col-md-6 order-3 order-lg-3">
-              <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}>
-                <div className="timeline">
-                  <div className="timeline-section-header d-flex align-items-center gap-2 mb-3">
-                    <span className="timeline-badge-icon">💼</span>
-                    <h4 className="timeline-section-title mb-0">Experience</h4>
-                  </div>
-                  {timelineItems.filter(item => item.type === "experience" || (!item.type && (item.id ?? 0) > 4)).map(item =>
-                    <div key={item.id} className="timeline-item" >
-                      <div className="timeline-content">
-                        <h3 className="timeline-content-title">{item.title}</h3>
-                        <ul className="timeline-content-desc">
-                          {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
-                        </ul>
-                      </div>
-                    </div>)}
-                </div>
               </motion.div>
             </div>
           </motion.div>

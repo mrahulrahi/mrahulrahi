@@ -160,7 +160,7 @@ p:last-child{margin-bottom:0;}
 
 .ai-skill-box{padding: 40px;border-radius: 20px;}
 .skill-card-list{width: 100%;margin-bottom: -5px;}
-.skill-card-item{width: 20%;padding: 0 2.5px;margin-bottom: 5px;}
+.skill-card-item{width: 14.28%;padding: 0 2.5px;margin-bottom: 5px;}
 
 .text-scroll-wrapper {display: flex;overflow: hidden;position: relative;white-space: nowrap;width: calc(100% + 40px);margin: 0 -20px;mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);}
 .text-scroll-list {display: flex;animation: scroll-horizontal 15s linear infinite;}
@@ -177,8 +177,9 @@ p:last-child{margin-bottom:0;}
 }
 
 
-.timeline-img-box{width: auto;height: 400px;position: relative;margin: 0 auto;z-index: 9;}
-.timeline-img-box img{width: 100%;height: 100%;object-fit: contain;filter: drop-shadow(2px 4px 6px var(--mrr-accent-color));}
+.timeline-img-box{width: auto;height: 340px;position: relative;margin: 0 auto;z-index: 9;background: var(--mrr-gradient-transparent);padding: 24px;border-radius: 24px;}
+.timeline-img{width: 100%;height: 100%;}
+.timeline-img img{width: 100%;height: 100%;object-fit: contain;filter: drop-shadow(2px 4px 6px var(--mrr-accent-color));}
 .timeline-container { width: 100%; height: 100%; }
 .timeline { width: 100%; height: 100%; position: relative; padding: 28px 24px; border-radius: 24px; overflow: hidden; background: var(--mrr-gradient-transparent); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.08); }
 .timeline::before {content: "";position: absolute; inset: 0;width: 100%;height: 100%;background: var(--mrr-gradient-transparent);opacity: 0.5; pointer-events: none; z-index: 0;}
