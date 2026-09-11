@@ -273,23 +273,27 @@ export default function Home() {
           </div>
         </ContentContainer>
 
-        <ContentContainer className="position-relative oveflow-hidden pt-0" heading="The Journey So Far" id="timelineSection"
+        <ContentContainer className="position-relative overflow-hidden pt-0" heading="The Journey So Far" id="timelineSection"
           rightHeading={
             <Button title="Continuous Learning" style="default" url="#continuousLearning" icon={<TiArrowDownOutline />} />
           }
           mobileRightHeading={true}>
-          <motion.div className="row align-items-center" initial={{ opacity: 0, y: 50 }}
+          <motion.div className="row g-4 align-items-center" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
 
-            <div className="col-lg-5">
+            <div className="col-lg-5 col-md-6 order-2 order-lg-1">
               <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}>
                 <div className="timeline">
-                  {timelineItems.filter(item => item.type === "education").map(item =>
+                  <div className="timeline-section-header d-flex align-items-center gap-2 mb-3">
+                    <span className="timeline-badge-icon">🎓</span>
+                    <h4 className="timeline-section-title mb-0">Education</h4>
+                  </div>
+                  {timelineItems.filter(item => item.type === "education" || (!item.type && (item.id ?? 0) <= 4)).map(item =>
                     <div key={item.id} className="timeline-item" >
                       <div className="timeline-content">
                         <h3 className="timeline-content-title">{item.title}</h3>
@@ -302,20 +306,26 @@ export default function Home() {
               </motion.div>
             </div>
 
-            <div className="col-lg-2">
+            <div className="col-lg-2 col-md-12 order-1 order-lg-2 text-center">
               <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}><Image src="/rahi.webp" alt="Rahul Maurya Profile Picture" width={500} height={500} /></motion.div >
+                viewport={{ once: true, amount: 0.2 }}>
+                <Image src="/rahi.webp" alt="Rahul Maurya Profile Picture" width={500} height={500} />
+              </motion.div >
             </div>
 
-            <div className="col-lg-5">
+            <div className="col-lg-5 col-md-6 order-3 order-lg-3">
               <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}>
                 <div className="timeline">
-                  {timelineItems.filter(item => item.type === "experience").map(item =>
+                  <div className="timeline-section-header d-flex align-items-center gap-2 mb-3">
+                    <span className="timeline-badge-icon">💼</span>
+                    <h4 className="timeline-section-title mb-0">Experience</h4>
+                  </div>
+                  {timelineItems.filter(item => item.type === "experience" || (!item.type && (item.id ?? 0) > 4)).map(item =>
                     <div key={item.id} className="timeline-item" >
                       <div className="timeline-content">
                         <h3 className="timeline-content-title">{item.title}</h3>
