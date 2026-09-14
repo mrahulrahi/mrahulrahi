@@ -206,132 +206,181 @@ export default function Home() {
           <Button title="Continuous Learning" style="default" url="#continuousLearning" icon={<TiArrowDownOutline />} />
         </Banner>
 
-        <ContentContainer className="about-intro-container pt-0" heading="The Journey So Far">
-          <motion.div className="row g-4" initial={{ opacity: 0, y: 50 }}
+        <ContentContainer className="about-intro-container pt-0" heading="The Journey & Craft">
+          <motion.div className="bento-grid" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            viewport={{ once: true, amount: 0.2 }}>
-            <div className="col-lg-8">
-              <div className="row g-4">
-                <div className="col-lg-6">
-                  <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}>
-                    <div className="timeline">
-                      <div className="timeline-section-header d-flex align-items-center gap-2 mb-3">
-                        <span className="timeline-badge-icon">🎓</span>
-                        <h4 className="timeline-section-title mb-0">Education</h4>
-                      </div>
-                      {timelineItems.filter(item => item.type === "education" || (!item.type && (item.id ?? 0) <= 4)).map(item =>
-                        <div key={item.id} className="timeline-item" >
-                          <div className="timeline-content">
-                            <h3 className="timeline-content-title">{item.title}</h3>
-                            <ul className="timeline-content-desc">
-                              {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
-                            </ul>
-                          </div>
-                        </div>)}
-                    </div>
-                  </motion.div>
-                </div>
-                <div className="col-lg-6">
-                  <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}>
-                    <div className="timeline">
-                      <div className="timeline-section-header d-flex align-items-center gap-2 mb-3">
-                        <span className="timeline-badge-icon">💼</span>
-                        <h4 className="timeline-section-title mb-0">Experience</h4>
-                      </div>
-                      {timelineItems.filter(item => item.type === "experience" || (!item.type && (item.id ?? 0) > 4)).map(item =>
-                        <div key={item.id} className="timeline-item" >
-                          <div className="timeline-content">
-                            <h3 className="timeline-content-title">{item.title}</h3>
-                            <ul className="timeline-content-desc">
-                              {item.roles && item.roles.map((role) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
-                            </ul>
-                          </div>
-                        </div>)}
-                    </div>
-                  </motion.div>
-                </div>
-                <div className="col-lg-8">
-                  <motion.div className="ai-content-box d-flex flex-wrap bg-gradient overflow-hidden" initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}>
-                    <motion.div className="ai-text" initial={{ opacity: 0, x: 50 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      viewport={{ once: true, amount: 0.2 }}>
-                      <p>{about?.description || "I am a front-end web developer..."}</p>
-                      <p>{about?.stackPrefix || "Stack - "}<span className="text-accent fw-bold">{about?.stack || "MERN Stack"}</span></p>
-                    </motion.div>
+            viewport={{ once: true, amount: 0.15 }}>
 
-                    <div className="text-scroll-wrapper mt-5">
-                      <div className="text-scroll-list">
-                        <div className="text-scroll-item">
-                          <div className="text-scroll-box">
-                            <h5>🧠 Turning ideas into interactive interfaces.</h5>
-                          </div>
-                        </div>
-                        <div className="text-scroll-item">
-                          <div className="text-scroll-box">
-                            <h5>🎯 Let’s create something amazing together.</h5>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-scroll-list">
-                        <div className="text-scroll-item">
-                          <div className="text-scroll-box">
-                            <h5>🧠 Turning ideas into interactive interfaces.</h5>
-                          </div>
-                        </div>
-                        <div className="text-scroll-item">
-                          <div className="text-scroll-box">
-                            <h5>🎯 Let’s create something amazing together.</h5>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
+            {/* Bento Card 1: Persona & Developer DNA */}
+            <motion.div className="bento-card bento-persona" initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              viewport={{ once: true }}>
+              <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-4 mb-4">
+                <div className="bento-avatar-wrapper">
+                  <Image src="/rahi.webp" alt="Rahul Maurya Profile" width={110} height={110} className="bento-avatar-img" />
                 </div>
-                <div className="col-lg-4">
-                  <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}>
-                    <div className="timeline-img">
-                      <Image src="/rahi.webp" alt="Rahul Maurya Profile Picture" width={500} height={500} />
-                    </div>
-                  </motion.div >
+                <div>
+                  <div className="bento-status-pill mb-2">
+                    <span className="status-dot-pulse"></span>
+                    Available for Work
+                  </div>
+                  <h3 className="text-white fw-bold mb-1" style={{ fontSize: '26px' }}>
+                    {hero?.firstName || "Rahul"} {hero?.lastName || "Maurya"}
+                  </h3>
+                  <p className="text-accent fw-semibold mb-0" style={{ fontSize: '15px' }}>
+                    {hero?.role || "Frontend Architect & UI Developer"}
+                  </p>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-4">
-              <motion.div className="stats-content-box bg-gradient position-relative z-3 mb-4 flex-grow-1" initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: true, amount: 0.2 }}>
-                <div className="stats-title mb-4">
-                  <h4>The Edge I Bring</h4>
-                  <h3>Stats</h3>
+
+              <p className="text-white-50 mb-4" style={{ fontSize: '14.5px', lineHeight: '1.6' }}>
+                {about?.description || "I craft high-performance, pixel-perfect web interfaces with modern frameworks, blending design precision and clean code."}
+              </p>
+
+              <div className="mt-auto">
+                <span className="d-block text-xs font-mono text-muted mb-2 text-uppercase tracking-wider">Core Tech Stack</span>
+                <div className="bento-stack-tags">
+                  <span className="bento-tag">⚛️ React</span>
+                  <span className="bento-tag">▲ Next.js</span>
+                  <span className="bento-tag">📘 TypeScript</span>
+                  <span className="bento-tag">🎨 Tailwind CSS</span>
+                  <span className="bento-tag">⚡ JavaScript</span>
+                  <span className="bento-tag">🟢 Node.js</span>
                 </div>
-                <ul className="stats-list d-flex flex-wrap">
-                  {stats && stats.map((stat: any) => (
-                    <StatCard
-                      key={stat.id}
-                      icon={stat.icon}
-                      countEnd={stat.countEnd}
-                      suffix={stat.suffix}
-                      description={stat.description}
-                    />
-                  ))}
-                </ul>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
+
+            {/* Bento Card 2: Impact & Reach Stats */}
+            <motion.div className="bento-card bento-stats" initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+              viewport={{ once: true }}>
+              <div className="d-flex align-items-center justify-content-between mb-3">
+                <h4 className="text-white fw-bold mb-0" style={{ fontSize: '18px' }}>📈 Impact & Reach</h4>
+                <span className="badge bg-glass text-accent px-2 py-1" style={{ fontSize: '11px' }}>Live Metrics</span>
+              </div>
+              
+              <div className="bento-stats-grid">
+                {stats && stats.slice(0, 4).map((stat: any) => (
+                  <div key={stat.id} className="bento-stat-item">
+                    <div className="bento-stat-num">
+                      {stat.countEnd}{stat.suffix || "+"}
+                    </div>
+                    <div className="bento-stat-label">{stat.description}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Bento Card 3: Interactive Terminal Widget */}
+            <motion.div className="bento-card bento-terminal-card" initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+              viewport={{ once: true }}>
+              <div className="terminal-header">
+                <div className="terminal-dots">
+                  <span className="terminal-dot red"></span>
+                  <span className="terminal-dot yellow"></span>
+                  <span className="terminal-dot green"></span>
+                </div>
+                <span className="terminal-title">rahul.config.ts</span>
+                <span className="text-xs text-secondary font-mono">UTF-8</span>
+              </div>
+              <div className="terminal-body">
+                <div><span className="code-keyword">const</span> <span className="code-variable">developer</span> = &#123;</div>
+                <div className="ps-3"><span className="code-property">name:</span> <span className="code-string">&quot;{hero?.firstName || "Rahul"} {hero?.lastName || "Maurya"}&quot;</span>,</div>
+                <div className="ps-3"><span className="code-property">role:</span> <span className="code-string">&quot;Frontend Developer &amp; UI Specialist&quot;</span>,</div>
+                <div className="ps-3"><span className="code-property">craft:</span> [<span className="code-string">&quot;Clean Architecture&quot;</span>, <span className="code-string">&quot;Pixel Perfection&quot;</span>, <span className="code-string">&quot;Fluid Animations&quot;</span>],</div>
+                <div className="ps-3"><span className="code-property">mindset:</span> <span className="code-string">&quot;Turning ideas into responsive, interactive digital products.&quot;</span>,</div>
+                <div className="ps-3"><span className="code-property">openForHiring:</span> <span className="code-keyword">true</span></div>
+                <div>&#125;;</div>
+                <div className="mt-2" style={{ color: '#00DC82' }}><span className="code-comment">// $ rahul.buildMasterpiece() 🚀</span></div>
+              </div>
+            </motion.div>
+
+            {/* Bento Card 4: Academic Journey */}
+            <motion.div className="bento-card bento-timeline-edu" initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+              viewport={{ once: true }}>
+              <div className="d-flex align-items-center gap-2 pb-2 mb-2 border-bottom border-secondary border-opacity-25">
+                <span style={{ fontSize: '18px' }}>🎓</span>
+                <h4 className="text-white fw-bold mb-0" style={{ fontSize: '17px' }}>Academics</h4>
+              </div>
+              <div className="bento-timeline-list">
+                {timelineItems.filter(item => item.type === "education" || (!item.type && (item.id ?? 0) <= 4)).map(item => (
+                  <div key={item.id} className="bento-timeline-item">
+                    <div className="bento-timeline-title">{item.title}</div>
+                    {item.roles && item.roles.map(r => (
+                      <div key={r.role}>
+                        <div className="bento-timeline-sub">{r.role}</div>
+                        <div className="bento-timeline-date">{r.duration}</div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Bento Card 5: Career Milestones */}
+            <motion.div className="bento-card bento-timeline-exp" initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
+              viewport={{ once: true }}>
+              <div className="d-flex align-items-center gap-2 pb-2 mb-2 border-bottom border-secondary border-opacity-25">
+                <span style={{ fontSize: '18px' }}>💼</span>
+                <h4 className="text-white fw-bold mb-0" style={{ fontSize: '17px' }}>Career</h4>
+              </div>
+              <div className="bento-timeline-list">
+                {timelineItems.filter(item => item.type === "experience" || (!item.type && (item.id ?? 0) > 4)).map(item => (
+                  <div key={item.id} className="bento-timeline-item">
+                    <div className="bento-timeline-title">{item.title}</div>
+                    {item.roles && item.roles.map(r => (
+                      <div key={r.role}>
+                        <div className="bento-timeline-sub">{r.role}</div>
+                        <div className="bento-timeline-date">{r.duration}</div>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Bento Card 6: Philosophy Ticker Marquee */}
+            <motion.div className="bento-card bento-ticker-card p-3" initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+              viewport={{ once: true }}>
+              <div className="text-scroll-wrapper m-0">
+                <div className="text-scroll-list">
+                  <div className="text-scroll-item">
+                    <div className="text-scroll-box">
+                      <h5 className="mb-0 text-white-50">🧠 Turning complex logic into effortless interfaces.</h5>
+                    </div>
+                  </div>
+                  <div className="text-scroll-item">
+                    <div className="text-scroll-box">
+                      <h5 className="mb-0 text-accent">🎯 Clean code. Pixel perfection. High performance.</h5>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-scroll-list">
+                  <div className="text-scroll-item">
+                    <div className="text-scroll-box">
+                      <h5 className="mb-0 text-white-50">🧠 Turning complex logic into effortless interfaces.</h5>
+                    </div>
+                  </div>
+                  <div className="text-scroll-item">
+                    <div className="text-scroll-box">
+                      <h5 className="mb-0 text-accent">🎯 Clean code. Pixel perfection. High performance.</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
           </motion.div>
         </ContentContainer>
 
