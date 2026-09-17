@@ -1,0 +1,224 @@
+/* Project Filter Section Styles */
+.project-filter-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 36px;
+  width: 100%;
+}
+
+.pfc-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.pfc-search-wrapper {
+  position: relative;
+  min-width: 260px;
+  max-width: 380px;
+  width: 100%;
+}
+
+.pfc-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mrr-accent-color, #11d486);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.pfc-search-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50px;
+  padding: 10px 38px 10px 42px;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.pfc-search-input:focus {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: var(--mrr-accent-color, #11d486);
+  box-shadow: 0 0 20px rgba(17, 212, 134, 0.2);
+}
+
+.pfc-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.pfc-clear-search {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: rgba(255, 255, 255, 0.7);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pfc-clear-search:hover {
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.pfc-stats-counter {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pfc-stats-badge {
+  background: rgba(17, 212, 134, 0.15);
+  color: var(--mrr-accent-color, #11d486);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-family: monospace;
+}
+
+/* Category Filter Tabs */
+.pfc-tabs-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pfc-tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  backdrop-filter: blur(8px);
+}
+
+.pfc-tab-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.pfc-tab-btn.active {
+  background: linear-gradient(135deg, rgba(17, 212, 134, 0.2), rgba(6, 182, 212, 0.2));
+  border-color: var(--mrr-accent-color, #11d486);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(17, 212, 134, 0.25);
+}
+
+.pfc-tab-count {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: monospace;
+}
+
+.pfc-tab-btn.active .pfc-tab-count {
+  background: var(--mrr-accent-color, #11d486);
+  color: #0b1329;
+  font-weight: 700;
+}
+
+/* Empty Filter State */
+.pfc-empty-state {
+  width: 100%;
+  padding: 60px 20px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pfc-empty-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  opacity: 0.7;
+}
+
+.pfc-empty-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.pfc-empty-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.pfc-reset-btn {
+  background: linear-gradient(135deg, var(--mrr-main-color), var(--mrr-accent-color));
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(17, 212, 134, 0.3);
+}
+
+.pfc-reset-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(17, 212, 134, 0.5);
+}
+
+@media (max-width: 767.98px) {
+  .pfc-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .pfc-search-wrapper {
+    max-width: 100%;
+  }
+  .pfc-tabs-container {
+    overflow-x: auto;
+    padding-bottom: 6px;
+    flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+  .pfc-tab-btn {
+    flex-shrink: 0;
+  }
+}

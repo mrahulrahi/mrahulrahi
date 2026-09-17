@@ -6,6 +6,7 @@ import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Hero from "@/app/components/portfolio/Hero/Hero";
 import ProjectCard from "@/app/components/portfolio/ProjectCard/ProjectCard";
+import ProjectFilterSection from "@/app/components/portfolio/ProjectFilterSection/ProjectFilterSection";
 import ContentContainer from "@/app/components/ui/ContentContainer";
 import Button from "@/app/components/ui/Button";
 import StatCard from '@/app/components/portfolio/StatCard/StatCard';
@@ -148,19 +149,11 @@ export default function Home() {
         </Banner>
 
         <ContentContainer className="portfolio-container pt-0">
-          <motion.div className="ai-content-box bg-gradient">
-            <Heading heading='Crafted With Code' />
-
-            <div className="project-card-list d-flex flex-wrap">
-              {projectsCards.map(card => (
-                <motion.div key={card.id} className="project-card-item" initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, ease: "easeOut" }}
-                  viewport={{ once: true, amount: 0.2 }}>
-                  <ProjectCard card={card} />
-                </motion.div>
-              ))}
-            </div>
+          <motion.div className="ai-content-box bg-gradient" initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}>
+            <ProjectFilterSection projects={projectsCards} />
           </motion.div>
         </ContentContainer>
 
