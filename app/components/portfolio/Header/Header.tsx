@@ -204,7 +204,7 @@ const Header = () => {
                                 </div>
                             </div>
                         </div>
-                        <motion.div className="header-btn d-flex align-items-center gap-2" initial={{ opacity: 0, filter: 'blur(10px)' }}
+                        <motion.div className="header-btn d-flex align-items-center gap-3" initial={{ opacity: 0, filter: 'blur(10px)' }}
                             whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                             viewport={{ once: true, amount: 0.2 }}>
