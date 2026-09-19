@@ -164,19 +164,29 @@ export default function PortfolioView({ initialPortfolioData, initialArticles }:
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.2 }}>
                     <div className="timeline">
-                      <div className="timeline-section-header d-flex align-items-center gap-2 mb-3">
+                      <div className="timeline-section-header d-flex align-items-center gap-2 mb-4">
                         <span className="timeline-badge-icon">🎓</span>
                         <h4 className="timeline-section-title mb-0">Education</h4>
                       </div>
-                      {timelineItems.filter((item: any) => item.type === "education" || (!item.type && (item.id ?? 0) <= 4)).map((item: any) =>
-                        <div key={item.id} className="timeline-item" >
-                          <div className="timeline-content">
-                            <h3 className="timeline-content-title">{item.title}</h3>
-                            <ul className="timeline-content-desc">
-                              {item.roles && item.roles.map((role: any) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
-                            </ul>
-                          </div>
-                        </div>)}
+                      <div className="timeline-list">
+                        {timelineItems.filter((item: any) => item.type === "education" || (!item.type && (item.id ?? 0) <= 4)).map((item: any) =>
+                          <div key={item.id} className="timeline-item" >
+                            <div className="timeline-node">
+                              <span className="timeline-node-dot" />
+                            </div>
+                            <div className="timeline-content">
+                              <h3 className="timeline-content-title">{item.title}</h3>
+                              <ul className="timeline-content-desc">
+                                {item.roles && item.roles.map((role: any) => (
+                                  <li key={role.role} className="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                    <span className="timeline-role-name">{role.role}</span>
+                                    <span className="timeline-duration-badge">{role.duration}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>)}
+                      </div>
                     </div>
                   </motion.div>
                 </div>
@@ -186,19 +196,29 @@ export default function PortfolioView({ initialPortfolioData, initialArticles }:
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.2 }}>
                     <div className="timeline">
-                      <div className="timeline-section-header d-flex align-items-center gap-2 mb-3">
+                      <div className="timeline-section-header d-flex align-items-center gap-2 mb-4">
                         <span className="timeline-badge-icon">💼</span>
                         <h4 className="timeline-section-title mb-0">Experience</h4>
                       </div>
-                      {timelineItems.filter((item: any) => item.type === "experience" || (!item.type && (item.id ?? 0) > 4)).map((item: any) =>
-                        <div key={item.id} className="timeline-item" >
-                          <div className="timeline-content">
-                            <h3 className="timeline-content-title">{item.title}</h3>
-                            <ul className="timeline-content-desc">
-                              {item.roles && item.roles.map((role: any) => <li key={role.role}><span>{role.role}</span>{role.duration}</li>)}
-                            </ul>
-                          </div>
-                        </div>)}
+                      <div className="timeline-list">
+                        {timelineItems.filter((item: any) => item.type === "experience" || (!item.type && (item.id ?? 0) > 4)).map((item: any) =>
+                          <div key={item.id} className="timeline-item" >
+                            <div className="timeline-node">
+                              <span className="timeline-node-dot" />
+                            </div>
+                            <div className="timeline-content">
+                              <h3 className="timeline-content-title">{item.title}</h3>
+                              <ul className="timeline-content-desc">
+                                {item.roles && item.roles.map((role: any) => (
+                                  <li key={role.role} className="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                    <span className="timeline-role-name">{role.role}</span>
+                                    <span className="timeline-duration-badge">{role.duration}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>)}
+                      </div>
                     </div>
                   </motion.div>
                 </div>

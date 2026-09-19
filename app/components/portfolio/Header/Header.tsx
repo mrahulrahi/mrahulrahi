@@ -32,7 +32,7 @@ const Header = () => {
         // Detect active section
         const sections = ['about', 'portfolio', 'contact'];
         const headerHeight = 80; // Adjust based on your header height
-        
+
         // Check if we're at the top of the page
         if (scrollY < 100) {
             setActiveSection('/');
@@ -46,7 +46,7 @@ const Header = () => {
                 const rect = element.getBoundingClientRect();
                 const elementTop = rect.top + scrollY;
                 const elementBottom = elementTop + rect.height;
-                
+
                 // Check if section is in viewport
                 if (scrollY + headerHeight >= elementTop && scrollY + headerHeight < elementBottom) {
                     setActiveSection(`/#${sectionId}`);
@@ -71,7 +71,7 @@ const Header = () => {
 
         // Initial check
         handleScroll();
-        
+
         window.addEventListener('scroll', onScroll);
         return () => {
             window.removeEventListener('scroll', onScroll);
@@ -90,7 +90,7 @@ const Header = () => {
         setIsOpen(prev => !prev);
     };
 
-    const handleLinkClick = (e : any, path : any) => {
+    const handleLinkClick = (e: any, path: any) => {
         if (isOpen) {
             setIsOpen(false);
         }
@@ -100,7 +100,7 @@ const Header = () => {
             if (typeof window !== 'undefined' && window.location.pathname === '/') {
                 e.preventDefault();
                 const hash = path.split('#')[1];
-                
+
                 if (hash) {
                     const element = document.getElementById(hash);
                     if (element) {
@@ -176,22 +176,40 @@ const Header = () => {
                                     transition={{ duration: 0.6, ease: "easeOut" }}
                                     viewport={{ once: true, amount: 0.2 }}>
                                     {links.map(link => (
-                                        <li key={link.path} className={`${
-                                            link.path === currentPath ||
-                                            link.path === activeSection || 
-                                            (link.path === '#contact' && activeSection === '/#contact')
-                                                ? 'active' 
+                                        <li key={link.path} className={`${link.path === currentPath ||
+                                                link.path === activeSection ||
+                                                (link.path === '#contact' && activeSection === '/#contact')
+                                                ? 'active'
                                                 : ''
-                                        } nav-item`}>
-                                            <Link 
-                                                className="nav-link" 
-                                                href={link.path} 
+                                            } nav-item`}>
+                                            <Link
+                                                className="nav-link"
+                                                href={link.path}
                                                 onClick={(e) => handleLinkClick(e, link.path)}
                                             >
                                                 {link.label}
                                             </Link>
                                         </li>
                                     ))}
+                                    <li className="">
+                                        <button
+                                            onClick={() => {
+                                                if (typeof window !== 'undefined') {
+                                                    window.dispatchEvent(new CustomEvent('open-command-palette'));
+                                                }
+                                            }}
+                                            className="header-cmd-trigger"
+                                            aria-label="Open Command Palette"
+                                            title="Open Command Palette (⌘K / Ctrl+K)"
+                                        >
+                                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                                                <circle cx="11" cy="11" r="8"></circle>
+                                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                            </svg>
+                                            <span className="header-cmd-text">Search</span>
+                                            <span className="header-cmd-badge">⌘K</span>
+                                        </button>
+                                    </li>
                                 </motion.ul>
                                 <div className="navbar-bottom mt-auto d-xl-none">
                                     <div className="social-links d-flex align-items-center justify-content-center">
@@ -209,28 +227,10 @@ const Header = () => {
                             transition={{ duration: 0.6, ease: "easeOut" }}
                             viewport={{ once: true, amount: 0.2 }}>
                             <button
-                                onClick={() => {
-                                    if (typeof window !== 'undefined') {
-                                        window.dispatchEvent(new CustomEvent('open-command-palette'));
-                                    }
-                                }}
-                                className="header-cmd-trigger"
-                                aria-label="Open Command Palette"
-                                title="Open Command Palette (⌘K / Ctrl+K)"
-                            >
-                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                                    <circle cx="11" cy="11" r="8"></circle>
-                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                                </svg>
-                                <span className="header-cmd-text">Search</span>
-                                <span className="header-cmd-badge">⌘K</span>
-                            </button>
-
-                            <button
                                 onClick={toggle}
                                 className={`dark-mode-toggler d-flex align-items-center justify-content-center p-2 ${isDark
-                                        ? 'active'
-                                        : ''
+                                    ? 'active'
+                                    : ''
                                     }`}
                                 aria-label="Toggle dark mode"
                             >

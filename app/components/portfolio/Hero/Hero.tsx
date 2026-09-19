@@ -46,14 +46,33 @@ const Hero = ({ children, hero }: Props) => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}>
-                <div className="hero-img">
-                  <Image src={hero?.imageUrl || "/hero-img.jpg"} alt={`${firstName + " " + lastName || "Rahul Maurya"} - Hero Image`} width={1000} height={1000} />
+                
+                {/* Live Availability Status Pill */}
+                <div className="hero-status-pill d-inline-flex align-items-center gap-2 mb-3">
+                  <span className="hero-status-dot" />
+                  <span className="hero-status-text">Available for Freelance & Full-Time Roles</span>
+                </div>
+
+                {/* Avatar with Radiant Glow Ring */}
+                <div className="hero-img-wrapper mx-auto mb-3">
+                  <div className="hero-avatar-halo" />
+                  <div className="hero-img">
+                    <Image src={hero?.imageUrl || "/hero-img.jpg"} alt={`${firstName + " " + lastName || "Rahul Maurya"} - Hero Image`} width={1000} height={1000} priority />
+                  </div>
                 </div>
 
                 <div className="hero-text">
                   <h3><span className="opacity-75">{heyHighlight}</span> {heyRest}</h3>
                   <h1>{firstName} <span className="opacity-75">{lastName}</span></h1>
                   <h4>{role} <span className="opacity-75">{location}</span></h4>
+                  
+                  {/* Specialty Chips */}
+                  <div className="hero-tags d-flex flex-wrap justify-content-center gap-2 my-3">
+                    <span className="hero-tag-chip">⚡ Next.js & React</span>
+                    <span className="hero-tag-chip">🎨 Pixel-Perfect UI/UX</span>
+                    <span className="hero-tag-chip">🚀 MERN Stack</span>
+                  </div>
+
                   <p>{description}</p>
                   <div className="hero-cta d-flex flex-column flex-sm-row align-items-center justify-content-center gap-3 mt-4">
                     {children}
