@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import './InterestCard.css'
+import './InterestCard.css';
 import * as LuIcons from "react-icons/lu";
+import { ExternalLink } from "lucide-react";
 
 interface InterestCard {
   title: string;
@@ -8,38 +9,56 @@ interface InterestCard {
   url: string;
   imgUrl: string;
   items: { label: string; icon: string }[];
-  createdBy: string
+  createdBy: string;
 }
 
 const InterestCard = (interest: InterestCard) => {
-   const IconOneComponent = LuIcons[interest.items[0].icon as keyof typeof LuIcons];
-   const IconTwoComponent = LuIcons[interest.items[1].icon as keyof typeof LuIcons];
+  const IconOneComponent = LuIcons[interest.items[0].icon as keyof typeof LuIcons] || LuIcons.LuSparkles;
+  const IconTwoComponent = LuIcons[interest.items[1].icon as keyof typeof LuIcons] || LuIcons.LuGlobe;
 
   return (
-    <>
-      <div className="interest-card-item">
-        <a href={interest.url} target="_blank" rel="noopener noreferrer" className="interest-card-box d-flex flex-column">
-          <div className="interest-card-image">
-            <Image src={interest.imgUrl} alt={interest.title} loading="lazy" width={600} height={400} unoptimized />
+    <div className="interest-card-item">
+      <a
+        href={interest.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="interest-card-box d-flex flex-column"
+      >
+        <div className="interest-card-image">
+          <Image
+            src={interest.imgUrl}
+            alt={interest.title}
+            loading="lazy"
+            width={600}
+            height={400}
+            unoptimized
+          />
+          <div className="interest-view-badge">
+            <span>Explore</span>
+            <ExternalLink className="w-3.5 h-3.5" />
           </div>
-          <div className="interest-card-text">
-            <h4>{interest.title}</h4>
-            <p>{interest.desc}</p>
-          </div>
+        </div>
 
-          <div className="interest-card-cta mt-auto">
-            <ul className="interest-card-cta-list d-flex align-items-center justify-content-between">
-              <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-                <IconOneComponent /> {interest.items[0].label}
-              </li>
-              <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-                <IconTwoComponent />{interest.items[1].label}
-              </li>
-            </ul>
-          </div>
-        </a>
-      </div>
-    </>)
+        <div className="interest-card-text">
+          <h4>{interest.title}</h4>
+          <p>{interest.desc}</p>
+        </div>
+
+        <div className="interest-card-cta mt-auto">
+          <ul className="interest-card-cta-list d-flex align-items-center justify-content-between">
+            <li className="interest-card-cta-item d-flex gap-2 align-items-center">
+              <IconOneComponent />
+              <span>{interest.items[0].label}</span>
+            </li>
+            <li className="interest-card-cta-item d-flex gap-2 align-items-center">
+              <IconTwoComponent />
+              <span>{interest.items[1].label}</span>
+            </li>
+          </ul>
+        </div>
+      </a>
+    </div>
+  );
 };
 
-export default InterestCard
+export default InterestCard;
