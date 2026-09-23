@@ -57,7 +57,14 @@ const Hero = ({ children, hero }: Props) => {
                 <div className="hero-img-wrapper mx-auto mb-3">
                   <div className="hero-avatar-halo" />
                   <div className="hero-img">
-                    <Image src={hero?.imageUrl || "/hero-img.jpg"} alt={`${firstName + " " + lastName || "Rahul Maurya"} - Hero Image`} width={1000} height={1000} priority />
+                    <Image
+                      src={hero?.imageUrl || "/hero-img.jpg"}
+                      alt={`${firstName + " " + lastName || "Rahul Maurya"} - Hero Image`}
+                      width={200}
+                      height={200}
+                      sizes="100px"
+                      priority
+                    />
                   </div>
                 </div>
 

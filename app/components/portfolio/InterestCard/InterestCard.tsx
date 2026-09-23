@@ -20,7 +20,14 @@ const InterestCard = (interest: InterestCard) => {
       <div className="interest-card-item">
         <a href={interest.url} target="_blank" rel="noopener noreferrer" className="interest-card-box d-flex flex-column">
           <div className="interest-card-image">
-            <Image src={interest.imgUrl} alt={interest.title} loading="lazy" width={600} height={400} unoptimized />
+            <Image
+              src={interest.imgUrl}
+              alt={interest.title}
+              loading="lazy"
+              width={600}
+              height={400}
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </div>
           <div className="interest-card-text">
             <h4>{interest.title}</h4>

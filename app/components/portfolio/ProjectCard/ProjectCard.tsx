@@ -45,7 +45,16 @@ const ProjectCard = ({ card }: Props) => {
                     <div className="pcb-img-head d-flex align-items-center justify-content-end pe-3">
                         <ul className="pcb-ih-dots d-flex align-items-center justify-content-end gap-1"><li></li><li></li><li></li></ul>
                     </div>
-                    <div className="pcb-img"> <Image src={card.imgUrl} alt={card.title || "Project preview"} loading="lazy" width={800} height={500} unoptimized /> </div>
+                    <div className="pcb-img">
+                        <Image
+                            src={card.imgUrl}
+                            alt={card.title || "Project preview"}
+                            loading="lazy"
+                            width={800}
+                            height={500}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                    </div>
                 </div>
 
                 <div className="pcb-text d-flex flex-column">

@@ -25,9 +25,9 @@ const BlogCard = (blog: BlogCard) => {
               src={blog.cover_image ? blog.cover_image : `https://placehold.co/800/1B9C85/white.png?text=${encodeURIComponent(blog.title)}&font=poppins`} 
               alt={blog.title} 
               loading="lazy" 
-              width={1000} 
-              height={1000} 
-              unoptimized
+              width={600} 
+              height={400} 
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
             />
           </div>
           <div className="blog-card-text">
@@ -51,9 +51,9 @@ const BlogCard = (blog: BlogCard) => {
                   src={blog.user.profile_image || `https://placehold.co/100/1B9C85/white.png?text=${encodeURIComponent(blog.user?.name?.[0] || 'U')}`} 
                   alt={blog.user.name} 
                   loading="lazy" 
-                  width={100} 
-                  height={100} 
-                  unoptimized
+                  width={32} 
+                  height={32} 
+                  sizes="32px"
                 />
                 <p>Article by <span>{blog.user.name}</span></p>
               </li>
