@@ -1,22 +1,6 @@
-import * as FaIcons from "react-icons/fa6";
-import * as FaIconsReg from "react-icons/fa";
-import * as MdIcons from "react-icons/md";
-import * as LuIcons from "react-icons/lu";
 import './SkillCard.css';
-import * as BiIcons from "react-icons/bi";
-import * as TbIcons from "react-icons/tb";
-import * as SiIcons from "react-icons/si";
 import { JSX } from "react";
-
-const iconPacks: Record<string, any> = {
-    ...FaIcons,
-    ...FaIconsReg,
-    ...MdIcons,
-    ...LuIcons,
-    ...BiIcons,
-    ...TbIcons,
-    ...SiIcons,
-};
+import { renderIcon } from '@/app/components/portfolio/icons';
 
 interface Props {
     skill : Skill;
@@ -30,15 +14,8 @@ interface Skill {
 }
 
 const SkillCard = ({skill} : Props) => {
-    const skillIcon = skill.icon || (typeof skill.logo === 'string' ? skill.logo : null);
-    let renderedLogo = typeof skill.logo === 'string' ? null : skill.logo;
-
-    if (skillIcon) {
-        const IconComponent = iconPacks[skillIcon];
-        if (IconComponent) {
-            renderedLogo = <IconComponent />;
-        }
-    }
+    const iconName = skill.icon || (typeof skill.logo === 'string' ? skill.logo : undefined);
+    const renderedLogo = typeof skill.logo === 'object' ? skill.logo : renderIcon(iconName);
 
     return (
         <>

@@ -1,6 +1,6 @@
 import './BlogCard.css';
 import Image from 'next/image';
-import * as LuIcons from "react-icons/lu";
+import { LuHeart, LuCalendarDays } from "react-icons/lu";
 
 interface BlogCard {
   title: string;
@@ -19,7 +19,13 @@ const BlogCard = (blog: BlogCard) => {
 
   return (
     <>
-        <a href={blog.url} target="_blank" rel="noopener noreferrer" className="blog-card-box d-flex flex-column">
+        <a 
+          href={blog.url} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className="blog-card-box d-flex flex-column"
+          aria-label={`Read article: ${blog.title}`}
+        >
           <div className="blog-card-image">
             <Image 
               src={blog.cover_image ? blog.cover_image : `https://placehold.co/800/1B9C85/white.png?text=${encodeURIComponent(blog.title)}&font=poppins`} 
@@ -38,10 +44,10 @@ const BlogCard = (blog: BlogCard) => {
           <div className="blog-card-cta mt-auto">
             <ul className="d-flex align-items-center justify-content-between">
               <li className="blog-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-                <LuIcons.LuHeart /> {blog.public_reactions_count}
+                <LuHeart /> {blog.public_reactions_count}
               </li>
               <li className="blog-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-                <LuIcons.LuCalendarDays />{blog.published_at.slice(0, 10).split('-').reverse().join('/')}
+                <LuCalendarDays />{blog.published_at.slice(0, 10).split('-').reverse().join('/')}
               </li>
             </ul>
 

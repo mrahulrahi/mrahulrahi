@@ -3,8 +3,7 @@ import Image from 'next/image';
 import './ProjectCard.css'
 import { FaGlobe, FaGithub } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
-import * as RiIcons from "react-icons/ri";
-
+import { getIconComponent } from '@/app/components/portfolio/icons';
 
 interface Props {
     card: Item;
@@ -21,24 +20,21 @@ interface Item {
     technologies?: string[];
 }
 
-
 const ProjectCard = ({ card }: Props) => {
     const IconOneComponent = card.technologies && card.technologies[0]
-        ? RiIcons[card.technologies[0] as keyof typeof RiIcons]
+        ? getIconComponent(card.technologies[0])
         : null;
     const IconTwoComponent = card.technologies && card.technologies[1]
-        ? RiIcons[card.technologies[1] as keyof typeof RiIcons]
+        ? getIconComponent(card.technologies[1])
         : null;
     const IconThreeComponent = card.technologies && card.technologies[2]
-        ? RiIcons[card.technologies[2] as keyof typeof RiIcons]
+        ? getIconComponent(card.technologies[2])
         : null;
     const IconFourComponent = card.technologies && card.technologies[3]
-        ? RiIcons[card.technologies[3] as keyof typeof RiIcons]
+        ? getIconComponent(card.technologies[3])
         : null;
 
-
     return (
-
         <>
             <div className="project-card-box d-flex flex-wrap justify-content-between bg-violet w-100 h-100">
                 <div className="pcb-img-frame">
@@ -71,20 +67,33 @@ const ProjectCard = ({ card }: Props) => {
                         </div>
                     </div>
                     <div className="pcb-cta d-flex flex-wrap align-items-center mt-auto">
-                        <a className="link-btn d-flex flex-wrap align-items-center" href={card.liveUrl} target='_blank' rel='noopener noreferrer'>
-                            <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"
-                            ><FaGlobe /></span>See Project
-                            <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div></a>
+                        <a 
+                            className="link-btn d-flex flex-wrap align-items-center" 
+                            href={card.liveUrl} 
+                            target='_blank' 
+                            rel='noopener noreferrer'
+                            aria-label={`View live demo of ${card.title}`}
+                        >
+                            <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"><FaGlobe /></span>
+                            See Project
+                            <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div>
+                        </a>
 
-                        <a className="link-btn d-flex flex-wrap align-items-center" href={card.gitHubUrl} target='_blank' rel='noopener noreferrer'>
-                            <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"
-                            ><FaGithub /></span>See Github
-                            <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div></a>
+                        <a 
+                            className="link-btn d-flex flex-wrap align-items-center" 
+                            href={card.gitHubUrl} 
+                            target='_blank' 
+                            rel='noopener noreferrer'
+                            aria-label={`View GitHub repository for ${card.title}`}
+                        >
+                            <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"><FaGithub /></span>
+                            See Github
+                            <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div>
+                        </a>
                     </div>
                 </div>
             </div>
         </>
-
     )
 }
 

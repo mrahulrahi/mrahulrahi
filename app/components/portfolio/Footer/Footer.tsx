@@ -69,7 +69,9 @@ const Footer = () => {
             <div className="row">
               <div className="col-lg-12">
                 <div className="footer-upper-box d-flex flex-wrap align-items-center justify-content-between">
-                  <Link className="footer-logo" href="/"><Image src="/logo.svg" alt="Rahul Maurya Logo" width={500} height={500} /></Link>
+                  <Link className="footer-logo" href="/" aria-label="Rahul Maurya Homepage">
+                    <Image src="/logo.svg" alt="Rahul Maurya Logo" width={500} height={500} sizes="180px" loading="lazy" />
+                  </Link>
  
                   <div className="footer-nav">
                     <div className="footer-nav-list d-flex flex-wrap align-items-center justify-content-between">

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import * as motion from "motion/react-client";
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,7 +12,6 @@ import ProjectFilterSection from "@/app/components/portfolio/ProjectFilterSectio
 import ContentContainer from "@/app/components/ui/ContentContainer";
 import Button from "@/app/components/ui/Button";
 import StatCard from '@/app/components/portfolio/StatCard/StatCard';
-import MouseFollower from '@/app/components/layout/MouseFollower';
 import Banner from '@/app/components/portfolio/Banner/Banner';
 import InterestCard from "@/app/components/portfolio/InterestCard/InterestCard";
 import BlogCard from "@/app/components/portfolio/BlogCard/BlogCard";
@@ -21,6 +21,8 @@ import CertificateCard from '@/app/components/portfolio/CertificateCard/Certific
 import SkillCard from '@/app/components/portfolio/SkillCard/SkillCard';
 import { DevArticle } from '@/app/utils/getArticles';
 import { TiArrowRightOutline, TiArrowDownOutline } from "react-icons/ti";
+
+const MouseFollower = dynamic(() => import('@/app/components/layout/MouseFollower'), { ssr: false });
 
 const HeroHeading = () => {
   return (
@@ -269,7 +271,14 @@ export default function PortfolioView({ initialPortfolioData, initialArticles }:
                     transition={{ duration: 0.6, ease: "easeOut" }}
                     viewport={{ once: true, amount: 0.2 }}>
                     <div className="timeline-img">
-                      <Image src="/rahi.webp" alt="Rahul Maurya Profile Picture" width={500} height={500} />
+                      <Image 
+                        src="/rahi.webp" 
+                        alt="Rahul Maurya Profile Picture" 
+                        loading="lazy"
+                        width={500} 
+                        height={500} 
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                      />
                     </div>
                   </motion.div >
                 </div>

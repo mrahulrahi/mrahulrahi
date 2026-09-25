@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import dynamic from 'next/dynamic'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import './portfolio.css'
@@ -9,7 +10,7 @@ import Footer from '@/app/components/portfolio/Footer/Footer'
 import FloatingWorkspaceToggle from '@/app/components/layout/FloatingWorkspaceToggle'
 import CommandPalette from '@/app/components/layout/CommandPalette/CommandPalette'
 
-// Google Fonts setup
+// Google Fonts setup with optimal display
 const josefinSans = Josefin_Sans({
   subsets: ['latin'],
   display: 'swap',
@@ -51,6 +52,11 @@ export const metadata: Metadata = {
   authors: [{ name: 'Rahul Maurya', url: 'https://mrahulrahi.vercel.app' }],
   creator: 'Rahul Maurya',
   publisher: 'Rahul Maurya',
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   alternates: {
     canonical: '/',
   },
@@ -131,6 +137,10 @@ export default function PortfolioLayout({
   return (
     <html lang="en" className={`${josefinSans.variable} ${outfit.variable}`}>
       <head>
+        <link rel="preconnect" href="https://dev.to" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://media.dev.to" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://dev.to" />
+        <link rel="dns-prefetch" href="https://media.dev.to" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

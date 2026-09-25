@@ -32,11 +32,11 @@ const Hero = ({ children, hero }: Props) => {
 
   return (
     <section className="hero-container position-relative">
-      <div className="hero-icons">
-        <div className="hero-icon hi-1"> <Image src="/html-5.png" alt="HTML5" width={48} height={48} /> </div>
-        <div className="hero-icon hi-2"> <Image src="/css-3.png" alt="CSS3" width={48} height={48} /> </div>
-        <div className="hero-icon hi-3"> <Image src="/java.png" alt="Java" width={48} height={48} /> </div>
-        <div className="hero-icon hi-4"> <Image src="/react.png" alt="React" width={48} height={48} /> </div>
+      <div className="hero-icons" aria-hidden="true">
+        <div className="hero-icon hi-1"> <Image src="/html-5.png" alt="HTML5 technology" width={48} height={48} sizes="48px" loading="lazy" /> </div>
+        <div className="hero-icon hi-2"> <Image src="/css-3.png" alt="CSS3 technology" width={48} height={48} sizes="48px" loading="lazy" /> </div>
+        <div className="hero-icon hi-3"> <Image src="/java.png" alt="JavaScript technology" width={48} height={48} sizes="48px" loading="lazy" /> </div>
+        <div className="hero-icon hi-4"> <Image src="/react.png" alt="React technology" width={48} height={48} sizes="48px" loading="lazy" /> </div>
       </div>
       <div className="container">
         <div className="row">

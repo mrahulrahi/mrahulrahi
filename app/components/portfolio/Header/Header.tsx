@@ -133,10 +133,10 @@ const Header = () => {
     ];
 
     const socialLinks = [
-        { path: 'https://linkedin.com/in/mrahulrahi/', icon: <FaLinkedinIn /> },
-        { path: 'https://github.com/mrahulrahi/', icon: <FaGithub /> },
-        { path: 'https://www.youtube.com/@fireliquidator', icon: <FaYoutube /> },
-        { path: 'https://t.me/mrahulrahi', icon: <FaTelegram /> },
+        { path: 'https://linkedin.com/in/mrahulrahi/', label: 'LinkedIn', icon: <FaLinkedinIn /> },
+        { path: 'https://github.com/mrahulrahi/', label: 'GitHub', icon: <FaGithub /> },
+        { path: 'https://www.youtube.com/@fireliquidator', label: 'YouTube', icon: <FaYoutube /> },
+        { path: 'https://t.me/mrahulrahi', label: 'Telegram', icon: <FaTelegram /> },
     ];
 
     return (
@@ -144,11 +144,15 @@ const Header = () => {
             <nav className="navbar navbar-expand-xl">
                 <div className="container">
                     <div className="nav-inside d-flex align-items-center justify-content-between">
-                        <motion.a className="navbar-logo" href="/" initial={{ opacity: 0, filter: 'blur(10px)' }}
+                        <motion.a 
+                            className="navbar-logo" 
+                            href="/" 
+                            aria-label="Rahul Maurya - Homepage"
+                            initial={{ opacity: 0, filter: 'blur(10px)' }}
                             whileInView={{ opacity: 1, filter: 'blur(0px)' }}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                             viewport={{ once: true, amount: 0.2 }}>
-                            <Image src="/logo.svg" alt="Logo" width={200} height={200} />
+                            <Image src="/logo.svg" alt="Rahul Maurya - Logo" width={200} height={200} sizes="180px" priority />
                         </motion.a>
                         <motion.button
                             id="navbarToggle"
@@ -214,7 +218,14 @@ const Header = () => {
                                 <div className="navbar-bottom mt-auto d-xl-none">
                                     <div className="social-links d-flex align-items-center justify-content-center">
                                         {socialLinks.map(link => (
-                                            <Link key={link.path} className="d-flex align-items-center justify-content-center" href={link.path}>
+                                            <Link 
+                                                key={link.path} 
+                                                className="d-flex align-items-center justify-content-center" 
+                                                href={link.path}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                aria-label={link.label}
+                                            >
                                                 {link.icon}
                                             </Link>
                                         ))}

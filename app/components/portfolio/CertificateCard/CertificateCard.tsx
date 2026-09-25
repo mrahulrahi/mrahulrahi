@@ -1,6 +1,5 @@
 import './CertificateCard.css'
 import Link from "next/link"
-import * as SiIcons from "react-icons/si";
 import GradientIcon from "./GradientIcon";
 
 interface Props {
@@ -16,11 +15,15 @@ interface Item {
 }
 
 const CertificateCard = ({ item }: Props) => {
-    const IconComponent = SiIcons[item.icon as keyof typeof SiIcons];
-
     return (
         <>
-            <Link className="certificate-card-box d-flex" href={item.url} target="_blank" rel="noopener noreferrer">
+            <Link 
+                className="certificate-card-box d-flex" 
+                href={item.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label={`View ${item.title} certificate from ${item.organization}`}
+            >
                 <div className="certificate-card-text">
                     <h4>{item.title}</h4>
                     <p>{item.organization}</p>

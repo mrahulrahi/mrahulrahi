@@ -55,24 +55,32 @@ const MessageForm = () => {
         <div className="row g-2">
           <div className="col-md-5">
             <input
+              id="sender-name"
               type="text"
               placeholder="Enter your full name here*"
+              aria-label="Full Name"
+              autoComplete="name"
               required
               className="form-control mb-2"
               {...register('name')}
               disabled={isSubmitting}
             />
             <input
+              id="sender-email"
               type="email"
               placeholder="Enter your email here*"
+              aria-label="Email Address"
+              autoComplete="email"
               required
               className="form-control mb-2"
               {...register('email')}
               disabled={isSubmitting}
             />
             <input
+              id="sender-subject"
               type="text"
               placeholder="Enter your subject here*"
+              aria-label="Subject"
               required
               className="form-control"
               {...register('subject')}
@@ -81,8 +89,10 @@ const MessageForm = () => {
           </div>
           <div className="col-md-7">
             <textarea
+              id="sender-message"
               className="form-control"
               placeholder="Enter your message here*"
+              aria-label="Message Content"
               required
               rows={6}
               {...register('message')}
