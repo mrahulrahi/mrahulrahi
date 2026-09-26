@@ -1,9 +1,5 @@
 import React, { useId } from "react";
-import * as SiIcons from "react-icons/si";
-import * as FaIcons from "react-icons/fa";
-import * as AiIcons from "react-icons/ai";
-import * as RiIcons from "react-icons/ri";
-import * as TbIcons from "react-icons/tb";
+import { getIconComponent } from "@/app/components/portfolio/icons";
 
 interface GradientIconProps {
   iconName: string;
@@ -13,24 +9,14 @@ interface GradientIconProps {
   uniqueId?: string; // optional: used if rendering in a list
 }
 
-const iconLibraries: Record<string, Record<string, any>> = {
-  si: SiIcons,
-  fa: FaIcons,
-  ai: AiIcons,
-  ri: RiIcons,
-  tb: TbIcons,
-};
-
 const GradientIcon: React.FC<GradientIconProps> = ({
   iconName,
   size = 100,
-  library = "si",
-  gradient = ["rgba(58, 58, 58, 0.5),", "rgba(58, 58, 58, 0.1)"],
+  gradient = ["rgba(58, 58, 58, 0.5)", "rgba(58, 58, 58, 0.1)"],
   uniqueId,
 }) => {
   const reactId = useId();
-  const IconPack = iconLibraries[library];
-  const IconComponent = IconPack?.[iconName];
+  const IconComponent = getIconComponent(iconName);
 
   if (!IconComponent) return null;
 
@@ -38,7 +24,7 @@ const GradientIcon: React.FC<GradientIconProps> = ({
   const gradientId = `gradient-${iconName}-${uniqueId || stableId}`;
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+    <svg aria-hidden="true" width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
       <defs>
         <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor={gradient[0]} />

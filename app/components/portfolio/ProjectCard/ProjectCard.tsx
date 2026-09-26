@@ -3,8 +3,7 @@ import Image from 'next/image';
 import './ProjectCard.css'
 import { FaGlobe, FaGithub } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
-import * as RiIcons from "react-icons/ri";
-
+import { getIconComponent } from '@/app/components/portfolio/icons';
 
 interface Props {
     card: Item;
@@ -21,39 +20,45 @@ interface Item {
     technologies?: string[];
 }
 
-
 const ProjectCard = ({ card }: Props) => {
     const IconOneComponent = card.technologies && card.technologies[0]
-        ? RiIcons[card.technologies[0] as keyof typeof RiIcons]
+        ? getIconComponent(card.technologies[0])
         : null;
     const IconTwoComponent = card.technologies && card.technologies[1]
-        ? RiIcons[card.technologies[1] as keyof typeof RiIcons]
+        ? getIconComponent(card.technologies[1])
         : null;
     const IconThreeComponent = card.technologies && card.technologies[2]
-        ? RiIcons[card.technologies[2] as keyof typeof RiIcons]
+        ? getIconComponent(card.technologies[2])
         : null;
     const IconFourComponent = card.technologies && card.technologies[3]
-        ? RiIcons[card.technologies[3] as keyof typeof RiIcons]
+        ? getIconComponent(card.technologies[3])
         : null;
 
-
     return (
-
         <>
             <div className="project-card-box d-flex flex-wrap justify-content-between bg-violet w-100 h-100">
                 <div className="pcb-img-frame">
                     <div className="pcb-img-head d-flex align-items-center justify-content-end pe-3">
                         <ul className="pcb-ih-dots d-flex align-items-center justify-content-end gap-1"><li></li><li></li><li></li></ul>
                     </div>
-                    <div className="pcb-img"> <Image src={card.imgUrl} alt={card.title || "Project preview"} loading="lazy" width={800} height={500} unoptimized /> </div>
+                    <div className="pcb-img">
+                        <Image
+                            src={card.imgUrl}
+                            alt={card.title || "Project preview"}
+                            loading="lazy"
+                            width={800}
+                            height={500}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                    </div>
                 </div>
 
                 <div className="pcb-text d-flex flex-column">
                     <h3 className="bg-clip-text bg-gradient-text fw-bold"> {card.label} </h3>
-                    <h5> {card.title} </h5>
+                    <h4> {card.title} </h4>
                     <p className="mb-2"> {card.para}</p>
                     <div className="pcb-tools d-flex justify-content-between align-items-center mb-3">
-                        <h5>Tools used</h5>
+                        <h4>Tools used</h4>
                         <div className="badge-list d-flex gap-2 fs-4">
                             {IconOneComponent && <div className="badge-item text-accent"><IconOneComponent /></div>}
                             {IconTwoComponent && <div className="badge-item text-accent"><IconTwoComponent /></div>}
@@ -62,20 +67,33 @@ const ProjectCard = ({ card }: Props) => {
                         </div>
                     </div>
                     <div className="pcb-cta d-flex flex-wrap align-items-center mt-auto">
-                        <a className="link-btn d-flex flex-wrap align-items-center" href={card.liveUrl} target='_blank' rel='noopener noreferrer'>
-                            <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"
-                            ><FaGlobe /></span>See Project
-                            <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div></a>
+                        <a 
+                            className="link-btn d-flex flex-wrap align-items-center" 
+                            href={card.liveUrl} 
+                            target='_blank' 
+                            rel='noopener noreferrer'
+                            aria-label={`View live demo of ${card.title}`}
+                        >
+                            <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"><FaGlobe /></span>
+                            See Project
+                            <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div>
+                        </a>
 
-                        <a className="link-btn d-flex flex-wrap align-items-center" href={card.gitHubUrl} target='_blank' rel='noopener noreferrer'>
-                            <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"
-                            ><FaGithub /></span>See Github
-                            <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div></a>
+                        <a 
+                            className="link-btn d-flex flex-wrap align-items-center" 
+                            href={card.gitHubUrl} 
+                            target='_blank' 
+                            rel='noopener noreferrer'
+                            aria-label={`View GitHub repository for ${card.title}`}
+                        >
+                            <span className="link-icon d-flex align-items-center justify-content-center rounded-circle me-2"><FaGithub /></span>
+                            See Github
+                            <div className="link-arrow d-flex align-items-center justify-content-center"><FaArrowRightLong /></div>
+                        </a>
                     </div>
                 </div>
             </div>
         </>
-
     )
 }
 

@@ -32,11 +32,11 @@ const Hero = ({ children, hero }: Props) => {
 
   return (
     <section className="hero-container position-relative">
-      <div className="hero-icons">
-        <div className="hero-icon hi-1"> <Image src="/html-5.png" alt="HTML5" width={48} height={48} /> </div>
-        <div className="hero-icon hi-2"> <Image src="/css-3.png" alt="CSS3" width={48} height={48} /> </div>
-        <div className="hero-icon hi-3"> <Image src="/java.png" alt="Java" width={48} height={48} /> </div>
-        <div className="hero-icon hi-4"> <Image src="/react.png" alt="React" width={48} height={48} /> </div>
+      <div className="hero-icons" aria-hidden="true">
+        <div className="hero-icon hi-1"> <Image src="/html-5.png" alt="HTML5 technology" width={48} height={48} sizes="48px" loading="lazy" /> </div>
+        <div className="hero-icon hi-2"> <Image src="/css-3.png" alt="CSS3 technology" width={48} height={48} sizes="48px" loading="lazy" /> </div>
+        <div className="hero-icon hi-3"> <Image src="/java.png" alt="JavaScript technology" width={48} height={48} sizes="48px" loading="lazy" /> </div>
+        <div className="hero-icon hi-4"> <Image src="/react.png" alt="React technology" width={48} height={48} sizes="48px" loading="lazy" /> </div>
       </div>
       <div className="container">
         <div className="row">
@@ -57,14 +57,21 @@ const Hero = ({ children, hero }: Props) => {
                 <div className="hero-img-wrapper mx-auto mb-3">
                   <div className="hero-avatar-halo" />
                   <div className="hero-img">
-                    <Image src={hero?.imageUrl || "/hero-img.jpg"} alt={`${firstName + " " + lastName || "Rahul Maurya"} - Hero Image`} width={1000} height={1000} priority />
+                    <Image
+                      src={hero?.imageUrl || "/hero-img.jpg"}
+                      alt={`${firstName + " " + lastName || "Rahul Maurya"} - Hero Image`}
+                      width={200}
+                      height={200}
+                      sizes="100px"
+                      priority
+                    />
                   </div>
                 </div>
 
                 <div className="hero-text">
-                  <h3><span className="opacity-75">{heyHighlight}</span> {heyRest}</h3>
+                  <p className="hero-salutation"><span className="opacity-75">{heyHighlight}</span> {heyRest}</p>
                   <h1>{firstName} <span className="opacity-75">{lastName}</span></h1>
-                  <h4>{role} <span className="opacity-75">{location}</span></h4>
+                  <h2>{role} <span className="opacity-75">{location}</span></h2>
                   
                   {/* Specialty Chips */}
                   <div className="hero-tags d-flex flex-wrap justify-content-center gap-2 my-3">

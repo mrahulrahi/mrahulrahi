@@ -29,7 +29,7 @@ const ContentContainer = ({ children, background, className, id, column, heading
                                     transition={{ duration: 0.6, ease: "easeOut" }}
                                     viewport={{ once: true, amount: 0.2 }}>
                                     <div className="heading-left">
-                                        <h3>{heading}</h3>
+                                        <h2>{heading}</h2>
                                         <div className="heading-underline"></div>
                                     </div>
                                     {rightHeading && <div className="heading-right d-none d-md-block">

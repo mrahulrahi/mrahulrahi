@@ -25,7 +25,7 @@ const Banner = ({ children, heading, logo, bgImage, className, id }: Props) => {
               transition={{ duration: 0.6, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.2 }}>
               {logo && <div className="banner-logo"><Image src={logo} alt="Banner Logo" width={200} height={200} unoptimized /></div>}
-              {heading && <h1>{heading}</h1>}
+              {heading && <h2>{heading}</h2>}
               {children &&
                 <div className="banner-cta d-flex flex-column flex-sm-row align-items-center justify-content-center gap-3">
                   {children}

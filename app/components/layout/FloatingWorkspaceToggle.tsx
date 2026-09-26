@@ -37,11 +37,11 @@ export default function FloatingWorkspaceToggle() {
             className="floating-toggle-btn"
             aria-label={isWorkspace ? "Switch to Portfolio Homepage" : "Switch to Developer Workspace"}
         >
-            <div className="floating-toggle-icon">
+            <div className="floating-toggle-icon" aria-hidden="true">
                 {isWorkspace ? (
-                    <User className="w-4 h-4" />
+                    <User className="w-4 h-4" aria-hidden="true" />
                 ) : (
-                    <Cpu className="w-4 h-4 animate-pulse-mint" />
+                    <Cpu className="w-4 h-4 animate-pulse-mint" aria-hidden="true" />
                 )}
             </div>
             
@@ -49,7 +49,7 @@ export default function FloatingWorkspaceToggle() {
                 {isWorkspace ? 'PORTFOLIO' : 'WORKSPACE'}
             </span>
 
-            <ArrowLeftRight className="w-3.5 h-3.5 floating-toggle-arrow" />
+            <ArrowLeftRight className="w-3.5 h-3.5 floating-toggle-arrow" aria-hidden="true" />
         </button>
     );
 }
