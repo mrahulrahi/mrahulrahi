@@ -37,7 +37,7 @@ const InterestCard = (interest: InterestCard) => {
             />
           </div>
           <div className="interest-card-text">
-            <h4>{interest.title}</h4>
+            <h3>{interest.title}</h3>
             <p>{interest.desc}</p>
           </div>
 

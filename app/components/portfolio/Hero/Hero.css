@@ -135,9 +135,9 @@
 }
 
 .hero-text {font-size: 18px;line-height: 1.5;color: var(--mrr-text-color);}
+.hero-text .hero-salutation{font-family: var(--font-outfit);font-size:28px;font-weight:600;line-height: 1.2; margin-bottom: 10px;}
 .hero-text h1{font-size:72px;font-weight:600;line-height:1;margin-bottom:10px;}
-.hero-text h3{font-size:28px;line-height: 1.2; margin-bottom: 10px;}
-.hero-text h4{font-size:36px;line-height: 1.2; margin-bottom: 20px;}
+.hero-text h2{font-size:36px;font-weight:600;line-height: 1.2; margin-bottom: 20px;}
 
 
 /* ========================================== 
@@ -153,7 +153,8 @@
 @media (max-width:991.98px){
     .hero-text{font-size:16px;}
     .hero-text h1 {font-size: 60px;}
-    .hero-text h3 {font-size: 24px;}
+    .hero-text .hero-salutation {font-size: 24px;}
+    .hero-text h2 {font-size: 32px;}
 }
 
 /* =================================================  
@@ -167,7 +168,8 @@
     .hero-content {min-height: calc(100vh - 80px);}
     .hero-text{font-size:14px;}
     .hero-text h1 {font-size: 50px;}
-    .hero-text h4 {font-size: 30px; margin-bottom: 15px;}   
+    .hero-text .hero-salutation {font-size: 20px;}
+    .hero-text h2 {font-size: 30px; margin-bottom: 15px;}   
 }
 
 /* ======================================================

@@ -290,8 +290,8 @@ export default function PortfolioView({ initialPortfolioData, initialArticles }:
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 viewport={{ once: true, amount: 0.2 }}>
                 <div className="stats-title mb-4">
-                  <h4>The Edge I Bring</h4>
-                  <h3>Stats</h3>
+                  <p className="stats-subtitle mb-1 text-accent fw-bold text-uppercase" style={{ letterSpacing: '0.08em', fontSize: '13px' }}>The Edge I Bring</p>
+                  <h3 className="mb-0">Stats</h3>
                 </div>
                 <ul className="stats-list d-flex flex-wrap">
                   {stats && stats.map((stat: any) => (

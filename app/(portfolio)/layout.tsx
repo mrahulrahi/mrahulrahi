@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import './portfolio.css'
-import ImportBsJS from '@/app/importBsJS'
 import { Josefin_Sans, Outfit } from 'next/font/google'
 import Header from '@/app/components/portfolio/Header/Header'
 import Footer from '@/app/components/portfolio/Footer/Footer'
@@ -152,7 +151,6 @@ export default function PortfolioLayout({
         <CommandPalette />
         <FloatingWorkspaceToggle />
         <Footer />
-        <ImportBsJS />
         <SpeedInsights />
         <Analytics />
       </body>

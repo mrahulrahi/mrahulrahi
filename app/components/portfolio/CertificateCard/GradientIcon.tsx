@@ -24,7 +24,7 @@ const GradientIcon: React.FC<GradientIconProps> = ({
   const gradientId = `gradient-${iconName}-${uniqueId || stableId}`;
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+    <svg aria-hidden="true" width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
       <defs>
         <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor={gradient[0]} />

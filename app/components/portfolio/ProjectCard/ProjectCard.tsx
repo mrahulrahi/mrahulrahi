@@ -55,10 +55,10 @@ const ProjectCard = ({ card }: Props) => {
 
                 <div className="pcb-text d-flex flex-column">
                     <h3 className="bg-clip-text bg-gradient-text fw-bold"> {card.label} </h3>
-                    <h5> {card.title} </h5>
+                    <h4> {card.title} </h4>
                     <p className="mb-2"> {card.para}</p>
                     <div className="pcb-tools d-flex justify-content-between align-items-center mb-3">
-                        <h5>Tools used</h5>
+                        <h4>Tools used</h4>
                         <div className="badge-list d-flex gap-2 fs-4">
                             {IconOneComponent && <div className="badge-item text-accent"><IconOneComponent /></div>}
                             {IconTwoComponent && <div className="badge-item text-accent"><IconTwoComponent /></div>}

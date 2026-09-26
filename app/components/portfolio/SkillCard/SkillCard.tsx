@@ -20,7 +20,7 @@ const SkillCard = ({skill} : Props) => {
     return (
         <>
             <div className="skill-card-box w-100 h-100">
-                <div className="skill-card-icon mx-auto">
+                <div className="skill-card-icon mx-auto" aria-hidden="true">
                     {renderedLogo}
                 </div>
                 <p>{skill.title}</p>

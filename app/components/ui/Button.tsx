@@ -11,9 +11,9 @@ interface Button {
 const Button = (props: Button) => {
   return (
     <a href={props.url} target={props.target} rel={props.target === '_blank' ? 'noopener noreferrer' : undefined} className={`btn btn-${props.style} d-flex align-items-center`}>
-      {props.icon && <span className="btn-icon left">{props.icon}</span>}
+      {props.icon && <span className="btn-icon left" aria-hidden="true">{props.icon}</span>}
       {props.title}
-      {props.icon && <span className="btn-icon right">{props.icon}</span>}
+      {props.icon && <span className="btn-icon right" aria-hidden="true">{props.icon}</span>}
     </a>
   )
 }

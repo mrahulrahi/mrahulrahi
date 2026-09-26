@@ -9,9 +9,9 @@
 .interest-card-box:hover .interest-card-image img{transform: scale(1.05);}
 .interest-card-cta-list{margin-top: 16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.1);}
 .interest-card-text{margin: 20px 0 10px;font-size:16px;font-weight:300;color:var(--mrr-white);}
-.interest-card-text h4{font-size:24px;font-weight:600;margin-bottom: 8px;}
+.interest-card-text h3{font-size:24px;font-weight:600;margin-bottom: 8px;}
 .interest-card-text p{opacity: 0.75;}
-.interest-card-box:hover h4{color:var(--mrr-white);cursor:pointer}
+.interest-card-box:hover h3{color:var(--mrr-white);cursor:pointer}
 .interest-card-cta-item{font-size:16px;color: var(--mrr-white);}
 .interest-card-cta-item svg{color:var(--mrr-accent-color)}
 .interest-card-cta-item img{margin-right:10px;}

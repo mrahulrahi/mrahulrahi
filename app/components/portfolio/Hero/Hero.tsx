@@ -69,9 +69,9 @@ const Hero = ({ children, hero }: Props) => {
                 </div>
 
                 <div className="hero-text">
-                  <h3><span className="opacity-75">{heyHighlight}</span> {heyRest}</h3>
+                  <p className="hero-salutation"><span className="opacity-75">{heyHighlight}</span> {heyRest}</p>
                   <h1>{firstName} <span className="opacity-75">{lastName}</span></h1>
-                  <h4>{role} <span className="opacity-75">{location}</span></h4>
+                  <h2>{role} <span className="opacity-75">{location}</span></h2>
                   
                   {/* Specialty Chips */}
                   <div className="hero-tags d-flex flex-wrap justify-content-center gap-2 my-3">

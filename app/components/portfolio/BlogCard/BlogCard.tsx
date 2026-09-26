@@ -37,7 +37,7 @@ const BlogCard = (blog: BlogCard) => {
             />
           </div>
           <div className="blog-card-text">
-            <h4>{blog.title}</h4>
+            <h3>{blog.title}</h3>
             <p>{blog.description}</p>
           </div>
 

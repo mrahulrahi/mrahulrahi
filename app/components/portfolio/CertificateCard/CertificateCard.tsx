@@ -25,7 +25,7 @@ const CertificateCard = ({ item }: Props) => {
                 aria-label={`View ${item.title} certificate from ${item.organization}`}
             >
                 <div className="certificate-card-text">
-                    <h4>{item.title}</h4>
+                    <h3>{item.title}</h3>
                     <p>{item.organization}</p>
                     <div className="certificate-card-icon"> <GradientIcon iconName={item.icon} size={100} uniqueId={item.id.toString()} /></div>
                 </div>
