@@ -27,7 +27,8 @@ I specialize in converting Figma, Adobe XD and Photoshop designs into production
 - 🚀 Building my Developer Portfolio & Workspace
 - 📍 Lucknow, India
   
-- 👨‍💻 All of my projects are available at [Github - mrahulrahi](https://mrahulrahi.github.io/mrahulrahi)
+- 🌐 Live Portfolio: [mrahulrahi.vercel.app](https://mrahulrahi.vercel.app)
+- 👨‍💻 GitHub: [github.com/mrahulrahi](https://github.com/mrahulrahi)
   
 - 📫 How to reach me [Telegram](https://t.me/mrahulrahi)
 ```
@@ -72,12 +73,3 @@ I specialize in converting Figma, Adobe XD and Photoshop designs into production
 <br>
 
 ![](https://github-readme-activity-graph.vercel.app/graph?username=mrahulrahi&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
-
-<hr>
-<hr>
-
-
-
-
-
-  
