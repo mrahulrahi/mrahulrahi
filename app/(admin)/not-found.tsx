@@ -36,7 +36,7 @@ export default function AdminNotFound() {
         >
           <h2 className="text-2xl font-bold text-white font-display">Identity Not Authorized</h2>
           <p className="text-slate-400 text-sm leading-relaxed">
-            The admin console node you are trying to access does not exist or your identity does not have sufficient parameters. Let's return to security.
+            The admin console node you are trying to access does not exist or your identity does not have sufficient parameters. Let&apos;s return to security.
           </p>
         </motion.div>
 

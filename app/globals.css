@@ -45,6 +45,11 @@
 0%,100%{opacity:1}
 50%{opacity:0}
 }
+@keyframes pulse-once{
+0%,100%{opacity:1;transform:scale(1)}
+50%{opacity:0.96;transform:scale(0.998)}
+}
+--animate-pulse-once: pulse-once 0.6s ease-out 1;
 }
 @layer base{*{@apply m-0 p-0}
 html{@apply scroll-smooth scroll-pt-17.5}
@@ -108,7 +113,7 @@ input[type="color"]::-moz-focus-inner{@apply p-0}
 .background-clip-text{background-clip:text;color:transparent!important}
 .wrapper{display:grid;gap:25px;grid-template-columns:repeat(auto-fill,250px)}
 .wrapper > li{height:250px;list-style:none;border-radius:5px;padding:15px 20px 20px;background:rgba(255,255,255,0.2);box-shadow:0 4px 8px rgba(0,0,0,0.05)}
-.add-box,.icon,.bottom-content,.popup,header,.settings .menu li{display:flex;align-items:center;justify-content:space-between}
+.add-box,.icon,.bottom-content,.popup,.popup-box header,.settings .menu li{display:flex;align-items:center;justify-content:space-between}
 .add-box{cursor:pointer;flex-direction:column;justify-content:center}
 .add-box .icon{height:78px;width:78px;color:rgba(255,255,255,0.5);font-size:40px;border-radius:50%;justify-content:center;border:2px dashed rgba(255,255,255,0.5)}
 .add-box p{color:rgba(255,255,255,0.5);font-weight:500;margin-top:20px}

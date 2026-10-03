@@ -3,13 +3,7 @@ import Link from "next/link"
 import ContentContainer from "@/app/components/ui/ContentContainer"
 import MouseFollower from '@/app/components/layout/MouseFollower';
 
-export default function NotFound({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string }
-  reset: () => void
-}) {
+export default function NotFound() {
   return (
       <>
         <ContentContainer className="page_404 bg-dark" column="col-sm-12">
@@ -18,7 +12,7 @@ export default function NotFound({
  
             <div className="page_404-content">
               <h3>
-                Looks like you're lost
+                Looks like you&apos;re lost
               </h3>
 
               <p>The page you are looking for is not available or has moved.</p>

@@ -1,438 +1,292 @@
 'use client'
-import { useState, useMemo } from 'react';
-import { TrendingUp, DollarSign, Calendar, Plus, Trash2, ChevronRight, Info, BarChart3 } from 'lucide-react';
+
+import React, { useState, useMemo } from 'react';
+import { TrendingUp, DollarSign, Calendar, RotateCcw, Info, BarChart3, Sparkles } from 'lucide-react';
 
 const SalaryCalculator = () => {
-    const [baseSalary, setBaseSalary] = useState(50000);
-    const [startingSalary, setStartingSalary] = useState(50000);
+    const [startingSalary, setStartingSalary] = useState(600000);
     const [numYears, setNumYears] = useState(5);
     const [defaultRate, setDefaultRate] = useState(10);
     const [customRates, setCustomRates] = useState({});
-    const [yearlyIncrements, setYearlyIncrements] = useState([10, 8, 5, 5, 5]);
-
-    // Calculate the progression
-    const results = useMemo(() => {
-        let progression = [];
-        let currentSalary = parseFloat(baseSalary) || 0;
-
-        for (let i = 1; i <= numYears; i++) {
-            const rate = customRates[i] !== undefined ? customRates[i] : defaultRate;
-            const increment = currentSalary * (rate / 100);
-            const startSalary = currentSalary;
-            currentSalary += increment;
-
-            progression.push({
-                year: i,
-                startSalary,
-                rate,
-                increment,
-                endSalary: currentSalary
-            });
-        }
-        return progression;
-    }, [baseSalary, numYears, defaultRate, customRates]);
 
     const handleRateChange = (year, value) => {
         setCustomRates(prev => ({
             ...prev,
-            [year]: parseFloat(value) || 0
+            [year]: Math.max(0, parseFloat(value) || 0)
         }));
     };
 
     const resetCustomRates = () => setCustomRates({});
 
+    // Calculate progression based on yearly rates
+    const projection = useMemo(() => {
+        let currentSalary = parseFloat(startingSalary) || 0;
+        const results = [];
+
+        for (let i = 1; i <= numYears; i++) {
+            const rate = customRates[i] !== undefined ? customRates[i] : defaultRate;
+            const increaseAmount = currentSalary * (rate / 100);
+            const startSalary = currentSalary;
+            currentSalary += increaseAmount;
+
+            results.push({
+                year: i,
+                startSalary,
+                rate,
+                increase: increaseAmount,
+                finalSalary: currentSalary
+            });
+        }
+        return results;
+    }, [startingSalary, numYears, defaultRate, customRates]);
+
+    const finalSalary = projection.length > 0 ? projection[projection.length - 1].finalSalary : startingSalary;
+    const totalIncrease = finalSalary - startingSalary;
+    const totalPercentage = startingSalary > 0 ? (totalIncrease / startingSalary) * 100 : 0;
+
     const formatCurrency = (val) => {
-        return new Intl.NumberFormat('en-US', {
+        return new Intl.NumberFormat('en-IN', {
             style: 'currency',
             currency: 'INR',
             maximumFractionDigits: 0
         }).format(val);
     };
 
-    const baseSalNum = parseFloat(baseSalary) || 0;
-    const totalGrowth = (results.length > 0 && baseSalNum > 0)
-        ? ((results[results.length - 1].endSalary - baseSalNum) / baseSalNum * 100).toFixed(1)
-        : 0;
-
-
-
-    // Adjust increments array when year count changes
-    const handleYearCountChange = (newCount) => {
-        const val = Math.max(1, Math.min(30, parseInt(newCount) || 1));
-        setNumYears(val);
-
-        setYearlyIncrements(prev => {
-            if (val > prev.length) {
-                // Add default increments for new years
-                return [...prev, ...Array(val - prev.length).fill(5)];
-            } else {
-                // Trim for fewer years
-                return prev.slice(0, val);
-            }
-        });
-    };
-
-    const updateIncrement = (index, value) => {
-        const newIncrements = [...yearlyIncrements];
-        newIncrements[index] = parseFloat(value) || 0;
-        setYearlyIncrements(newIncrements);
-    };
-
-    // Calculate the projection
-    const projection = useMemo(() => {
-        let currentSalary = parseFloat(startingSalary) || 0;
-        const results = [];
-
-        for (let i = 0; i < numYears; i++) {
-            const percentage = yearlyIncrements[i] || 0;
-            const increaseAmount = currentSalary * (percentage / 100);
-            const newSalary = currentSalary + increaseAmount;
-
-            results.push({
-                year: i + 1,
-                baseSalary: currentSalary,
-                percentage: percentage,
-                increase: increaseAmount,
-                finalSalary: newSalary
-            });
-
-            currentSalary = newSalary;
-        }
-        return results;
-    }, [startingSalary, yearlyIncrements, numYears]);
-
-    const totalIncrease = projection.length > 0
-        ? projection[projection.length - 1].finalSalary - startingSalary
-        : 0;
-
-    const totalPercentage = startingSalary > 0
-        ? (totalIncrease / startingSalary) * 100
-        : 0;
-
     return (
-        <>
-            <div className="min-h-screen bg-slate-50 p-4 md:p-8 font-sans text-slate-900">
-                <div className="max-w-8xl mx-auto px-3">
-                    {/* Header */}
-                    <header className="mb-8 text-center md:text-left flex items-center gap-3">
-                        <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
-                            <div className="bg-emerald-600 p-3 rounded-2xl shadow-lg shadow-emerald-200">
-                                <TrendingUp className="text-white w-8 h-8" />
+        <div className="p-4 md:p-6 lg:p-8 bg-slate-900/30 rounded-3xl min-h-screen text-slate-100 font-sans backdrop-blur-md relative overflow-hidden border border-slate-800/80 shadow-2xl">
+            {/* Background ambient lighting */}
+            <div className="absolute top-0 right-0 w-80 h-80 bg-brand-mint/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
+
+            {/* Header Banner */}
+            <header className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 pb-6 border-b border-slate-800 relative z-10">
+                <div>
+                    <div className="inline-flex items-center gap-1.5 bg-brand-mint/10 border border-brand-mint/20 text-brand-mint px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider mb-2">
+                        <Sparkles className="w-3.5 h-3.5" />
+                        <span>Compounding Career Planner</span>
+                    </div>
+                    <h1 className="text-2xl md:text-3xl font-display font-bold text-white flex items-center gap-2">
+                        <TrendingUp className="w-6 h-6 text-brand-mint" />
+                        Salary Increment & Growth Planner
+                    </h1>
+                    <p className="text-slate-400 text-xs md:text-sm mt-1 max-w-xl">
+                        Simulate compound annual salary increments, promotion bonuses, and custom yearly growth steps over time.
+                    </p>
+                </div>
+
+                <div className="bg-slate-950/80 border border-slate-800 p-3.5 rounded-2xl flex items-center gap-4 shrink-0 shadow-inner">
+                    <div className="text-right">
+                        <p className="text-[10px] font-mono text-slate-500 uppercase font-semibold">Starting Base</p>
+                        <p className="text-base md:text-lg font-bold text-slate-300 font-mono">{formatCurrency(startingSalary)}</p>
+                    </div>
+                    <div className="h-8 w-px bg-slate-800" />
+                    <div className="text-right">
+                        <p className="text-[10px] font-mono text-brand-mint uppercase font-semibold">Target Ending</p>
+                        <p className="text-base md:text-lg font-bold text-brand-mint font-mono">{formatCurrency(finalSalary)}</p>
+                    </div>
+                </div>
+            </header>
+
+            {/* Main Layout Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
+                {/* Left Sidebar: Controls */}
+                <aside className="lg:col-span-4 space-y-6">
+                    <div className="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl backdrop-blur-md shadow-inner space-y-5">
+                        <h2 className="text-sm font-mono font-bold tracking-wider text-slate-300 uppercase flex items-center gap-2 border-b border-slate-800 pb-3">
+                            <Calendar className="w-4 h-4 text-brand-mint" />
+                            Projection Parameters
+                        </h2>
+
+                        <div>
+                            <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-1.5">
+                                Current Annual Salary (₹)
+                            </label>
+                            <input
+                                type="number"
+                                value={startingSalary}
+                                onChange={(e) => setStartingSalary(Math.max(0, parseFloat(e.target.value) || 0))}
+                                className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm focus:border-brand-mint/50 focus:ring-1 focus:ring-brand-mint/30 outline-none transition-all"
+                            />
+                        </div>
+
+                        <div>
+                            <div className="flex justify-between items-center mb-1.5">
+                                <label className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                                    Forecast Horizon
+                                </label>
+                                <span className="text-xs font-mono font-bold text-brand-mint">{numYears} Years</span>
+                            </div>
+                            <input
+                                type="range"
+                                min="1"
+                                max="25"
+                                value={numYears}
+                                onChange={(e) => setNumYears(parseInt(e.target.value) || 1)}
+                                className="w-full h-2 bg-slate-950 rounded-lg appearance-none cursor-pointer accent-brand-mint border border-slate-800"
+                            />
+                            <div className="flex justify-between text-[10px] font-mono text-slate-600 mt-1">
+                                <span>1 Year</span>
+                                <span>25 Years</span>
                             </div>
                         </div>
 
                         <div>
-                            <h1 className="text-3xl font-bold tracking-tight text-slate-800">Salary Increment Tracker / Salary Growth Planner</h1>
-                            <p className="text-slate-500">Plan your financial growth with compound annual increases. Project your earnings based on custom yearly increments</p>
+                            <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-1.5">
+                                Baseline Annual Hike (%)
+                            </label>
+                            <div className="relative">
+                                <input
+                                    type="number"
+                                    step="0.5"
+                                    min="0"
+                                    value={defaultRate}
+                                    onChange={(e) => setDefaultRate(Math.max(0, parseFloat(e.target.value) || 0))}
+                                    className="w-full pl-4 pr-10 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm focus:border-brand-mint/50 focus:ring-1 focus:ring-brand-mint/30 outline-none transition-all"
+                                />
+                                <span className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-500 font-mono text-xs">%</span>
+                            </div>
                         </div>
-                    </header>
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
 
-                        {/* Controls Panel */}
-                        <aside className="lg:col-span-4 space-y-6">
-                            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                                <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                                    <Calendar className="w-5 h-5 text-indigo-500" /> General Settings
-                                </h2>
-
-                                <div className="space-y-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-700 mb-1">Starting Salary</label>
-                                        <div className="relative">
-                                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">₹</span>
-                                            <input
-                                                type="number"
-                                                className="w-full pl-8 pr-4 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none"
-                                                value={baseSalary}
-                                                onChange={(e) => setBaseSalary(e.target.value)}
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-700 mb-1">Forecast Period (Years)</label>
-                                        <input
-                                            type="range"
-                                            min="1"
-                                            max="30"
-                                            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
-                                            value={numYears}
-                                            onChange={(e) => setNumYears(parseInt(e.target.value))}
-                                        />
-                                        <div className="flex justify-between text-xs text-slate-500 mt-1">
-                                            <span>1 Year</span>
-                                            <span className="font-bold text-indigo-600 text-sm">{numYears} Years</span>
-                                            <span>30 Years</span>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-700 mb-1">Default Annual %</label>
-                                        <div className="relative">
-                                            <input
-                                                type="number"
-                                                className="w-full pl-4 pr-10 py-2 bg-slate-50 border border-slate-200 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none"
-                                                value={defaultRate}
-                                                onChange={(e) => setDefaultRate(e.target.value)}
-                                            />
-                                            <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400">%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Quick Stats */}
-                            <div className="bg-indigo-900 text-white p-6 rounded-2xl shadow-lg">
-                                <h3 className="text-indigo-200 text-xs font-bold uppercase tracking-wider mb-4">Projections Summary</h3>
-                                <div className="space-y-4">
-                                    <div>
-                                        <p className="text-sm opacity-80 text-indigo-100">Ending Salary</p>
-                                        <p className="text-2xl font-bold">{formatCurrency(results[results.length - 1]?.endSalary || 0)}</p>
-                                    </div>
-                                    <div className="pt-4 border-t border-indigo-800">
-                                        <p className="text-sm opacity-80 text-indigo-100">Total % Growth</p>
-                                        <p className="text-2xl font-bold">+{totalGrowth}%</p>
-                                    </div>
-                                </div>
-                            </div>
-
+                        {Object.keys(customRates).length > 0 && (
                             <button
+                                type="button"
                                 onClick={resetCustomRates}
-                                className="w-full py-3 px-4 bg-white border border-slate-200 text-slate-600 rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-center gap-2 text-sm font-medium shadow-sm"
+                                className="w-full py-2.5 px-4 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-700 text-slate-400 hover:text-white transition-all text-xs font-mono flex items-center justify-center gap-2 cursor-pointer"
                             >
-                                <Trash2 className="w-4 h-4" /> Reset Custom Yearly Rates
+                                <RotateCcw className="w-3.5 h-3.5" />
+                                <span>Reset Custom Yearly Overrides</span>
                             </button>
-
-                            <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200">
-                                <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                                    <Info className="w-5 h-5 text-emerald-600" />
-                                    Input Details
-                                </h2>
-
-                                <div className="space-y-4">
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-600 mb-1.5">Starting Salary</label>
-                                        <div className="relative">
-                                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">₹</span>
-                                            <input
-                                                type="number"
-                                                value={startingSalary}
-                                                onChange={(e) => setStartingSalary(e.target.value)}
-                                                className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all font-medium text-lg"
-                                                placeholder="e.g. 50000"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <label className="block text-sm font-medium text-slate-600 mb-1.5">Projection Period (Years)</label>
-                                        <div className="relative">
-                                            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
-                                                <Calendar className="w-4 h-4" />
-                                            </span>
-                                            <input
-                                                type="number"
-                                                value={numYears}
-                                                onChange={(e) => handleYearCountChange(e.target.value)}
-                                                className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition-all font-medium"
-                                                min="1"
-                                                max="30"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Yearly Adjustment List */}
-                            <div className="bg-white rounded-3xl p-6 shadow-sm border border-slate-200">
-                                <h2 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                                    <BarChart3 className="w-5 h-5 text-emerald-600" />
-                                    Annual % Increments
-                                </h2>
-                                <div className="space-y-3 max-h-100 overflow-y-auto pr-2 custom-scrollbar">
-                                    {yearlyIncrements.map((inc, idx) => (
-                                        <div key={idx} className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                                            <span className="text-xs font-bold text-slate-400 w-12">YEAR {idx + 1}</span>
-                                            <div className="relative flex-1">
-                                                <input
-                                                    type="number"
-                                                    step="0.1"
-                                                    value={inc}
-                                                    onChange={(e) => updateIncrement(idx, e.target.value)}
-                                                    className="w-full pr-8 pl-3 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-emerald-500 outline-none transition-all text-sm font-semibold"
-                                                />
-                                                <span className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 text-xs">%</span>
-                                            </div>
-                                        </div>
-                                    ))}
-                                </div>
-                            </div>
-                        </aside>
-
-
-                        {/* Main Display */}
-                        <main className="lg:col-span-8 space-y-6">
-                            {/* Summary Cards */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div className="bg-emerald-600 rounded-3xl p-6 text-white shadow-lg shadow-emerald-100">
-                                    <p className="text-emerald-100 text-sm font-medium uppercase tracking-wider">Projected Final Salary</p>
-                                    <div className="text-4xl font-bold mt-1">
-                                        ₹{projection.length > 0 ? projection[projection.length - 1].finalSalary.toLocaleString(undefined, { maximumFractionDigits: 0 }) : '0'}
-                                    </div>
-                                    <div className="mt-4 flex items-center gap-2 bg-white/10 w-fit px-3 py-1 rounded-full text-sm">
-                                        <TrendingUp className="w-4 h-4" />
-                                        <span>+{totalPercentage.toFixed(1)}% total growth</span>
-                                    </div>
-                                </div>
-
-                                <div className="bg-white rounded-3xl p-6 border border-slate-200 shadow-sm">
-                                    <p className="text-slate-500 text-sm font-medium uppercase tracking-wider">Total Increase Earned</p>
-                                    <div className="text-4xl font-bold mt-1 text-slate-800">
-                                        +₹{totalIncrease.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                                    </div>
-                                    <p className="text-slate-400 text-xs mt-4 italic">Over the next {numYears} years</p>
-                                </div>
-                            </div>
-
-                            {/* Results Table */}
-                            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                                <div className="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
-                                    <h2 className="font-semibold text-slate-800">Year-by-Year Breakdown</h2>
-                                    <div className="flex items-center gap-2 text-xs text-slate-500">
-                                        <Info className="w-4 h-4" />
-                                        Edit percentages in the table to override defaults
-                                    </div>
-                                </div>
-
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left border-collapse">
-                                        <thead>
-                                            <tr className="bg-slate-50/50 text-slate-500 text-xs font-semibold uppercase tracking-wider">
-                                                <th className="px-6 py-4">Year</th>
-                                                <th className="px-6 py-4">Starting</th>
-                                                <th className="px-6 py-4">Rate (%)</th>
-                                                <th className="px-6 py-4">Increment</th>
-                                                <th className="px-6 py-4 text-right">Ending Salary</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-slate-100">
-                                            {results.map((row) => (
-                                                <tr key={row.year} className="hover:bg-indigo-50/30 transition-colors group">
-                                                    <td className="px-6 py-4 font-medium text-slate-400">Yr {row.year}</td>
-                                                    <td className="px-6 py-4 font-medium text-slate-600">
-                                                        {formatCurrency(row.startSalary)}
-                                                    </td>
-                                                    <td className="px-6 py-4">
-                                                        <div className="relative w-20">
-                                                            <input
-                                                                type="number"
-                                                                className={`w-full py-1 px-2 rounded-md border text-sm focus:ring-1 focus:ring-indigo-500 outline-none transition-all ${customRates[row.year] !== undefined
-                                                                    ? 'border-indigo-300 bg-indigo-50 text-indigo-700 font-bold'
-                                                                    : 'border-transparent bg-slate-100 text-slate-500 group-hover:bg-white group-hover:border-slate-300'
-                                                                    }`}
-                                                                value={row.rate}
-                                                                onChange={(e) => handleRateChange(row.year, e.target.value)}
-                                                            />
-                                                            {customRates[row.year] !== undefined && (
-                                                                <div className="absolute -top-1 -right-1 w-2 h-2 bg-indigo-500 rounded-full"></div>
-                                                            )}
-                                                        </div>
-                                                    </td>
-                                                    <td className="px-6 py-4 text-green-600 font-medium">
-                                                        +{formatCurrency(row.increment)}
-                                                    </td>
-                                                    <td className="px-6 py-4 text-right font-bold text-slate-800">
-                                                        {formatCurrency(row.endSalary)}
-                                                    </td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                {results.length === 0 && (
-                                    <div className="p-12 text-center text-slate-400">
-                                        No data to display. Please set the number of years.
-                                    </div>
-                                )}
-
-
-                            </div>
-
-
-
-                            {/* Detailed Table */}
-                            <div className="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
-                                <div className="p-6 border-b border-slate-100 flex justify-between items-center">
-                                    <h3 className="font-bold text-slate-800">Breakdown per Year</h3>
-                                </div>
-                                <div className="overflow-x-auto">
-                                    <table className="w-full text-left border-collapse">
-                                        <thead>
-                                            <tr className="bg-slate-50">
-                                                <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Year</th>
-                                                <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Starting</th>
-                                                <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Increment</th>
-                                                <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Dollar Gain</th>
-                                                <th className="px-6 py-4 text-xs font-bold text-slate-500 uppercase tracking-wider">Ending Salary</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody className="divide-y divide-slate-100">
-                                            {projection.map((row) => (
-                                                <tr key={row.year} className="hover:bg-slate-50/50 transition-colors">
-                                                    <td className="px-6 py-4 font-bold text-slate-700">
-                                                        <span className="bg-slate-100 text-slate-600 px-2 py-1 rounded text-xs">YR {row.year}</span>
-                                                    </td>
-                                                    <td className="px-6 py-4 text-slate-600 font-medium">
-                                                        ₹{row.baseSalary.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                                                    </td>
-                                                    <td className="px-6 py-4">
-                                                        <span className="text-emerald-600 font-bold">+{row.percentage}%</span>
-                                                    </td>
-                                                    <td className="px-6 py-4 text-emerald-600 font-medium italic">
-                                                        +₹{row.increase.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                                                    </td>
-                                                    <td className="px-6 py-4 font-bold text-slate-800">
-                                                        ₹{row.finalSalary.toLocaleString(undefined, { maximumFractionDigits: 0 })}
-                                                    </td>
-                                                </tr>
-                                            ))}
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-                            <div className="bg-slate-100 p-4 rounded-2xl flex items-start gap-3">
-                                <Info className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
-                                <p className="text-xs text-slate-500 leading-relaxed">
-                                    Note: This calculator uses compound growth. Each year's percentage increment is applied to the previous year's total salary. Values are rounded to the nearest dollar in the display for clarity.
-                                </p>
-                            </div>
-                        </main>
+                        )}
                     </div>
 
+                    {/* Pro Tip Card */}
+                    <div className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-5 text-slate-300 shadow-inner">
+                        <h3 className="font-bold text-xs uppercase font-mono tracking-wider mb-2 flex items-center gap-2 text-brand-mint">
+                            <Info className="w-4 h-4" />
+                            Compound Growth Note
+                        </h3>
+                        <p className="text-xs text-slate-400 leading-relaxed">
+                            Each year&apos;s hike applies compounds on top of previous raises. You can also customize individual years in the table below to account for promotions or job changes.
+                        </p>
+                    </div>
+                </aside>
 
-                </div>
+                {/* Right Main Display: KPIs & Table */}
+                <main className="lg:col-span-8 space-y-6">
+                    {/* KPI Metric Summary Cards */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 shadow-inner">
+                            <p className="text-slate-500 text-[10px] font-mono font-bold uppercase tracking-wider mb-1">
+                                Ending Salary (Yr {numYears})
+                            </p>
+                            <div className="text-xl md:text-2xl font-bold font-mono text-brand-mint">
+                                {formatCurrency(finalSalary)}
+                            </div>
+                            <div className="mt-2 flex items-center gap-1 text-[11px] text-emerald-400 font-medium bg-emerald-500/10 px-2 py-0.5 rounded-md w-fit border border-emerald-500/20">
+                                <TrendingUp className="w-3 h-3" />
+                                <span>+{totalPercentage.toFixed(1)}% Total Growth</span>
+                            </div>
+                        </div>
 
-                <style dangerouslySetInnerHTML={{
-                    __html: `
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: #f1f5f9;
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #cbd5e1;
-          border-radius: 10px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #94a3b8;
-        }
-      `}} />
+                        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 shadow-inner">
+                            <p className="text-slate-500 text-[10px] font-mono font-bold uppercase tracking-wider mb-1">
+                                Annual Increase Gained
+                            </p>
+                            <div className="text-xl md:text-2xl font-bold font-mono text-cyan-400">
+                                +{formatCurrency(totalIncrease)}
+                            </div>
+                            <p className="text-[11px] font-mono text-slate-500 mt-2">
+                                Absolute earnings rise per year
+                            </p>
+                        </div>
+
+                        <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 shadow-inner">
+                            <p className="text-slate-500 text-[10px] font-mono font-bold uppercase tracking-wider mb-1">
+                                Compound Factor
+                            </p>
+                            <div className="text-xl md:text-2xl font-bold font-mono text-white">
+                                {(finalSalary / (startingSalary || 1)).toFixed(2)}x
+                            </div>
+                            <p className="text-[11px] font-mono text-slate-500 mt-2">
+                                Multiple of starting compensation
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Progression Table */}
+                    <div className="bg-slate-900/40 rounded-2xl border border-slate-800/80 shadow-inner overflow-hidden">
+                        <div className="p-4 bg-slate-950/40 border-b border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <h2 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-300 flex items-center gap-2">
+                                <BarChart3 className="w-4 h-4 text-brand-mint" />
+                                Annual Growth Trajectory
+                            </h2>
+                            <span className="text-[11px] font-mono text-slate-500">
+                                Tip: Adjust percentage values in the table to model promotion spikes
+                            </span>
+                        </div>
+
+                        <div className="overflow-x-auto">
+                            <table className="w-full text-left text-xs font-mono">
+                                <thead>
+                                    <tr className="bg-slate-950/80 border-b border-slate-800 text-slate-400">
+                                        <th className="px-5 py-3 font-semibold">Year</th>
+                                        <th className="px-5 py-3 font-semibold">Starting Pay</th>
+                                        <th className="px-5 py-3 font-semibold">Annual Hike</th>
+                                        <th className="px-5 py-3 font-semibold text-right">Added Value</th>
+                                        <th className="px-5 py-3 font-semibold text-right text-brand-mint">End-of-Year Salary</th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-slate-800/60">
+                                    {projection.map((row) => {
+                                        const isCustom = customRates[row.year] !== undefined;
+                                        return (
+                                            <tr key={row.year} className="hover:bg-slate-800/30 transition-colors">
+                                                <td className="px-5 py-3.5 font-medium text-slate-300">
+                                                    <span className="px-2 py-0.5 rounded bg-slate-950 border border-slate-800 text-slate-400 text-[10px]">
+                                                        YR {row.year}
+                                                    </span>
+                                                </td>
+                                                <td className="px-5 py-3.5 text-slate-300 font-medium">
+                                                    {formatCurrency(row.startSalary)}
+                                                </td>
+                                                <td className="px-5 py-3.5">
+                                                    <div className="relative inline-flex items-center">
+                                                        <input
+                                                            type="number"
+                                                            step="0.5"
+                                                            min="0"
+                                                            value={row.rate}
+                                                            onChange={(e) => handleRateChange(row.year, e.target.value)}
+                                                            className={`w-20 px-2 py-1 rounded-lg border text-xs font-mono outline-none transition-all ${
+                                                                isCustom
+                                                                    ? 'bg-brand-mint/10 border-brand-mint text-brand-mint font-bold'
+                                                                    : 'bg-slate-950 border-slate-800 text-slate-300 focus:border-brand-mint'
+                                                            }`}
+                                                        />
+                                                        <span className="ml-1.5 text-slate-500">%</span>
+                                                    </div>
+                                                </td>
+                                                <td className="px-5 py-3.5 text-right text-emerald-400">
+                                                    +{formatCurrency(row.increase)}
+                                                </td>
+                                                <td className="px-5 py-3.5 text-right font-bold text-brand-mint">
+                                                    {formatCurrency(row.finalSalary)}
+                                                </td>
+                                            </tr>
+                                        );
+                                    })}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </main>
             </div>
-        </>
+
+            {/* Footer */}
+            <footer className="mt-8 text-center text-slate-500 text-xs pt-4 border-t border-slate-800">
+                <p>© 2026 Salary Growth Planner. Assumes annual compounding increments applied to baseline compensation.</p>
+            </footer>
+        </div>
     );
 };
 

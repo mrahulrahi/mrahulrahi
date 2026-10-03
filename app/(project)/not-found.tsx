@@ -36,7 +36,7 @@ export default function ProjectNotFound() {
         >
           <h2 className="text-2xl font-bold text-white font-display">Tool Node Unavailable</h2>
           <p className="text-slate-400 text-sm leading-relaxed">
-            The workspace tool or project node you are trying to access does not exist or is currently offline. Let's return to safety.
+            The workspace tool or project node you are trying to access does not exist or is currently offline. Let&apos;s return to safety.
           </p>
         </motion.div>
 

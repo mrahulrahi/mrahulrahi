@@ -1,6 +1,6 @@
 'use client'
-import React, { useState, useEffect, useRef, useMemo } from 'react';
-import Chart from 'chart.js/auto';
+
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid,
   Tooltip, ResponsiveContainer, Legend
@@ -13,12 +13,9 @@ import {
   Info,
   Table as TableIcon,
   BarChart3,
-  RefreshCw
+  RefreshCw,
+  Sparkles
 } from 'lucide-react';
-
-interface EmiViewProps {
-  theme: string;
-}
 
 interface AmortizationYearData {
   year: number;
@@ -60,8 +57,6 @@ const calculateEMI = (p: number, r: number, n: number) => {
   return (p * monthlyRate * Math.pow(1 + monthlyRate, n)) / denominator;
 };
 
-
-
 const runAmortization = (
   principal: number,
   annualRate: number,
@@ -77,7 +72,7 @@ const runAmortization = (
   let totalPaid = 0;
   let month = 0;
   const yearlyData: AmortizationYearData[] = [];
-  const monthlyData = [];
+  const monthlyData: { month: number; balance: number }[] = [];
 
   let yearlyInterest = 0;
   let yearlyPrincipal = 0;
@@ -87,7 +82,6 @@ const runAmortization = (
     month++;
     const interestForMonth = balance * monthlyRate;
     let principalForMonth = currentEmi - interestForMonth;
-
 
     if (principalForMonth > balance) principalForMonth = balance;
     balance -= principalForMonth;
@@ -103,78 +97,50 @@ const runAmortization = (
       yearlyPrincipal += extraAmt;
       yearlyTotalPaid += extraAmt;
     }
-    if (month % 12 === 0 || balance <= 1) {
-      const yearNum = Math.ceil(month / 12);
-      yearlyData.push({
-        year: yearNum, balance: Math.max(0, balance),
-        emi: 0,
-        interest: 0,
-        principal: 0,
-        totalPaid: 0
-      });
-      if (month % 12 === 0) currentEmi = currentEmi * (1 + yearlyIncrease / 100);
-    }
 
     yearlyInterest += interestForMonth;
     yearlyPrincipal += principalForMonth;
     yearlyTotalPaid += (principalForMonth + interestForMonth);
-
-    // Capture Month Data for Charts
     monthlyData.push({ month, balance: Math.max(0, balance) });
 
-    // Year end summary and EMI increase
-    if (month % 12 === 0 || balance <= 0) {
+    if (month % 12 === 0 || balance <= 1) {
       const yearNum = Math.ceil(month / 12);
       yearlyData.push({
         year: yearNum,
-        emi: currentEmi,
-        interest: yearlyInterest,
-        principal: yearlyPrincipal,
-        totalPaid: yearlyTotalPaid,
-        balance: Math.max(0, balance),
+        balance: Math.max(0, Math.round(balance)),
+        emi: Math.round(currentEmi),
+        interest: Math.round(yearlyInterest),
+        principal: Math.round(yearlyPrincipal),
+        totalPaid: Math.round(yearlyTotalPaid)
       });
-
-      // Reset yearly counters
       yearlyInterest = 0;
       yearlyPrincipal = 0;
       yearlyTotalPaid = 0;
 
-      // Increase EMI for next year
       if (month % 12 === 0) {
         currentEmi = currentEmi * (1 + yearlyIncrease / 100);
       }
     }
+
     if (balance <= 0) break;
   }
 
   return { totalMonths: month, totalInterest, totalPaid, yearlyData, monthlyData, initialEmi };
 };
 
-const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
-  // --- State ---
+export default function SmartEMIPlanner() {
   const [loanAmount, setLoanAmount] = useState<number>(5000000);
-  const [interestRate, setInterestRate] = useState(8.5);
+  const [interestRate, setInterestRate] = useState<number>(8.5);
   const [tenure, setTenure] = useState<number>(20);
-  const [yearlyIncrease, setYearlyIncrease] = useState(10);
+  const [yearlyIncrease, setYearlyIncrease] = useState<number>(10);
   const [extraEmi, setExtraEmi] = useState<boolean>(true);
-  const [activeTab, setActiveTab] = useState('visual');
+  const [activeTab, setActiveTab] = useState<'visual' | 'table'>('visual');
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     setIsMounted(true);
   }, []);
 
-  const chartRef = useRef<HTMLCanvasElement | null>(null);
-  const chartInstanceRef = useRef<Chart | null>(null);
-
-  const normalData = useMemo(() => runAmortization(loanAmount, interestRate, tenure, 0, false), [loanAmount, interestRate, tenure]);
-  const smartData = useMemo(() => runAmortization(loanAmount, interestRate, tenure, yearlyIncrease, extraEmi), [loanAmount, interestRate, tenure, yearlyIncrease, extraEmi]);
-
-  const savedInt = normalData.totalInterest - smartData.totalInterest;
-  const timeSavedM = normalData.totalMonths - smartData.totalMonths;
-  const totalSaved = normalData.totalPaid - smartData.totalPaid;
-
-  // --- Calculations ---
   const results = useMemo(() => {
     const normal = runAmortization(loanAmount, interestRate, tenure, 0, false);
     const smart = runAmortization(loanAmount, interestRate, tenure, yearlyIncrease, extraEmi);
@@ -211,169 +177,104 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
     return data;
   }, [results, loanAmount]);
 
-
-
-  useEffect(() => {
-    if (!chartRef.current) return;
-
-    const ctx = chartRef.current.getContext('2d');
-    if (!ctx) return;
-
-    const maxYear = Math.max(normalData.yearlyData.length, smartData.yearlyData.length);
-    const labels = Array.from({ length: maxYear + 1 }, (_, i) => `Yr ${i}`);
-
-    const normPoints = labels.map((_, i) => {
-      if (i === 0) return loanAmount;
-      const d = normalData.yearlyData.find(x => x.year === i);
-      if (d) return d.balance;
-      const lastYear = normalData.yearlyData[normalData.yearlyData.length - 1]?.year;
-      return lastYear && i > lastYear ? 0 : null;
-    });
-
-    const smartPoints = labels.map((_, i) => {
-      if (i === 0) return loanAmount;
-      const d = smartData.yearlyData.find(x => x.year === i);
-      if (d) return d.balance;
-      const lastYear = smartData.yearlyData[smartData.yearlyData.length - 1]?.year;
-      return lastYear && i > lastYear ? 0 : null;
-    });
-
-    const isDark = theme === 'dark';
-    const gridColor = isDark ? '#27272A' : '#E5E7EB';
-    const textColor = isDark ? '#A1A1AA' : '#6B7280';
-
-    if (chartInstanceRef.current) {
-      chartInstanceRef.current.data.labels = labels;
-      chartInstanceRef.current.data.datasets[0].data = normPoints;
-      chartInstanceRef.current.data.datasets[1].data = smartPoints;
-
-      const scales = chartInstanceRef.current.options.scales;
-      if (scales) {
-        if (scales.x && scales.x.ticks) {
-          scales.x.ticks.color = textColor;
-        }
-        if (scales.y && scales.y.ticks) {
-          scales.y.ticks.color = textColor;
-        }
-        if (scales.y && scales.y.grid) {
-          scales.y.grid.color = gridColor;
-        }
-      }
-      chartInstanceRef.current.update();
-    } else {
-      chartInstanceRef.current = new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: labels,
-          datasets: [
-            { label: 'Standard Loan', data: normPoints, borderColor: '#9CA3AF', backgroundColor: 'rgba(156, 163, 175, 0.1)', borderWidth: 2, fill: true, tension: 0.4, pointRadius: 0 },
-            { label: 'Smart Plan', data: smartPoints, borderColor: '#00DC82', backgroundColor: 'rgba(0, 220, 130, 0.2)', borderWidth: 2, fill: true, tension: 0.4, pointRadius: 0 }
-          ]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          interaction: { mode: 'index', intersect: false },
-          plugins: { legend: { display: true, labels: { color: textColor, font: { family: 'Inter' } } } },
-          scales: {
-            x: { grid: { display: false }, ticks: { color: textColor, font: { family: 'JetBrains Mono' } } },
-            y: { grid: { color: gridColor, borderDash: [4, 4] } as any, ticks: { color: textColor, font: { family: 'JetBrains Mono' }, callback: (val) => '₹' + Number(val) / 100000 + 'L' } }
-          }
-        }
-      });
-    }
-  }, [normalData, smartData, loanAmount, theme]);
-
-  useEffect(() => {
-    return () => {
-      if (chartInstanceRef.current) {
-        chartInstanceRef.current.destroy();
-        chartInstanceRef.current = null;
-      }
-    };
-  }, []);
+  if (!isMounted) {
+    return (
+      <div className="flex items-center justify-center py-20 text-slate-400 font-mono">
+        <span>Initializing Smart EMI Engine...</span>
+      </div>
+    );
+  }
 
   return (
-    <>
-      <div className="min-h-screen p-4 md:p-8">
-        <div className="max-w-8xl mx-auto">
+    <div className="p-4 md:p-6 lg:p-8 bg-slate-900/30 rounded-3xl min-h-screen text-slate-100 font-sans backdrop-blur-md relative overflow-hidden border border-slate-800/80 shadow-2xl">
+      {/* Background ambient lighting */}
+      <div className="absolute top-0 right-0 w-80 h-80 bg-brand-mint/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
-          {/* Header */}
-          <header className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 space-y-6 animate-fade-in">
+      {/* Header Banner */}
+      <header className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4 pb-6 border-b border-slate-800 relative z-10">
+        <div>
+          <div className="inline-flex items-center gap-1.5 bg-brand-mint/10 border border-brand-mint/20 text-brand-mint px-3 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider mb-2">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Debt Reduction Simulator</span>
+          </div>
+          <h1 className="text-2xl md:text-3xl font-display font-bold text-white flex items-center gap-2">
+            <RefreshCw className="w-6 h-6 text-brand-mint animate-pulse" />
+            Smart EMI Planner
+          </h1>
+          <p className="text-slate-400 text-xs md:text-sm mt-1 max-w-xl">
+            Model pre-payment strategies, 13th month EMI impacts, and compound step-ups to become debt-free faster.
+          </p>
+        </div>
+
+        <div className="bg-slate-950/80 border border-slate-800 p-3.5 rounded-2xl flex items-center gap-4 shrink-0 shadow-inner">
+          <div className="text-right">
+            <p className="text-[10px] font-mono text-slate-500 uppercase font-semibold">Standard EMI</p>
+            <p className="text-base md:text-lg font-bold text-slate-300 font-mono">{formatCurrency(results.normal.initialEmi)}</p>
+          </div>
+          <div className="h-8 w-px bg-slate-800" />
+          <div className="text-right">
+            <p className="text-[10px] font-mono text-brand-mint uppercase font-semibold">Current Smart EMI</p>
+            <p className="text-base md:text-lg font-bold text-brand-mint font-mono">{formatCurrency(results.smart.initialEmi)}</p>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Grid: Controls + Visuals */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 relative z-10">
+        {/* Left Sidebar: Form Controls */}
+        <aside className="lg:col-span-4 space-y-6">
+          <div className="bg-slate-900/40 border border-slate-800/80 p-6 rounded-2xl backdrop-blur-md shadow-inner space-y-5">
+            <h2 className="text-sm font-mono font-bold tracking-wider text-slate-300 uppercase flex items-center gap-2 border-b border-slate-800 pb-3">
+              <Wallet className="w-4 h-4 text-brand-mint" />
+              Loan Parameters
+            </h2>
+
             <div>
-              <h2 className="text-3xl font-display font-bold text-slate-900 flex items-center gap-2">
-                <RefreshCw className="w-6 h-6 text-brand-mint" />
-                Smart EMI Planner
+              <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-1.5">Loan Amount (₹)</label>
+              <input
+                type="number"
+                value={loanAmount}
+                onChange={(e) => setLoanAmount(Math.max(1000, Number(e.target.value)))}
+                className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm focus:border-brand-mint/50 focus:ring-1 focus:ring-brand-mint/30 outline-none transition-all"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-1.5">Rate (%)</label>
+                <input
+                  type="number"
+                  step="0.1"
+                  value={interestRate}
+                  onChange={(e) => setInterestRate(Math.max(0.1, Number(e.target.value)))}
+                  className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm focus:border-brand-mint/50 focus:ring-1 focus:ring-brand-mint/30 outline-none transition-all"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-mono text-slate-400 uppercase tracking-wider mb-1.5">Tenure (Yrs)</label>
+                <input
+                  type="number"
+                  min="1"
+                  max="40"
+                  value={tenure}
+                  onChange={(e) => setTenure(Math.max(1, Number(e.target.value)))}
+                  className="w-full px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-slate-100 font-mono text-sm focus:border-brand-mint/50 focus:ring-1 focus:ring-brand-mint/30 outline-none transition-all"
+                />
+              </div>
+            </div>
+
+            <div className="pt-2 border-t border-slate-800">
+              <h2 className="text-sm font-mono font-bold tracking-wider text-slate-300 uppercase flex items-center gap-2 mb-4">
+                <ArrowUpCircle className="w-4 h-4 text-emerald-400" />
+                Smart Acceleration Modifiers
               </h2>
-              <p className="text-gray-500 mt-1">Accelerate your journey to becoming debt-free. Live Tool Preview</p>
-            </div>
-            <div className="bg-white/5 px-4 py-2 rounded-xl shadow-sm border border-white-200/10 flex items-center gap-3">
-              <div className="text-right">
-                <p className="text-[10px] text-gray-500 uppercase font-semibold">Standard EMI</p>
-                <p className="text-lg font-bold text-gray-700">{formatCurrency(results.normal.initialEmi)} {formatCurrency(normalData.initialEmi)}</p>
-              </div>
 
-              <div className="h-8 w-px bg-gray-200"></div>
-              <div className="text-right">
-                <p className="text-[10px] text-brand-mint uppercase font-semibold">Current Smart EMI</p>
-                <p className="text-lg font-bold text-brand-mint">{formatCurrency(results.smart.initialEmi)} {formatCurrency(smartData.initialEmi)}</p>
-              </div>
-            </div>
-          </header>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-
-            {/* Sidebar - Inputs */}
-            <aside className="lg:col-span-4 space-y-6">
-              <div className="bg-white/5 p-6 rounded-2xl shadow-sm border border-slate-200/10 space-y-5">
-                <h2 className="text-lg font-semibold flex items-center gap-2 mb-2">
-                  <Wallet className="w-5 h-5 text-blue-500" />
-                  Loan Details
-                </h2>
-
+              <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-slate-600 mb-1">Loan Amount (₹)</label>
-                  <input
-                    type="number"
-                    value={loanAmount}
-                    onChange={(e) => setLoanAmount(Number(e.target.value))}
-                    className="w-full px-4 py-2 rounded-lg border border-slate-200/10 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                  />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-slate-600 mb-1">Rate (%)</label>
-                    <input
-                      type="number"
-                      step="0.1"
-                      value={interestRate}
-                      onChange={(e) => setInterestRate(Number(e.target.value))}
-                      className="w-full px-4 py-2 rounded-lg border border-slate-200/10 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-slate-600 mb-1">Tenure (Yrs)</label>
-                    <input
-                      type="number"
-                      value={tenure}
-                      onChange={(e) => setTenure(Number(e.target.value))}
-                      className="w-full px-4 py-2 rounded-lg border border-slate-200/10 focus:ring-2 focus:ring-blue-500 outline-none transition-all"
-                    />
-                  </div>
-                </div>
-
-                <hr className="border-slate-100" />
-
-                <h2 className="text-lg font-semibold flex items-center gap-2 mb-2">
-                  <ArrowUpCircle className="w-5 h-5 text-green-500" />
-                  Smart Modifiers
-                </h2>
-
-                <div>
-                  <div className="flex justify-between items-center mb-1">
-                    <label className="block text-sm font-medium text-slate-600">Yearly EMI Increase (%)</label>
-                    <span className="text-sm font-bold text-blue-600">{yearlyIncrease}%</span>
+                  <div className="flex justify-between items-center mb-1.5">
+                    <label className="text-xs font-mono text-slate-400">Yearly EMI Step-Up</label>
+                    <span className="text-xs font-mono font-bold text-brand-mint">{yearlyIncrease}%</span>
                   </div>
                   <input
                     type="range"
@@ -382,287 +283,241 @@ const SmartEMIPlanner: React.FC<EmiViewProps> = ({ theme }) => {
                     step="1"
                     value={yearlyIncrease}
                     onChange={(e) => setYearlyIncrease(Number(e.target.value))}
-                    className="w-full h-2 bg-slate-50/5 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                    className="w-full h-2 bg-slate-950 rounded-lg appearance-none cursor-pointer accent-brand-mint border border-slate-800"
                   />
+                  <div className="flex justify-between text-[10px] font-mono text-slate-600 mt-1">
+                    <span>0% (Flat)</span>
+                    <span>25% (Aggressive)</span>
+                  </div>
                 </div>
 
-                <div className="flex items-center justify-between p-3 bg-slate-50/5 rounded-xl border border-slate-100">
+                <div className="flex items-center justify-between p-3.5 bg-slate-950/60 rounded-xl border border-slate-800/80">
                   <div className="flex items-center gap-3">
-                    <Calendar className="text-slate-400" />
+                    <Calendar className="text-brand-mint w-4 h-4 shrink-0" />
                     <div>
-                      <p className="text-sm font-semibold">13th EMI Strategy</p>
-                      <p className="text-xs text-slate-500">Pay one extra EMI yearly</p>
+                      <p className="text-xs font-semibold text-slate-200">13th EMI Strategy</p>
+                      <p className="text-[10px] text-slate-500">Pay 1 extra EMI each year towards principal</p>
                     </div>
                   </div>
                   <button
+                    type="button"
                     onClick={() => setExtraEmi(!extraEmi)}
-                    className={`w-12 h-6 rounded-full transition-colors relative ${extraEmi ? 'bg-green-500' : 'bg-slate-300'}`}
+                    aria-label="Toggle 13th EMI Strategy"
+                    className={`w-11 h-6 rounded-full transition-colors relative cursor-pointer shrink-0 ${extraEmi ? 'bg-brand-mint' : 'bg-slate-800'}`}
                   >
-                    <div className={`absolute top-1 bg-white w-4 h-4 rounded-full transition-all ${extraEmi ? 'left-7' : 'left-1'}`}></div>
+                    <div className={`absolute top-1 bg-slate-950 w-4 h-4 rounded-full transition-all shadow ${extraEmi ? 'left-6' : 'left-1'}`} />
                   </button>
                 </div>
               </div>
-
-              <div className="bg-white/5 p-6 rounded-xl border border-gray-200/10 space-y-5">
-                <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2 mb-2">
-                  <Wallet className="w-5 h-5 text-brand-mint" />
-                  Loan Details
-                </h2>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-600 mb-1 font-mono">Loan Amount (₹)</label>
-                  <input type="number" value={loanAmount} onChange={e => setLoanAmount(Number(e.target.value))} className="w-full px-4 py-2 rounded-lg bg-gray-50/5 border border-gray-200/10 text-current-900/10 focus:border-brand-mint outline-none transition-all font-mono" />
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-600 mb-1 font-mono">Rate (%)</label>
-                    <input type="number" step="0.1" value={interestRate} onChange={e => setInterestRate(Number(e.target.value))} className="w-full px-4 py-2 rounded-lg bg-gray-50/5 border border-gray-200/10 text-current-900/10 focus:border-brand-mint outline-none transition-all font-mono" />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-600 mb-1 font-mono">Tenure (Yrs)</label>
-                    <input type="number" value={tenure} onChange={e => setTenure(Number(e.target.value))} className="w-full px-4 py-2 rounded-lg bg-gray-50/5 border border-gray-200/10 text-current-900/10 focus:border-brand-mint outline-none transition-all font-mono" />
-                  </div>
-                </div>
-
-                <div className="h-px bg-gray-200 my-4"></div>
-
-                <h2 className="text-lg font-semibold text-gray-900 flex items-center gap-2 mb-2">
-                  <ArrowUpCircle className="w-5 h-5 text-brand-mint" />
-                  Smart Modifiers
-                </h2>
-
-                <div>
-                  <div className="flex justify-between items-center mb-1">
-                    <label className="block text-sm font-medium text-gray-600 font-mono">Yearly Increase (%)</label>
-                    <span className="text-sm font-bold text-brand-mint font-mono">{yearlyIncrease}%</span>
-                  </div>
-                  <input type="range" min="0" max="25" step="1" value={yearlyIncrease} onChange={e => setYearlyIncrease(Number(e.target.value))} className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-brand-mint" />
-                </div>
-
-                <div className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-200">
-                  <div className="flex items-center gap-3">
-                    <Calendar className="text-gray-400 w-5 h-5" />
-                    <div>
-                      <p className="text-sm font-semibold text-gray-900">13th EMI Strategy</p>
-                      <p className="text-xs text-gray-500">Pay one extra EMI yearly</p>
-                    </div>
-                  </div>
-                  <button onClick={() => setExtraEmi(!extraEmi)} className={`w-12 h-6 rounded-full transition-colors relative ${extraEmi ? 'bg-brand-mint' : 'bg-gray-300'}`}>
-                    <div className={`absolute top-1 bg-white  w-4 h-4 rounded-full transition-all ${extraEmi ? 'left-7' : 'left-1'}`}></div>
-                  </button>
-                </div>
-              </div>
-
-              {/* Simple Info Card */}
-              <div className="bg-blue-600 rounded-2xl p-6 text-white shadow-lg shadow-blue-200">
-                <h3 className="font-bold text-lg mb-2 flex items-center gap-2">
-                  <Info className="w-5 h-5" />
-                  Pro Tip
-                </h3>
-                <p className="text-blue-100 text-sm leading-relaxed">
-                  By increasing your EMI by just 5% annually, you could potentially save over 40% of your total interest cost and finish your loan years earlier.
-                </p>
-              </div>
-            </aside>
-
-            {/* Main Dashboard Area */}
-            <main className="lg:col-span-8 space-y-6">
-
-               {/* Stats Summary */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-white/10 p-5 rounded-2xl border border-slate-200/10 shadow-sm">
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Interest Saved</p>
-                  <div className="flex items-end gap-2">
-                    <span className="text-2xl font-black text-green-600">{formatCurrency(results.interestSaved)}</span>
-                  </div>
-                  <div className="mt-2 flex items-center gap-1 text-xs text-green-600 font-medium bg-green-50/10 px-2 py-1 rounded w-fit">
-                    <TrendingDown className="w-3 h-3" />
-                    Lower Cost
-                  </div>
-            
-                  <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Interest Saved</p>
-                  <span className="text-2xl font-black text-brand-fern block">{formatCurrency(savedInt)}</span>
-                </div>
-
-                <div className="bg-white/5 p-5 rounded-2xl border border-slate-200/10 shadow-sm">
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Time Saved</p>
-                  <div className="flex items-end gap-2">
-                    <span className="text-2xl font-black text-blue-600">
-                      {results.yearsSaved}y {results.monthsSaved}m
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-400 mt-2">Debt-free by Year {results.smart.yearlyData.length}</p>
-            
-                  <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Time Saved</p>
-                  <span className="text-2xl font-black text-blue-600 block">{`${Math.floor(timeSavedM / 12)}y ${timeSavedM % 12}m`}</span>
-                </div>
-
-                <div className="bg-white/5 p-5 rounded-2xl border border-slate-200/10 shadow-sm">
-                  <p className="text-slate-500 text-xs font-bold uppercase tracking-wider mb-1">Total Savings</p>
-                  <div className="flex items-end gap-2">
-                    <span className="text-2xl font-black text-slate-800">{formatCurrency(results.totalSaved)}</span>
-                  </div>
-                  <p className="text-xs text-slate-400 mt-2">Reduction in total liability</p>
-              
-                  <p className="text-gray-500 text-xs font-bold uppercase tracking-wider mb-1">Total Savings</p>
-                  <span className="text-2xl font-black text-gray-900 block">{formatCurrency(totalSaved)}</span>
-                </div>
-              </div>
-
-              {/* Navigation Tabs */}
-              <div className="bg-white/5 rounded-2xl border border-slate-200/10 shadow-sm overflow-hidden">
-                <div className="flex border-b border-slate-100">
-                  <button
-                    onClick={() => setActiveTab('visual')}
-                    className={`flex-1 py-4 text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${activeTab === 'visual' ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50/30' : 'text-slate-500 hover:bg-slate-50'}`}
-                  >
-                    <BarChart3 className="w-4 h-4" />
-                    Visual Summary
-                  </button>
-                  <button
-                    onClick={() => setActiveTab('table')}
-                    className={`flex-1 py-4 text-sm font-semibold flex items-center justify-center gap-2 transition-colors ${activeTab === 'table' ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50/30' : 'text-slate-500 hover:bg-slate-50'}`}
-                  >
-                    <TableIcon className="w-4 h-4" />
-                    Detailed Table
-                  </button>
-                </div>
-
-                <div className="p-6">
-                  {activeTab === 'visual' ? (
-                    <div className="space-y-6">
-                      <div className="w-full h-90 min-h-90">
-                        <h3 className="text-center text-sm font-semibold text-slate-500 mb-4 uppercase tracking-widest">Outstanding Balance Comparison</h3>
-                        {isMounted ? (
-                          <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={300}>
-                            <AreaChart data={chartData}>
-                              <defs>
-                                <linearGradient id="colorNormal" x1="0" y1="0" x2="0" y2="1">
-                                  <stop offset="5%" stopColor="#94a3b8" stopOpacity={0.1} />
-                                  <stop offset="95%" stopColor="#94a3b8" stopOpacity={0} />
-                                </linearGradient>
-                                <linearGradient id="colorSmart" x1="0" y1="0" x2="0" y2="1">
-                                  <stop offset="5%" stopColor="#2563eb" stopOpacity={0.3} />
-                                  <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
-                                </linearGradient>
-                              </defs>
-                              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                              <XAxis
-                                dataKey="year"
-                                axisLine={false}
-                                tickLine={false}
-                                tick={{ fill: '#64748b', fontSize: 12 }}
-                              />
-                              <YAxis
-                                axisLine={false}
-                                tickLine={false}
-                                tick={{ fill: '#64748b', fontSize: 12 }}
-                                tickFormatter={(val) => `₹${val / 100000}L`}
-                              />
-                              <Tooltip
-                                contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgb(0 0 0 / 0.1)' }}
-                                formatter={(value) => formatCurrency(Number(value))}
-                              />
-                              <Legend verticalAlign="top" height={36} iconType="circle" />
-                              <Area
-                                type="monotone"
-                                dataKey="Normal Loan"
-                                stroke="#94a3b8"
-                                strokeWidth={2}
-                                fillOpacity={1}
-                                fill="url(#colorNormal)"
-                              />
-                              <Area
-                                type="monotone"
-                                dataKey="Smart Plan"
-                                stroke="#2563eb"
-                                strokeWidth={3}
-                                fillOpacity={1}
-                                fill="url(#colorSmart)"
-                              />
-                            </AreaChart>
-                          </ResponsiveContainer>
-                        ) : (
-                          <div className="h-75 w-full flex items-center justify-center text-slate-400 font-mono text-xs">
-                            Loading visual comparison chart...
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4">
-                        <div className="p-4 rounded-xl bg-slate-50 border border-slate-100">
-                          <p className="text-xs font-bold text-slate-400 uppercase mb-2">Standard Summary</p>
-                          <div className="flex justify-between mb-1 text-sm">
-                            <span>Tenure</span>
-                            <span className="font-semibold">{tenure} Years</span>
-                          </div>
-                          <div className="flex justify-between text-sm">
-                            <span>Total Interest</span>
-                            <span className="font-semibold">{formatCurrency(results.normal.totalInterest)}</span>
-                          </div>
-                        </div>
-                        <div className="p-4 rounded-xl bg-blue-50 border border-blue-100">
-                          <p className="text-xs font-bold text-blue-400 uppercase mb-2">Smart Summary</p>
-                          <div className="flex justify-between mb-1 text-sm text-blue-900">
-                            <span>Tenure</span>
-                            <span className="font-bold">{Math.floor(results.smart.totalMonths / 12)}y {results.smart.totalMonths % 12}m</span>
-                          </div>
-                          <div className="flex justify-between text-sm text-blue-900">
-                            <span>Total Interest</span>
-                            <span className="font-bold">{formatCurrency(results.smart.totalInterest)}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="overflow-x-auto -mx-6">
-                      <table className="w-full text-left text-sm">
-                        <thead>
-                          <tr className="bg-slate-50 border-y border-slate-100">
-                            <th className="px-6 py-3 font-bold text-slate-600">Year</th>
-                            <th className="px-6 py-3 font-bold text-slate-600">EMI</th>
-                            <th className="px-6 py-3 font-bold text-slate-600 text-right">Interest Paid</th>
-                            <th className="px-6 py-3 font-bold text-slate-600 text-right">Principal Paid</th>
-                            <th className="px-6 py-3 font-bold text-blue-600 text-right">Year-End Balance</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-slate-50">
-                          {results.smart.yearlyData.map((row) => (
-                            <tr key={row.year} className="hover:bg-slate-50/50 transition-colors">
-                              <td className="px-6 py-4 font-medium text-slate-700">Year {row.year}</td>
-                              <td className="px-6 py-4 text-slate-600 font-mono">{formatCurrency(row.emi)}</td>
-                              <td className="px-6 py-4 text-right text-red-500 font-mono">-{formatCurrency(row.interest)}</td>
-                              <td className="px-6 py-4 text-right text-green-600 font-mono">+{formatCurrency(row.principal)}</td>
-                              <td className="px-6 py-4 text-right font-bold text-slate-900 font-mono">
-                                {row.balance > 0 ? formatCurrency(row.balance) : "PAID OFF 🎉"}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <div className="bg-white/5  rounded-xl border border-gray-200/10 p-6">
-                <div className="w-full h-80 chart-container">
-                  <canvas ref={chartRef}></canvas>
-                </div>
-              </div>
-            </main>
+            </div>
           </div>
 
-          {/* Footer */}
-          <footer className="mt-8 text-center text-slate-400 text-sm pt-4 border-t border-slate-200/10">
-            <p>© 2026 Smart EMI Planner. For illustrative purposes only. Actual bank calculations may vary.</p>
-          </footer>
-        </div>
+          {/* Pro Tip Card */}
+          <div className="bg-slate-900/40 border border-slate-800/80 rounded-2xl p-5 text-slate-300 shadow-inner">
+            <h3 className="font-bold text-xs uppercase font-mono tracking-wider mb-2 flex items-center gap-2 text-brand-mint">
+              <Info className="w-4 h-4" />
+              Strategic Insight
+            </h3>
+            <p className="text-xs text-slate-400 leading-relaxed">
+              Stepping up your EMI by just 5–10% annually with an annual bonus payment can slash your total liability by over 40% and shave nearly a decade off your tenure.
+            </p>
+          </div>
+        </aside>
+
+        {/* Right Main: KPI Cards + Viewport Tabs */}
+        <main className="lg:col-span-8 space-y-6">
+          {/* Key Metrics 3-Card Bar */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 shadow-inner">
+              <p className="text-slate-500 text-[10px] font-mono font-bold uppercase tracking-wider mb-1">Interest Saved</p>
+              <div className="text-xl md:text-2xl font-bold font-mono text-brand-mint">
+                {formatCurrency(results.interestSaved)}
+              </div>
+              <div className="mt-2 flex items-center gap-1 text-[11px] text-emerald-400 font-medium bg-emerald-500/10 px-2 py-0.5 rounded-md w-fit border border-emerald-500/20">
+                <TrendingDown className="w-3 h-3" />
+                <span>Reduced Interest</span>
+              </div>
+            </div>
+
+            <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 shadow-inner">
+              <p className="text-slate-500 text-[10px] font-mono font-bold uppercase tracking-wider mb-1">Tenure Saved</p>
+              <div className="text-xl md:text-2xl font-bold font-mono text-cyan-400">
+                {results.yearsSaved} yrs {results.monthsSaved} mos
+              </div>
+              <p className="text-[11px] font-mono text-slate-500 mt-2">
+                Debt-free in Year {Math.ceil(results.smart.totalMonths / 12)}
+              </p>
+            </div>
+
+            <div className="bg-slate-900/40 p-5 rounded-2xl border border-slate-800/80 shadow-inner">
+              <p className="text-slate-500 text-[10px] font-mono font-bold uppercase tracking-wider mb-1">Total Savings</p>
+              <div className="text-xl md:text-2xl font-bold font-mono text-white">
+                {formatCurrency(results.totalSaved)}
+              </div>
+              <p className="text-[11px] font-mono text-slate-500 mt-2">Overall wealth retained</p>
+            </div>
+          </div>
+
+          {/* Visualization / Table Container */}
+          <div className="bg-slate-900/40 rounded-2xl border border-slate-800/80 shadow-inner overflow-hidden">
+            {/* Tab Nav Buttons */}
+            <div className="flex border-b border-slate-800 bg-slate-950/40">
+              <button
+                type="button"
+                onClick={() => setActiveTab('visual')}
+                className={`flex-1 py-3 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                  activeTab === 'visual'
+                    ? 'text-brand-mint border-b-2 border-brand-mint bg-brand-mint/5'
+                    : 'text-slate-500 hover:text-slate-300 hover:bg-slate-900/40'
+                }`}
+              >
+                <BarChart3 className="w-4 h-4" />
+                <span>Balance Trajectory (Chart)</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('table')}
+                className={`flex-1 py-3 text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer ${
+                  activeTab === 'table'
+                    ? 'text-brand-mint border-b-2 border-brand-mint bg-brand-mint/5'
+                    : 'text-slate-500 hover:text-slate-300 hover:bg-slate-900/40'
+                }`}
+              >
+                <TableIcon className="w-4 h-4" />
+                <span>Amortization Schedule</span>
+              </button>
+            </div>
+
+            <div className="p-6">
+              {activeTab === 'visual' ? (
+                <div className="space-y-6">
+                  <div className="w-full h-80 min-h-80">
+                    <h3 className="text-center text-xs font-mono font-semibold text-slate-400 mb-4 uppercase tracking-widest">
+                      Remaining Balance: Standard vs Accelerated Plan
+                    </h3>
+                    <ResponsiveContainer width="100%" height="100%">
+                      <AreaChart data={chartData}>
+                        <defs>
+                          <linearGradient id="colorNormal" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#94a3b8" stopOpacity={0.2} />
+                            <stop offset="95%" stopColor="#94a3b8" stopOpacity={0} />
+                          </linearGradient>
+                          <linearGradient id="colorSmart" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="5%" stopColor="#00DC82" stopOpacity={0.4} />
+                            <stop offset="95%" stopColor="#00DC82" stopOpacity={0} />
+                          </linearGradient>
+                        </defs>
+                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#1e293b" />
+                        <XAxis
+                          dataKey="year"
+                          axisLine={false}
+                          tickLine={false}
+                          tick={{ fill: '#64748b', fontSize: 11, fontFamily: 'JetBrains Mono' }}
+                        />
+                        <YAxis
+                          axisLine={false}
+                          tickLine={false}
+                          tick={{ fill: '#64748b', fontSize: 11, fontFamily: 'JetBrains Mono' }}
+                          tickFormatter={(val) => `₹${(val / 100000).toFixed(0)}L`}
+                        />
+                        <Tooltip
+                          contentStyle={{
+                            backgroundColor: '#09090b',
+                            borderRadius: '12px',
+                            border: '1px solid #27272a',
+                            color: '#f8fafc',
+                            fontFamily: 'JetBrains Mono',
+                            fontSize: '12px'
+                          }}
+                          formatter={(value) => formatCurrency(Number(value))}
+                        />
+                        <Legend verticalAlign="top" height={36} iconType="circle" />
+                        <Area
+                          type="monotone"
+                          dataKey="Normal Loan"
+                          stroke="#64748b"
+                          strokeWidth={2}
+                          fillOpacity={1}
+                          fill="url(#colorNormal)"
+                        />
+                        <Area
+                          type="monotone"
+                          dataKey="Smart Plan"
+                          stroke="#00DC82"
+                          strokeWidth={2.5}
+                          fillOpacity={1}
+                          fill="url(#colorSmart)"
+                        />
+                      </AreaChart>
+                    </ResponsiveContainer>
+                  </div>
+
+                  {/* Summary Comparison Cards */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-800">
+                    <div className="p-4 rounded-xl bg-slate-950/60 border border-slate-800">
+                      <p className="text-[10px] font-mono font-bold text-slate-500 uppercase mb-2">Standard Loan Profile</p>
+                      <div className="flex justify-between mb-1 text-xs font-mono">
+                        <span className="text-slate-400">Total Tenure</span>
+                        <span className="font-semibold text-slate-200">{tenure} Years ({tenure * 12} Mos)</span>
+                      </div>
+                      <div className="flex justify-between text-xs font-mono">
+                        <span className="text-slate-400">Total Interest</span>
+                        <span className="font-semibold text-rose-400">{formatCurrency(results.normal.totalInterest)}</span>
+                      </div>
+                    </div>
+
+                    <div className="p-4 rounded-xl bg-slate-950/60 border border-brand-mint/30">
+                      <p className="text-[10px] font-mono font-bold text-brand-mint uppercase mb-2">Smart Accelerated Profile</p>
+                      <div className="flex justify-between mb-1 text-xs font-mono">
+                        <span className="text-slate-400">Total Tenure</span>
+                        <span className="font-semibold text-brand-mint">
+                          {Math.floor(results.smart.totalMonths / 12)} yrs {results.smart.totalMonths % 12} mos
+                        </span>
+                      </div>
+                      <div className="flex justify-between text-xs font-mono">
+                        <span className="text-slate-400">Total Interest</span>
+                        <span className="font-semibold text-brand-mint">{formatCurrency(results.smart.totalInterest)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="overflow-x-auto -mx-6">
+                  <table className="w-full text-left text-xs font-mono">
+                    <thead>
+                      <tr className="bg-slate-950/80 border-y border-slate-800 text-slate-400">
+                        <th className="px-6 py-3 font-semibold">Year</th>
+                        <th className="px-6 py-3 font-semibold">EMI</th>
+                        <th className="px-6 py-3 font-semibold text-right">Interest Paid</th>
+                        <th className="px-6 py-3 font-semibold text-right">Principal Paid</th>
+                        <th className="px-6 py-3 font-semibold text-right text-brand-mint">Year-End Balance</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-800/60">
+                      {results.smart.yearlyData.map((row) => (
+                        <tr key={row.year} className="hover:bg-slate-800/30 transition-colors">
+                          <td className="px-6 py-3.5 font-medium text-slate-300">Year {row.year}</td>
+                          <td className="px-6 py-3.5 text-slate-300">{formatCurrency(row.emi)}</td>
+                          <td className="px-6 py-3.5 text-right text-rose-400">-{formatCurrency(row.interest)}</td>
+                          <td className="px-6 py-3.5 text-right text-emerald-400">+{formatCurrency(row.principal)}</td>
+                          <td className="px-6 py-3.5 text-right font-bold text-brand-mint">
+                            {row.balance > 0 ? formatCurrency(row.balance) : "PAID OFF 🎉"}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          </div>
+        </main>
       </div>
-    </>
+
+      {/* Footer Disclaimer */}
+      <footer className="mt-8 text-center text-slate-500 text-xs pt-4 border-t border-slate-800">
+        <p>© 2026 Smart EMI Planner. For illustrative financial planning purposes only.</p>
+      </footer>
+    </div>
   );
-};
-
-export default SmartEMIPlanner;
-
+}

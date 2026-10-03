@@ -967,7 +967,7 @@ export default function RetirementPlanner() {
                 <div className="flex gap-2 flex-wrap">
                     <button
                         onClick={handleExportConfig}
-                        className="px-3 py-2 text-xs font-semibold bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-slate-350 hover:text-white cursor-pointer"
+                        className="px-3 py-2 text-xs font-semibold bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-slate-300 hover:text-white cursor-pointer"
                         title="Download JSON backup"
                     >
                         <ArrowUpRight className="w-3.5 h-3.5 text-emerald-400" />
@@ -975,10 +975,10 @@ export default function RetirementPlanner() {
                     </button>
 
                     <label
-                        className="px-3 py-2 text-xs font-semibold bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-slate-350 hover:text-white cursor-pointer relative"
+                        className="px-3 py-2 text-xs font-semibold bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-xl transition-all flex items-center gap-1.5 text-slate-300 hover:text-white cursor-pointer relative"
                         title="Upload JSON backup"
                     >
-                        <ArrowDownRight className="w-3.5 h-3.5 text-cyan-405" />
+                        <ArrowDownRight className="w-3.5 h-3.5 text-cyan-400" />
                         <span>Import Backup</span>
                         <input
                             type="file"
@@ -1743,7 +1743,7 @@ export default function RetirementPlanner() {
                                 <select
                                     value={statusFilter}
                                     onChange={(e) => setStatusFilter(e.target.value)}
-                                    className="bg-slate-950 border border-slate-800/80 rounded-xl px-2 py-1.5 text-[10px] text-slate-350 outline-none cursor-pointer focus:border-brand-mint/50"
+                                    className="bg-slate-950 border border-slate-800/80 rounded-xl px-2 py-1.5 text-[10px] text-slate-300 outline-none cursor-pointer focus:border-brand-mint/50"
                                 >
                                     <option value="pending">Pending</option>
                                     <option value="settled">Settled</option>
@@ -1752,7 +1752,7 @@ export default function RetirementPlanner() {
                                 <select
                                     value={typeFilter}
                                     onChange={(e) => setTypeFilter(e.target.value)}
-                                    className="bg-slate-950 border border-slate-800/80 rounded-xl px-2 py-1.5 text-[10px] text-slate-350 outline-none cursor-pointer focus:border-brand-mint/50"
+                                    className="bg-slate-950 border border-slate-800/80 rounded-xl px-2 py-1.5 text-[10px] text-slate-300 outline-none cursor-pointer focus:border-brand-mint/50"
                                 >
                                     <option value="all">All Types</option>
                                     <option value="give">Give (Lent)</option>
@@ -1949,7 +1949,7 @@ export default function RetirementPlanner() {
                                                                             type="date"
                                                                             value={adjDate}
                                                                             onChange={(e) => setAdjDate(e.target.value)}
-                                                                            className="w-full bg-slate-950 border border-slate-800 rounded px-1.5 py-0.5 text-2xs outline-none text-slate-350 font-mono"
+                                                                            className="w-full bg-slate-950 border border-slate-800 rounded px-1.5 py-0.5 text-2xs outline-none text-slate-300 font-mono"
                                                                         />
                                                                     </div>
                                                                 </div>
@@ -2022,7 +2022,7 @@ export default function RetirementPlanner() {
                     <div className="space-y-4">
                         {preAllocation.map((asset, idx) => (
                             <div key={idx} className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-2.5 items-start sm:items-center bg-slate-950/20 sm:bg-transparent p-3 sm:p-0 rounded-2xl border border-slate-850/50 sm:border-0">
-                                <span className="col-span-1 sm:col-span-4 text-xs sm:text-[11px] text-slate-350 sm:text-slate-300 font-semibold block text-left truncate" title={asset.name}>{asset.name}</span>
+                                <span className="col-span-1 sm:col-span-4 text-xs sm:text-[11px] text-slate-300 font-semibold block text-left truncate" title={asset.name}>{asset.name}</span>
                                 <div className="col-span-1 sm:col-span-8 grid grid-cols-3 gap-2">
                                     <div>
                                         <label className="text-[8px] font-mono text-slate-500 block mb-0.5 sm:hidden">Return %</label>
@@ -2084,7 +2084,7 @@ export default function RetirementPlanner() {
                     <div className="space-y-4">
                         {postAllocation.map((asset, idx) => (
                             <div key={idx} className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-2.5 items-start sm:items-center bg-slate-950/20 sm:bg-transparent p-3 sm:p-0 rounded-2xl border border-slate-850/50 sm:border-0">
-                                <span className="col-span-1 sm:col-span-4 text-xs sm:text-[11px] text-slate-350 sm:text-slate-300 font-semibold block text-left truncate" title={asset.name}>{asset.name}</span>
+                                <span className="col-span-1 sm:col-span-4 text-xs sm:text-[11px] text-slate-300 font-semibold block text-left truncate" title={asset.name}>{asset.name}</span>
                                 <div className="col-span-1 sm:col-span-8 grid grid-cols-3 gap-2">
                                     <div>
                                         <label className="text-[8px] font-mono text-slate-500 block mb-0.5 sm:hidden">Return %</label>
@@ -2203,7 +2203,7 @@ export default function RetirementPlanner() {
                                         className={`hover:bg-slate-900/20 transition-all font-mono text-2xs ${row.status === 'Dead'
                                             ? 'opacity-30 bg-slate-950/20'
                                             : row.warning
-                                                ? 'bg-rose-500/5 hover:bg-rose-500/10 text-rose-350'
+                                                ? 'bg-rose-500/5 hover:bg-rose-500/10 text-rose-300'
                                                 : row.status === 'Retired'
                                                     ? 'bg-emerald-500/5 hover:bg-emerald-500/10 text-emerald-300 font-semibold'
                                                     : 'text-slate-300'
@@ -2221,7 +2221,7 @@ export default function RetirementPlanner() {
                                         <td className="py-2.5 text-right text-rose-400">{row.status === 'Retired' ? formatCurrency(row.expenses) : '-'}</td>
                                         <td className="py-2.5 text-right text-emerald-400">{row.status === 'Earning' ? formatCurrency(row.additions) : '-'}</td>
                                         <td className="py-2.5 text-right text-indigo-300">{row.status === 'Dead' ? '-' : `+${formatCurrency(row.interest)}`}</td>
-                                        <td className="py-2.5 text-right text-amber-405">
+                                        <td className="py-2.5 text-right text-amber-400">
                                             {row.goalExpenses > 0 || row.emiExpenses > 0 || row.debtInflow > 0 || row.debtOutflow > 0 ? (
                                                 <div className="flex flex-col items-end">
                                                     {(() => {

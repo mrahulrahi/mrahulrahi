@@ -12,15 +12,14 @@ import Products from '@/app/(project)/products/page';
 import { getPublicPortfolioData } from '@/app/(admin)/admin/dataActions';
 import { skills as staticSkills, projectsCards as staticProjects } from '@/app/data/staticData';
 
-type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks' | 'products' | 'unified-dashboard';
+type WorkspaceTab = 'portfolio' | 'ui-sandbox' | 'tools' | 'code-blocks' | 'products';
 
 const tabToSlug: Record<WorkspaceTab, string> = {
     portfolio: 'portfoliohub',
     'ui-sandbox': 'ui-sandbox',
     tools: 'utilitieshub',
     'code-blocks': 'codeacademy',
-    products: 'products',
-    'unified-dashboard': 'unified-dashboard'
+    products: 'products'
 };
 
 const slugToTab: Record<string, WorkspaceTab> = {
@@ -28,8 +27,7 @@ const slugToTab: Record<string, WorkspaceTab> = {
     'ui-sandbox': 'ui-sandbox',
     utilitieshub: 'tools',
     codeacademy: 'code-blocks',
-    products: 'products',
-    'unified-dashboard': 'unified-dashboard'
+    products: 'products'
 };
 
 export default function WorkspacePage() {
@@ -87,55 +85,51 @@ export default function WorkspacePage() {
             <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-brand-fern/15 blur-[150px] pointer-events-none" />
 
             {/* main dashboard grid container */}
-            <div className="max-w-400 w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 flex flex-col lg:flex-row gap-8 relative z-10">
+            <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8 flex-1 flex flex-col lg:flex-row gap-6 lg:gap-8 relative z-10">
 
                 {/* Left Side: Premium Nav Sidebar (Dashboard Layout) */}
-                <aside className="w-full lg:w-80 shrink-0 flex flex-col gap-6">
+                <aside className="w-full lg:w-80 shrink-0 flex flex-col gap-4 lg:gap-6">
                     {/* Workspace Branding Card */}
-                    <div className="bg-slate-900/40 border border-slate-800/80 p-6 rounded-3xl backdrop-blur-md relative overflow-hidden group shadow-inner">
+                    <div className="bg-slate-900/40 border border-slate-800/80 p-4 lg:p-6 rounded-2xl lg:rounded-3xl backdrop-blur-md relative overflow-hidden group shadow-inner">
                         <div className="absolute inset-0 bg-linear-to-br from-brand-mint/5 to-transparent pointer-events-none" />
-                        <div className="flex items-center gap-3 mb-3">
-                            <div className="p-2.5 bg-brand-mint/10 border border-brand-mint/20 rounded-xl text-brand-mint">
-                                <Cpu className="w-5 h-5 animate-pulse" />
+                        <div className="flex items-center gap-3 mb-2 lg:mb-3">
+                            <div className="p-2 lg:p-2.5 bg-brand-mint/10 border border-brand-mint/20 rounded-xl text-brand-mint">
+                                <Cpu className="w-4 h-4 lg:w-5 lg:h-5 animate-pulse" />
                             </div>
                             <div>
-                                <h2 className="text-sm font-mono font-bold tracking-widest text-slate-400 mb-2">DEV_CENTER</h2>
-                                <h1 className="text-lg font-bold text-white tracking-wide mb-0">Developer Hub</h1>
+                                <h2 className="text-xs sm:text-sm font-mono font-bold tracking-widest text-slate-400 mb-1 lg:mb-2">DEV_CENTER</h2>
+                                <h1 className="text-base lg:text-lg font-bold text-white tracking-wide mb-0">Developer Hub</h1>
                             </div>
                         </div>
-                        <p className="text-[11px] text-slate-400 leading-normal font-mono border-t border-slate-800/60 pt-3 mt-1 uppercase tracking-wider">
+                        <p className="text-[10px] lg:text-[11px] text-slate-400 leading-normal font-mono border-t border-slate-800/60 pt-2 lg:pt-3 mt-1 uppercase tracking-wider">
                             SECURE ACCESS PORT : ACTIVE
                         </p>
                     </div>
 
                     {/* Navigation Menu */}
-                    <nav className="bg-slate-900/40 border border-slate-800/80 rounded-3xl p-3 backdrop-blur-md flex flex-col gap-1.5 shadow-inner">
+                    <nav className="bg-slate-900/40 border border-slate-800/80 rounded-2xl lg:rounded-3xl p-2 lg:p-3 backdrop-blur-md flex flex-row lg:flex-col overflow-x-auto gap-2 lg:gap-1.5 shadow-inner">
                         {sidebarItems.map(item => (
                             <button
                                 key={item.id}
                                 onClick={() => {
-                                    if (item.id === 'unified-dashboard') {
-                                        router.push('/tools/unified-dashboard');
-                                    } else {
-                                        router.push('/workspace/' + tabToSlug[item.id]);
-                                    }
+                                    router.push('/workspace/' + tabToSlug[item.id]);
                                 }}
-                                className={`w-full text-left p-3.5 rounded-2xl border transition-all flex items-center gap-3.5 group cursor-pointer ${activeTab === item.id
+                                className={`shrink-0 lg:w-full text-left p-2.5 sm:p-3 lg:p-3.5 rounded-xl lg:rounded-2xl border transition-all flex items-center gap-2.5 lg:gap-3.5 group cursor-pointer ${activeTab === item.id
                                     ? 'bg-brand-mint/10 border-brand-mint/30 text-white shadow-[0_0_15px_-3px_rgba(0,220,130,0.15)]'
                                     : 'bg-transparent border-transparent hover:bg-slate-950/40 hover:border-slate-800/60 text-slate-400 hover:text-slate-200'
                                     }`}
                             >
-                                <div className={`p-2.5 rounded-xl transition-colors shrink-0 ${activeTab === item.id
+                                <div className={`p-2 lg:p-2.5 rounded-lg lg:rounded-xl transition-colors shrink-0 ${activeTab === item.id
                                     ? 'bg-brand-mint/20 text-brand-mint'
                                     : 'bg-slate-950/60 border border-slate-800/60 text-slate-500 group-hover:text-slate-300'
                                     }`}>
                                     {item.icon}
                                 </div>
                                 <div className="truncate flex-1">
-                                    <h3 className="text-xs font-bold tracking-wide mb-1">{item.label}</h3>
-                                    <p className="text-[10px] text-slate-500 truncate">{item.description}</p>
+                                    <h3 className="text-xs font-bold tracking-wide lg:mb-1 whitespace-nowrap lg:whitespace-normal">{item.label}</h3>
+                                    <p className="hidden lg:block text-[10px] text-slate-500 truncate">{item.description}</p>
                                 </div>
-                                <ChevronRight className={`w-4 h-4 transition-transform ${activeTab === item.id ? 'translate-x-0.5 text-brand-mint' : 'text-slate-700 group-hover:text-slate-400'
+                                <ChevronRight className={`hidden lg:block w-4 h-4 transition-transform ${activeTab === item.id ? 'translate-x-0.5 text-brand-mint' : 'text-slate-700 group-hover:text-slate-400'
                                     }`} />
                             </button>
                         ))}
@@ -143,7 +137,7 @@ export default function WorkspacePage() {
                 </aside>
 
                 {/* Right Side: Tab Viewport Shell */}
-                <main className="flex-1 bg-slate-900/20 border border-slate-800/80 rounded-4xl p-6 lg:p-8 min-h-125 backdrop-blur-md flex flex-col justify-between overflow-hidden relative shadow-2xl">
+                <main className="flex-1 bg-slate-900/20 border border-slate-800/80 rounded-3xl p-4 sm:p-6 lg:p-8 min-h-[500px] backdrop-blur-md flex flex-col justify-between overflow-hidden relative shadow-2xl">
                     <div className="absolute inset-0 bg-linear-to-tr from-brand-black/40 via-transparent to-brand-black/20 pointer-events-none" />
 
                     <div className="relative z-10 w-full flex-1">
