@@ -27,7 +27,7 @@
   left: 14px;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--mrr-accent-color, #11d486);
+  color: #fff;
   pointer-events: none;
   display: flex;
   align-items: center;
@@ -35,8 +35,8 @@
 
 .pfc-search-input {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 50px;
   padding: 10px 38px 10px 42px;
   color: #fff;
@@ -53,7 +53,8 @@
 }
 
 .pfc-search-input::placeholder {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 1);
+  opacity: 0.9;
 }
 
 .pfc-clear-search {
@@ -137,16 +138,16 @@
 }
 
 .pfc-tab-count {
-  font-size: 11px;
-  padding: 1px 7px;
+  font-size: 12px;
+  line-height: 1;
+  padding: 4px 8px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.1);
   color: rgba(255, 255, 255, 0.8);
 }
 
 .pfc-tab-btn.active .pfc-tab-count {
-  background: var(--mrr-accent-color, #11d486);
-  color: #0b1329;
+  background: rgba(255, 255, 255, 0.3);
   font-weight: 700;
 }
 
