@@ -8,10 +8,6 @@
 }
 
 .pfc-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
   gap: 16px;
 }
 
@@ -29,8 +25,6 @@
   transform: translateY(-50%);
   color: #fff;
   pointer-events: none;
-  display: flex;
-  align-items: center;
 }
 
 .pfc-search-input {

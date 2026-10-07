@@ -121,7 +121,7 @@ export default function ProjectFilterSection({ projects }: Props) {
 
       {/* Filter and Search Bar Controls */}
       <div className="project-filter-controls">
-        <div className="pfc-top-bar">
+        <div className="pfc-top-bar d-flex align-items-center justify-content-between flex-wrap">
           {/* Category Tabs */}
           <div className="pfc-tabs-container" role="tablist">
             {CATEGORY_TABS.map(tab => {
@@ -144,8 +144,8 @@ export default function ProjectFilterSection({ projects }: Props) {
           </div>
 
           {/* Search Input */}
-          <div className="pfc-search-wrapper">
-            <span className="pfc-search-icon">
+          <div className="pfc-search-wrapper w-100 position-relative">
+            <span className="pfc-search-icon d-flex align-items-center">
               <Search className="w-4 h-4" />
             </span>
             <input
