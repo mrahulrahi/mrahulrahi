@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import * as motion from "motion/react-client";
@@ -21,6 +21,7 @@ import CertificateCard from '@/app/components/portfolio/CertificateCard/Certific
 import SkillCard from '@/app/components/portfolio/SkillCard/SkillCard';
 import { DevArticle } from '@/app/utils/getArticles';
 import { TiArrowRightOutline, TiArrowDownOutline } from "react-icons/ti";
+import { Briefcase, GraduationCap, Sparkles, Building2, Calendar } from "lucide-react";
 
 const MouseFollower = dynamic(() => import('@/app/components/layout/MouseFollower'), { ssr: false });
 
@@ -90,6 +91,22 @@ export default function PortfolioView({ initialPortfolioData, initialArticles }:
 
   const { projectsCards, interest, timelineItems, certificates, hero, stats, about, skills } = portfolioData;
 
+  const [journeyTab, setJourneyTab] = useState<'all' | 'experience' | 'education'>('all');
+
+  const experienceList = useMemo(() => {
+    return (timelineItems || [])
+      .filter((item: any) => item.type === "experience" || (!item.type && (item.id ?? 0) > 4))
+      .slice()
+      .reverse();
+  }, [timelineItems]);
+
+  const educationList = useMemo(() => {
+    return (timelineItems || [])
+      .filter((item: any) => item.type === "education" || (!item.type && (item.id ?? 0) <= 4))
+      .slice()
+      .reverse();
+  }, [timelineItems]);
+
   return (
     <>
       <div className="bg-dark bg-graphic position-relative overflow-hidden">
@@ -153,138 +170,70 @@ export default function PortfolioView({ initialPortfolioData, initialArticles }:
           <Button title="Continuous Learning" style="default" url="#continuousLearning" icon={<TiArrowDownOutline />} />
         </Banner>
 
-        <ContentContainer className="about-intro-container pt-0" heading="The Journey So Far">
+        <ContentContainer className="about-intro-container pt-0" heading="About Me">
           <motion.div className="row g-4" initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true, amount: 0.2 }}>
             <div className="col-lg-8">
-              <div className="row g-4">
-                <div className="col-lg-6">
-                  <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}>
-                    <div className="timeline">
-                      <div className="timeline-section-header d-flex align-items-center gap-2 mb-4">
-                        <span className="timeline-badge-icon">🎓</span>
-                        <h4 className="timeline-section-title mb-0">Education</h4>
-                      </div>
-                      <div className="timeline-list">
-                        {timelineItems.filter((item: any) => item.type === "education" || (!item.type && (item.id ?? 0) <= 4)).map((item: any) =>
-                          <div key={item.id} className="timeline-item" >
-                            <div className="timeline-node">
-                              <span className="timeline-node-dot" />
-                            </div>
-                            <div className="timeline-content">
-                              <h3 className="timeline-content-title">{item.title}</h3>
-                              <ul className="timeline-content-desc">
-                                {item.roles && item.roles.map((role: any) => (
-                                  <li key={role.role} className="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                                    <span className="timeline-role-name">{role.role}</span>
-                                    <span className="timeline-duration-badge">{role.duration}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>)}
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-                <div className="col-lg-6">
-                  <motion.div className="timeline-container" initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}>
-                    <div className="timeline">
-                      <div className="timeline-section-header d-flex align-items-center gap-2 mb-4">
-                        <span className="timeline-badge-icon">💼</span>
-                        <h4 className="timeline-section-title mb-0">Experience</h4>
-                      </div>
-                      <div className="timeline-list">
-                        {timelineItems.filter((item: any) => item.type === "experience" || (!item.type && (item.id ?? 0) > 4)).map((item: any) =>
-                          <div key={item.id} className="timeline-item" >
-                            <div className="timeline-node">
-                              <span className="timeline-node-dot" />
-                            </div>
-                            <div className="timeline-content">
-                              <h3 className="timeline-content-title">{item.title}</h3>
-                              <ul className="timeline-content-desc">
-                                {item.roles && item.roles.map((role: any) => (
-                                  <li key={role.role} className="d-flex align-items-center justify-content-between flex-wrap gap-2">
-                                    <span className="timeline-role-name">{role.role}</span>
-                                    <span className="timeline-duration-badge">{role.duration}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          </div>)}
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
-                <div className="col-lg-8">
-                  <motion.div className="ai-content-box d-flex flex-wrap bg-gradient overflow-hidden" initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}>
-                    <motion.div className="ai-text" initial={{ opacity: 0, x: 50 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, ease: "easeOut" }}
-                      viewport={{ once: true, amount: 0.2 }}>
-                      <p>{about?.description || "I am a front-end web developer..."}</p>
-                      <p>{about?.stackPrefix || "Stack - "}<span className="text-accent fw-bold">{about?.stack || "MERN Stack"}</span></p>
-                    </motion.div>
+              <motion.div className="ai-content-box h-100 d-flex flex-wrap bg-gradient overflow-hidden" initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}>
+                <motion.div className="ai-text" initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  viewport={{ once: true, amount: 0.2 }}>
+                  <p>{about?.description || "I am a front-end web developer..."}</p>
+                  <p>{about?.stackPrefix || "Stack - "}<span className="text-accent fw-bold">{about?.stack || "MERN Stack"}</span></p>
+                </motion.div>
 
-                    <div className="text-scroll-wrapper mt-5">
-                      <div className="text-scroll-list">
-                        <div className="text-scroll-item">
-                          <div className="text-scroll-box">
-                            <h5>🧠 Turning ideas into interactive interfaces.</h5>
-                          </div>
-                        </div>
-                        <div className="text-scroll-item">
-                          <div className="text-scroll-box">
-                            <h5>🎯 Let’s create something amazing together.</h5>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="text-scroll-list">
-                        <div className="text-scroll-item">
-                          <div className="text-scroll-box">
-                            <h5>🧠 Turning ideas into interactive interfaces.</h5>
-                          </div>
-                        </div>
-                        <div className="text-scroll-item">
-                          <div className="text-scroll-box">
-                            <h5>🎯 Let’s create something amazing together.</h5>
-                          </div>
-                        </div>
+                <div className="text-scroll-wrapper mt-5">
+                  <div className="text-scroll-list">
+                    <div className="text-scroll-item">
+                      <div className="text-scroll-box">
+                        <h5>🧠 Turning ideas into interactive interfaces.</h5>
                       </div>
                     </div>
-                  </motion.div>
-                </div>
-                <div className="col-lg-4">
-                  <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
-                    viewport={{ once: true, amount: 0.2 }}>
-                    <div className="timeline-img">
-                      <Image 
-                        src="/rahi.webp" 
-                        alt="Rahul Maurya Profile Picture" 
-                        loading="lazy"
-                        width={500} 
-                        height={500} 
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                      />
+                    <div className="text-scroll-item">
+                      <div className="text-scroll-box">
+                        <h5>🎯 Let’s create something amazing together.</h5>
+                      </div>
                     </div>
-                  </motion.div >
+                  </div>
+                  <div className="text-scroll-list">
+                    <div className="text-scroll-item">
+                      <div className="text-scroll-box">
+                        <h5>🧠 Turning ideas into interactive interfaces.</h5>
+                      </div>
+                    </div>
+                    <div className="text-scroll-item">
+                      <div className="text-scroll-box">
+                        <h5>🎯 Let’s create something amazing together.</h5>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
             <div className="col-lg-4">
+              <motion.div className="timeline-img-box d-flex align-items-center justify-content-center" initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, amount: 0.2 }}>
+                <div className="timeline-img">
+                  <Image
+                    src="/rahi.webp"
+                    alt="Rahul Maurya Profile Picture"
+                    loading="lazy"
+                    width={500}
+                    height={500}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+                  />
+                </div>
+              </motion.div >
+            </div>
+            <div className="col-lg-12">
               <motion.div className="stats-content-box bg-gradient position-relative z-3 mb-4 flex-grow-1" initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
@@ -305,6 +254,210 @@ export default function PortfolioView({ initialPortfolioData, initialArticles }:
                   ))}
                 </ul>
               </motion.div>
+            </div>
+          </motion.div>
+        </ContentContainer>
+
+        <ContentContainer className="journey-container pt-0" heading="The Journey So Far">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            {/* Top Bar with Filter Pills & Live Beacon */}
+            <div className="journey-top-bar d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+              <div className="journey-filter-nav d-flex align-items-center gap-2 flex-wrap">
+                <button
+                  type="button"
+                  onClick={() => setJourneyTab('all')}
+                  className={`journey-filter-btn ${journeyTab === 'all' ? 'active' : ''}`}
+                >
+                  <Sparkles size={14} />
+                  <span>All Tracks</span>
+                  <span className="journey-filter-count">{experienceList.length + educationList.length}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setJourneyTab('experience')}
+                  className={`journey-filter-btn ${journeyTab === 'experience' ? 'active' : ''}`}
+                >
+                  <Briefcase size={14} />
+                  <span>Experience</span>
+                  <span className="journey-filter-count">{experienceList.length}</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setJourneyTab('education')}
+                  className={`journey-filter-btn ${journeyTab === 'education' ? 'active' : ''}`}
+                >
+                  <GraduationCap size={14} />
+                  <span>Education</span>
+                  <span className="journey-filter-count">{educationList.length}</span>
+                </button>
+              </div>
+
+              <div className="journey-live-status d-inline-flex align-items-center gap-2">
+                <span className="journey-beacon-dot">
+                  <span className="journey-beacon-ping" />
+                </span>
+                <span className="journey-live-text">Active Frontend Dev & MCA Scholar</span>
+              </div>
+            </div>
+
+            {/* Grid Layout for Tracks */}
+            <div className="row g-4 journey-grid">
+              {(journeyTab === 'all' || journeyTab === 'experience') && (
+                <div className={journeyTab === 'all' ? 'col-lg-6' : 'col-lg-9 mx-auto'}>
+                  <motion.div
+                    className="journey-track-card h-100"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <div className="journey-track-header d-flex align-items-center justify-content-between">
+                      <div className="d-flex align-items-center gap-3">
+                        <div className="journey-track-icon-wrapper experience">
+                          <Briefcase size={18} />
+                        </div>
+                        <div>
+                          <h3 className="journey-track-title mb-0">Experience</h3>
+                          <span className="journey-track-subtitle">Professional work & engineering</span>
+                        </div>
+                      </div>
+                      <span className="journey-track-count-chip">{experienceList.length} Milestones</span>
+                    </div>
+
+                    <div className="journey-timeline-list">
+                      {experienceList.map((item: any) => {
+                        const isItemActive = item.roles?.some((r: any) => {
+                          const dur = (r.duration || '').toLowerCase();
+                          return dur.includes('now') || dur.includes('present');
+                        });
+
+                        return (
+                          <div key={item.id ?? item.title} className={`journey-item ${isItemActive ? 'is-active' : ''}`}>
+                            <div className="journey-node">
+                              {isItemActive && <span className="journey-node-pulse" />}
+                              <span className="journey-node-dot" />
+                            </div>
+
+                            <div className="journey-card">
+                              <div className="journey-card-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                <div className="d-flex align-items-center gap-2">
+                                  <Building2 size={16} className="journey-card-org-icon" />
+                                  <h4 className="journey-card-title mb-0">{item.title}</h4>
+                                </div>
+                                {isItemActive && (
+                                  <span className="journey-status-pill">
+                                    <span className="journey-status-beacon" />
+                                    Active Role
+                                  </span>
+                                )}
+                              </div>
+
+                              <div className="journey-roles-list">
+                                {item.roles && item.roles.map((role: any, idx: number) => {
+                                  const isRoleCurrent = (role.duration || '').toLowerCase().includes('now') || (role.duration || '').toLowerCase().includes('present');
+                                  return (
+                                    <div key={role.role || idx} className="journey-role-row">
+                                      <div className="journey-role-main">
+                                        <span className="journey-role-name">{role.role}</span>
+                                      </div>
+                                      <div className="journey-role-meta">
+                                        <span className={`journey-duration-badge ${isRoleCurrent ? 'is-current' : ''}`}>
+                                          <Calendar size={11} className="journey-cal-icon" />
+                                          {role.duration}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                </div>
+              )}
+
+              {(journeyTab === 'all' || journeyTab === 'education') && (
+                <div className={journeyTab === 'all' ? 'col-lg-6' : 'col-lg-9 mx-auto'}>
+                  <motion.div
+                    className="journey-track-card h-100"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4 }}
+                  >
+                    <div className="journey-track-header d-flex align-items-center justify-content-between">
+                      <div className="d-flex align-items-center gap-3">
+                        <div className="journey-track-icon-wrapper education">
+                          <GraduationCap size={18} />
+                        </div>
+                        <div>
+                          <h3 className="journey-track-title mb-0">Education</h3>
+                          <span className="journey-track-subtitle">Academic degrees & credentials</span>
+                        </div>
+                      </div>
+                      <span className="journey-track-count-chip">{educationList.length} Milestones</span>
+                    </div>
+
+                    <div className="journey-timeline-list">
+                      {educationList.map((item: any) => {
+                        const isItemActive = item.roles?.some((r: any) => {
+                          const dur = (r.duration || '').toLowerCase();
+                          return dur.includes('now') || dur.includes('present');
+                        });
+
+                        return (
+                          <div key={item.id ?? item.title} className={`journey-item ${isItemActive ? 'is-active' : ''}`}>
+                            <div className="journey-node">
+                              {isItemActive && <span className="journey-node-pulse" />}
+                              <span className="journey-node-dot" />
+                            </div>
+
+                            <div className="journey-card">
+                              <div className="journey-card-header d-flex align-items-center justify-content-between flex-wrap gap-2">
+                                <div className="d-flex align-items-center gap-2">
+                                  <GraduationCap size={16} className="journey-card-org-icon edu" />
+                                  <h4 className="journey-card-title mb-0">{item.title}</h4>
+                                </div>
+                                {isItemActive && (
+                                  <span className="journey-status-pill edu">
+                                    <span className="journey-status-beacon edu" />
+                                    Pursuing
+                                  </span>
+                                )}
+                              </div>
+
+                              <div className="journey-roles-list">
+                                {item.roles && item.roles.map((role: any, idx: number) => {
+                                  const isRoleCurrent = (role.duration || '').toLowerCase().includes('now') || (role.duration || '').toLowerCase().includes('present');
+                                  return (
+                                    <div key={role.role || idx} className="journey-role-row">
+                                      <div className="journey-role-main">
+                                        <span className="journey-role-name">{role.role}</span>
+                                      </div>
+                                      <div className="journey-role-meta">
+                                        <span className={`journey-duration-badge ${isRoleCurrent ? 'is-current' : ''}`}>
+                                          <Calendar size={11} className="journey-cal-icon" />
+                                          {role.duration}
+                                        </span>
+                                      </div>
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </motion.div>
+                </div>
+              )}
             </div>
           </motion.div>
         </ContentContainer>
