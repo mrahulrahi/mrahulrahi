@@ -4,6 +4,7 @@ import { useQuery, keepPreviousData } from "@tanstack/react-query";
 import ReactPaginate from "react-paginate";
 import Link from "next/link";
 import Hero from "@/app/components/project/Hero";
+import { count } from "console";
 
 const BlogPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -12,12 +13,12 @@ const BlogPage = () => {
   // Fetch blogs using React Query
   const fetchBlogs = async (page) => {
     const res = await fetch(
-      `https://jsonplaceholder.typicode.com/posts?_page=${page}&_limit=${limit}`,
+      `https://dev.to/api/articles?per_page=${limit}&page=${page}`,
       { cache: 'no-store' }
     );
-    const total = parseInt(res.headers.get("x-total-count") || "0", 10);
+    // const total = parseInt(res.headers.get("x-total-count") || "0", 10);
     const data = await res.json();
-    return { data, total };
+    return { data };
   };
 
   const { data, isLoading, isError, error } = useQuery({
@@ -48,12 +49,15 @@ const BlogPage = () => {
       <div className="py-10 lg:py-20">
         <div className="container-fluid">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            {blogs.map((blog) => (
+            {blogs.map((blog,index) => (
               <div className="w-full" key={blog.id}>
                 <Link className="card flex flex-col h-full p-5 lg:p-8 bg-white/10 border border-[#ccc] rounded-xl group" href={`/blog/${blog.id}`} >
-                  <div className="badge badge-primary mb-2">{blog.id}</div>
+                  <div className="image-section relative w-full h-75 mb-5 rounded-2xl overflow-hidden" >
+                    <img className="w-full h-full object-cover" src={blog?.id ? blog.cover_image : `https://placehold.co/800/1B9C85/white.png?text=${encodeURIComponent(blog.title)}&font=poppins`} alt="Blog" />
+                  </div> 
+                  <div className="badge badge-primary mb-2">{index + 1}</div>
                   <h3 className="card-title text-white capitalize line-clamp-2">{blog.title}</h3>
-                  <p className="card-text line-clamp-3">{blog.body}</p>
+                  <p className="card-text line-clamp-3">{blog.description}</p>
                   <div className="card-actions justify-start mt-auto">
                     <span className="text-white underline group-hover:no-underline">Read More</span>
                   </div>

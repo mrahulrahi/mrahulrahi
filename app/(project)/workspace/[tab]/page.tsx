@@ -85,7 +85,7 @@ export default function WorkspacePage() {
             <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-brand-fern/15 blur-[150px] pointer-events-none" />
 
             {/* main dashboard grid container */}
-            <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8 flex-1 flex flex-col lg:flex-row gap-6 lg:gap-8 relative z-10">
+            <div className="max-w-8xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8 flex-1 flex flex-col lg:flex-row gap-6 lg:gap-8 relative z-10">
 
                 {/* Left Side: Premium Nav Sidebar (Dashboard Layout) */}
                 <aside className="w-full lg:w-80 shrink-0 flex flex-col gap-4 lg:gap-6">

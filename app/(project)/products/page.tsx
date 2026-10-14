@@ -30,7 +30,7 @@ const page = () => {
 
             <div className="py-10 lg:py-20">
                 <div className="container-fluid">
-                    <div className="grid grid-col-2 md:grid-cols-4 gap-5">
+                    <div className="grid grid-col-2 md:grid-cols-3 gap-5">
                         {cards.map((card, index) => (
                             <div className="w-full" key={index}>
                                 <Link className="card w-full p-8 bg-white/10 border border-[#ccc] rounded-xl" href={card.href} >
@@ -47,7 +47,7 @@ const page = () => {
 
                     <h2>Product Page</h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-6 flex-wrap">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 flex-wrap">
                         {products.map((product) => (
                             <div className="w-full" key={product.id}>
                                 <Link className="card flex flex-col h-full bg-white/10 border border-[#ccc] rounded-xl overflow-hidden" href={`/products/${product.id}`} >
