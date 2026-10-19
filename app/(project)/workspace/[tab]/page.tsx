@@ -137,7 +137,7 @@ export default function WorkspacePage() {
                 </aside>
 
                 {/* Right Side: Tab Viewport Shell */}
-                <main className="flex-1 bg-slate-900/20 border border-slate-800/80 rounded-3xl p-4 sm:p-6 lg:p-8 min-h-[500px] backdrop-blur-md flex flex-col justify-between overflow-hidden relative shadow-2xl">
+                <main className="flex-1 bg-slate-900/20 border border-slate-800/80 rounded-3xl p-4 sm:p-6 lg:p-8 min-h-125 backdrop-blur-md flex flex-col justify-between overflow-hidden relative shadow-2xl">
                     <div className="absolute inset-0 bg-linear-to-tr from-brand-black/40 via-transparent to-brand-black/20 pointer-events-none" />
 
                     <div className="relative z-10 w-full flex-1">

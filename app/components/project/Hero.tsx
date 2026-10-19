@@ -9,7 +9,7 @@ interface HeroProps {
 const Hero = ({ bgImg, title, subTitle, content, gradientColor }: HeroProps) => {
     return (
         <div 
-            className={`hero-container flex items-end relative rounded-3xl overflow-hidden ${!bgImg ? 'min-h-[260px] lg:min-h-[340px]' : 'min-h-[300px] lg:min-h-[400px]'}`}
+            className={`hero-container flex items-end relative rounded-3xl overflow-hidden ${!bgImg ? 'min-h-65 lg:min-h-85' : 'min-h-75 lg:min-h-100'}`}
             style={!bgImg && gradientColor ? gradientColor : undefined}
         >
             {/* Background Image Layer if present */}
@@ -22,7 +22,7 @@ const Hero = ({ bgImg, title, subTitle, content, gradientColor }: HeroProps) => 
 
             {/* Dynamic Gradient Overlay when gradientColor is passed without bgImg */}
             {!bgImg && gradientColor && (
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/30 z-1 pointer-events-none" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/55 to-black/30 z-1 pointer-events-none" />
             )}
 
             {/* Fallback pattern when neither bgImg nor gradientColor is passed */}

@@ -62,7 +62,7 @@ const SingleBlogPostPage = () => {
     <div className="relative min-h-screen bg-[#09090b] text-slate-100 pb-20 overflow-hidden">
       {/* Dynamic Ambient Background Glow */}
       <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[420px] opacity-25 blur-3xl pointer-events-none -z-0"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-105 opacity-25 blur-3xl pointer-events-none  "
         style={gradientStyle}
       />
 
@@ -107,7 +107,7 @@ const SingleBlogPostPage = () => {
 
             {/* Article Content Container */}
             <div className="mt-8 relative z-10">
-              <article className="card w-full p-6 sm:p-10 lg:p-14 bg-white/[0.04] backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
+              <article className="card w-full p-6 sm:p-10 lg:p-14 bg-white/4 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
                 {/* Meta info bar */}
                 <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-white/10 text-xs sm:text-sm text-white/70">
                   <div className="flex items-center gap-4 flex-wrap">
