@@ -30,23 +30,23 @@ const LoginView: React.FC = () => {
     return (
         <div className="min-h-screen w-full flex items-center justify-center bg-brand-black text-brand-text font-sans antialiased relative overflow-hidden selection:bg-brand-mint/30 selection:text-brand-white">
             {/* Holographic Glowing Gradients */}
-            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-brand-mint/5 blur-[150px] pointer-events-none animate-pulse duration-[10000ms]" />
-            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-brand-fern/10 blur-[150px] pointer-events-none animate-pulse duration-[8000ms]" />
+            <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-brand-mint/5 blur-[150px] pointer-events-none animate-pulse duration-10000" />
+            <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-brand-fern/10 blur-[150px] pointer-events-none animate-pulse duration-8000" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] rounded-full bg-emerald-950/5 blur-[180px] pointer-events-none" />
 
             {/* Dynamic Grid Background with fade-out mask */}
-            <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none z-0" />
+            <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-size-[32px_32px] pointer-events-none z-0" />
             <div className="fixed inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,#09090b_100%)] pointer-events-none z-0" />
 
             {/* Floating Cyberspace Particles */}
             <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-brand-mint/40 rounded-full blur-[2px] animate-ping duration-[3000ms]" />
-                <div className="absolute top-2/3 right-1/4 w-1.5 h-1.5 bg-brand-glow/30 rounded-full blur-[1px] animate-bounce duration-[5000ms]" />
-                <div className="absolute bottom-1/3 left-10 w-2.5 h-2.5 bg-brand-fern/20 rounded-full blur-[2px] animate-pulse duration-[4000ms]" />
+                <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-brand-mint/40 rounded-full blur-[2px] animate-ping duration-3000" />
+                <div className="absolute top-2/3 right-1/4 w-1.5 h-1.5 bg-brand-glow/30 rounded-full blur-[1px] animate-bounce duration-5000" />
+                <div className="absolute bottom-1/3 left-10 w-2.5 h-2.5 bg-brand-fern/20 rounded-full blur-[2px] animate-pulse duration-4000" />
             </div>
 
             {/* Main Premium Authorization Card */}
-            <div className="relative z-10 w-full max-w-[450px] mx-4 p-8 bg-brand-surface/40 border border-brand-border/60 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8),0_0_30px_rgba(0,220,130,0.02)] backdrop-blur-2xl transition-all duration-500 hover:border-brand-mint/30 hover:shadow-[0_0_60px_rgba(0,220,130,0.05)] group">
+            <div className="relative z-10 w-full max-w-112.5 mx-4 p-8 bg-brand-surface/40 border border-brand-border/60 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.8),0_0_30px_rgba(0,220,130,0.02)] backdrop-blur-2xl transition-all duration-500 hover:border-brand-mint/30 hover:shadow-[0_0_60px_rgba(0,220,130,0.05)] group">
                 
                 {/* Tech Deco Corner Brackets */}
                 <div className="absolute top-4 left-4 w-3 h-3 border-t-2 border-l-2 border-brand-muted/20 group-hover:border-brand-mint/50 transition-colors duration-500" />
@@ -148,7 +148,7 @@ const LoginView: React.FC = () => {
                         disabled={loading}
                         className="w-full py-4 mt-6 bg-brand-mint hover:bg-brand-glow text-brand-black font-bold font-mono rounded-xl shadow-[0_0_15px_-3px_rgba(0,220,130,0.3)] hover:shadow-[0_0_25px_rgba(0,220,130,0.5)] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2.5 text-xs uppercase tracking-[0.15em] border border-brand-mint/20 relative overflow-hidden group/btn cursor-pointer"
                     >
-                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:animate-shimmer" />
+                        <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover/btn:animate-shimmer" />
                         {loading ? (
                             <>
                                 <span className="w-4 h-4 rounded-full border-2 border-brand-black border-t-transparent animate-spin" />

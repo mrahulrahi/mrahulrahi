@@ -18,7 +18,7 @@ const SettingsView: React.FC = () => {
                 <section>
                     <h3 className="text-sm font-bold text-gray-400 dark:text-brand-muted uppercase tracking-wider mb-4">Admin Profile</h3>
                     <div className="bg-white dark:bg-brand-surface border border-gray-200 dark:border-brand-border rounded-xl p-6 flex flex-col md:flex-row items-start md:items-center gap-6">
-                        <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-brand-mint to-brand-fern shrink-0 flex items-center justify-center text-3xl font-bold text-white shadow-lg">
+                        <div className="w-20 h-20 rounded-full bg-linear-to-tr from-brand-mint to-brand-fern shrink-0 flex items-center justify-center text-3xl font-bold text-white shadow-lg">
                             M
                         </div>
                         <div className="flex-1 space-y-4 w-full">

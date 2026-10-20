@@ -19,7 +19,7 @@ const GradientSelector : React.FC = () => {
 
     return (
         <>
-            <div className={`gradient-selector-box flex items-center h-[300px] fixed top-1/2 left-0 -translate-y-1/2 bg-[rgba(255,255,255,0.2)] z-9 rounded-[0_20px_20px_0] overflow-hidden backdrop-blur-xs transition ease-in ${openSideBox ? 'translate-x-0' : '-translate-x-[calc(100%-30px)]'}`}>
+            <div className={`gradient-selector-box flex items-center h-75 fixed top-1/2 left-0 -translate-y-1/2 bg-[rgba(255,255,255,0.2)] z-9 rounded-[0_20px_20px_0] overflow-hidden backdrop-blur-xs transition ease-in ${openSideBox ? 'translate-x-0' : '-translate-x-[calc(100%-30px)]'}`}>
                 <div className="gs-inner flex flex-col items-center text-base font-black normal-case tracking-widest p-5 gap-4">
                     <h3 className="font-raleway text-xl font-black uppercase tracking-[0.5em] text-white mb-0">Choose <br /> Colors</h3>
                     <div className="color-pick-group inline-flex gap-5">

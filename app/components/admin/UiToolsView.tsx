@@ -197,7 +197,7 @@ const UiToolsView: React.FC = () => {
                                     <div key={item.id} className={`bg-white dark:bg-brand-surface border rounded-xl p-5 transition-all flex flex-col justify-between hover:shadow-md ${item.visible ? 'border-brand-mint/50 dark:border-brand-mint/30' : 'border-gray-200 dark:border-brand-border'}`}>
                                         <div>
                                             <div className="flex items-center justify-between gap-4 mb-3">
-                                                <span className="text-[10px] font-mono bg-gray-100 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted px-2 py-0.5 rounded truncate max-w-[200px]" title={item.href}>
+                                                <span className="text-[10px] font-mono bg-gray-100 dark:bg-brand-black border border-gray-200 dark:border-brand-border text-gray-500 dark:text-brand-muted px-2 py-0.5 rounded truncate max-w-50" title={item.href}>
                                                     {item.href}
                                                 </span>
                                                 <div className="flex items-center gap-1.5 text-xs font-semibold">
