@@ -1,15 +1,26 @@
 'use client';
 
+import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { useQuery } from "@tanstack/react-query";
 import Hero from "@/app/components/project/Hero";
 import { useGradient } from "@/app/context/GradientContext";
-import { ArrowLeft, Calendar, Clock, User, Tag } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, User, Tag, Heart, Share2, Check, ExternalLink } from "lucide-react";
+import "./BlogArticle.css";
 
 const SingleBlogPostPage = () => {
   const { gradientStyle } = useGradient();
   const { blogId } = useParams();
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyLink = () => {
+    if (typeof window !== "undefined") {
+      navigator.clipboard.writeText(window.location.href);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
+  };
 
   const fetchPost = async (id) => {
     // 1. Try Dev.to API first (matches articles listed on /blog)
@@ -25,10 +36,18 @@ const SingleBlogPostPage = () => {
             body_html: data.body_html,
             cover_image: data.cover_image || data.social_image,
             date: data.readable_publish_date,
-            tags: Array.isArray(data.tags) ? data.tags : typeof data.tags === 'string' ? data.tags.split(',').map((t) => t.trim()) : [],
+            url: data.url,
+            reactions: data.positive_reactions_count || 0,
+            tags: Array.isArray(data.tags) 
+              ? data.tags 
+              : typeof data.tags === 'string' 
+                ? data.tags.split(',').map((t) => t.trim()) 
+                : [],
             user: data.user ? {
               name: data.user.name,
-              profile_image: data.user.profile_image
+              username: data.user.username,
+              profile_image: data.user.profile_image,
+              website_url: data.user.website_url,
             } : undefined,
             reading_time: data.reading_time_minutes,
           };
@@ -59,16 +78,16 @@ const SingleBlogPostPage = () => {
   });
 
   return (
-    <div className="relative min-h-screen bg-[#09090b] text-slate-100 pb-20 overflow-hidden">
+    <div className="relative min-h-screen bg-[#09090b] text-slate-100 pb-24 overflow-hidden">
       {/* Dynamic Ambient Background Glow */}
       <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-105 opacity-25 blur-3xl pointer-events-none  "
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-105 opacity-25 blur-3xl pointer-events-none z-0"
         style={gradientStyle}
       />
 
-      <div className="container-fluid max-w-5xl mx-auto px-4 sm:px-6 pt-6">
-        {/* Navigation Bar */}
-        <div className="mb-6">
+      <div className="container-fluid max-w-4xl mx-auto px-4 sm:px-6 pt-6">
+        {/* Top Navigation Bar */}
+        <div className="flex items-center justify-between gap-3 mb-6 flex-wrap">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/30 text-xs sm:text-sm font-medium text-white/80 hover:text-white transition-all duration-200"
@@ -76,6 +95,39 @@ const SingleBlogPostPage = () => {
             <ArrowLeft size={16} />
             <span>Back to All Articles</span>
           </Link>
+
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleCopyLink}
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 text-xs sm:text-sm font-medium text-white/80 hover:text-white transition-all duration-200"
+              title="Copy article link"
+            >
+              {copied ? (
+                <>
+                  <Check size={15} className="text-emerald-400" />
+                  <span className="text-emerald-400">Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Share2 size={15} />
+                  <span>Share</span>
+                </>
+              )}
+            </button>
+
+            {post?.url && (
+              <a
+                href={post.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-emerald-500/30 text-xs sm:text-sm font-medium text-emerald-400 hover:text-emerald-300 transition-all duration-200"
+                title="View original article on Dev.to"
+              >
+                <span>Dev.to</span>
+                <ExternalLink size={14} />
+              </a>
+            )}
+          </div>
         </div>
 
         {isLoading ? (
@@ -101,13 +153,13 @@ const SingleBlogPostPage = () => {
             {/* Dynamic Hero Banner with Dynamic Gradient Background */}
             <Hero
               title={post.title}
-              subTitle={`Article #${post.id}`}
+              subTitle={post.reading_time ? `Dev.to Engineering • ${post.reading_time} min read` : `Tech Article`}
               gradientColor={gradientStyle}
             />
 
             {/* Article Content Container */}
             <div className="mt-8 relative z-10">
-              <article className="card w-full p-6 sm:p-10 lg:p-14 bg-white/4 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
+              <article className="card w-full p-6 sm:p-10 lg:p-12 bg-white/[0.035] backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl">
                 {/* Meta info bar */}
                 <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-8 border-b border-white/10 text-xs sm:text-sm text-white/70">
                   <div className="flex items-center gap-4 flex-wrap">
@@ -117,10 +169,12 @@ const SingleBlogPostPage = () => {
                           <img 
                             src={post.user.profile_image} 
                             alt={post.user.name} 
-                            className="w-7 h-7 rounded-full object-cover border border-white/20"
+                            className="w-8 h-8 rounded-full object-cover border border-white/20 shadow-sm"
                           />
                         ) : (
-                          <User size={16} className="text-emerald-400" />
+                          <div className="w-8 h-8 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center">
+                            <User size={15} className="text-emerald-400" />
+                          </div>
                         )}
                         <span>{post.user.name}</span>
                       </div>
@@ -139,13 +193,20 @@ const SingleBlogPostPage = () => {
                         <span>{post.reading_time} min read</span>
                       </div>
                     )}
+
+                    {post.reactions > 0 && (
+                      <div className="flex items-center gap-1.5 text-rose-400/90 font-mono">
+                        <Heart size={14} className="fill-rose-400/30 text-rose-400" />
+                        <span>{post.reactions}</span>
+                      </div>
+                    )}
                   </div>
 
                   {post.tags && post.tags.length > 0 && (
                     <div className="flex items-center gap-1.5 flex-wrap">
                       <Tag size={13} className="text-emerald-400" />
                       {post.tags.map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 rounded-md bg-white/10 text-xs text-emerald-300 font-mono">
+                        <span key={tag} className="px-2.5 py-0.5 rounded-md bg-white/10 text-xs text-emerald-300 font-mono font-medium">
                           #{tag}
                         </span>
                       ))}
@@ -153,17 +214,69 @@ const SingleBlogPostPage = () => {
                   )}
                 </div>
 
-                {/* Article Body */}
+                {/* Cover Image Feature if available */}
+                {post.cover_image && (
+                  <div className="mb-8 rounded-2xl overflow-hidden border border-white/10 shadow-xl bg-black/40 max-h-115">
+                    <img 
+                      src={post.cover_image} 
+                      alt={post.title} 
+                      className="w-full h-full object-cover object-center"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+
+                {/* Article Body Content with Full Typography Styles */}
                 {post.body_html ? (
                   <div 
-                    className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-white/80 prose-p:leading-relaxed prose-a:text-emerald-400 hover:prose-a:underline prose-code:text-emerald-300 prose-pre:bg-black/60 prose-pre:border prose-pre:border-white/10 prose-img:rounded-xl"
+                    className="blog-article-content"
                     dangerouslySetInnerHTML={{ __html: post.body_html }}
                   />
                 ) : (
-                  <div className="text-white/80 leading-relaxed whitespace-pre-line text-base sm:text-lg">
-                    {post.body}
+                  <div className="blog-article-content">
+                    <p className="whitespace-pre-line text-lg leading-relaxed">
+                      {post.body}
+                    </p>
                   </div>
                 )}
+
+                {/* Article Bottom Footer Card */}
+                <div className="mt-12 pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 bg-white/2 -mx-6 sm:-mx-10 lg:-mx-12 -mb-6 sm:-mb-10 lg:-mb-12 p-6 sm:p-8 rounded-b-2xl">
+                  <div className="flex items-center gap-3">
+                    {post.user?.profile_image && (
+                      <img 
+                        src={post.user.profile_image} 
+                        alt={post.user?.name || "Author"} 
+                        className="w-10 h-10 rounded-full object-cover border border-white/20"
+                      />
+                    )}
+                    <div>
+                      <p className="text-xs uppercase tracking-wider text-white/50 font-bold">Published By</p>
+                      <p className="text-sm font-semibold text-white">{post.user?.name || "Author"}</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <Link
+                      href="/blog"
+                      className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-semibold text-white transition-colors"
+                    >
+                      ← More Articles
+                    </Link>
+
+                    {post.url && (
+                      <a
+                        href={post.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-xs font-semibold text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5 transition-colors"
+                      >
+                        <span>Discuss on Dev.to</span>
+                        <ExternalLink size={13} />
+                      </a>
+                    )}
+                  </div>
+                </div>
               </article>
             </div>
           </>
