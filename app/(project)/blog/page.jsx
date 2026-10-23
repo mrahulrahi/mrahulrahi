@@ -105,7 +105,7 @@ const BlogPage = () => {
   };
 
   const hasMore = rawBlogs.length === limit;
-  const pageCount = Math.max(1, !hasMore ? currentPage : Math.max(10, currentPage + 4));
+  const pageCount = Math.max(1, !hasMore ? currentPage : Math.max(12, currentPage + 4));
 
   // Determine if we should show a featured spotlight post (first page, all category, no search)
   const showFeatured = currentPage === 1 && selectedCategory === "all" && !searchQuery.trim() && processedBlogs.length > 0;
@@ -317,7 +317,7 @@ const BlogPage = () => {
                               </div>
                             )}
                             <div>
-                              <p className="text-xs font-bold text-white leading-tight">{featuredBlog.user?.name}</p>
+                              <p className="text-xs font-bold text-white leading-tight mb-1">{featuredBlog.user?.name}</p>
                               <div className="flex items-center gap-2 text-xs text-white/50 mt-0.5">
                                 <span>{featuredBlog.readable_publish_date}</span>
                                 {featuredBlog.reading_time_minutes && (
@@ -425,7 +425,7 @@ const BlogPage = () => {
                                 {blog.user?.name?.slice(0, 1) || "A"}
                               </div>
                             )}
-                            <span className="font-medium text-white/80 line-clamp-1 max-w-25 sm:max-w-30">
+                            <span className="font-medium text-white/80 line-clamp-1 max-w-25 sm:max-w-30 mb-1">
                               {blog.user?.name || "Author"}
                             </span>
                           </div>

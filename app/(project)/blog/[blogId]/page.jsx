@@ -507,8 +507,8 @@ const SingleBlogPostPage = () => {
                       </div>
                     )}
                     <div>
-                      <p className="text-xs uppercase tracking-wider text-emerald-400 font-bold font-mono">Published By</p>
-                      <p className="text-base font-bold text-white leading-tight">{post.user?.name || "Author"}</p>
+                      <p className="text-xs uppercase tracking-wider text-emerald-400 font-bold font-mono mb-1">Published By</p>
+                      <p className="text-base font-bold text-white leading-tight mb-1">{post.user?.name || "Author"}</p>
                       {post.user?.username && (
                         <p className="text-xs text-white/50">@{post.user.username} on Dev.to</p>
                       )}
