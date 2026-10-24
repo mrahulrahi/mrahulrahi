@@ -50,19 +50,19 @@ const page = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 flex-wrap">
                         {products.map((product) => (
                             <div className="w-full" key={product.id}>
-                                <Link className="card flex flex-col h-full bg-white/10 border border-[#ccc] rounded-xl overflow-hidden" href={`/products/${product.id}`} >
-                                    <div className="w-full h-75 aspect-square bg-white p-6 relative">
-                                        <Image className="w-full h-full object-contain" src={product.image} alt="Product" fill unoptimized />
+                                <Link className="group flex flex-col h-full bg-white/[0.035] hover:bg-white/[0.07] border border-white/10 hover:border-emerald-500/40 rounded-2xl p-5 transition-all duration-300 hover:-translate-y-1 shadow-lg shadow-black/25 overflow-hidden" href={`/products/${product.id}`} >
+                                    <div className="relative w-full h-50 mb-4 rounded-xl overflow-hidden bg-white/5">
+                                        <Image className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" src={product.image} alt="Product" fill unoptimized />
                                     </div>
-                                    <div className="flex flex-col p-5 grow">
+                                    <div className="flex flex-col grow">
                                         <div className="flex justify-between mb-5">
-                                            <div className="badge text-bg-dark">{product.id}</div>
-                                            <div className="badge text-bg-dark capitalize">{product.category}</div>
-                                            <div className="badge text-bg-dark">{product.price} $</div>
+                                            <div className="text-[11px] font-mono font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">{product.id}</div>
+                                            <div className="text-[11px] font-mono font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20 capitalize">{product.category}</div>
+                                            <div className="text-[11px] font-mono font-medium text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">{product.price} $</div>
                                         </div>
                                         <div className="mt-auto">
-                                            <h5 className="card-title text-white line-clamp-2">{product.title}</h5>
-                                            <p className="card-text line-clamp-3">{product.description}</p>
+                                            <h5 className="text-base sm:text-lg font-bold text-white group-hover:text-emerald-400 transition-colors line-clamp-2 leading-snug">{product.title}</h5>
+                                            <p className="text-xs sm:text-sm text-white/65 line-clamp-2 mt-2 mb-4 leading-relaxed">{product.description}</p>
                                         </div>
                                     </div>
                                 </Link>
