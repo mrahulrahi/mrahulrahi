@@ -21,7 +21,7 @@ I specialize in converting Figma, Adobe XD and Photoshop designs into production
 
 ### Currently
 
-- 💼 Frontend Developer @ SLICEmyPAGE
+- 💼 Frontend Developer
 - 🎓 Pursuing MCA at Chandigarh University
 - 🌱 Learning Full Stack Development & TypeScript
 - 🚀 Building my Developer Portfolio & Workspace
