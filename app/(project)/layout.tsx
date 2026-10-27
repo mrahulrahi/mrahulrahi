@@ -9,6 +9,7 @@ import FloatingWorkspaceToggle from '@/app/components/layout/FloatingWorkspaceTo
 
 // Google Fonts setup
 const josefinSans = Josefin_Sans({
+  weight: ['300', '400', '600', '700'],
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-josefinSans',

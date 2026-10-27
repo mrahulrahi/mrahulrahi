@@ -11,6 +11,7 @@ import CommandPalette from '@/app/components/layout/CommandPalette/CommandPalett
 
 // Google Fonts setup with optimal display
 const josefinSans = Josefin_Sans({
+  weight: ['300', '400', '600', '700'],
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-josefinSans',
