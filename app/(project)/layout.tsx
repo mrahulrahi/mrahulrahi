@@ -1,27 +1,9 @@
-
 import type { Metadata } from 'next'
 import '@/app/globals.css'
-import { Josefin_Sans, Outfit } from 'next/font/google'
 import { GradientProvider } from '@/app/context/GradientContext';
 import Providers from './providers';
 import 'highlight.js/styles/atom-one-dark.css';
 import FloatingWorkspaceToggle from '@/app/components/layout/FloatingWorkspaceToggle';
-
-// Google Fonts setup
-const josefinSans = Josefin_Sans({
-  weight: ['300', '400', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-josefinSans',
-})
-
-const outfit = Outfit({
-  weight: ['300', '400', '500', '600', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-outfit',
-})
-
 
 export const metadata: Metadata = {
   title: {
@@ -38,7 +20,15 @@ export default function ProjectLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${josefinSans.variable} ${outfit.variable} pt-0`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300..700;1,300..700&family=Outfit:wght@300..900&display=swap"
+        />
+      </head>
+      <body className="pt-0">
         <GradientProvider>
           <Providers>
             {children}
