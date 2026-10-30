@@ -4,6 +4,7 @@ import { GradientProvider } from '@/app/context/GradientContext';
 import Providers from './providers';
 import 'highlight.js/styles/atom-one-dark.css';
 import FloatingWorkspaceToggle from '@/app/components/layout/FloatingWorkspaceToggle';
+import { josefinSans, outfit } from '@/app/fonts';
 
 export const metadata: Metadata = {
   title: {
@@ -19,15 +20,7 @@ export default function ProjectLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300..700;1,300..700&family=Outfit:wght@300..900&display=swap"
-        />
-      </head>
+    <html lang="en" className={`${josefinSans.variable} ${outfit.variable}`}>
       <body className="pt-0">
         <GradientProvider>
           <Providers>

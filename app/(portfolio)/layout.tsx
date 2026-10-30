@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
 import './portfolio.css'
+import { josefinSans, outfit } from '@/app/fonts'
 import Header from '@/app/components/portfolio/Header/Header'
 import Footer from '@/app/components/portfolio/Footer/Footer'
 import FloatingWorkspaceToggle from '@/app/components/layout/FloatingWorkspaceToggle'
@@ -119,14 +120,8 @@ export default function PortfolioLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={`${josefinSans.variable} ${outfit.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300..700;1,300..700&family=Outfit:wght@300..900&display=swap"
-        />
         <link rel="preconnect" href="https://dev.to" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://media.dev.to" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://dev.to" />
