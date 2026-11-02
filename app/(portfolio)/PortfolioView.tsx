@@ -476,7 +476,7 @@ export default function PortfolioView({ initialPortfolioData, initialArticles }:
           </motion.div>
         </ContentContainer>
 
-        <ContentContainer column="col-lg-10 mx-auto" heading="Beyond the Code" id="sideHustle"
+        <ContentContainer column="col-lg-12" heading="Beyond the Code" id="sideHustle"
           rightHeading={
             <Button title="Articles & Insights" style="default" url="#articles" icon={<TiArrowDownOutline />} />
           }

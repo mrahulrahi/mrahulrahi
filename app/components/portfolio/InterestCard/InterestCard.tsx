@@ -13,17 +13,17 @@ interface InterestCard {
 }
 
 const InterestCard = (interest: InterestCard) => {
-   const IconOneComponent = interest.items?.[0]?.icon ? getIconComponent(interest.items[0].icon) : null;
-   const IconTwoComponent = interest.items?.[1]?.icon ? getIconComponent(interest.items[1].icon) : null;
+  const IconOneComponent = interest.items?.[0]?.icon ? getIconComponent(interest.items[0].icon) : null;
+  const IconTwoComponent = interest.items?.[1]?.icon ? getIconComponent(interest.items[1].icon) : null;
 
   return (
     <>
       <div className="interest-card-item">
-        <a 
-          href={interest.url} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className="interest-card-box d-flex flex-column"
+        <a
+          href={interest.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="interest-card-box d-flex gap-4"
           aria-label={`Explore ${interest.title}`}
         >
           <div className="interest-card-image">
@@ -36,20 +36,23 @@ const InterestCard = (interest: InterestCard) => {
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-          <div className="interest-card-text">
-            <h3>{interest.title}</h3>
-            <p>{interest.desc}</p>
-          </div>
 
-          <div className="interest-card-cta mt-auto">
-            <ul className="interest-card-cta-list d-flex align-items-center justify-content-between">
-              <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-                {IconOneComponent ? <IconOneComponent /> : <LuSparkles />} {interest.items?.[0]?.label}
-              </li>
-              <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
-                {IconTwoComponent ? <IconTwoComponent /> : <LuSparkles />}{interest.items?.[1]?.label}
-              </li>
-            </ul>
+          <div className="d-flex flex-column gap-2">
+            <div className="interest-card-text">
+              <h3>{interest.title}</h3>
+              <p>{interest.desc}</p>
+            </div>
+
+            <div className="interest-card-cta mt-auto">
+              <ul className="interest-card-cta-list d-flex align-items-center justify-content-between">
+                <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
+                  {IconOneComponent ? <IconOneComponent /> : <LuSparkles />} {interest.items?.[0]?.label}
+                </li>
+                <li className="interest-card-cta-item d-flex gap-2 align-items-center justify-content-between">
+                  {IconTwoComponent ? <IconTwoComponent /> : <LuSparkles />}{interest.items?.[1]?.label}
+                </li>
+              </ul>
+            </div>
           </div>
         </a>
       </div>

@@ -25,7 +25,7 @@ const StatCard = ({
 
     return (
         <li className="stats-item">
-            <div className="stats-box d-flex gap-4 align-items-center">
+            <div className="stats-box d-flex gap-3 align-items-center">
                 <div className="stats-icon d-flex align-items-center justify-content-center" aria-hidden="true">{renderedIcon}</div>
                 <div className="stats-content">
                     {/* Render CountUp only when on the client */}
