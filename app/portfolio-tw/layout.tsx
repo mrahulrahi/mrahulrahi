@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import '@/app/globals.css';
-import { josefinSans, outfit } from '@/app/fonts';
+import { Josefin_Sans, Outfit } from 'next/font/google'
 import FloatingWorkspaceToggle from '@/app/components/layout/FloatingWorkspaceToggle';
 import CommandPalette from '@/app/components/layout/CommandPalette/CommandPalette';
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -25,6 +25,20 @@ export const metadata: Metadata = {
     follow: false,
   },
 };
+
+// Google Fonts setup with optimal display
+const josefinSans = Josefin_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-josefinSans',
+})
+
+const outfit = Outfit({
+  weight: ['400', '600', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-outfit',
+})
 
 export default function PortfolioTwLayout({
   children,

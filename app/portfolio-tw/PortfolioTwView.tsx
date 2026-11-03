@@ -26,7 +26,7 @@ export default function PortfolioTwView({
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#09090b]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/portfolio-tw" className="flex items-center gap-2 group">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-black text-sm shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+            <span className="w-8 h-8 rounded-lg bg-linear-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-black text-sm shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
               R
             </span>
             <span className="font-display font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">
@@ -72,7 +72,7 @@ export default function PortfolioTwView({
          ======================================================== */}
       <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
         {/* Section 2: Projects Showcase */}
-        <section id="projects" className="relative p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+        <section id="projects" className="relative p-8 sm:p-12 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
               <Code2 size={20} />
@@ -91,7 +91,7 @@ export default function PortfolioTwView({
         </section>
 
         {/* Section 3: The Toolkit (Skills) */}
-        <section id="toolkit" className="relative p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+        <section id="toolkit" className="relative p-8 sm:p-12 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400">
               <Layers size={20} />
@@ -110,7 +110,7 @@ export default function PortfolioTwView({
         </section>
 
         {/* Section 4: About Me & Stats */}
-        <section id="about" className="relative p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+        <section id="about" className="relative p-8 sm:p-12 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
               <User size={20} />
@@ -129,7 +129,7 @@ export default function PortfolioTwView({
         </section>
 
         {/* Section 5: The Journey So Far */}
-        <section id="journey" className="relative p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+        <section id="journey" className="relative p-8 sm:p-12 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
               <Compass size={20} />
@@ -148,7 +148,7 @@ export default function PortfolioTwView({
         </section>
 
         {/* Section 6: Continuous Learning */}
-        <section id="certificates" className="relative p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+        <section id="certificates" className="relative p-8 sm:p-12 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
               <Award size={20} />
@@ -167,7 +167,7 @@ export default function PortfolioTwView({
         </section>
 
         {/* Section 7: Articles & Insights */}
-        <section id="articles" className="relative p-8 sm:p-12 rounded-3xl bg-white/[0.02] border border-white/5 backdrop-blur-sm">
+        <section id="articles" className="relative p-8 sm:p-12 rounded-3xl bg-white/2 border border-white/5 backdrop-blur-sm">
           <div className="flex items-center gap-3 mb-4">
             <div className="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
               <BookOpen size={20} />

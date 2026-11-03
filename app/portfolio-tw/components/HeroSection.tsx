@@ -37,8 +37,8 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-32">
       {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/3 left-1/3 -translate-x-1/2 w-[400px] h-[250px] bg-teal-500/10 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-87.5 bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/3 -translate-x-1/2 w-100 h-62.5 bg-teal-500/10 blur-[100px] rounded-full pointer-events-none" />
 
       {/* Floating Decorative Tech Icons */}
       <div className="absolute inset-0 max-w-5xl mx-auto pointer-events-none hidden md:block" aria-hidden="true">
@@ -96,8 +96,8 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
 
           {/* Avatar with Radiant Glow Ring */}
           <div className="relative mb-6 flex items-center justify-center">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/30 to-teal-400/20 blur-md transform scale-110" />
-            <div className="relative w-28 h-28 rounded-full p-1 bg-gradient-to-tr from-emerald-500 to-teal-400 shadow-[0_0_25px_rgba(16,185,129,0.35)]">
+            <div className="absolute inset-0 rounded-full bg-linear-to-tr from-emerald-500/30 to-teal-400/20 blur-md transform scale-110" />
+            <div className="relative w-28 h-28 rounded-full p-1 bg-linear-to-tr from-emerald-500 to-teal-400 shadow-[0_0_25px_rgba(16,185,129,0.35)]">
               <div className="w-full h-full rounded-full overflow-hidden bg-zinc-900">
                 <Image
                   src={hero?.imageUrl || "/hero-img.jpg"}
@@ -117,7 +117,7 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
           </p>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-2 font-display">
-            {firstName} <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-200">{lastName}</span>
+            {firstName} <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-teal-200">{lastName}</span>
           </h1>
 
           <h2 className="text-lg sm:text-2xl font-semibold text-slate-300 mb-4">
