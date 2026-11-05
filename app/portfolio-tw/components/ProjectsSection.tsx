@@ -115,7 +115,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             <span>PORTFOLIO SHOWCASE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Crafted With <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">Code</span>
+            Crafted With <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-teal-300">Code</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">
@@ -124,7 +124,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
       </div>
 
       {/* Filter and Search Bar Controls */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md mb-8 space-y-4">
+      <div className="p-4 sm:p-5 rounded-2xl bg-white/3 border border-white/10 backdrop-blur-md mb-8 space-y-4">
         <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
           {/* Category Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-none" role="tablist">
@@ -156,7 +156,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
           </div>
 
           {/* Search Input */}
-          <div className="relative min-w-[240px] sm:min-w-[280px]">
+          <div className="relative min-w-60 sm:min-w-70">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
@@ -212,7 +212,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                 className="group relative flex flex-col rounded-2xl bg-zinc-900/60 border border-white/10 hover:border-emerald-500/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10"
               >
                 {/* Browser-style Header Bar & Image */}
-                <div className="relative w-full aspect-[16/10] bg-black/40 overflow-hidden border-b border-white/5">
+                <div className="relative w-full aspect-16/10 bg-black/40 overflow-hidden border-b border-white/5">
                   <div className="absolute top-2.5 right-3 z-10 flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/50 backdrop-blur-md">
                     <span className="w-2 h-2 rounded-full bg-red-500/80" />
                     <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
@@ -225,7 +225,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
                 </div>
 
                 {/* Card Content */}
@@ -295,7 +295,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
 
       {/* Empty State */}
       {filteredProjects.length === 0 && (
-        <div className="p-12 rounded-3xl bg-white/[0.02] border border-white/5 text-center mt-6">
+        <div className="p-12 rounded-3xl bg-white/2 border border-white/5 text-center mt-6">
           <div className="w-12 h-12 rounded-2xl bg-white/5 mx-auto flex items-center justify-center text-2xl mb-3">
             🔍
           </div>

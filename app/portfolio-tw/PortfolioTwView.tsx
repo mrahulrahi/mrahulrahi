@@ -33,7 +33,7 @@ export default function PortfolioTwView({
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#09090b]/80 backdrop-blur-xl border-b border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/portfolio-tw" className="flex items-center gap-2 group">
-            <span className="w-8 h-8 rounded-lg bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-black text-sm shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
+            <span className="w-8 h-8 rounded-lg bg-linear-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-black text-sm shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform">
               R
             </span>
             <span className="font-display font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">

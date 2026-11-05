@@ -28,7 +28,7 @@ export default function CertificatesSection({ certificates }: CertificatesSectio
             <span>CREDENTIALS & COURSES</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Continuous <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-emerald-300">Learning</span>
+            Continuous <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-400 to-emerald-300">Learning</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">

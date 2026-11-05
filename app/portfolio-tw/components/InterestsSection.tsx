@@ -36,7 +36,7 @@ export default function InterestsSection({ interest }: InterestsSectionProps) {
             <span>CREATIVE PURSUITS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Beyond <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-rose-300">The Code</span>
+            Beyond <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-400 to-rose-300">The Code</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">

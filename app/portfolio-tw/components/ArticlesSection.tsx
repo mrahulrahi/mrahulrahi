@@ -23,7 +23,7 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
             <span>DEV.TO WRITINGS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Articles & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-teal-300">Insights</span>
+            Articles & <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-teal-300">Insights</span>
           </h2>
         </div>
         <a
@@ -38,7 +38,7 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
       </div>
 
       {displayArticles.length === 0 ? (
-        <div className="p-12 rounded-3xl bg-white/[0.02] border border-white/5 text-center text-slate-400 text-sm">
+        <div className="p-12 rounded-3xl bg-white/2 border border-white/5 text-center text-slate-400 text-sm">
           No articles published yet. Check back soon!
         </div>
       ) : (
@@ -64,7 +64,7 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
                 className="group flex flex-col rounded-2xl bg-zinc-900/40 border border-white/5 hover:border-purple-500/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/10"
               >
                 {/* Cover Image */}
-                <div className="relative w-full aspect-[16/9] bg-black/40 overflow-hidden border-b border-white/5">
+                <div className="relative w-full aspect-video bg-black/40 overflow-hidden border-b border-white/5">
                   <Image
                     src={article.cover_image || fallbackCover}
                     alt={article.title}
@@ -72,7 +72,7 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
                 </div>
 
                 {/* Content */}

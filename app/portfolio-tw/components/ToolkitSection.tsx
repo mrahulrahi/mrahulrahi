@@ -27,7 +27,7 @@ export default function ToolkitSection({ skills }: ToolkitSectionProps) {
             <span>CORE STACK & TOOLS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-300">Toolkit</span>
+            The <span className="text-transparent bg-clip-text bg-linear-to-r from-teal-400 to-emerald-300">Toolkit</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">
@@ -53,7 +53,7 @@ export default function ToolkitSection({ skills }: ToolkitSectionProps) {
                 key={skill.id}
                 whileHover={{ y: -4, scale: 1.02 }}
                 transition={{ duration: 0.2 }}
-                className="group relative flex flex-col items-center justify-center p-5 rounded-2xl bg-zinc-900/40 border border-white/5 hover:border-emerald-500/40 backdrop-blur-md text-center transition-all duration-300 hover:bg-emerald-500/[0.04] hover:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5),0_0_20px_rgba(16,185,129,0.15)]"
+                className="group relative flex flex-col items-center justify-center p-5 rounded-2xl bg-zinc-900/40 border border-white/5 hover:border-emerald-500/40 backdrop-blur-md text-center transition-all duration-300 hover:bg-emerald-500/4 hover:shadow-[0_10px_25px_-5px_rgba(0,0,0,0.5),0_0_20px_rgba(16,185,129,0.15)]"
               >
                 {/* Icon Container */}
                 <div
@@ -69,7 +69,7 @@ export default function ToolkitSection({ skills }: ToolkitSectionProps) {
                 </p>
 
                 {/* Subtle border shine effect */}
-                <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-emerald-500/0 to-transparent group-hover:via-emerald-500/50 transition-all duration-500" />
+                <div className="absolute inset-x-0 bottom-0 h-px bg-linear-to-r from-transparent via-emerald-500/0 to-transparent group-hover:via-emerald-500/50 transition-all duration-500" />
               </motion.div>
             );
           })}

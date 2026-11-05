@@ -47,7 +47,7 @@ export default function AboutSection({ about, stats }: AboutSectionProps) {
             <span>BIOGRAPHY & STATS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Behind <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">The Code</span>
+            Behind <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-teal-300">The Code</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">
@@ -103,7 +103,7 @@ export default function AboutSection({ about, stats }: AboutSectionProps) {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="lg:col-span-4 flex flex-col items-center justify-center p-6 rounded-3xl bg-zinc-900/40 border border-white/10 backdrop-blur-md relative group overflow-hidden"
         >
-          <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden p-1 bg-gradient-to-tr from-emerald-500/40 via-teal-500/20 to-transparent shadow-2xl shadow-emerald-500/10">
+          <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden p-1 bg-linear-to-tr from-emerald-500/40 via-teal-500/20 to-transparent shadow-2xl shadow-emerald-500/10">
             <Image
               src="/rahi.webp"
               alt="Rahul Maurya"
@@ -148,7 +148,7 @@ export default function AboutSection({ about, stats }: AboutSectionProps) {
                 return (
                   <div
                     key={stat.id}
-                    className="p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-all hover:-translate-y-1 group"
+                    className="p-4 rounded-2xl bg-white/2 border border-white/5 hover:border-emerald-500/30 transition-all hover:-translate-y-1 group"
                   >
                     <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 text-lg mb-3 group-hover:scale-110 transition-transform">
                       {renderedIcon}

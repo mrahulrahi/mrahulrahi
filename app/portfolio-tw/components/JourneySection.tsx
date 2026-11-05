@@ -47,7 +47,7 @@ export default function JourneySection({ timelineItems }: JourneySectionProps) {
             <span>CAREER & ACADEMIA</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            The Journey <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-teal-300">So Far</span>
+            The Journey <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-teal-300">So Far</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">
@@ -56,7 +56,7 @@ export default function JourneySection({ timelineItems }: JourneySectionProps) {
       </div>
 
       {/* Top Controls: Filter Pills & Live Status */}
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-8 p-4 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
+      <div className="flex flex-wrap items-center justify-between gap-4 mb-8 p-4 rounded-2xl bg-white/3 border border-white/10 backdrop-blur-md">
         {/* Filter Tabs */}
         <div className="flex items-center gap-2 flex-wrap" role="tablist">
           <button
@@ -158,7 +158,7 @@ export default function JourneySection({ timelineItems }: JourneySectionProps) {
                   <div key={item.id ?? item.title} className="relative group">
                     {/* Node Dot */}
                     <div
-                      className={`absolute -left-[31px] top-1.5 w-4 h-4 rounded-full border-2 transition-all ${
+                      className={`absolute -left-7.75 top-1.5 w-4 h-4 rounded-full border-2 transition-all ${
                         isItemActive
                           ? 'bg-emerald-500 border-black shadow-[0_0_12px_rgba(16,185,129,0.8)]'
                           : 'bg-zinc-800 border-slate-600 group-hover:border-emerald-400'
@@ -166,7 +166,7 @@ export default function JourneySection({ timelineItems }: JourneySectionProps) {
                     />
 
                     {/* Card */}
-                    <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-emerald-500/30 transition-all">
+                    <div className="p-4 sm:p-5 rounded-2xl bg-white/2 border border-white/5 hover:border-emerald-500/30 transition-all">
                       <div className="flex items-center justify-between flex-wrap gap-2 mb-3">
                         <div className="flex items-center gap-2">
                           <Building2 size={16} className="text-emerald-400" />
@@ -252,7 +252,7 @@ export default function JourneySection({ timelineItems }: JourneySectionProps) {
                   <div key={item.id ?? item.title} className="relative group">
                     {/* Node Dot */}
                     <div
-                      className={`absolute -left-[31px] top-1.5 w-4 h-4 rounded-full border-2 transition-all ${
+                      className={`absolute -left-7.75 top-1.5 w-4 h-4 rounded-full border-2 transition-all ${
                         isItemActive
                           ? 'bg-cyan-500 border-black shadow-[0_0_12px_rgba(6,182,212,0.8)]'
                           : 'bg-zinc-800 border-slate-600 group-hover:border-cyan-400'
@@ -260,7 +260,7 @@ export default function JourneySection({ timelineItems }: JourneySectionProps) {
                     />
 
                     {/* Card */}
-                    <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-cyan-500/30 transition-all">
+                    <div className="p-4 sm:p-5 rounded-2xl bg-white/2 border border-white/5 hover:border-cyan-500/30 transition-all">
                       <div className="flex items-center justify-between flex-wrap gap-2 mb-3">
                         <div className="flex items-center gap-2">
                           <GraduationCap size={16} className="text-cyan-400" />
