@@ -21,8 +21,8 @@
       "title": "NTS",
       "imgUrl": "/project-img-2.png",
       "gitHubUrl": "https://github.com/mrahulrahi/nts-app",
-      "liveUrl": "http://imaginegindia.com",
-      "para": "Welcome to Imagine Group, where your property dreams become reality. Our team of experienced professionals offers personalized service and innovative solutions to make your real estate journey seamless. Discover a world of possibilities with Imagine Group.",
+      "liveUrl": "https://ntstravels.vercel.app/",
+      "para": "Welcome to NTS Travels, where your travel dreams become reality. Our team of experienced professionals offers personalized service and innovative solutions to make your travel journey seamless. Discover a world of possibilities with NTS Travels.",
       "technologies": [
         "RiReactjsFill",
         "RiBootstrapLine",
