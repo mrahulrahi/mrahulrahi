@@ -11,6 +11,7 @@ import JourneySection from './components/JourneySection';
 import CertificatesSection from './components/CertificatesSection';
 import InterestsSection from './components/InterestsSection';
 import ArticlesSection from './components/ArticlesSection';
+import FooterSection from './components/FooterSection';
 import { DevArticle } from '@/app/utils/getArticles';
 
 interface PortfolioTwViewProps {
@@ -53,6 +54,7 @@ export default function PortfolioTwView({
             <a href="#journey" className="hover:text-emerald-400 transition-colors">Journey</a>
             <a href="#certificates" className="hover:text-emerald-400 transition-colors">Certificates</a>
             <a href="#articles" className="hover:text-emerald-400 transition-colors">Articles</a>
+            <a href="#contact" className="hover:text-emerald-400 transition-colors">Contact</a>
           </nav>
 
           <div className="flex items-center gap-3">
@@ -102,24 +104,9 @@ export default function PortfolioTwView({
       </main>
 
       {/* ========================================================
-          4. FOOTER (Pure Tailwind)
+          4. FOOTER & CONTACT (Pure Tailwind)
          ======================================================== */}
-      <footer className="mt-20 border-t border-white/5 bg-[#09090b]/80 backdrop-blur-md py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 font-mono">
-          <p>© {new Date().getFullYear()} Rahul Maurya. Engineered with Next.js & Pure Tailwind CSS.</p>
-          <div className="flex items-center gap-4">
-            <a href="https://github.com/mrahulrahi" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">
-              GitHub
-            </a>
-            <a href="https://linkedin.com/in/mrahulrahi" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">
-              LinkedIn
-            </a>
-            <a href="https://youtube.com/@fireliquidator" target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">
-              YouTube
-            </a>
-          </div>
-        </div>
-      </footer>
+      <FooterSection />
     </div>
   );
 }
