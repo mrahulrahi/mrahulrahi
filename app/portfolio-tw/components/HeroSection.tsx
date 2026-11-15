@@ -48,8 +48,8 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-28">
       {/* Dynamic Ambient Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-transparent blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/3 left-1/4 -translate-x-1/2 w-[400px] h-[250px] bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-162.5 h-87.5 bg-linear-to-r from-emerald-500/15 via-teal-500/10 to-transparent blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 -translate-x-1/2 w-100 h-62.5 bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
 
       {/* Floating Decorative Tech Badges */}
       <div className="absolute inset-0 max-w-5xl mx-auto pointer-events-none hidden md:block" aria-hidden="true">
@@ -119,8 +119,8 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
 
           {/* Avatar with Radiant Glow Ring */}
           <div className="relative mb-6 flex items-center justify-center">
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/40 via-teal-400/30 to-cyan-400/20 blur-xl transform scale-125" />
-            <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-emerald-400 via-teal-300 to-cyan-400 shadow-[0_0_35px_rgba(16,185,129,0.35)]">
+            <div className="absolute inset-0 rounded-full bg-linear-to-tr from-emerald-500/40 via-teal-400/30 to-cyan-400/20 blur-xl transform scale-125" />
+            <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-linear-to-tr from-emerald-400 via-teal-300 to-cyan-400 shadow-[0_0_35px_rgba(16,185,129,0.35)]">
               <div className="w-full h-full rounded-full overflow-hidden bg-zinc-950">
                 <Image
                   src={hero?.imageUrl || "/hero-img.jpg"}
@@ -141,7 +141,7 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-2 font-display">
             {firstName}{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 via-teal-300 to-cyan-300">
               {lastName}
             </span>
           </h1>

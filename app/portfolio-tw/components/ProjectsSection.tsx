@@ -116,7 +116,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             <span>PORTFOLIO SHOWCASE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Crafted With <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300">Code</span>
+            Crafted With <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 via-teal-300 to-cyan-300">Code</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">
@@ -157,7 +157,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
           </div>
 
           {/* Search Input */}
-          <div className="relative min-w-[240px] sm:min-w-[280px]">
+          <div className="relative min-w-60 sm:min-w-70">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
@@ -215,7 +215,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                 {/* Browser-style Header Bar & Image with Quick Preview Click */}
                 <div
                   onClick={() => setPreviewProject(card)}
-                  className="cursor-pointer relative w-full aspect-[16/10] bg-black/40 overflow-hidden border-b border-white/5"
+                  className="cursor-pointer relative w-full aspect-16/10 bg-black/40 overflow-hidden border-b border-white/5"
                 >
                   <div className="absolute top-2.5 right-3 z-10 flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/50 backdrop-blur-md">
                     <span className="w-2 h-2 rounded-full bg-red-500/80" />
@@ -239,7 +239,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                     </span>
                   </div>
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60 pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent opacity-60 pointer-events-none" />
                 </div>
 
                 {/* Card Content */}
@@ -312,7 +312,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
 
       {/* Empty State */}
       {filteredProjects.length === 0 && (
-        <div className="p-12 rounded-3xl bg-white/[0.02] border border-white/5 text-center mt-6">
+        <div className="p-12 rounded-3xl bg-white/2 border border-white/5 text-center mt-6">
           <div className="w-12 h-12 rounded-2xl bg-white/5 mx-auto flex items-center justify-center text-2xl mb-3">
             🔍
           </div>
@@ -362,7 +362,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
               {/* Modal Body */}
               <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
                 {/* Large Project Image */}
-                <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 bg-black">
+                <div className="relative w-full aspect-16/10 rounded-2xl overflow-hidden border border-white/10 bg-black">
                   <Image
                     src={previewProject.imgUrl}
                     alt={previewProject.title}

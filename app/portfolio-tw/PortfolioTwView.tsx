@@ -90,14 +90,14 @@ export default function PortfolioTwView({
     <div className="relative min-h-screen bg-[#09090b] text-slate-100 flex flex-col selection:bg-emerald-400 selection:text-black">
       {/* Subtle Engineered Dot Grid Background */}
       <div
-        className="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#ffffff15_1px,transparent_1px)] [background-size:24px_24px] z-0"
+        className="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(#ffffff15_1px,transparent_1px)] bg-size-[24px_24px] z-0"
         aria-hidden="true"
       />
 
       {/* Top Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 h-[2.5px] bg-transparent z-[60] pointer-events-none">
+      <div className="fixed top-0 left-0 right-0 h-[2.5px] bg-transparent z-60 pointer-events-none">
         <div
-          className="h-full bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 transition-all duration-75 shadow-[0_0_10px_rgba(16,185,129,0.5)]"
+          className="h-full bg-linear-to-r from-emerald-400 via-teal-300 to-cyan-400 transition-all duration-75 shadow-[0_0_10px_rgba(16,185,129,0.5)]"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
@@ -109,7 +109,7 @@ export default function PortfolioTwView({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Brand Logo & Name */}
           <Link href="/portfolio-tw" className="flex items-center gap-2.5 group">
-            <span className="w-8 h-8 rounded-xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-black text-xs shadow-md shadow-emerald-500/25 group-hover:scale-105 transition-transform">
+            <span className="w-8 h-8 rounded-xl bg-linear-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-black text-xs shadow-md shadow-emerald-500/25 group-hover:scale-105 transition-transform">
               R
             </span>
             <span className="font-display font-bold tracking-tight text-white group-hover:text-emerald-400 transition-colors">
@@ -187,7 +187,7 @@ export default function PortfolioTwView({
                       className={`text-left px-3.5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
                         isActive
                           ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30'
-                          : 'text-slate-300 bg-white/[0.02] border border-white/5 hover:bg-white/5'
+                          : 'text-slate-300 bg-white/2 border border-white/5 hover:bg-white/5'
                       }`}
                     >
                       {item.label}

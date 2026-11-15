@@ -158,7 +158,7 @@ export default function JourneySection({ timelineItems }: JourneySectionProps) {
                   <div key={item.id ?? item.title} className="relative group">
                     {/* Node Dot */}
                     <div
-                      className={`absolute -left-[31px] top-1.5 w-4 h-4 rounded-full border-2 transition-all ${
+                      className={`absolute -left-7.75 top-1.5 w-4 h-4 rounded-full border-2 transition-all ${
                         isItemActive
                           ? 'bg-emerald-500 border-black shadow-[0_0_12px_rgba(16,185,129,0.8)]'
                           : 'bg-zinc-800 border-slate-600 group-hover:border-emerald-400'
@@ -252,7 +252,7 @@ export default function JourneySection({ timelineItems }: JourneySectionProps) {
                   <div key={item.id ?? item.title} className="relative group">
                     {/* Node Dot */}
                     <div
-                      className={`absolute -left-[31px] top-1.5 w-4 h-4 rounded-full border-2 transition-all ${
+                      className={`absolute -left-7.75 top-1.5 w-4 h-4 rounded-full border-2 transition-all ${
                         isItemActive
                           ? 'bg-cyan-500 border-black shadow-[0_0_12px_rgba(6,182,212,0.8)]'
                           : 'bg-zinc-800 border-slate-600 group-hover:border-cyan-400'
