@@ -83,7 +83,7 @@ export default function AboutSection({ about, stats }: AboutSectionProps) {
 
           {/* Marquee Ticker */}
           <div className="mt-8 pt-6 border-t border-white/5 overflow-hidden">
-            <div className="flex gap-8 whitespace-nowrap animate-marquee select-none opacity-80 text-xs sm:text-sm text-slate-300">
+            <div className="animate-marquee flex gap-8 whitespace-nowrap select-none opacity-80 text-xs sm:text-sm text-slate-300">
               <span className="flex items-center gap-2">🧠 Turning ideas into interactive interfaces</span>
               <span className="text-emerald-400">•</span>
               <span className="flex items-center gap-2">🎯 Let’s create something amazing together</span>
@@ -91,6 +91,11 @@ export default function AboutSection({ about, stats }: AboutSectionProps) {
               <span className="flex items-center gap-2">⚡ Clean, modular & responsive architecture</span>
               <span className="text-emerald-400">•</span>
               <span className="flex items-center gap-2">🧠 Turning ideas into interactive interfaces</span>
+              <span className="text-emerald-400">•</span>
+              <span className="flex items-center gap-2">🎯 Let’s create something amazing together</span>
+              <span className="text-emerald-400">•</span>
+              <span className="flex items-center gap-2">⚡ Clean, modular & responsive architecture</span>
+              <span className="text-emerald-400">•</span>
             </div>
           </div>
         </motion.div>

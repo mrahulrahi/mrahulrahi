@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
-import { Camera, ExternalLink, Sparkles, Youtube } from 'lucide-react';
+import { Camera, ExternalLink, Sparkles, Youtube, ArrowUpRight } from 'lucide-react';
 import { renderIcon } from '@/app/components/portfolio/icons';
 
 interface InterestSubItem {
@@ -31,16 +31,16 @@ export default function InterestsSection({ interest }: InterestsSectionProps) {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-400 text-xs font-mono mb-3">
-            <Camera size={12} />
-            <span>CREATIVE PURSUITS</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/25 text-pink-400 text-xs font-mono mb-3">
+            <Camera size={13} />
+            <span>CREATIVE PURSUITS & MEDIA</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Beyond <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-400 to-rose-300">The Code</span>
+            Beyond <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-300 to-amber-300">The Code</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">
-          Visual photography portfolios, YouTube channels, and content creation side-projects.
+          Visual photography portfolios, YouTube channel tech explorations, and creative multimedia projects.
         </p>
       </div>
 
@@ -58,7 +58,7 @@ export default function InterestsSection({ interest }: InterestsSectionProps) {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-6 sm:p-8 rounded-3xl bg-zinc-900/40 border border-white/10 hover:border-pink-500/40 backdrop-blur-md flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-pink-500/10"
+              className="group p-6 sm:p-8 rounded-3xl bg-zinc-900/50 border border-white/10 hover:border-pink-500/40 backdrop-blur-md flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-pink-500/10"
             >
               <div>
                 <div className="flex items-center justify-between gap-4 mb-6">
@@ -71,8 +71,8 @@ export default function InterestsSection({ interest }: InterestsSectionProps) {
                       className="w-full h-full object-contain"
                     />
                   </div>
-                  <span className="w-9 h-9 rounded-xl bg-white/5 group-hover:bg-pink-500 group-hover:text-black text-slate-300 flex items-center justify-center transition-colors">
-                    <ExternalLink size={16} />
+                  <span className="w-9 h-9 rounded-xl bg-white/5 group-hover:bg-pink-500 group-hover:text-black text-slate-300 flex items-center justify-center transition-all">
+                    <ArrowUpRight size={16} />
                   </span>
                 </div>
 
@@ -88,7 +88,7 @@ export default function InterestsSection({ interest }: InterestsSectionProps) {
                   item.items.map((sub, idx) => (
                     <span
                       key={idx}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-medium bg-white/5 text-slate-300 border border-white/5"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono font-medium bg-white/5 text-slate-300 border border-white/5 group-hover:border-pink-500/20"
                     >
                       {sub.icon && <span className="text-pink-400">{renderIcon(sub.icon)}</span>}
                       <span>{sub.label}</span>
@@ -101,4 +101,3 @@ export default function InterestsSection({ interest }: InterestsSectionProps) {
     </section>
   );
 }
-

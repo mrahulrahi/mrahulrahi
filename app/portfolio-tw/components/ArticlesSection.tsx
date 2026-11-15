@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
-import { BookOpen, Heart, Calendar, ExternalLink, ArrowRight } from 'lucide-react';
+import { BookOpen, Heart, Calendar, ExternalLink, ArrowRight, Clock, Sparkles } from 'lucide-react';
 import { DevArticle } from '@/app/utils/getArticles';
 
 interface ArticlesSectionProps {
@@ -18,27 +18,27 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-mono mb-3">
-            <BookOpen size={12} />
-            <span>DEV.TO WRITINGS</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-400 text-xs font-mono mb-3">
+            <BookOpen size={13} />
+            <span>DEV.TO WRITINGS & INSIGHTS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Articles & <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 to-teal-300">Insights</span>
+            Articles & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-300 to-teal-300">Insights</span>
           </h2>
         </div>
         <a
           href="https://dev.to/mrahulrahi"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-purple-400 hover:text-purple-300 font-mono transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-purple-400 hover:text-purple-300 font-mono transition-colors group"
         >
           <span>View all on Dev.to</span>
-          <ArrowRight size={14} />
+          <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
         </a>
       </div>
 
       {displayArticles.length === 0 ? (
-        <div className="p-12 rounded-3xl bg-white/2 border border-white/5 text-center text-slate-400 text-sm">
+        <div className="p-12 rounded-3xl bg-white/[0.02] border border-white/5 text-center text-slate-400 text-sm">
           No articles published yet. Check back soon!
         </div>
       ) : (
@@ -50,10 +50,16 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {displayArticles.map(article => {
-            const fallbackCover = `https://placehold.co/800x400/18181b/10b981?text=${encodeURIComponent(
+            const fallbackCover = `https://placehold.co/800x450/18181b/10b981?text=${encodeURIComponent(
               article.title
             )}`;
-            const dateStr = article.published_at ? article.published_at.slice(0, 10).split('-').reverse().join('/') : '';
+            const dateStr = article.readable_publish_date || (article.published_at ? article.published_at.slice(0, 10).split('-').reverse().join('/') : '');
+            const readTime = article.reading_time_minutes || 3;
+            const tags: string[] = Array.isArray(article.tag_list)
+              ? article.tag_list
+              : typeof article.tags === 'string'
+              ? article.tags.split(',').map((t: string) => t.trim())
+              : [];
 
             return (
               <a
@@ -61,10 +67,10 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
                 href={article.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex flex-col rounded-2xl bg-zinc-900/40 border border-white/5 hover:border-purple-500/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/10"
+                className="group flex flex-col rounded-3xl bg-zinc-900/50 border border-white/10 hover:border-purple-500/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-purple-500/10"
               >
                 {/* Cover Image */}
-                <div className="relative w-full aspect-video bg-black/40 overflow-hidden border-b border-white/5">
+                <div className="relative w-full aspect-[16/9] bg-black/40 overflow-hidden border-b border-white/5">
                   <Image
                     src={article.cover_image || fallbackCover}
                     alt={article.title}
@@ -72,11 +78,31 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
+
+                  {/* Read Time Chip */}
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[10px] font-mono text-purple-300 flex items-center gap-1.5">
+                    <Clock size={11} />
+                    <span>{readTime} min read</span>
+                  </div>
                 </div>
 
                 {/* Content */}
                 <div className="flex-1 flex flex-col p-5 sm:p-6">
+                  {/* Tags */}
+                  {tags.length > 0 && (
+                    <div className="flex items-center gap-1.5 flex-wrap mb-2.5">
+                      {tags.slice(0, 3).map((tag, idx) => (
+                        <span
+                          key={idx}
+                          className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20"
+                        >
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   <h3 className="text-lg font-bold font-display text-white group-hover:text-purple-300 transition-colors line-clamp-2 mb-2">
                     {article.title}
                   </h3>
@@ -106,4 +132,3 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
     </section>
   );
 }
-

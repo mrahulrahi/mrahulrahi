@@ -4,7 +4,7 @@ import React, { useState, useMemo } from 'react';
 import Image from 'next/image';
 import * as motion from 'motion/react-client';
 import { AnimatePresence } from 'motion/react';
-import { Search, X, ExternalLink, Github, Sparkles, Layers, ArrowRight } from 'lucide-react';
+import { Search, X, ExternalLink, Github, Sparkles, Layers, ArrowRight, Eye, Code2 } from 'lucide-react';
 import { getIconComponent } from '@/app/components/portfolio/icons';
 
 export interface ProjectItem {
@@ -32,6 +32,7 @@ const CATEGORY_TABS = [
 export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [previewProject, setPreviewProject] = useState<ProjectItem | null>(null);
 
   const matchesCategory = (project: ProjectItem, categoryId: string): boolean => {
     if (categoryId === 'all') return true;
@@ -110,12 +111,12 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
       {/* Section Header */}
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono mb-3">
-            <Sparkles size={12} />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-mono mb-3">
+            <Sparkles size={13} />
             <span>PORTFOLIO SHOWCASE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Crafted With <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-teal-300">Code</span>
+            Crafted With <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300">Code</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">
@@ -124,7 +125,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
       </div>
 
       {/* Filter and Search Bar Controls */}
-      <div className="p-4 sm:p-5 rounded-2xl bg-white/3 border border-white/10 backdrop-blur-md mb-8 space-y-4">
+      <div className="p-4 sm:p-5 rounded-2xl bg-zinc-900/40 border border-white/10 backdrop-blur-md mb-8 space-y-4">
         <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
           {/* Category Tabs */}
           <div className="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-none" role="tablist">
@@ -138,7 +139,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                   type="button"
                   className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition-all ${
                     isActive
-                      ? 'bg-emerald-500 text-black shadow-lg shadow-emerald-500/25'
+                      ? 'bg-emerald-400 text-black shadow-lg shadow-emerald-500/25 font-bold'
                       : 'bg-white/5 text-slate-300 hover:bg-white/10 hover:text-white border border-white/5'
                   }`}
                 >
@@ -156,7 +157,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
           </div>
 
           {/* Search Input */}
-          <div className="relative min-w-60 sm:min-w-70">
+          <div className="relative min-w-[240px] sm:min-w-[280px]">
             <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
@@ -209,15 +210,19 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
-                className="group relative flex flex-col rounded-2xl bg-zinc-900/60 border border-white/10 hover:border-emerald-500/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10"
+                className="group relative flex flex-col rounded-3xl bg-zinc-900/60 border border-white/10 hover:border-emerald-500/40 backdrop-blur-md overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-emerald-500/10"
               >
-                {/* Browser-style Header Bar & Image */}
-                <div className="relative w-full aspect-16/10 bg-black/40 overflow-hidden border-b border-white/5">
+                {/* Browser-style Header Bar & Image with Quick Preview Click */}
+                <div
+                  onClick={() => setPreviewProject(card)}
+                  className="cursor-pointer relative w-full aspect-[16/10] bg-black/40 overflow-hidden border-b border-white/5"
+                >
                   <div className="absolute top-2.5 right-3 z-10 flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/50 backdrop-blur-md">
                     <span className="w-2 h-2 rounded-full bg-red-500/80" />
                     <span className="w-2 h-2 rounded-full bg-yellow-500/80" />
                     <span className="w-2 h-2 rounded-full bg-emerald-500/80" />
                   </div>
+
                   <Image
                     src={card.imgUrl}
                     alt={card.title || 'Project preview'}
@@ -225,7 +230,16 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
+
+                  {/* Hover Overlay with Eye Icon */}
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-[2px]">
+                    <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/70 text-white text-xs font-semibold border border-white/20">
+                      <Eye size={14} className="text-emerald-400" />
+                      <span>Quick View</span>
+                    </span>
+                  </div>
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60 pointer-events-none" />
                 </div>
 
                 {/* Card Content */}
@@ -236,7 +250,10 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                   </span>
 
                   {/* Title */}
-                  <h3 className="text-xl font-bold font-display text-white mb-2 group-hover:text-emerald-300 transition-colors">
+                  <h3
+                    onClick={() => setPreviewProject(card)}
+                    className="cursor-pointer text-xl font-bold font-display text-white mb-2 group-hover:text-emerald-300 transition-colors"
+                  >
                     {card.title}
                   </h3>
 
@@ -247,7 +264,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
 
                   {/* Tools / Tech Badges */}
                   <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-1.5">
                       {techList.slice(0, 4).map((tech, idx) => {
                         const Icon = getIconComponent(tech);
                         return Icon ? (
@@ -295,7 +312,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
 
       {/* Empty State */}
       {filteredProjects.length === 0 && (
-        <div className="p-12 rounded-3xl bg-white/2 border border-white/5 text-center mt-6">
+        <div className="p-12 rounded-3xl bg-white/[0.02] border border-white/5 text-center mt-6">
           <div className="w-12 h-12 rounded-2xl bg-white/5 mx-auto flex items-center justify-center text-2xl mb-3">
             🔍
           </div>
@@ -311,7 +328,108 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
           </button>
         </div>
       )}
+
+      {/* ========================================================
+          PROJECT DETAILS MODAL
+         ======================================================== */}
+      <AnimatePresence>
+        {previewProject && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.25 }}
+              className="relative w-full max-w-3xl rounded-3xl bg-zinc-950 border border-white/10 shadow-2xl overflow-hidden max-h-[90vh] flex flex-col"
+            >
+              {/* Modal Top Bar */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-zinc-900/80">
+                <div className="flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                  <span className="text-xs font-mono uppercase text-emerald-400 font-semibold tracking-wider">
+                    {previewProject.label}
+                  </span>
+                </div>
+                <button
+                  onClick={() => setPreviewProject(null)}
+                  className="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-colors"
+                  aria-label="Close modal"
+                >
+                  <X size={16} />
+                </button>
+              </div>
+
+              {/* Modal Body */}
+              <div className="overflow-y-auto p-6 sm:p-8 space-y-6">
+                {/* Large Project Image */}
+                <div className="relative w-full aspect-[16/10] rounded-2xl overflow-hidden border border-white/10 bg-black">
+                  <Image
+                    src={previewProject.imgUrl}
+                    alt={previewProject.title}
+                    fill
+                    className="object-cover object-top"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold font-display text-white mb-2">
+                    {previewProject.title}
+                  </h3>
+                  <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                    {previewProject.para}
+                  </p>
+                </div>
+
+                {/* Technologies Used */}
+                <div>
+                  <p className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2.5">
+                    Technologies & Stack
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {previewProject.technologies?.map((tech, idx) => {
+                      const Icon = getIconComponent(tech);
+                      return (
+                        <span
+                          key={idx}
+                          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-medium text-slate-200"
+                        >
+                          {Icon && <span className="text-emerald-400">{<Icon />}</span>}
+                          <span>{tech}</span>
+                        </span>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* Direct Action Links */}
+                <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-white/5">
+                  <a
+                    href={previewProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-black bg-emerald-400 hover:bg-emerald-300 transition-all shadow-lg shadow-emerald-500/25"
+                  >
+                    <span>Launch Live Demo</span>
+                    <ExternalLink size={15} />
+                  </a>
+
+                  {previewProject.gitHubUrl && (
+                    <a
+                      href={previewProject.gitHubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white bg-white/5 hover:bg-white/10 border border-white/10 transition-colors"
+                    >
+                      <Github size={16} />
+                      <span>View GitHub Repository</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
-

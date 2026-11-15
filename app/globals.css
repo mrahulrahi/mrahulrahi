@@ -53,6 +53,21 @@
 }
 --animate-pulse-once: pulse-once 0.6s ease-out 1;
 }
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
 @layer base{*{@apply m-0 p-0}
 html{@apply scroll-smooth scroll-pt-17.5}
 h1,h2,h3,h4,h5,h6,p,ul,li,body,html,form,fieldset{@apply m-0 p-0 outline-0 border-0}

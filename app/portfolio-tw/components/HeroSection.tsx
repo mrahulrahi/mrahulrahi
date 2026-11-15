@@ -3,7 +3,7 @@
 import React from 'react';
 import Image from 'next/image';
 import * as motion from "motion/react-client";
-import { ArrowDown, Sparkles } from "lucide-react";
+import { ArrowDown, Sparkles, Terminal, Code2, Download } from "lucide-react";
 
 interface HeroData {
   hey?: string;
@@ -34,48 +34,67 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
   const heyHighlight = heyWords[0];
   const heyRest = heyWords.slice(1).join(" ");
 
+  const marqueeWords = [
+    "REACT",
+    "NEXT.JS 16",
+    "TYPESCRIPT",
+    "TAILWIND CSS V4",
+    "NODE.JS",
+    "MERN STACK",
+    "UI/UX ARCHITECTURE",
+    "MOTION ANIMATIONS"
+  ];
+
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-32">
-      {/* Background Ambient Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-87.5 bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />
-      <div className="absolute top-1/3 left-1/3 -translate-x-1/2 w-100 h-62.5 bg-teal-500/10 blur-[100px] rounded-full pointer-events-none" />
+    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-32 pb-28">
+      {/* Dynamic Ambient Glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[350px] bg-gradient-to-r from-emerald-500/15 via-teal-500/10 to-transparent blur-[130px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 -translate-x-1/2 w-[400px] h-[250px] bg-emerald-500/10 blur-[100px] rounded-full pointer-events-none" />
 
-      {/* Floating Decorative Tech Icons */}
+      {/* Floating Decorative Tech Badges */}
       <div className="absolute inset-0 max-w-5xl mx-auto pointer-events-none hidden md:block" aria-hidden="true">
+        {/* HTML5 */}
         <motion.div
-          animate={{ y: [0, -12, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-28 left-8 lg:left-16 w-14 h-14 p-3 rounded-2xl bg-[#ff6c39]/15 border border-[#ff6c39]/30 backdrop-blur-md shadow-lg"
+          animate={{ y: [0, -14, 0], rotate: [-2, 2, -2] }}
+          transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute top-28 left-8 lg:left-14 w-14 h-14 p-3 rounded-2xl bg-[#ff6c39]/15 border border-[#ff6c39]/30 backdrop-blur-md shadow-xl flex items-center justify-center group"
+          title="HTML5"
         >
-          <Image src="/html-5.png" alt="HTML5" width={40} height={40} className="w-full h-full object-contain" />
+          <Image src="/html-5.png" alt="HTML5" width={38} height={38} className="w-full h-full object-contain" />
         </motion.div>
 
+        {/* CSS3 */}
         <motion.div
-          animate={{ y: [0, 14, 0] }}
-          transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
-          className="absolute bottom-40 left-12 lg:left-24 w-14 h-14 p-3 rounded-2xl bg-[#2965f1]/15 border border-[#2965f1]/30 backdrop-blur-md shadow-lg"
+          animate={{ y: [0, 15, 0], rotate: [2, -2, 2] }}
+          transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
+          className="absolute bottom-36 left-12 lg:left-20 w-14 h-14 p-3 rounded-2xl bg-[#2965f1]/15 border border-[#2965f1]/30 backdrop-blur-md shadow-xl flex items-center justify-center group"
+          title="CSS3"
         >
-          <Image src="/css-3.png" alt="CSS3" width={40} height={40} className="w-full h-full object-contain" />
+          <Image src="/css-3.png" alt="CSS3" width={38} height={38} className="w-full h-full object-contain" />
         </motion.div>
 
+        {/* JavaScript */}
         <motion.div
-          animate={{ y: [0, -14, 0] }}
-          transition={{ duration: 4.2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute top-24 right-8 lg:right-16 w-14 h-14 p-3 rounded-2xl bg-[#ffd814]/15 border border-[#ffd814]/30 backdrop-blur-md shadow-lg"
+          animate={{ y: [0, -16, 0], rotate: [2, -2, 2] }}
+          transition={{ duration: 4.4, repeat: Infinity, ease: "easeInOut", delay: 1.1 }}
+          className="absolute top-24 right-8 lg:right-14 w-14 h-14 p-3 rounded-2xl bg-[#ffd814]/15 border border-[#ffd814]/30 backdrop-blur-md shadow-xl flex items-center justify-center group"
+          title="JavaScript"
         >
-          <Image src="/java.png" alt="JavaScript" width={40} height={40} className="w-full h-full object-contain" />
+          <Image src="/java.png" alt="JavaScript" width={38} height={38} className="w-full h-full object-contain" />
         </motion.div>
 
+        {/* React */}
         <motion.div
-          animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
-          className="absolute bottom-44 right-12 lg:right-24 w-14 h-14 p-3 rounded-2xl bg-[#5ed3f3]/15 border border-[#5ed3f3]/30 backdrop-blur-md shadow-lg"
+          animate={{ y: [0, 14, 0], rotate: [-2, 2, -2] }}
+          transition={{ duration: 5.1, repeat: Infinity, ease: "easeInOut", delay: 1.6 }}
+          className="absolute bottom-40 right-12 lg:right-20 w-14 h-14 p-3 rounded-2xl bg-[#5ed3f3]/15 border border-[#5ed3f3]/30 backdrop-blur-md shadow-xl flex items-center justify-center group"
+          title="React"
         >
-          <Image src="/react.png" alt="React" width={40} height={40} className="w-full h-full object-contain" />
+          <Image src="/react.png" alt="React" width={38} height={38} className="w-full h-full object-contain" />
         </motion.div>
       </div>
 
-      {/* Main Content Container */}
+      {/* Main Hero Content */}
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -83,28 +102,32 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="flex flex-col items-center"
         >
-          {/* Live Availability Status Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-6 bg-emerald-500/10 border border-emerald-500/25 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-all hover:bg-emerald-500/15">
+          {/* Live Availability Status Pill with Click Action */}
+          <a
+            href="#contact"
+            className="group inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full mb-6 bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 backdrop-blur-md shadow-[0_0_20px_rgba(16,185,129,0.18)] transition-all hover:scale-105"
+          >
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
             </span>
-            <span className="text-xs font-semibold text-emerald-400 tracking-wide">
+            <span className="text-xs font-semibold text-emerald-400 tracking-wide font-mono">
               Available for Freelance & Full-Time Roles
             </span>
-          </div>
+            <span className="text-emerald-400/60 group-hover:translate-x-0.5 transition-transform">→</span>
+          </a>
 
           {/* Avatar with Radiant Glow Ring */}
           <div className="relative mb-6 flex items-center justify-center">
-            <div className="absolute inset-0 rounded-full bg-linear-to-tr from-emerald-500/30 to-teal-400/20 blur-md transform scale-110" />
-            <div className="relative w-28 h-28 rounded-full p-1 bg-linear-to-tr from-emerald-500 to-teal-400 shadow-[0_0_25px_rgba(16,185,129,0.35)]">
-              <div className="w-full h-full rounded-full overflow-hidden bg-zinc-900">
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-emerald-500/40 via-teal-400/30 to-cyan-400/20 blur-xl transform scale-125" />
+            <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full p-1 bg-gradient-to-tr from-emerald-400 via-teal-300 to-cyan-400 shadow-[0_0_35px_rgba(16,185,129,0.35)]">
+              <div className="w-full h-full rounded-full overflow-hidden bg-zinc-950">
                 <Image
                   src={hero?.imageUrl || "/hero-img.jpg"}
                   alt={`${firstName} ${lastName}`}
-                  width={112}
-                  height={112}
-                  className="w-full h-full object-cover"
+                  width={128}
+                  height={128}
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                   priority
                 />
               </div>
@@ -112,28 +135,34 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
           </div>
 
           {/* Hero Typography */}
-          <p className="text-sm sm:text-base font-medium text-slate-400 mb-2">
+          <p className="text-sm sm:text-base font-medium text-slate-400 mb-2 font-mono">
             <span className="text-emerald-400 font-semibold">{heyHighlight}</span> {heyRest}
           </p>
 
           <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-2 font-display">
-            {firstName} <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-teal-200">{lastName}</span>
+            {firstName}{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300">
+              {lastName}
+            </span>
           </h1>
 
-          <h2 className="text-lg sm:text-2xl font-semibold text-slate-300 mb-4">
-            {role} <span className="text-emerald-400/80 font-mono text-base sm:text-lg">{location}</span>
+          <h2 className="text-lg sm:text-2xl font-semibold text-slate-300 mb-4 flex items-center justify-center gap-2 flex-wrap">
+            <span>{role}</span>
+            <span className="text-emerald-400 font-mono text-sm sm:text-base px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+              {location}
+            </span>
           </h2>
 
           {/* Specialty Tags */}
           <div className="flex flex-wrap justify-center gap-2 my-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-slate-300 backdrop-blur-sm hover:border-emerald-500/40 transition-colors">
-              ⚡ Next.js & React
+            <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-200 backdrop-blur-sm hover:border-emerald-500/50 hover:bg-emerald-500/10 transition-all">
+              ⚡ Next.js & React 19
             </span>
-            <span className="px-3.5 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-slate-300 backdrop-blur-sm hover:border-emerald-500/40 transition-colors">
+            <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-200 backdrop-blur-sm hover:border-emerald-500/50 hover:bg-emerald-500/10 transition-all">
               🎨 Pixel-Perfect UI/UX
             </span>
-            <span className="px-3.5 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-slate-300 backdrop-blur-sm hover:border-emerald-500/40 transition-colors">
-              🚀 MERN Stack
+            <span className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-white/5 border border-white/10 text-slate-200 backdrop-blur-sm hover:border-emerald-500/50 hover:bg-emerald-500/10 transition-all">
+              🚀 Full-Stack JavaScript (MERN)
             </span>
           </div>
 
@@ -145,41 +174,37 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
           {/* Action CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
             <a
-              href="#portfolio"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-black bg-emerald-400 hover:bg-emerald-300 transition-all shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
+              href="#projects"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-bold text-sm text-black bg-emerald-400 hover:bg-emerald-300 transition-all shadow-lg shadow-emerald-500/25 hover:shadow-emerald-500/40 hover:-translate-y-0.5"
             >
               <Sparkles size={16} />
               <span>Creative Showcase</span>
-              <ArrowDown size={16} />
+              <ArrowDown size={15} />
             </a>
             <a
               href={resumeUrl || "https://flowcv.com/resume/29mh2gwpwu"}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 backdrop-blur-md transition-all hover:-translate-y-0.5"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-semibold text-sm text-white bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/25 backdrop-blur-md transition-all hover:-translate-y-0.5"
             >
+              <Download size={15} />
               <span>Download Resume</span>
-              <ArrowDown size={16} />
             </a>
           </div>
         </motion.div>
       </div>
 
-      {/* Subtle Marquee Footer Text */}
-      <div className="absolute bottom-4 left-0 right-0 overflow-hidden opacity-10 pointer-events-none select-none">
-        <div className="whitespace-nowrap flex gap-12 text-6xl md:text-8xl font-black uppercase tracking-widest text-emerald-400">
-          <span>REACT</span>
-          <span>•</span>
-          <span>NEXT.JS</span>
-          <span>•</span>
-          <span>TYPESCRIPT</span>
-          <span>•</span>
-          <span>TAILWIND CSS</span>
-          <span>•</span>
-          <span>NODE.JS</span>
+      {/* Infinite Seamless Scrolling Marquee in Background */}
+      <div className="absolute bottom-6 left-0 right-0 overflow-hidden opacity-10 pointer-events-none select-none">
+        <div className="animate-marquee flex gap-12 text-5xl md:text-7xl font-black uppercase tracking-widest text-emerald-400">
+          {marqueeWords.concat(marqueeWords).map((word, idx) => (
+            <React.Fragment key={idx}>
+              <span>{word}</span>
+              <span className="text-teal-500">•</span>
+            </React.Fragment>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-
