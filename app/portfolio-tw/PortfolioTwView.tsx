@@ -2,13 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ArrowUpRight, Menu, X, ArrowUp, MessageSquare, Sparkles } from "lucide-react";
+import { ArrowUpRight, Menu, X, ArrowUp, MessageSquare, Sparkles, Search } from "lucide-react";
 import * as motion from "motion/react-client";
 import { AnimatePresence } from "motion/react";
 import HeroSection from './components/HeroSection';
 import ProjectsSection from './components/ProjectsSection';
 import ToolkitSection from './components/ToolkitSection';
 import AboutSection from './components/AboutSection';
+import LabShowcaseSection from './components/LabShowcaseSection';
 import JourneySection from './components/JourneySection';
 import CertificatesSection from './components/CertificatesSection';
 import InterestsSection from './components/InterestsSection';
@@ -26,6 +27,7 @@ const NAV_ITEMS = [
   { id: 'projects', label: 'Projects' },
   { id: 'toolkit', label: 'Toolkit' },
   { id: 'about', label: 'About' },
+  { id: 'lab', label: 'Lab' },
   { id: 'journey', label: 'Journey' },
   { id: 'certificates', label: 'Certificates' },
   { id: 'articles', label: 'Articles' },
@@ -142,7 +144,28 @@ export default function PortfolioTwView({
           </nav>
 
           {/* Right Header Actions */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            {/* Command Palette Trigger Button */}
+            <button
+              onClick={() => {
+                if (typeof window !== 'undefined') {
+                  window.dispatchEvent(
+                    new KeyboardEvent('keydown', { key: 'k', metaKey: true, ctrlKey: true, bubbles: true })
+                  );
+                }
+              }}
+              type="button"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl text-xs font-mono text-slate-300 bg-white/5 hover:bg-white/10 hover:text-white border border-white/10 hover:border-emerald-500/40 transition-all cursor-pointer"
+              title="Open Command Search (Ctrl+K or ⌘K)"
+              aria-label="Open Command Search"
+            >
+              <Search size={13} className="text-emerald-400" />
+              <span className="hidden sm:inline">Search</span>
+              <kbd className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-white/10 text-[10px] text-slate-300 font-semibold border border-white/10">
+                ⌘K
+              </kbd>
+            </button>
+
             {/* Quick Switch to Original Bootstrap */}
             <Link
               href="/"
@@ -232,7 +255,10 @@ export default function PortfolioTwView({
         {/* Section 4: About Me & Stats */}
         <AboutSection about={about} stats={stats || []} />
 
-        {/* Section 5: The Journey So Far (Timeline) */}
+        {/* Section 5: The Developer Lab (Interactive Playgrounds & Tools) */}
+        <LabShowcaseSection />
+
+        {/* Section 6: The Journey So Far (Timeline) */}
         <JourneySection timelineItems={timelineItems || []} />
 
         {/* Section 6: Continuous Learning (Certificates) */}

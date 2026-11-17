@@ -1,9 +1,9 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import * as motion from "motion/react-client";
-import { ArrowDown, Sparkles, Terminal, Code2, Download } from "lucide-react";
+import { ArrowDown, Sparkles, Terminal, Code2, Download, Copy, Check } from "lucide-react";
 
 interface HeroData {
   hey?: string;
@@ -21,6 +21,14 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
+  const [copiedCli, setCopiedCli] = useState(false);
+
+  const handleCopyCli = () => {
+    navigator.clipboard.writeText('npx rahul-maurya');
+    setCopiedCli(true);
+    setTimeout(() => setCopiedCli(false), 2000);
+  };
+
   const hey = hero?.hey || "Hey! ✌️ I'm";
   const firstName = hero?.firstName || "Rahul";
   const lastName = hero?.lastName || "Maurya";
@@ -190,6 +198,20 @@ export default function HeroSection({ hero, resumeUrl }: HeroSectionProps) {
               <Download size={15} />
               <span>Download Resume</span>
             </a>
+          </div>
+
+          {/* Developer CLI Quick Chip */}
+          <div className="mt-8 inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-zinc-900/90 border border-white/10 text-xs font-mono text-slate-300 backdrop-blur-md shadow-lg shadow-black/40">
+            <span className="text-emerald-400 select-none font-bold">$</span>
+            <span className="text-slate-200">npx rahul-maurya</span>
+            <button
+              onClick={handleCopyCli}
+              className="ml-1 p-1 rounded-md bg-white/5 hover:bg-emerald-500 hover:text-black transition-colors"
+              title="Copy CLI command"
+              aria-label="Copy CLI command"
+            >
+              {copiedCli ? <Check size={12} className="text-emerald-400" /> : <Copy size={12} />}
+            </button>
           </div>
         </motion.div>
       </div>
