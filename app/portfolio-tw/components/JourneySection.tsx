@@ -47,7 +47,7 @@ export default function JourneySection({ timelineItems }: JourneySectionProps) {
             <span>CAREER & ACADEMIA</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            The Journey <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-teal-300">So Far</span>
+            The Journey <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 to-teal-300">So Far</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">

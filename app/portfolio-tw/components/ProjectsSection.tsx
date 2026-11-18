@@ -116,7 +116,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
             <span>PORTFOLIO SHOWCASE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Crafted With <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300">Code</span>
+            Crafted With <span className="text-transparent bg-clip-text bg-linear-to-r from-emerald-400 via-teal-300 to-cyan-300">Code</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">
@@ -239,7 +239,7 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                     </span>
                   </div>
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60 pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent opacity-60 pointer-events-none" />
                 </div>
 
                 {/* Card Content */}

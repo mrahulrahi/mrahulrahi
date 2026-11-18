@@ -101,7 +101,7 @@ export default function LabShowcaseSection() {
             <span>INTERACTIVE PLAYGROUNDS & UTILITIES</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            The Developer <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-emerald-300">Lab</span>
+            The Developer <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-teal-300 to-emerald-300">Lab</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">
@@ -125,7 +125,7 @@ export default function LabShowcaseSection() {
           >
             {/* Top Ambient Highlight */}
             <div
-              className={`absolute -top-24 -right-24 w-48 h-48 bg-gradient-to-br ${exp.gradient} rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500 pointer-events-none`}
+              className={`absolute -top-24 -right-24 w-48 h-48 bg-linear-to-br ${exp.gradient} rounded-full blur-2xl group-hover:scale-125 transition-transform duration-500 pointer-events-none`}
             />
 
             <div>
