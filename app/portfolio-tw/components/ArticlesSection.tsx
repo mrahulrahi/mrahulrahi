@@ -23,7 +23,7 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
             <span>DEV.TO WRITINGS & INSIGHTS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            Articles & <span className="text-transparent bg-clip-text bg-linear-to-r from-purple-400 via-pink-300 to-teal-300">Insights</span>
+            Articles & <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-300 to-teal-300">Insights</span>
           </h2>
         </div>
         <a
@@ -78,7 +78,7 @@ export default function ArticlesSection({ articles }: ArticlesSectionProps) {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-60" />
 
                   {/* Read Time Chip */}
                   <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[10px] font-mono text-purple-300 flex items-center gap-1.5">

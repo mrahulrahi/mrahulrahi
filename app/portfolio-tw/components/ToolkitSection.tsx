@@ -56,7 +56,7 @@ export default function ToolkitSection({ skills }: ToolkitSectionProps) {
             <span>CORE STACK & TOOLS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-display tracking-tight text-white">
-            The <span className="text-transparent bg-clip-text bg-linear-to-r from-teal-400 via-emerald-300 to-cyan-300">Toolkit</span>
+            The <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-emerald-300 to-cyan-300">Toolkit</span>
           </h2>
         </div>
         <p className="text-slate-400 text-sm max-w-md">
@@ -130,7 +130,7 @@ export default function ToolkitSection({ skills }: ToolkitSectionProps) {
                 </p>
 
                 {/* Subtle border bottom glow */}
-                <div className="absolute inset-x-0 bottom-0 h-0.5 bg-linear-to-r from-transparent via-emerald-500/0 to-transparent group-hover:via-emerald-400 transition-all duration-500" />
+                <div className="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-emerald-500/0 to-transparent group-hover:via-emerald-400 transition-all duration-500" />
               </motion.div>
             );
           })}
